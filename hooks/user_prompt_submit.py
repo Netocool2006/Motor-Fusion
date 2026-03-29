@@ -729,6 +729,30 @@ def main():
     if "general" not in all_domains_with_markov:
         all_domains_with_markov = all_domains_with_markov + ["general"]
 
+    # Agent memory: auto-detectar preferencias y buscar recuerdos relevantes
+    agent_mem_out = ""
+    try:
+        from core.agent_memory import detect_preference, remember, recall
+        # Auto-detectar si el usuario esta expresando una preferencia/fact
+        detected = detect_preference(prompt)
+        if detected:
+            remember(
+                detected["text"],
+                mem_type=detected["type"],
+                tags=detected["tags"],
+                source="auto_detected",
+            )
+        # Buscar recuerdos relevantes al prompt actual
+        query = " ".join(keywords[:6])
+        relevant = recall(query, limit=5)
+        if relevant:
+            mem_lines = []
+            for r in relevant:
+                mem_lines.append(f"  [{r['type']}] {r['text'][:150]}")
+            agent_mem_out = "\n".join(mem_lines)
+    except Exception:
+        pass
+
     lm_out = search_lm(keywords, all_domains_with_markov)
     kb_out = search_kb(keywords, all_domains_with_markov)
     act_out = get_last_activity()
@@ -767,6 +791,13 @@ def main():
             "Sesiones anteriores relevantes:\n"
             + ep_out
             + "\n</episodic_memory>"
+        )
+    if agent_mem_out:
+        sections.append(
+            "<agent_memory>\n"
+            "Recuerdos del agente (preferencias, facts, feedback):\n"
+            + agent_mem_out
+            + "\n</agent_memory>"
         )
 
     if sections:

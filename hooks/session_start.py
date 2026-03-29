@@ -518,10 +518,19 @@ def main():
     # ---- 2) PATRONES APRENDIDOS ----
     lines.extend(format_learning_memory())
 
-    # ---- 3) KB INDEX ----
+    # ---- 3) MEMORIA DEL AGENTE (preferencias + facts del proyecto) ----
+    try:
+        from core.agent_memory import export_for_context as agent_export
+        agent_ctx = agent_export(limit=20)
+        if agent_ctx:
+            lines.append(agent_ctx)
+    except Exception:
+        pass
+
+    # ---- 4) KB INDEX ----
     lines.extend(format_kb_index())
 
-    # ---- 4) INSTRUCCIONES ----
+    # ---- 5) INSTRUCCIONES ----
     lines.append("=" * 60)
     lines.append("  INSTRUCCIONES -- LEER ANTES DE CADA TAREA")
     lines.append("=" * 60)
