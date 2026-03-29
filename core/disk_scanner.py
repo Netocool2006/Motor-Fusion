@@ -522,6 +522,7 @@ def scan_and_apply(paths: list = None, depth: int = MAX_DEPTH_DEFAULT,
                    progress_callback=None) -> dict:
     """
     Escanea y guarda dominios con confianza >= 0.5 en domains.json.
+    SOLO crea dominios con keywords. NO alimenta contenido al KB.
 
     Usa domain_detector.learn_domain_keywords() para persistir.
 
@@ -545,6 +546,174 @@ def scan_and_apply(paths: list = None, depth: int = MAX_DEPTH_DEFAULT,
                 info["saved"] = False
         else:
             info["saved"] = False
+
+    return results
+
+
+def scan_and_ingest(paths: list = None, depth: int = MAX_DEPTH_DEFAULT,
+                    min_files: int = MIN_FILES_DEFAULT,
+                    max_files_per_domain: int = 50,
+                    progress_callback=None) -> dict:
+    """
+    Escanea, crea dominios Y alimenta el KB con contenido de archivos.
+
+    Proceso:
+      1. scan() para descubrir dominios
+      2. Crea dominios en domains.json (como scan_and_apply)
+      3. Para cada dominio, lee archivos con file_extractor
+      4. Divide contenido en chunks y los guarda como facts en el KB
+
+    Args:
+        paths:                Paths a escanear.
+        depth:                Profundidad maxima.
+        min_files:            Minimo de archivos por cluster.
+        max_files_per_domain: Maximo de archivos a ingerir por dominio.
+        progress_callback:    Funcion (current, total, message).
+
+    Returns:
+        Dict con dominios descubiertos + campos:
+          "saved": bool, "facts_ingested": int, "files_ingested": int
+    """
+    from core.domain_detector import learn_domain_keywords
+    from core.file_extractor import extract_text, can_extract, chunk_text
+    from core.knowledge_base import add_fact
+
+    # Paso 1: Escanear y obtener clusters con archivos
+    # Usamos scan() internamente pero necesitamos acceso a los archivos
+    if paths is None:
+        paths = get_default_scan_paths()
+    if not paths:
+        return {}
+
+    if progress_callback:
+        progress_callback(0, 100, "Escaneando directorios...")
+
+    clusters = _cluster_by_folder(paths, depth)
+    if not clusters:
+        return {}
+
+    total_clusters = len(clusters)
+    results = {}
+
+    # Paso 2: Analizar clusters y crear dominios
+    valid_clusters = {}
+    for idx, (folder_name, cluster) in enumerate(clusters.items()):
+        if len(cluster["files"]) < min_files:
+            continue
+
+        # Enriquecer keywords con muestreo
+        sample_files = cluster["files"][:20]
+        for fpath in sample_files:
+            file_kw = _extract_file_keywords(fpath)
+            for kw in file_kw:
+                cluster["keywords"][kw] += 1
+
+        domain_name = _suggest_domain_name(folder_name, cluster["keywords"])
+        confidence = _calculate_confidence(cluster)
+
+        top_keywords = [
+            kw for kw, _ in cluster["keywords"].most_common(30)
+            if kw not in STOP_WORDS and len(kw) >= 3
+        ][:20]
+
+        results[domain_name] = {
+            "keywords": top_keywords,
+            "files_found": len(cluster["files"]),
+            "confidence": confidence,
+            "source_path": cluster.get("source_path", ""),
+            "extensions": dict(cluster["extensions"]),
+            "saved": False,
+            "facts_ingested": 0,
+            "files_ingested": 0,
+        }
+
+        if confidence >= 0.5 and top_keywords:
+            try:
+                learn_domain_keywords(domain_name, top_keywords)
+                results[domain_name]["saved"] = True
+                valid_clusters[domain_name] = cluster
+            except Exception:
+                pass
+
+    if progress_callback:
+        progress_callback(30, 100, f"{len(valid_clusters)} dominios creados. Ingiriendo contenido...")
+
+    # Paso 3: Ingerir contenido de archivos en el KB
+    total_domains = len(valid_clusters)
+    for d_idx, (domain_name, cluster) in enumerate(valid_clusters.items()):
+        if progress_callback:
+            pct = 30 + int((d_idx / max(total_domains, 1)) * 65)
+            progress_callback(pct, 100, f"Alimentando: {domain_name}")
+
+        # Seleccionar archivos extraibles, priorizando los mas grandes (mas contenido)
+        extractable = [
+            f for f in cluster["files"]
+            if can_extract(f)
+        ]
+        # Ordenar por tamano descendente (mas contenido primero)
+        extractable.sort(key=lambda f: f.stat().st_size if f.exists() else 0, reverse=True)
+        # Limitar cantidad por dominio
+        extractable = extractable[:max_files_per_domain]
+
+        files_ingested = 0
+        facts_ingested = 0
+
+        for fpath in extractable:
+            try:
+                text = extract_text(fpath, max_chars=5000)
+                if not text or len(text.strip()) < 50:
+                    continue  # Archivo con muy poco contenido util
+
+                # Dividir en chunks
+                chunks = chunk_text(text, chunk_size=800, overlap=100)
+
+                for c_idx, chunk in enumerate(chunks):
+                    if not chunk.strip():
+                        continue
+
+                    # Crear key unico basado en archivo + chunk
+                    fact_key = f"{fpath.stem}_{c_idx}"
+
+                    # Determinar tags del archivo
+                    tags = []
+                    ext = fpath.suffix.lower()
+                    if ext in EXT_CATEGORIES:
+                        tags.append(EXT_CATEGORIES[ext])
+                    tags.append(ext.lstrip('.'))
+                    # Agregar keywords del nombre
+                    name_kw = _extract_folder_keywords(fpath.stem)
+                    tags.extend(name_kw[:5])
+
+                    fact = {
+                        "rule": chunk,
+                        "applies_to": domain_name,
+                        "source": str(fpath),
+                        "confidence": "observed",
+                        "examples": [],
+                        "exceptions": "",
+                    }
+
+                    try:
+                        add_fact(domain_name, fact_key, fact, tags=tags)
+                        facts_ingested += 1
+                    except Exception:
+                        pass  # Si falla un fact, seguir con el siguiente
+
+                files_ingested += 1
+
+            except Exception:
+                continue  # Si falla un archivo, seguir con el siguiente
+
+        results[domain_name]["files_ingested"] = files_ingested
+        results[domain_name]["facts_ingested"] = facts_ingested
+
+    if progress_callback:
+        total_facts = sum(r.get("facts_ingested", 0) for r in results.values())
+        total_files = sum(r.get("files_ingested", 0) for r in results.values())
+        progress_callback(
+            100, 100,
+            f"Completo: {len(valid_clusters)} dominios, {total_files} archivos, {total_facts} facts"
+        )
 
     return results
 
@@ -580,6 +749,7 @@ if __name__ == "__main__":
         print("Uso:")
         print("  python disk_scanner.py scan [path1] [path2]    -- escanear y mostrar")
         print("  python disk_scanner.py apply [path1] [path2]   -- escanear y guardar en domains.json")
+        print("  python disk_scanner.py ingest [path1] [path2]  -- escanear, crear dominios Y alimentar KB")
         print("  python disk_scanner.py estimate [path1]         -- estimar tiempo")
         print("  python disk_scanner.py paths                    -- mostrar paths por defecto")
         sys.exit(1)
@@ -617,6 +787,23 @@ if __name__ == "__main__":
         _print_results(results)
         saved_count = sum(1 for v in results.values() if v.get("saved"))
         print(f"\n  Total guardados en domains.json: {saved_count}")
+
+    elif cmd == "ingest":
+        scan_paths = sys.argv[2:] if len(sys.argv) > 2 else None
+        print("Escaneando, creando dominios Y alimentando KB...")
+        t0 = time.time()
+
+        def _cli_progress(cur, tot, msg):
+            print(f"  [{cur}%] {msg}")
+
+        results = scan_and_ingest(scan_paths, progress_callback=_cli_progress)
+        elapsed = time.time() - t0
+        print(f"\nIngestion completada en {elapsed:.1f}s")
+        _print_results(results)
+        total_facts = sum(r.get("facts_ingested", 0) for r in results.values())
+        total_files = sum(r.get("files_ingested", 0) for r in results.values())
+        print(f"\n  Archivos procesados: {total_files}")
+        print(f"  Facts ingresados al KB: {total_facts}")
 
     else:
         print(f"Comando desconocido: {cmd}")

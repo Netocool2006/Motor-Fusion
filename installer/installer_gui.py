@@ -682,15 +682,18 @@ class InstallerApp:
                 try:
                     sys.path.insert(0, str(install_path))
                     from core import disk_scanner
-                    def _scan_progress(msg):
-                        self._log(f"   {msg}")
-                    result = disk_scanner.scan_and_apply(
+                    def _scan_progress(cur, tot, msg):
+                        self._log(f"   [{cur}%] {msg}")
+                    result = disk_scanner.scan_and_ingest(
                         self.scan_paths,
                         progress_callback=_scan_progress,
                     )
-                    self.domains_created = result if isinstance(result, int) else 0
-                    self._log(f"   -> {self.domains_created} dominios descubiertos", "ok")
-                    self.domains_summary = f"{self.domains_created} (descubiertos escaneando su disco)"
+                    n_domains = sum(1 for v in result.values() if v.get("saved"))
+                    n_facts = sum(v.get("facts_ingested", 0) for v in result.values())
+                    n_files = sum(v.get("files_ingested", 0) for v in result.values())
+                    self.domains_created = n_domains
+                    self._log(f"   -> {n_domains} dominios, {n_files} archivos, {n_facts} facts", "ok")
+                    self.domains_summary = f"{n_domains} dominios ({n_files} archivos, {n_facts} facts ingresados)"
                 except ImportError:
                     self._log("   -> Modulo disk_scanner no disponible, se omite escaneo", "err")
                     self.domains_created = 0
