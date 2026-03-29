@@ -1,12 +1,23 @@
 """
-domains_config.py -- Configuracion de dominios para Solution Advisor GBM
-========================================================================
-Define TODOS los dominios de conocimiento del rol, organizados por
-las 3 capas de valor: documental, sistemas, conocimiento.
+domains_config.py -- Configuracion de dominios GBM (Solution Advisor)
+=====================================================================
+NOTA: Estos dominios son ESPECIFICOS de GBM Guatemala y se cargan
+via preset ("solution_advisor_gbm"), NO por defecto.
 
-Motor Unificado: importa DOMAINS_FILE desde config centralizado.
+Ver core/domain_presets.py para el sistema de presets.
+El motor arranca SIN dominios; se crean dinamicamente segun uso
+o al aplicar un preset.
+
+Este archivo mantiene:
+  - DOMAINS: dict con la config detallada de cada dominio GBM
+    (file, entry_type, tasks) -- usado por task routing
+  - TASK_DEPENDENCIES: dependencias cross-domain para tareas
+  - get_domains_for_task(): resolucion de dominios para una tarea
+  - describe_task(): descripcion legible de tareas
+  - is_preset_loaded(): verifica si los dominios GBM estan en domains.json
 """
 
+import json
 from config import DOMAINS_FILE
 
 DOMAINS = {
@@ -281,3 +292,23 @@ def describe_task(task: str) -> str:
         "session_product_learning": "Registrar aprendizaje de nuevo producto/servicio",
     }
     return descriptions.get(task, task)
+
+
+# -- Verificacion de preset cargado -------------------------------------------
+# Claves representativas de los dominios GBM (si al menos 3 existen, el preset esta cargado)
+_GBM_DOMAIN_KEYS = {"sow", "bom", "sap_tierra", "monday", "business_rules", "catalog"}
+
+
+def is_preset_loaded() -> bool:
+    """
+    Verifica si los dominios GBM estan presentes en domains.json.
+    Retorna True si al menos 3 de las claves GBM existen en el archivo.
+    """
+    if not DOMAINS_FILE.exists():
+        return False
+    try:
+        data = json.loads(DOMAINS_FILE.read_text(encoding="utf-8"))
+        matches = _GBM_DOMAIN_KEYS.intersection(data.keys())
+        return len(matches) >= 3
+    except Exception:
+        return False

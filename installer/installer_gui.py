@@ -23,7 +23,8 @@ if sys.platform == "win32":
         os.add_dll_directory(_exe_dir)
 
 from tkinter import (
-    Tk, Frame, Label, Button, Entry, Checkbutton, BooleanVar, StringVar,
+    Tk, Frame, Label, Button, Entry, Checkbutton, Radiobutton,
+    BooleanVar, StringVar,
     Text, Scrollbar, filedialog, messagebox, font as tkfont,
     LEFT, RIGHT, BOTH, X, Y, TOP, BOTTOM, W, E, N, S, END,
     DISABLED, NORMAL, WORD, HORIZONTAL,
@@ -61,8 +62,10 @@ ASCII_LOGO = r"""
 def _default_install_dir() -> str:
     """Directorio de instalacion por defecto segun SO."""
     if platform.system() == "Windows":
-        return r"C:\Motor_IA"
-    return str(Path.home() / "Motor_IA")
+        # Sugerir Program Files o home del usuario
+        pf = os.environ.get("ProgramFiles", r"C:\Program Files")
+        return os.path.join(pf, "Motor Fusion IA")
+    return str(Path.home() / "motor-fusion-ia")
 
 
 def _find_motor_source() -> Path | None:
@@ -122,6 +125,16 @@ class InstallerApp:
         self.chk_gemini = BooleanVar(value=False)
         self.chk_ollama = BooleanVar(value=False)
         self.github_user = StringVar(value="")
+
+        # Variables de dominios (pantalla 2)
+        self.domain_mode = StringVar(value="desde_cero")
+        self.scan_paths: list[str] = []
+        self.preset_sa_gbm = BooleanVar(value=False)
+        self.preset_dev = BooleanVar(value=False)
+        self.preset_data = BooleanVar(value=False)
+        self.preset_admin = BooleanVar(value=False)
+        self.domains_created = 0
+        self.domains_summary = ""
 
         # Estado
         self.current_screen = 0
@@ -203,10 +216,11 @@ class InstallerApp:
         self._clear_body()
         self._clear_footer()
         screens = [
-            self._screen_welcome,
-            self._screen_config,
-            self._screen_progress,
-            self._screen_complete,
+            self._screen_welcome,       # 0
+            self._screen_config,        # 1
+            self._screen_domains,       # 2
+            self._screen_progress,      # 3
+            self._screen_complete,      # 4
         ]
         if 0 <= idx < len(screens):
             screens[idx]()
@@ -364,7 +378,7 @@ class InstallerApp:
         ).pack(fill=X, pady=(2, 0))
 
         # Footer
-        self._make_button(self.footer_frame, "Instalar >", self._start_install)
+        self._make_button(self.footer_frame, "Siguiente >", lambda: self._show_screen(2))
         self._make_button(self.footer_frame, "< Atras", lambda: self._show_screen(0), side=LEFT)
 
     def _browse_dir(self) -> None:
@@ -373,7 +387,173 @@ class InstallerApp:
             self.install_dir.set(chosen)
 
     # ======================================================================
-    # SCREEN 3: Progreso
+    # SCREEN 3: Dominios de Conocimiento
+    # ======================================================================
+    def _screen_domains(self) -> None:
+        container = Frame(self.body_frame, bg=BODY_BG)
+        container.pack(fill=BOTH, expand=True, padx=30, pady=10)
+
+        Label(
+            container,
+            text="Paso 3: Dominios de Conocimiento",
+            bg=BODY_BG, fg="#212121",
+            font=(FONT_FAMILY, 13, "bold"),
+            anchor=W,
+        ).pack(fill=X, pady=(0, 6))
+
+        Label(
+            container,
+            text="Como desea inicializar los dominios?",
+            bg=BODY_BG, fg="#424242",
+            font=(FONT_FAMILY, 10),
+            anchor=W,
+        ).pack(fill=X, pady=(0, 10))
+
+        # --- Opcion 1: Desde cero ---
+        Radiobutton(
+            container, text="Empezar desde cero",
+            variable=self.domain_mode, value="desde_cero",
+            bg=BODY_BG, fg="#212121", activebackground=BODY_BG,
+            font=(FONT_FAMILY, 10, "bold"), anchor=W,
+            selectcolor=BODY_BG,
+            command=self._on_domain_mode_change,
+        ).pack(fill=X, pady=(0, 0))
+        Label(
+            container,
+            text="      El motor creara dominios automaticamente segun su uso.",
+            bg=BODY_BG, fg="#757575",
+            font=(FONT_FAMILY, 9), anchor=W,
+        ).pack(fill=X, pady=(0, 6))
+
+        # --- Opcion 2: Explorar disco ---
+        Radiobutton(
+            container, text="Explorar mi disco",
+            variable=self.domain_mode, value="explorar_disco",
+            bg=BODY_BG, fg="#212121", activebackground=BODY_BG,
+            font=(FONT_FAMILY, 10, "bold"), anchor=W,
+            selectcolor=BODY_BG,
+            command=self._on_domain_mode_change,
+        ).pack(fill=X, pady=(0, 0))
+        Label(
+            container,
+            text="      Escanea sus carpetas para crear dominios basados en sus archivos.",
+            bg=BODY_BG, fg="#757575",
+            font=(FONT_FAMILY, 9), anchor=W,
+        ).pack(fill=X, pady=(0, 2))
+
+        # Frame para boton y label de carpetas seleccionadas
+        self.scan_frame = Frame(container, bg=BODY_BG)
+        self.scan_frame.pack(fill=X, padx=40, pady=(0, 6))
+
+        self.btn_select_folders = Button(
+            self.scan_frame, text="Seleccionar carpetas...",
+            command=self._select_scan_folders,
+            font=(FONT_FAMILY, 9), padx=10, pady=2,
+        )
+        self.btn_select_folders.pack(side=LEFT)
+
+        self.lbl_scan_paths = Label(
+            self.scan_frame,
+            text="  Ninguna carpeta seleccionada",
+            bg=BODY_BG, fg="#757575",
+            font=(FONT_FAMILY, 8), anchor=W,
+        )
+        self.lbl_scan_paths.pack(side=LEFT, padx=(8, 0))
+
+        # --- Opcion 3: Perfil predefinido ---
+        Radiobutton(
+            container, text="Cargar perfil predefinido",
+            variable=self.domain_mode, value="perfil_predefinido",
+            bg=BODY_BG, fg="#212121", activebackground=BODY_BG,
+            font=(FONT_FAMILY, 10, "bold"), anchor=W,
+            selectcolor=BODY_BG,
+            command=self._on_domain_mode_change,
+        ).pack(fill=X, pady=(4, 2))
+
+        self.presets_frame = Frame(container, bg=BODY_BG)
+        self.presets_frame.pack(fill=X, padx=40, pady=(0, 4))
+
+        Checkbutton(
+            self.presets_frame, text="Solution Advisor GBM (13 dom.)",
+            variable=self.preset_sa_gbm, bg=BODY_BG, fg="#212121",
+            font=(FONT_FAMILY, 9), activebackground=BODY_BG,
+            selectcolor=BODY_BG, anchor=W,
+        ).pack(fill=X, pady=1)
+        Checkbutton(
+            self.presets_frame, text="Desarrollador de Software (6)",
+            variable=self.preset_dev, bg=BODY_BG, fg="#212121",
+            font=(FONT_FAMILY, 9), activebackground=BODY_BG,
+            selectcolor=BODY_BG, anchor=W,
+        ).pack(fill=X, pady=1)
+        Checkbutton(
+            self.presets_frame, text="Data Science / Analytics (4)",
+            variable=self.preset_data, bg=BODY_BG, fg="#212121",
+            font=(FONT_FAMILY, 9), activebackground=BODY_BG,
+            selectcolor=BODY_BG, anchor=W,
+        ).pack(fill=X, pady=1)
+        Checkbutton(
+            self.presets_frame, text="Administracion de Empresas (4)",
+            variable=self.preset_admin, bg=BODY_BG, fg="#212121",
+            font=(FONT_FAMILY, 9), activebackground=BODY_BG,
+            selectcolor=BODY_BG, anchor=W,
+        ).pack(fill=X, pady=1)
+
+        # Aplicar estado visual inicial
+        self._on_domain_mode_change()
+
+        # Footer
+        self._make_button(self.footer_frame, "Instalar >", self._start_install)
+        self._make_button(self.footer_frame, "< Atras", lambda: self._show_screen(1), side=LEFT)
+
+    def _on_domain_mode_change(self) -> None:
+        """Habilita/deshabilita widgets segun el modo de dominio seleccionado."""
+        mode = self.domain_mode.get()
+        # Scan folder widgets
+        scan_state = NORMAL if mode == "explorar_disco" else DISABLED
+        if hasattr(self, "btn_select_folders"):
+            self.btn_select_folders.config(state=scan_state)
+        # Preset checkboxes
+        preset_state = NORMAL if mode == "perfil_predefinido" else DISABLED
+        if hasattr(self, "presets_frame"):
+            for child in self.presets_frame.winfo_children():
+                child.config(state=preset_state)
+
+    def _select_scan_folders(self) -> None:
+        """Abre dialogo para seleccionar carpetas a escanear."""
+        chosen = filedialog.askdirectory(title="Seleccionar carpeta para escanear")
+        if chosen and chosen not in self.scan_paths:
+            self.scan_paths.append(chosen)
+        if self.scan_paths:
+            display = f"  {len(self.scan_paths)} carpeta(s) seleccionada(s)"
+            self.lbl_scan_paths.config(text=display, fg="#1565c0")
+        else:
+            self.lbl_scan_paths.config(text="  Ninguna carpeta seleccionada", fg="#757575")
+
+    def _get_selected_presets(self) -> list[str]:
+        """Retorna lista de nombres de presets seleccionados."""
+        presets = []
+        if self.preset_sa_gbm.get():
+            presets.append("solution_advisor_gbm")
+        if self.preset_dev.get():
+            presets.append("desarrollador_software")
+        if self.preset_data.get():
+            presets.append("data_science")
+        if self.preset_admin.get():
+            presets.append("administracion_empresas")
+        return presets
+
+    def _get_preset_domain_count(self) -> int:
+        """Calcula el total de dominios de los presets seleccionados."""
+        counts = {
+            "solution_advisor_gbm": 13,
+            "desarrollador_software": 6,
+            "data_science": 4,
+            "administracion_empresas": 4,
+        }
+        return sum(counts.get(p, 0) for p in self._get_selected_presets())
+
+    # ======================================================================
+    # SCREEN 4: Progreso
     # ======================================================================
     def _screen_progress(self) -> None:
         container = Frame(self.body_frame, bg=BODY_BG)
@@ -415,7 +595,7 @@ class InstallerApp:
         # Boton siguiente (deshabilitado hasta que termine)
         self.btn_next_progress = self._make_button(
             self.footer_frame, "Siguiente >",
-            lambda: self._show_screen(3), state=DISABLED,
+            lambda: self._show_screen(4), state=DISABLED,
         )
 
     def _log(self, msg: str, tag: str = "") -> None:
@@ -455,7 +635,7 @@ class InstallerApp:
             return
 
         # Ir a pantalla de progreso
-        self._show_screen(2)
+        self._show_screen(3)
 
         # Lanzar hilo
         thread = threading.Thread(target=self._run_install, daemon=True)
@@ -465,7 +645,7 @@ class InstallerApp:
         """Proceso de instalacion completo."""
         install_path = Path(self.install_dir.get().strip())
         source = self.motor_source
-        total_steps = 7
+        total_steps = 8
         step = 0
 
         try:
@@ -492,11 +672,68 @@ class InstallerApp:
                 (data_dir / subdir).mkdir(parents=True, exist_ok=True)
             self._log(f"   -> {data_dir}", "ok")
 
-            # ---- Paso 4: Configurar adaptador Claude Code ------------------
+            # ---- Paso 4: Inicializar dominios de conocimiento --------------
+            step += 1
+            self._set_progress((step / total_steps) * 100)
+            domain_mode = self.domain_mode.get()
+            if domain_mode == "explorar_disco" and self.scan_paths:
+                self._log(f"[4/{total_steps}] Escaneando disco para descubrir dominios...", "info")
+                self._log(f"   -> Carpetas: {len(self.scan_paths)}", "info")
+                try:
+                    sys.path.insert(0, str(install_path))
+                    from core import disk_scanner
+                    def _scan_progress(msg):
+                        self._log(f"   {msg}")
+                    result = disk_scanner.scan_and_apply(
+                        self.scan_paths,
+                        progress_callback=_scan_progress,
+                    )
+                    self.domains_created = result if isinstance(result, int) else 0
+                    self._log(f"   -> {self.domains_created} dominios descubiertos", "ok")
+                    self.domains_summary = f"{self.domains_created} (descubiertos escaneando su disco)"
+                except ImportError:
+                    self._log("   -> Modulo disk_scanner no disponible, se omite escaneo", "err")
+                    self.domains_created = 0
+                    self.domains_summary = "0 (disk_scanner no disponible)"
+                except Exception as exc:
+                    self._log(f"   -> Error en escaneo: {exc}", "err")
+                    self.domains_created = 0
+                    self.domains_summary = "0 (error en escaneo)"
+            elif domain_mode == "perfil_predefinido":
+                selected = self._get_selected_presets()
+                if selected:
+                    self._log(f"[4/{total_steps}] Aplicando perfiles predefinidos ({len(selected)})...", "info")
+                    try:
+                        sys.path.insert(0, str(install_path))
+                        from core import domain_presets
+                        domain_presets.apply_multiple_presets(selected)
+                        self.domains_created = self._get_preset_domain_count()
+                        preset_names = ", ".join(selected)
+                        self._log(f"   -> {self.domains_created} dominios creados", "ok")
+                        self.domains_summary = f"{self.domains_created} (perfil: {preset_names})"
+                    except ImportError:
+                        self._log("   -> Modulo domain_presets no disponible, se omite", "err")
+                        self.domains_created = 0
+                        self.domains_summary = "0 (domain_presets no disponible)"
+                    except Exception as exc:
+                        self._log(f"   -> Error aplicando presets: {exc}", "err")
+                        self.domains_created = 0
+                        self.domains_summary = "0 (error en presets)"
+                else:
+                    self._log(f"[4/{total_steps}] Ningun perfil seleccionado, se omite", "info")
+                    self.domains_created = 0
+                    self.domains_summary = "0 (se crearan automaticamente)"
+            else:
+                self._log(f"[4/{total_steps}] Dominios: empezar desde cero", "info")
+                self._log("   -> Los dominios se crearan automaticamente segun su uso", "ok")
+                self.domains_created = 0
+                self.domains_summary = "0 (se crearan automaticamente)"
+
+            # ---- Paso 5: Configurar adaptador Claude Code ------------------
             step += 1
             self._set_progress((step / total_steps) * 100)
             if self.chk_claude.get():
-                self._log(f"[4/{total_steps}] Configurando adaptador Claude Code...", "info")
+                self._log(f"[5/{total_steps}] Configurando adaptador Claude Code...", "info")
                 hooks_ok = self._configure_claude_hooks(install_path)
                 if hooks_ok:
                     self._log("   -> Hooks registrados en Claude Code CLI", "ok")
@@ -505,35 +742,35 @@ class InstallerApp:
                     self._create_claude_settings(install_path)
                     self._log("   -> Archivo de configuracion creado", "ok")
             else:
-                self._log(f"[4/{total_steps}] Adaptador Claude Code: omitido por el usuario", "info")
+                self._log(f"[5/{total_steps}] Adaptador Claude Code: omitido por el usuario", "info")
 
-            # ---- Paso 5: Configurar Ollama ---------------------------------
+            # ---- Paso 6: Configurar Ollama ---------------------------------
             step += 1
             self._set_progress((step / total_steps) * 100)
             if self.chk_ollama.get():
-                self._log(f"[5/{total_steps}] Verificando Ollama...", "info")
+                self._log(f"[6/{total_steps}] Verificando Ollama...", "info")
                 ollama_ok = self._verify_ollama()
                 if ollama_ok:
                     self._log("   -> Ollama detectado y configurado", "ok")
                 else:
                     self._log("   -> Ollama no encontrado. Instalalo despues y Motor IA lo detectara.", "err")
             else:
-                self._log(f"[5/{total_steps}] Adaptador Ollama: omitido", "info")
+                self._log(f"[6/{total_steps}] Adaptador Ollama: omitido", "info")
 
-            # ---- Paso 6: Guardar configuracion y GitHub --------------------
+            # ---- Paso 7: Guardar configuracion y GitHub --------------------
             step += 1
             self._set_progress((step / total_steps) * 100)
-            self._log(f"[6/{total_steps}] Guardando configuracion...", "info")
+            self._log(f"[7/{total_steps}] Guardando configuracion...", "info")
             self._save_install_config(install_path)
             gh = self.github_user.get().strip()
             if gh:
                 self._log(f"   -> GitHub user: {gh}", "ok")
             self._log("   -> install_config.json guardado", "ok")
 
-            # ---- Paso 7: Crear desinstalador y verificar -------------------
+            # ---- Paso 8: Crear desinstalador y verificar -------------------
             step += 1
             self._set_progress((step / total_steps) * 100)
-            self._log(f"[7/{total_steps}] Creando desinstalador y verificando...", "info")
+            self._log(f"[8/{total_steps}] Creando desinstalador y verificando...", "info")
             self._create_uninstaller(install_path)
             self._log("   -> uninstall.py creado", "ok")
 
@@ -719,6 +956,8 @@ class InstallerApp:
                 "ollama": self.chk_ollama.get(),
             },
             "github_user": self.github_user.get().strip() or None,
+            "domain_mode": self.domain_mode.get(),
+            "domains_created": self.domains_created,
             "platform": platform.system(),
             "python_version": platform.python_version(),
             "installed_at": self._now_iso(),
@@ -836,7 +1075,7 @@ if __name__ == "__main__":
         return all_ok
 
     # ======================================================================
-    # SCREEN 4: Completado
+    # SCREEN 5: Completado
     # ======================================================================
     def _screen_complete(self) -> None:
         container = Frame(self.body_frame, bg=BODY_BG)
@@ -881,10 +1120,13 @@ if __name__ == "__main__":
             adapters_str.append("Ollama")
         adapters_display = ", ".join(adapters_str) if adapters_str else "Ninguno"
 
+        domains_display = self.domains_summary if self.domains_summary else "0 (se crearan automaticamente)"
+
         summary_lines = [
             ("Directorio de instalacion:", install_dir_str),
             ("Directorio de datos:", str(_adaptive_cli_dir())),
             ("Adaptadores configurados:", adapters_display),
+            ("Dominios iniciales:", domains_display),
         ]
         gh = self.github_user.get().strip()
         if gh:

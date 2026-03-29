@@ -7,14 +7,14 @@ Claude Desktop las llama automaticamente segun instrucciones del sistema.
 Importa directamente desde core modules (sin subprocess).
 
 Instalar: pip install mcp
-Correr:   python "C:/Chance1/Motor_IA/mcp_kb_server.py"
+Correr:   python "<ruta-instalacion>/mcp_kb_server.py"
 
 Configurar en Claude Desktop -> Settings -> MCP:
 {
   "mcpServers": {
     "motor-ia": {
       "command": "python",
-      "args": ["C:/Chance1/Motor_IA/mcp_kb_server.py"]
+      "args": ["<ruta-instalacion>/mcp_kb_server.py"]
     }
   }
 }

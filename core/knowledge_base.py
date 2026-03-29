@@ -102,15 +102,24 @@ def _ensure_domain(name: str, description: str = "") -> dict:
             "description": new_entry["description"],
         })
 
-    # Crear directorio del dominio si no existe
-    (KNOWLEDGE_DIR / name).mkdir(parents=True, exist_ok=True)
+    # Crear directorio del dominio solo cuando se registra
+    _ensure_domain_dir(name)
     return all_domains
 
 
+def _ensure_domain_dir(domain: str):
+    """Crea el directorio de un dominio especifico solo cuando se necesita."""
+    (KNOWLEDGE_DIR / domain).mkdir(parents=True, exist_ok=True)
+
+
 def _ensure_dirs():
-    """Crea directorios para todos los dominios conocidos."""
+    """
+    Crea directorios solo para dominios que ya existen en domains.json.
+    NOTA: No crea directorios proactivamente si domains.json esta vacio.
+    Los directorios se crean on-demand via _ensure_domain_dir().
+    """
     for domain in _load_all_domains():
-        (KNOWLEDGE_DIR / domain).mkdir(parents=True, exist_ok=True)
+        _ensure_domain_dir(domain)
 
 
 def list_domains() -> list[str]:
@@ -147,7 +156,7 @@ def _load_domain(domain: str) -> dict:
 
 def _save_domain(domain: str, data: dict):
     """Guarda el JSON de un dominio con reemplazo atomico (safe en Windows)."""
-    _ensure_dirs()
+    _ensure_domain_dir(domain)
     path = _domain_path(domain)
     with file_lock(f"kb_{domain}"):
         tmp = path.with_suffix(".tmp")
@@ -170,7 +179,6 @@ MAX_LOG_LINES = 5000
 
 def _append_log(entry: dict):
     """Agrega una linea al log global con rotacion automatica."""
-    _ensure_dirs()
     LOG_FILE.parent.mkdir(parents=True, exist_ok=True)
     entry["timestamp"] = datetime.now(timezone.utc).isoformat()
     with file_lock("execution_log"):
