@@ -93,7 +93,20 @@ def _load_memory() -> dict:
         if MEMORY_FILE.exists():
             try:
                 with open(MEMORY_FILE, "r", encoding="utf-8") as f:
-                    return json.load(f)
+                    data = json.load(f)
+                # Ensure stats keys exist (self-healing)
+                defaults = {"total_patterns": 0, "total_reuses": 0, "total_ai_calls_saved": 0}
+                if "stats" not in data:
+                    data["stats"] = defaults
+                else:
+                    for k, v in defaults.items():
+                        if k not in data["stats"]:
+                            data["stats"][k] = v
+                if "patterns" not in data:
+                    data["patterns"] = {}
+                if "tag_index" not in data:
+                    data["tag_index"] = {}
+                return data
             except (json.JSONDecodeError, OSError):
                 pass
     return {
@@ -384,7 +397,7 @@ def register_pattern(
     }
 
     mem["patterns"][pid] = entry
-    mem["stats"]["total_patterns"] += 1
+    mem["stats"]["total_patterns"] = mem["stats"].get("total_patterns", len(mem["patterns"]) - 1) + 1
 
     for tag in (tags or []):
         if tag not in mem["tag_index"]:
@@ -425,6 +438,7 @@ def hard_delete(pattern_id: str) -> bool:
     if pattern_id not in mem["patterns"]:
         return False
     del mem["patterns"][pattern_id]
+    mem["stats"]["total_patterns"] = max(0, mem["stats"].get("total_patterns", 0) - 1)
     for tag, pids in mem["tag_index"].items():
         if pattern_id in pids:
             pids.remove(pattern_id)
@@ -500,21 +514,28 @@ def update_pattern(pattern_id: str, solution_updates: dict, reason: str = "") ->
 def get_stats() -> dict:
     """Estadisticas globales del sistema de memoria."""
     mem = _load_memory()
-    patterns = mem["patterns"]
+    patterns = {k: v for k, v in mem["patterns"].items() if not v.get("deleted_at")}
+
+    # Resync total_patterns from actual count
+    base_stats = {
+        "total_patterns": len(patterns),
+        "total_reuses": mem["stats"].get("total_reuses", 0),
+        "total_ai_calls_saved": mem["stats"].get("total_ai_calls_saved", 0),
+    }
 
     if not patterns:
-        return {"message": "Sin patrones registrados aun", **mem["stats"]}
+        return {"message": "Sin patrones registrados aun", **base_stats}
 
-    success_rates = [p["stats"]["success_rate"] for p in patterns.values()]
-    most_reused = max(patterns.values(), key=lambda p: p["stats"]["reuses"])
+    success_rates = [p.get("stats", {}).get("success_rate", 1.0) for p in patterns.values()]
+    most_reused = max(patterns.values(), key=lambda p: p.get("stats", {}).get("reuses", 0))
 
     return {
-        **mem["stats"],
+        **base_stats,
         "avg_success_rate": round(sum(success_rates) / len(success_rates), 4),
         "most_reused_pattern": {
-            "id": most_reused["id"],
-            "task_type": most_reused["task_type"],
-            "reuses": most_reused["stats"]["reuses"],
+            "id": most_reused.get("id", "unknown"),
+            "task_type": most_reused.get("task_type", "unknown"),
+            "reuses": most_reused.get("stats", {}).get("reuses", 0),
         },
         "patterns_by_type": _count_by_key(patterns, "task_type"),
     }
@@ -532,10 +553,10 @@ def export_for_context(task_type: str = None, limit: int = 10) -> str:
     patterns = [p for p in mem["patterns"].values() if not p.get("deleted_at")]
 
     if task_type:
-        patterns = [p for p in patterns if p["task_type"] == task_type]
+        patterns = [p for p in patterns if p.get("task_type") == task_type]
 
     patterns.sort(
-        key=lambda p: (p["stats"]["success_rate"], p["stats"]["reuses"]),
+        key=lambda p: (p.get("stats", {}).get("success_rate", 0), p.get("stats", {}).get("reuses", 0)),
         reverse=True,
     )
     patterns = patterns[:limit]
@@ -549,8 +570,9 @@ def export_for_context(task_type: str = None, limit: int = 10) -> str:
         "",
     ]
     for p in patterns:
-        sol = p["solution"]
-        lines.append(f"## [{p['task_type']}] {p['context_key']}")
+        sol = p.get("solution", {})
+        stats = p.get("stats", {})
+        lines.append(f"## [{p.get('task_type', 'unknown')}] {p.get('context_key', 'N/A')}")
         lines.append(f"   Estrategia: {sol.get('strategy', 'N/A')}")
         if sol.get("selector_chain"):
             lines.append(f"   Selectores: {' -> '.join(sol['selector_chain'])}")
@@ -559,8 +581,8 @@ def export_for_context(task_type: str = None, limit: int = 10) -> str:
         if sol.get("notes"):
             lines.append(f"   Nota: {sol['notes']}")
         lines.append(
-            f"   Exito: {p['stats']['success_rate']*100:.0f}% "
-            f"| Reusos: {p['stats']['reuses']} "
+            f"   Exito: {stats.get('success_rate', 1.0)*100:.0f}% "
+            f"| Reusos: {stats.get('reuses', 0)} "
             f"| Tags: {', '.join(p.get('tags', []))}"
         )
         lines.append("")

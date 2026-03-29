@@ -219,7 +219,8 @@ def _calc_confidence(pattern: dict) -> float:
 
     try:
         last = datetime.fromisoformat(last_used)
-        days_ago = (datetime.now() - last).days
+        now = datetime.now(timezone.utc) if last.tzinfo else datetime.now()
+        days_ago = (now - last).days
         periods = days_ago / CONFIDENCE_DECAY_DAYS
         decayed = base * ((1 - CONFIDENCE_DECAY_RATE) ** periods)
         return round(max(0.1, decayed), 3)

@@ -125,7 +125,7 @@ def list_domains() -> list[str]:
 def _domain_path(domain: str) -> Path:
     """Ruta del archivo de datos del dominio. Crea el dominio si no existe."""
     all_domains = _ensure_domain(domain)
-    return KNOWLEDGE_DIR / domain / all_domains[domain]["file"]
+    return KNOWLEDGE_DIR / domain / all_domains[domain].get("file", "patterns.json")
 
 
 def _load_domain(domain: str) -> dict:
