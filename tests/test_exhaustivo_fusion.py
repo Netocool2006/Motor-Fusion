@@ -1192,6 +1192,257 @@ def t_15_6_1():
 run_test("15.6.1", "Re-registro despues de soft delete", t_15_6_1)
 
 # ============================================================
+# CASO 16: DESHARDCODEO — Constantes en config.py
+# ============================================================
+CURRENT_CASE = "16. DESHARDCODEO"
+
+CURRENT_SUB = "16.1 Constantes Ollama"
+def t_16_1_1():
+    from config import OLLAMA_BASE_URL, OLLAMA_DEFAULT_MODEL, OLLAMA_TIMEOUT_SECS
+    assert isinstance(OLLAMA_BASE_URL, str) and OLLAMA_BASE_URL.startswith("http"), \
+        f"OLLAMA_BASE_URL invalida: {OLLAMA_BASE_URL}"
+    assert isinstance(OLLAMA_DEFAULT_MODEL, str) and len(OLLAMA_DEFAULT_MODEL) > 0, \
+        "OLLAMA_DEFAULT_MODEL vacia"
+    assert isinstance(OLLAMA_TIMEOUT_SECS, int) and OLLAMA_TIMEOUT_SECS > 0, \
+        f"OLLAMA_TIMEOUT_SECS invalido: {OLLAMA_TIMEOUT_SECS}"
+    return True
+run_test("16.1.1", "OLLAMA_BASE_URL, DEFAULT_MODEL, TIMEOUT_SECS definidos y validos", t_16_1_1)
+
+def t_16_1_2():
+    from config import OLLAMA_RAM_HIGH_GB, OLLAMA_RAM_MID_GB, OLLAMA_CTX_HIGH, OLLAMA_CTX_MID, OLLAMA_CTX_LOW
+    assert 0 < OLLAMA_RAM_MID_GB < OLLAMA_RAM_HIGH_GB, "RAM thresholds inconsistentes"
+    assert OLLAMA_CTX_LOW < OLLAMA_CTX_MID < OLLAMA_CTX_HIGH, "CTX sizes inconsistentes"
+    return True
+run_test("16.1.2", "RAM y CTX thresholds consistentes (LOW < MID < HIGH)", t_16_1_2)
+
+CURRENT_SUB = "16.2 Constantes Cache y Thresholds"
+def t_16_2_1():
+    from config import (CACHE_TTL_SECS, CACHE_OVERLAP_THRESHOLD, RECENT_HOURS,
+                        CONFIDENCE_THRESHOLD, MAX_PENDING_ERRORS, AUTO_ASSIGN_THRESHOLD,
+                        SUGGEST_THRESHOLD, CONFIDENCE_DECAY_RATE, EXPLORE_THRESHOLD, MAX_KB_CHARS)
+    assert isinstance(CACHE_TTL_SECS, int) and CACHE_TTL_SECS > 0
+    assert 0.0 < CACHE_OVERLAP_THRESHOLD < 1.0, f"CACHE_OVERLAP_THRESHOLD fuera de rango: {CACHE_OVERLAP_THRESHOLD}"
+    assert isinstance(RECENT_HOURS, int) and RECENT_HOURS > 0
+    assert 0.0 < CONFIDENCE_THRESHOLD < 1.0
+    assert isinstance(MAX_PENDING_ERRORS, int) and MAX_PENDING_ERRORS > 0
+    assert isinstance(AUTO_ASSIGN_THRESHOLD, int)
+    assert isinstance(SUGGEST_THRESHOLD, int)
+    assert 0.0 < CONFIDENCE_DECAY_RATE < 1.0
+    assert isinstance(EXPLORE_THRESHOLD, int) and EXPLORE_THRESHOLD > 0
+    assert isinstance(MAX_KB_CHARS, int) and MAX_KB_CHARS > 0
+    return True
+run_test("16.2.1", "Cache/threshold constants definidas y en rango valido", t_16_2_1)
+
+CURRENT_SUB = "16.3 Constantes Engram Gaps"
+def t_16_3_1():
+    from config import (AUTO_PRUNE_ENABLED, AUTO_PRUNE_MIN_SUCCESS_RATE,
+                        AUTO_PRUNE_DAYS_UNUSED, AUTO_PRUNE_MIN_REUSES)
+    assert isinstance(AUTO_PRUNE_ENABLED, bool)
+    assert 0.0 <= AUTO_PRUNE_MIN_SUCCESS_RATE <= 1.0, \
+        f"AUTO_PRUNE_MIN_SUCCESS_RATE fuera de rango: {AUTO_PRUNE_MIN_SUCCESS_RATE}"
+    assert isinstance(AUTO_PRUNE_DAYS_UNUSED, int) and AUTO_PRUNE_DAYS_UNUSED > 0
+    assert isinstance(AUTO_PRUNE_MIN_REUSES, int) and AUTO_PRUNE_MIN_REUSES >= 0
+    return True
+run_test("16.3.1", "Auto-prune constants definidas y validas", t_16_3_1)
+
+def t_16_3_2():
+    from config import HINT_EFFECTIVENESS_DECAY, CONSOLIDATION_ENABLED, \
+        CONSOLIDATION_MIN_PATTERNS, CONSOLIDATION_SIMILARITY_THRESHOLD
+    assert 0.0 < HINT_EFFECTIVENESS_DECAY < 1.0, \
+        f"HINT_EFFECTIVENESS_DECAY fuera de rango: {HINT_EFFECTIVENESS_DECAY}"
+    assert isinstance(CONSOLIDATION_ENABLED, bool)
+    assert isinstance(CONSOLIDATION_MIN_PATTERNS, int) and CONSOLIDATION_MIN_PATTERNS > 0
+    assert 0.0 < CONSOLIDATION_SIMILARITY_THRESHOLD < 1.0, \
+        f"CONSOLIDATION_SIMILARITY_THRESHOLD fuera de rango: {CONSOLIDATION_SIMILARITY_THRESHOLD}"
+    return True
+run_test("16.3.2", "Hint/consolidation constants definidas y validas", t_16_3_2)
+
+def t_16_3_3():
+    from config import WORKING_MEMORY_MAX_ITEMS, WORKING_MEMORY_TTL_HOURS
+    assert isinstance(WORKING_MEMORY_MAX_ITEMS, int) and WORKING_MEMORY_MAX_ITEMS > 0
+    assert isinstance(WORKING_MEMORY_TTL_HOURS, int) and WORKING_MEMORY_TTL_HOURS > 0
+    return True
+run_test("16.3.3", "Working memory constants definidas y validas", t_16_3_3)
+
+CURRENT_SUB = "16.4 Env var override"
+def t_16_4_1():
+    import os
+    original = os.environ.get("OLLAMA_BASE_URL", "")
+    os.environ["OLLAMA_BASE_URL"] = "http://remoto:11434"
+    # Reimportar no funciona en mismo proceso (ya cacheado), verificar que el mecanismo existe
+    import config
+    # El modulo fue cargado con el valor previo al test, pero verificamos que usa os.environ
+    import inspect
+    src = inspect.getsource(config)
+    assert 'os.environ.get("OLLAMA_BASE_URL"' in src or "os.environ.get('OLLAMA_BASE_URL'" in src, \
+        "config.py no usa os.environ para OLLAMA_BASE_URL"
+    os.environ.pop("OLLAMA_BASE_URL", None)
+    if original:
+        os.environ["OLLAMA_BASE_URL"] = original
+    return True
+run_test("16.4.1", "config.py usa os.environ.get para OLLAMA_BASE_URL", t_16_4_1)
+
+# ============================================================
+# CASO 17: ADAPTERS — Ollama y Claude Code
+# ============================================================
+CURRENT_CASE = "17. ADAPTERS"
+
+CURRENT_SUB = "17.1 Ollama adapter config"
+def t_17_1_1():
+    from adapters.ollama import DEFAULT_MODEL, OLLAMA_BASE_URL as OBA
+    from config import OLLAMA_DEFAULT_MODEL, OLLAMA_BASE_URL
+    # El adapter debe exponer las constantes de config
+    assert isinstance(DEFAULT_MODEL, str) and len(DEFAULT_MODEL) > 0, \
+        "DEFAULT_MODEL vacio en ollama adapter"
+    assert isinstance(OBA, str) and OBA.startswith("http"), \
+        f"OLLAMA_BASE_URL invalida en adapter: {OBA}"
+    return True
+run_test("17.1.1", "Adapter ollama expone DEFAULT_MODEL y OLLAMA_BASE_URL de config", t_17_1_1)
+
+def t_17_1_2():
+    from adapters.ollama import OllamaAdapter
+    from config import OLLAMA_CTX_LOW, OLLAMA_CTX_MID, OLLAMA_CTX_HIGH
+    adapter = OllamaAdapter()
+    # recommended_ctx es metodo de instancia que usa free_ram_gb()
+    ctx = adapter.recommended_ctx()
+    assert isinstance(ctx, int) and ctx > 0, f"recommended_ctx invalido: {ctx}"
+    assert ctx in (OLLAMA_CTX_LOW, OLLAMA_CTX_MID, OLLAMA_CTX_HIGH), \
+        f"CTX {ctx} no es uno de los valores configurados"
+    return True
+run_test("17.1.2", "OllamaAdapter.recommended_ctx retorna CTX valido de config", t_17_1_2)
+
+def t_17_1_3():
+    from adapters.ollama import OllamaAdapter
+    adapter = OllamaAdapter()
+    result = adapter.list_models()
+    # Puede fallar si Ollama no esta corriendo, pero no debe crashear
+    assert isinstance(result, list), f"list_models no retorno lista: {type(result)}"
+    return True
+run_test("17.1.3", "OllamaAdapter.list_models retorna lista (aunque vacia si offline)", t_17_1_3)
+
+CURRENT_SUB = "17.2 Claude Code adapter"
+def t_17_2_1():
+    from adapters.claude_code import ClaudeCodeAdapter
+    adapter = ClaudeCodeAdapter()
+    assert hasattr(adapter, "parse_stdin"), "Falta parse_stdin"
+    assert hasattr(adapter, "get_hook_type"), "Falta get_hook_type"
+    assert hasattr(adapter, "get_cli_name"), "Falta get_cli_name"
+    assert adapter.get_cli_name() in ("claude", "claude_code"), f"cli_name inesperado: {adapter.get_cli_name()}"
+    return True
+run_test("17.2.1", "ClaudeCodeAdapter tiene parse_stdin, get_hook_type, get_cli_name", t_17_2_1)
+
+# ============================================================
+# CASO 18: ENGRAM GAPS — Integracion con hooks
+# ============================================================
+CURRENT_CASE = "18. ENGRAM GAPS INTEGRACION"
+
+CURRENT_SUB = "18.1 Imports desde hooks"
+def t_18_1_1():
+    # Verificar que los modulos nuevos son importables
+    from core.memory_pruner import auto_prune, get_prune_candidates, get_stats
+    from core.hint_tracker import record_injection, score_injection, get_hint_score
+    from core.memory_consolidator import consolidate, get_consolidation_candidates
+    from core.associative_memory import associate, get_associations, get_related_patterns
+    from core.working_memory import wm_add, wm_get, wm_clear, wm_to_context
+    return True
+run_test("18.1.1", "Todos los modulos Engram gaps importan sin errores", t_18_1_1)
+
+def t_18_1_2():
+    # Verificar integracion en session_end: imports al inicio del hook
+    import inspect
+    import importlib.util
+    hook_path = Path(__file__).resolve().parent.parent / "hooks" / "session_end.py"
+    src = hook_path.read_text(encoding="utf-8")
+    assert "score_injection" in src, "session_end no llama score_injection"
+    assert "auto_prune" in src, "session_end no llama auto_prune"
+    assert "consolidate" in src, "session_end no llama consolidate"
+    assert "wm_clear" in src, "session_end no llama wm_clear"
+    return True
+run_test("18.1.2", "session_end integra score_injection/auto_prune/consolidate/wm_clear", t_18_1_2)
+
+def t_18_1_3():
+    hook_path = Path(__file__).resolve().parent.parent / "hooks" / "session_start.py"
+    src = hook_path.read_text(encoding="utf-8")
+    assert "wm_to_context" in src, "session_start no llama wm_to_context"
+    return True
+run_test("18.1.3", "session_start integra wm_to_context", t_18_1_3)
+
+def t_18_1_4():
+    hook_path = Path(__file__).resolve().parent.parent / "hooks" / "user_prompt_submit.py"
+    src = hook_path.read_text(encoding="utf-8")
+    assert "record_injection" in src, "user_prompt_submit no llama record_injection"
+    assert "wm_to_context" in src, "user_prompt_submit no llama wm_to_context"
+    return True
+run_test("18.1.4", "user_prompt_submit integra record_injection y wm_to_context", t_18_1_4)
+
+def t_18_1_5():
+    hook_path = Path(__file__).resolve().parent.parent / "hooks" / "post_tool_use.py"
+    src = hook_path.read_text(encoding="utf-8")
+    assert "wm_add" in src, "post_tool_use no llama wm_add"
+    return True
+run_test("18.1.5", "post_tool_use integra wm_add para errores y fixes", t_18_1_5)
+
+CURRENT_SUB = "18.2 Auto-associate en learning_memory"
+def t_18_2_1():
+    lm_path = Path(__file__).resolve().parent.parent / "core" / "learning_memory.py"
+    src = lm_path.read_text(encoding="utf-8")
+    assert "auto_associate_error_fix" in src, \
+        "learning_memory.py no llama auto_associate_error_fix"
+    assert "associative_memory" in src, \
+        "learning_memory.py no importa associative_memory"
+    return True
+run_test("18.2.1", "learning_memory.correlate_error_fix llama auto_associate_error_fix", t_18_2_1)
+
+CURRENT_SUB = "18.3 Flujo completo working memory"
+def t_18_3_1():
+    from core.working_memory import wm_add, wm_get, wm_clear, wm_to_context
+    sid = "test_exhaustivo_wm"
+    # add
+    i1 = wm_add("observacion de test", "observation", sid)
+    i2 = wm_add("decision de test", "decision", sid)
+    assert len(i1) == 8 and len(i2) == 8
+    # get
+    items = wm_get(session_id=sid)
+    assert len(items) >= 2
+    # to_context
+    ctx = wm_to_context(max_items=10)
+    assert isinstance(ctx, str)
+    # clear
+    wm_clear(session_id=sid)
+    assert wm_get(session_id=sid) == []
+    return True
+run_test("18.3.1", "Flujo completo wm_add -> wm_get -> wm_to_context -> wm_clear", t_18_3_1)
+
+CURRENT_SUB = "18.4 Flujo completo associative memory"
+def t_18_4_1():
+    from core.associative_memory import associate, get_associations, get_related_patterns
+    associate("ex_node_a", "ex_node_b", "related")
+    associate("ex_node_b", "ex_node_c", "leads_to")
+    assocs = get_associations("ex_node_a", direction="out")
+    assert len(assocs) >= 1
+    related = get_related_patterns("ex_node_a", depth=2)
+    assert "ex_node_b" in related
+    assert "ex_node_c" in related
+    return True
+run_test("18.4.1", "Flujo completo associate -> get_associations -> BFS traversal", t_18_4_1)
+
+CURRENT_SUB = "18.5 auto_prune dry_run no modifica datos"
+def t_18_5_1():
+    from core.memory_pruner import get_prune_candidates, auto_prune
+    from core.learning_memory import register_pattern
+    # Registrar un patron para que memory no este vacia
+    register_pattern("prune_test", "candidate_key", {"notes": "test"}, tags=["test"])
+    candidates_before = get_prune_candidates()
+    # dry_run no debe modificar nada
+    result = auto_prune(dry_run=True)
+    assert result["dry_run"] is True
+    candidates_after = get_prune_candidates()
+    assert len(candidates_before) == len(candidates_after), \
+        "dry_run modifico candidatos"
+    return True
+run_test("18.5.1", "auto_prune(dry_run=True) no modifica datos", t_18_5_1)
+
+# ============================================================
 # CLEANUP + RESULTADOS
 # ============================================================
 print("\n" + "=" * 80)
