@@ -1216,6 +1216,24 @@ def main():
         debug_log("WorkingMemory: cleared for next session")
     except Exception as e:
         debug_log(f"WorkingMemory clear: {e}")
+
+    # 5) Auto-promocion de dominios dinamicos por uso acumulado
+    try:
+        from core.domain_detector import auto_promote_domain, auto_learn_from_session
+        n_msgs = len([m for m in messages if isinstance(m, dict)
+                      and m.get("role") == "user"]) if messages else 0
+        promoted = auto_promote_domain(domain, user_msg_count=n_msgs)
+        if promoted:
+            debug_log(f"DomainPromoter: dominio '{domain}' promovido a domains.json")
+        # Siempre aprender keywords del dominio detectado
+        if domain and domain != "general":
+            session_text = " ".join(
+                str(m.get("content", "")) for m in (messages or [])
+                if isinstance(m, dict)
+            )
+            auto_learn_from_session(domain, session_text[:3000])
+    except Exception as e:
+        debug_log(f"DomainPromoter: {e}")
     # ─────────────────────────────────────────────────────────────────
 
     # Limpiar archivos de crash recovery

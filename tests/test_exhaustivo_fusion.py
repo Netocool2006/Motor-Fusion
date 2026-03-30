@@ -601,6 +601,58 @@ def t_6_5_1():
     return True
 run_test("6.5.1", "learn_domain_keywords expande vocabulario del dominio", t_6_5_1)
 
+CURRENT_SUB = "6.6 Auto-promote domain"
+def t_6_6_1():
+    from core.domain_detector import auto_promote_domain, get_domain_promotion_candidates
+    from config import AUTO_DOMAIN_MIN_SESSIONS, AUTO_DOMAIN_MIN_MSGS, DOMAIN_SESSIONS_COUNTER_FILE
+    # Dominio que NO existe en domains.json del temp dir
+    test_domain = "test_nuevo_dominio_xyz"
+    # Primero debe ser False (umbral no alcanzado, sesion con pocos msgs)
+    result = auto_promote_domain(test_domain, user_msg_count=1)
+    assert result is False, "No debe promover con pocos mensajes"
+    return True
+run_test("6.6.1", "auto_promote_domain rechaza sesion con pocos mensajes", t_6_6_1)
+
+def t_6_6_2():
+    from core.domain_detector import auto_promote_domain, get_domain_promotion_candidates
+    from config import AUTO_DOMAIN_MIN_SESSIONS, DOMAINS_FILE
+    test_domain = "test_promo_dominio_abc"
+    # Simular AUTO_DOMAIN_MIN_SESSIONS - 1 sesiones (no debe promover aun)
+    for i in range(AUTO_DOMAIN_MIN_SESSIONS - 1):
+        result = auto_promote_domain(test_domain, user_msg_count=10)
+        assert result is False, f"No debe promover antes del umbral (intento {i+1})"
+    # En la sesion N debe promover
+    result = auto_promote_domain(test_domain, user_msg_count=10)
+    assert result is True, f"Debe promover en sesion {AUTO_DOMAIN_MIN_SESSIONS}"
+    # Verificar que el dominio quedo en domains.json
+    import json
+    if DOMAINS_FILE.exists():
+        domains = json.loads(DOMAINS_FILE.read_text(encoding="utf-8"))
+        assert test_domain in domains, f"'{test_domain}' no encontrado en domains.json"
+    return True
+run_test("6.6.2", f"auto_promote_domain crea dominio en domains.json tras {3} sesiones", t_6_6_2)
+
+def t_6_6_3():
+    from core.domain_detector import auto_promote_domain, get_domain_promotion_candidates
+    # Dominio "general" nunca debe promover
+    result = auto_promote_domain("general", user_msg_count=100)
+    assert result is False, "general nunca debe promoverse"
+    # Dominio vacio tampoco
+    result = auto_promote_domain("", user_msg_count=10)
+    assert result is False, "dominio vacio nunca debe promoverse"
+    return True
+run_test("6.6.3", "auto_promote_domain nunca promueve 'general' ni dominio vacio", t_6_6_3)
+
+def t_6_6_4():
+    from core.domain_detector import get_domain_promotion_candidates
+    candidates = get_domain_promotion_candidates()
+    assert isinstance(candidates, dict), "get_domain_promotion_candidates debe retornar dict"
+    # Todos los candidatos deben tener count > 0
+    for domain, count in candidates.items():
+        assert isinstance(count, int) and count > 0, f"count invalido para {domain}: {count}"
+    return True
+run_test("6.6.4", "get_domain_promotion_candidates retorna dict {domain: count}", t_6_6_4)
+
 # ============================================================
 # CASO 7: DOMAINS_CONFIG — Configuracion GBM
 # ============================================================
@@ -1264,6 +1316,17 @@ def t_16_3_3():
     return True
 run_test("16.3.3", "Working memory constants definidas y validas", t_16_3_3)
 
+def t_16_3_4():
+    from config import AUTO_DOMAIN_MIN_SESSIONS, AUTO_DOMAIN_MIN_MSGS, DOMAIN_SESSIONS_COUNTER_FILE
+    assert isinstance(AUTO_DOMAIN_MIN_SESSIONS, int) and AUTO_DOMAIN_MIN_SESSIONS > 0, \
+        f"AUTO_DOMAIN_MIN_SESSIONS invalido: {AUTO_DOMAIN_MIN_SESSIONS}"
+    assert isinstance(AUTO_DOMAIN_MIN_MSGS, int) and AUTO_DOMAIN_MIN_MSGS > 0, \
+        f"AUTO_DOMAIN_MIN_MSGS invalido: {AUTO_DOMAIN_MIN_MSGS}"
+    assert hasattr(DOMAIN_SESSIONS_COUNTER_FILE, 'parent'), \
+        "DOMAIN_SESSIONS_COUNTER_FILE no es Path"
+    return True
+run_test("16.3.4", "Auto-domain promotion constants definidas y validas", t_16_3_4)
+
 CURRENT_SUB = "16.4 Env var override"
 def t_16_4_1():
     import os
@@ -1392,6 +1455,15 @@ def t_18_2_1():
         "learning_memory.py no importa associative_memory"
     return True
 run_test("18.2.1", "learning_memory.correlate_error_fix llama auto_associate_error_fix", t_18_2_1)
+
+CURRENT_SUB = "18.6 Auto-domain en session_end"
+def t_18_6_1():
+    hook_path = Path(__file__).resolve().parent.parent / "hooks" / "session_end.py"
+    src = hook_path.read_text(encoding="utf-8")
+    assert "auto_promote_domain" in src, "session_end no llama auto_promote_domain"
+    assert "auto_learn_from_session" in src, "session_end no llama auto_learn_from_session"
+    return True
+run_test("18.6.1", "session_end integra auto_promote_domain y auto_learn_from_session", t_18_6_1)
 
 CURRENT_SUB = "18.3 Flujo completo working memory"
 def t_18_3_1():

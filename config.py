@@ -190,6 +190,15 @@ WORKING_MEMORY_MAX_ITEMS: int      = 50    # max items en sesion actual
 WORKING_MEMORY_TTL_HOURS: int      = 24    # TTL antes de expirar automaticamente
 
 # ---------------------------------------------------------------------------
+# Auto-domain promotion (crear dominios dinamicamente por uso)
+# ---------------------------------------------------------------------------
+AUTO_DOMAIN_MIN_SESSIONS: int      = int(os.environ.get("AUTO_DOMAIN_MIN_SESSIONS", "3"))
+# Minimo de mensajes de usuario en la sesion para que cuente como actividad significativa
+AUTO_DOMAIN_MIN_MSGS: int          = int(os.environ.get("AUTO_DOMAIN_MIN_MSGS", "3"))
+# Archivo donde se cuenta cuantas sesiones ha tenido cada dominio candidato
+DOMAIN_SESSIONS_COUNTER_FILE: Path = DATA_DIR / "domain_sessions_counter.json"
+
+# ---------------------------------------------------------------------------
 # Crear directorios al importar
 # ---------------------------------------------------------------------------
 def _ensure_dirs() -> None:

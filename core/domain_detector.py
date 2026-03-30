@@ -277,6 +277,121 @@ def detect_from_session(record: dict) -> str:
     return detect(combined_text)
 
 
+def auto_promote_domain(domain: str, user_msg_count: int = 0) -> bool:
+    """
+    Cuenta cuantas sesiones ha aparecido este dominio.
+    Cuando llega a AUTO_DOMAIN_MIN_SESSIONS lo promueve: lo crea en
+    domains.json si no existia.
+
+    Trigger automatico: llamar desde session_end con el dominio detectado
+    y el numero de mensajes del usuario en esa sesion.
+
+    Args:
+        domain:         Nombre del dominio detectado en la sesion.
+        user_msg_count: Cantidad de mensajes del usuario (filtra sesiones triviales).
+
+    Returns:
+        True si el dominio fue promovido (creado) en esta llamada.
+        False si ya existia, no llego al umbral, o sesion trivial.
+    """
+    try:
+        from config import (
+            AUTO_DOMAIN_MIN_SESSIONS, AUTO_DOMAIN_MIN_MSGS,
+            DOMAIN_SESSIONS_COUNTER_FILE, DOMAINS_FILE,
+        )
+    except ImportError:
+        return False
+
+    if not domain or domain in ("general", ""):
+        return False
+
+    # Ignorar sesiones triviales
+    if user_msg_count < AUTO_DOMAIN_MIN_MSGS:
+        return False
+
+    # Verificar si ya existe en domains.json
+    current_domains: dict = {}
+    if DOMAINS_FILE.exists():
+        try:
+            current_domains = json.loads(DOMAINS_FILE.read_text(encoding="utf-8"))
+        except Exception:
+            current_domains = {}
+
+    if domain in current_domains:
+        return False  # ya existe, nada que promover
+
+    # Incrementar contador de sesiones para este dominio candidato
+    counter: dict = {}
+    if DOMAIN_SESSIONS_COUNTER_FILE.exists():
+        try:
+            counter = json.loads(DOMAIN_SESSIONS_COUNTER_FILE.read_text(encoding="utf-8"))
+        except Exception:
+            counter = {}
+
+    counter[domain] = counter.get(domain, 0) + 1
+    DOMAIN_SESSIONS_COUNTER_FILE.parent.mkdir(parents=True, exist_ok=True)
+    DOMAIN_SESSIONS_COUNTER_FILE.write_text(
+        json.dumps(counter, indent=2, ensure_ascii=False), encoding="utf-8"
+    )
+
+    # Si llego al umbral, promover: crear entrada en domains.json directamente
+    if counter[domain] >= AUTO_DOMAIN_MIN_SESSIONS:
+        DOMAINS_FILE.parent.mkdir(parents=True, exist_ok=True)
+        if domain not in current_domains:
+            current_domains[domain] = {
+                "description": f"Dominio auto-promovido tras {AUTO_DOMAIN_MIN_SESSIONS} sesiones",
+                "file": "patterns.json",
+                "entry_type": "pattern",
+                "auto_created": True,
+                "auto_promoted": True,
+                "keywords": [],
+            }
+            DOMAINS_FILE.write_text(
+                json.dumps(current_domains, indent=2, ensure_ascii=False),
+                encoding="utf-8",
+            )
+        # Limpiar el contador para este dominio (ya promovido)
+        counter.pop(domain, None)
+        DOMAIN_SESSIONS_COUNTER_FILE.write_text(
+            json.dumps(counter, indent=2, ensure_ascii=False), encoding="utf-8"
+        )
+        return True
+
+    return False
+
+
+def get_domain_promotion_candidates() -> dict:
+    """
+    Retorna los dominios candidatos a promocion y su conteo actual.
+    Util para mostrar en TUI o stats.
+
+    Returns:
+        {domain_name: session_count} — solo los que no estan aun en domains.json
+    """
+    try:
+        from config import DOMAIN_SESSIONS_COUNTER_FILE, DOMAINS_FILE
+    except ImportError:
+        return {}
+
+    if not DOMAIN_SESSIONS_COUNTER_FILE.exists():
+        return {}
+
+    try:
+        counter = json.loads(DOMAIN_SESSIONS_COUNTER_FILE.read_text(encoding="utf-8"))
+    except Exception:
+        return {}
+
+    # Filtrar los que ya existen
+    existing: set = set()
+    if DOMAINS_FILE.exists():
+        try:
+            existing = set(json.loads(DOMAINS_FILE.read_text(encoding="utf-8")).keys())
+        except Exception:
+            pass
+
+    return {d: c for d, c in counter.items() if d not in existing}
+
+
 def auto_learn_from_session(domain: str, text: str):
     """
     Extrae keywords del texto y las asocia al dominio confirmado.
