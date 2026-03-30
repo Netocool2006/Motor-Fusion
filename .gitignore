@@ -8,3 +8,23 @@ motor_auth.json
 *.exe
 installer/assets/ollama/
 installer/assets/model/
+
+# Build artifacts
+dist/
+
+# Test output
+tests/pytest_stderr.txt
+tests/pytest_stdout.txt
+tests/test_results.json
+tests/test_results_nuevos.json
+
+# Offline bundle: excluir paquetes que no se copian al instalar
+installer/bundle/pip_install.log
+installer/bundle/wheels/
+installer/bundle/python_win/Lib/site-packages/pip/
+installer/bundle/python_win/Lib/site-packages/pip-*/
+installer/bundle/python_win/Lib/site-packages/setuptools/
+installer/bundle/python_win/Lib/site-packages/setuptools-*/
+installer/bundle/python_win/Lib/site-packages/pygments/
+installer/bundle/python_win/Lib/site-packages/pygments-*/
+installer/bundle/python_win/Lib/site-packages/bin/

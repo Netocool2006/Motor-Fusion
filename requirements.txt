@@ -1,0 +1,17 @@
+# Motor Fusion IA - Dependencias
+# =================================
+# Estas dependencias ya estan pre-instaladas en el Python embebido
+# incluido en installer/bundle/python_win/Lib/site-packages/
+#
+# Para agregar mas paquetes al bundle (requiere internet):
+#   python -m pip install <paquete> --target installer/bundle/python_win/Lib/site-packages/
+#
+# El motor funciona 100% offline con solo estas dependencias.
+
+# Visualizacion en terminal (TUI, tablas, paneles de color)
+rich>=13.0.0
+
+# Dependencias de rich (incluidas en el bundle)
+markdown-it-py>=2.0.0
+mdurl>=0.1.0
+pygments>=2.0.0
