@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Motor_IA · Dashboard</title>
+<style>
+  :root {
+    --bg: #0d1117;
+    --bg2: #161b22;
+    --bg3: #21262d;
+    --border: #30363d;
+    --text: #e6edf3;
+    --muted: #8b949e;
+    --green: #3fb950;
+    --red: #f85149;
+    --yellow: #d29922;
+    --blue: #58a6ff;
+    --purple: #bc8cff;
+    --orange: #ffa657;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--bg); color: var(--text); font-family: 'Segoe UI', system-ui, sans-serif; font-size: 14px; min-height: 100vh; }
+
+  header {
+    background: var(--bg2);
+    border-bottom: 1px solid var(--border);
+    padding: 14px 24px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  header h1 { font-size: 18px; font-weight: 600; letter-spacing: .3px; }
+  header h1 span { color: var(--blue); }
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    border: 1px solid transparent;
+  }
+  .badge.on  { background: #1a2e1a; border-color: #2d5a2d; color: var(--green); }
+  .badge.off { background: #2e1a1a; border-color: #5a2d2d; color: var(--red); }
+  .badge.warn{ background: #2e2a1a; border-color: #5a4d2d; color: var(--yellow); }
+  .dot { width: 8px; height: 8px; border-radius: 50%; background: currentColor; animation: pulse 2s infinite; }
+  @keyframes pulse { 0%,100%{ opacity:1 } 50%{ opacity:.4 } }
+
+  .toolbar {
+    padding: 10px 24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: var(--bg2);
+    border-bottom: 1px solid var(--border);
+  }
+  .countdown { color: var(--muted); font-size: 12px; margin-left: auto; }
+  button {
+    background: var(--bg3);
+    border: 1px solid var(--border);
+    color: var(--text);
+    padding: 5px 14px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 13px;
+    transition: background .15s;
+  }
+  button:hover { background: #30363d; }
+
+  main { padding: 20px 24px; display: grid; gap: 16px; }
+
+  /* Cards row */
+  .cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 12px; }
+  .card {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 16px;
+  }
+  .card-label { font-size: 11px; text-transform: uppercase; letter-spacing: .8px; color: var(--muted); margin-bottom: 8px; }
+  .card-value { font-size: 26px; font-weight: 700; line-height: 1.1; }
+  .card-sub { font-size: 12px; color: var(--muted); margin-top: 4px; }
+  .card-value.green { color: var(--green); }
+  .card-value.red   { color: var(--red); }
+  .card-value.yellow{ color: var(--yellow); }
+  .card-value.blue  { color: var(--blue); }
+
+  /* Panels */
+  .panels { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  @media(max-width:800px){ .panels{ grid-template-columns:1fr; } }
+  .panel {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  .panel-header {
+    padding: 10px 14px;
+    background: var(--bg3);
+    border-bottom: 1px solid var(--border);
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: .6px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .panel-header .count {
+    background: var(--border);
+    color: var(--muted);
+    border-radius: 10px;
+    padding: 1px 7px;
+    font-size: 11px;
+    margin-left: auto;
+  }
+  .panel-body { padding: 10px 14px; max-height: 280px; overflow-y: auto; }
+  .panel-body::-webkit-scrollbar { width: 6px; }
+  .panel-body::-webkit-scrollbar-track { background: transparent; }
+  .panel-body::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+
+  .log-line {
+    font-family: 'Cascadia Code', 'Consolas', monospace;
+    font-size: 11px;
+    color: var(--muted);
+    padding: 2px 0;
+    border-bottom: 1px solid #1c2128;
+    line-height: 1.5;
+    word-break: break-all;
+  }
+  .log-line:last-child { border-bottom: none; }
+  .log-line .ts { color: var(--blue); margin-right: 6px; }
+  .log-line .tag { color: var(--purple); font-weight: 600; }
+  .log-line.error { color: var(--red); }
+
+  .session-row {
+    padding: 8px 0;
+    border-bottom: 1px solid #1c2128;
+    font-size: 12px;
+  }
+  .session-row:last-child { border-bottom: none; }
+  .session-row .sdate { color: var(--blue); font-size: 11px; }
+  .session-row .ssum { color: var(--muted); margin-top: 2px; }
+
+  .domain-chip {
+    display: inline-block;
+    background: var(--bg3);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 2px 8px;
+    font-size: 11px;
+    margin: 2px;
+    color: var(--muted);
+  }
+
+  .err-box {
+    background: #2e1a1a;
+    border: 1px solid #5a2d2d;
+    border-radius: 6px;
+    padding: 8px 12px;
+    margin-bottom: 6px;
+    font-family: monospace;
+    font-size: 11px;
+    color: var(--red);
+    word-break: break-all;
+  }
+
+  .empty { color: var(--muted); font-size: 12px; text-align: center; padding: 20px 0; }
+
+  .iter-row { display: flex; justify-content: space-between; padding: 5px 0; border-bottom: 1px solid #1c2128; font-size: 12px; }
+  .iter-row:last-child { border-bottom: none; }
+  .iter-key { color: var(--muted); }
+  .iter-val { color: var(--text); font-weight: 500; }
+
+  /* status bar */
+  footer {
+    position: fixed; bottom: 0; left: 0; right: 0;
+    background: var(--bg3);
+    border-top: 1px solid var(--border);
+    padding: 5px 24px;
+    display: flex;
+    gap: 20px;
+    font-size: 11px;
+    color: var(--muted);
+  }
+  footer span b { color: var(--text); }
+</style>
+</head>
+<body>
+
+<header>
+  <div style="font-size:22px">⚡</div>
+  <h1>Motor<span>_IA</span> Dashboard</h1>
+  <div id="motor-badge" class="badge off"><span class="dot"></span> Cargando...</div>
+  <div id="hooks-badge" class="badge off" style="margin-left:4px">Hooks: —</div>
+</header>
+
+<div class="toolbar">
+  <button onclick="refresh()">↻ Actualizar</button>
+  <button onclick="toggleAutorefresh()">⏱ Auto-refresh: <span id="ar-label">ON</span></button>
+  <div class="countdown">Próxima actualización: <span id="countdown">5:00</span></div>
+</div>
+
+<main>
+  <!-- CARDS -->
+  <div class="cards">
+    <div class="card">
+      <div class="card-label">Estado</div>
+      <div id="card-estado" class="card-value">—</div>
+      <div id="card-estado-sub" class="card-sub">—</div>
+    </div>
+    <div class="card">
+      <div class="card-label">Dominios KB</div>
+      <div id="card-dominios" class="card-value blue">—</div>
+      <div class="card-sub">en knowledge base</div>
+    </div>
+    <div class="card">
+      <div class="card-label">Entradas KB</div>
+      <div id="card-entradas" class="card-value blue">—</div>
+      <div class="card-sub">patterns + facts</div>
+    </div>
+    <div class="card">
+      <div class="card-label">Errores</div>
+      <div id="card-errores" class="card-value green">0</div>
+      <div class="card-sub">en log reciente</div>
+    </div>
+    <div class="card">
+      <div class="card-label">Iteración actual</div>
+      <div id="card-iter" class="card-value">—</div>
+      <div class="card-sub" id="card-iter-sub">—</div>
+    </div>
+    <div class="card">
+      <div class="card-label">Última actualización</div>
+      <div id="card-ts" class="card-value" style="font-size:14px;padding-top:4px">—</div>
+      <div class="card-sub" id="card-ts-sub">—</div>
+    </div>
+  </div>
+
+  <!-- LOG + ERRORES -->
+  <div class="panels">
+    <div class="panel">
+      <div class="panel-header">
+        📋 Actividad reciente (hook_debug.log)
+        <span class="count" id="log-count">0</span>
+      </div>
+      <div class="panel-body" id="log-panel">
+        <div class="empty">Sin datos</div>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-header" style="color:var(--red)">
+        ⚠ Errores detectados
+        <span class="count" id="err-count">0</span>
+      </div>
+      <div class="panel-body" id="err-panel">
+        <div class="empty" style="color:var(--green)">✓ Sin errores</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ITERACION + SESIONES -->
+  <div class="panels">
+    <div class="panel">
+      <div class="panel-header">🔄 Estado de iteración</div>
+      <div class="panel-body" id="iter-panel">
+        <div class="empty">Sin datos</div>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-header">🕐 Sesiones recientes</div>
+      <div class="panel-body" id="sessions-panel">
+        <div class="empty">Sin datos</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DOMINIOS -->
+  <div class="panel">
+    <div class="panel-header">🧠 Dominios en KB</div>
+    <div class="panel-body" id="domains-panel" style="max-height:100px">
+      <div class="empty">Sin datos</div>
+    </div>
+  </div>
+
+  <!-- ULTIMO APRENDIZAJE -->
+  <div class="panel">
+    <div class="panel-header">💡 Último aprendizaje</div>
+    <div class="panel-body" id="learning-panel" style="max-height:80px">
+      <div class="empty">Sin datos</div>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <span>Motor_IA v1.0.0-fusion</span>
+  <span>Data: <b id="ft-data">—</b></span>
+  <span>Server: <b>localhost:7070</b></span>
+  <span id="ft-status">Cargando...</span>
+</footer>
+
+<script>
+const REFRESH_MS = 5 * 60 * 1000; // 5 minutos
+let autoRefresh = true;
+let countdown = REFRESH_MS / 1000;
+let timer;
+
+function fmt(val, fallback="—") {
+  return val != null ? val : fallback;
+}
+
+function fmtTs(iso) {
+  if (!iso) return "—";
+  const d = new Date(iso);
+  return d.toLocaleTimeString("es-GT", {hour:"2-digit", minute:"2-digit", second:"2-digit"}) +
+    " · " + d.toLocaleDateString("es-GT", {day:"2-digit", month:"short"});
+}
+
+function colorLine(ln) {
+  // Highlight timestamps and hook types
+  return ln
+    .replace(/(\[\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}\])/g, '<span class="ts">$1</span>')
+    .replace(/\[(PreToolUse|PostToolUse|UserPromptSubmit|Stop|SessionStart)\]/g, '<span class="tag">[$1]</span>');
+}
+
+async function refresh() {
+  document.getElementById("ft-status").textContent = "Actualizando...";
+  try {
+    const r = await fetch("/api/status");
+    const d = await r.json();
+    render(d);
+    document.getElementById("ft-status").textContent = "OK · " + new Date().toLocaleTimeString("es-GT");
+  } catch(e) {
+    document.getElementById("ft-status").textContent = "Error: " + e.message;
+  }
+  countdown = REFRESH_MS / 1000;
+}
+
+function render(d) {
+  // Motor badge
+  const mb = document.getElementById("motor-badge");
+  const hb = document.getElementById("hooks-badge");
+
+  if (d.motor_activo) {
+    mb.className = "badge on";
+    mb.innerHTML = '<span class="dot"></span> ACTIVO';
+  } else if (d.ultima_actividad_ts) {
+    mb.className = "badge warn";
+    mb.innerHTML = '<span class="dot"></span> INACTIVO';
+  } else {
+    mb.className = "badge off";
+    mb.innerHTML = '<span class="dot"></span> SIN DATOS';
+  }
+
+  hb.className = d.hooks_registrados ? "badge on" : "badge off";
+  hb.innerHTML = d.hooks_registrados
+    ? '<span class="dot"></span> Hooks: OK'
+    : '<span class="dot"></span> Hooks: NO registrados';
+
+  // Cards
+  const cEstado = document.getElementById("card-estado");
+  const cEstadoSub = document.getElementById("card-estado-sub");
+  if (d.motor_activo) {
+    cEstado.className = "card-value green";
+    cEstado.textContent = "ACTIVO";
+    cEstadoSub.textContent = `Hace ${d.minutos_inactivo} min`;
+  } else if (d.minutos_inactivo != null) {
+    cEstado.className = "card-value yellow";
+    cEstado.textContent = "EN ESPERA";
+    cEstadoSub.textContent = `Sin actividad ${d.minutos_inactivo} min`;
+  } else {
+    cEstado.className = "card-value red";
+    cEstado.textContent = "SIN LOG";
+    cEstadoSub.textContent = "No hay hook_debug.log";
+  }
+
+  document.getElementById("card-dominios").textContent = fmt(d.kb?.dominios);
+  document.getElementById("card-entradas").textContent = fmt(d.kb?.total_entradas);
+
+  const nErr = (d.errores || []).length;
+  const ce = document.getElementById("card-errores");
+  ce.textContent = nErr;
+  ce.className = "card-value " + (nErr === 0 ? "green" : "red");
+
+  // Iteracion
+  const iter = d.iteracion;
+  if (iter) {
+    document.getElementById("card-iter").textContent = fmt(iter.iteration_count ?? iter.count ?? "—");
+    document.getElementById("card-iter-sub").textContent =
+      iter.last_action ? `Última: ${iter.last_action}` : "—";
+  }
+
+  // Timestamp
+  document.getElementById("card-ts").textContent = fmtTs(d.timestamp);
+  document.getElementById("card-ts-sub").textContent =
+    d.ultima_actividad_ts ? "Último hook: " + fmtTs(d.ultima_actividad_ts) : "Sin actividad registrada";
+
+  // Log panel
+  const logPanel = document.getElementById("log-panel");
+  const logs = d.hooks_log || [];
+  document.getElementById("log-count").textContent = logs.length;
+  if (logs.length === 0) {
+    logPanel.innerHTML = '<div class="empty">Sin entradas en log</div>';
+  } else {
+    logPanel.innerHTML = [...logs].reverse().map(ln =>
+      `<div class="log-line">${colorLine(escHtml(ln))}</div>`
+    ).join("");
+  }
+
+  // Error panel
+  const errPanel = document.getElementById("err-panel");
+  const errs = d.errores || [];
+  document.getElementById("err-count").textContent = errs.length;
+  if (errs.length === 0) {
+    errPanel.innerHTML = '<div class="empty" style="color:var(--green)">✓ Sin errores detectados</div>';
+  } else {
+    errPanel.innerHTML = errs.map(e => `<div class="err-box">${escHtml(e)}</div>`).join("");
+  }
+
+  // Iteracion panel
+  const iterPanel = document.getElementById("iter-panel");
+  if (iter && typeof iter === "object") {
+    const rows = Object.entries(iter).filter(([k]) => !["history","actions"].includes(k));
+    iterPanel.innerHTML = rows.map(([k,v]) =>
+      `<div class="iter-row"><span class="iter-key">${escHtml(k)}</span><span class="iter-val">${escHtml(String(v))}</span></div>`
+    ).join("") || '<div class="empty">Sin datos de iteración</div>';
+  } else {
+    iterPanel.innerHTML = '<div class="empty">Sin datos de iteración</div>';
+  }
+
+  // Sessions panel
+  const sessPanel = document.getElementById("sessions-panel");
+  const sess = d.sesiones || [];
+  if (sess.length === 0) {
+    sessPanel.innerHTML = '<div class="empty">Sin sesiones</div>';
+  } else {
+    sessPanel.innerHTML = [...sess].reverse().map(s =>
+      `<div class="session-row">
+        <div class="sdate">${escHtml(s.timestamp || s.date || "—")}</div>
+        <div class="ssum">${escHtml(s.summary || s.description || JSON.stringify(s).substring(0,80))}</div>
+      </div>`
+    ).join("");
+  }
+
+  // Domains
+  const domsPanel = document.getElementById("domains-panel");
+  const doms = d.kb?.lista_dominios || [];
+  if (doms.length === 0) {
+    domsPanel.innerHTML = '<div class="empty">Sin dominios</div>';
+  } else {
+    domsPanel.innerHTML = doms.map(dm => `<span class="domain-chip">${escHtml(dm)}</span>`).join("");
+  }
+
+  // Ultimo aprendizaje
+  const lPanel = document.getElementById("learning-panel");
+  if (d.ultimo_aprendizaje) {
+    lPanel.innerHTML = `<div class="log-line" style="color:var(--text)">${escHtml(d.ultimo_aprendizaje)}</div>`;
+  } else {
+    lPanel.innerHTML = '<div class="empty">Sin datos</div>';
+  }
+
+  // Footer data dir
+  document.getElementById("ft-data").textContent = "AppData/Local/ClaudeCode/.adaptive_cli";
+}
+
+function escHtml(str) {
+  return String(str)
+    .replace(/&/g,"&amp;")
+    .replace(/</g,"&lt;")
+    .replace(/>/g,"&gt;")
+    .replace(/"/g,"&quot;");
+}
+
+function startCountdown() {
+  clearInterval(timer);
+  timer = setInterval(() => {
+    if (!autoRefresh) return;
+    countdown--;
+    const m = Math.floor(countdown / 60);
+    const s = String(countdown % 60).padStart(2, "0");
+    document.getElementById("countdown").textContent = `${m}:${s}`;
+    if (countdown <= 0) {
+      countdown = REFRESH_MS / 1000;
+      refresh();
+    }
+  }, 1000);
+}
+
+function toggleAutorefresh() {
+  autoRefresh = !autoRefresh;
+  document.getElementById("ar-label").textContent = autoRefresh ? "ON" : "OFF";
+}
+
+// Arrancar
+refresh();
+startCountdown();
+</script>
+</body>
+</html>
