@@ -25,12 +25,10 @@ if str(_MOTOR_DIR) not in sys.path:
     sys.path.insert(0, str(_MOTOR_DIR))
 
 from adapters.ollama import OllamaAdapter, DEFAULT_MODEL
-from config import SESSION_HISTORY_FILE, NOTIFY_FILE
+from config import SESSION_HISTORY_FILE, NOTIFY_FILE, MAX_KB_CHARS
 from core.knowledge_base import cross_domain_search, export_context
 from core.domain_detector import detect as detect_domain_auto
 from core.learning_memory import register_pattern
-
-MAX_KB_CHARS = 3000   # ~750 tokens de contexto KB
 
 
 # -- Carga de contexto KB --------------------------------------------------

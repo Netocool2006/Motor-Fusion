@@ -28,10 +28,7 @@ import sqlite3
 from pathlib import Path
 from datetime import datetime, timedelta
 
-from config import SAP_PLAYBOOK_DB, CONFIDENCE_DECAY_DAYS
-
-# Decay: patterns pierden confianza si no se usan en X dias
-CONFIDENCE_DECAY_RATE = 0.1  # pierde 10% por periodo sin uso
+from config import SAP_PLAYBOOK_DB, CONFIDENCE_DECAY_DAYS, CONFIDENCE_DECAY_RATE
 
 # -- Database ------------------------------------------------------------------
 

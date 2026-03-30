@@ -30,10 +30,8 @@ sys.path.insert(0, str(_MOTOR_DIR))
 
 from config import (
     SESSION_HISTORY_FILE, LAST_MSG_FILE, STATE_FILE, ACTIONS_LOG,
-    DATA_DIR, HOOK_STATE_DIR,
+    DATA_DIR, HOOK_STATE_DIR, RECENT_HOURS,
 )
-
-RECENT_HOURS = 1  # Ventana de contexto: ultima hora de trabajo
 
 
 # ======================================================================

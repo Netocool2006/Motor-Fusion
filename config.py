@@ -118,6 +118,52 @@ ERROR_CORRELATION_WINDOW: int = 600   # 10 min - ventana correlacion errores
 CONFIDENCE_DECAY_DAYS: int   = 30     # dias para decay de confianza
 
 # ---------------------------------------------------------------------------
+# Ollama adapter
+# ---------------------------------------------------------------------------
+OLLAMA_BASE_URL: str          = os.environ.get("OLLAMA_BASE_URL", "http://localhost:11434")
+OLLAMA_DEFAULT_MODEL: str     = os.environ.get("OLLAMA_DEFAULT_MODEL", "qwen3:4b")
+OLLAMA_TIMEOUT_SECS: int      = 300   # 5 min - timeout HTTP para respuestas largas
+OLLAMA_RAM_HIGH_GB: float     = 4.0   # RAM minima para contexto alto
+OLLAMA_RAM_MID_GB: float      = 3.0   # RAM minima para contexto medio
+OLLAMA_CTX_HIGH: int          = 4096  # num_ctx con RAM alta
+OLLAMA_CTX_MID: int           = 2048  # num_ctx con RAM media
+OLLAMA_CTX_LOW: int           = 512   # num_ctx con RAM baja
+
+# ---------------------------------------------------------------------------
+# Hooks - clasificacion y cache
+# ---------------------------------------------------------------------------
+CACHE_TTL_SECS: int           = 7200  # 2 h - TTL de clasificacion de mensajes
+CACHE_OVERLAP_THRESHOLD: float = 0.55 # 55% keywords en comun = cache hit
+RECENT_HOURS: int             = 1     # ventana de contexto en session_start
+
+# ---------------------------------------------------------------------------
+# Learning memory
+# ---------------------------------------------------------------------------
+CONFIDENCE_THRESHOLD: float   = 0.6   # umbral de confianza para reutilizar patron
+MAX_PENDING_ERRORS: int       = 15    # maximo de errores pendientes en buffer
+
+# ---------------------------------------------------------------------------
+# Domain detector
+# ---------------------------------------------------------------------------
+AUTO_ASSIGN_THRESHOLD: int    = 2     # >= 2 keywords -> asignar dominio automaticamente
+SUGGEST_THRESHOLD: int        = 1     # >= 1 keyword -> sugerir dominio (sin auto-asignar)
+
+# ---------------------------------------------------------------------------
+# SAP Playbook
+# ---------------------------------------------------------------------------
+CONFIDENCE_DECAY_RATE: float  = 0.1   # 10% de decay por periodo sin uso
+
+# ---------------------------------------------------------------------------
+# Iteration learn
+# ---------------------------------------------------------------------------
+EXPLORE_THRESHOLD: int        = 3     # explores consecutivos sin accion -> busqueda proactiva
+
+# ---------------------------------------------------------------------------
+# Ollama chat (KB context)
+# ---------------------------------------------------------------------------
+MAX_KB_CHARS: int             = 3000  # ~750 tokens de contexto KB inyectado
+
+# ---------------------------------------------------------------------------
 # Crear directorios al importar
 # ---------------------------------------------------------------------------
 def _ensure_dirs() -> None:

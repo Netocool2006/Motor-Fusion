@@ -36,10 +36,10 @@ from config import (
     LAST_MSG_FILE, NOTIFY_FILE, CLASSIFY_CACHE, CO_OCCUR_FILE,
     MARKOV_FILE, PROMPT_HIST_FILE, INJECTION_FILE, MSG_TYPE_FILE,
     HOOK_STATE_DIR, DATA_DIR,
+    CACHE_TTL_SECS, CACHE_OVERLAP_THRESHOLD,
 )
 
-CACHE_TTL_SECS = 7200    # clasificacion valida 2 horas
-CACHE_OVERLAP_TH = 0.55  # 55% keywords en comun = cache hit
+CACHE_OVERLAP_TH = CACHE_OVERLAP_THRESHOLD  # alias local para compatibilidad
 
 KB_FILE_CACHE: dict = {}  # {filepath: (mtime, data)} -- cache en proceso
 

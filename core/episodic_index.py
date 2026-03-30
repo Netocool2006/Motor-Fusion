@@ -100,8 +100,29 @@ def _build_body(record: dict) -> str:
     return " | ".join(p for p in parts if p.strip())[:3000]
 
 
+def _load_domain_keywords_map() -> list:
+    """
+    Carga el mapa keyword->dominio desde domains.json.
+    Retorna lista de (keyword, domain_name) ordenada para matching.
+    """
+    if not SESSION_HISTORY_FILE.parent.exists():
+        return []
+    domains_file = SESSION_HISTORY_FILE.parent / "knowledge" / "domains.json"
+    if not domains_file.exists():
+        return []
+    try:
+        data = json.loads(domains_file.read_text(encoding="utf-8"))
+        pairs = []
+        for domain_name, domain_info in data.items():
+            for kw in domain_info.get("keywords", []):
+                pairs.append((kw.lower(), domain_name))
+        return pairs
+    except Exception:
+        return []
+
+
 def _detect_domain(record: dict) -> str:
-    """Extrae el dominio dominante del registro."""
+    """Extrae el dominio dominante del registro usando keywords de domains.json."""
     domain = record.get("domain", "")
     if domain:
         return domain
@@ -110,15 +131,17 @@ def _detect_domain(record: dict) -> str:
         record.get("files_edited", []) +
         record.get("files_created", [])
     ).lower()
-    for kw, dom in [
-        ("playwright", "sap_tierra"), ("sap", "sap_tierra"), ("crm", "sap_tierra"),
-        ("sow", "sow"), ("propuesta", "sow"), ("contrato", "sow"),
-        ("bom", "bom"), ("listado", "bom"), ("material", "bom"),
-        ("monday", "monday"), ("pipeline", "monday"),
-        ("outlook", "outlook"), ("correo", "outlook"),
-    ]:
-        if kw in text:
-            return dom
+
+    # Intentar con keywords dinamicas de domains.json
+    kw_map = _load_domain_keywords_map()
+    if kw_map:
+        scores: dict = {}
+        for kw, dom in kw_map:
+            if kw in text:
+                scores[dom] = scores.get(dom, 0) + 1
+        if scores:
+            return max(scores, key=scores.get)
+
     return "files"
 
 

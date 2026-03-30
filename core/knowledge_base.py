@@ -50,11 +50,11 @@ def _fix_windows_stdout():
 
 
 # -- Configuracion central ---------------------------------------------------
-from config import KNOWLEDGE_DIR, DATA_DIR
+from config import KNOWLEDGE_DIR, DATA_DIR, EXECUTION_LOG, DOMAINS_FILE
 from core.file_lock import file_lock, _atomic_replace
 
-LOG_FILE = DATA_DIR / "execution_log.jsonl"
-DOMAINS_FILE = KNOWLEDGE_DIR / "domains.json"
+# Alias para compatibilidad con usos internos del modulo
+LOG_FILE = EXECUTION_LOG
 
 
 # ============================================================================

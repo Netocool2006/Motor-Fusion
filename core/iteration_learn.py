@@ -25,13 +25,11 @@ from datetime import datetime
 from config import (
     STATE_FILE, ACTIONS_LOG, ITERATION_GAP_SECS, DATA_DIR, MSG_TYPE_FILE,
     NOTIFY_FILE, FINGERPRINTS_FILE, FAILURES_FILE, DEBUG_LOG, LAST_MSG_FILE,
+    EXPLORE_THRESHOLD,
 )
 from core.file_lock import file_lock
 from core.learning_memory import register_pattern, detect_errors, detect_success
 from core.knowledge_base import search as kb_search, add_pattern as kb_add
-
-# Cuantos explores consecutivos sin actuar = territorio nuevo -> busqueda proactiva
-EXPLORE_THRESHOLD = 3
 
 try:
     from core.knowledge_base import _load_all_domains

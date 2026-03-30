@@ -27,12 +27,7 @@ import json
 import re
 from pathlib import Path
 
-from config import DOMAINS_FILE, DATA_DIR
-
-
-# -- Thresholds ----------------------------------------------------------------
-AUTO_ASSIGN_THRESHOLD = 2   # >= 2 keywords en comun -> auto-asignar
-SUGGEST_THRESHOLD     = 1   # 1 keyword -> sugerir (no auto-asignar)
+from config import DOMAINS_FILE, DATA_DIR, AUTO_ASSIGN_THRESHOLD, SUGGEST_THRESHOLD
 
 
 # -- Carga de dominios ---------------------------------------------------------

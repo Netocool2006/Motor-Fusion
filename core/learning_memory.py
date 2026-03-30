@@ -36,13 +36,10 @@ from config import (
     LOCK_DIR,
     DEDUP_WINDOW_SECS,
     ERROR_CORRELATION_WINDOW,
+    CONFIDENCE_THRESHOLD,
+    MAX_PENDING_ERRORS,
 )
 from core.file_lock import file_lock, _atomic_replace
-
-# ── Constantes ────────────────────────────────────────────────
-
-CONFIDENCE_THRESHOLD = 0.6
-MAX_PENDING_ERRORS = 15
 
 # -- Tipos de memoria (17 tipos, inspirado en Engram) --
 VALID_TYPES = {

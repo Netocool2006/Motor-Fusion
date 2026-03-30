@@ -19,10 +19,14 @@ import urllib.error
 from datetime import datetime, timezone
 
 from .base_adapter import BaseAdapter
+from config import (
+    OLLAMA_BASE_URL, OLLAMA_DEFAULT_MODEL, OLLAMA_TIMEOUT_SECS,
+    OLLAMA_RAM_HIGH_GB, OLLAMA_RAM_MID_GB,
+    OLLAMA_CTX_HIGH, OLLAMA_CTX_MID, OLLAMA_CTX_LOW,
+)
 
-
-OLLAMA_BASE_URL = "http://localhost:11434"
-DEFAULT_MODEL   = "qwen3:4b"
+# Alias para compatibilidad con imports existentes (ollama_chat.py usa DEFAULT_MODEL)
+DEFAULT_MODEL = OLLAMA_DEFAULT_MODEL
 
 
 class OllamaAdapter(BaseAdapter):
@@ -33,7 +37,7 @@ class OllamaAdapter(BaseAdapter):
     y agrega metodos de chat directo para uso interactivo.
     """
 
-    def __init__(self, model: str = DEFAULT_MODEL, base_url: str = OLLAMA_BASE_URL):
+    def __init__(self, model: str = OLLAMA_DEFAULT_MODEL, base_url: str = OLLAMA_BASE_URL):
         self.model    = model
         self.base_url = base_url.rstrip("/")
 
@@ -110,19 +114,19 @@ class OllamaAdapter(BaseAdapter):
     def recommended_ctx(self) -> int:
         """Recomienda num_ctx segun RAM disponible."""
         free = self.free_ram_gb()
-        if free >= 4.0:
-            return 4096
-        if free >= 3.0:
-            return 2048
-        return 512
+        if free >= OLLAMA_RAM_HIGH_GB:
+            return OLLAMA_CTX_HIGH
+        if free >= OLLAMA_RAM_MID_GB:
+            return OLLAMA_CTX_MID
+        return OLLAMA_CTX_LOW
 
     def chat(
         self,
         messages: list,
         stream: bool = True,
         temperature: float = 0.7,
-        num_ctx: int = 0,     # 0 = auto segun RAM disponible
-        timeout: int = 300,   # 5 min - suficiente para swap en RAM ajustada
+        num_ctx: int = 0,                        # 0 = auto segun RAM disponible
+        timeout: int = OLLAMA_TIMEOUT_SECS,      # configurable via config.py
     ) -> str:
         """
         Envia mensajes a Ollama y retorna la respuesta completa.
