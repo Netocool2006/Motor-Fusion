@@ -3,7 +3,7 @@ setlocal
 
 set "PYTHON=C:\Users\ntoledo\AppData\Local\Programs\Python\Python312\python.exe"
 set "SERVER=%~dp0server.py"
-set "PORT=7070"
+set "PORT=7072"
 
 echo.
 echo  Motor_IA Dashboard

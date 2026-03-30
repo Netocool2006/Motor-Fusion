@@ -16,14 +16,35 @@ SETTINGS_FILES = [
 
 
 def parse_ts(line):
-    """Intenta extraer datetime de una linea de log '[YYYY-MM-DD HH:MM:SS]...'"""
+    """Extrae datetime de linea de log '[2026-03-30T10:20:41...]' o campo 'ts'/'timestamp'"""
     try:
         if line.startswith("["):
             end = line.index("]")
-            return datetime.datetime.fromisoformat(line[1:end])
+            raw = line[1:end].split(".")[0]  # quita microsegundos si los hay
+            return datetime.datetime.fromisoformat(raw)
     except Exception:
         pass
     return None
+
+
+def latest_ts_from_jsonl(path, field="ts"):
+    """Lee las ultimas 20 lineas de un .jsonl y retorna el datetime mas reciente."""
+    best = None
+    try:
+        lines = Path(path).read_text(encoding="utf-8", errors="replace").splitlines()
+        for ln in lines[-20:]:
+            try:
+                obj = json.loads(ln)
+                raw = obj.get(field) or obj.get("timestamp")
+                if raw:
+                    ts = datetime.datetime.fromisoformat(str(raw)[:19])
+                    if best is None or ts > best:
+                        best = ts
+            except Exception:
+                pass
+    except Exception:
+        pass
+    return best
 
 
 def get_status():
@@ -74,15 +95,40 @@ def get_status():
         out["hooks_log"] = log_entries[-30:]
         out["errores"] = errors[-15:]
 
-        # Ultima actividad
+        # Timestamp desde hook_debug.log
         for ln in reversed(recent):
             ts = parse_ts(ln.strip())
             if ts:
                 out["ultima_actividad_ts"] = ts.isoformat()
-                diff = (now - ts).total_seconds() / 60
-                out["minutos_inactivo"] = round(diff, 1)
-                out["motor_activo"] = diff < 30
                 break
+
+    # ── timestamps de otros archivos de actividad ─────────────────────────────
+    # prompt_history.jsonl  → UserPromptSubmit hook (mas frecuente)
+    # execution_log.jsonl   → ejecuciones
+    # iteration_actions.jsonl → aprendizaje iterativo
+    # Solo archivos con timestamps en hora LOCAL (no UTC)
+    activity_sources = [
+        (DATA_DIR / "prompt_history.jsonl",    "ts"),
+        (DATA_DIR / "iteration_actions.jsonl", "ts"),
+    ]
+    candidates = []
+    if out["ultima_actividad_ts"]:
+        try:
+            candidates.append(datetime.datetime.fromisoformat(out["ultima_actividad_ts"]))
+        except Exception:
+            pass
+    for path, field in activity_sources:
+        ts = latest_ts_from_jsonl(path, field)
+        if ts:
+            candidates.append(ts)
+
+    if candidates:
+        best = max(candidates)
+        out["ultima_actividad_ts"] = best.isoformat()
+        diff = (now - best).total_seconds() / 60
+        out["minutos_inactivo"] = round(diff, 1)
+        # ACTIVO si hubo actividad en las ultimas 2 horas
+        out["motor_activo"] = diff < 120
 
     # ── iteration_state.json ──────────────────────────────────────────────────
     iter_f = DATA_DIR / "iteration_state.json"
