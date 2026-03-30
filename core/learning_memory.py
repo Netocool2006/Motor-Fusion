@@ -897,6 +897,15 @@ def correlate_error_fix(
                     tags=(tags or []) + ["auto_learned", "error_fix"],
                     error_context={"original_error": last_error},
                 )
+                # Registrar relacion error->fix en grafo asociativo
+                try:
+                    from core.associative_memory import auto_associate_error_fix
+                    error_virtual_id = _pattern_id(
+                        "error", _normalize_key(last_error["command"])
+                    )
+                    auto_associate_error_fix(error_virtual_id, pid)
+                except Exception:
+                    pass
                 _save_pending_errors([])
                 result.update({
                     "learned": True,

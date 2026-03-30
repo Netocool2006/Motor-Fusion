@@ -825,6 +825,32 @@ def main():
             has_lm=bool(lm_out), has_kb=bool(kb_out), has_ep=bool(ep_out),
             intent=intent
         )
+
+        # Feedback loop: registrar hints inyectados para scoring posterior
+        try:
+            from core.hint_tracker import record_injection
+            hint_keys = []
+            # Extraer IDs de los patterns inyectados (si los tienen)
+            for section in [lm_out, kb_out, ep_out]:
+                if section:
+                    import re as _re
+                    keys = _re.findall(r'\[([a-z0-9_/\-]{4,40})\]', section)
+                    hint_keys.extend(keys[:10])
+            if hint_keys:
+                session_id_hint = input_data.get("session_id", "")
+                record_injection(hint_keys, session_id_hint)
+        except Exception:
+            pass
+
+        # Working memory: inyectar si hay items de la sesion actual
+        try:
+            from core.working_memory import wm_to_context
+            wm_ctx = wm_to_context(max_items=5)
+            if wm_ctx:
+                output = output.rstrip("</memory_system>\n") + wm_ctx + "\n</memory_system>\n"
+        except Exception:
+            pass
+
         sys.stdout.buffer.write(output.encode("utf-8", errors="replace"))
         sys.stdout.buffer.flush()
 

@@ -164,6 +164,32 @@ EXPLORE_THRESHOLD: int        = 3     # explores consecutivos sin accion -> busq
 MAX_KB_CHARS: int             = 3000  # ~750 tokens de contexto KB inyectado
 
 # ---------------------------------------------------------------------------
+# Auto-pruning (memory_pruner)
+# ---------------------------------------------------------------------------
+AUTO_PRUNE_ENABLED: bool           = True
+AUTO_PRUNE_MIN_SUCCESS_RATE: float = 0.2   # < 20% exito = candidato a poda
+AUTO_PRUNE_DAYS_UNUSED: int        = 90    # sin uso en 90 dias
+AUTO_PRUNE_MIN_REUSES: int         = 0     # 0 reusos = sin valor demostrado
+
+# ---------------------------------------------------------------------------
+# Hint effectiveness feedback loop (hint_tracker)
+# ---------------------------------------------------------------------------
+HINT_EFFECTIVENESS_DECAY: float    = 0.7   # EMA: 70% peso historico, 30% nuevo dato
+
+# ---------------------------------------------------------------------------
+# Memory consolidation (memory_consolidator)
+# ---------------------------------------------------------------------------
+CONSOLIDATION_ENABLED: bool             = True
+CONSOLIDATION_MIN_PATTERNS: int         = 5     # min patrones en tipo para consolidar
+CONSOLIDATION_SIMILARITY_THRESHOLD: float = 0.7 # Jaccard >= 0.7 para fusionar
+
+# ---------------------------------------------------------------------------
+# Working memory (working_memory)
+# ---------------------------------------------------------------------------
+WORKING_MEMORY_MAX_ITEMS: int      = 50    # max items en sesion actual
+WORKING_MEMORY_TTL_HOURS: int      = 24    # TTL antes de expirar automaticamente
+
+# ---------------------------------------------------------------------------
 # Crear directorios al importar
 # ---------------------------------------------------------------------------
 def _ensure_dirs() -> None:

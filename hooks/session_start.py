@@ -525,6 +525,15 @@ def main():
     except Exception:
         pass
 
+    # ---- 3b) WORKING MEMORY (items de la sesion anterior no promovidos) ----
+    try:
+        from core.working_memory import wm_to_context
+        wm_ctx = wm_to_context(max_items=10)
+        if wm_ctx:
+            lines.append(wm_ctx)
+    except Exception:
+        pass
+
     # ---- 4) KB INDEX ----
     lines.extend(format_kb_index())
 

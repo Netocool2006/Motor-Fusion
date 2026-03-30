@@ -1179,6 +1179,45 @@ def main():
             rate = audit_record.get("usage_rate", 0)
             debug_log(f"Hint effectiveness: {rate:.0%} usage rate this session")
 
+    # ── ENGRAM GAPS: nuevas capas de memoria ──────────────────────────
+    # 1) Feedback loop: puntuar hints inyectados contra el transcript
+    try:
+        from core.hint_tracker import score_injection
+        full_text = extract_text_from_messages(messages)
+        score_injection(session_id, full_text)
+        debug_log("HintTracker: injection effectiveness scored")
+    except Exception as e:
+        debug_log(f"HintTracker: {e}")
+
+    # 2) Auto-pruning de patrones de baja calidad (cada sesion)
+    try:
+        from core.memory_pruner import auto_prune
+        prune_result = auto_prune()
+        if prune_result.get("pruned", 0) > 0:
+            debug_log(f"MemoryPruner: {prune_result['pruned']} patrones podados")
+    except Exception as e:
+        debug_log(f"MemoryPruner: {e}")
+
+    # 3) Consolidacion periodica (cada 10 sesiones aprox.)
+    try:
+        import random
+        if random.random() < 0.10:  # ~10% de sesiones
+            from core.memory_consolidator import consolidate
+            cons_result = consolidate()
+            if cons_result.get("consolidated", 0) > 0:
+                debug_log(f"Consolidator: {cons_result['consolidated']} grupos consolidados")
+    except Exception as e:
+        debug_log(f"Consolidator: {e}")
+
+    # 4) Limpiar working memory al cerrar sesion
+    try:
+        from core.working_memory import wm_clear
+        wm_clear(session_id=session_id)
+        debug_log("WorkingMemory: cleared for next session")
+    except Exception as e:
+        debug_log(f"WorkingMemory clear: {e}")
+    # ─────────────────────────────────────────────────────────────────
+
     # Limpiar archivos de crash recovery
     for fpath in [LAST_MSG_FILE]:
         try:

@@ -509,6 +509,18 @@ def main():
     # Si hubo error, guardar como pendiente de resolucion
     if action_info.get("errors") and not action_info.get("success", True):
         _save_pending_error(action_info)
+        # Registrar error en working memory
+        try:
+            from core.working_memory import wm_add
+            err_summary = "; ".join(action_info["errors"][:2])
+            cmd_preview = action_info.get("command", action_info.get("file", ""))[:80]
+            wm_add(
+                f"Error en {cmd_preview}: {err_summary}",
+                category="error",
+                session_id=session_id,
+            )
+        except Exception:
+            pass
 
     # Si fue exitoso, verificar si resuelve un error pendiente
     _tool = action_info.get("tool", "")
@@ -517,6 +529,18 @@ def main():
     )
     if _is_success:
         _check_error_resolution(action_info)
+        # Registrar fix en working memory si habia un error pendiente
+        if PENDING_ERRORS_FILE.exists():
+            try:
+                from core.working_memory import wm_add
+                cmd_preview = action_info.get("command", action_info.get("file", ""))[:80]
+                wm_add(
+                    f"Fix aplicado: {cmd_preview}",
+                    category="fix",
+                    session_id=session_id,
+                )
+            except Exception:
+                pass
 
     # Registrar acciones significativas en KB
     _register_significant_action(action_info)
