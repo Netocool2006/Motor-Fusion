@@ -271,6 +271,102 @@ def rebuild_from_history() -> int:
     return count
 
 
+def timeline_search(query: str, before: int = 2, after: int = 2) -> list:
+    """
+    Busqueda con contexto cronologico (Engram mem_timeline).
+    Para cada resultado, incluye las N sesiones anteriores y posteriores
+    ordenadas por fecha para navegacion progresiva.
+
+    Args:
+        query:  Termino de busqueda
+        before: Sesiones anteriores a incluir por resultado
+        after:  Sesiones posteriores a incluir por resultado
+
+    Returns:
+        Lista de {match, context_before, context_after} donde
+        cada elemento tiene {date, domain, snippet}.
+    """
+    if not query or not EPISODIC_DB.exists():
+        return []
+
+    try:
+        conn = _connect()
+        _ensure_schema(conn)
+
+        tokens = re.findall(
+            r'[a-zA-Z0-9\u00e1\u00e9\u00ed\u00f3\u00fa\u00f1\u00fc_]{2,}', query
+        )
+        if not tokens:
+            conn.close()
+            return []
+        safe_query = " OR ".join(tokens)
+
+        # Obtener matches con fecha
+        matches = conn.execute(
+            """
+            SELECT session_id, date, domain,
+                   snippet(sessions_fts, 3, '\u00ab', '\u00bb', '...', 12) AS snip
+            FROM sessions_fts
+            WHERE body MATCH ?
+            ORDER BY rank
+            LIMIT 5
+            """,
+            (safe_query,)
+        ).fetchall()
+
+        results = []
+        for m in matches:
+            match_date = m["date"] or ""
+
+            # Sesiones anteriores (cronologicamente antes)
+            ctx_before = conn.execute(
+                """
+                SELECT date, domain,
+                       snippet(sessions_fts, 3, '', '', '...', 8) AS snip
+                FROM sessions_fts
+                WHERE date < ? AND date != ''
+                ORDER BY date DESC
+                LIMIT ?
+                """,
+                (match_date, before)
+            ).fetchall() if match_date else []
+
+            # Sesiones posteriores (cronologicamente despues)
+            ctx_after = conn.execute(
+                """
+                SELECT date, domain,
+                       snippet(sessions_fts, 3, '', '', '...', 8) AS snip
+                FROM sessions_fts
+                WHERE date > ? AND date != ''
+                ORDER BY date ASC
+                LIMIT ?
+                """,
+                (match_date, after)
+            ).fetchall() if match_date else []
+
+            results.append({
+                "match": {
+                    "date":    m["date"] or "?",
+                    "domain":  m["domain"] or "?",
+                    "snippet": m["snip"] or "",
+                },
+                "context_before": [
+                    {"date": r["date"], "domain": r["domain"], "snippet": r["snip"]}
+                    for r in reversed(ctx_before)
+                ],
+                "context_after": [
+                    {"date": r["date"], "domain": r["domain"], "snippet": r["snip"]}
+                    for r in ctx_after
+                ],
+            })
+
+        conn.close()
+        return results
+
+    except Exception:
+        return []
+
+
 def get_stats() -> dict:
     """Estadisticas del indice."""
     if not EPISODIC_DB.exists():

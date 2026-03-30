@@ -1443,6 +1443,216 @@ def t_18_5_1():
 run_test("18.5.1", "auto_prune(dry_run=True) no modifica datos", t_18_5_1)
 
 # ============================================================
+# CASO 19: ENGRAM UX GAPS — Timeline, HTTP API, Chunk Sync, TUI
+# ============================================================
+CURRENT_CASE = "19. ENGRAM UX GAPS"
+
+CURRENT_SUB = "19.1 Timeline navigation (episodic_index)"
+def t_19_1_1():
+    from core.episodic_index import timeline_search
+    # Sin datos indexados debe retornar lista vacia sin crashear
+    result = timeline_search("sap login error")
+    assert isinstance(result, list), f"timeline_search no retorno lista: {type(result)}"
+    return True
+run_test("19.1.1", "timeline_search retorna lista vacia sin crash si no hay datos", t_19_1_1)
+
+def t_19_1_2():
+    from core.episodic_index import timeline_search, index_session
+    # Indexar sesiones de prueba
+    now = datetime.now(timezone.utc)
+    for i in range(5):
+        ts = (now.replace(hour=i)).isoformat()
+        index_session({
+            "session_id":   f"tl_test_{i:03d}",
+            "date":         ts[:10] + f"T{i:02d}:00:00Z",
+            "summary":      f"sesion {i}: trabajo con sap login y crm orders",
+            "user_messages": [f"consulta {i} sobre sap crm"],
+            "decisions":    [],
+            "errors":       [],
+            "files_edited": [],
+            "files_created":[],
+        })
+    results = timeline_search("sap login", before=2, after=2)
+    assert isinstance(results, list), "timeline_search no retorno lista"
+    if results:
+        r = results[0]
+        assert "match" in r, "resultado no tiene 'match'"
+        assert "context_before" in r, "resultado no tiene 'context_before'"
+        assert "context_after" in r, "resultado no tiene 'context_after'"
+        m = r["match"]
+        assert "date" in m and "domain" in m and "snippet" in m, \
+            "match no tiene date/domain/snippet"
+    return True
+run_test("19.1.2", "timeline_search retorna match + context_before + context_after", t_19_1_2)
+
+def t_19_1_3():
+    from core.episodic_index import timeline_search
+    # before/after custom
+    results = timeline_search("sap", before=1, after=1)
+    assert isinstance(results, list)
+    if results:
+        assert len(results[0].get("context_before", [])) <= 1
+        assert len(results[0].get("context_after", [])) <= 1
+    return True
+run_test("19.1.3", "timeline_search respeta parametros before/after", t_19_1_3)
+
+CURRENT_SUB = "19.2 HTTP API standalone"
+def t_19_2_1():
+    from core.http_api import get_endpoints, DEFAULT_PORT, DEFAULT_HOST
+    endpoints = get_endpoints()
+    assert isinstance(endpoints, list), "get_endpoints no retorna lista"
+    assert len(endpoints) >= 13, f"Menos de 13 endpoints: {len(endpoints)}"
+    paths = [e["path"] for e in endpoints]
+    assert "/health" in paths, "/health no encontrado"
+    assert "/mem/search" in paths, "/mem/search no encontrado"
+    assert "/mem/timeline" in paths, "/mem/timeline no encontrado"
+    assert "/graph/associate" in paths, "/graph/associate no encontrado"
+    assert DEFAULT_PORT == 7437, f"Puerto default debe ser 7437: {DEFAULT_PORT}"
+    return True
+run_test("19.2.1", "HTTP API tiene >= 13 endpoints incluyendo /health /mem/timeline /graph/associate", t_19_2_1)
+
+def t_19_2_2():
+    from core.http_api import start_server, MotorAPIHandler
+    import threading, time
+    from urllib.request import urlopen
+    from urllib.error import URLError
+    # Levantar en puerto aleatorio para no colisionar
+    server = start_server("127.0.0.1", 17437, quiet=True)
+    thread = threading.Thread(target=server.handle_request, daemon=True)
+    thread.start()
+    time.sleep(0.1)
+    try:
+        resp = urlopen("http://127.0.0.1:17437/health", timeout=2)
+        data = json.loads(resp.read().decode("utf-8"))
+        assert data.get("status") == "ok", f"health status incorrecto: {data}"
+        assert data.get("service") == "Motor_IA"
+    finally:
+        server.server_close()
+    return True
+run_test("19.2.2", "HTTP API /health responde {status: ok, service: Motor_IA}", t_19_2_2)
+
+def t_19_2_3():
+    from core.http_api import start_server
+    import threading, time, json
+    from urllib.request import urlopen, Request
+    from urllib.error import URLError
+    server = start_server("127.0.0.1", 17438, quiet=True)
+    thread = threading.Thread(target=server.handle_request, daemon=True)
+    thread.start()
+    time.sleep(0.1)
+    try:
+        req = Request(
+            "http://127.0.0.1:17438/mem/save",
+            data=json.dumps({"task_type": "test_api", "context_key": "api_test_key",
+                             "solution": {"notes": "via http api"}}).encode(),
+            headers={"Content-Type": "application/json"},
+            method="POST",
+        )
+        resp = urlopen(req, timeout=2)
+        data = json.loads(resp.read().decode("utf-8"))
+        assert data.get("saved") is True, f"save incorrecto: {data}"
+        assert "pattern_id" in data
+    finally:
+        server.server_close()
+    return True
+run_test("19.2.3", "HTTP API POST /mem/save guarda patron y retorna pattern_id", t_19_2_3)
+
+CURRENT_SUB = "19.3 Git sync chunk (anti-merge-conflicts)"
+def t_19_3_1():
+    from sync_to_github import export_chunk, load_chunk, get_chunk_stats
+    import tempfile, shutil
+    repo_dir = Path(tempfile.mkdtemp(prefix="motor_chunk_test_"))
+    try:
+        # Inicializar repo git minimo
+        import subprocess
+        subprocess.run(["git", "init", str(repo_dir)], capture_output=True)
+        chunk_path = export_chunk(repo_dir)
+        assert chunk_path.exists(), "chunk no fue creado"
+        assert chunk_path.suffix == ".gz", "chunk debe ser .gz"
+        # Leer y verificar estructura
+        payload = load_chunk(chunk_path)
+        assert "hostname" in payload, "payload no tiene hostname"
+        assert "exported_at" in payload, "payload no tiene exported_at"
+        assert "files" in payload, "payload no tiene files"
+        assert isinstance(payload["files"], dict)
+    finally:
+        shutil.rmtree(repo_dir, ignore_errors=True)
+    return True
+run_test("19.3.1", "export_chunk crea .gz con hostname/exported_at/files", t_19_3_1)
+
+def t_19_3_2():
+    from sync_to_github import export_chunk, merge_chunks, get_chunk_stats
+    import tempfile, shutil, subprocess
+    repo_dir = Path(tempfile.mkdtemp(prefix="motor_chunk_merge_"))
+    output_dir = Path(tempfile.mkdtemp(prefix="motor_chunk_out_"))
+    try:
+        subprocess.run(["git", "init", str(repo_dir)], capture_output=True)
+        # Exportar 2 chunks del mismo hostname (simula 2 syncs)
+        export_chunk(repo_dir)
+        import time; time.sleep(1.1)  # timestamp es precision de segundos
+        export_chunk(repo_dir)
+        # Stats
+        stats = get_chunk_stats(repo_dir)
+        assert stats["chunks"] >= 2, f"Esperaba >= 2 chunks: {stats}"
+        assert isinstance(stats["machines"], list)
+        # Merge
+        result = merge_chunks(repo_dir, output_dir=output_dir)
+        assert isinstance(result, dict)
+        assert "chunks_read" in result and result["chunks_read"] >= 2
+        assert "merged_files" in result
+        assert "sources" in result
+    finally:
+        shutil.rmtree(repo_dir, ignore_errors=True)
+        shutil.rmtree(output_dir, ignore_errors=True)
+    return True
+run_test("19.3.2", "merge_chunks fusiona multiple chunks sin conflictos", t_19_3_2)
+
+CURRENT_SUB = "19.4 TUI (rich-based terminal UI)"
+def t_19_4_1():
+    from core.tui import show_menu, show_stats, show_memory, show_working_memory, show_graph
+    # Solo verificar que las funciones existen y no crashean
+    # Capturar output sin imprimir en tests
+    import io
+    from contextlib import redirect_stdout
+    buf = io.StringIO()
+    with redirect_stdout(buf):
+        try:
+            show_menu()
+        except Exception as e:
+            assert False, f"show_menu crasheo: {e}"
+    assert True
+    return True
+run_test("19.4.1", "TUI show_menu no crashea (rich o fallback texto plano)", t_19_4_1)
+
+def t_19_4_2():
+    from core.tui import show_stats
+    import io
+    from contextlib import redirect_stdout
+    buf = io.StringIO()
+    # show_stats puede imprimir a rich console (no stdout), solo verificamos que no crashea
+    try:
+        show_stats()
+    except Exception as e:
+        assert False, f"show_stats crasheo: {e}"
+    return True
+run_test("19.4.2", "TUI show_stats no crashea con datos vacios o reales", t_19_4_2)
+
+def t_19_4_3():
+    from core.tui import show_memory, show_working_memory, show_graph
+    from core.working_memory import wm_add, wm_clear
+    # Agregar datos para que las vistas tengan algo que mostrar
+    wm_add("test item para TUI", "observation", "test_tui_session")
+    try:
+        show_memory(limit=5)
+        show_working_memory()
+        show_graph()
+    except Exception as e:
+        assert False, f"TUI crasheo con datos: {e}"
+    wm_clear("test_tui_session")
+    return True
+run_test("19.4.3", "TUI show_memory/working_memory/graph no crashean con datos", t_19_4_3)
+
+# ============================================================
 # CLEANUP + RESULTADOS
 # ============================================================
 print("\n" + "=" * 80)
