@@ -4,7 +4,7 @@ title Motor Fusion IA - Instalador Offline
 
 echo.
 echo  ============================================================
-echo   Motor Fusion IA - Instalador Offline v1.0.0-fusion
+echo   Motor Fusion IA - Instalador Offline v1.0.1-fusion
 echo   Funciona sin internet y sin Python del sistema
 echo  ============================================================
 echo.

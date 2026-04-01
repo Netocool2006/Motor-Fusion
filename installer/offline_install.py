@@ -38,7 +38,7 @@ except Exception:
 # ---------------------------------------------------------------------------
 # Constantes
 # ---------------------------------------------------------------------------
-VERSION = "1.0.0-fusion"
+VERSION = "1.0.1-fusion"
 APP_NAME = "Motor Fusion IA"
 DATA_DIR_NAME = ".adaptive_cli"
 
@@ -50,6 +50,13 @@ MOTOR_FILES = [
     "ollama_chat.py",
     "sync_to_github.py",
     "restore_from_github.py",
+    # Documentacion - Hardening & Claude CLI Integration (2026-04-01)
+    "CLAUDE_CLI_INTEGRATION.md",
+    "CONSOLIDATION_SUMMARY.md",
+    "FINDINGS_REPORT.md",
+    "TEST_RESULTS.md",
+    "ENV_SETUP.md",
+    "TEST_PLAN.md",
 ]
 MOTOR_DIRS = ["core", "adapters", "hooks"]
 HOOK_EVENTS = ["PreToolUse", "UserPromptSubmit", "PostToolUse", "Stop"]
