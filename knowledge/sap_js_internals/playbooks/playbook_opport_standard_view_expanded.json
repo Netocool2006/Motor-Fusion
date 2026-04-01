@@ -1,0 +1,2258 @@
+{
+  "screen": "opport_standard_view_expanded",
+  "description": "Screen: Opport Standard: 245451, Horas Assesoria SW IBM - BR, BANCO PROMERICA, S. A. - [",
+  "timestamp": "2026-03-27T20:14:03",
+  "mode": "SCAN",
+  "tab_title": "Opport Standard: 245451, Horas Assesoria SW IBM - BR, BANCO PROMERICA, S. A. - [SAP]",
+  "fields": [
+    {
+      "stable_suffix": "text_lines",
+      "selector": "[id$=\"text_lines\"]",
+      "label": "",
+      "value": "Se ofertaron con la renovaciÃ³n de SW IBM como un alcance peq",
+      "type": "textarea",
+      "editable": false,
+      "visible": true,
+      "id_sample": "C25_W79_V80_text_lines"
+    },
+    {
+      "stable_suffix": "TABLE_omni_input_afh",
+      "selector": "[id$=\"TABLE_omni_input_afh\"]",
+      "label": "Block Forecast.Edit List",
+      "value": "",
+      "type": "input",
+      "editable": true,
+      "visible": true,
+      "id_sample": "C27_W81_V82_TABLE_omni_input_afh"
+    },
+    {
+      "stable_suffix": "prodtable_omni_input_afh",
+      "selector": "[id$=\"prodtable_omni_input_afh\"]",
+      "label": "ItemsNew\nEdit List",
+      "value": "",
+      "type": "input",
+      "editable": true,
+      "visible": true,
+      "id_sample": "C23_W71_V73_V83_prodtable_omni_input_afh"
+    },
+    {
+      "stable_suffix": "Table_omni_input_afh",
+      "selector": "[id$=\"Table_omni_input_afh\"]",
+      "label": "ContactsNew",
+      "value": "",
+      "type": "input",
+      "editable": true,
+      "visible": true,
+      "id_sample": "C23_W71_V73_V84_Table_omni_input_afh"
+    },
+    {
+      "stable_suffix": "Table_omni_input_afh",
+      "selector": "[id$=\"Table_omni_input_afh\"]",
+      "label": "CompetitorsNew",
+      "value": "",
+      "type": "input",
+      "editable": true,
+      "visible": true,
+      "id_sample": "C23_W71_V73_V85_Table_omni_input_afh"
+    },
+    {
+      "stable_suffix": "Salesteam_omni_input_afh",
+      "selector": "[id$=\"Salesteam_omni_input_afh\"]",
+      "label": "Sales TeamEdit List",
+      "value": "",
+      "type": "input",
+      "editable": true,
+      "visible": true,
+      "id_sample": "C23_W71_V73_V86_Salesteam_omni_input_afh"
+    },
+    {
+      "stable_suffix": "HdrDocFlowOV_omni_input_afh",
+      "selector": "[id$=\"HdrDocFlowOV_omni_input_afh\"]",
+      "label": "Planned Activities",
+      "value": "",
+      "type": "input",
+      "editable": true,
+      "visible": true,
+      "id_sample": "C30_W202_V203_HdrDocFlowOV_omni_input_afh"
+    },
+    {
+      "stable_suffix": "HdrDocFlowOV_omni_input_afh",
+      "selector": "[id$=\"HdrDocFlowOV_omni_input_afh\"]",
+      "label": "Completed Activities",
+      "value": "",
+      "type": "input",
+      "editable": true,
+      "visible": true,
+      "id_sample": "C29_W202_V203_HdrDocFlowOV_omni_input_afh"
+    },
+    {
+      "stable_suffix": "Table_omni_input_afh",
+      "selector": "[id$=\"Table_omni_input_afh\"]",
+      "label": "Transaction HistorySubsequent Assignment",
+      "value": "",
+      "type": "input",
+      "editable": true,
+      "visible": true,
+      "id_sample": "C31_W103_V170_Table_omni_input_afh"
+    },
+    {
+      "stable_suffix": "Table_omni_input_afh",
+      "selector": "[id$=\"Table_omni_input_afh\"]",
+      "label": "",
+      "value": "",
+      "type": "input",
+      "editable": true,
+      "visible": true,
+      "id_sample": "C68_W166_V167_Table_omni_input_afh"
+    },
+    {
+      "stable_suffix": "upload_if",
+      "selector": "[id$=\"upload_if\"]",
+      "label": "Upload Document(s) From Local Hard Disk",
+      "value": "No file chosen.",
+      "type": "input",
+      "editable": false,
+      "visible": true,
+      "id_sample": "C68_W166_V167_upload_if"
+    },
+    {
+      "stable_suffix": "SurveyTable_omni_input_afh",
+      "selector": "[id$=\"SurveyTable_omni_input_afh\"]",
+      "label": "Assessments",
+      "value": "",
+      "type": "input",
+      "editable": true,
+      "visible": true,
+      "id_sample": "C28_W89_V90_SurveyTable_omni_input_afh"
+    },
+    {
+      "stable_suffix": "TextList_omni_input_afh",
+      "selector": "[id$=\"TextList_omni_input_afh\"]",
+      "label": "NotesNew",
+      "value": "",
+      "type": "input",
+      "editable": true,
+      "visible": true,
+      "id_sample": "C26_W78_V173_V174_TextList_omni_input_afh"
+    },
+    {
+      "stable_suffix": "SlsStageHist_omni_input_afh",
+      "selector": "[id$=\"SlsStageHist_omni_input_afh\"]",
+      "label": "Sales Stage History",
+      "value": "",
+      "type": "input",
+      "editable": true,
+      "visible": true,
+      "id_sample": "C23_W71_V73_V99_SlsStageHist_omni_input_afh"
+    },
+    {
+      "stable_suffix": "Table1_omni_input_afh",
+      "selector": "[id$=\"Table1_omni_input_afh\"]",
+      "label": "Price TotalsAdd\nEdit List",
+      "value": "",
+      "type": "input",
+      "editable": true,
+      "visible": true,
+      "id_sample": "C70_W207_V209_Table1_omni_input_afh"
+    },
+    {
+      "stable_suffix": "Table_omni_input_afh",
+      "selector": "[id$=\"Table_omni_input_afh\"]",
+      "label": "StatusSet New Status",
+      "value": "",
+      "type": "input",
+      "editable": true,
+      "visible": true,
+      "id_sample": "C71_W205_V206_Table_omni_input_afh"
+    }
+  ],
+  "spans": [
+    {
+      "stable_suffix": ":T_link:U_SESSIONTIMEOUT:I_SESSIONTIMEOUT",
+      "label": "",
+      "value": "00:59"
+    },
+    {
+      "stable_suffix": ":T_link:U_PERSONALIZE:I_PERSONALIZE",
+      "label": "",
+      "value": "Personalize"
+    },
+    {
+      "stable_suffix": "PERSONALIZE",
+      "label": "",
+      "value": "Personalize"
+    },
+    {
+      "stable_suffix": ":T_link:U_SYSMSG:I_SYSMSG",
+      "label": "Personalize",
+      "value": "System News"
+    },
+    {
+      "stable_suffix": "SYSMSG",
+      "label": "Personalize",
+      "value": "System News"
+    },
+    {
+      "stable_suffix": ":T_link:U_LOGOFF:I_LOGOFF",
+      "label": "System News",
+      "value": "Log Off"
+    },
+    {
+      "stable_suffix": "LOGOFF",
+      "label": "System News",
+      "value": "Log Off"
+    },
+    {
+      "stable_suffix": "SearchMenuAnchor1",
+      "label": "",
+      "value": "Saved Searches"
+    },
+    {
+      "stable_suffix": "QUICKSEARCH",
+      "label": "Saved Searches",
+      "value": "Go"
+    },
+    {
+      "stable_suffix": "thtmlb_button_1",
+      "label": "Saved Searches",
+      "value": "Advanced"
+    },
+    {
+      "stable_suffix": "SLS-HOME",
+      "label": "",
+      "value": "Home"
+    },
+    {
+      "stable_suffix": "SLS-ACC",
+      "label": "",
+      "value": "Account Management"
+    },
+    {
+      "stable_suffix": "SLS-ACT",
+      "label": "",
+      "value": "Activities"
+    },
+    {
+      "stable_suffix": "SLS-CYCLE",
+      "label": "",
+      "value": "Sales Cycle"
+    },
+    {
+      "stable_suffix": "MD-ALL",
+      "label": "",
+      "value": "Master Data"
+    },
+    {
+      "stable_suffix": "SRV-ORD",
+      "label": "",
+      "value": "Service Orders"
+    },
+    {
+      "stable_suffix": "SRV-CONTR",
+      "label": "",
+      "value": "Service Contracts"
+    },
+    {
+      "stable_suffix": "ZSD_ESP",
+      "label": "",
+      "value": "Reporte de precios ESP"
+    },
+    {
+      "stable_suffix": "RecentObjects__title",
+      "label": "",
+      "value": "Recent Items"
+    },
+    {
+      "stable_suffix": "1",
+      "label": "",
+      "value": "245451 Horas Assesoria SW IBM - BR"
+    },
+    {
+      "stable_suffix": "2",
+      "label": "",
+      "value": "245372 Agentes Virtuales IA para Mercadeo - BR"
+    },
+    {
+      "stable_suffix": "3",
+      "label": "",
+      "value": "242418 CÃ©lula AI Banrural - PA - TOPD"
+    },
+    {
+      "stable_suffix": "4",
+      "label": "",
+      "value": "246459 2626508 RFP Proyecto de CertificaciÃ³n Fu"
+    },
+    {
+      "stable_suffix": "5",
+      "label": "",
+      "value": "244701 Optimizar WAS - BR"
+    },
+    {
+      "stable_suffix": "ZREP_FOREC",
+      "label": "",
+      "value": "Forecast GBM"
+    },
+    {
+      "stable_suffix": "ZREP_FOREM",
+      "label": "",
+      "value": "Forecast Employee GBM"
+    },
+    {
+      "stable_suffix": "BackButton",
+      "label": "",
+      "value": "Back"
+    },
+    {
+      "stable_suffix": "thtmlb_button_2",
+      "label": "",
+      "value": "Cancel"
+    },
+    {
+      "stable_suffix": "thtmlb_button_3",
+      "label": "",
+      "value": "New"
+    },
+    {
+      "stable_suffix": "thtmlb_button_6",
+      "label": "",
+      "value": "Create Follow-Up"
+    },
+    {
+      "stable_suffix": "thtmlb_button_7",
+      "label": "",
+      "value": "Trigger Output"
+    },
+    {
+      "stable_suffix": "0001_expand_link",
+      "label": "",
+      "value": "Opportunity Details"
+    },
+    {
+      "stable_suffix": "but1",
+      "label": "",
+      "value": "Edit"
+    },
+    {
+      "stable_suffix": "thtmlb_textView_1",
+      "label": "",
+      "value": "General Data"
+    },
+    {
+      "stable_suffix": "btadminh_struct.proc_type_descr",
+      "label": "Type",
+      "value": "Opport Standard"
+    },
+    {
+      "stable_suffix": "btadminh_struct.object_id",
+      "label": "ID",
+      "value": "245451"
+    },
+    {
+      "stable_suffix": "btadminh_struct.description",
+      "label": "Description",
+      "value": "Horas Assesoria SW IBM - BR"
+    },
+    {
+      "stable_suffix": "btpartnerprospect_partnerno",
+      "label": "Prospect",
+      "value": "BANCO PROMERICA, S. A."
+    },
+    {
+      "stable_suffix": "btpartnerprospect_struct.address_short",
+      "label": "Prospect Address",
+      "value": "15 CALLE 1-04 ZONA 10 EDIF. CENTRICA PLAZA TORRE 1 NIVEL 6 /"
+    },
+    {
+      "stable_suffix": "btpartnermain_partnerno",
+      "label": "Main Contact",
+      "value": "Mr. SELVIN MORALES"
+    },
+    {
+      "stable_suffix": "btpartnerowner_partnerno",
+      "label": "Employee Responsible",
+      "value": "Ms. BIANCA PAOLA RODAS"
+    },
+    {
+      "stable_suffix": "btopporth_ext.zzfld000002",
+      "label": "Project",
+      "value": "0"
+    },
+    {
+      "stable_suffix": "thtmlb_textView_21",
+      "label": "",
+      "value": "Forecast"
+    },
+    {
+      "stable_suffix": "btadminh_ext.zzfld00000e",
+      "label": "Total Rev. Pipeline",
+      "value": "0,00"
+    },
+    {
+      "stable_suffix": "btadminh_ext.zzfld00000q",
+      "label": "Total Rev.Forecast",
+      "value": "0,00"
+    },
+    {
+      "stable_suffix": "btadminh_ext.zzfld00000r",
+      "label": "Total Rev. Best Est.",
+      "value": "0,00"
+    },
+    {
+      "stable_suffix": "btadminh_ext.zzfld00000s",
+      "label": "Total Contract Value",
+      "value": "0,00"
+    },
+    {
+      "stable_suffix": "thtmlb_textView_2",
+      "label": "",
+      "value": "Dates"
+    },
+    {
+      "stable_suffix": "btopporth_struct.startdate",
+      "label": "Start Date",
+      "value": "20.02.2026"
+    },
+    {
+      "stable_suffix": "btopporth_struct.expect_end",
+      "label": "Closing Date",
+      "value": "21.05.2026"
+    },
+    {
+      "stable_suffix": "thtmlb_textView_8",
+      "label": "",
+      "value": "Sales Cycle"
+    },
+    {
+      "stable_suffix": "btopporth_struct.curr_phase",
+      "label": "Sales Stage",
+      "value": "Quotation"
+    },
+    {
+      "stable_suffix": "btopporth_struct.sys_probability",
+      "label": "Calculated Chance",
+      "value": "0"
+    },
+    {
+      "stable_suffix": "btopporth_percent1",
+      "label": "0",
+      "value": "%"
+    },
+    {
+      "stable_suffix": "btstatus_struct.act_status",
+      "label": "Status",
+      "value": "Open"
+    },
+    {
+      "stable_suffix": "thtmlb_textView_20",
+      "label": "",
+      "value": "Classification"
+    },
+    {
+      "stable_suffix": "btopporth_struct.source",
+      "label": "Origin",
+      "value": "Sales Visit"
+    },
+    {
+      "stable_suffix": "btadminh_ext.zzfld00003x",
+      "label": "Sales Type",
+      "value": "New"
+    },
+    {
+      "stable_suffix": "0002_expand_link",
+      "label": "",
+      "value": "Block Forecast."
+    },
+    {
+      "stable_suffix": "TABLE_EDIT",
+      "label": "",
+      "value": "Edit List"
+    },
+    {
+      "stable_suffix": "0003_expand_link",
+      "label": "",
+      "value": "Items"
+    },
+    {
+      "stable_suffix": "but2",
+      "label": "",
+      "value": "Edit List"
+    },
+    {
+      "stable_suffix": "prodtable__header_bee__1",
+      "label": "",
+      "value": "Actions"
+    },
+    {
+      "stable_suffix": "prodtable__header_bee__2",
+      "label": "",
+      "value": "Item"
+    },
+    {
+      "stable_suffix": "prodtable__header_bee__3",
+      "label": "",
+      "value": "Product ID"
+    },
+    {
+      "stable_suffix": "prodtable__header_bee__4",
+      "label": "",
+      "value": "Product"
+    },
+    {
+      "stable_suffix": "prodtable__header_bee__5",
+      "label": "",
+      "value": "Category ID"
+    },
+    {
+      "stable_suffix": "prodtable__header_bee__6",
+      "label": "",
+      "value": "Category"
+    },
+    {
+      "stable_suffix": "prodtable__header_bee__7",
+      "label": "",
+      "value": "Quantity"
+    },
+    {
+      "stable_suffix": "prodtable__header_bee__8",
+      "label": "",
+      "value": "Unit"
+    },
+    {
+      "stable_suffix": "prodtable__header_bee__9",
+      "label": "",
+      "value": "Net Value"
+    },
+    {
+      "stable_suffix": "prodtable__header_bee__10",
+      "label": "",
+      "value": "Exp.Total Value"
+    },
+    {
+      "stable_suffix": "prodtable__header_bee__11",
+      "label": "",
+      "value": "Crcy"
+    },
+    {
+      "stable_suffix": "prodtable__header_bee__12",
+      "label": "",
+      "value": "Description"
+    },
+    {
+      "stable_suffix": "btadmini_table[1].numberint",
+      "label": "",
+      "value": "3"
+    },
+    {
+      "stable_suffix": "btadmini_table[1].orderedprod",
+      "label": "3",
+      "value": "E0256LL"
+    },
+    {
+      "stable_suffix": "btadmini_table[1].description",
+      "label": "E0256LL",
+      "value": "IBM MQ PROCESSOR VALUE UNIT (PVU) ANNUAL"
+    },
+    {
+      "stable_suffix": "btadmini_table[1].prodhierarchy",
+      "label": "IBM MQ PROCESSOR VALUE UNIT (PVU) ANNUAL",
+      "value": "0201010210"
+    },
+    {
+      "stable_suffix": "btadmini_table[1].prod_hierarchy_descr",
+      "label": "0201010210",
+      "value": "License Renewals IBM Websphere TS"
+    },
+    {
+      "stable_suffix": "btadmini_table[1].quantity",
+      "label": "License Renewals IBM Websphere TS",
+      "value": "1"
+    },
+    {
+      "stable_suffix": "btadmini_table[1].processqtyunit",
+      "label": "1",
+      "value": "UN"
+    },
+    {
+      "stable_suffix": "btadmini_table[1].netvalue",
+      "label": "UN",
+      "value": "25,30"
+    },
+    {
+      "stable_suffix": "btadmini_table[1].netvalueman",
+      "label": "25,30",
+      "value": "25,30"
+    },
+    {
+      "stable_suffix": "btadmini_table[1].currency",
+      "label": "25,30",
+      "value": "USD"
+    },
+    {
+      "stable_suffix": "btadmini_table[1].productdescription",
+      "label": "USD",
+      "value": "IBM MQ PROCESSOR VALUE UNIT (PVU) ANNUAL"
+    },
+    {
+      "stable_suffix": "btadmini_table[2].numberint",
+      "label": "",
+      "value": "4"
+    },
+    {
+      "stable_suffix": "btadmini_table[2].orderedprod",
+      "label": "4",
+      "value": "E02HKLL"
+    },
+    {
+      "stable_suffix": "btadmini_table[2].description",
+      "label": "E02HKLL",
+      "value": "IBM WEBSPHERE APPLICATION SERVER - EXPRE"
+    },
+    {
+      "stable_suffix": "btadmini_table[2].prodhierarchy",
+      "label": "IBM WEBSPHERE APPLICATION SERVER - EXPRE",
+      "value": "0201010210"
+    },
+    {
+      "stable_suffix": "btadmini_table[2].prod_hierarchy_descr",
+      "label": "0201010210",
+      "value": "License Renewals IBM Websphere TS"
+    },
+    {
+      "stable_suffix": "btadmini_table[2].quantity",
+      "label": "License Renewals IBM Websphere TS",
+      "value": "1"
+    },
+    {
+      "stable_suffix": "btadmini_table[2].processqtyunit",
+      "label": "1",
+      "value": "UN"
+    },
+    {
+      "stable_suffix": "btadmini_table[2].netvalue",
+      "label": "UN",
+      "value": "8,40"
+    },
+    {
+      "stable_suffix": "btadmini_table[2].netvalueman",
+      "label": "8,40",
+      "value": "8,40"
+    },
+    {
+      "stable_suffix": "btadmini_table[2].currency",
+      "label": "8,40",
+      "value": "USD"
+    },
+    {
+      "stable_suffix": "btadmini_table[2].productdescription",
+      "label": "USD",
+      "value": "IBM WEBSPHERE APPLICATION SERVER - EXPRE"
+    },
+    {
+      "stable_suffix": "btadmini_table[3].numberint",
+      "label": "",
+      "value": "5"
+    },
+    {
+      "stable_suffix": "btadmini_table[3].orderedprod",
+      "label": "5",
+      "value": "E0256LL"
+    },
+    {
+      "stable_suffix": "btadmini_table[3].description",
+      "label": "E0256LL",
+      "value": "IBM MQ PROCESSOR VALUE UNIT (PVU) ANNUAL"
+    },
+    {
+      "stable_suffix": "btadmini_table[3].prodhierarchy",
+      "label": "IBM MQ PROCESSOR VALUE UNIT (PVU) ANNUAL",
+      "value": "0201010210"
+    },
+    {
+      "stable_suffix": "btadmini_table[3].prod_hierarchy_descr",
+      "label": "0201010210",
+      "value": "License Renewals IBM Websphere TS"
+    },
+    {
+      "stable_suffix": "btadmini_table[3].quantity",
+      "label": "License Renewals IBM Websphere TS",
+      "value": "1"
+    },
+    {
+      "stable_suffix": "btadmini_table[3].processqtyunit",
+      "label": "1",
+      "value": "UN"
+    },
+    {
+      "stable_suffix": "btadmini_table[3].netvalue",
+      "label": "UN",
+      "value": "25,30"
+    },
+    {
+      "stable_suffix": "btadmini_table[3].netvalueman",
+      "label": "25,30",
+      "value": "25,30"
+    },
+    {
+      "stable_suffix": "btadmini_table[3].currency",
+      "label": "25,30",
+      "value": "USD"
+    },
+    {
+      "stable_suffix": "btadmini_table[3].productdescription",
+      "label": "USD",
+      "value": "IBM MQ PROCESSOR VALUE UNIT (PVU) ANNUAL"
+    },
+    {
+      "stable_suffix": "btadmini_table[4].numberint",
+      "label": "",
+      "value": "6"
+    },
+    {
+      "stable_suffix": "btadmini_table[4].orderedprod",
+      "label": "6",
+      "value": "E02HKLL"
+    },
+    {
+      "stable_suffix": "btadmini_table[4].description",
+      "label": "E02HKLL",
+      "value": "IBM WEBSPHERE APPLICATION SERVER - EXPRE"
+    },
+    {
+      "stable_suffix": "btadmini_table[4].prodhierarchy",
+      "label": "IBM WEBSPHERE APPLICATION SERVER - EXPRE",
+      "value": "0201010210"
+    },
+    {
+      "stable_suffix": "btadmini_table[4].prod_hierarchy_descr",
+      "label": "0201010210",
+      "value": "License Renewals IBM Websphere TS"
+    },
+    {
+      "stable_suffix": "btadmini_table[4].quantity",
+      "label": "License Renewals IBM Websphere TS",
+      "value": "1"
+    },
+    {
+      "stable_suffix": "btadmini_table[4].processqtyunit",
+      "label": "1",
+      "value": "UN"
+    },
+    {
+      "stable_suffix": "btadmini_table[4].netvalue",
+      "label": "UN",
+      "value": "8,40"
+    },
+    {
+      "stable_suffix": "btadmini_table[4].netvalueman",
+      "label": "8,40",
+      "value": "8,40"
+    },
+    {
+      "stable_suffix": "btadmini_table[4].currency",
+      "label": "8,40",
+      "value": "USD"
+    },
+    {
+      "stable_suffix": "btadmini_table[4].productdescription",
+      "label": "USD",
+      "value": "IBM WEBSPHERE APPLICATION SERVER - EXPRE"
+    },
+    {
+      "stable_suffix": "0005_expand_link",
+      "label": "",
+      "value": "Contacts"
+    },
+    {
+      "stable_suffix": "Table__header_bee__1",
+      "label": "",
+      "value": "Actions"
+    },
+    {
+      "stable_suffix": "Table__header_bee__2",
+      "label": "",
+      "value": "Function"
+    },
+    {
+      "stable_suffix": "Table__header_bee__3",
+      "label": "",
+      "value": "Name"
+    },
+    {
+      "stable_suffix": "Table__header_bee__4",
+      "label": "",
+      "value": "Phone"
+    },
+    {
+      "stable_suffix": "Table__header_bee__5",
+      "label": "",
+      "value": "E-Mail"
+    },
+    {
+      "stable_suffix": "Table__header_bee__6",
+      "label": "",
+      "value": "Main Contact"
+    },
+    {
+      "stable_suffix": "btpartner_table[1].partnerfct",
+      "label": "",
+      "value": "Contact Person"
+    },
+    {
+      "stable_suffix": "btpartner_table[1].partnerno",
+      "label": "Contact Person",
+      "value": "Mr. SELVIN MORALES"
+    },
+    {
+      "stable_suffix": "btpartner_table[1].tel_no",
+      "label": "Mr. SELVIN MORALES",
+      "value": "+50224139400"
+    },
+    {
+      "stable_suffix": "btpartner_table[1].e_mail",
+      "label": "+50224139400",
+      "value": "selvin.morales@bancopromerica.com.gt"
+    },
+    {
+      "stable_suffix": "0007_expand_link",
+      "label": "",
+      "value": "Competitors"
+    },
+    {
+      "stable_suffix": "0010_expand_link",
+      "label": "",
+      "value": "Sales Team"
+    },
+    {
+      "stable_suffix": "Salesteam__header_bee__1",
+      "label": "",
+      "value": "Actions"
+    },
+    {
+      "stable_suffix": "Salesteam__header_bee__2",
+      "label": "",
+      "value": "Function"
+    },
+    {
+      "stable_suffix": "Salesteam__header_bee__3",
+      "label": "",
+      "value": "Name"
+    },
+    {
+      "stable_suffix": "Salesteam__header_bee__4",
+      "label": "",
+      "value": "Phone"
+    },
+    {
+      "stable_suffix": "Salesteam__header_bee__5",
+      "label": "",
+      "value": "Extension"
+    },
+    {
+      "stable_suffix": "Salesteam__header_bee__6",
+      "label": "",
+      "value": "E-Mail"
+    },
+    {
+      "stable_suffix": "Salesteam__header_bee__7",
+      "label": "",
+      "value": "Position"
+    },
+    {
+      "stable_suffix": "Salesteam__header_bee__8",
+      "label": "",
+      "value": "Personnel No."
+    },
+    {
+      "stable_suffix": "btpartner_table[1].partner_fct",
+      "label": "",
+      "value": "Sales Representative"
+    },
+    {
+      "stable_suffix": "btpartner_table[1].partner_descr",
+      "label": "Sales Representative",
+      "value": "Mr. PABLO ESTUARDO ARROYAVE"
+    },
+    {
+      "stable_suffix": "btpartner_table[1].tel1_numbr",
+      "label": "Mr. PABLO ESTUARDO ARROYAVE",
+      "value": "2424-2222"
+    },
+    {
+      "stable_suffix": "btpartner_table[1].email",
+      "label": "",
+      "value": "PARROYAVE@GBM.NET"
+    },
+    {
+      "stable_suffix": "btpartner_table[1].position",
+      "label": "PARROYAVE@GBM.NET",
+      "value": "Account Manager"
+    },
+    {
+      "stable_suffix": "btpartner_table[1].persnumber",
+      "label": "Account Manager",
+      "value": "201010"
+    },
+    {
+      "stable_suffix": "btpartner_table[2].partner_fct",
+      "label": "",
+      "value": "Employee Responsible"
+    },
+    {
+      "stable_suffix": "btpartner_table[2].partner_descr",
+      "label": "Employee Responsible",
+      "value": "Ms. BIANCA PAOLA RODAS"
+    },
+    {
+      "stable_suffix": "btpartner_table[2].tel1_numbr",
+      "label": "Ms. BIANCA PAOLA RODAS",
+      "value": "41221876"
+    },
+    {
+      "stable_suffix": "btpartner_table[2].email",
+      "label": "",
+      "value": "BRODAS@GBM.NET"
+    },
+    {
+      "stable_suffix": "btpartner_table[2].persnumber",
+      "label": "",
+      "value": "20000145"
+    },
+    {
+      "stable_suffix": "btpartner_table[3].partner_fct",
+      "label": "",
+      "value": "Customer Success Exec. BP"
+    },
+    {
+      "stable_suffix": "btpartner_table[3].partner_descr",
+      "label": "Customer Success Exec. BP",
+      "value": "Ms. ANA HELEN FRANCO"
+    },
+    {
+      "stable_suffix": "btpartner_table[3].position",
+      "label": "",
+      "value": "Virtualization & System X"
+    },
+    {
+      "stable_suffix": "btpartner_table[3].persnumber",
+      "label": "Virtualization & System X",
+      "value": "20000050"
+    },
+    {
+      "stable_suffix": "0011_expand_link",
+      "label": "",
+      "value": "Planned Activities"
+    },
+    {
+      "stable_suffix": "0012_expand_link",
+      "label": "",
+      "value": "Completed Activities"
+    },
+    {
+      "stable_suffix": "0013_expand_link",
+      "label": "",
+      "value": "Transaction History"
+    },
+    {
+      "stable_suffix": "btdocflow_table[1].id_description",
+      "label": "",
+      "value": "eccc7aa0-0eb1-11f1-bde9-e5daf5c3d6ca"
+    },
+    {
+      "stable_suffix": "btdocflow_table[1].process_type_des",
+      "label": "eccc7aa0-0eb1-11f1-bde9-e5daf5c3d6ca",
+      "value": "CRM Opportunity"
+    },
+    {
+      "stable_suffix": "btdocflow_table[1].posting_date",
+      "label": "CRM Opportunity",
+      "value": "20.02.2026"
+    },
+    {
+      "stable_suffix": "0014_expand_link",
+      "label": "",
+      "value": "Attachments"
+    },
+    {
+      "stable_suffix": "newDoc",
+      "label": "",
+      "value": "Attachment"
+    },
+    {
+      "stable_suffix": "newUrl",
+      "label": "",
+      "value": "URL"
+    },
+    {
+      "stable_suffix": "newWithTemplate",
+      "label": "",
+      "value": "With Template"
+    },
+    {
+      "stable_suffix": "Download",
+      "label": "",
+      "value": "Download"
+    },
+    {
+      "stable_suffix": "advanced",
+      "label": "",
+      "value": "Advanced"
+    },
+    {
+      "stable_suffix": "upload_browse",
+      "label": "Upload Document(s) From Local Hard Disk",
+      "value": "Browse"
+    },
+    {
+      "stable_suffix": "upload_uploadvis",
+      "label": "Upload Document(s) From Local Hard Disk",
+      "value": "Upload"
+    },
+    {
+      "stable_suffix": "0015_expand_link",
+      "label": "",
+      "value": "Assessments"
+    },
+    {
+      "stable_suffix": "SurveyTable__header_bee__1",
+      "label": "",
+      "value": "Actions"
+    },
+    {
+      "stable_suffix": "SurveyTable__header_bee__2",
+      "label": "",
+      "value": "ID"
+    },
+    {
+      "stable_suffix": "SurveyTable__header_bee__3",
+      "label": "",
+      "value": "Description"
+    },
+    {
+      "stable_suffix": "SurveyTable__header_bee__4",
+      "label": "",
+      "value": "Version"
+    },
+    {
+      "stable_suffix": "surveyui_table[1].surveyid_info_text",
+      "label": "",
+      "value": "OPPT_STANDARD"
+    },
+    {
+      "stable_suffix": "surveyui_table[1].desc_short",
+      "label": "OPPT_STANDARD",
+      "value": "OPPT Estandard"
+    },
+    {
+      "stable_suffix": "0016_expand_link",
+      "label": "",
+      "value": "Notes"
+    },
+    {
+      "stable_suffix": "New",
+      "label": "",
+      "value": "New"
+    },
+    {
+      "stable_suffix": "TextList__header_bee__1",
+      "label": "",
+      "value": "Actions"
+    },
+    {
+      "stable_suffix": "TextList__header_bee__2",
+      "label": "",
+      "value": "Text Type"
+    },
+    {
+      "stable_suffix": "TextList__header_bee__3",
+      "label": "",
+      "value": "Text"
+    },
+    {
+      "stable_suffix": "TextList__header_bee__4",
+      "label": "",
+      "value": "Language"
+    },
+    {
+      "stable_suffix": "text_table[1].ident",
+      "label": "",
+      "value": "Note"
+    },
+    {
+      "stable_suffix": "text_table[1].langu",
+      "label": "",
+      "value": "English"
+    },
+    {
+      "stable_suffix": "0018_expand_link",
+      "label": "",
+      "value": "Sales Stage History"
+    },
+    {
+      "stable_suffix": "SlsStageHist__header_bee__1",
+      "label": "",
+      "value": "Sales Stage"
+    },
+    {
+      "stable_suffix": "SlsStageHist__header_bee__2",
+      "label": "",
+      "value": "Start Date"
+    },
+    {
+      "stable_suffix": "SlsStageHist__header_bee__3",
+      "label": "",
+      "value": "End Date"
+    },
+    {
+      "stable_suffix": "SlsStageHist__header_bee__4",
+      "label": "",
+      "value": "Duration (Days)"
+    },
+    {
+      "stable_suffix": "SlsStageHist__header_bee__5",
+      "label": "",
+      "value": "Chance of Success"
+    },
+    {
+      "stable_suffix": "SlsStageHist__header_bee__6",
+      "label": "",
+      "value": "Exp. Sales Volume"
+    },
+    {
+      "stable_suffix": "SlsStageHist__header_bee__7",
+      "label": "",
+      "value": "Crcy"
+    },
+    {
+      "stable_suffix": "SlsStageHist__header_bee__8",
+      "label": "",
+      "value": "Closing Date"
+    },
+    {
+      "stable_suffix": "SlsStageHist__header_bee__9",
+      "label": "",
+      "value": "Last Modified"
+    },
+    {
+      "stable_suffix": "slsstagehist_table[1].sls_stage",
+      "label": "",
+      "value": "Quotation"
+    },
+    {
+      "stable_suffix": "slsstagehist_table[1].start_date",
+      "label": "Quotation",
+      "value": "20.02.2026"
+    },
+    {
+      "stable_suffix": "slsstagehist_table[1].duration",
+      "label": "",
+      "value": "90"
+    },
+    {
+      "stable_suffix": "slsstagehist_table[1].chance_success",
+      "label": "90",
+      "value": "50%"
+    },
+    {
+      "stable_suffix": "slsstagehist_table[1].exp_sls_volume",
+      "label": "50%",
+      "value": "3.600,00"
+    },
+    {
+      "stable_suffix": "slsstagehist_table[1].currency",
+      "label": "3.600,00",
+      "value": "USD"
+    },
+    {
+      "stable_suffix": "slsstagehist_table[1].closing_date",
+      "label": "USD",
+      "value": "21.05.2026"
+    },
+    {
+      "stable_suffix": "slsstagehist_table[1].last_modified",
+      "label": "21.05.2026",
+      "value": "15809a6d-4c6, 02.03.2026, 14:08:30"
+    },
+    {
+      "stable_suffix": "0023_expand_link",
+      "label": "",
+      "value": "Organizational Data"
+    },
+    {
+      "stable_suffix": "btorgset_struct.sales_org_resp_short",
+      "label": "Sales Org. Unit",
+      "value": "DI_GT"
+    },
+    {
+      "stable_suffix": "btorgset_sales_org_unit_desc",
+      "label": "DI_GT",
+      "value": "GBM Direct GT"
+    },
+    {
+      "stable_suffix": "btorgset_struct.sales_org_short",
+      "label": "Sales Organization",
+      "value": "GBMGT"
+    },
+    {
+      "stable_suffix": "btorgset_sales_org_desc",
+      "label": "GBMGT",
+      "value": "Sales Organization Guatemala"
+    },
+    {
+      "stable_suffix": "btorgset_struct.dis_channel",
+      "label": "Distribution Channel",
+      "value": "10"
+    },
+    {
+      "stable_suffix": "btorgset_distri_channel_desc",
+      "label": "10",
+      "value": "GBM"
+    },
+    {
+      "stable_suffix": "btorgset_struct.division",
+      "label": "Division",
+      "value": "01"
+    },
+    {
+      "stable_suffix": "btorgset_division_desc",
+      "label": "01",
+      "value": "GBM"
+    },
+    {
+      "stable_suffix": "btorgset_struct.sales_office_short",
+      "label": "Sales Office",
+      "value": "OFF-GT"
+    },
+    {
+      "stable_suffix": "btorgset_sales_office_desc",
+      "label": "OFF-GT",
+      "value": "GuatemalaÂ´s Office"
+    },
+    {
+      "stable_suffix": "btorgset_struct.sales_group_short",
+      "label": "Sales Group",
+      "value": "DI_GT"
+    },
+    {
+      "stable_suffix": "btorgset_sales_group_desc",
+      "label": "DI_GT",
+      "value": "GBM Direct GT"
+    },
+    {
+      "stable_suffix": "btorgset_struct.service_org_resp_short",
+      "label": "Service Org. Unit",
+      "value": "O50003644"
+    },
+    {
+      "stable_suffix": "btorgset_serv_org_unit_desc",
+      "label": "O50003644",
+      "value": "Regional Software Services"
+    },
+    {
+      "stable_suffix": "btorgset_struct.service_org_short",
+      "label": "Service Organization",
+      "value": "O50003644"
+    },
+    {
+      "stable_suffix": "btorgset_serv_org_desc",
+      "label": "O50003644",
+      "value": "Regional Software Services"
+    },
+    {
+      "stable_suffix": "0024_expand_link",
+      "label": "",
+      "value": "Price Totals"
+    },
+    {
+      "stable_suffix": "add",
+      "label": "",
+      "value": "Add"
+    },
+    {
+      "stable_suffix": "editlist",
+      "label": "",
+      "value": "Edit List"
+    },
+    {
+      "stable_suffix": "Table1__header_bee__1",
+      "label": "",
+      "value": "Actions"
+    },
+    {
+      "stable_suffix": "Table1__header_bee__2",
+      "label": "",
+      "value": "Status"
+    },
+    {
+      "stable_suffix": "Table1__header_bee__3",
+      "label": "",
+      "value": "Price Element"
+    },
+    {
+      "stable_suffix": "Table1__header_bee__4",
+      "label": "",
+      "value": "Price"
+    },
+    {
+      "stable_suffix": "Table1__header_bee__5",
+      "label": "",
+      "value": "Unit"
+    },
+    {
+      "stable_suffix": "Table1__header_bee__6",
+      "label": "",
+      "value": "Price Unit"
+    },
+    {
+      "stable_suffix": "Table1__header_bee__7",
+      "label": "",
+      "value": "UoM"
+    },
+    {
+      "stable_suffix": "Table1__header_bee__8",
+      "label": "",
+      "value": "End Value"
+    },
+    {
+      "stable_suffix": "Table1__header_bee__9",
+      "label": "",
+      "value": "Currency"
+    },
+    {
+      "stable_suffix": "condline_table[1].vtext",
+      "label": "",
+      "value": "Price GBM"
+    },
+    {
+      "stable_suffix": "condline_table[1].kpein",
+      "label": "",
+      "value": "0"
+    },
+    {
+      "stable_suffix": "condline_table[1].kwert_prt",
+      "label": "",
+      "value": "67,40"
+    },
+    {
+      "stable_suffix": "condline_table[1].waerk",
+      "label": "67,40",
+      "value": "USD"
+    },
+    {
+      "stable_suffix": "0025_expand_link",
+      "label": "",
+      "value": "Status"
+    },
+    {
+      "stable_suffix": "btstatus_table[1].txt30",
+      "label": "",
+      "value": "Open"
+    },
+    {
+      "stable_suffix": "btstatus_table[1].uname",
+      "label": "Open",
+      "value": "USERJOB"
+    },
+    {
+      "stable_suffix": "btstatus_table[1].datum",
+      "label": "USERJOB",
+      "value": "20.02.2026"
+    },
+    {
+      "stable_suffix": "btstatus_table[1].uzeit",
+      "label": "20.02.2026",
+      "value": "18:16"
+    }
+  ],
+  "buttons": [
+    {
+      "text": "Cancel",
+      "stable_suffix": "thCancelSIP",
+      "id_sample": "thCancelSIP"
+    },
+    {
+      "text": "Personalize",
+      "stable_suffix": "PERSONALIZE",
+      "id_sample": "PERSONALIZE"
+    },
+    {
+      "text": "System News",
+      "stable_suffix": "SYSMSG",
+      "id_sample": "SYSMSG"
+    },
+    {
+      "text": "Log Off",
+      "stable_suffix": "LOGOFF",
+      "id_sample": "LOGOFF"
+    },
+    {
+      "text": "Cancel",
+      "stable_suffix": "thCancelSIP",
+      "id_sample": "thCancelSIP"
+    },
+    {
+      "text": "Saved Searches",
+      "stable_suffix": "SearchMenuAnchor1",
+      "id_sample": "C12_W37_V38_SearchMenuAnchor1"
+    },
+    {
+      "text": "Home",
+      "stable_suffix": "SLS-HOME",
+      "id_sample": "C4_W16_V17_SLS-HOME"
+    },
+    {
+      "text": "Account Management",
+      "stable_suffix": "SLS-ACC",
+      "id_sample": "C4_W16_V17_SLS-ACC"
+    },
+    {
+      "text": "Accounts",
+      "stable_suffix": "MD-BP-SR",
+      "id_sample": "C4_W16_V17_MD-BP-SR"
+    },
+    {
+      "text": "Contacts",
+      "stable_suffix": "MD-CONP-SR",
+      "id_sample": "C4_W16_V17_MD-CONP-SR"
+    },
+    {
+      "text": "Contact",
+      "stable_suffix": "MD-CONP-CR",
+      "id_sample": "C4_W16_V17_MD-CONP-CR"
+    },
+    {
+      "text": "Activities",
+      "stable_suffix": "SLS-ACT",
+      "id_sample": "C4_W16_V17_SLS-ACT"
+    },
+    {
+      "text": "Activity Scheduling",
+      "stable_suffix": "SLS-ACS-CR",
+      "id_sample": "C4_W16_V17_SLS-ACS-CR"
+    },
+    {
+      "text": "Visit Plans",
+      "stable_suffix": "SLS-VP-SR",
+      "id_sample": "C4_W16_V17_SLS-VP-SR"
+    },
+    {
+      "text": "Appointment",
+      "stable_suffix": "SLS-APP-CR",
+      "id_sample": "C4_W16_V17_SLS-APP-CR"
+    },
+    {
+      "text": "E-Mail",
+      "stable_suffix": "SLS-MAI-CR",
+      "id_sample": "C4_W16_V17_SLS-MAI-CR"
+    },
+    {
+      "text": "Task",
+      "stable_suffix": "SLS-TSK-CR",
+      "id_sample": "C4_W16_V17_SLS-TSK-CR"
+    },
+    {
+      "text": "Visit Plan",
+      "stable_suffix": "SLS-VP-CR",
+      "id_sample": "C4_W16_V17_SLS-VP-CR"
+    },
+    {
+      "text": "Sales Cycle",
+      "stable_suffix": "SLS-CYCLE",
+      "id_sample": "C4_W16_V17_SLS-CYCLE"
+    },
+    {
+      "text": "Sales Planning",
+      "stable_suffix": "SLS-CYC-SP",
+      "id_sample": "C4_W16_V17_SLS-CYC-SP"
+    },
+    {
+      "text": "Campaigns",
+      "stable_suffix": "MKT-CP-SR",
+      "id_sample": "C4_W16_V17_MKT-CP-SR"
+    },
+    {
+      "text": "Leads",
+      "stable_suffix": "MKT-LEA-SR",
+      "id_sample": "C4_W16_V17_MKT-LEA-SR"
+    },
+    {
+      "text": "Opportunities",
+      "stable_suffix": "SLS-OPP-SR",
+      "id_sample": "C4_W16_V17_SLS-OPP-SR"
+    },
+    {
+      "text": "Quotations",
+      "stable_suffix": "SLS-QUT-SR",
+      "id_sample": "C4_W16_V17_SLS-QUT-SR"
+    },
+    {
+      "text": "Sales Orders",
+      "stable_suffix": "SLS-SLO-SR",
+      "id_sample": "C4_W16_V17_SLS-SLO-SR"
+    },
+    {
+      "text": "Opportunity",
+      "stable_suffix": "SLS-OPP-CR",
+      "id_sample": "C4_W16_V17_SLS-OPP-CR"
+    },
+    {
+      "text": "Lead",
+      "stable_suffix": "MKT-LEA-CR",
+      "id_sample": "C4_W16_V17_MKT-LEA-CR"
+    },
+    {
+      "text": "Master Data",
+      "stable_suffix": "MD-ALL",
+      "id_sample": "C4_W16_V17_MD-ALL"
+    },
+    {
+      "text": "Employees",
+      "stable_suffix": "MD-EMPL-SR",
+      "id_sample": "C4_W16_V17_MD-EMPL-SR"
+    },
+    {
+      "text": "Account Hierarchies",
+      "stable_suffix": "MD-BPH-SR",
+      "id_sample": "C4_W16_V17_MD-BPH-SR"
+    },
+    {
+      "text": "Objects",
+      "stable_suffix": "MD-IOBJ-SR",
+      "id_sample": "C4_W16_V17_MD-IOBJ-SR"
+    },
+    {
+      "text": "Installed Bases",
+      "stable_suffix": "MD-INB-SR",
+      "id_sample": "C4_W16_V17_MD-INB-SR"
+    },
+    {
+      "text": "Warranties",
+      "stable_suffix": "MD-WARR-SR",
+      "id_sample": "C4_W16_V17_MD-WARR-SR"
+    },
+    {
+      "text": "Products",
+      "stable_suffix": "MD-MAT-SR",
+      "id_sample": "C4_W16_V17_MD-MAT-SR"
+    },
+    {
+      "text": "Services",
+      "stable_suffix": "MD-SERV-SR",
+      "id_sample": "C4_W16_V17_MD-SERV-SR"
+    },
+    {
+      "text": "Service Orders",
+      "stable_suffix": "SRV-ORD",
+      "id_sample": "C4_W16_V17_SRV-ORD"
+    },
+    {
+      "text": "Service Order Quotations",
+      "stable_suffix": "SRV-QOT-SR",
+      "id_sample": "C4_W16_V17_SRV-QOT-SR"
+    },
+    {
+      "text": "Service Contracts",
+      "stable_suffix": "SRV-CONTR",
+      "id_sample": "C4_W16_V17_SRV-CONTR"
+    },
+    {
+      "text": "Service Contract Quotations",
+      "stable_suffix": "SRV-SCQ-SR",
+      "id_sample": "C4_W16_V17_SRV-SCQ-SR"
+    },
+    {
+      "text": "Service Agreement",
+      "stable_suffix": "SRV-SAG-CR",
+      "id_sample": "C4_W16_V17_SRV-SAG-CR"
+    },
+    {
+      "text": "Service Agreements",
+      "stable_suffix": "SRV-SAG-SR",
+      "id_sample": "C4_W16_V17_SRV-SAG-SR"
+    },
+    {
+      "text": "Reporte de precios ESP",
+      "stable_suffix": "ZSD_ESP",
+      "id_sample": "C5_W18_V19_ZSD_ESP"
+    },
+    {
+      "text": "Recent Items",
+      "stable_suffix": "RecentObjects__title",
+      "id_sample": "C6_W23_V24_RecentObjects__title"
+    },
+    {
+      "text": "245451 Horas Assesoria SW IBM - BR",
+      "stable_suffix": "1",
+      "id_sample": "C6_W23_V24_1"
+    },
+    {
+      "text": "245372 Agentes Virtuales IA para Mercadeo - BR",
+      "stable_suffix": "2",
+      "id_sample": "C6_W23_V24_2"
+    },
+    {
+      "text": "242418 CÃ©lula AI Banrural - PA - TOPD",
+      "stable_suffix": "3",
+      "id_sample": "C6_W23_V24_3"
+    },
+    {
+      "text": "246459 2626508 RFP Proyecto de CertificaciÃ³n Fu",
+      "stable_suffix": "4",
+      "id_sample": "C6_W23_V24_4"
+    },
+    {
+      "text": "244701 Optimizar WAS - BR",
+      "stable_suffix": "5",
+      "id_sample": "C6_W23_V24_5"
+    },
+    {
+      "text": "Forecast GBM",
+      "stable_suffix": "ZREP_FOREC",
+      "id_sample": "C5_W18_V19_ZREP_FOREC"
+    },
+    {
+      "text": "Forecast Employee GBM",
+      "stable_suffix": "ZREP_FOREM",
+      "id_sample": "C5_W18_V19_ZREP_FOREM"
+    },
+    {
+      "text": "Back",
+      "stable_suffix": "BackButton",
+      "id_sample": "BackButton"
+    },
+    {
+      "text": "New",
+      "stable_suffix": "thtmlb_button_3",
+      "id_sample": "C23_W71_V73_thtmlb_button_3"
+    },
+    {
+      "text": "Create Follow-Up",
+      "stable_suffix": "thtmlb_button_6",
+      "id_sample": "C23_W71_V73_thtmlb_button_6"
+    },
+    {
+      "text": "Trigger Output",
+      "stable_suffix": "thtmlb_button_7",
+      "id_sample": "C23_W71_V73_thtmlb_button_7"
+    },
+    {
+      "text": "Preview Output",
+      "stable_suffix": "but_1",
+      "id_sample": "C23_W71_V73_but_1"
+    },
+    {
+      "text": "Sales Assistant",
+      "stable_suffix": "but_3",
+      "id_sample": "C23_W71_V73_but_3"
+    },
+    {
+      "text": "Distribute",
+      "stable_suffix": "but_4",
+      "id_sample": "C23_W71_V73_but_4"
+    },
+    {
+      "text": "Redetermine Partners",
+      "stable_suffix": "but_5",
+      "id_sample": "C23_W71_V73_but_5"
+    },
+    {
+      "text": "Opportunity Details",
+      "stable_suffix": "0001_expand_link",
+      "id_sample": "C23_W71_V73_0001_expand_link"
+    },
+    {
+      "text": "Edit",
+      "stable_suffix": "but1",
+      "id_sample": "C23_W71_V73_V75_but1"
+    },
+    {
+      "text": "BANCO PROMERICA, S. A.",
+      "stable_suffix": "btpartnerprospect_partnerno",
+      "id_sample": "C23_W71_V73_V75_V76_btpartnerprospect_partnerno"
+    },
+    {
+      "text": "Mr. SELVIN MORALES",
+      "stable_suffix": "btpartnermain_partnerno",
+      "id_sample": "C23_W71_V73_V75_V76_btpartnermain_partnerno"
+    },
+    {
+      "text": "Ms. BIANCA PAOLA RODAS",
+      "stable_suffix": "btpartnerowner_partnerno",
+      "id_sample": "C23_W71_V73_V75_V76_btpartnerowner_partnerno"
+    },
+    {
+      "text": "Block Forecast.",
+      "stable_suffix": "0002_expand_link",
+      "id_sample": "C23_W71_V73_0002_expand_link"
+    },
+    {
+      "text": "Edit List",
+      "stable_suffix": "TABLE_EDIT",
+      "id_sample": "C27_W81_V82_TABLE_EDIT"
+    },
+    {
+      "text": "Items",
+      "stable_suffix": "0003_expand_link",
+      "id_sample": "C23_W71_V73_0003_expand_link"
+    },
+    {
+      "text": "3",
+      "stable_suffix": "btadmini_table[1].numberint",
+      "id_sample": "C23_W71_V73_V83_btadmini_table[1].numberint"
+    },
+    {
+      "text": "IBM MQ PROCESSOR VALUE UNIT (PVU) ANNUAL",
+      "stable_suffix": "btadmini_table[1].description",
+      "id_sample": "C23_W71_V73_V83_btadmini_table[1].description"
+    },
+    {
+      "text": "4",
+      "stable_suffix": "btadmini_table[2].numberint",
+      "id_sample": "C23_W71_V73_V83_btadmini_table[2].numberint"
+    },
+    {
+      "text": "IBM WEBSPHERE APPLICATION SERVER - EXPRE",
+      "stable_suffix": "btadmini_table[2].description",
+      "id_sample": "C23_W71_V73_V83_btadmini_table[2].description"
+    },
+    {
+      "text": "5",
+      "stable_suffix": "btadmini_table[3].numberint",
+      "id_sample": "C23_W71_V73_V83_btadmini_table[3].numberint"
+    },
+    {
+      "text": "6",
+      "stable_suffix": "btadmini_table[4].numberint",
+      "id_sample": "C23_W71_V73_V83_btadmini_table[4].numberint"
+    },
+    {
+      "text": "selvin.morales@bancopromerica.com.gt",
+      "stable_suffix": "btpartner_table[1].e_mail",
+      "id_sample": "C23_W71_V73_V84_btpartner_table[1].e_mail"
+    },
+    {
+      "text": "Competitors",
+      "stable_suffix": "0007_expand_link",
+      "id_sample": "C23_W71_V73_0007_expand_link"
+    },
+    {
+      "text": "Sales Team",
+      "stable_suffix": "0010_expand_link",
+      "id_sample": "C23_W71_V73_0010_expand_link"
+    },
+    {
+      "text": "Mr. PABLO ESTUARDO ARROYAVE",
+      "stable_suffix": "btpartner_table[1].partner_descr",
+      "id_sample": "C23_W71_V73_V86_btpartner_table[1].partner_descr"
+    },
+    {
+      "text": "PARROYAVE@GBM.NET",
+      "stable_suffix": "btpartner_table[1].email",
+      "id_sample": "C23_W71_V73_V86_btpartner_table[1].email"
+    },
+    {
+      "text": "BRODAS@GBM.NET",
+      "stable_suffix": "btpartner_table[2].email",
+      "id_sample": "C23_W71_V73_V86_btpartner_table[2].email"
+    },
+    {
+      "text": "Ms. ANA HELEN FRANCO",
+      "stable_suffix": "btpartner_table[3].partner_descr",
+      "id_sample": "C23_W71_V73_V86_btpartner_table[3].partner_descr"
+    },
+    {
+      "text": "Planned Activities",
+      "stable_suffix": "0011_expand_link",
+      "id_sample": "C23_W71_V73_0011_expand_link"
+    },
+    {
+      "text": "Completed Activities",
+      "stable_suffix": "0012_expand_link",
+      "id_sample": "C23_W71_V73_0012_expand_link"
+    },
+    {
+      "text": "Transaction History",
+      "stable_suffix": "0013_expand_link",
+      "id_sample": "C23_W71_V73_0013_expand_link"
+    },
+    {
+      "text": "Subsequent Assignment",
+      "stable_suffix": "but1",
+      "id_sample": "C31_W103_V170_but1"
+    },
+    {
+      "text": "eccc7aa0-0eb1-11f1-bde9-e5daf5c3d6ca",
+      "stable_suffix": "btdocflow_table[1].id_description",
+      "id_sample": "C31_W103_V170_btdocflow_table[1].id_description"
+    },
+    {
+      "text": "Attachments",
+      "stable_suffix": "0014_expand_link",
+      "id_sample": "C23_W71_V73_0014_expand_link"
+    },
+    {
+      "text": "Attachment",
+      "stable_suffix": "newDoc",
+      "id_sample": "C68_W166_V167_newDoc"
+    },
+    {
+      "text": "URL",
+      "stable_suffix": "newUrl",
+      "id_sample": "C68_W166_V167_newUrl"
+    },
+    {
+      "text": "Advanced",
+      "stable_suffix": "advanced",
+      "id_sample": "C68_W166_V167_advanced"
+    },
+    {
+      "text": "No text",
+      "stable_suffix": "Refresh",
+      "id_sample": "C68_W166_V167_Refresh"
+    },
+    {
+      "text": "Browse",
+      "stable_suffix": "upload_browse",
+      "id_sample": "C68_W166_V167_upload_browse"
+    },
+    {
+      "text": "Upload",
+      "stable_suffix": "upload_uploadvis",
+      "id_sample": "C68_W166_V167_upload_uploadvis"
+    },
+    {
+      "text": "Assessments",
+      "stable_suffix": "0015_expand_link",
+      "id_sample": "C23_W71_V73_0015_expand_link"
+    },
+    {
+      "text": "OPPT_STANDARD",
+      "stable_suffix": "surveyui_table[1].surveyid_info_text",
+      "id_sample": "C28_W89_V90_surveyui_table[1].surveyid_info_text"
+    },
+    {
+      "text": "Notes",
+      "stable_suffix": "0016_expand_link",
+      "id_sample": "C23_W71_V73_0016_expand_link"
+    },
+    {
+      "text": "Sales Stage History",
+      "stable_suffix": "0018_expand_link",
+      "id_sample": "C23_W71_V73_0018_expand_link"
+    },
+    {
+      "text": "Organizational Data",
+      "stable_suffix": "0023_expand_link",
+      "id_sample": "C23_W71_V73_0023_expand_link"
+    },
+    {
+      "text": "Price Totals",
+      "stable_suffix": "0024_expand_link",
+      "id_sample": "C23_W71_V73_0024_expand_link"
+    },
+    {
+      "text": "Add",
+      "stable_suffix": "add",
+      "id_sample": "C70_W207_V209_add"
+    },
+    {
+      "text": "Status",
+      "stable_suffix": "0025_expand_link",
+      "id_sample": "C23_W71_V73_0025_expand_link"
+    },
+    {
+      "text": "Set New Status",
+      "stable_suffix": "but1",
+      "id_sample": "C71_W205_V206_but1"
+    },
+    {
+      "text": "standard",
+      "stable_suffix": "ACTION_WINDOW_CLOSE",
+      "id_sample": "C1_W1_V2_ACTION_WINDOW_CLOSE"
+    }
+  ],
+  "tables": [
+    {
+      "title": "",
+      "columns": [
+        "Personalize",
+        "System News",
+        "Log Off"
+      ]
+    },
+    {
+      "title": "",
+      "columns": [
+        "Personalize",
+        "System News",
+        "Log Off"
+      ]
+    },
+    {
+      "title": "",
+      "columns": [
+        "Reporte ZSD_ESP",
+        "Recent Items",
+        "Reporte Forecast GBM"
+      ]
+    },
+    {
+      "title": "",
+      "columns": [
+        "Back",
+        "Home"
+      ]
+    },
+    {
+      "title": "",
+      "columns": [
+        "Back",
+        "Home"
+      ]
+    },
+    {
+      "title": "",
+      "columns": [
+        "Back",
+        "Home"
+      ]
+    },
+    {
+      "title": "",
+      "columns": [
+        "Back",
+        "Home"
+      ]
+    },
+    {
+      "title": "",
+      "columns": [
+        "Opportunity DetailsEdit",
+        "Opportunity Details",
+        "Edit"
+      ]
+    },
+    {
+      "title": "",
+      "columns": [
+        "Opportunity Details",
+        "Edit"
+      ]
+    },
+    {
+      "title": "",
+      "columns": [
+        "Block Forecast.Edit List",
+        "Block Forecast.",
+        "Edit List",
+        "Filter:"
+      ]
+    },
+    {
+      "title": "",
+      "columns": [
+        "Block Forecast.",
+        "Edit List"
+      ]
+    },
+    {
+      "title": "",
+      "columns": [
+        "ItemsNew\nEdit List",
+        "Items",
+        "New\nEdit List",
+        "Filter:"
+      ]
+    },
+    {
+      "title": "",
+      "columns": [
+        "Items",
+        "New\nEdit List"
+      ]
+    },
+    {
+      "title": "",
+      "columns": [
+        "Actions",
+        "Item",
+        "Product ID",
+        "Product",
+        "Category ID",
+        "Category",
+        "Quantity",
+        "Unit",
+        "Net Value",
+        "Exp.Total Value",
+        "Crcy",
+        "Description"
+      ]
+    },
+    {
+      "title": "",
+      "columns": [
+        "ContactsNew",
+        "Contacts",
+        "New",
+        "Filter:"
+      ]
+    },
+    {
+      "title": "",
+      "columns": [
+        "Contacts",
+        "New"
+      ]
+    },
+    {
+      "title": "",
+      "columns": [
+        "Actions",
+        "Function",
+        "Name",
+        "Phone",
+        "E-Mail",
+        "Main Contact"
+      ]
+    },
+    {
+      "title": "",
+      "columns": [
+        "CompetitorsNew",
+        "Competitors",
+        "New",
+        "Filter:"
+      ]
+    },
+    {
+      "title": "",
+      "columns": [
+        "Competitors",
+        "New"
+      ]
+    },
+    {
+      "title": "",
+      "columns": [
+        "Sales TeamEdit List",
+        "Sales Team",
+        "Edit List",
+        "Filter:"
+      ]
+    },
+    {
+      "title": "",
+      "columns": [
+        "Sales Team",
+        "Edit List"
+      ]
+    },
+    {
+      "title": "",
+      "columns": [
+        "Actions",
+        "Function",
+        "Name",
+        "Phone",
+        "Extension",
+        "E-Mail",
+        "Position",
+        "Personnel No."
+      ]
+    },
+    {
+      "title": "",
+      "columns": [
+        "Planned Activities",
+        "Planned Activities",
+        "Filter:"
+      ]
+    },
+    {
+      "title": "",
+      "columns": [
+        "Completed Activities",
+        "Completed Activities",
+        "Filter:"
+      ]
+    },
+    {
+      "title": "",
+      "columns": [
+        "Transaction History",
+        "Subsequent Assignment",
+        "Filter:"
+      ]
+    },
+    {
+      "title": "",
+      "columns": [
+        "Transaction History",
+        "Subsequent Assignment"
+      ]
+    },
+    {
+      "title": "",
+      "columns": [
+        "Actions",
+        "Transaction",
+        "Transaction Type",
+        "Date"
+      ]
+    },
+    {
+      "title": "",
+      "columns": [
+        "Attachments",
+        "Filter:"
+      ]
+    },
+    {
+      "title": "",
+      "columns": [
+        "Assessments",
+        "Assessments",
+        "Filter:"
+      ]
+    },
+    {
+      "title": "",
+      "columns": [
+        "Actions",
+        "ID",
+        "Description",
+        "Version"
+      ]
+    },
+    {
+      "title": "",
+      "columns": [
+        "NotesNew",
+        "Notes",
+        "New",
+        "Filter:"
+      ]
+    },
+    {
+      "title": "",
+      "columns": [
+        "Notes",
+        "New"
+      ]
+    },
+    {
+      "title": "",
+      "columns": [
+        "Actions",
+        "Text Type",
+        "Text",
+        "Language",
+        "Note",
+        "English"
+      ]
+    },
+    {
+      "title": "",
+      "columns": [
+        "Actions",
+        "Text Type",
+        "Text",
+        "Language"
+      ]
+    },
+    {
+      "title": "",
+      "columns": [
+        "Sales Stage History",
+        "Sales Stage History",
+        "Filter:"
+      ]
+    },
+    {
+      "title": "",
+      "columns": [
+        "Sales Stage",
+        "Start Date",
+        "End Date",
+        "Duration (Days)",
+        "Chance of Success",
+        "Exp. Sales Volume",
+        "Crcy",
+        "Closing Date",
+        "Last Modified"
+      ]
+    },
+    {
+      "title": "",
+      "columns": [
+        "Organizational DataEdit",
+        "Organizational Data",
+        "Edit"
+      ]
+    },
+    {
+      "title": "",
+      "columns": [
+        "Organizational Data",
+        "Edit"
+      ]
+    },
+    {
+      "title": "",
+      "columns": [
+        "Price TotalsAdd\nEdit List",
+        "Price Totals",
+        "Add\nEdit List",
+        "Filter:"
+      ]
+    },
+    {
+      "title": "",
+      "columns": [
+        "Price Totals",
+        "Add\nEdit List"
+      ]
+    },
+    {
+      "title": "",
+      "columns": [
+        "Actions",
+        "Status",
+        "Price Element",
+        "Price",
+        "Unit",
+        "Price Unit",
+        "UoM",
+        "End Value",
+        "Currency"
+      ]
+    },
+    {
+      "title": "",
+      "columns": [
+        "StatusSet New Status",
+        "Status",
+        "Set New Status",
+        "Filter:"
+      ]
+    },
+    {
+      "title": "",
+      "columns": [
+        "Status",
+        "Set New Status"
+      ]
+    },
+    {
+      "title": "",
+      "columns": [
+        "Actions",
+        "Status",
+        "Changed By",
+        "Changed On",
+        "Changed At"
+      ]
+    }
+  ],
+  "dropdowns": [],
+  "checkboxes": []
+}

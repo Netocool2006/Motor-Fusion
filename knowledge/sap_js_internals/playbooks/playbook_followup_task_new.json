@@ -1,0 +1,1210 @@
+{
+  "screen": "followup_task_new",
+  "description": "Screen: Internal Task: New - [SAP]",
+  "timestamp": "2026-03-27T20:09:33",
+  "mode": "SCAN",
+  "tab_title": "Internal Task: New - [SAP]",
+  "fields": [
+    {
+      "stable_suffix": "btadminh_struct.object_id",
+      "selector": "[id$=\"btadminh_struct.object_id\"]",
+      "label": "ID",
+      "value": "",
+      "type": "input",
+      "editable": false,
+      "visible": true,
+      "id_sample": "C47_W123_V124_V125_V126_btadminh_struct.object_id"
+    },
+    {
+      "stable_suffix": "btadminh_struct.description",
+      "selector": "[id$=\"btadminh_struct.description\"]",
+      "label": "Description",
+      "value": "Horas Assesoria SW IBM - BR",
+      "type": "input",
+      "editable": true,
+      "visible": true,
+      "id_sample": "C47_W123_V124_V125_V126_btadminh_struct.description"
+    },
+    {
+      "stable_suffix": "btdate_ddate",
+      "selector": "[id$=\"btdate_ddate\"]",
+      "label": "",
+      "value": "28.03.2026",
+      "type": "input",
+      "editable": true,
+      "visible": true,
+      "id_sample": "C47_W123_V124_V125_V126_btdate_ddate"
+    },
+    {
+      "stable_suffix": "btdate_date",
+      "selector": "[id$=\"btdate_date\"]",
+      "label": "",
+      "value": "27.03.2026",
+      "type": "input",
+      "editable": true,
+      "visible": true,
+      "id_sample": "C47_W123_V124_V125_V126_btdate_date"
+    },
+    {
+      "stable_suffix": "btactivityh_struct.priority",
+      "selector": "[id$=\"btactivityh_struct.priority\"]",
+      "label": "",
+      "value": "Medium",
+      "type": "input",
+      "editable": true,
+      "visible": true,
+      "id_sample": "C47_W123_V124_V125_V126_btactivityh_struct.priority"
+    },
+    {
+      "stable_suffix": "btstatus_struct.act_status",
+      "selector": "[id$=\"btstatus_struct.act_status\"]",
+      "label": "",
+      "value": "Open",
+      "type": "input",
+      "editable": true,
+      "visible": true,
+      "id_sample": "C47_W123_V124_V125_V126_btstatus_struct.act_status"
+    },
+    {
+      "stable_suffix": "btactivityh_categorydesc",
+      "selector": "[id$=\"btactivityh_categorydesc\"]",
+      "label": "",
+      "value": "Task",
+      "type": "input",
+      "editable": false,
+      "visible": true,
+      "id_sample": "C47_W123_V124_V125_V126_btactivityh_categorydesc"
+    },
+    {
+      "stable_suffix": "btactivityh_struct.completion",
+      "selector": "[id$=\"btactivityh_struct.completion\"]",
+      "label": "% Complete",
+      "value": "0",
+      "type": "input",
+      "editable": true,
+      "visible": true,
+      "id_sample": "C47_W123_V124_V125_V126_btactivityh_struct.completion"
+    },
+    {
+      "stable_suffix": "btadminh_terr_id",
+      "selector": "[id$=\"btadminh_terr_id\"]",
+      "label": "",
+      "value": "",
+      "type": "input",
+      "editable": true,
+      "visible": true,
+      "id_sample": "C47_W123_V124_V125_V126_btadminh_terr_id"
+    },
+    {
+      "stable_suffix": "btpartneracct_partnerno",
+      "selector": "[id$=\"btpartneracct_partnerno\"]",
+      "label": "",
+      "value": "BANCO PROMERICA, S. A.",
+      "type": "input",
+      "editable": true,
+      "visible": true,
+      "id_sample": "C47_W123_V124_V125_V126_btpartneracct_partnerno"
+    },
+    {
+      "stable_suffix": "btpartnercontact_partnerno",
+      "selector": "[id$=\"btpartnercontact_partnerno\"]",
+      "label": "",
+      "value": "Mr. SELVIN MORALES",
+      "type": "input",
+      "editable": true,
+      "visible": true,
+      "id_sample": "C47_W123_V124_V125_V126_btpartnercontact_partnerno"
+    },
+    {
+      "stable_suffix": "btpartnerempres_partnerno",
+      "selector": "[id$=\"btpartnerempres_partnerno\"]",
+      "label": "",
+      "value": "Mr. NESTOR BERNABE TOLEDO",
+      "type": "input",
+      "editable": true,
+      "visible": true,
+      "id_sample": "C47_W123_V124_V125_V126_btpartnerempres_partnerno"
+    },
+    {
+      "stable_suffix": "btdocflow_objtypea",
+      "selector": "[id$=\"btdocflow_objtypea\"]",
+      "label": "",
+      "value": "Opportunity",
+      "type": "input",
+      "editable": true,
+      "visible": true,
+      "id_sample": "C47_W123_V124_V125_V126_btdocflow_objtypea"
+    },
+    {
+      "stable_suffix": "btdocflow_objkeya",
+      "selector": "[id$=\"btdocflow_objkeya\"]",
+      "label": "",
+      "value": "245451",
+      "type": "input",
+      "editable": true,
+      "visible": true,
+      "id_sample": "C47_W123_V124_V125_V126_btdocflow_objkeya"
+    },
+    {
+      "stable_suffix": "linkdata_number_int",
+      "selector": "[id$=\"linkdata_number_int\"]",
+      "label": "",
+      "value": "",
+      "type": "input",
+      "editable": false,
+      "visible": true,
+      "id_sample": "C47_W123_V124_V125_V126_linkdata_number_int"
+    },
+    {
+      "stable_suffix": "btdocflow_objkeyadesc",
+      "selector": "[id$=\"btdocflow_objkeyadesc\"]",
+      "label": "Reference Desc.",
+      "value": "Horas Assesoria SW IBM - BR",
+      "type": "input",
+      "editable": false,
+      "visible": true,
+      "id_sample": "C47_W123_V124_V125_V126_btdocflow_objkeyadesc"
+    },
+    {
+      "stable_suffix": "text_lines",
+      "selector": "[id$=\"text_lines\"]",
+      "label": "",
+      "value": "",
+      "type": "textarea",
+      "editable": true,
+      "visible": true,
+      "id_sample": "C49_W79_V80_text_lines"
+    },
+    {
+      "stable_suffix": "Table_omni_input_afh",
+      "selector": "[id$=\"Table_omni_input_afh\"]",
+      "label": "",
+      "value": "",
+      "type": "input",
+      "editable": true,
+      "visible": true,
+      "id_sample": "C59_W166_V167_Table_omni_input_afh"
+    },
+    {
+      "stable_suffix": "upload_if",
+      "selector": "[id$=\"upload_if\"]",
+      "label": "Upload Document(s) From Local Hard Disk",
+      "value": "No file chosen.",
+      "type": "input",
+      "editable": false,
+      "visible": true,
+      "id_sample": "C59_W166_V167_upload_if"
+    },
+    {
+      "stable_suffix": "Table_omni_input_afh",
+      "selector": "[id$=\"Table_omni_input_afh\"]",
+      "label": "Transaction HistorySubsequent Assignment",
+      "value": "",
+      "type": "input",
+      "editable": true,
+      "visible": true,
+      "id_sample": "C60_W103_V170_Table_omni_input_afh"
+    },
+    {
+      "stable_suffix": "ConfCellTable_omni_input_cel",
+      "selector": "[id$=\"ConfCellTable_omni_input_cel\"]",
+      "label": "Schedule New Actions\n Repeat",
+      "value": "",
+      "type": "input",
+      "editable": true,
+      "visible": true,
+      "id_sample": "C61_W171_V172_ConfCellTable_omni_input_cel"
+    },
+    {
+      "stable_suffix": "SurveyTable_omni_input_afh",
+      "selector": "[id$=\"SurveyTable_omni_input_afh\"]",
+      "label": "Questionnaires",
+      "value": "",
+      "type": "input",
+      "editable": true,
+      "visible": true,
+      "id_sample": "C62_W89_V90_SurveyTable_omni_input_afh"
+    },
+    {
+      "stable_suffix": "RefObjectView_omni_input_afh",
+      "selector": "[id$=\"RefObjectView_omni_input_afh\"]",
+      "label": "Reference ObjectsNew",
+      "value": "",
+      "type": "input",
+      "editable": true,
+      "visible": true,
+      "id_sample": "C47_W123_V124_V132_RefObjectView_omni_input_afh"
+    },
+    {
+      "stable_suffix": "TextList_omni_input_afh",
+      "selector": "[id$=\"TextList_omni_input_afh\"]",
+      "label": "NotesNew",
+      "value": "",
+      "type": "input",
+      "editable": true,
+      "visible": true,
+      "id_sample": "C63_W78_V173_V174_TextList_omni_input_afh"
+    }
+  ],
+  "spans": [
+    {
+      "stable_suffix": ":T_link:U_SESSIONTIMEOUT:I_SESSIONTIMEOUT",
+      "label": "",
+      "value": "00:59"
+    },
+    {
+      "stable_suffix": ":T_link:U_PERSONALIZE:I_PERSONALIZE",
+      "label": "",
+      "value": "Personalize"
+    },
+    {
+      "stable_suffix": "PERSONALIZE",
+      "label": "",
+      "value": "Personalize"
+    },
+    {
+      "stable_suffix": ":T_link:U_SYSMSG:I_SYSMSG",
+      "label": "Personalize",
+      "value": "System News"
+    },
+    {
+      "stable_suffix": "SYSMSG",
+      "label": "Personalize",
+      "value": "System News"
+    },
+    {
+      "stable_suffix": ":T_link:U_LOGOFF:I_LOGOFF",
+      "label": "System News",
+      "value": "Log Off"
+    },
+    {
+      "stable_suffix": "LOGOFF",
+      "label": "System News",
+      "value": "Log Off"
+    },
+    {
+      "stable_suffix": "SearchMenuAnchor1",
+      "label": "",
+      "value": "Saved Searches"
+    },
+    {
+      "stable_suffix": "QUICKSEARCH",
+      "label": "Saved Searches",
+      "value": "Go"
+    },
+    {
+      "stable_suffix": "thtmlb_button_1",
+      "label": "Saved Searches",
+      "value": "Advanced"
+    },
+    {
+      "stable_suffix": "SLS-HOME",
+      "label": "",
+      "value": "Home"
+    },
+    {
+      "stable_suffix": "SLS-ACC",
+      "label": "",
+      "value": "Account Management"
+    },
+    {
+      "stable_suffix": "SLS-ACT",
+      "label": "",
+      "value": "Activities"
+    },
+    {
+      "stable_suffix": "SLS-CYCLE",
+      "label": "",
+      "value": "Sales Cycle"
+    },
+    {
+      "stable_suffix": "MD-ALL",
+      "label": "",
+      "value": "Master Data"
+    },
+    {
+      "stable_suffix": "SRV-ORD",
+      "label": "",
+      "value": "Service Orders"
+    },
+    {
+      "stable_suffix": "SRV-CONTR",
+      "label": "",
+      "value": "Service Contracts"
+    },
+    {
+      "stable_suffix": "ZSD_ESP",
+      "label": "",
+      "value": "Reporte de precios ESP"
+    },
+    {
+      "stable_suffix": "RecentObjects__title",
+      "label": "",
+      "value": "Recent Items"
+    },
+    {
+      "stable_suffix": "1",
+      "label": "",
+      "value": "245451 Horas Assesoria SW IBM - BR"
+    },
+    {
+      "stable_suffix": "2",
+      "label": "",
+      "value": "245372 Agentes Virtuales IA para Mercadeo - BR"
+    },
+    {
+      "stable_suffix": "3",
+      "label": "",
+      "value": "242418 Célula AI Banrural - PA - TOPD"
+    },
+    {
+      "stable_suffix": "4",
+      "label": "",
+      "value": "246459 2626508 RFP Proyecto de Certificación Fu"
+    },
+    {
+      "stable_suffix": "5",
+      "label": "",
+      "value": "244701 Optimizar WAS - BR"
+    },
+    {
+      "stable_suffix": "ZREP_FOREC",
+      "label": "",
+      "value": "Forecast GBM"
+    },
+    {
+      "stable_suffix": "ZREP_FOREM",
+      "label": "",
+      "value": "Forecast Employee GBM"
+    },
+    {
+      "stable_suffix": "BackButton",
+      "label": "",
+      "value": "Back"
+    },
+    {
+      "stable_suffix": "thtmlb_button_2",
+      "label": "",
+      "value": "Save"
+    },
+    {
+      "stable_suffix": "thtmlb_button_3",
+      "label": "",
+      "value": "Cancel"
+    },
+    {
+      "stable_suffix": "thtmlb_button_4",
+      "label": "",
+      "value": "New"
+    },
+    {
+      "stable_suffix": "0001_expand_link",
+      "label": "",
+      "value": "Task Details"
+    },
+    {
+      "stable_suffix": "but1",
+      "label": "",
+      "value": "Edit"
+    },
+    {
+      "stable_suffix": "thtmlb_textView_1",
+      "label": "",
+      "value": "General Data"
+    },
+    {
+      "stable_suffix": "thtmlb_textView_2",
+      "label": "",
+      "value": "References"
+    },
+    {
+      "stable_suffix": "0002_expand_link",
+      "label": "",
+      "value": "Attachments"
+    },
+    {
+      "stable_suffix": "newDoc",
+      "label": "",
+      "value": "Attachment"
+    },
+    {
+      "stable_suffix": "newUrl",
+      "label": "",
+      "value": "URL"
+    },
+    {
+      "stable_suffix": "newWithTemplate",
+      "label": "",
+      "value": "With Template"
+    },
+    {
+      "stable_suffix": "Download",
+      "label": "",
+      "value": "Download"
+    },
+    {
+      "stable_suffix": "advanced",
+      "label": "",
+      "value": "Advanced"
+    },
+    {
+      "stable_suffix": "upload_browse",
+      "label": "Upload Document(s) From Local Hard Disk",
+      "value": "Browse"
+    },
+    {
+      "stable_suffix": "upload_uploadvis",
+      "label": "Upload Document(s) From Local Hard Disk",
+      "value": "Upload"
+    },
+    {
+      "stable_suffix": "0003_expand_link",
+      "label": "",
+      "value": "Transaction History"
+    },
+    {
+      "stable_suffix": "Table__header_bee__1",
+      "label": "",
+      "value": "Actions"
+    },
+    {
+      "stable_suffix": "Table__header_bee__2",
+      "label": "",
+      "value": "Transaction"
+    },
+    {
+      "stable_suffix": "Table__header_bee__3",
+      "label": "",
+      "value": "Transaction Type"
+    },
+    {
+      "stable_suffix": "Table__header_bee__4",
+      "label": "",
+      "value": "Date"
+    },
+    {
+      "stable_suffix": "btdocflow_table[1].id_description",
+      "label": "",
+      "value": "Horas Assesoria SW IBM - BR"
+    },
+    {
+      "stable_suffix": "btdocflow_table[1].process_type_des",
+      "label": "Horas Assesoria SW IBM - BR",
+      "value": "Opport. Standard"
+    },
+    {
+      "stable_suffix": "btdocflow_table[1].posting_date",
+      "label": "Opport. Standard",
+      "value": "20.02.2026"
+    },
+    {
+      "stable_suffix": "0008_expand_link",
+      "label": "",
+      "value": "Scheduled Actions"
+    },
+    {
+      "stable_suffix": "ConfCellTable__header_bee__1",
+      "label": "",
+      "value": "Actions"
+    },
+    {
+      "stable_suffix": "ConfCellTable__header_bee__2",
+      "label": "",
+      "value": "Status"
+    },
+    {
+      "stable_suffix": "ConfCellTable__header_bee__3",
+      "label": "",
+      "value": "Action Definition"
+    },
+    {
+      "stable_suffix": "ConfCellTable__header_bee__4",
+      "label": "",
+      "value": "Processing Type"
+    },
+    {
+      "stable_suffix": "ConfCellTable__header_bee__5",
+      "label": "",
+      "value": "Created By"
+    },
+    {
+      "stable_suffix": "ConfCellTable__header_bee__6",
+      "label": "",
+      "value": "Status"
+    },
+    {
+      "stable_suffix": "ConfCellTable__header_bee__7",
+      "label": "",
+      "value": "Created On"
+    },
+    {
+      "stable_suffix": "ConfCellTable__header_bee__8",
+      "label": "",
+      "value": "Created At"
+    },
+    {
+      "stable_suffix": "ConfCellTable__header_bee__9",
+      "label": "",
+      "value": "Executable"
+    },
+    {
+      "stable_suffix": "aciaction_table[1].thtmlb_oca",
+      "label": "",
+      "value": "Execute"
+    },
+    {
+      "stable_suffix": "aciaction_table[1].ttypedescr",
+      "label": "",
+      "value": "Alert when task is created"
+    },
+    {
+      "stable_suffix": "aciaction_table[1].mediumdesc",
+      "label": "Alert when task is created",
+      "value": "Method call"
+    },
+    {
+      "stable_suffix": "aciaction_table[1].usercreate",
+      "label": "Method call",
+      "value": "NESTOR BERNABE TOLEDO ISCOPAL"
+    },
+    {
+      "stable_suffix": "aciaction_table[1].statusdesc",
+      "label": "NESTOR BERNABE TOLEDO ISCOPAL",
+      "value": "Active"
+    },
+    {
+      "stable_suffix": "aciaction_table[1].datecreate",
+      "label": "Active",
+      "value": "27.03.2026"
+    },
+    {
+      "stable_suffix": "aciaction_table[1].timecreate",
+      "label": "27.03.2026",
+      "value": "20:07"
+    },
+    {
+      "stable_suffix": "aciaction_table[1].executable",
+      "label": "20:07",
+      "value": "Yes"
+    },
+    {
+      "stable_suffix": "0009_expand_link",
+      "label": "",
+      "value": "Questionnaires"
+    },
+    {
+      "stable_suffix": "0010_expand_link",
+      "label": "",
+      "value": "Reference Objects"
+    },
+    {
+      "stable_suffix": "0012_expand_link",
+      "label": "",
+      "value": "Notes"
+    },
+    {
+      "stable_suffix": "New",
+      "label": "",
+      "value": "New"
+    }
+  ],
+  "buttons": [
+    {
+      "text": "Cancel",
+      "stable_suffix": "thCancelSIP",
+      "id_sample": "thCancelSIP"
+    },
+    {
+      "text": "Personalize",
+      "stable_suffix": "PERSONALIZE",
+      "id_sample": "PERSONALIZE"
+    },
+    {
+      "text": "System News",
+      "stable_suffix": "SYSMSG",
+      "id_sample": "SYSMSG"
+    },
+    {
+      "text": "Log Off",
+      "stable_suffix": "LOGOFF",
+      "id_sample": "LOGOFF"
+    },
+    {
+      "text": "Cancel",
+      "stable_suffix": "thCancelSIP",
+      "id_sample": "thCancelSIP"
+    },
+    {
+      "text": "Saved Searches",
+      "stable_suffix": "SearchMenuAnchor1",
+      "id_sample": "C12_W37_V38_SearchMenuAnchor1"
+    },
+    {
+      "text": "Home",
+      "stable_suffix": "SLS-HOME",
+      "id_sample": "C4_W16_V17_SLS-HOME"
+    },
+    {
+      "text": "Account Management",
+      "stable_suffix": "SLS-ACC",
+      "id_sample": "C4_W16_V17_SLS-ACC"
+    },
+    {
+      "text": "Accounts",
+      "stable_suffix": "MD-BP-SR",
+      "id_sample": "C4_W16_V17_MD-BP-SR"
+    },
+    {
+      "text": "Contacts",
+      "stable_suffix": "MD-CONP-SR",
+      "id_sample": "C4_W16_V17_MD-CONP-SR"
+    },
+    {
+      "text": "Contact",
+      "stable_suffix": "MD-CONP-CR",
+      "id_sample": "C4_W16_V17_MD-CONP-CR"
+    },
+    {
+      "text": "Activities",
+      "stable_suffix": "SLS-ACT",
+      "id_sample": "C4_W16_V17_SLS-ACT"
+    },
+    {
+      "text": "Activity Scheduling",
+      "stable_suffix": "SLS-ACS-CR",
+      "id_sample": "C4_W16_V17_SLS-ACS-CR"
+    },
+    {
+      "text": "Visit Plans",
+      "stable_suffix": "SLS-VP-SR",
+      "id_sample": "C4_W16_V17_SLS-VP-SR"
+    },
+    {
+      "text": "Appointment",
+      "stable_suffix": "SLS-APP-CR",
+      "id_sample": "C4_W16_V17_SLS-APP-CR"
+    },
+    {
+      "text": "E-Mail",
+      "stable_suffix": "SLS-MAI-CR",
+      "id_sample": "C4_W16_V17_SLS-MAI-CR"
+    },
+    {
+      "text": "Task",
+      "stable_suffix": "SLS-TSK-CR",
+      "id_sample": "C4_W16_V17_SLS-TSK-CR"
+    },
+    {
+      "text": "Visit Plan",
+      "stable_suffix": "SLS-VP-CR",
+      "id_sample": "C4_W16_V17_SLS-VP-CR"
+    },
+    {
+      "text": "Sales Cycle",
+      "stable_suffix": "SLS-CYCLE",
+      "id_sample": "C4_W16_V17_SLS-CYCLE"
+    },
+    {
+      "text": "Sales Planning",
+      "stable_suffix": "SLS-CYC-SP",
+      "id_sample": "C4_W16_V17_SLS-CYC-SP"
+    },
+    {
+      "text": "Campaigns",
+      "stable_suffix": "MKT-CP-SR",
+      "id_sample": "C4_W16_V17_MKT-CP-SR"
+    },
+    {
+      "text": "Leads",
+      "stable_suffix": "MKT-LEA-SR",
+      "id_sample": "C4_W16_V17_MKT-LEA-SR"
+    },
+    {
+      "text": "Opportunities",
+      "stable_suffix": "SLS-OPP-SR",
+      "id_sample": "C4_W16_V17_SLS-OPP-SR"
+    },
+    {
+      "text": "Quotations",
+      "stable_suffix": "SLS-QUT-SR",
+      "id_sample": "C4_W16_V17_SLS-QUT-SR"
+    },
+    {
+      "text": "Sales Orders",
+      "stable_suffix": "SLS-SLO-SR",
+      "id_sample": "C4_W16_V17_SLS-SLO-SR"
+    },
+    {
+      "text": "Opportunity",
+      "stable_suffix": "SLS-OPP-CR",
+      "id_sample": "C4_W16_V17_SLS-OPP-CR"
+    },
+    {
+      "text": "Lead",
+      "stable_suffix": "MKT-LEA-CR",
+      "id_sample": "C4_W16_V17_MKT-LEA-CR"
+    },
+    {
+      "text": "Master Data",
+      "stable_suffix": "MD-ALL",
+      "id_sample": "C4_W16_V17_MD-ALL"
+    },
+    {
+      "text": "Employees",
+      "stable_suffix": "MD-EMPL-SR",
+      "id_sample": "C4_W16_V17_MD-EMPL-SR"
+    },
+    {
+      "text": "Account Hierarchies",
+      "stable_suffix": "MD-BPH-SR",
+      "id_sample": "C4_W16_V17_MD-BPH-SR"
+    },
+    {
+      "text": "Objects",
+      "stable_suffix": "MD-IOBJ-SR",
+      "id_sample": "C4_W16_V17_MD-IOBJ-SR"
+    },
+    {
+      "text": "Installed Bases",
+      "stable_suffix": "MD-INB-SR",
+      "id_sample": "C4_W16_V17_MD-INB-SR"
+    },
+    {
+      "text": "Warranties",
+      "stable_suffix": "MD-WARR-SR",
+      "id_sample": "C4_W16_V17_MD-WARR-SR"
+    },
+    {
+      "text": "Products",
+      "stable_suffix": "MD-MAT-SR",
+      "id_sample": "C4_W16_V17_MD-MAT-SR"
+    },
+    {
+      "text": "Services",
+      "stable_suffix": "MD-SERV-SR",
+      "id_sample": "C4_W16_V17_MD-SERV-SR"
+    },
+    {
+      "text": "Service Orders",
+      "stable_suffix": "SRV-ORD",
+      "id_sample": "C4_W16_V17_SRV-ORD"
+    },
+    {
+      "text": "Service Order Quotations",
+      "stable_suffix": "SRV-QOT-SR",
+      "id_sample": "C4_W16_V17_SRV-QOT-SR"
+    },
+    {
+      "text": "Service Contracts",
+      "stable_suffix": "SRV-CONTR",
+      "id_sample": "C4_W16_V17_SRV-CONTR"
+    },
+    {
+      "text": "Service Contract Quotations",
+      "stable_suffix": "SRV-SCQ-SR",
+      "id_sample": "C4_W16_V17_SRV-SCQ-SR"
+    },
+    {
+      "text": "Service Agreement",
+      "stable_suffix": "SRV-SAG-CR",
+      "id_sample": "C4_W16_V17_SRV-SAG-CR"
+    },
+    {
+      "text": "Service Agreements",
+      "stable_suffix": "SRV-SAG-SR",
+      "id_sample": "C4_W16_V17_SRV-SAG-SR"
+    },
+    {
+      "text": "Reporte de precios ESP",
+      "stable_suffix": "ZSD_ESP",
+      "id_sample": "C5_W18_V19_ZSD_ESP"
+    },
+    {
+      "text": "Recent Items",
+      "stable_suffix": "RecentObjects__title",
+      "id_sample": "C6_W23_V24_RecentObjects__title"
+    },
+    {
+      "text": "245451 Horas Assesoria SW IBM - BR",
+      "stable_suffix": "1",
+      "id_sample": "C6_W23_V24_1"
+    },
+    {
+      "text": "245372 Agentes Virtuales IA para Mercadeo - BR",
+      "stable_suffix": "2",
+      "id_sample": "C6_W23_V24_2"
+    },
+    {
+      "text": "242418 Célula AI Banrural - PA - TOPD",
+      "stable_suffix": "3",
+      "id_sample": "C6_W23_V24_3"
+    },
+    {
+      "text": "246459 2626508 RFP Proyecto de Certificación Fu",
+      "stable_suffix": "4",
+      "id_sample": "C6_W23_V24_4"
+    },
+    {
+      "text": "244701 Optimizar WAS - BR",
+      "stable_suffix": "5",
+      "id_sample": "C6_W23_V24_5"
+    },
+    {
+      "text": "Forecast GBM",
+      "stable_suffix": "ZREP_FOREC",
+      "id_sample": "C5_W18_V19_ZREP_FOREC"
+    },
+    {
+      "text": "Forecast Employee GBM",
+      "stable_suffix": "ZREP_FOREM",
+      "id_sample": "C5_W18_V19_ZREP_FOREM"
+    },
+    {
+      "text": "Back",
+      "stable_suffix": "BackButton",
+      "id_sample": "BackButton"
+    },
+    {
+      "text": "Save and Back",
+      "stable_suffix": "thtmlb_button_1",
+      "id_sample": "C47_W123_V124_thtmlb_button_1"
+    },
+    {
+      "text": "Save",
+      "stable_suffix": "thtmlb_button_2",
+      "id_sample": "C47_W123_V124_thtmlb_button_2"
+    },
+    {
+      "text": "New",
+      "stable_suffix": "thtmlb_button_4",
+      "id_sample": "C47_W123_V124_thtmlb_button_4"
+    },
+    {
+      "text": "Set to Completed",
+      "stable_suffix": "but_4",
+      "id_sample": "C47_W123_V124_but_4"
+    },
+    {
+      "text": "Print Preview",
+      "stable_suffix": "but_6",
+      "id_sample": "C47_W123_V124_but_6"
+    },
+    {
+      "text": "Task Details",
+      "stable_suffix": "0001_expand_link",
+      "id_sample": "C47_W123_V124_0001_expand_link"
+    },
+    {
+      "text": "Attachments",
+      "stable_suffix": "0002_expand_link",
+      "id_sample": "C47_W123_V124_0002_expand_link"
+    },
+    {
+      "text": "Attachment",
+      "stable_suffix": "newDoc",
+      "id_sample": "C59_W166_V167_newDoc"
+    },
+    {
+      "text": "URL",
+      "stable_suffix": "newUrl",
+      "id_sample": "C59_W166_V167_newUrl"
+    },
+    {
+      "text": "Advanced",
+      "stable_suffix": "advanced",
+      "id_sample": "C59_W166_V167_advanced"
+    },
+    {
+      "text": "No text",
+      "stable_suffix": "Refresh",
+      "id_sample": "C59_W166_V167_Refresh"
+    },
+    {
+      "text": "Browse",
+      "stable_suffix": "upload_browse",
+      "id_sample": "C59_W166_V167_upload_browse"
+    },
+    {
+      "text": "Upload",
+      "stable_suffix": "upload_uploadvis",
+      "id_sample": "C59_W166_V167_upload_uploadvis"
+    },
+    {
+      "text": "Transaction History",
+      "stable_suffix": "0003_expand_link",
+      "id_sample": "C47_W123_V124_0003_expand_link"
+    },
+    {
+      "text": "Subsequent Assignment",
+      "stable_suffix": "but1",
+      "id_sample": "C60_W103_V170_but1"
+    },
+    {
+      "text": "Horas Assesoria SW IBM - BR",
+      "stable_suffix": "btdocflow_table[1].id_description",
+      "id_sample": "C60_W103_V170_btdocflow_table[1].id_description"
+    },
+    {
+      "text": "Scheduled Actions",
+      "stable_suffix": "0008_expand_link",
+      "id_sample": "C47_W123_V124_0008_expand_link"
+    },
+    {
+      "text": "Schedule New Actions",
+      "stable_suffix": "thtmlb_button_1",
+      "id_sample": "C61_W171_V172_thtmlb_button_1"
+    },
+    {
+      "text": "Execute",
+      "stable_suffix": "aciaction_table[1].thtmlb_oca",
+      "id_sample": "C61_W171_V172_aciaction_table[1].thtmlb_oca"
+    },
+    {
+      "text": "Alert when task is created",
+      "stable_suffix": "aciaction_table[1].ttypedescr",
+      "id_sample": "C61_W171_V172_aciaction_table[1].ttypedescr"
+    },
+    {
+      "text": "Active",
+      "stable_suffix": "aciaction_table[1].statusdesc",
+      "id_sample": "C61_W171_V172_aciaction_table[1].statusdesc"
+    },
+    {
+      "text": "Questionnaires",
+      "stable_suffix": "0009_expand_link",
+      "id_sample": "C47_W123_V124_0009_expand_link"
+    },
+    {
+      "text": "Reference Objects",
+      "stable_suffix": "0010_expand_link",
+      "id_sample": "C47_W123_V124_0010_expand_link"
+    },
+    {
+      "text": "Notes",
+      "stable_suffix": "0012_expand_link",
+      "id_sample": "C47_W123_V124_0012_expand_link"
+    },
+    {
+      "text": "standard",
+      "stable_suffix": "ACTION_WINDOW_CLOSE",
+      "id_sample": "C1_W1_V2_ACTION_WINDOW_CLOSE"
+    }
+  ],
+  "tables": [
+    {
+      "title": "",
+      "columns": [
+        "Personalize",
+        "System News",
+        "Log Off"
+      ]
+    },
+    {
+      "title": "",
+      "columns": [
+        "Personalize",
+        "System News",
+        "Log Off"
+      ]
+    },
+    {
+      "title": "",
+      "columns": [
+        "Reporte ZSD_ESP",
+        "Recent Items",
+        "Reporte Forecast GBM"
+      ]
+    },
+    {
+      "title": "",
+      "columns": [
+        "Internal Task: New",
+        "Back"
+      ]
+    },
+    {
+      "title": "",
+      "columns": [
+        "Internal Task: New",
+        "Back"
+      ]
+    },
+    {
+      "title": "",
+      "columns": [
+        "Task DetailsEdit",
+        "Task Details",
+        "Edit"
+      ]
+    },
+    {
+      "title": "",
+      "columns": [
+        "Task Details",
+        "Edit"
+      ]
+    },
+    {
+      "title": "",
+      "columns": [
+        "General Data",
+        "ID:",
+        "* Description:",
+        "Due Date:",
+        "Start Date:",
+        "Importance:",
+        "Active Status:",
+        "Category:",
+        "% Complete:",
+        "Territory:",
+        "References",
+        "Account:",
+        "Contact:",
+        "Employee Responsible:",
+        "Reference:",
+        "Item:",
+        "Reference Desc.:",
+        "Private:"
+      ]
+    },
+    {
+      "title": "",
+      "columns": [
+        "General Data",
+        "ID:",
+        "* Description:",
+        "Due Date:",
+        "Start Date:",
+        "Importance:",
+        "Active Status:",
+        "Category:",
+        "% Complete:",
+        "Territory:",
+        "References",
+        "Account:",
+        "Contact:",
+        "Employee Responsible:",
+        "Reference:",
+        "Item:",
+        "Reference Desc.:",
+        "Private:"
+      ]
+    },
+    {
+      "title": "",
+      "columns": [
+        "Attachments",
+        "Filter:"
+      ]
+    },
+    {
+      "title": "",
+      "columns": [
+        "Transaction History",
+        "Subsequent Assignment",
+        "Filter:"
+      ]
+    },
+    {
+      "title": "",
+      "columns": [
+        "Transaction History",
+        "Subsequent Assignment"
+      ]
+    },
+    {
+      "title": "",
+      "columns": [
+        "Actions",
+        "Transaction",
+        "Transaction Type",
+        "Date"
+      ]
+    },
+    {
+      "title": "",
+      "columns": [
+        "Scheduled ActionsEdit List",
+        "Scheduled Actions",
+        "Edit List"
+      ]
+    },
+    {
+      "title": "",
+      "columns": [
+        "Scheduled Actions",
+        "Edit List"
+      ]
+    },
+    {
+      "title": "",
+      "columns": [
+        "Schedule New Actions\n Repeat",
+        "Filter:"
+      ]
+    },
+    {
+      "title": "",
+      "columns": [
+        "Actions",
+        "Status",
+        "Action Definition",
+        "Processing Type",
+        "Created By",
+        "Status",
+        "Created On",
+        "Created At",
+        "Executable"
+      ]
+    },
+    {
+      "title": "",
+      "columns": [
+        "Questionnaires",
+        "Questionnaires",
+        "Filter:"
+      ]
+    },
+    {
+      "title": "",
+      "columns": [
+        "Reference ObjectsNew",
+        "Reference Objects",
+        "New",
+        "Filter:"
+      ]
+    },
+    {
+      "title": "",
+      "columns": [
+        "Reference Objects",
+        "New"
+      ]
+    },
+    {
+      "title": "",
+      "columns": [
+        "NotesNew",
+        "Notes",
+        "New",
+        "Filter:"
+      ]
+    },
+    {
+      "title": "",
+      "columns": [
+        "Notes",
+        "New"
+      ]
+    },
+    {
+      "title": "",
+      "columns": [
+        "No result found",
+        "No result found"
+      ]
+    }
+  ],
+  "dropdowns": [],
+  "checkboxes": []
+}

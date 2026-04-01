@@ -1,0 +1,1401 @@
+{
+  "screen": "search_help_currency",
+  "description": "F4 Search Help popup for Currency selection",
+  "timestamp": "2026-03-27T20:48:23",
+  "mode": "F4_POPUP",
+  "frame": "f4modalframe",
+  "headers": [
+    "Currency",
+    "Long Text"
+  ],
+  "selector_pattern": "dynshlp_{row}_{col}",
+  "total_entries": 198,
+  "entries": [
+    {
+      "row": 1,
+      "code": "ADP",
+      "desc": "Andoran peseta",
+      "selector_code": "[id$=\"dynshlp_1_1\"]",
+      "selector_desc": "[id$=\"dynshlp_1_2\"]"
+    },
+    {
+      "row": 2,
+      "code": "AED",
+      "desc": "United Arab Emirates Dirham",
+      "selector_code": "[id$=\"dynshlp_2_1\"]",
+      "selector_desc": "[id$=\"dynshlp_2_2\"]"
+    },
+    {
+      "row": 3,
+      "code": "AFA",
+      "desc": "Afghani (Old)",
+      "selector_code": "[id$=\"dynshlp_3_1\"]",
+      "selector_desc": "[id$=\"dynshlp_3_2\"]"
+    },
+    {
+      "row": 4,
+      "code": "AFN",
+      "desc": "Afghani",
+      "selector_code": "[id$=\"dynshlp_4_1\"]",
+      "selector_desc": "[id$=\"dynshlp_4_2\"]"
+    },
+    {
+      "row": 5,
+      "code": "ALL",
+      "desc": "Albanian Lek",
+      "selector_code": "[id$=\"dynshlp_5_1\"]",
+      "selector_desc": "[id$=\"dynshlp_5_2\"]"
+    },
+    {
+      "row": 6,
+      "code": "AMD",
+      "desc": "Armenian Dram",
+      "selector_code": "[id$=\"dynshlp_6_1\"]",
+      "selector_desc": "[id$=\"dynshlp_6_2\"]"
+    },
+    {
+      "row": 7,
+      "code": "ANG",
+      "desc": "West Indian Guilder",
+      "selector_code": "[id$=\"dynshlp_7_1\"]",
+      "selector_desc": "[id$=\"dynshlp_7_2\"]"
+    },
+    {
+      "row": 8,
+      "code": "AOA",
+      "desc": "Angolanische Kwanza",
+      "selector_code": "[id$=\"dynshlp_8_1\"]",
+      "selector_desc": "[id$=\"dynshlp_8_2\"]"
+    },
+    {
+      "row": 9,
+      "code": "AON",
+      "desc": "Angolan New Kwanza (Old)",
+      "selector_code": "[id$=\"dynshlp_9_1\"]",
+      "selector_desc": "[id$=\"dynshlp_9_2\"]"
+    },
+    {
+      "row": 10,
+      "code": "AOR",
+      "desc": "Angolan Kwanza Reajustado (Old)",
+      "selector_code": "[id$=\"dynshlp_10_1\"]",
+      "selector_desc": "[id$=\"dynshlp_10_2\"]"
+    },
+    {
+      "row": 11,
+      "code": "ARS",
+      "desc": "Argentine Peso",
+      "selector_code": "[id$=\"dynshlp_11_1\"]",
+      "selector_desc": "[id$=\"dynshlp_11_2\"]"
+    },
+    {
+      "row": 12,
+      "code": "ATS",
+      "desc": "Austrian Schilling",
+      "selector_code": "[id$=\"dynshlp_12_1\"]",
+      "selector_desc": "[id$=\"dynshlp_12_2\"]"
+    },
+    {
+      "row": 13,
+      "code": "AUD",
+      "desc": "Australian Dollar",
+      "selector_code": "[id$=\"dynshlp_13_1\"]",
+      "selector_desc": "[id$=\"dynshlp_13_2\"]"
+    },
+    {
+      "row": 14,
+      "code": "AWG",
+      "desc": "Aruban Guilder",
+      "selector_code": "[id$=\"dynshlp_14_1\"]",
+      "selector_desc": "[id$=\"dynshlp_14_2\"]"
+    },
+    {
+      "row": 15,
+      "code": "AZM",
+      "desc": "Azerbaijan Manat",
+      "selector_code": "[id$=\"dynshlp_15_1\"]",
+      "selector_desc": "[id$=\"dynshlp_15_2\"]"
+    },
+    {
+      "row": 16,
+      "code": "BAM",
+      "desc": "Bosnia and Herzegovina Convertible Mark",
+      "selector_code": "[id$=\"dynshlp_16_1\"]",
+      "selector_desc": "[id$=\"dynshlp_16_2\"]"
+    },
+    {
+      "row": 17,
+      "code": "BBD",
+      "desc": "Barbados Dollar",
+      "selector_code": "[id$=\"dynshlp_17_1\"]",
+      "selector_desc": "[id$=\"dynshlp_17_2\"]"
+    },
+    {
+      "row": 18,
+      "code": "BDT",
+      "desc": "Bangladesh Taka",
+      "selector_code": "[id$=\"dynshlp_18_1\"]",
+      "selector_desc": "[id$=\"dynshlp_18_2\"]"
+    },
+    {
+      "row": 19,
+      "code": "BEF",
+      "desc": "Belgian Franc",
+      "selector_code": "[id$=\"dynshlp_19_1\"]",
+      "selector_desc": "[id$=\"dynshlp_19_2\"]"
+    },
+    {
+      "row": 20,
+      "code": "BGN",
+      "desc": "Bulgarian Lev",
+      "selector_code": "[id$=\"dynshlp_20_1\"]",
+      "selector_desc": "[id$=\"dynshlp_20_2\"]"
+    },
+    {
+      "row": 21,
+      "code": "BHD",
+      "desc": "Bahrain Dinar",
+      "selector_code": "[id$=\"dynshlp_21_1\"]",
+      "selector_desc": "[id$=\"dynshlp_21_2\"]"
+    },
+    {
+      "row": 22,
+      "code": "BIF",
+      "desc": "Burundi Franc",
+      "selector_code": "[id$=\"dynshlp_22_1\"]",
+      "selector_desc": "[id$=\"dynshlp_22_2\"]"
+    },
+    {
+      "row": 23,
+      "code": "BMD",
+      "desc": "Bermudan Dollar",
+      "selector_code": "[id$=\"dynshlp_23_1\"]",
+      "selector_desc": "[id$=\"dynshlp_23_2\"]"
+    },
+    {
+      "row": 24,
+      "code": "BND",
+      "desc": "Brunei Dollar",
+      "selector_code": "[id$=\"dynshlp_24_1\"]",
+      "selector_desc": "[id$=\"dynshlp_24_2\"]"
+    },
+    {
+      "row": 25,
+      "code": "BOB",
+      "desc": "Boliviano",
+      "selector_code": "[id$=\"dynshlp_25_1\"]",
+      "selector_desc": "[id$=\"dynshlp_25_2\"]"
+    },
+    {
+      "row": 26,
+      "code": "BRL",
+      "desc": "Brazilian Real",
+      "selector_code": "[id$=\"dynshlp_26_1\"]",
+      "selector_desc": "[id$=\"dynshlp_26_2\"]"
+    },
+    {
+      "row": 27,
+      "code": "BSD",
+      "desc": "Bahaman Dollar",
+      "selector_code": "[id$=\"dynshlp_27_1\"]",
+      "selector_desc": "[id$=\"dynshlp_27_2\"]"
+    },
+    {
+      "row": 28,
+      "code": "BTN",
+      "desc": "Bhutan Ngultrum",
+      "selector_code": "[id$=\"dynshlp_28_1\"]",
+      "selector_desc": "[id$=\"dynshlp_28_2\"]"
+    },
+    {
+      "row": 29,
+      "code": "BWP",
+      "desc": "Botswana Pula",
+      "selector_code": "[id$=\"dynshlp_29_1\"]",
+      "selector_desc": "[id$=\"dynshlp_29_2\"]"
+    },
+    {
+      "row": 30,
+      "code": "BYB",
+      "desc": "Belorussian Ruble (Old)",
+      "selector_code": "[id$=\"dynshlp_30_1\"]",
+      "selector_desc": "[id$=\"dynshlp_30_2\"]"
+    },
+    {
+      "row": 31,
+      "code": "BYR",
+      "desc": "Belorussian Ruble",
+      "selector_code": "[id$=\"dynshlp_31_1\"]",
+      "selector_desc": "[id$=\"dynshlp_31_2\"]"
+    },
+    {
+      "row": 32,
+      "code": "BZD",
+      "desc": "Belize Dollar",
+      "selector_code": "[id$=\"dynshlp_32_1\"]",
+      "selector_desc": "[id$=\"dynshlp_32_2\"]"
+    },
+    {
+      "row": 33,
+      "code": "CAD",
+      "desc": "Canadian Dollar",
+      "selector_code": "[id$=\"dynshlp_33_1\"]",
+      "selector_desc": "[id$=\"dynshlp_33_2\"]"
+    },
+    {
+      "row": 34,
+      "code": "CDF",
+      "desc": "Congolese Franc",
+      "selector_code": "[id$=\"dynshlp_34_1\"]",
+      "selector_desc": "[id$=\"dynshlp_34_2\"]"
+    },
+    {
+      "row": 35,
+      "code": "CFP",
+      "desc": "French Franc (Pacific Islands)",
+      "selector_code": "[id$=\"dynshlp_35_1\"]",
+      "selector_desc": "[id$=\"dynshlp_35_2\"]"
+    },
+    {
+      "row": 36,
+      "code": "CHF",
+      "desc": "Swiss Franc",
+      "selector_code": "[id$=\"dynshlp_36_1\"]",
+      "selector_desc": "[id$=\"dynshlp_36_2\"]"
+    },
+    {
+      "row": 37,
+      "code": "CLP",
+      "desc": "Chilean Peso",
+      "selector_code": "[id$=\"dynshlp_37_1\"]",
+      "selector_desc": "[id$=\"dynshlp_37_2\"]"
+    },
+    {
+      "row": 38,
+      "code": "CNY",
+      "desc": "Chinesische Yuan (international)",
+      "selector_code": "[id$=\"dynshlp_38_1\"]",
+      "selector_desc": "[id$=\"dynshlp_38_2\"]"
+    },
+    {
+      "row": 39,
+      "code": "COP",
+      "desc": "Colombian Peso",
+      "selector_code": "[id$=\"dynshlp_39_1\"]",
+      "selector_desc": "[id$=\"dynshlp_39_2\"]"
+    },
+    {
+      "row": 40,
+      "code": "CRC",
+      "desc": "Costa Rica Colon",
+      "selector_code": "[id$=\"dynshlp_40_1\"]",
+      "selector_desc": "[id$=\"dynshlp_40_2\"]"
+    },
+    {
+      "row": 41,
+      "code": "CSD",
+      "desc": "Serbian Dinar",
+      "selector_code": "[id$=\"dynshlp_41_1\"]",
+      "selector_desc": "[id$=\"dynshlp_41_2\"]"
+    },
+    {
+      "row": 42,
+      "code": "CUP",
+      "desc": "Cuban Peso",
+      "selector_code": "[id$=\"dynshlp_42_1\"]",
+      "selector_desc": "[id$=\"dynshlp_42_2\"]"
+    },
+    {
+      "row": 43,
+      "code": "CVE",
+      "desc": "Cape Verde Escudo",
+      "selector_code": "[id$=\"dynshlp_43_1\"]",
+      "selector_desc": "[id$=\"dynshlp_43_2\"]"
+    },
+    {
+      "row": 44,
+      "code": "CYP",
+      "desc": "Cyprus Pound",
+      "selector_code": "[id$=\"dynshlp_44_1\"]",
+      "selector_desc": "[id$=\"dynshlp_44_2\"]"
+    },
+    {
+      "row": 45,
+      "code": "CZK",
+      "desc": "Czech Krona",
+      "selector_code": "[id$=\"dynshlp_45_1\"]",
+      "selector_desc": "[id$=\"dynshlp_45_2\"]"
+    },
+    {
+      "row": 46,
+      "code": "DEM",
+      "desc": "German Mark",
+      "selector_code": "[id$=\"dynshlp_46_1\"]",
+      "selector_desc": "[id$=\"dynshlp_46_2\"]"
+    },
+    {
+      "row": 47,
+      "code": "DEM3",
+      "desc": "(Internal) German Mark (3 dec.places)",
+      "selector_code": "[id$=\"dynshlp_47_1\"]",
+      "selector_desc": "[id$=\"dynshlp_47_2\"]"
+    },
+    {
+      "row": 48,
+      "code": "DJF",
+      "desc": "Djibouti Franc",
+      "selector_code": "[id$=\"dynshlp_48_1\"]",
+      "selector_desc": "[id$=\"dynshlp_48_2\"]"
+    },
+    {
+      "row": 49,
+      "code": "DKK",
+      "desc": "Danish Krone",
+      "selector_code": "[id$=\"dynshlp_49_1\"]",
+      "selector_desc": "[id$=\"dynshlp_49_2\"]"
+    },
+    {
+      "row": 50,
+      "code": "DOP",
+      "desc": "Dominican Peso",
+      "selector_code": "[id$=\"dynshlp_50_1\"]",
+      "selector_desc": "[id$=\"dynshlp_50_2\"]"
+    },
+    {
+      "row": 51,
+      "code": "DZD",
+      "desc": "Algerian Dinar",
+      "selector_code": "[id$=\"dynshlp_51_1\"]",
+      "selector_desc": "[id$=\"dynshlp_51_2\"]"
+    },
+    {
+      "row": 52,
+      "code": "ECS",
+      "desc": "Ecuadorian Sucre (  > USD)",
+      "selector_code": "[id$=\"dynshlp_52_1\"]",
+      "selector_desc": "[id$=\"dynshlp_52_2\"]"
+    },
+    {
+      "row": 53,
+      "code": "EEK",
+      "desc": "Estonian Krone",
+      "selector_code": "[id$=\"dynshlp_53_1\"]",
+      "selector_desc": "[id$=\"dynshlp_53_2\"]"
+    },
+    {
+      "row": 54,
+      "code": "EGP",
+      "desc": "Egyptian Pound",
+      "selector_code": "[id$=\"dynshlp_54_1\"]",
+      "selector_desc": "[id$=\"dynshlp_54_2\"]"
+    },
+    {
+      "row": 55,
+      "code": "ERN",
+      "desc": "Eritrean Nafka",
+      "selector_code": "[id$=\"dynshlp_55_1\"]",
+      "selector_desc": "[id$=\"dynshlp_55_2\"]"
+    },
+    {
+      "row": 56,
+      "code": "ESP",
+      "desc": "Spanish Peseta",
+      "selector_code": "[id$=\"dynshlp_56_1\"]",
+      "selector_desc": "[id$=\"dynshlp_56_2\"]"
+    },
+    {
+      "row": 57,
+      "code": "ETB",
+      "desc": "Ethiopian Birr",
+      "selector_code": "[id$=\"dynshlp_57_1\"]",
+      "selector_desc": "[id$=\"dynshlp_57_2\"]"
+    },
+    {
+      "row": 58,
+      "code": "EUR",
+      "desc": "European Euro",
+      "selector_code": "[id$=\"dynshlp_58_1\"]",
+      "selector_desc": "[id$=\"dynshlp_58_2\"]"
+    },
+    {
+      "row": 59,
+      "code": "FIM",
+      "desc": "Finnish markka",
+      "selector_code": "[id$=\"dynshlp_59_1\"]",
+      "selector_desc": "[id$=\"dynshlp_59_2\"]"
+    },
+    {
+      "row": 60,
+      "code": "FJD",
+      "desc": "Fiji Dollar",
+      "selector_code": "[id$=\"dynshlp_60_1\"]",
+      "selector_desc": "[id$=\"dynshlp_60_2\"]"
+    },
+    {
+      "row": 61,
+      "code": "FKP",
+      "desc": "Falkland Pound",
+      "selector_code": "[id$=\"dynshlp_61_1\"]",
+      "selector_desc": "[id$=\"dynshlp_61_2\"]"
+    },
+    {
+      "row": 62,
+      "code": "FRF",
+      "desc": "French Franc",
+      "selector_code": "[id$=\"dynshlp_62_1\"]",
+      "selector_desc": "[id$=\"dynshlp_62_2\"]"
+    },
+    {
+      "row": 63,
+      "code": "GBP",
+      "desc": "British Pound",
+      "selector_code": "[id$=\"dynshlp_63_1\"]",
+      "selector_desc": "[id$=\"dynshlp_63_2\"]"
+    },
+    {
+      "row": 64,
+      "code": "GEL",
+      "desc": "Georgian Lari",
+      "selector_code": "[id$=\"dynshlp_64_1\"]",
+      "selector_desc": "[id$=\"dynshlp_64_2\"]"
+    },
+    {
+      "row": 65,
+      "code": "GHC",
+      "desc": "Ghanian Cedi",
+      "selector_code": "[id$=\"dynshlp_65_1\"]",
+      "selector_desc": "[id$=\"dynshlp_65_2\"]"
+    },
+    {
+      "row": 66,
+      "code": "GIP",
+      "desc": "Gibraltar Pound",
+      "selector_code": "[id$=\"dynshlp_66_1\"]",
+      "selector_desc": "[id$=\"dynshlp_66_2\"]"
+    },
+    {
+      "row": 67,
+      "code": "GMD",
+      "desc": "Gambian Dalasi",
+      "selector_code": "[id$=\"dynshlp_67_1\"]",
+      "selector_desc": "[id$=\"dynshlp_67_2\"]"
+    },
+    {
+      "row": 68,
+      "code": "GNF",
+      "desc": "Guinean Franc",
+      "selector_code": "[id$=\"dynshlp_68_1\"]",
+      "selector_desc": "[id$=\"dynshlp_68_2\"]"
+    },
+    {
+      "row": 69,
+      "code": "GRD",
+      "desc": "Greek Drachma",
+      "selector_code": "[id$=\"dynshlp_69_1\"]",
+      "selector_desc": "[id$=\"dynshlp_69_2\"]"
+    },
+    {
+      "row": 70,
+      "code": "GTQ",
+      "desc": "Guatemalan Quetzal",
+      "selector_code": "[id$=\"dynshlp_70_1\"]",
+      "selector_desc": "[id$=\"dynshlp_70_2\"]"
+    },
+    {
+      "row": 71,
+      "code": "GWP",
+      "desc": "Guinea Peso",
+      "selector_code": "[id$=\"dynshlp_71_1\"]",
+      "selector_desc": "[id$=\"dynshlp_71_2\"]"
+    },
+    {
+      "row": 72,
+      "code": "GYD",
+      "desc": "Guyana Dollar",
+      "selector_code": "[id$=\"dynshlp_72_1\"]",
+      "selector_desc": "[id$=\"dynshlp_72_2\"]"
+    },
+    {
+      "row": 73,
+      "code": "HKD",
+      "desc": "Hong Kong Dollar",
+      "selector_code": "[id$=\"dynshlp_73_1\"]",
+      "selector_desc": "[id$=\"dynshlp_73_2\"]"
+    },
+    {
+      "row": 74,
+      "code": "HNL",
+      "desc": "Honduran Lempira",
+      "selector_code": "[id$=\"dynshlp_74_1\"]",
+      "selector_desc": "[id$=\"dynshlp_74_2\"]"
+    },
+    {
+      "row": 75,
+      "code": "HRK",
+      "desc": "Croatian Kuna",
+      "selector_code": "[id$=\"dynshlp_75_1\"]",
+      "selector_desc": "[id$=\"dynshlp_75_2\"]"
+    },
+    {
+      "row": 76,
+      "code": "HTG",
+      "desc": "Haitian Gourde",
+      "selector_code": "[id$=\"dynshlp_76_1\"]",
+      "selector_desc": "[id$=\"dynshlp_76_2\"]"
+    },
+    {
+      "row": 77,
+      "code": "HUF",
+      "desc": "Hungarian Forint",
+      "selector_code": "[id$=\"dynshlp_77_1\"]",
+      "selector_desc": "[id$=\"dynshlp_77_2\"]"
+    },
+    {
+      "row": 78,
+      "code": "IDR",
+      "desc": "Indonesian Rupiah",
+      "selector_code": "[id$=\"dynshlp_78_1\"]",
+      "selector_desc": "[id$=\"dynshlp_78_2\"]"
+    },
+    {
+      "row": 79,
+      "code": "IEP",
+      "desc": "Irish Punt",
+      "selector_code": "[id$=\"dynshlp_79_1\"]",
+      "selector_desc": "[id$=\"dynshlp_79_2\"]"
+    },
+    {
+      "row": 80,
+      "code": "ILS",
+      "desc": "Israeli Scheckel",
+      "selector_code": "[id$=\"dynshlp_80_1\"]",
+      "selector_desc": "[id$=\"dynshlp_80_2\"]"
+    },
+    {
+      "row": 81,
+      "code": "INR",
+      "desc": "Indian Rupee",
+      "selector_code": "[id$=\"dynshlp_81_1\"]",
+      "selector_desc": "[id$=\"dynshlp_81_2\"]"
+    },
+    {
+      "row": 82,
+      "code": "IQD",
+      "desc": "Iraqui Dinar",
+      "selector_code": "[id$=\"dynshlp_82_1\"]",
+      "selector_desc": "[id$=\"dynshlp_82_2\"]"
+    },
+    {
+      "row": 83,
+      "code": "IRR",
+      "desc": "Iranian Rial",
+      "selector_code": "[id$=\"dynshlp_83_1\"]",
+      "selector_desc": "[id$=\"dynshlp_83_2\"]"
+    },
+    {
+      "row": 84,
+      "code": "ISK",
+      "desc": "Iceland Krona",
+      "selector_code": "[id$=\"dynshlp_84_1\"]",
+      "selector_desc": "[id$=\"dynshlp_84_2\"]"
+    },
+    {
+      "row": 85,
+      "code": "ITL",
+      "desc": "Italian Lira",
+      "selector_code": "[id$=\"dynshlp_85_1\"]",
+      "selector_desc": "[id$=\"dynshlp_85_2\"]"
+    },
+    {
+      "row": 86,
+      "code": "JMD",
+      "desc": "Jamaican Dollar",
+      "selector_code": "[id$=\"dynshlp_86_1\"]",
+      "selector_desc": "[id$=\"dynshlp_86_2\"]"
+    },
+    {
+      "row": 87,
+      "code": "JOD",
+      "desc": "Jordanian Dinar",
+      "selector_code": "[id$=\"dynshlp_87_1\"]",
+      "selector_desc": "[id$=\"dynshlp_87_2\"]"
+    },
+    {
+      "row": 88,
+      "code": "JPY",
+      "desc": "Japanese Yen",
+      "selector_code": "[id$=\"dynshlp_88_1\"]",
+      "selector_desc": "[id$=\"dynshlp_88_2\"]"
+    },
+    {
+      "row": 89,
+      "code": "KES",
+      "desc": "Kenyan Shilling",
+      "selector_code": "[id$=\"dynshlp_89_1\"]",
+      "selector_desc": "[id$=\"dynshlp_89_2\"]"
+    },
+    {
+      "row": 90,
+      "code": "KGS",
+      "desc": "Kyrgyzstan Som",
+      "selector_code": "[id$=\"dynshlp_90_1\"]",
+      "selector_desc": "[id$=\"dynshlp_90_2\"]"
+    },
+    {
+      "row": 91,
+      "code": "KHR",
+      "desc": "Cambodian Riel",
+      "selector_code": "[id$=\"dynshlp_91_1\"]",
+      "selector_desc": "[id$=\"dynshlp_91_2\"]"
+    },
+    {
+      "row": 92,
+      "code": "KMF",
+      "desc": "Comoros Franc",
+      "selector_code": "[id$=\"dynshlp_92_1\"]",
+      "selector_desc": "[id$=\"dynshlp_92_2\"]"
+    },
+    {
+      "row": 93,
+      "code": "KPW",
+      "desc": "North Korean Won",
+      "selector_code": "[id$=\"dynshlp_93_1\"]",
+      "selector_desc": "[id$=\"dynshlp_93_2\"]"
+    },
+    {
+      "row": 94,
+      "code": "KRW",
+      "desc": "South Korean Won",
+      "selector_code": "[id$=\"dynshlp_94_1\"]",
+      "selector_desc": "[id$=\"dynshlp_94_2\"]"
+    },
+    {
+      "row": 95,
+      "code": "KWD",
+      "desc": "Kuwaiti Dinar",
+      "selector_code": "[id$=\"dynshlp_95_1\"]",
+      "selector_desc": "[id$=\"dynshlp_95_2\"]"
+    },
+    {
+      "row": 96,
+      "code": "KYD",
+      "desc": "Cayman Dollar",
+      "selector_code": "[id$=\"dynshlp_96_1\"]",
+      "selector_desc": "[id$=\"dynshlp_96_2\"]"
+    },
+    {
+      "row": 97,
+      "code": "KZT",
+      "desc": "Kazakstanian Tenge",
+      "selector_code": "[id$=\"dynshlp_97_1\"]",
+      "selector_desc": "[id$=\"dynshlp_97_2\"]"
+    },
+    {
+      "row": 98,
+      "code": "LAK",
+      "desc": "Laotian Kip",
+      "selector_code": "[id$=\"dynshlp_98_1\"]",
+      "selector_desc": "[id$=\"dynshlp_98_2\"]"
+    },
+    {
+      "row": 99,
+      "code": "LBP",
+      "desc": "Lebanese Pound",
+      "selector_code": "[id$=\"dynshlp_99_1\"]",
+      "selector_desc": "[id$=\"dynshlp_99_2\"]"
+    },
+    {
+      "row": 100,
+      "code": "LKR",
+      "desc": "Sri Lankan Rupee",
+      "selector_code": "[id$=\"dynshlp_100_1\"]",
+      "selector_desc": "[id$=\"dynshlp_100_2\"]"
+    },
+    {
+      "row": 101,
+      "code": "LRD",
+      "desc": "Liberian Dollar",
+      "selector_code": "[id$=\"dynshlp_101_1\"]",
+      "selector_desc": "[id$=\"dynshlp_101_2\"]"
+    },
+    {
+      "row": 102,
+      "code": "LSL",
+      "desc": "Lesotho Loti",
+      "selector_code": "[id$=\"dynshlp_102_1\"]",
+      "selector_desc": "[id$=\"dynshlp_102_2\"]"
+    },
+    {
+      "row": 103,
+      "code": "LTL",
+      "desc": "Lithuanian Lita",
+      "selector_code": "[id$=\"dynshlp_103_1\"]",
+      "selector_desc": "[id$=\"dynshlp_103_2\"]"
+    },
+    {
+      "row": 104,
+      "code": "LUF",
+      "desc": "Luxembourg Franc",
+      "selector_code": "[id$=\"dynshlp_104_1\"]",
+      "selector_desc": "[id$=\"dynshlp_104_2\"]"
+    },
+    {
+      "row": 105,
+      "code": "LVL",
+      "desc": "Latvian Lat",
+      "selector_code": "[id$=\"dynshlp_105_1\"]",
+      "selector_desc": "[id$=\"dynshlp_105_2\"]"
+    },
+    {
+      "row": 106,
+      "code": "LYD",
+      "desc": "Libyan Dinar",
+      "selector_code": "[id$=\"dynshlp_106_1\"]",
+      "selector_desc": "[id$=\"dynshlp_106_2\"]"
+    },
+    {
+      "row": 107,
+      "code": "MAD",
+      "desc": "Moroccan Dirham",
+      "selector_code": "[id$=\"dynshlp_107_1\"]",
+      "selector_desc": "[id$=\"dynshlp_107_2\"]"
+    },
+    {
+      "row": 108,
+      "code": "MDL",
+      "desc": "Moldavian Leu",
+      "selector_code": "[id$=\"dynshlp_108_1\"]",
+      "selector_desc": "[id$=\"dynshlp_108_2\"]"
+    },
+    {
+      "row": 109,
+      "code": "MGA",
+      "desc": "Madagascan Ariary (New)",
+      "selector_code": "[id$=\"dynshlp_109_1\"]",
+      "selector_desc": "[id$=\"dynshlp_109_2\"]"
+    },
+    {
+      "row": 110,
+      "code": "MGF",
+      "desc": "Madagascan Franc (Old",
+      "selector_code": "[id$=\"dynshlp_110_1\"]",
+      "selector_desc": "[id$=\"dynshlp_110_2\"]"
+    },
+    {
+      "row": 111,
+      "code": "MKD",
+      "desc": "Macedonian Denar",
+      "selector_code": "[id$=\"dynshlp_111_1\"]",
+      "selector_desc": "[id$=\"dynshlp_111_2\"]"
+    },
+    {
+      "row": 112,
+      "code": "MMK",
+      "desc": "Myanmar Kyat",
+      "selector_code": "[id$=\"dynshlp_112_1\"]",
+      "selector_desc": "[id$=\"dynshlp_112_2\"]"
+    },
+    {
+      "row": 113,
+      "code": "MNT",
+      "desc": "Mongolian Tugrik",
+      "selector_code": "[id$=\"dynshlp_113_1\"]",
+      "selector_desc": "[id$=\"dynshlp_113_2\"]"
+    },
+    {
+      "row": 114,
+      "code": "MOP",
+      "desc": "Macao Pataca",
+      "selector_code": "[id$=\"dynshlp_114_1\"]",
+      "selector_desc": "[id$=\"dynshlp_114_2\"]"
+    },
+    {
+      "row": 115,
+      "code": "MRO",
+      "desc": "Mauritanian Ouguiya",
+      "selector_code": "[id$=\"dynshlp_115_1\"]",
+      "selector_desc": "[id$=\"dynshlp_115_2\"]"
+    },
+    {
+      "row": 116,
+      "code": "MTL",
+      "desc": "Maltese Lira",
+      "selector_code": "[id$=\"dynshlp_116_1\"]",
+      "selector_desc": "[id$=\"dynshlp_116_2\"]"
+    },
+    {
+      "row": 117,
+      "code": "MUR",
+      "desc": "Mauritian Rupee",
+      "selector_code": "[id$=\"dynshlp_117_1\"]",
+      "selector_desc": "[id$=\"dynshlp_117_2\"]"
+    },
+    {
+      "row": 118,
+      "code": "MVR",
+      "desc": "Maldive Rufiyaa",
+      "selector_code": "[id$=\"dynshlp_118_1\"]",
+      "selector_desc": "[id$=\"dynshlp_118_2\"]"
+    },
+    {
+      "row": 119,
+      "code": "MWK",
+      "desc": "Malawi Kwacha",
+      "selector_code": "[id$=\"dynshlp_119_1\"]",
+      "selector_desc": "[id$=\"dynshlp_119_2\"]"
+    },
+    {
+      "row": 120,
+      "code": "MXN",
+      "desc": "Mexican Pesos",
+      "selector_code": "[id$=\"dynshlp_120_1\"]",
+      "selector_desc": "[id$=\"dynshlp_120_2\"]"
+    },
+    {
+      "row": 121,
+      "code": "MYR",
+      "desc": "Malaysian Ringgit",
+      "selector_code": "[id$=\"dynshlp_121_1\"]",
+      "selector_desc": "[id$=\"dynshlp_121_2\"]"
+    },
+    {
+      "row": 122,
+      "code": "MZM",
+      "desc": "Mozambique Metical",
+      "selector_code": "[id$=\"dynshlp_122_1\"]",
+      "selector_desc": "[id$=\"dynshlp_122_2\"]"
+    },
+    {
+      "row": 123,
+      "code": "NAD",
+      "desc": "Namibian Dollar",
+      "selector_code": "[id$=\"dynshlp_123_1\"]",
+      "selector_desc": "[id$=\"dynshlp_123_2\"]"
+    },
+    {
+      "row": 124,
+      "code": "NGN",
+      "desc": "Nigerian Naira",
+      "selector_code": "[id$=\"dynshlp_124_1\"]",
+      "selector_desc": "[id$=\"dynshlp_124_2\"]"
+    },
+    {
+      "row": 125,
+      "code": "NIO",
+      "desc": "Nicaraguan Cordoba Oro",
+      "selector_code": "[id$=\"dynshlp_125_1\"]",
+      "selector_desc": "[id$=\"dynshlp_125_2\"]"
+    },
+    {
+      "row": 126,
+      "code": "NLG",
+      "desc": "Dutch Guilder",
+      "selector_code": "[id$=\"dynshlp_126_1\"]",
+      "selector_desc": "[id$=\"dynshlp_126_2\"]"
+    },
+    {
+      "row": 127,
+      "code": "NOK",
+      "desc": "Norwegian Krone",
+      "selector_code": "[id$=\"dynshlp_127_1\"]",
+      "selector_desc": "[id$=\"dynshlp_127_2\"]"
+    },
+    {
+      "row": 128,
+      "code": "NPR",
+      "desc": "Nepalese Rupee",
+      "selector_code": "[id$=\"dynshlp_128_1\"]",
+      "selector_desc": "[id$=\"dynshlp_128_2\"]"
+    },
+    {
+      "row": 129,
+      "code": "NZD",
+      "desc": "New Zealand Dollars",
+      "selector_code": "[id$=\"dynshlp_129_1\"]",
+      "selector_desc": "[id$=\"dynshlp_129_2\"]"
+    },
+    {
+      "row": 130,
+      "code": "OMR",
+      "desc": "Omani Rial",
+      "selector_code": "[id$=\"dynshlp_130_1\"]",
+      "selector_desc": "[id$=\"dynshlp_130_2\"]"
+    },
+    {
+      "row": 131,
+      "code": "PAB",
+      "desc": "Panamanian Balboa",
+      "selector_code": "[id$=\"dynshlp_131_1\"]",
+      "selector_desc": "[id$=\"dynshlp_131_2\"]"
+    },
+    {
+      "row": 132,
+      "code": "PEN",
+      "desc": "Peruvian New Sol",
+      "selector_code": "[id$=\"dynshlp_132_1\"]",
+      "selector_desc": "[id$=\"dynshlp_132_2\"]"
+    },
+    {
+      "row": 133,
+      "code": "PGK",
+      "desc": "Papua New Guinea Kina",
+      "selector_code": "[id$=\"dynshlp_133_1\"]",
+      "selector_desc": "[id$=\"dynshlp_133_2\"]"
+    },
+    {
+      "row": 134,
+      "code": "PHP",
+      "desc": "Philippine Peso",
+      "selector_code": "[id$=\"dynshlp_134_1\"]",
+      "selector_desc": "[id$=\"dynshlp_134_2\"]"
+    },
+    {
+      "row": 135,
+      "code": "PKR",
+      "desc": "Pakistani Rupee",
+      "selector_code": "[id$=\"dynshlp_135_1\"]",
+      "selector_desc": "[id$=\"dynshlp_135_2\"]"
+    },
+    {
+      "row": 136,
+      "code": "PLN",
+      "desc": "Polish Zloty (new)",
+      "selector_code": "[id$=\"dynshlp_136_1\"]",
+      "selector_desc": "[id$=\"dynshlp_136_2\"]"
+    },
+    {
+      "row": 137,
+      "code": "PTE",
+      "desc": "Portuguese Escudo",
+      "selector_code": "[id$=\"dynshlp_137_1\"]",
+      "selector_desc": "[id$=\"dynshlp_137_2\"]"
+    },
+    {
+      "row": 138,
+      "code": "PYG",
+      "desc": "Paraguayan Guarani",
+      "selector_code": "[id$=\"dynshlp_138_1\"]",
+      "selector_desc": "[id$=\"dynshlp_138_2\"]"
+    },
+    {
+      "row": 139,
+      "code": "QAR",
+      "desc": "Qatar Rial",
+      "selector_code": "[id$=\"dynshlp_139_1\"]",
+      "selector_desc": "[id$=\"dynshlp_139_2\"]"
+    },
+    {
+      "row": 140,
+      "code": "RMB",
+      "desc": "Chinesische Renminbi (national)",
+      "selector_code": "[id$=\"dynshlp_140_1\"]",
+      "selector_desc": "[id$=\"dynshlp_140_2\"]"
+    },
+    {
+      "row": 141,
+      "code": "ROL",
+      "desc": "Romanian Leu",
+      "selector_code": "[id$=\"dynshlp_141_1\"]",
+      "selector_desc": "[id$=\"dynshlp_141_2\"]"
+    },
+    {
+      "row": 142,
+      "code": "RUB",
+      "desc": "Russian Ruble",
+      "selector_code": "[id$=\"dynshlp_142_1\"]",
+      "selector_desc": "[id$=\"dynshlp_142_2\"]"
+    },
+    {
+      "row": 143,
+      "code": "RWF",
+      "desc": "Rwandan Franc",
+      "selector_code": "[id$=\"dynshlp_143_1\"]",
+      "selector_desc": "[id$=\"dynshlp_143_2\"]"
+    },
+    {
+      "row": 144,
+      "code": "SAR",
+      "desc": "Saudi Riyal",
+      "selector_code": "[id$=\"dynshlp_144_1\"]",
+      "selector_desc": "[id$=\"dynshlp_144_2\"]"
+    },
+    {
+      "row": 145,
+      "code": "SBD",
+      "desc": "Solomon Islands Dollar",
+      "selector_code": "[id$=\"dynshlp_145_1\"]",
+      "selector_desc": "[id$=\"dynshlp_145_2\"]"
+    },
+    {
+      "row": 146,
+      "code": "SCR",
+      "desc": "Seychelles Rupee",
+      "selector_code": "[id$=\"dynshlp_146_1\"]",
+      "selector_desc": "[id$=\"dynshlp_146_2\"]"
+    },
+    {
+      "row": 147,
+      "code": "SDD",
+      "desc": "Sudanese Dinar",
+      "selector_code": "[id$=\"dynshlp_147_1\"]",
+      "selector_desc": "[id$=\"dynshlp_147_2\"]"
+    },
+    {
+      "row": 148,
+      "code": "SDP",
+      "desc": "Sudanese Pound",
+      "selector_code": "[id$=\"dynshlp_148_1\"]",
+      "selector_desc": "[id$=\"dynshlp_148_2\"]"
+    },
+    {
+      "row": 149,
+      "code": "SEK",
+      "desc": "Swedish Krona",
+      "selector_code": "[id$=\"dynshlp_149_1\"]",
+      "selector_desc": "[id$=\"dynshlp_149_2\"]"
+    },
+    {
+      "row": 150,
+      "code": "SGD",
+      "desc": "Singapore Dollar",
+      "selector_code": "[id$=\"dynshlp_150_1\"]",
+      "selector_desc": "[id$=\"dynshlp_150_2\"]"
+    },
+    {
+      "row": 151,
+      "code": "SHP",
+      "desc": "St.Helena Pound",
+      "selector_code": "[id$=\"dynshlp_151_1\"]",
+      "selector_desc": "[id$=\"dynshlp_151_2\"]"
+    },
+    {
+      "row": 152,
+      "code": "SIT",
+      "desc": "Slovenian Tolar",
+      "selector_code": "[id$=\"dynshlp_152_1\"]",
+      "selector_desc": "[id$=\"dynshlp_152_2\"]"
+    },
+    {
+      "row": 153,
+      "code": "SKK",
+      "desc": "Slovakian Krona",
+      "selector_code": "[id$=\"dynshlp_153_1\"]",
+      "selector_desc": "[id$=\"dynshlp_153_2\"]"
+    },
+    {
+      "row": 154,
+      "code": "SLL",
+      "desc": "Sierra Leone Leone",
+      "selector_code": "[id$=\"dynshlp_154_1\"]",
+      "selector_desc": "[id$=\"dynshlp_154_2\"]"
+    },
+    {
+      "row": 155,
+      "code": "SOS",
+      "desc": "Somalian Shilling",
+      "selector_code": "[id$=\"dynshlp_155_1\"]",
+      "selector_desc": "[id$=\"dynshlp_155_2\"]"
+    },
+    {
+      "row": 156,
+      "code": "SRD",
+      "desc": "Surinam Dollar",
+      "selector_code": "[id$=\"dynshlp_156_1\"]",
+      "selector_desc": "[id$=\"dynshlp_156_2\"]"
+    },
+    {
+      "row": 157,
+      "code": "SRG",
+      "desc": "Surinam Guilder (Old)",
+      "selector_code": "[id$=\"dynshlp_157_1\"]",
+      "selector_desc": "[id$=\"dynshlp_157_2\"]"
+    },
+    {
+      "row": 158,
+      "code": "STD",
+      "desc": "Sao Tome / Principe Dobra",
+      "selector_code": "[id$=\"dynshlp_158_1\"]",
+      "selector_desc": "[id$=\"dynshlp_158_2\"]"
+    },
+    {
+      "row": 159,
+      "code": "SVC",
+      "desc": "El Salvador Colon",
+      "selector_code": "[id$=\"dynshlp_159_1\"]",
+      "selector_desc": "[id$=\"dynshlp_159_2\"]"
+    },
+    {
+      "row": 160,
+      "code": "SYP",
+      "desc": "Syrian Pound",
+      "selector_code": "[id$=\"dynshlp_160_1\"]",
+      "selector_desc": "[id$=\"dynshlp_160_2\"]"
+    },
+    {
+      "row": 161,
+      "code": "SZL",
+      "desc": "Swaziland Lilangeni",
+      "selector_code": "[id$=\"dynshlp_161_1\"]",
+      "selector_desc": "[id$=\"dynshlp_161_2\"]"
+    },
+    {
+      "row": 162,
+      "code": "THB",
+      "desc": "Thailand Baht",
+      "selector_code": "[id$=\"dynshlp_162_1\"]",
+      "selector_desc": "[id$=\"dynshlp_162_2\"]"
+    },
+    {
+      "row": 163,
+      "code": "TJR",
+      "desc": "Tajikistani Ruble (Old)",
+      "selector_code": "[id$=\"dynshlp_163_1\"]",
+      "selector_desc": "[id$=\"dynshlp_163_2\"]"
+    },
+    {
+      "row": 164,
+      "code": "TJS",
+      "desc": "Tajikistani Somoni",
+      "selector_code": "[id$=\"dynshlp_164_1\"]",
+      "selector_desc": "[id$=\"dynshlp_164_2\"]"
+    },
+    {
+      "row": 165,
+      "code": "TMM",
+      "desc": "Turkmenistani Manat",
+      "selector_code": "[id$=\"dynshlp_165_1\"]",
+      "selector_desc": "[id$=\"dynshlp_165_2\"]"
+    },
+    {
+      "row": 166,
+      "code": "TND",
+      "desc": "Tunisian Dinar",
+      "selector_code": "[id$=\"dynshlp_166_1\"]",
+      "selector_desc": "[id$=\"dynshlp_166_2\"]"
+    },
+    {
+      "row": 167,
+      "code": "TOP",
+      "desc": "Tongan Pa'anga",
+      "selector_code": "[id$=\"dynshlp_167_1\"]",
+      "selector_desc": "[id$=\"dynshlp_167_2\"]"
+    },
+    {
+      "row": 168,
+      "code": "TPE",
+      "desc": "Timor Escudo",
+      "selector_code": "[id$=\"dynshlp_168_1\"]",
+      "selector_desc": "[id$=\"dynshlp_168_2\"]"
+    },
+    {
+      "row": 169,
+      "code": "TRL",
+      "desc": "Turkish Lira (Old)",
+      "selector_code": "[id$=\"dynshlp_169_1\"]",
+      "selector_desc": "[id$=\"dynshlp_169_2\"]"
+    },
+    {
+      "row": 170,
+      "code": "TRY",
+      "desc": "Turkish Lira",
+      "selector_code": "[id$=\"dynshlp_170_1\"]",
+      "selector_desc": "[id$=\"dynshlp_170_2\"]"
+    },
+    {
+      "row": 171,
+      "code": "TTD",
+      "desc": "Trinidad and Tobago Dollar",
+      "selector_code": "[id$=\"dynshlp_171_1\"]",
+      "selector_desc": "[id$=\"dynshlp_171_2\"]"
+    },
+    {
+      "row": 172,
+      "code": "TWD",
+      "desc": "New Taiwan Dollar",
+      "selector_code": "[id$=\"dynshlp_172_1\"]",
+      "selector_desc": "[id$=\"dynshlp_172_2\"]"
+    },
+    {
+      "row": 173,
+      "code": "TZS",
+      "desc": "Tanzanian Shilling",
+      "selector_code": "[id$=\"dynshlp_173_1\"]",
+      "selector_desc": "[id$=\"dynshlp_173_2\"]"
+    },
+    {
+      "row": 174,
+      "code": "UAH",
+      "desc": "Ukraine Hryvnia",
+      "selector_code": "[id$=\"dynshlp_174_1\"]",
+      "selector_desc": "[id$=\"dynshlp_174_2\"]"
+    },
+    {
+      "row": 175,
+      "code": "UGX",
+      "desc": "Ugandan Shilling",
+      "selector_code": "[id$=\"dynshlp_175_1\"]",
+      "selector_desc": "[id$=\"dynshlp_175_2\"]"
+    },
+    {
+      "row": 176,
+      "code": "USD",
+      "desc": "United States Dollar",
+      "selector_code": "[id$=\"dynshlp_176_1\"]",
+      "selector_desc": "[id$=\"dynshlp_176_2\"]"
+    },
+    {
+      "row": 177,
+      "code": "USDN",
+      "desc": "(Internal) United States Dollar (5 Dec.)",
+      "selector_code": "[id$=\"dynshlp_177_1\"]",
+      "selector_desc": "[id$=\"dynshlp_177_2\"]"
+    },
+    {
+      "row": 178,
+      "code": "UYU",
+      "desc": "Uruguayan Peso (new)",
+      "selector_code": "[id$=\"dynshlp_178_1\"]",
+      "selector_desc": "[id$=\"dynshlp_178_2\"]"
+    },
+    {
+      "row": 179,
+      "code": "UZS",
+      "desc": "Uzbekistan Som",
+      "selector_code": "[id$=\"dynshlp_179_1\"]",
+      "selector_desc": "[id$=\"dynshlp_179_2\"]"
+    },
+    {
+      "row": 180,
+      "code": "VEB",
+      "desc": "Venezuelan Bolivar",
+      "selector_code": "[id$=\"dynshlp_180_1\"]",
+      "selector_desc": "[id$=\"dynshlp_180_2\"]"
+    },
+    {
+      "row": 181,
+      "code": "VED",
+      "desc": "Bolivar Digital",
+      "selector_code": "[id$=\"dynshlp_181_1\"]",
+      "selector_desc": "[id$=\"dynshlp_181_2\"]"
+    },
+    {
+      "row": 182,
+      "code": "VEF",
+      "desc": "Venezuelan Bolivar Hard",
+      "selector_code": "[id$=\"dynshlp_182_1\"]",
+      "selector_desc": "[id$=\"dynshlp_182_2\"]"
+    },
+    {
+      "row": 183,
+      "code": "VES",
+      "desc": "Bolivar Soberano",
+      "selector_code": "[id$=\"dynshlp_183_1\"]",
+      "selector_desc": "[id$=\"dynshlp_183_2\"]"
+    },
+    {
+      "row": 184,
+      "code": "VND",
+      "desc": "Vietnamese Dong",
+      "selector_code": "[id$=\"dynshlp_184_1\"]",
+      "selector_desc": "[id$=\"dynshlp_184_2\"]"
+    },
+    {
+      "row": 185,
+      "code": "VUV",
+      "desc": "Vanuatu Vatu",
+      "selector_code": "[id$=\"dynshlp_185_1\"]",
+      "selector_desc": "[id$=\"dynshlp_185_2\"]"
+    },
+    {
+      "row": 186,
+      "code": "WST",
+      "desc": "Samoan Tala",
+      "selector_code": "[id$=\"dynshlp_186_1\"]",
+      "selector_desc": "[id$=\"dynshlp_186_2\"]"
+    },
+    {
+      "row": 187,
+      "code": "XAF",
+      "desc": "Gabon CFA Franc BEAC",
+      "selector_code": "[id$=\"dynshlp_187_1\"]",
+      "selector_desc": "[id$=\"dynshlp_187_2\"]"
+    },
+    {
+      "row": 188,
+      "code": "XCD",
+      "desc": "East Carribean Dollar",
+      "selector_code": "[id$=\"dynshlp_188_1\"]",
+      "selector_desc": "[id$=\"dynshlp_188_2\"]"
+    },
+    {
+      "row": 189,
+      "code": "XDS",
+      "desc": "St. Christopher Dollar",
+      "selector_code": "[id$=\"dynshlp_189_1\"]",
+      "selector_desc": "[id$=\"dynshlp_189_2\"]"
+    },
+    {
+      "row": 190,
+      "code": "XEU",
+      "desc": "European Currency Unit (E.C.U.)",
+      "selector_code": "[id$=\"dynshlp_190_1\"]",
+      "selector_desc": "[id$=\"dynshlp_190_2\"]"
+    },
+    {
+      "row": 191,
+      "code": "XOF",
+      "desc": "Benin CFA Franc BCEAO",
+      "selector_code": "[id$=\"dynshlp_191_1\"]",
+      "selector_desc": "[id$=\"dynshlp_191_2\"]"
+    },
+    {
+      "row": 192,
+      "code": "XPF",
+      "desc": "CFP Franc",
+      "selector_code": "[id$=\"dynshlp_192_1\"]",
+      "selector_desc": "[id$=\"dynshlp_192_2\"]"
+    },
+    {
+      "row": 193,
+      "code": "YER",
+      "desc": "Yemeni Ryal",
+      "selector_code": "[id$=\"dynshlp_193_1\"]",
+      "selector_desc": "[id$=\"dynshlp_193_2\"]"
+    },
+    {
+      "row": 194,
+      "code": "YUM",
+      "desc": "New Yugoslavian Dinar (Old)",
+      "selector_code": "[id$=\"dynshlp_194_1\"]",
+      "selector_desc": "[id$=\"dynshlp_194_2\"]"
+    },
+    {
+      "row": 195,
+      "code": "ZAR",
+      "desc": "South African Rand",
+      "selector_code": "[id$=\"dynshlp_195_1\"]",
+      "selector_desc": "[id$=\"dynshlp_195_2\"]"
+    },
+    {
+      "row": 196,
+      "code": "ZMK",
+      "desc": "Zambian Kwacha",
+      "selector_code": "[id$=\"dynshlp_196_1\"]",
+      "selector_desc": "[id$=\"dynshlp_196_2\"]"
+    },
+    {
+      "row": 197,
+      "code": "ZRN",
+      "desc": "Zaire (Old)",
+      "selector_code": "[id$=\"dynshlp_197_1\"]",
+      "selector_desc": "[id$=\"dynshlp_197_2\"]"
+    },
+    {
+      "row": 198,
+      "code": "ZWD",
+      "desc": "Zimbabwean Dollar",
+      "selector_code": "[id$=\"dynshlp_198_1\"]",
+      "selector_desc": "[id$=\"dynshlp_198_2\"]"
+    }
+  ]
+}

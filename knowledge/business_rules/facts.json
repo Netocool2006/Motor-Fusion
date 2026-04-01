@@ -1,0 +1,2981 @@
+{
+  "domain": "business_rules",
+  "description": "Reglas negocio GBM: nomenclatura (_PS, _RN), tarifas, cláusulas, SLAs, procesos",
+  "entries": {
+    "636511208dc9": {
+      "id": "636511208dc9",
+      "type": "fact",
+      "key": "sufijo_PS_contratos",
+      "fact": {
+        "rule": "Códigos de items de contrato llevan sufijo _PS (post-sale support)",
+        "applies_to": "Oportunidades tipo contrato en SAP CRM",
+        "examples": [
+          {
+            "input": "LLML245",
+            "output": "LLML245_PS",
+            "context": "contrato"
+          },
+          {
+            "input": "LLML245",
+            "output": "LLML245",
+            "context": "proyecto"
+          },
+          {
+            "input": "DB2ENT100",
+            "output": "DB2ENT100_PS",
+            "context": "contrato IBM"
+          }
+        ],
+        "exceptions": "Renovaciones usan _RN. Proyectos no llevan sufijo.",
+        "source": "Proceso interno GBM",
+        "confidence": "verified"
+      },
+      "tags": [
+        "nomenclatura",
+        "codigos",
+        "contrato",
+        "PS",
+        "items",
+        "oportunidad"
+      ],
+      "created_at": "2026-03-13T21:47:52.148859+00:00",
+      "updated_at": "2026-03-13T21:47:52.148859+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-03-20T20:51:21.893945+00:00",
+        "access_count": 2
+      }
+    },
+    "b7aa9f1666cf": {
+      "id": "b7aa9f1666cf",
+      "type": "fact",
+      "key": "sufijo_RN_renovaciones",
+      "fact": {
+        "rule": "Códigos de renovación llevan sufijo _RN",
+        "applies_to": "Oportunidades tipo renovación de licencia",
+        "examples": [
+          {
+            "input": "SAPLIC200",
+            "output": "SAPLIC200_RN",
+            "context": "renovación anual"
+          }
+        ],
+        "exceptions": "Solo renovaciones, no contratos ni proyectos",
+        "source": "Proceso interno GBM",
+        "confidence": "verified"
+      },
+      "tags": [
+        "nomenclatura",
+        "codigos",
+        "renovacion",
+        "RN"
+      ],
+      "created_at": "2026-03-13T21:47:52.173096+00:00",
+      "updated_at": "2026-03-13T21:47:52.173096+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-03-20T20:51:21.893945+00:00",
+        "access_count": 2
+      }
+    },
+    "657b2f3a9368": {
+      "id": "657b2f3a9368",
+      "type": "fact",
+      "key": "tarifas_soporte",
+      "fact": {
+        "rule": "Tarifas estándar GBM por tipo de servicio",
+        "applies_to": "Propuestas económicas, SOWs, BoMs",
+        "examples": [
+          {
+            "input": "Soporte 24x7",
+            "output": "$80-85 USD/hr",
+            "context": "crítico"
+          },
+          {
+            "input": "Asistencia 8x5",
+            "output": "$60 USD/hr",
+            "context": "estándar"
+          },
+          {
+            "input": "Célula desarrollo",
+            "output": "$28.95 USD/hr",
+            "context": "dedicado"
+          },
+          {
+            "input": "Per Call",
+            "output": "$140 USD/hr",
+            "context": "por incidente"
+          }
+        ],
+        "source": "SOW Style Guide GBM",
+        "confidence": "verified"
+      },
+      "tags": [
+        "tarifas",
+        "precios",
+        "soporte",
+        "sow",
+        "propuesta",
+        "bom"
+      ],
+      "created_at": "2026-03-13T21:47:52.188937+00:00",
+      "updated_at": "2026-03-13T21:47:52.188937+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-03-20T15:56:22.513377+00:00",
+        "access_count": 8
+      }
+    },
+    "cad080dfde9b": {
+      "id": "cad080dfde9b",
+      "type": "fact",
+      "key": "clausulas_estandar",
+      "fact": {
+        "rule": "Cláusulas estándar para SOWs de GBM",
+        "applies_to": "Todos los SOWs",
+        "examples": [
+          {
+            "input": "Liability cap",
+            "output": "10% contrato (max $100K)",
+            "context": ""
+          },
+          {
+            "input": "Vigencia oferta",
+            "output": "30 días",
+            "context": ""
+          },
+          {
+            "input": "Aceptación tácita",
+            "output": "3 días hábiles",
+            "context": ""
+          },
+          {
+            "input": "Garantía",
+            "output": "30-60 días",
+            "context": ""
+          },
+          {
+            "input": "Penalidad cliente",
+            "output": "0.2%/día",
+            "context": ""
+          },
+          {
+            "input": "Fee reanudación",
+            "output": "10%",
+            "context": ""
+          },
+          {
+            "input": "Mora pago",
+            "output": "3%/mes",
+            "context": ""
+          },
+          {
+            "input": "No solicitud",
+            "output": "12-24 meses",
+            "context": ""
+          }
+        ],
+        "source": "GBM_SOW_Style_Guide.md",
+        "confidence": "verified"
+      },
+      "tags": [
+        "clausulas",
+        "sow",
+        "contrato",
+        "legal"
+      ],
+      "created_at": "2026-03-13T21:47:52.205248+00:00",
+      "updated_at": "2026-03-13T21:47:52.205248+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-03-20T22:38:37.491838+00:00",
+        "access_count": 16
+      }
+    },
+    "d67dcd7523b4": {
+      "id": "d67dcd7523b4",
+      "type": "fact",
+      "key": "iva_guatemala",
+      "fact": {
+        "rule": "IVA Guatemala es 12%, aplica a todas las propuestas económicas",
+        "applies_to": "Propuestas económicas Guatemala",
+        "source": "Legislación Guatemala",
+        "confidence": "verified"
+      },
+      "tags": [
+        "iva",
+        "impuesto",
+        "guatemala",
+        "propuesta"
+      ],
+      "created_at": "2026-03-13T21:47:52.243290+00:00",
+      "updated_at": "2026-03-13T21:47:52.243290+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-03-20T22:38:37.491838+00:00",
+        "access_count": 7
+      }
+    },
+    "22e7b9e5aaa3": {
+      "id": "22e7b9e5aaa3",
+      "type": "fact",
+      "key": "tipos_sow",
+      "fact": {
+        "rule": "5 tipos de SOW con estructura distinta",
+        "applies_to": "Generación de SOWs",
+        "examples": [
+          {
+            "input": "Tipo 1",
+            "output": "Renovación de Licencias",
+            "context": "renewal"
+          },
+          {
+            "input": "Tipo 2",
+            "output": "Proyecto de Servicios",
+            "context": "project"
+          },
+          {
+            "input": "Tipo 3",
+            "output": "Bolsa de Horas / Soporte",
+            "context": "support"
+          },
+          {
+            "input": "Tipo 4",
+            "output": "Respuesta a RFP",
+            "context": "rfp"
+          },
+          {
+            "input": "Tipo 5",
+            "output": "Célula de Desarrollo",
+            "context": "dev cell"
+          }
+        ],
+        "source": "SOW Style Guide",
+        "confidence": "verified"
+      },
+      "tags": [
+        "sow",
+        "tipos",
+        "estructura"
+      ],
+      "created_at": "2026-03-13T21:47:52.266457+00:00",
+      "updated_at": "2026-03-13T21:47:52.266457+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-03-20T20:51:21.893945+00:00",
+        "access_count": 7
+      }
+    },
+    "c39647d437cf": {
+      "id": "c39647d437cf",
+      "type": "fact",
+      "key": "tipos_quote_sap",
+      "fact": {
+        "rule": "SAP CRM maneja diferentes tipos de quote, cada uno con pantallas distintas",
+        "applies_to": "Creación de quotes en SAP CRM",
+        "examples": [
+          {
+            "input": "Quote manual",
+            "output": "Pantalla libre, campos abiertos",
+            "context": "flexible"
+          },
+          {
+            "input": "Quote contrato",
+            "output": "Vinculado a contrato existente, items preconfigurados",
+            "context": "renewal/support"
+          },
+          {
+            "input": "Quote estándar",
+            "output": "Template predefinido, flujo guiado",
+            "context": "standard"
+          }
+        ],
+        "source": "Proceso SAP CRM GBM",
+        "confidence": "verified"
+      },
+      "tags": [
+        "quote",
+        "sap",
+        "tipos",
+        "crm"
+      ],
+      "created_at": "2026-03-13T21:47:52.305302+00:00",
+      "updated_at": "2026-03-13T21:47:52.305302+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-03-20T19:32:30.887927+00:00",
+        "access_count": 4
+      }
+    },
+    "e544b973b16d": {
+      "id": "e544b973b16d",
+      "type": "fact",
+      "key": "bom_clasificaciones",
+      "fact": {
+        "rule": "Items en BoM se clasifican en categorías que afectan pricing y estructura",
+        "applies_to": "Validación y creación de BoMs",
+        "examples": [
+          {
+            "input": "Servicio",
+            "output": "Horas consultoría, soporte, asistencia",
+            "context": ""
+          },
+          {
+            "input": "Licencia",
+            "output": "Software licensing (PVU, VPC, suscripción)",
+            "context": ""
+          },
+          {
+            "input": "Software",
+            "output": "Producto software empaquetado",
+            "context": ""
+          },
+          {
+            "input": "Hardware",
+            "output": "Equipo físico, servidores, storage",
+            "context": ""
+          },
+          {
+            "input": "Híbrido",
+            "output": "Combinación de 2+ categorías",
+            "context": ""
+          }
+        ],
+        "source": "Proceso interno GBM",
+        "confidence": "verified"
+      },
+      "tags": [
+        "bom",
+        "clasificacion",
+        "items",
+        "producto",
+        "servicio"
+      ],
+      "created_at": "2026-03-13T21:47:52.333902+00:00",
+      "updated_at": "2026-03-13T21:47:52.333902+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-03-20T23:17:59.221931+00:00",
+        "access_count": 20
+      }
+    },
+    "d8cb8c63d3d5": {
+      "id": "d8cb8c63d3d5",
+      "type": "fact",
+      "key": "propuesta_no_es_copypaste",
+      "fact": {
+        "rule": "La propuesta económica NO es copy-paste del BoM, requiere análisis",
+        "applies_to": "Transformación BoM → propuesta económica",
+        "examples": [
+          {
+            "input": "Pricing",
+            "output": "Decidir si subir precio o ir a MEP",
+            "context": "estrategia"
+          },
+          {
+            "input": "Pagos",
+            "output": "Reestructurar (ej: 12 meses → 5 pagos)",
+            "context": "cliente pidió"
+          },
+          {
+            "input": "Tipo cambio",
+            "output": "Evaluar si conviene ajustar TC por estrategia",
+            "context": ""
+          }
+        ],
+        "source": "Experiencia Néstor / proceso GBM",
+        "confidence": "verified"
+      },
+      "tags": [
+        "propuesta",
+        "economica",
+        "bom",
+        "pricing",
+        "mep",
+        "pagos"
+      ],
+      "created_at": "2026-03-13T21:47:52.376239+00:00",
+      "updated_at": "2026-03-13T21:47:52.376239+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-03-20T23:11:19.119191+00:00",
+        "access_count": 10
+      }
+    },
+    "6701fa986b35": {
+      "id": "6701fa986b35",
+      "type": "fact",
+      "key": "sow_fusion_reglas",
+      "fact": {
+        "rule": "Al fusionar SOWs: secciones comunes se unifican, específicas se preservan",
+        "applies_to": "Fusión de 2-6 SOWs de diferentes prácticas",
+        "examples": [
+          {
+            "input": "Instana + Fábrica",
+            "output": "1 SOW unificado",
+            "context": "2 prácticas"
+          },
+          {
+            "input": "6 prácticas",
+            "output": "1 SOW con 6 secciones técnicas",
+            "context": "máximo"
+          }
+        ],
+        "exceptions": "Portada, T&C, Aceptación siempre se unifican. Alcance técnico se preserva por práctica.",
+        "source": "Proceso GBM",
+        "confidence": "verified"
+      },
+      "tags": [
+        "sow",
+        "fusion",
+        "merge",
+        "practicas"
+      ],
+      "created_at": "2026-03-13T21:47:52.410984+00:00",
+      "updated_at": "2026-03-13T21:47:52.410984+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-03-20T15:56:22.513377+00:00",
+        "access_count": 5
+      }
+    },
+    "3d9b7248b90c": {
+      "id": "3d9b7248b90c",
+      "type": "fact",
+      "key": "service_desk",
+      "fact": {
+        "rule": "GBM Service Desk: 7 países, extensión 3911, SLA 4 niveles",
+        "applies_to": "Anexos de SOW",
+        "source": "SOW Style Guide",
+        "confidence": "verified"
+      },
+      "tags": [
+        "service_desk",
+        "soporte",
+        "sla"
+      ],
+      "created_at": "2026-03-13T21:47:52.462968+00:00",
+      "updated_at": "2026-03-13T21:47:52.462968+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-03-20T15:56:22.513377+00:00",
+        "access_count": 5
+      }
+    },
+    "9667cd78b286": {
+      "id": "9667cd78b286",
+      "type": "fact",
+      "key": "bom_formato_excel",
+      "fact": {
+        "rule": "BoM GBM: Excel 8 hojas, Arial 10pt, headers azul #2E75B6, filas alternadas",
+        "applies_to": "Creación de BoMs",
+        "source": "Proceso interno GBM",
+        "confidence": "verified"
+      },
+      "tags": [
+        "bom",
+        "excel",
+        "formato"
+      ],
+      "created_at": "2026-03-13T21:47:52.492895+00:00",
+      "updated_at": "2026-03-13T21:47:52.492895+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0
+      }
+    },
+    "58dd0902c31e": {
+      "id": "58dd0902c31e",
+      "type": "fact",
+      "key": "dashboard_web_architecture",
+      "fact": {
+        "rule": "Dashboard web = mirror de devin.ai servido por Flask con overlays GBM personalizados",
+        "applies_to": "Cualquier modificacion al dashboard web",
+        "examples": [
+          {
+            "input": "dashboard.py",
+            "output": "Flask backend con API endpoints",
+            "context": "backend"
+          },
+          {
+            "input": "dashboard_web/devin_mirror/index.html",
+            "output": "Frontend HTML con CSS/JS inline",
+            "context": "frontend"
+          },
+          {
+            "input": "brand_mirror.py",
+            "output": "Script de rebuild del mirror",
+            "context": "build"
+          }
+        ],
+        "exceptions": "No modificar _astro/ o assets/ - son del bundle de devin.ai",
+        "source": "Session 2026-03-14",
+        "confidence": "verified"
+      },
+      "tags": [
+        "dashboard",
+        "arquitectura",
+        "web",
+        "flask",
+        "devin"
+      ],
+      "created_at": "2026-03-15T04:00:56.997412+00:00",
+      "updated_at": "2026-03-15T04:00:56.997412+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-03-20T22:39:06.809766+00:00",
+        "access_count": 4
+      }
+    },
+    "e135787c8e5d": {
+      "id": "e135787c8e5d",
+      "type": "fact",
+      "key": "dashboard_nav_sections",
+      "fact": {
+        "rule": "Dashboard tiene 6 secciones: Chat, Buscar, KB, Outlook, Stats, Tools (reemplazo de Blog)",
+        "applies_to": "Navegacion del dashboard web",
+        "examples": [
+          {
+            "input": "Home",
+            "output": "Cierra overlays, muestra hero",
+            "context": "nav"
+          },
+          {
+            "input": "Tools",
+            "output": "Abre gbmToolsOverlay con 6 tabs",
+            "context": "nav"
+          }
+        ],
+        "source": "Session 2026-03-14",
+        "confidence": "verified"
+      },
+      "tags": [
+        "dashboard",
+        "nav",
+        "secciones",
+        "ui"
+      ],
+      "created_at": "2026-03-15T04:00:57.077614+00:00",
+      "updated_at": "2026-03-15T04:00:57.077614+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-03-20T22:39:06.809766+00:00",
+        "access_count": 5
+      }
+    },
+    "87e18cd82ce9": {
+      "id": "87e18cd82ce9",
+      "type": "fact",
+      "key": "kb_search_hits_bug_fix",
+      "fact": {
+        "rule": "Bug hits=0: total_hits se incrementaba DESPUES de _save_domain(). Fix: mover ANTES del save.",
+        "applies_to": "knowledge_base.py search()",
+        "examples": [
+          {
+            "input": "total_hits += 1 despues de save",
+            "output": "hits siempre 0",
+            "context": "bug"
+          },
+          {
+            "input": "total_hits += 1 antes de save",
+            "output": "hits persisten",
+            "context": "fix"
+          }
+        ],
+        "source": "Debug session 2026-03-14",
+        "confidence": "verified"
+      },
+      "tags": [
+        "bug",
+        "fix",
+        "kb",
+        "search",
+        "hits"
+      ],
+      "created_at": "2026-03-15T04:00:57.156375+00:00",
+      "updated_at": "2026-03-15T04:00:57.156375+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-03-20T22:39:06.809766+00:00",
+        "access_count": 11
+      }
+    },
+    "b5cfe7599e0b": {
+      "id": "b5cfe7599e0b",
+      "type": "fact",
+      "key": "learning_memory_init",
+      "fact": {
+        "rule": "learned_patterns.json debe existir en ~/.adaptive_cli/. Inicializar con _load_memory() + _save_memory().",
+        "applies_to": "learning_memory.py",
+        "source": "Debug session 2026-03-14",
+        "confidence": "verified"
+      },
+      "tags": [
+        "learning",
+        "memory",
+        "init",
+        "setup"
+      ],
+      "created_at": "2026-03-15T04:00:57.229327+00:00",
+      "updated_at": "2026-03-15T04:00:57.229327+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-03-20T22:39:06.809766+00:00",
+        "access_count": 13
+      }
+    },
+    "9744224cb225": {
+      "id": "9744224cb225",
+      "type": "fact",
+      "key": "devin_css_overrides_needed",
+      "fact": {
+        "rule": "CSS overrides obligatorios para mirror devin.ai: pointer-events auto en nav, z-index 9500 en header, display none en secciones no usadas",
+        "applies_to": "Cualquier rebuild del mirror de devin.ai",
+        "examples": [
+          {
+            "input": "pointer-events: none en nav",
+            "output": "pointer-events: auto !important",
+            "context": "fix"
+          },
+          {
+            "input": "z-index default",
+            "output": "z-index: 9500 en header",
+            "context": "hierarchy"
+          }
+        ],
+        "source": "Debug session 2026-03-14",
+        "confidence": "verified"
+      },
+      "tags": [
+        "css",
+        "devin",
+        "overrides",
+        "mirror",
+        "obligatorio"
+      ],
+      "created_at": "2026-03-15T04:00:57.319637+00:00",
+      "updated_at": "2026-03-15T04:00:57.319637+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-03-20T22:39:06.809766+00:00",
+        "access_count": 2
+      }
+    },
+    "01ba39b0a7ca": {
+      "id": "01ba39b0a7ca",
+      "type": "fact",
+      "key": "dashboard_overlay_pattern",
+      "fact": {
+        "rule": "Cada seccion GBM usa overlay fullscreen (fixed, inset:0, z:9000, blur). IDs: gbmChatOverlay, gbmSearchOverlay, gbmKbOverlay, gbmOutlookOverlay, gbmStatsOverlay, gbmToolsOverlay.",
+        "applies_to": "Agregar nuevas secciones al dashboard",
+        "source": "Session 2026-03-14",
+        "confidence": "verified"
+      },
+      "tags": [
+        "overlay",
+        "pattern",
+        "dashboard",
+        "ui",
+        "css"
+      ],
+      "created_at": "2026-03-15T04:00:57.437363+00:00",
+      "updated_at": "2026-03-15T04:00:57.437363+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-03-20T22:39:06.809766+00:00",
+        "access_count": 4
+      }
+    },
+    "4b4ee377f84b": {
+      "id": "4b4ee377f84b",
+      "type": "fact",
+      "key": "dashboard_tools_6_tabs",
+      "fact": {
+        "rule": "Tools panel tiene 6 tabs: Ingest Docs, Explorar KB, Aprendizaje, Activity Log, Export, Seed Data.",
+        "applies_to": "Modificaciones al panel Tools",
+        "examples": [
+          {
+            "input": "Ingest fuentes/",
+            "output": "Ejecuta ingest_documents.py",
+            "context": "tab ingest"
+          },
+          {
+            "input": "Explorar KB",
+            "output": "GET /api/tools/kb-browse?domain=X",
+            "context": "tab browse"
+          },
+          {
+            "input": "Export",
+            "output": "kb_export con query filter",
+            "context": "tab export"
+          }
+        ],
+        "source": "Session 2026-03-14",
+        "confidence": "verified"
+      },
+      "tags": [
+        "tools",
+        "tabs",
+        "dashboard",
+        "funcionalidad"
+      ],
+      "created_at": "2026-03-15T04:00:57.512025+00:00",
+      "updated_at": "2026-03-15T04:00:57.512025+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-03-20T22:39:06.809766+00:00",
+        "access_count": 6
+      }
+    },
+    "2d012c6251bb": {
+      "id": "2d012c6251bb",
+      "type": "fact",
+      "key": "dashboard_css_design_system",
+      "fact": {
+        "rule": "CSS design: variables --gbm-*, accent=#1DC19C, accent2=#2A6DCE, fuentes neue-haas-grotesk, radius 16px/10px/20px",
+        "applies_to": "Disenar nuevos componentes dashboard",
+        "source": "Session 2026-03-14",
+        "confidence": "verified"
+      },
+      "tags": [
+        "css",
+        "design",
+        "variables",
+        "colores",
+        "fuentes"
+      ],
+      "created_at": "2026-03-15T04:00:57.580284+00:00",
+      "updated_at": "2026-03-15T04:00:57.580284+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-03-20T22:39:06.809766+00:00",
+        "access_count": 4
+      }
+    },
+    "52bb239cd4eb": {
+      "id": "52bb239cd4eb",
+      "type": "fact",
+      "key": "backup_rollback_procedure",
+      "fact": {
+        "rule": "Backup en C:/Chance1/backup_Asistente/. Copia completa front+back. Rollback: copiar de vuelta a Asistente IA/.",
+        "applies_to": "Recuperacion ante errores",
+        "source": "Session 2026-03-14",
+        "confidence": "verified"
+      },
+      "tags": [
+        "backup",
+        "rollback",
+        "recuperacion"
+      ],
+      "created_at": "2026-03-15T04:00:57.652310+00:00",
+      "updated_at": "2026-03-15T04:00:57.652310+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-03-20T22:39:06.809766+00:00",
+        "access_count": 10
+      }
+    },
+    "6652a80c0f72": {
+      "id": "6652a80c0f72",
+      "type": "fact",
+      "key": "session_context_compression",
+      "fact": {
+        "rule": "Claude Code comprime el contexto cuando se acerca al limite. El resumen se inyecta al inicio de la nueva sesion. Para no perder conocimiento, alimentar KB y Learning Memory ANTES de que ocurra la compresion.",
+        "applies_to": "Sesiones largas de trabajo con Claude Code",
+        "source": "Experiencia session 2026-03-14",
+        "confidence": "verified"
+      },
+      "tags": [
+        "claude",
+        "contexto",
+        "compresion",
+        "sesion",
+        "memoria"
+      ],
+      "created_at": "2026-03-15T04:00:57.722072+00:00",
+      "updated_at": "2026-03-15T04:00:57.722072+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-03-20T23:11:19.119191+00:00",
+        "access_count": 7
+      }
+    },
+    "ec6876e704e8": {
+      "id": "ec6876e704e8",
+      "type": "fact",
+      "key": "session_knowledge_transfer",
+      "fact": {
+        "rule": "Al final de cada sesion productiva, registrar en KB: patrones tecnicos en dominio files, reglas de negocio en business_rules, patrones de error-solucion en learning_memory. Esto permite que futuras sesiones tengan el conocimiento acumulado.",
+        "applies_to": "Cierre de sesiones de trabajo",
+        "source": "Proceso establecido session 2026-03-14",
+        "confidence": "verified"
+      },
+      "tags": [
+        "sesion",
+        "conocimiento",
+        "transferencia",
+        "proceso"
+      ],
+      "created_at": "2026-03-15T04:00:57.778624+00:00",
+      "updated_at": "2026-03-15T04:00:57.778624+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-03-20T23:17:59.221931+00:00",
+        "access_count": 47
+      }
+    },
+    "cb7744b25d1c": {
+      "id": "cb7744b25d1c",
+      "type": "fact",
+      "key": "web_mirror_process_complete",
+      "fact": {
+        "rule": "Proceso dashboard desde sitio existente: 1) wget --mirror descarga sitio. 2) Scripts download_devin.py para manejo especifico. 3) brand_mirror.py como pipeline de transformacion. 4) Flask sirve static folder. 5) Iterar fixes: pointer-events, z-index, secciones ocultas.",
+        "applies_to": "Crear dashboards basados en sitios web existentes",
+        "examples": [
+          {
+            "input": "devin.ai",
+            "output": "dashboard_web/devin_mirror/",
+            "context": "sitio descargado"
+          },
+          {
+            "input": "brand_mirror.py",
+            "output": "index.html customizado",
+            "context": "adaptacion"
+          },
+          {
+            "input": "dashboard.py",
+            "output": "Flask en localhost:5000",
+            "context": "servir"
+          }
+        ],
+        "exceptions": "Sitios con auth o SPA puro (React/Vue sin SSR) no se pueden bajar con wget",
+        "source": "Proceso completo sesion 2026-03-14",
+        "confidence": "verified"
+      },
+      "tags": [
+        "mirror",
+        "wget",
+        "download",
+        "brand",
+        "proceso",
+        "dashboard"
+      ],
+      "created_at": "2026-03-15T04:06:27.564270+00:00",
+      "updated_at": "2026-03-15T04:06:27.564270+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-03-20T23:17:59.221931+00:00",
+        "access_count": 28
+      }
+    },
+    "127811258be0": {
+      "id": "127811258be0",
+      "type": "fact",
+      "key": "wget_mirror_command",
+      "fact": {
+        "rule": "wget --mirror --convert-links --adjust-extension --page-requisites --no-parent -P <destino> <URL>. Flags: --convert-links (arregla rutas), --page-requisites (baja CSS/JS/imgs), --adjust-extension (agrega .html).",
+        "applies_to": "Descargar cualquier sitio web para uso local",
+        "source": "Sesion 2026-03-14",
+        "confidence": "verified"
+      },
+      "tags": [
+        "wget",
+        "mirror",
+        "comando",
+        "descarga"
+      ],
+      "created_at": "2026-03-15T04:06:27.650962+00:00",
+      "updated_at": "2026-03-15T04:06:27.650962+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-03-20T22:48:09.452312+00:00",
+        "access_count": 5
+      }
+    },
+    "7e7f73a7da55": {
+      "id": "7e7f73a7da55",
+      "type": "fact",
+      "key": "brand_mirror_pipeline_steps",
+      "fact": {
+        "rule": "brand_mirror.py pipeline: 1) Leer index.html original. 2) str.replace() textos. 3) Inyectar CSS overrides antes de </head>. 4) Inyectar HTML overlays antes de </body>. 5) Inyectar JS handlers antes de </body>. 6) Guardar.",
+        "applies_to": "Modificar o reconstruir el brand mirror",
+        "examples": [
+          {
+            "input": "Devin",
+            "output": "GBM",
+            "context": "texto"
+          },
+          {
+            "input": "Get started",
+            "output": "Empezar a buscar",
+            "context": "CTA"
+          }
+        ],
+        "source": "Sesion 2026-03-14",
+        "confidence": "verified"
+      },
+      "tags": [
+        "brand",
+        "mirror",
+        "pipeline",
+        "build",
+        "pasos"
+      ],
+      "created_at": "2026-03-15T04:06:27.760313+00:00",
+      "updated_at": "2026-03-15T04:06:27.760313+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-03-20T22:48:09.452312+00:00",
+        "access_count": 3
+      }
+    },
+    "198564502d27": {
+      "id": "198564502d27",
+      "type": "fact",
+      "key": "astro_framework_mirror_challenges",
+      "fact": {
+        "rule": "Sitios Astro tienen challenges al mirror: bundles _astro/ con hashes, scroll managers, pointer-events off, CSS fonts externas (Adobe Typekit). Solucion: mantener _astro/ intacto, CSS !important, capture phase JS.",
+        "applies_to": "Mirror de sitios basados en Astro framework",
+        "source": "Experiencia devin.ai 2026-03-14",
+        "confidence": "verified"
+      },
+      "tags": [
+        "astro",
+        "framework",
+        "challenges",
+        "mirror"
+      ],
+      "created_at": "2026-03-15T04:06:27.855902+00:00",
+      "updated_at": "2026-03-15T04:06:27.855902+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-03-20T23:11:19.119191+00:00",
+        "access_count": 2
+      }
+    },
+    "0529ffa94173": {
+      "id": "0529ffa94173",
+      "type": "fact",
+      "key": "download_scripts_purpose",
+      "fact": {
+        "rule": "2 scripts de descarga: download_devin.py (basica con requests) y download_devin_full.py (completa con wget + assets). Usar full para descarga completa.",
+        "applies_to": "Re-descargar o actualizar el mirror",
+        "source": "Sesion 2026-03-14",
+        "confidence": "verified"
+      },
+      "tags": [
+        "download",
+        "scripts",
+        "devin",
+        "wget"
+      ],
+      "created_at": "2026-03-15T04:06:27.950157+00:00",
+      "updated_at": "2026-03-15T04:06:27.950157+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-03-20T22:48:09.452312+00:00",
+        "access_count": 3
+      }
+    },
+    "1a909f0c06fe": {
+      "id": "1a909f0c06fe",
+      "type": "fact",
+      "key": "claude_code_hooks_system",
+      "fact": {
+        "rule": "Claude Code CLI tiene 2 hooks configurados: SessionStart (inyecta contexto KB/learning/business_rules via stdout) y Stop (captura transcript completo y guarda en session_history.json). Ambos en .claude/hooks/.",
+        "applies_to": "Sistema de memoria persistente del asistente",
+        "exceptions": "Si stop_hook_active=True, el hook Stop se salta para evitar loops recursivos.",
+        "confidence": "verified",
+        "examples": [
+          {
+            "input": "SessionStart",
+            "output": "session_start_kb.py imprime contexto a stdout",
+            "context": "Se inyecta automáticamente al inicio"
+          },
+          {
+            "input": "Stop",
+            "output": "auto_learn_hook.py lee transcript_path JSONL y guarda session_history.json",
+            "context": "Se dispara al terminar sesión"
+          }
+        ]
+      },
+      "tags": [],
+      "created_at": "2026-03-15T18:34:23.790807+00:00",
+      "updated_at": "2026-03-15T18:34:23.790807+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-03-20T23:17:59.221931+00:00",
+        "access_count": 48
+      }
+    },
+    "a749f66815ce": {
+      "id": "a749f66815ce",
+      "type": "fact",
+      "key": "session_history_structure",
+      "fact": {
+        "rule": "session_history.json guarda últimas 20 sesiones con merge incremental. Campos: session_id, date, time, summary, user_messages, files_read/edited/created, commands_run, errors, decisions, learning_json, metrics. Si misma sesión se guarda 2 veces, hace merge sin duplicados.",
+        "applies_to": "Persistencia entre sesiones de Claude Code",
+        "confidence": "verified",
+        "examples": [
+          {
+            "input": "Sesión duplicada (mismo session_id)",
+            "output": "Merge: listas se unen sin dupes, summary conserva el más largo, metrics toma máximos",
+            "context": "Evita pérdida de datos"
+          }
+        ]
+      },
+      "tags": [],
+      "created_at": "2026-03-15T18:34:23.880907+00:00",
+      "updated_at": "2026-03-15T18:34:23.880907+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-03-20T23:17:59.221931+00:00",
+        "access_count": 29
+      }
+    },
+    "2ab80459817b": {
+      "id": "2ab80459817b",
+      "type": "fact",
+      "key": "outlook_com_latency",
+      "fact": {
+        "rule": "Búsqueda en Outlook via COM toma ~7.5 segundos. No se puede cachear porque los correos cambian. Solución: progressive rendering - mostrar archivos+KB inmediatamente y appendear correos cuando lleguen.",
+        "applies_to": "Búsqueda universal en dashboard",
+        "confidence": "verified",
+        "examples": [
+          {
+            "input": "Búsqueda \"bom\"",
+            "output": "Files: 0.11s (cached), KB: 0.7s, Outlook: 7.5s",
+            "context": "Tiempos medidos con profiling"
+          }
+        ]
+      },
+      "tags": [],
+      "created_at": "2026-03-15T18:36:23.485134+00:00",
+      "updated_at": "2026-03-15T18:36:23.485134+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-03-20T22:39:06.809766+00:00",
+        "access_count": 10
+      }
+    },
+    "f0af037a07dc": {
+      "id": "f0af037a07dc",
+      "type": "fact",
+      "key": "file_search_content_not_filename",
+      "fact": {
+        "rule": "file_search.py busca DENTRO del contenido de archivos (PDF, XLSX, DOCX, PPTX, TXT, CSV), no solo por nombre. Extrae texto de todas las celdas/páginas/párrafos y busca el término ahí. Un número de oportunidad como 241849 se encuentra aunque el archivo se llame diferente.",
+        "applies_to": "Búsquedas de oportunidades, códigos, nombres de clientes en archivos locales",
+        "confidence": "verified",
+        "examples": [
+          {
+            "input": "Buscar \"Bantrab\"",
+            "output": "16 archivos encontrados incluyendo Excel con celda Cliente:Bantrab",
+            "context": "Busca dentro de celdas XLSX"
+          },
+          {
+            "input": "Buscar \"241849\" (oportunidad)",
+            "output": "Encuentra en BOM aunque archivo se llame BOM-Bantrab-Portal.xlsx",
+            "context": "Busca números dentro del contenido"
+          }
+        ]
+      },
+      "tags": [],
+      "created_at": "2026-03-15T18:59:19.421097+00:00",
+      "updated_at": "2026-03-15T18:59:19.421097+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-03-20T22:38:37.491838+00:00",
+        "access_count": 7
+      }
+    },
+    "ae2cf3eca0f4": {
+      "id": "ae2cf3eca0f4",
+      "type": "fact",
+      "key": "fts5_index_persistence",
+      "fact": {
+        "rule": "El índice FTS5 (SQLite) persiste en disco en ~/.adaptive_cli/file_search_index.db. Búsquedas son instantáneas (~0.06s) incluso en cold start. Para subcadenas no tokenizables usa LIKE como fallback. Actualización incremental solo re-indexa archivos con mtime diferente.",
+        "applies_to": "Performance de búsqueda de archivos locales",
+        "confidence": "verified",
+        "examples": [
+          {
+            "input": "Cold start sin cache RAM",
+            "output": "0.06s via FTS5 (antes: 28.93s)",
+            "context": "482x mejora"
+          },
+          {
+            "input": "Incremental update (sin cambios)",
+            "output": "0.01s — solo verifica mtimes",
+            "context": "No re-lee archivos"
+          }
+        ]
+      },
+      "tags": [],
+      "created_at": "2026-03-15T18:59:19.430613+00:00",
+      "updated_at": "2026-03-15T18:59:19.430613+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-03-20T23:17:59.221931+00:00",
+        "access_count": 29
+      }
+    },
+    "a51c467bc24c": {
+      "id": "a51c467bc24c",
+      "type": "pattern",
+      "key": "auto_hook_fix_and_search_optimization_20260315_130226",
+      "solution": {
+        "strategy": "transcript_desanidation_fts5_sqlite_health_check",
+        "code_snippet": "",
+        "notes": "Fix hooks: obj['message'] not obj direct, separate seen_sets, system msg filter. FTS5: 482x cold start improvement. Health check: visible alert if capture fails. test_hooks.py: 14/14 pass.",
+        "auto_learned": true,
+        "source": "hook_stop_event"
+      },
+      "tags": [
+        "hook_fix_and_search_optimization",
+        "business_rules",
+        "auto_learned"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-15T19:02:26.573479+00:00",
+      "updated_at": "2026-03-15T19:02:26.573479+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-20T23:17:59.221931+00:00",
+        "access_count": 28
+      }
+    },
+    "d6281a910731": {
+      "id": "d6281a910731",
+      "type": "fact",
+      "key": "startup_context_budget",
+      "fact": {
+        "rule": "El contexto de inicio (session_start_kb.py) debe mantenerse bajo 15,000 tokens (~7.5% de ventana 200K). Actualmente usa ~8,389 tokens (4.2%). Hay espacio para agregar mas detalle util. No cargar contenido crudo sin procesar (transcripciones, logs, datos raw).",
+        "applies_to": "Mantenimiento del sistema de hooks y KB",
+        "confidence": "verified"
+      },
+      "tags": [],
+      "created_at": "2026-03-15T19:06:24.844895+00:00",
+      "updated_at": "2026-03-15T19:06:24.844895+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-03-20T23:17:59.221931+00:00",
+        "access_count": 36
+      }
+    },
+    "9450ee9856f7": {
+      "id": "9450ee9856f7",
+      "type": "pattern",
+      "key": "auto_hook_fix_and_search_optimization_20260315_130631",
+      "solution": {
+        "strategy": "transcript_desanidation_fts5_sqlite_health_check",
+        "code_snippet": "",
+        "notes": "Fix hooks: obj['message'] not obj direct, separate seen_sets, system msg filter. FTS5: 482x cold start improvement. Health check: visible alert if capture fails. test_hooks.py: 14/14 pass.",
+        "auto_learned": true,
+        "source": "hook_stop_event"
+      },
+      "tags": [
+        "hook_fix_and_search_optimization",
+        "business_rules",
+        "auto_learned"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-15T19:06:31.304866+00:00",
+      "updated_at": "2026-03-15T19:06:31.304866+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-20T23:17:59.221931+00:00",
+        "access_count": 28
+      }
+    },
+    "6f69bab4f35a": {
+      "id": "6f69bab4f35a",
+      "type": "pattern",
+      "key": "auto_hook_fix_and_search_optimization_20260315_131517",
+      "solution": {
+        "strategy": "transcript_desanidation_fts5_sqlite_health_check",
+        "code_snippet": "",
+        "notes": "Fix hooks: obj['message'] not obj direct, separate seen_sets, system msg filter. FTS5: 482x cold start improvement. Health check: visible alert if capture fails. test_hooks.py: 14/14 pass.",
+        "auto_learned": true,
+        "source": "hook_stop_event"
+      },
+      "tags": [
+        "hook_fix_and_search_optimization",
+        "business_rules",
+        "auto_learned"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-15T19:15:17.435704+00:00",
+      "updated_at": "2026-03-15T19:15:17.435704+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-20T23:17:59.221931+00:00",
+        "access_count": 28
+      }
+    },
+    "2a59fdf2fb43": {
+      "id": "2a59fdf2fb43",
+      "type": "pattern",
+      "key": "auto_hook_fix_and_search_optimization_20260315_131525",
+      "solution": {
+        "strategy": "transcript_desanidation_fts5_sqlite_health_check",
+        "code_snippet": "",
+        "notes": "Fix hooks: obj['message'] not obj direct, separate seen_sets, system msg filter. FTS5: 482x cold start improvement. Health check: visible alert if capture fails. test_hooks.py: 14/14 pass.",
+        "auto_learned": true,
+        "source": "hook_stop_event"
+      },
+      "tags": [
+        "hook_fix_and_search_optimization",
+        "business_rules",
+        "auto_learned"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-15T19:15:25.625515+00:00",
+      "updated_at": "2026-03-15T19:15:25.625515+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-20T23:17:59.221931+00:00",
+        "access_count": 28
+      }
+    },
+    "35293965261e": {
+      "id": "35293965261e",
+      "type": "pattern",
+      "key": "auto_sap_playbook_setup_20260315_133622",
+      "solution": {
+        "strategy": "sqlite_playbook_with_startup_hook_integration",
+        "code_snippet": "sap_playbook.py + format_sap_playbook() in session_start_kb.py",
+        "notes": "SAP Playbook seeded (4 patterns, 4 blacklist, 5 JS helpers), integrated with startup context. Each session now loads SAP operational knowledge automatically. Ready for incremental learning via lookup()/learn()/fail() cycle.",
+        "auto_learned": true,
+        "source": "hook_stop_event"
+      },
+      "tags": [
+        "sap_playbook_setup",
+        "business_rules",
+        "auto_learned"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-15T19:36:22.481110+00:00",
+      "updated_at": "2026-03-15T19:36:22.481110+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-20T23:17:59.221931+00:00",
+        "access_count": 28
+      }
+    },
+    "b78f3206f02e": {
+      "id": "b78f3206f02e",
+      "type": "pattern",
+      "key": "auto_sap_playbook_setup_20260315_134506",
+      "solution": {
+        "strategy": "sqlite_playbook_with_startup_hook_integration",
+        "code_snippet": "sap_playbook.py + format_sap_playbook() in session_start_kb.py",
+        "notes": "SAP Playbook seeded (4 patterns, 4 blacklist, 5 JS helpers), integrated with startup context. Each session now loads SAP operational knowledge automatically. Ready for incremental learning via lookup()/learn()/fail() cycle.",
+        "auto_learned": true,
+        "source": "hook_stop_event"
+      },
+      "tags": [
+        "sap_playbook_setup",
+        "business_rules",
+        "auto_learned"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-15T19:45:06.352145+00:00",
+      "updated_at": "2026-03-15T19:45:06.352145+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-20T23:17:59.221931+00:00",
+        "access_count": 28
+      }
+    },
+    "e7d03655eec0": {
+      "id": "e7d03655eec0",
+      "type": "pattern",
+      "key": "auto_sap_playbook_setup_20260315_164931",
+      "solution": {
+        "strategy": "sqlite_playbook_with_startup_hook_integration",
+        "code_snippet": "sap_playbook.py + format_sap_playbook() in session_start_kb.py",
+        "notes": "SAP Playbook seeded (4 patterns, 4 blacklist, 5 JS helpers), integrated with startup context. Each session now loads SAP operational knowledge automatically. Ready for incremental learning via lookup()/learn()/fail() cycle.",
+        "auto_learned": true,
+        "source": "hook_stop_event"
+      },
+      "tags": [
+        "sap_playbook_setup",
+        "business_rules",
+        "auto_learned"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-15T22:49:31.806529+00:00",
+      "updated_at": "2026-03-15T22:49:31.806529+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-20T23:17:59.221931+00:00",
+        "access_count": 28
+      }
+    },
+    "738ddaf3548f": {
+      "id": "738ddaf3548f",
+      "type": "pattern",
+      "key": "auto_sap_playbook_setup_20260315_174735",
+      "solution": {
+        "strategy": "sqlite_playbook_with_startup_hook_integration",
+        "code_snippet": "sap_playbook.py + format_sap_playbook() in session_start_kb.py",
+        "notes": "SAP Playbook seeded (4 patterns, 4 blacklist, 5 JS helpers), integrated with startup context. Each session now loads SAP operational knowledge automatically. Ready for incremental learning via lookup()/learn()/fail() cycle.",
+        "auto_learned": true,
+        "source": "hook_stop_event"
+      },
+      "tags": [
+        "sap_playbook_setup",
+        "business_rules",
+        "auto_learned"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-15T23:47:35.420063+00:00",
+      "updated_at": "2026-03-15T23:47:35.420063+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-20T23:17:59.221931+00:00",
+        "access_count": 28
+      }
+    },
+    "81bc305f02b5": {
+      "id": "81bc305f02b5",
+      "type": "pattern",
+      "key": "auto_sap_playbook_setup_20260315_174955",
+      "solution": {
+        "strategy": "sqlite_playbook_with_startup_hook_integration",
+        "code_snippet": "sap_playbook.py + format_sap_playbook() in session_start_kb.py",
+        "notes": "SAP Playbook seeded (4 patterns, 4 blacklist, 5 JS helpers), integrated with startup context. Each session now loads SAP operational knowledge automatically. Ready for incremental learning via lookup()/learn()/fail() cycle.",
+        "auto_learned": true,
+        "source": "hook_stop_event"
+      },
+      "tags": [
+        "sap_playbook_setup",
+        "business_rules",
+        "auto_learned"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-15T23:49:55.871971+00:00",
+      "updated_at": "2026-03-15T23:49:55.871971+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-20T23:17:59.221931+00:00",
+        "access_count": 28
+      }
+    },
+    "0899b5ae1edd": {
+      "id": "0899b5ae1edd",
+      "type": "pattern",
+      "key": "auto_sap_playbook_setup_20260315_175233",
+      "solution": {
+        "strategy": "sqlite_playbook_with_startup_hook_integration",
+        "code_snippet": "sap_playbook.py + format_sap_playbook() in session_start_kb.py",
+        "notes": "SAP Playbook seeded (4 patterns, 4 blacklist, 5 JS helpers), integrated with startup context. Each session now loads SAP operational knowledge automatically. Ready for incremental learning via lookup()/learn()/fail() cycle.",
+        "auto_learned": true,
+        "source": "hook_stop_event"
+      },
+      "tags": [
+        "sap_playbook_setup",
+        "business_rules",
+        "auto_learned"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-15T23:52:33.396760+00:00",
+      "updated_at": "2026-03-15T23:52:33.396760+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-20T23:17:59.221931+00:00",
+        "access_count": 28
+      }
+    },
+    "3076395716ea": {
+      "id": "3076395716ea",
+      "type": "pattern",
+      "key": "auto_sap_playbook_setup_20260315_175315",
+      "solution": {
+        "strategy": "sqlite_playbook_with_startup_hook_integration",
+        "code_snippet": "sap_playbook.py + format_sap_playbook() in session_start_kb.py",
+        "notes": "SAP Playbook seeded (4 patterns, 4 blacklist, 5 JS helpers), integrated with startup context. Each session now loads SAP operational knowledge automatically. Ready for incremental learning via lookup()/learn()/fail() cycle.",
+        "auto_learned": true,
+        "source": "hook_stop_event"
+      },
+      "tags": [
+        "sap_playbook_setup",
+        "business_rules",
+        "auto_learned"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-15T23:53:15.150163+00:00",
+      "updated_at": "2026-03-15T23:53:15.150163+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-20T23:17:59.221931+00:00",
+        "access_count": 28
+      }
+    },
+    "7d5c05d8e670": {
+      "id": "7d5c05d8e670",
+      "type": "pattern",
+      "key": "auto_sap_playbook_setup_20260315_175427",
+      "solution": {
+        "strategy": "sqlite_playbook_with_startup_hook_integration",
+        "code_snippet": "sap_playbook.py + format_sap_playbook() in session_start_kb.py",
+        "notes": "SAP Playbook seeded (4 patterns, 4 blacklist, 5 JS helpers), integrated with startup context. Each session now loads SAP operational knowledge automatically. Ready for incremental learning via lookup()/learn()/fail() cycle.",
+        "auto_learned": true,
+        "source": "hook_stop_event"
+      },
+      "tags": [
+        "sap_playbook_setup",
+        "business_rules",
+        "auto_learned"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-15T23:54:27.918874+00:00",
+      "updated_at": "2026-03-15T23:54:27.918874+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-20T23:17:59.221931+00:00",
+        "access_count": 28
+      }
+    },
+    "ea66a4039e32": {
+      "id": "ea66a4039e32",
+      "type": "pattern",
+      "key": "auto_sap_playbook_setup_20260315_181056",
+      "solution": {
+        "strategy": "sqlite_playbook_with_startup_hook_integration",
+        "code_snippet": "sap_playbook.py + format_sap_playbook() in session_start_kb.py",
+        "notes": "SAP Playbook seeded (4 patterns, 4 blacklist, 5 JS helpers), integrated with startup context. Each session now loads SAP operational knowledge automatically. Ready for incremental learning via lookup()/learn()/fail() cycle.",
+        "auto_learned": true,
+        "source": "hook_stop_event"
+      },
+      "tags": [
+        "sap_playbook_setup",
+        "business_rules",
+        "auto_learned"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-16T00:10:56.714327+00:00",
+      "updated_at": "2026-03-16T00:10:56.714327+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-20T23:17:59.221931+00:00",
+        "access_count": 28
+      }
+    },
+    "109dd0284373": {
+      "id": "109dd0284373",
+      "type": "pattern",
+      "key": "auto_sap_playbook_setup_20260315_181602",
+      "solution": {
+        "strategy": "sqlite_playbook_with_startup_hook_integration",
+        "code_snippet": "sap_playbook.py + format_sap_playbook() in session_start_kb.py",
+        "notes": "SAP Playbook seeded (4 patterns, 4 blacklist, 5 JS helpers), integrated with startup context. Each session now loads SAP operational knowledge automatically. Ready for incremental learning via lookup()/learn()/fail() cycle.",
+        "auto_learned": true,
+        "source": "hook_stop_event"
+      },
+      "tags": [
+        "sap_playbook_setup",
+        "business_rules",
+        "auto_learned"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-16T00:16:02.210722+00:00",
+      "updated_at": "2026-03-16T00:16:02.210722+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-20T23:17:59.221931+00:00",
+        "access_count": 28
+      }
+    },
+    "b43d077f304c": {
+      "id": "b43d077f304c",
+      "type": "pattern",
+      "key": "auto_sap_playbook_setup_20260315_183513",
+      "solution": {
+        "strategy": "sqlite_playbook_with_startup_hook_integration",
+        "code_snippet": "sap_playbook.py + format_sap_playbook() in session_start_kb.py",
+        "notes": "SAP Playbook seeded (4 patterns, 4 blacklist, 5 JS helpers), integrated with startup context. Each session now loads SAP operational knowledge automatically. Ready for incremental learning via lookup()/learn()/fail() cycle.",
+        "auto_learned": true,
+        "source": "hook_stop_event"
+      },
+      "tags": [
+        "sap_playbook_setup",
+        "business_rules",
+        "auto_learned"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-16T00:35:13.414557+00:00",
+      "updated_at": "2026-03-16T00:35:13.414557+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-20T23:17:59.221931+00:00",
+        "access_count": 28
+      }
+    },
+    "01edffa9c1be": {
+      "id": "01edffa9c1be",
+      "type": "pattern",
+      "key": "auto_sap_playbook_setup_20260315_185806",
+      "solution": {
+        "strategy": "sqlite_playbook_with_startup_hook_integration",
+        "code_snippet": "sap_playbook.py + format_sap_playbook() in session_start_kb.py",
+        "notes": "SAP Playbook seeded (4 patterns, 4 blacklist, 5 JS helpers), integrated with startup context. Each session now loads SAP operational knowledge automatically. Ready for incremental learning via lookup()/learn()/fail() cycle.",
+        "auto_learned": true,
+        "source": "hook_stop_event"
+      },
+      "tags": [
+        "sap_playbook_setup",
+        "business_rules",
+        "auto_learned"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-16T00:58:06.664446+00:00",
+      "updated_at": "2026-03-16T00:58:06.664446+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-20T23:17:59.221931+00:00",
+        "access_count": 28
+      }
+    },
+    "56641a129013": {
+      "id": "56641a129013",
+      "type": "pattern",
+      "key": "auto_sap_playbook_setup_20260315_190029",
+      "solution": {
+        "strategy": "sqlite_playbook_with_startup_hook_integration",
+        "code_snippet": "sap_playbook.py + format_sap_playbook() in session_start_kb.py",
+        "notes": "SAP Playbook seeded (4 patterns, 4 blacklist, 5 JS helpers), integrated with startup context. Each session now loads SAP operational knowledge automatically. Ready for incremental learning via lookup()/learn()/fail() cycle.",
+        "auto_learned": true,
+        "source": "hook_stop_event"
+      },
+      "tags": [
+        "sap_playbook_setup",
+        "business_rules",
+        "auto_learned"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-16T01:00:29.374094+00:00",
+      "updated_at": "2026-03-16T01:00:29.374094+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-20T23:17:59.221931+00:00",
+        "access_count": 28
+      }
+    },
+    "3ea1397d1f0a": {
+      "id": "3ea1397d1f0a",
+      "type": "pattern",
+      "key": "auto_sap_playbook_setup_20260315_190744",
+      "solution": {
+        "strategy": "sqlite_playbook_with_startup_hook_integration",
+        "code_snippet": "sap_playbook.py + format_sap_playbook() in session_start_kb.py",
+        "notes": "SAP Playbook seeded (4 patterns, 4 blacklist, 5 JS helpers), integrated with startup context. Each session now loads SAP operational knowledge automatically. Ready for incremental learning via lookup()/learn()/fail() cycle.",
+        "auto_learned": true,
+        "source": "hook_stop_event"
+      },
+      "tags": [
+        "sap_playbook_setup",
+        "business_rules",
+        "auto_learned"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-16T01:07:44.547323+00:00",
+      "updated_at": "2026-03-16T01:07:44.547323+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-20T23:17:59.221931+00:00",
+        "access_count": 28
+      }
+    },
+    "2790b924dbc2": {
+      "id": "2790b924dbc2",
+      "type": "pattern",
+      "key": "auto_sap_playbook_setup_20260315_191621",
+      "solution": {
+        "strategy": "sqlite_playbook_with_startup_hook_integration",
+        "code_snippet": "sap_playbook.py + format_sap_playbook() in session_start_kb.py",
+        "notes": "SAP Playbook seeded (4 patterns, 4 blacklist, 5 JS helpers), integrated with startup context. Each session now loads SAP operational knowledge automatically. Ready for incremental learning via lookup()/learn()/fail() cycle.",
+        "auto_learned": true,
+        "source": "hook_stop_event"
+      },
+      "tags": [
+        "sap_playbook_setup",
+        "business_rules",
+        "auto_learned"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-16T01:16:21.480134+00:00",
+      "updated_at": "2026-03-16T01:16:21.480134+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-20T23:17:59.221931+00:00",
+        "access_count": 28
+      }
+    },
+    "587ef4836af3": {
+      "id": "587ef4836af3",
+      "type": "fact",
+      "key": "hook_system_3_layers",
+      "fact": {
+        "rule": "Sistema de hooks tiene 3 capas: SessionStart (contexto KB), PostToolUse Edit|Write (auto-aprendizaje por iteracion), Stop (captura sesion completa + flush iteracion pendiente). settings.json en .claude/settings.json.",
+        "applies_to": "Sistema de memoria persistente del asistente",
+        "examples": [
+          {
+            "context": "PostToolUse",
+            "value": "iteration_learn.py: detecta gap >15s entre edits = nueva iteracion, guarda anterior en KB",
+            "label": "Per-iteration"
+          },
+          {
+            "context": "Stop",
+            "value": "auto_learn_hook.py: transcript completo + auto_extract_learning() + flush_pending()",
+            "label": "End of session"
+          }
+        ]
+      },
+      "tags": [],
+      "created_at": "2026-03-16T01:18:19.042852+00:00",
+      "updated_at": "2026-03-16T01:18:19.042852+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-03-20T22:48:09.452312+00:00",
+        "access_count": 30
+      }
+    },
+    "7b6f9454f053": {
+      "id": "7b6f9454f053",
+      "type": "fact",
+      "key": "hooks_file_locations",
+      "fact": {
+        "rule": "Hooks en .claude/hooks/: session_start_kb.py (SessionStart), iteration_learn.py (PostToolUse Edit|Write, timeout 5s), auto_learn_hook.py (Stop). State file: ~/.adaptive_cli/iteration_state.json. Debug log: ~/.adaptive_cli/hook_debug.log.",
+        "applies_to": "Mantenimiento del sistema de hooks y KB"
+      },
+      "tags": [],
+      "created_at": "2026-03-16T01:18:19.126741+00:00",
+      "updated_at": "2026-03-16T01:18:19.126741+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-03-20T22:39:06.809766+00:00",
+        "access_count": 26
+      }
+    },
+    "7bc67a12657e": {
+      "id": "7bc67a12657e",
+      "type": "pattern",
+      "key": "auto_sap_playbook_setup_20260315_191900",
+      "solution": {
+        "strategy": "sqlite_playbook_with_startup_hook_integration",
+        "code_snippet": "sap_playbook.py + format_sap_playbook() in session_start_kb.py",
+        "notes": "SAP Playbook seeded (4 patterns, 4 blacklist, 5 JS helpers), integrated with startup context. Each session now loads SAP operational knowledge automatically. Ready for incremental learning via lookup()/learn()/fail() cycle.",
+        "auto_learned": true,
+        "source": "hook_stop_event"
+      },
+      "tags": [
+        "sap_playbook_setup",
+        "business_rules",
+        "auto_learned"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-16T01:19:01.015476+00:00",
+      "updated_at": "2026-03-16T01:19:01.015476+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-20T23:17:59.221931+00:00",
+        "access_count": 28
+      }
+    },
+    "91fcc3a516fd": {
+      "id": "91fcc3a516fd",
+      "type": "pattern",
+      "key": "auto_sap_playbook_setup_20260315_192059",
+      "solution": {
+        "strategy": "sqlite_playbook_with_startup_hook_integration",
+        "code_snippet": "sap_playbook.py + format_sap_playbook() in session_start_kb.py",
+        "notes": "SAP Playbook seeded (4 patterns, 4 blacklist, 5 JS helpers), integrated with startup context. Each session now loads SAP operational knowledge automatically. Ready for incremental learning via lookup()/learn()/fail() cycle.",
+        "auto_learned": true,
+        "source": "hook_stop_event"
+      },
+      "tags": [
+        "sap_playbook_setup",
+        "business_rules",
+        "auto_learned"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-16T01:20:59.171249+00:00",
+      "updated_at": "2026-03-16T01:20:59.171249+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-20T23:17:59.221931+00:00",
+        "access_count": 28
+      }
+    },
+    "1c570565d1ca": {
+      "id": "1c570565d1ca",
+      "type": "pattern",
+      "key": "auto_sap_playbook_setup_20260315_192216",
+      "solution": {
+        "strategy": "sqlite_playbook_with_startup_hook_integration",
+        "code_snippet": "sap_playbook.py + format_sap_playbook() in session_start_kb.py",
+        "notes": "SAP Playbook seeded (4 patterns, 4 blacklist, 5 JS helpers), integrated with startup context. Each session now loads SAP operational knowledge automatically. Ready for incremental learning via lookup()/learn()/fail() cycle.",
+        "auto_learned": true,
+        "source": "hook_stop_event"
+      },
+      "tags": [
+        "sap_playbook_setup",
+        "business_rules",
+        "auto_learned"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-16T01:22:16.593793+00:00",
+      "updated_at": "2026-03-16T01:22:16.593793+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-20T23:17:59.221931+00:00",
+        "access_count": 28
+      }
+    },
+    "46388faf8f22": {
+      "id": "46388faf8f22",
+      "type": "fact",
+      "key": "kb_internal_only",
+      "fact": {
+        "rule": "La Base de Conocimiento (KB) es de uso interno para auto-aprendizaje de Claude. NO mostrar resultados de KB al usuario en la interfaz web (dashboard). Solo mostrar archivos y correos en busquedas.",
+        "applies_to": "Busqueda universal y Chat en dashboard web",
+        "exceptions": "El overlay Tools > Explorar KB sigue disponible para administracion interna"
+      },
+      "tags": [
+        "dashboard",
+        "kb",
+        "ui",
+        "regla"
+      ],
+      "created_at": "2026-03-16T04:10:38.259890+00:00",
+      "updated_at": "2026-03-16T04:10:38.259890+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-03-20T22:39:06.809766+00:00",
+        "access_count": 9
+      }
+    },
+    "42ac48bdb09e": {
+      "key": "diagnostics_no_visible_errors",
+      "rule": "Al ejecutar scripts Python ad-hoc para diagnostico (inspeccionar JSON, contar entries, auditar KB), NUNCA mostrar tracebacks al usuario. Verificar estructura del JSON antes de iterar. learned_patterns.json usa data[\"patterns\"] no data directamente.",
+      "applies_to": "Scripts de diagnostico y auditoria del sistema de memoria",
+      "examples": [
+        {
+          "input": "learned_patterns.json",
+          "output": "data[\"patterns\"][id] tiene task_type, context_key, solution.strategy",
+          "label": "estructura correcta"
+        },
+        {
+          "input": "session_history.json",
+          "output": "lista de dicts con date, time, summary, files_edited, metrics",
+          "label": "estructura correcta"
+        }
+      ],
+      "exceptions": [],
+      "source": "feedback_usuario_2026-03-16",
+      "hits": 0,
+      "misses": 0
+    },
+    "c56d88c9453b": {
+      "id": "c56d88c9453b",
+      "type": "fact",
+      "key": "dashboard_nav_7_sections",
+      "fact": {
+        "rule": "Dashboard tiene 7 secciones accesibles desde nav: Home, Buscar, KB, Outlook, Stats, Tools (antes Blog). Tools se accede desde nav via capture phase click handler.",
+        "applies_to": "Navegacion del dashboard web",
+        "examples": [
+          {
+            "input": "Blog en nav original",
+            "output": "Renombrado a Tools, abre gbmToolsOverlay"
+          },
+          {
+            "input": "Click Tools en nav",
+            "output": "Capture phase intercepta antes que Devin scroll manager"
+          }
+        ]
+      },
+      "tags": [
+        "dashboard",
+        "nav",
+        "tools",
+        "7-sections"
+      ],
+      "created_at": "2026-03-16T18:30:06.118673+00:00",
+      "updated_at": "2026-03-16T18:30:06.118673+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-03-20T22:39:06.809766+00:00",
+        "access_count": 9
+      }
+    },
+    "a12603ed67a6": {
+      "id": "a12603ed67a6",
+      "type": "fact",
+      "key": "manual_kb_save_from_web",
+      "fact": {
+        "rule": "Los usuarios pueden guardar conocimiento manualmente desde el dashboard web via Tools > Guardar Manual. El formulario envia POST /api/kb/save-manual con {domain, key, notes, tags}. El endpoint llama add_pattern() de knowledge_base.py.",
+        "applies_to": "Guardar conocimiento manual desde dashboard web",
+        "examples": [
+          {
+            "input": "Tools > Guardar Manual > Dominio:sow, Clave:regla_iva, Notas:IVA 12%",
+            "output": "Guardado en KB/sow/regla_iva"
+          }
+        ]
+      },
+      "tags": [
+        "tools",
+        "manual-save",
+        "kb",
+        "web-ui"
+      ],
+      "created_at": "2026-03-16T18:30:06.246028+00:00",
+      "updated_at": "2026-03-16T18:30:06.246028+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-03-20T23:17:59.221931+00:00",
+        "access_count": 43
+      }
+    },
+    "d0f08ee58bc4": {
+      "id": "d0f08ee58bc4",
+      "type": "fact",
+      "key": "rag_no_cli_escalation",
+      "fact": {
+        "rule": "RAG Nivel 1 NUNCA debe escalar a _call_claude_cli. Si no encuentra datos, devuelve respuesta parcial con lo que encontro. El CLI subprocess puede tardar 15-45s y romper la sesion.",
+        "applies_to": "Chat API (/api/chat) con intent rag_query",
+        "exception": "Solo escalar si el usuario pide explicitamente analisis complejo o razonamiento (Nivel 2 futuro)"
+      },
+      "tags": [],
+      "created_at": "2026-03-16T21:29:09.861833+00:00",
+      "updated_at": "2026-03-16T21:29:09.861833+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-03-20T22:48:09.452312+00:00",
+        "access_count": 6
+      }
+    },
+    "6b7ffd1fa670": {
+      "id": "6b7ffd1fa670",
+      "type": "fact",
+      "key": "outlook_com_on_demand_only",
+      "fact": {
+        "rule": "Outlook COM search (~32s) solo se ejecuta cuando el usuario menciona correo/email/outlook/mensaje. NUNCA en busquedas generales de archivos o RAG.",
+        "applies_to": "Cualquier endpoint que llame _outlook_cache.search()",
+        "exception": "El endpoint /api/outlook/search SI lo llama siempre (es su proposito)"
+      },
+      "tags": [],
+      "created_at": "2026-03-16T21:29:09.980682+00:00",
+      "updated_at": "2026-03-16T21:29:09.980682+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-03-20T23:11:19.119191+00:00",
+        "access_count": 2
+      }
+    },
+    "b6a49432035e": {
+      "id": "b6a49432035e",
+      "type": "fact",
+      "key": "search_entity_extraction",
+      "fact": {
+        "rule": "Para busquedas en FTS5, separar entidades (nombres clientes/proyectos) del vocabulario del dominio (oportunidad, precio, bom). Buscar primero con entidades solas, luego ampliar. FTS5 usa AND implicito.",
+        "applies_to": "RAG handler, file_search, cualquier busqueda FTS5"
+      },
+      "tags": [],
+      "created_at": "2026-03-16T21:29:10.099876+00:00",
+      "updated_at": "2026-03-16T21:29:10.099876+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-03-20T23:17:59.221931+00:00",
+        "access_count": 25
+      }
+    },
+    "9663a50260a4": {
+      "id": "9663a50260a4",
+      "type": "fact",
+      "key": "rag_question_types_supported",
+      "fact": {
+        "rule": "RAG Nivel 1 soporta 9 tipos de pregunta: oportunidad, monto, cantidad, codigo, fecha, contenido, resumen, propuesta_economica (tablas DOCX), version_sow (archivos por fecha). Detectados por _rag_detect_question_type().",
+        "applies_to": "Chat API /api/chat con intent rag_query"
+      },
+      "tags": [],
+      "created_at": "2026-03-16T21:57:00.891589+00:00",
+      "updated_at": "2026-03-16T21:57:00.891589+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-03-20T15:56:22.513377+00:00",
+        "access_count": 8
+      }
+    },
+    "28e5773aa408": {
+      "id": "28e5773aa408",
+      "type": "pattern",
+      "key": "data_operation_ambiguity_rule",
+      "solution": {
+        "strategy": "ask_before_calculate",
+        "notes": "Regla: Si data_operation tiene multiples archivos candidatos (>1), SIEMPRE pedir clarificacion al usuario antes de calcular.\nEjemplo: cuanto vale soporte 24x7 para 5 servidores -> encontro 13 archivos con datos numericos -> pide clarificacion.\nEjemplo: tipo de cambio 7.7->8.0 afecta BOM -> encontro 3 archivos -> pide clarificacion.\nNO inventar ni promediar cuando hay ambiguedad. Referencia: feedback_ask_on_ambiguity.md.\nAplica en: _handle_data_operation(), _handle_compare() cuando hay >2 candidatos.",
+        "applies_to": "data_operation, compare handlers con multiples archivos",
+        "tags": [
+          "business-rule",
+          "ambiguity",
+          "clarification",
+          "data-operation"
+        ]
+      },
+      "tags": [],
+      "error_context": null,
+      "created_at": "2026-03-17T23:19:22.399921+00:00",
+      "updated_at": "2026-03-17T23:19:22.399921+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-20T23:17:59.221931+00:00",
+        "access_count": 20
+      }
+    },
+    "b49c308ee4fc": {
+      "id": "b49c308ee4fc",
+      "type": "fact",
+      "key": "intent_routing_20_intents_verified",
+      "fact": {
+        "rule": "classify_intent() tiene 20+ intents verificados. Orden critico en bloques if: downtime_cost ANTES de inactivity_check. renewal_discount ANTES de downtime_cost. image_search ANTES de file_search generico.",
+        "applies_to": "dashboard.py classify_intent()",
+        "exception": "sow_knowledge como fallback para preguntas conceptuales de SOW sin archivos especificos"
+      },
+      "tags": [
+        "routing",
+        "intent",
+        "classify",
+        "order",
+        "dashboard"
+      ],
+      "created_at": "2026-03-18T00:28:49.562972+00:00",
+      "updated_at": "2026-03-18T00:28:49.562972+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-03-20T23:17:59.221931+00:00",
+        "access_count": 29
+      }
+    },
+    "c9fe23300d85": {
+      "id": "c9fe23300d85",
+      "type": "fact",
+      "key": "regex_discount_extraction_order",
+      "fact": {
+        "rule": "Al extraer discount% Y precio base del mismo mensaje: siempre extraer discount_pct PRIMERO con regex especifico (porciento/%). Luego base_price buscando numero+moneda o el maximo excluyendo el valor del descuento.",
+        "applies_to": "Handlers que extraen multiples valores numericos con unidades distintas",
+        "example_bug": "10 porciento sobre 100000 dolares -> regex generico captura 10 como precio",
+        "example_fix": "disc_m primero -> descuento=10%, luego base=max(nums excluido 10)=100000"
+      },
+      "tags": [
+        "regex",
+        "extraction",
+        "discount",
+        "price",
+        "bug-fix",
+        "order"
+      ],
+      "created_at": "2026-03-18T00:28:49.592810+00:00",
+      "updated_at": "2026-03-18T00:28:49.592810+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-03-20T23:17:59.221931+00:00",
+        "access_count": 40
+      }
+    },
+    "eb0b23316443": {
+      "id": "eb0b23316443",
+      "type": "fact",
+      "key": "tarifa_soporte_calculo_anual",
+      "fact": {
+        "rule": "Tarifas GBM para calculos de soporte: 8x5=60/hr * 8h * 261dias = 125,280/yr. 24x7=82.5/hr * 24h * 365dias = 722,700/yr. IVA 12% Guatemala aplica sobre ambas.",
+        "applies_to": "downtime_cost, margin_calc, cualquier calculo de costo de soporte",
+        "verified": "2026-03-17 en test 20 queries Q19"
+      },
+      "tags": [
+        "tarifa",
+        "soporte",
+        "8x5",
+        "24x7",
+        "calculo",
+        "iva"
+      ],
+      "created_at": "2026-03-18T00:28:49.623274+00:00",
+      "updated_at": "2026-03-18T00:28:49.623274+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-03-20T22:38:37.491838+00:00",
+        "access_count": 9
+      }
+    },
+    "7c7907f34d4b": {
+      "id": "7c7907f34d4b",
+      "type": "pattern",
+      "key": "kb_knowledge_fast_path",
+      "solution": {
+        "notes": "Fast-path en _handle_kb_knowledge: si la query tiene respuesta hardcoded (service_desk, tarifas, sow, bom, sla, sap, asistente, licencias, etc.), se salta cross_domain_search (~5s) y va directo al elif chain. Resultado: 12s→2.1s para preguntas de conocimiento.",
+        "pattern": "fast_path_hardcoded_check",
+        "skip_condition": "_has_hardcoded",
+        "impact": "12s→2.1s"
+      },
+      "tags": [
+        "performance",
+        "kb_knowledge",
+        "fast_path",
+        "dashboard"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-18T16:03:10.898386+00:00",
+      "updated_at": "2026-03-18T16:03:10.898386+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-20T22:39:06.809766+00:00",
+        "access_count": 17
+      }
+    },
+    "fca165042449": {
+      "id": "fca165042449",
+      "type": "pattern",
+      "key": "ds_data_sheet_feature",
+      "solution": {
+        "notes": "DS (Data Sheet) es una nueva sección del dashboard: búsqueda estructurada inteligente. Filtra por cualquier columna del Excel doc-filtro-DS.xlsx. Al filtrar, busca automáticamente en FTS5 (archivos locales) y muestra links clickables. Correos on-demand (IT-safe). Config panel para agregar/ocultar columnas. Row expand muestra columnas ocultas + archivos del row. Endpoints: /api/ds/data, /api/ds/search, /api/ds/config, /api/ds/open-file.",
+        "excel_path": "C:/chance1/doc-filtro-DS.xlsx",
+        "endpoints": [
+          "/api/ds/data",
+          "/api/ds/search",
+          "/api/ds/config",
+          "/api/ds/open-file"
+        ],
+        "overlay_id": "gbmDSOverlay",
+        "nav": "gbmOpenDS() o click en DS del dropdown menu"
+      },
+      "tags": [
+        "ds",
+        "datasheet",
+        "dashboard",
+        "busqueda_estructurada",
+        "new_feature"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-18T17:21:38.381161+00:00",
+      "updated_at": "2026-03-18T17:21:38.381161+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-20T22:39:06.809766+00:00",
+        "access_count": 10
+      }
+    },
+    "0351f66af2c0": {
+      "id": "0351f66af2c0",
+      "type": "pattern",
+      "key": "iter_20260320_092939_i5",
+      "solution": {
+        "strategy": "auto_iteration_capture",
+        "notes": "Iteracion 5:\n  Ejecuto: cd \"/c/Chance1/Asistente IA\" && curl -s -m 5 http://localhost:5000/api/health 2>&1 || echo \"DASHBOARD_OFFLINE\"\n  Ejecuto: # 2. PostToolUse: cuantas iteraciones lleva esta sesion activa\nPYTHONIOENCODING=utf-8 python -c \"\nimport json\nfrom pathl",
+        "auto_learned": true,
+        "source": "post_tool_hook",
+        "files_touched": [],
+        "activity": {
+          "reads": 0,
+          "edits": 0,
+          "writes": 0,
+          "commands": 2,
+          "searches": 0,
+          "browser": 0,
+          "total": 2
+        },
+        "iteration": 5
+      },
+      "tags": [
+        "auto-learned",
+        "iteration",
+        "business_rules"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-20T15:29:39.302424+00:00",
+      "updated_at": "2026-03-20T15:29:39.302424+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-20T23:17:59.221931+00:00",
+        "access_count": 34
+      }
+    },
+    "c03299d7baa6": {
+      "id": "c03299d7baa6",
+      "type": "pattern",
+      "key": "iter_20260320_100857_i5",
+      "solution": {
+        "strategy": "auto_iteration_capture",
+        "notes": "Iteracion 5:\n  Ejecuto: cd \"/c/Chance1/Asistente IA\" && curl -s -m 5 http://localhost:5000/api/health 2>&1 || echo \"DASHBOARD_OFFLINE\"\n  Ejecuto: # 2. PostToolUse: cuantas iteraciones lleva esta sesion activa\nPYTHONIOENCODING=utf-8 python -c \"\nimport json\nfrom pathl\n  Ejecuto: # Verificar campo real que Claude Code envia en PostToolUse\n# El hook_debug.log captura el input real\nPYTHONIOENCODING=u",
+        "auto_learned": true,
+        "source": "post_tool_hook",
+        "files_touched": [],
+        "activity": {
+          "reads": 0,
+          "edits": 0,
+          "writes": 0,
+          "commands": 3,
+          "searches": 0,
+          "browser": 0,
+          "total": 3
+        },
+        "iteration": 5
+      },
+      "tags": [
+        "auto-learned",
+        "iteration",
+        "business_rules"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-20T16:08:57.097810+00:00",
+      "updated_at": "2026-03-20T16:08:57.097810+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-20T23:17:59.221931+00:00",
+        "access_count": 35
+      }
+    },
+    "1b3efbf8c8ca": {
+      "id": "1b3efbf8c8ca",
+      "type": "pattern",
+      "key": "iter_20260320_101356_i5",
+      "solution": {
+        "strategy": "auto_iteration_capture",
+        "notes": "Iteracion 5:\n  Ejecuto: cd \"/c/Chance1/Asistente IA\" && curl -s -m 5 http://localhost:5000/api/health 2>&1 || echo \"DASHBOARD_OFFLINE\"\n  Ejecuto: # 2. PostToolUse: cuantas iteraciones lleva esta sesion activa\nPYTHONIOENCODING=utf-8 python -c \"\nimport json\nfrom pathl\n  Ejecuto: # Verificar campo real que Claude Code envia en PostToolUse\n# El hook_debug.log captura el input real\nPYTHONIOENCODING=u\n  Ejecuto: echo \"\"\necho \"╔══════════════════════════════════════════════════╗\"\necho \"║  ESCENARIO B: SALIDA CONTROLADA (exit / /sto",
+        "auto_learned": true,
+        "source": "post_tool_hook",
+        "files_touched": [],
+        "activity": {
+          "reads": 0,
+          "edits": 0,
+          "writes": 0,
+          "commands": 4,
+          "searches": 0,
+          "browser": 0,
+          "total": 4
+        },
+        "iteration": 5
+      },
+      "tags": [
+        "auto-learned",
+        "iteration",
+        "business_rules"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-20T16:13:56.286924+00:00",
+      "updated_at": "2026-03-20T16:13:56.286924+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-20T23:17:59.221931+00:00",
+        "access_count": 34
+      }
+    },
+    "5899326eb0ff": {
+      "id": "5899326eb0ff",
+      "type": "pattern",
+      "key": "iter_20260320_103030_i5",
+      "solution": {
+        "strategy": "auto_iteration_capture",
+        "notes": "Iteracion 5:\n  Ejecuto: cd \"/c/Chance1/Asistente IA\" && curl -s -m 5 http://localhost:5000/api/health 2>&1 || echo \"DASHBOARD_OFFLINE\"\n  Ejecuto: # 2. PostToolUse: cuantas iteraciones lleva esta sesion activa\nPYTHONIOENCODING=utf-8 python -c \"\nimport json\nfrom pathl\n  Ejecuto: # Verificar campo real que Claude Code envia en PostToolUse\n# El hook_debug.log captura el input real\nPYTHONIOENCODING=u\n  Ejecuto: echo \"\"\necho \"╔══════════════════════════════════════════════════╗\"\necho \"║  ESCENARIO B: SALIDA CONTROLADA (exit / /sto\n  Leyo iteration_learn.py\n  Leyo auto_learn_hook.py\n  Leyo auto_learn_hook.py\n  Leyo iteration_learn.py\n  Leyo iteration_learn.py\n  Leyo auto_learn_hook.py\n  Leyo iteration_learn.py\n  Leyo auto_learn_hook.py",
+        "auto_learned": true,
+        "source": "post_tool_hook",
+        "files_touched": [
+          "C:/Chance1/Asistente IA/.claude/hooks/auto_learn_hook.py",
+          "C:/Chance1/Asistente IA/.claude/hooks/iteration_learn.py"
+        ],
+        "activity": {
+          "reads": 8,
+          "edits": 0,
+          "writes": 0,
+          "commands": 4,
+          "searches": 0,
+          "browser": 0,
+          "total": 12
+        },
+        "iteration": 5
+      },
+      "tags": [
+        "auto-learned",
+        "iteration",
+        "business_rules"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-20T16:30:30.560850+00:00",
+      "updated_at": "2026-03-20T16:30:30.560850+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-20T23:17:59.221931+00:00",
+        "access_count": 48
+      }
+    }
+  },
+  "tag_index": {
+    "nomenclatura": [
+      "636511208dc9",
+      "b7aa9f1666cf"
+    ],
+    "codigos": [
+      "636511208dc9",
+      "b7aa9f1666cf"
+    ],
+    "contrato": [
+      "636511208dc9",
+      "cad080dfde9b"
+    ],
+    "PS": [
+      "636511208dc9"
+    ],
+    "items": [
+      "636511208dc9",
+      "e544b973b16d"
+    ],
+    "oportunidad": [
+      "636511208dc9"
+    ],
+    "renovacion": [
+      "b7aa9f1666cf"
+    ],
+    "RN": [
+      "b7aa9f1666cf"
+    ],
+    "tarifas": [
+      "657b2f3a9368"
+    ],
+    "precios": [
+      "657b2f3a9368"
+    ],
+    "soporte": [
+      "657b2f3a9368",
+      "3d9b7248b90c",
+      "eb0b23316443"
+    ],
+    "sow": [
+      "657b2f3a9368",
+      "cad080dfde9b",
+      "22e7b9e5aaa3",
+      "6701fa986b35"
+    ],
+    "propuesta": [
+      "657b2f3a9368",
+      "d67dcd7523b4",
+      "d8cb8c63d3d5"
+    ],
+    "bom": [
+      "657b2f3a9368",
+      "e544b973b16d",
+      "d8cb8c63d3d5",
+      "9667cd78b286"
+    ],
+    "clausulas": [
+      "cad080dfde9b"
+    ],
+    "legal": [
+      "cad080dfde9b"
+    ],
+    "iva": [
+      "d67dcd7523b4",
+      "eb0b23316443"
+    ],
+    "impuesto": [
+      "d67dcd7523b4"
+    ],
+    "guatemala": [
+      "d67dcd7523b4"
+    ],
+    "tipos": [
+      "22e7b9e5aaa3",
+      "c39647d437cf"
+    ],
+    "estructura": [
+      "22e7b9e5aaa3"
+    ],
+    "quote": [
+      "c39647d437cf"
+    ],
+    "sap": [
+      "c39647d437cf"
+    ],
+    "crm": [
+      "c39647d437cf"
+    ],
+    "clasificacion": [
+      "e544b973b16d"
+    ],
+    "producto": [
+      "e544b973b16d"
+    ],
+    "servicio": [
+      "e544b973b16d"
+    ],
+    "economica": [
+      "d8cb8c63d3d5"
+    ],
+    "pricing": [
+      "d8cb8c63d3d5"
+    ],
+    "mep": [
+      "d8cb8c63d3d5"
+    ],
+    "pagos": [
+      "d8cb8c63d3d5"
+    ],
+    "fusion": [
+      "6701fa986b35"
+    ],
+    "merge": [
+      "6701fa986b35"
+    ],
+    "practicas": [
+      "6701fa986b35"
+    ],
+    "service_desk": [
+      "3d9b7248b90c"
+    ],
+    "sla": [
+      "3d9b7248b90c"
+    ],
+    "excel": [
+      "9667cd78b286"
+    ],
+    "formato": [
+      "9667cd78b286"
+    ],
+    "deep_scan": [
+      "2dd0ad17c385",
+      "c188bd9e6fe2",
+      "52e3c00d3d93",
+      "70076fb728de",
+      "fa4595d0106a",
+      "65e3cd3d11e9",
+      "403065bb4055",
+      "38cc4e9fe657",
+      "aa05f72e69c3",
+      "f7abfc4511b0",
+      "512e16f67f3a",
+      "b267a379370b",
+      "aa9507ba063d",
+      "c36be0380335",
+      "f686aaaecbd8",
+      "857859875c61",
+      "f6426f53c0bf",
+      "eea95fd9ff74",
+      "26d5e923c904",
+      "4d17ad785e2a",
+      "5b1b3392c89d",
+      "cfee97dfc79d",
+      "668f16d572d7"
+    ],
+    "1": [
+      "2dd0ad17c385"
+    ],
+    "2": [
+      "c188bd9e6fe2"
+    ],
+    "3": [
+      "52e3c00d3d93"
+    ],
+    "4": [
+      "70076fb728de"
+    ],
+    "5": [
+      "fa4595d0106a"
+    ],
+    "6": [
+      "65e3cd3d11e9"
+    ],
+    "partner": [
+      "403065bb4055"
+    ],
+    "portal": [
+      "403065bb4055"
+    ],
+    "gbm": [
+      "403065bb4055"
+    ],
+    "quotemanual": [
+      "38cc4e9fe657"
+    ],
+    "_models": [
+      "aa05f72e69c3"
+    ],
+    "faster-whisper-mediu": [
+      "aa05f72e69c3"
+    ],
+    "vocabulary": [
+      "aa05f72e69c3"
+    ],
+    "_xxl_data": [
+      "f7abfc4511b0",
+      "512e16f67f3a",
+      "b267a379370b",
+      "aa9507ba063d",
+      "c36be0380335",
+      "f686aaaecbd8",
+      "857859875c61",
+      "f6426f53c0bf",
+      "eea95fd9ff74",
+      "26d5e923c904",
+      "4d17ad785e2a",
+      "5b1b3392c89d",
+      "cfee97dfc79d",
+      "668f16d572d7"
+    ],
+    "librosa": [
+      "f7abfc4511b0"
+    ],
+    "util": [
+      "f7abfc4511b0"
+    ],
+    "registry": [
+      "f7abfc4511b0"
+    ],
+    "matplotlib": [
+      "512e16f67f3a",
+      "b267a379370b"
+    ],
+    "mpl-data": [
+      "512e16f67f3a",
+      "b267a379370b"
+    ],
+    "readme": [
+      "512e16f67f3a",
+      "b267a379370b",
+      "f6426f53c0bf"
+    ],
+    "pyreadline3-3.5.4.di": [
+      "aa9507ba063d",
+      "c36be0380335"
+    ],
+    "license": [
+      "aa9507ba063d",
+      "668f16d572d7"
+    ],
+    "top": [
+      "c36be0380335",
+      "f686aaaecbd8"
+    ],
+    "level": [
+      "c36be0380335",
+      "f686aaaecbd8"
+    ],
+    "setuptools": [
+      "f686aaaecbd8",
+      "857859875c61"
+    ],
+    "_vendor": [
+      "f686aaaecbd8",
+      "857859875c61"
+    ],
+    "lorem": [
+      "857859875c61"
+    ],
+    "ipsum": [
+      "857859875c61"
+    ],
+    "sklearn": [
+      "f6426f53c0bf",
+      "eea95fd9ff74",
+      "26d5e923c904",
+      "4d17ad785e2a",
+      "5b1b3392c89d"
+    ],
+    "datasets": [
+      "f6426f53c0bf",
+      "eea95fd9ff74",
+      "26d5e923c904",
+      "4d17ad785e2a",
+      "5b1b3392c89d"
+    ],
+    "svmlight": [
+      "eea95fd9ff74",
+      "26d5e923c904",
+      "4d17ad785e2a",
+      "5b1b3392c89d"
+    ],
+    "classification": [
+      "eea95fd9ff74"
+    ],
+    "invalid": [
+      "26d5e923c904",
+      "4d17ad785e2a"
+    ],
+    "order": [
+      "4d17ad785e2a",
+      "b49c308ee4fc",
+      "c9fe23300d85"
+    ],
+    "multilabel": [
+      "5b1b3392c89d"
+    ],
+    "wheel-0.45.0.dist-in": [
+      "cfee97dfc79d",
+      "668f16d572d7"
+    ],
+    "entry": [
+      "cfee97dfc79d"
+    ],
+    "points": [
+      "cfee97dfc79d"
+    ],
+    "dashboard": [
+      "58dd0902c31e",
+      "e135787c8e5d",
+      "01ba39b0a7ca",
+      "4b4ee377f84b",
+      "cb7744b25d1c",
+      "46388faf8f22",
+      "c56d88c9453b",
+      "b49c308ee4fc",
+      "7c7907f34d4b",
+      "fca165042449"
+    ],
+    "arquitectura": [
+      "58dd0902c31e"
+    ],
+    "web": [
+      "58dd0902c31e"
+    ],
+    "flask": [
+      "58dd0902c31e"
+    ],
+    "devin": [
+      "58dd0902c31e",
+      "9744224cb225",
+      "0529ffa94173"
+    ],
+    "nav": [
+      "e135787c8e5d",
+      "c56d88c9453b"
+    ],
+    "secciones": [
+      "e135787c8e5d"
+    ],
+    "ui": [
+      "e135787c8e5d",
+      "01ba39b0a7ca",
+      "46388faf8f22"
+    ],
+    "bug": [
+      "87e18cd82ce9"
+    ],
+    "fix": [
+      "87e18cd82ce9"
+    ],
+    "kb": [
+      "87e18cd82ce9",
+      "46388faf8f22",
+      "a12603ed67a6"
+    ],
+    "search": [
+      "87e18cd82ce9"
+    ],
+    "hits": [
+      "87e18cd82ce9"
+    ],
+    "learning": [
+      "b5cfe7599e0b"
+    ],
+    "memory": [
+      "b5cfe7599e0b"
+    ],
+    "init": [
+      "b5cfe7599e0b"
+    ],
+    "setup": [
+      "b5cfe7599e0b"
+    ],
+    "css": [
+      "9744224cb225",
+      "01ba39b0a7ca",
+      "2d012c6251bb"
+    ],
+    "overrides": [
+      "9744224cb225"
+    ],
+    "mirror": [
+      "9744224cb225",
+      "cb7744b25d1c",
+      "127811258be0",
+      "7e7f73a7da55",
+      "198564502d27"
+    ],
+    "obligatorio": [
+      "9744224cb225"
+    ],
+    "overlay": [
+      "01ba39b0a7ca"
+    ],
+    "pattern": [
+      "01ba39b0a7ca"
+    ],
+    "tools": [
+      "4b4ee377f84b",
+      "c56d88c9453b",
+      "a12603ed67a6"
+    ],
+    "tabs": [
+      "4b4ee377f84b"
+    ],
+    "funcionalidad": [
+      "4b4ee377f84b"
+    ],
+    "design": [
+      "2d012c6251bb"
+    ],
+    "variables": [
+      "2d012c6251bb"
+    ],
+    "colores": [
+      "2d012c6251bb"
+    ],
+    "fuentes": [
+      "2d012c6251bb"
+    ],
+    "backup": [
+      "52bb239cd4eb"
+    ],
+    "rollback": [
+      "52bb239cd4eb"
+    ],
+    "recuperacion": [
+      "52bb239cd4eb"
+    ],
+    "claude": [
+      "6652a80c0f72"
+    ],
+    "contexto": [
+      "6652a80c0f72"
+    ],
+    "compresion": [
+      "6652a80c0f72"
+    ],
+    "sesion": [
+      "6652a80c0f72",
+      "ec6876e704e8"
+    ],
+    "memoria": [
+      "6652a80c0f72"
+    ],
+    "conocimiento": [
+      "ec6876e704e8"
+    ],
+    "transferencia": [
+      "ec6876e704e8"
+    ],
+    "proceso": [
+      "ec6876e704e8",
+      "cb7744b25d1c"
+    ],
+    "wget": [
+      "cb7744b25d1c",
+      "127811258be0",
+      "0529ffa94173"
+    ],
+    "download": [
+      "cb7744b25d1c",
+      "0529ffa94173"
+    ],
+    "brand": [
+      "cb7744b25d1c",
+      "7e7f73a7da55"
+    ],
+    "comando": [
+      "127811258be0"
+    ],
+    "descarga": [
+      "127811258be0"
+    ],
+    "pipeline": [
+      "7e7f73a7da55"
+    ],
+    "build": [
+      "7e7f73a7da55"
+    ],
+    "pasos": [
+      "7e7f73a7da55"
+    ],
+    "astro": [
+      "198564502d27"
+    ],
+    "framework": [
+      "198564502d27"
+    ],
+    "challenges": [
+      "198564502d27"
+    ],
+    "scripts": [
+      "0529ffa94173"
+    ],
+    "hook_fix_and_search_optimization": [
+      "a51c467bc24c",
+      "9450ee9856f7",
+      "6f69bab4f35a",
+      "2a59fdf2fb43"
+    ],
+    "business_rules": [
+      "a51c467bc24c",
+      "9450ee9856f7",
+      "6f69bab4f35a",
+      "2a59fdf2fb43",
+      "35293965261e",
+      "b78f3206f02e",
+      "e7d03655eec0",
+      "738ddaf3548f",
+      "81bc305f02b5",
+      "0899b5ae1edd",
+      "3076395716ea",
+      "7d5c05d8e670",
+      "ea66a4039e32",
+      "109dd0284373",
+      "b43d077f304c",
+      "01edffa9c1be",
+      "56641a129013",
+      "3ea1397d1f0a",
+      "2790b924dbc2",
+      "7bc67a12657e",
+      "91fcc3a516fd",
+      "1c570565d1ca",
+      "0351f66af2c0",
+      "c03299d7baa6",
+      "1b3efbf8c8ca",
+      "5899326eb0ff"
+    ],
+    "auto_learned": [
+      "a51c467bc24c",
+      "9450ee9856f7",
+      "6f69bab4f35a",
+      "2a59fdf2fb43",
+      "35293965261e",
+      "b78f3206f02e",
+      "e7d03655eec0",
+      "738ddaf3548f",
+      "81bc305f02b5",
+      "0899b5ae1edd",
+      "3076395716ea",
+      "7d5c05d8e670",
+      "ea66a4039e32",
+      "109dd0284373",
+      "b43d077f304c",
+      "01edffa9c1be",
+      "56641a129013",
+      "3ea1397d1f0a",
+      "2790b924dbc2",
+      "7bc67a12657e",
+      "91fcc3a516fd",
+      "1c570565d1ca"
+    ],
+    "sap_playbook_setup": [
+      "35293965261e",
+      "b78f3206f02e",
+      "e7d03655eec0",
+      "738ddaf3548f",
+      "81bc305f02b5",
+      "0899b5ae1edd",
+      "3076395716ea",
+      "7d5c05d8e670",
+      "ea66a4039e32",
+      "109dd0284373",
+      "b43d077f304c",
+      "01edffa9c1be",
+      "56641a129013",
+      "3ea1397d1f0a",
+      "2790b924dbc2",
+      "7bc67a12657e",
+      "91fcc3a516fd",
+      "1c570565d1ca"
+    ],
+    "regla": [
+      "46388faf8f22"
+    ],
+    "test": [
+      "d3966034afde"
+    ],
+    "manual": [
+      "d3966034afde"
+    ],
+    "7-sections": [
+      "c56d88c9453b"
+    ],
+    "manual-save": [
+      "a12603ed67a6"
+    ],
+    "web-ui": [
+      "a12603ed67a6"
+    ],
+    "routing": [
+      "b49c308ee4fc"
+    ],
+    "intent": [
+      "b49c308ee4fc"
+    ],
+    "classify": [
+      "b49c308ee4fc"
+    ],
+    "regex": [
+      "c9fe23300d85"
+    ],
+    "extraction": [
+      "c9fe23300d85"
+    ],
+    "discount": [
+      "c9fe23300d85"
+    ],
+    "price": [
+      "c9fe23300d85"
+    ],
+    "bug-fix": [
+      "c9fe23300d85"
+    ],
+    "tarifa": [
+      "eb0b23316443"
+    ],
+    "8x5": [
+      "eb0b23316443"
+    ],
+    "24x7": [
+      "eb0b23316443"
+    ],
+    "calculo": [
+      "eb0b23316443"
+    ],
+    "performance": [
+      "7c7907f34d4b"
+    ],
+    "kb_knowledge": [
+      "7c7907f34d4b"
+    ],
+    "fast_path": [
+      "7c7907f34d4b"
+    ],
+    "ds": [
+      "fca165042449"
+    ],
+    "datasheet": [
+      "fca165042449"
+    ],
+    "busqueda_estructurada": [
+      "fca165042449"
+    ],
+    "new_feature": [
+      "fca165042449"
+    ],
+    "auto-learned": [
+      "0351f66af2c0",
+      "c03299d7baa6",
+      "1b3efbf8c8ca",
+      "5899326eb0ff"
+    ],
+    "iteration": [
+      "0351f66af2c0",
+      "c03299d7baa6",
+      "1b3efbf8c8ca",
+      "5899326eb0ff"
+    ]
+  },
+  "stats": {
+    "total_entries": 99,
+    "total_lookups": 667,
+    "total_hits": 453
+  }
+}

@@ -1,0 +1,1410 @@
+{
+  "screen": "followup_cont_quot_manual_new",
+  "description": "Screen: Cont Quot Manual: New - [SAP]",
+  "timestamp": "2026-03-27T19:57:10",
+  "mode": "SCAN",
+  "tab_title": "Cont Quot Manual: New - [SAP]",
+  "fields": [
+    {
+      "stable_suffix": "btadminh_struct.object_id",
+      "selector": "[id$=\"btadminh_struct.object_id\"]",
+      "label": "ID",
+      "value": "",
+      "type": "input",
+      "editable": false,
+      "visible": true,
+      "id_sample": "C53_W143_V145_V150_btadminh_struct.object_id"
+    },
+    {
+      "stable_suffix": "btadminh_struct.description",
+      "selector": "[id$=\"btadminh_struct.description\"]",
+      "label": "Description",
+      "value": "Horas Assesoria SW IBM - BR",
+      "type": "input",
+      "editable": true,
+      "visible": true,
+      "id_sample": "C53_W143_V145_V150_btadminh_struct.description"
+    },
+    {
+      "stable_suffix": "btpartnerset_soldto_name",
+      "selector": "[id$=\"btpartnerset_soldto_name\"]",
+      "label": "Sold-To Party",
+      "value": "BANCO PROMERICA, S. A.",
+      "type": "input",
+      "editable": false,
+      "visible": true,
+      "id_sample": "C53_W143_V145_V150_btpartnerset_soldto_name"
+    },
+    {
+      "stable_suffix": "btpartnerset_contact_name",
+      "selector": "[id$=\"btpartnerset_contact_name\"]",
+      "label": "Contact",
+      "value": "",
+      "type": "input",
+      "editable": false,
+      "visible": true,
+      "id_sample": "C53_W143_V145_V150_btpartnerset_contact_name"
+    },
+    {
+      "stable_suffix": "btpartnerset_emp_resp_name",
+      "selector": "[id$=\"btpartnerset_emp_resp_name\"]",
+      "label": "Employee Responsible",
+      "value": "Ms. BIANCA PAOLA RODAS",
+      "type": "input",
+      "editable": false,
+      "visible": true,
+      "id_sample": "C53_W143_V145_V150_btpartnerset_emp_resp_name"
+    },
+    {
+      "stable_suffix": "btadminh_text",
+      "selector": "[id$=\"btadminh_text\"]",
+      "label": "Text",
+      "value": "",
+      "type": "textarea",
+      "editable": true,
+      "visible": true,
+      "id_sample": "C53_W143_V145_V150_btadminh_text"
+    },
+    {
+      "stable_suffix": "btadminh_po_number_sold",
+      "selector": "[id$=\"btadminh_po_number_sold\"]",
+      "label": "External Reference",
+      "value": "",
+      "type": "input",
+      "editable": true,
+      "visible": true,
+      "id_sample": "C53_W143_V145_V150_btadminh_po_number_sold"
+    },
+    {
+      "stable_suffix": "btadminh_lcstatus",
+      "selector": "[id$=\"btadminh_lcstatus\"]",
+      "label": "",
+      "value": "Open",
+      "type": "input",
+      "editable": true,
+      "visible": true,
+      "id_sample": "C53_W143_V145_V150_btadminh_lcstatus"
+    },
+    {
+      "stable_suffix": "btadminh_quotaccstatus",
+      "selector": "[id$=\"btadminh_quotaccstatus\"]",
+      "label": "Quotation accepted",
+      "value": "No items accepted",
+      "type": "input",
+      "editable": false,
+      "visible": true,
+      "id_sample": "C53_W143_V145_V150_btadminh_quotaccstatus"
+    },
+    {
+      "stable_suffix": "btadminh_net_value",
+      "selector": "[id$=\"btadminh_net_value\"]",
+      "label": "Net Value",
+      "value": "0,00",
+      "type": "input",
+      "editable": false,
+      "visible": true,
+      "id_sample": "C53_W143_V145_V150_btadminh_net_value"
+    },
+    {
+      "stable_suffix": "btadminh_currency",
+      "selector": "[id$=\"btadminh_currency\"]",
+      "label": "",
+      "value": "USD",
+      "type": "input",
+      "editable": true,
+      "visible": true,
+      "id_sample": "C53_W143_V145_V150_btadminh_currency"
+    },
+    {
+      "stable_suffix": "btdatecontractstart_date",
+      "selector": "[id$=\"btdatecontractstart_date\"]",
+      "label": "",
+      "value": "27.03.2026",
+      "type": "input",
+      "editable": true,
+      "visible": true,
+      "id_sample": "C53_W143_V145_V150_btdatecontractstart_date"
+    },
+    {
+      "stable_suffix": "btdatecontractstart_time",
+      "selector": "[id$=\"btdatecontractstart_time\"]",
+      "label": "",
+      "value": "00:00",
+      "type": "input",
+      "editable": true,
+      "visible": true,
+      "id_sample": "C53_W143_V145_V150_btdatecontractstart_time"
+    },
+    {
+      "stable_suffix": "btdatecontractend_date",
+      "selector": "[id$=\"btdatecontractend_date\"]",
+      "label": "",
+      "value": "27.03.2027",
+      "type": "input",
+      "editable": true,
+      "visible": true,
+      "id_sample": "C53_W143_V145_V150_btdatecontractend_date"
+    },
+    {
+      "stable_suffix": "btdatecontractend_time",
+      "selector": "[id$=\"btdatecontractend_time\"]",
+      "label": "",
+      "value": "00:00",
+      "type": "input",
+      "editable": true,
+      "visible": true,
+      "id_sample": "C53_W143_V145_V150_btdatecontractend_time"
+    },
+    {
+      "stable_suffix": "ConfCellTable_omni_input_cel",
+      "selector": "[id$=\"ConfCellTable_omni_input_cel\"]",
+      "label": "Insert\n\n\nÂ Predecessor Items\nRelease All Items",
+      "value": "",
+      "type": "input",
+      "editable": true,
+      "visible": true,
+      "id_sample": "C53_W143_V145_V151_ConfCellTable_omni_input_cel"
+    },
+    {
+      "stable_suffix": "btadmini_table[1].number_int",
+      "selector": "[id$=\"btadmini_table[1].number_int\"]",
+      "label": "",
+      "value": "",
+      "type": "input",
+      "editable": true,
+      "visible": true,
+      "id_sample": "C53_W143_V145_V151_btadmini_table[1].number_int"
+    },
+    {
+      "stable_suffix": "btadmini_table[1].number_parent",
+      "selector": "[id$=\"btadmini_table[1].number_parent\"]",
+      "label": "",
+      "value": "",
+      "type": "input",
+      "editable": true,
+      "visible": true,
+      "id_sample": "C53_W143_V145_V151_btadmini_table[1].number_parent"
+    },
+    {
+      "stable_suffix": "btadmini_table[1].ordered_prod",
+      "selector": "[id$=\"btadmini_table[1].ordered_prod\"]",
+      "label": "",
+      "value": "",
+      "type": "input",
+      "editable": true,
+      "visible": true,
+      "id_sample": "C53_W143_V145_V151_btadmini_table[1].ordered_prod"
+    },
+    {
+      "stable_suffix": "btadmini_table[1].process_qty_unit",
+      "selector": "[id$=\"btadmini_table[1].process_qty_unit\"]",
+      "label": "",
+      "value": "",
+      "type": "input",
+      "editable": true,
+      "visible": true,
+      "id_sample": "C53_W143_V145_V151_btadmini_table[1].process_qty_unit"
+    },
+    {
+      "stable_suffix": "btadmini_table[1].quantity",
+      "selector": "[id$=\"btadmini_table[1].quantity\"]",
+      "label": "",
+      "value": "",
+      "type": "input",
+      "editable": true,
+      "visible": true,
+      "id_sample": "C53_W143_V145_V151_btadmini_table[1].quantity"
+    },
+    {
+      "stable_suffix": "btadmini_table[1].description",
+      "selector": "[id$=\"btadmini_table[1].description\"]",
+      "label": "",
+      "value": "",
+      "type": "input",
+      "editable": true,
+      "visible": true,
+      "id_sample": "C53_W143_V145_V151_btadmini_table[1].description"
+    },
+    {
+      "stable_suffix": "btadmini_table[1].itm_type",
+      "selector": "[id$=\"btadmini_table[1].itm_type\"]",
+      "label": "",
+      "value": "",
+      "type": "input",
+      "editable": true,
+      "visible": true,
+      "id_sample": "C53_W143_V145_V151_btadmini_table[1].itm_type"
+    },
+    {
+      "stable_suffix": "btadmini_table[1].srv_serwi",
+      "selector": "[id$=\"btadmini_table[1].srv_serwi\"]",
+      "label": "",
+      "value": "",
+      "type": "input",
+      "editable": true,
+      "visible": true,
+      "id_sample": "C53_W143_V145_V151_btadmini_table[1].srv_serwi"
+    },
+    {
+      "stable_suffix": "btadmini_table[1].srv_escal",
+      "selector": "[id$=\"btadmini_table[1].srv_escal\"]",
+      "label": "",
+      "value": "",
+      "type": "input",
+      "editable": true,
+      "visible": true,
+      "id_sample": "C53_W143_V145_V151_btadmini_table[1].srv_escal"
+    },
+    {
+      "stable_suffix": "btadmini_table[2].number_int",
+      "selector": "[id$=\"btadmini_table[2].number_int\"]",
+      "label": "",
+      "value": "",
+      "type": "input",
+      "editable": true,
+      "visible": true,
+      "id_sample": "C53_W143_V145_V151_btadmini_table[2].number_int"
+    },
+    {
+      "stable_suffix": "btadmini_table[2].number_parent",
+      "selector": "[id$=\"btadmini_table[2].number_parent\"]",
+      "label": "",
+      "value": "",
+      "type": "input",
+      "editable": true,
+      "visible": true,
+      "id_sample": "C53_W143_V145_V151_btadmini_table[2].number_parent"
+    },
+    {
+      "stable_suffix": "btadmini_table[2].ordered_prod",
+      "selector": "[id$=\"btadmini_table[2].ordered_prod\"]",
+      "label": "",
+      "value": "",
+      "type": "input",
+      "editable": true,
+      "visible": true,
+      "id_sample": "C53_W143_V145_V151_btadmini_table[2].ordered_prod"
+    },
+    {
+      "stable_suffix": "btadmini_table[2].process_qty_unit",
+      "selector": "[id$=\"btadmini_table[2].process_qty_unit\"]",
+      "label": "",
+      "value": "",
+      "type": "input",
+      "editable": true,
+      "visible": true,
+      "id_sample": "C53_W143_V145_V151_btadmini_table[2].process_qty_unit"
+    },
+    {
+      "stable_suffix": "btadmini_table[2].quantity",
+      "selector": "[id$=\"btadmini_table[2].quantity\"]",
+      "label": "",
+      "value": "",
+      "type": "input",
+      "editable": true,
+      "visible": true,
+      "id_sample": "C53_W143_V145_V151_btadmini_table[2].quantity"
+    },
+    {
+      "stable_suffix": "btadmini_table[2].description",
+      "selector": "[id$=\"btadmini_table[2].description\"]",
+      "label": "",
+      "value": "",
+      "type": "input",
+      "editable": true,
+      "visible": true,
+      "id_sample": "C53_W143_V145_V151_btadmini_table[2].description"
+    },
+    {
+      "stable_suffix": "btadmini_table[2].itm_type",
+      "selector": "[id$=\"btadmini_table[2].itm_type\"]",
+      "label": "",
+      "value": "",
+      "type": "input",
+      "editable": true,
+      "visible": true,
+      "id_sample": "C53_W143_V145_V151_btadmini_table[2].itm_type"
+    },
+    {
+      "stable_suffix": "btadmini_table[2].srv_serwi",
+      "selector": "[id$=\"btadmini_table[2].srv_serwi\"]",
+      "label": "",
+      "value": "",
+      "type": "input",
+      "editable": true,
+      "visible": true,
+      "id_sample": "C53_W143_V145_V151_btadmini_table[2].srv_serwi"
+    },
+    {
+      "stable_suffix": "btadmini_table[2].srv_escal",
+      "selector": "[id$=\"btadmini_table[2].srv_escal\"]",
+      "label": "",
+      "value": "",
+      "type": "input",
+      "editable": true,
+      "visible": true,
+      "id_sample": "C53_W143_V145_V151_btadmini_table[2].srv_escal"
+    },
+    {
+      "stable_suffix": "btadmini_table[3].number_int",
+      "selector": "[id$=\"btadmini_table[3].number_int\"]",
+      "label": "",
+      "value": "",
+      "type": "input",
+      "editable": true,
+      "visible": true,
+      "id_sample": "C53_W143_V145_V151_btadmini_table[3].number_int"
+    },
+    {
+      "stable_suffix": "btadmini_table[3].number_parent",
+      "selector": "[id$=\"btadmini_table[3].number_parent\"]",
+      "label": "",
+      "value": "",
+      "type": "input",
+      "editable": true,
+      "visible": true,
+      "id_sample": "C53_W143_V145_V151_btadmini_table[3].number_parent"
+    },
+    {
+      "stable_suffix": "btadmini_table[3].ordered_prod",
+      "selector": "[id$=\"btadmini_table[3].ordered_prod\"]",
+      "label": "",
+      "value": "",
+      "type": "input",
+      "editable": true,
+      "visible": true,
+      "id_sample": "C53_W143_V145_V151_btadmini_table[3].ordered_prod"
+    },
+    {
+      "stable_suffix": "btadmini_table[3].process_qty_unit",
+      "selector": "[id$=\"btadmini_table[3].process_qty_unit\"]",
+      "label": "",
+      "value": "",
+      "type": "input",
+      "editable": true,
+      "visible": true,
+      "id_sample": "C53_W143_V145_V151_btadmini_table[3].process_qty_unit"
+    },
+    {
+      "stable_suffix": "btadmini_table[3].quantity",
+      "selector": "[id$=\"btadmini_table[3].quantity\"]",
+      "label": "",
+      "value": "",
+      "type": "input",
+      "editable": true,
+      "visible": true,
+      "id_sample": "C53_W143_V145_V151_btadmini_table[3].quantity"
+    },
+    {
+      "stable_suffix": "btadmini_table[3].description",
+      "selector": "[id$=\"btadmini_table[3].description\"]",
+      "label": "",
+      "value": "",
+      "type": "input",
+      "editable": true,
+      "visible": true,
+      "id_sample": "C53_W143_V145_V151_btadmini_table[3].description"
+    },
+    {
+      "stable_suffix": "btadmini_table[3].itm_type",
+      "selector": "[id$=\"btadmini_table[3].itm_type\"]",
+      "label": "",
+      "value": "",
+      "type": "input",
+      "editable": true,
+      "visible": true,
+      "id_sample": "C53_W143_V145_V151_btadmini_table[3].itm_type"
+    },
+    {
+      "stable_suffix": "btadmini_table[3].srv_serwi",
+      "selector": "[id$=\"btadmini_table[3].srv_serwi\"]",
+      "label": "",
+      "value": "",
+      "type": "input",
+      "editable": true,
+      "visible": true,
+      "id_sample": "C53_W143_V145_V151_btadmini_table[3].srv_serwi"
+    },
+    {
+      "stable_suffix": "btadmini_table[3].srv_escal",
+      "selector": "[id$=\"btadmini_table[3].srv_escal\"]",
+      "label": "",
+      "value": "",
+      "type": "input",
+      "editable": true,
+      "visible": true,
+      "id_sample": "C53_W143_V145_V151_btadmini_table[3].srv_escal"
+    },
+    {
+      "stable_suffix": "btadmini_table[4].number_int",
+      "selector": "[id$=\"btadmini_table[4].number_int\"]",
+      "label": "",
+      "value": "",
+      "type": "input",
+      "editable": true,
+      "visible": true,
+      "id_sample": "C53_W143_V145_V151_btadmini_table[4].number_int"
+    },
+    {
+      "stable_suffix": "btadmini_table[4].number_parent",
+      "selector": "[id$=\"btadmini_table[4].number_parent\"]",
+      "label": "",
+      "value": "",
+      "type": "input",
+      "editable": true,
+      "visible": true,
+      "id_sample": "C53_W143_V145_V151_btadmini_table[4].number_parent"
+    },
+    {
+      "stable_suffix": "btadmini_table[4].ordered_prod",
+      "selector": "[id$=\"btadmini_table[4].ordered_prod\"]",
+      "label": "",
+      "value": "",
+      "type": "input",
+      "editable": true,
+      "visible": true,
+      "id_sample": "C53_W143_V145_V151_btadmini_table[4].ordered_prod"
+    },
+    {
+      "stable_suffix": "btadmini_table[4].process_qty_unit",
+      "selector": "[id$=\"btadmini_table[4].process_qty_unit\"]",
+      "label": "",
+      "value": "",
+      "type": "input",
+      "editable": true,
+      "visible": true,
+      "id_sample": "C53_W143_V145_V151_btadmini_table[4].process_qty_unit"
+    },
+    {
+      "stable_suffix": "btadmini_table[4].quantity",
+      "selector": "[id$=\"btadmini_table[4].quantity\"]",
+      "label": "",
+      "value": "",
+      "type": "input",
+      "editable": true,
+      "visible": true,
+      "id_sample": "C53_W143_V145_V151_btadmini_table[4].quantity"
+    },
+    {
+      "stable_suffix": "btadmini_table[4].description",
+      "selector": "[id$=\"btadmini_table[4].description\"]",
+      "label": "",
+      "value": "",
+      "type": "input",
+      "editable": true,
+      "visible": true,
+      "id_sample": "C53_W143_V145_V151_btadmini_table[4].description"
+    },
+    {
+      "stable_suffix": "btadmini_table[4].itm_type",
+      "selector": "[id$=\"btadmini_table[4].itm_type\"]",
+      "label": "",
+      "value": "",
+      "type": "input",
+      "editable": true,
+      "visible": true,
+      "id_sample": "C53_W143_V145_V151_btadmini_table[4].itm_type"
+    },
+    {
+      "stable_suffix": "btadmini_table[4].srv_serwi",
+      "selector": "[id$=\"btadmini_table[4].srv_serwi\"]",
+      "label": "",
+      "value": "",
+      "type": "input",
+      "editable": true,
+      "visible": true,
+      "id_sample": "C53_W143_V145_V151_btadmini_table[4].srv_serwi"
+    },
+    {
+      "stable_suffix": "btadmini_table[4].srv_escal",
+      "selector": "[id$=\"btadmini_table[4].srv_escal\"]",
+      "label": "",
+      "value": "",
+      "type": "input",
+      "editable": true,
+      "visible": true,
+      "id_sample": "C53_W143_V145_V151_btadmini_table[4].srv_escal"
+    },
+    {
+      "stable_suffix": "btadmini_table[5].number_int",
+      "selector": "[id$=\"btadmini_table[5].number_int\"]",
+      "label": "",
+      "value": "",
+      "type": "input",
+      "editable": true,
+      "visible": true,
+      "id_sample": "C53_W143_V145_V151_btadmini_table[5].number_int"
+    },
+    {
+      "stable_suffix": "btadmini_table[5].number_parent",
+      "selector": "[id$=\"btadmini_table[5].number_parent\"]",
+      "label": "",
+      "value": "",
+      "type": "input",
+      "editable": true,
+      "visible": true,
+      "id_sample": "C53_W143_V145_V151_btadmini_table[5].number_parent"
+    },
+    {
+      "stable_suffix": "btadmini_table[5].ordered_prod",
+      "selector": "[id$=\"btadmini_table[5].ordered_prod\"]",
+      "label": "",
+      "value": "",
+      "type": "input",
+      "editable": true,
+      "visible": true,
+      "id_sample": "C53_W143_V145_V151_btadmini_table[5].ordered_prod"
+    },
+    {
+      "stable_suffix": "btadmini_table[5].process_qty_unit",
+      "selector": "[id$=\"btadmini_table[5].process_qty_unit\"]",
+      "label": "",
+      "value": "",
+      "type": "input",
+      "editable": true,
+      "visible": true,
+      "id_sample": "C53_W143_V145_V151_btadmini_table[5].process_qty_unit"
+    },
+    {
+      "stable_suffix": "btadmini_table[5].quantity",
+      "selector": "[id$=\"btadmini_table[5].quantity\"]",
+      "label": "",
+      "value": "",
+      "type": "input",
+      "editable": true,
+      "visible": true,
+      "id_sample": "C53_W143_V145_V151_btadmini_table[5].quantity"
+    },
+    {
+      "stable_suffix": "btadmini_table[5].description",
+      "selector": "[id$=\"btadmini_table[5].description\"]",
+      "label": "",
+      "value": "",
+      "type": "input",
+      "editable": true,
+      "visible": true,
+      "id_sample": "C53_W143_V145_V151_btadmini_table[5].description"
+    },
+    {
+      "stable_suffix": "btadmini_table[5].itm_type",
+      "selector": "[id$=\"btadmini_table[5].itm_type\"]",
+      "label": "",
+      "value": "",
+      "type": "input",
+      "editable": true,
+      "visible": true,
+      "id_sample": "C53_W143_V145_V151_btadmini_table[5].itm_type"
+    },
+    {
+      "stable_suffix": "btadmini_table[5].srv_serwi",
+      "selector": "[id$=\"btadmini_table[5].srv_serwi\"]",
+      "label": "",
+      "value": "",
+      "type": "input",
+      "editable": true,
+      "visible": true,
+      "id_sample": "C53_W143_V145_V151_btadmini_table[5].srv_serwi"
+    },
+    {
+      "stable_suffix": "btadmini_table[5].srv_escal",
+      "selector": "[id$=\"btadmini_table[5].srv_escal\"]",
+      "label": "",
+      "value": "",
+      "type": "input",
+      "editable": true,
+      "visible": true,
+      "id_sample": "C53_W143_V145_V151_btadmini_table[5].srv_escal"
+    }
+  ],
+  "spans": [
+    {
+      "stable_suffix": ":T_link:U_SESSIONTIMEOUT:I_SESSIONTIMEOUT",
+      "label": "",
+      "value": "00:58"
+    },
+    {
+      "stable_suffix": ":T_link:U_PERSONALIZE:I_PERSONALIZE",
+      "label": "",
+      "value": "Personalize"
+    },
+    {
+      "stable_suffix": "PERSONALIZE",
+      "label": "",
+      "value": "Personalize"
+    },
+    {
+      "stable_suffix": ":T_link:U_SYSMSG:I_SYSMSG",
+      "label": "Personalize",
+      "value": "System News"
+    },
+    {
+      "stable_suffix": "SYSMSG",
+      "label": "Personalize",
+      "value": "System News"
+    },
+    {
+      "stable_suffix": ":T_link:U_LOGOFF:I_LOGOFF",
+      "label": "System News",
+      "value": "Log Off"
+    },
+    {
+      "stable_suffix": "LOGOFF",
+      "label": "System News",
+      "value": "Log Off"
+    },
+    {
+      "stable_suffix": "submitInProgressText",
+      "label": "",
+      "value": "Please wait..."
+    },
+    {
+      "stable_suffix": "SearchMenuAnchor1",
+      "label": "",
+      "value": "Saved Searches"
+    },
+    {
+      "stable_suffix": "QUICKSEARCH",
+      "label": "Saved Searches",
+      "value": "Go"
+    },
+    {
+      "stable_suffix": "thtmlb_button_1",
+      "label": "Saved Searches",
+      "value": "Advanced"
+    },
+    {
+      "stable_suffix": "SLS-HOME",
+      "label": "",
+      "value": "Home"
+    },
+    {
+      "stable_suffix": "SLS-ACC",
+      "label": "",
+      "value": "Account Management"
+    },
+    {
+      "stable_suffix": "SLS-ACT",
+      "label": "",
+      "value": "Activities"
+    },
+    {
+      "stable_suffix": "SLS-CYCLE",
+      "label": "",
+      "value": "Sales Cycle"
+    },
+    {
+      "stable_suffix": "MD-ALL",
+      "label": "",
+      "value": "Master Data"
+    },
+    {
+      "stable_suffix": "SRV-ORD",
+      "label": "",
+      "value": "Service Orders"
+    },
+    {
+      "stable_suffix": "SRV-CONTR",
+      "label": "",
+      "value": "Service Contracts"
+    },
+    {
+      "stable_suffix": "ZSD_ESP",
+      "label": "",
+      "value": "Reporte de precios ESP"
+    },
+    {
+      "stable_suffix": "RecentObjects__title",
+      "label": "",
+      "value": "Recent Items"
+    },
+    {
+      "stable_suffix": "1",
+      "label": "",
+      "value": "245451 Horas Assesoria SW IBM - BR"
+    },
+    {
+      "stable_suffix": "2",
+      "label": "",
+      "value": "245372 Agentes Virtuales IA para Mercadeo - BR"
+    },
+    {
+      "stable_suffix": "3",
+      "label": "",
+      "value": "242418 CÃ©lula AI Banrural - PA - TOPD"
+    },
+    {
+      "stable_suffix": "4",
+      "label": "",
+      "value": "246459 2626508 RFP Proyecto de CertificaciÃ³n Fu"
+    },
+    {
+      "stable_suffix": "5",
+      "label": "",
+      "value": "244701 Optimizar WAS - BR"
+    },
+    {
+      "stable_suffix": "ZREP_FOREC",
+      "label": "",
+      "value": "Forecast GBM"
+    },
+    {
+      "stable_suffix": "ZREP_FOREM",
+      "label": "",
+      "value": "Forecast Employee GBM"
+    },
+    {
+      "stable_suffix": "BackButton",
+      "label": "",
+      "value": "Back"
+    },
+    {
+      "stable_suffix": "thtmlb_button_2",
+      "label": "",
+      "value": "Cancel"
+    },
+    {
+      "stable_suffix": "thtmlb_button_3",
+      "label": "",
+      "value": "New"
+    },
+    {
+      "stable_suffix": "thtmlb_button_5",
+      "label": "",
+      "value": "Create Follow-Up"
+    },
+    {
+      "stable_suffix": "thtmlb_button_6",
+      "label": "",
+      "value": "Print"
+    },
+    {
+      "stable_suffix": "thtmlb_button_7",
+      "label": "",
+      "value": "Print Preview"
+    },
+    {
+      "stable_suffix": "0001_expand_link",
+      "label": "",
+      "value": "Service Contract Quotation Details"
+    },
+    {
+      "stable_suffix": "but1",
+      "label": "",
+      "value": "Edit"
+    },
+    {
+      "stable_suffix": "thtmlb_textView_1",
+      "label": "",
+      "value": "General Data"
+    },
+    {
+      "stable_suffix": "thtmlb_textView_2",
+      "label": "",
+      "value": "Processing Data"
+    },
+    {
+      "stable_suffix": "thtmlb_textView_12",
+      "label": "",
+      "value": "Dates"
+    },
+    {
+      "stable_suffix": "0002_expand_link",
+      "label": "",
+      "value": "Items"
+    },
+    {
+      "stable_suffix": "10",
+      "label": "",
+      "value": "Insert"
+    },
+    {
+      "stable_suffix": "40",
+      "label": "",
+      "value": "Predecessor Items"
+    },
+    {
+      "stable_suffix": "50",
+      "label": "",
+      "value": "Release All Items"
+    },
+    {
+      "stable_suffix": "ConfCellTable__header_bee__1",
+      "label": "",
+      "value": "Actions"
+    },
+    {
+      "stable_suffix": "ConfCellTable__header_bee__2",
+      "label": "",
+      "value": "Item No."
+    },
+    {
+      "stable_suffix": "ConfCellTable__header_bee__3",
+      "label": "",
+      "value": "Higher-Level Item"
+    },
+    {
+      "stable_suffix": "ConfCellTable__header_bee__4",
+      "label": "",
+      "value": "Product ID"
+    },
+    {
+      "stable_suffix": "ConfCellTable__header_bee__5",
+      "label": "",
+      "value": "Unit"
+    },
+    {
+      "stable_suffix": "ConfCellTable__header_bee__6",
+      "label": "",
+      "value": "Quantity"
+    },
+    {
+      "stable_suffix": "ConfCellTable__header_bee__7",
+      "label": "",
+      "value": "Product"
+    },
+    {
+      "stable_suffix": "ConfCellTable__header_bee__8",
+      "label": "",
+      "value": "Item Category"
+    },
+    {
+      "stable_suffix": "ConfCellTable__header_bee__9",
+      "label": "",
+      "value": "Service Profile"
+    },
+    {
+      "stable_suffix": "ConfCellTable__header_bee__10",
+      "label": "",
+      "value": "Response Profile"
+    },
+    {
+      "stable_suffix": "ConfCellTable__header_bee__11",
+      "label": "",
+      "value": "Net Value"
+    },
+    {
+      "stable_suffix": "ConfCellTable__header_bee__12",
+      "label": "",
+      "value": "Currency"
+    },
+    {
+      "stable_suffix": "ConfCellTable__header_bee__13",
+      "label": "",
+      "value": "Status"
+    },
+    {
+      "stable_suffix": "ConfCellTable__header_bee__14",
+      "label": "",
+      "value": "Object ID (Obj. List)"
+    },
+    {
+      "stable_suffix": "ConfCellTable__header_bee__15",
+      "label": "",
+      "value": "Product ID (Obj. List)"
+    },
+    {
+      "stable_suffix": "0006_expand_link",
+      "label": "",
+      "value": "Transaction History"
+    },
+    {
+      "stable_suffix": "0008_expand_link",
+      "label": "",
+      "value": "Price Totals"
+    },
+    {
+      "stable_suffix": "thtmlb_textView_7",
+      "label": "",
+      "value": "Net Value"
+    },
+    {
+      "stable_suffix": "thtmlb_textView_13",
+      "label": "",
+      "value": "Tax Amount"
+    },
+    {
+      "stable_suffix": "thtmlb_textView_4",
+      "label": "",
+      "value": "Net Value Excl. Freight"
+    },
+    {
+      "stable_suffix": "thtmlb_textView_10",
+      "label": "",
+      "value": "Shipment Costs"
+    }
+  ],
+  "buttons": [
+    {
+      "text": "Cancel",
+      "stable_suffix": "thCancelSIP",
+      "id_sample": "thCancelSIP"
+    },
+    {
+      "text": "Personalize",
+      "stable_suffix": "PERSONALIZE",
+      "id_sample": "PERSONALIZE"
+    },
+    {
+      "text": "System News",
+      "stable_suffix": "SYSMSG",
+      "id_sample": "SYSMSG"
+    },
+    {
+      "text": "Log Off",
+      "stable_suffix": "LOGOFF",
+      "id_sample": "LOGOFF"
+    },
+    {
+      "text": "Cancel",
+      "stable_suffix": "thCancelSIP",
+      "id_sample": "thCancelSIP"
+    },
+    {
+      "text": "Saved Searches",
+      "stable_suffix": "SearchMenuAnchor1",
+      "id_sample": "C12_W37_V38_SearchMenuAnchor1"
+    },
+    {
+      "text": "Home",
+      "stable_suffix": "SLS-HOME",
+      "id_sample": "C4_W16_V17_SLS-HOME"
+    },
+    {
+      "text": "Account Management",
+      "stable_suffix": "SLS-ACC",
+      "id_sample": "C4_W16_V17_SLS-ACC"
+    },
+    {
+      "text": "Accounts",
+      "stable_suffix": "MD-BP-SR",
+      "id_sample": "C4_W16_V17_MD-BP-SR"
+    },
+    {
+      "text": "Contacts",
+      "stable_suffix": "MD-CONP-SR",
+      "id_sample": "C4_W16_V17_MD-CONP-SR"
+    },
+    {
+      "text": "Contact",
+      "stable_suffix": "MD-CONP-CR",
+      "id_sample": "C4_W16_V17_MD-CONP-CR"
+    },
+    {
+      "text": "Activities",
+      "stable_suffix": "SLS-ACT",
+      "id_sample": "C4_W16_V17_SLS-ACT"
+    },
+    {
+      "text": "Activity Scheduling",
+      "stable_suffix": "SLS-ACS-CR",
+      "id_sample": "C4_W16_V17_SLS-ACS-CR"
+    },
+    {
+      "text": "Visit Plans",
+      "stable_suffix": "SLS-VP-SR",
+      "id_sample": "C4_W16_V17_SLS-VP-SR"
+    },
+    {
+      "text": "Appointment",
+      "stable_suffix": "SLS-APP-CR",
+      "id_sample": "C4_W16_V17_SLS-APP-CR"
+    },
+    {
+      "text": "E-Mail",
+      "stable_suffix": "SLS-MAI-CR",
+      "id_sample": "C4_W16_V17_SLS-MAI-CR"
+    },
+    {
+      "text": "Task",
+      "stable_suffix": "SLS-TSK-CR",
+      "id_sample": "C4_W16_V17_SLS-TSK-CR"
+    },
+    {
+      "text": "Visit Plan",
+      "stable_suffix": "SLS-VP-CR",
+      "id_sample": "C4_W16_V17_SLS-VP-CR"
+    },
+    {
+      "text": "Sales Cycle",
+      "stable_suffix": "SLS-CYCLE",
+      "id_sample": "C4_W16_V17_SLS-CYCLE"
+    },
+    {
+      "text": "Sales Planning",
+      "stable_suffix": "SLS-CYC-SP",
+      "id_sample": "C4_W16_V17_SLS-CYC-SP"
+    },
+    {
+      "text": "Campaigns",
+      "stable_suffix": "MKT-CP-SR",
+      "id_sample": "C4_W16_V17_MKT-CP-SR"
+    },
+    {
+      "text": "Leads",
+      "stable_suffix": "MKT-LEA-SR",
+      "id_sample": "C4_W16_V17_MKT-LEA-SR"
+    },
+    {
+      "text": "Opportunities",
+      "stable_suffix": "SLS-OPP-SR",
+      "id_sample": "C4_W16_V17_SLS-OPP-SR"
+    },
+    {
+      "text": "Quotations",
+      "stable_suffix": "SLS-QUT-SR",
+      "id_sample": "C4_W16_V17_SLS-QUT-SR"
+    },
+    {
+      "text": "Sales Orders",
+      "stable_suffix": "SLS-SLO-SR",
+      "id_sample": "C4_W16_V17_SLS-SLO-SR"
+    },
+    {
+      "text": "Opportunity",
+      "stable_suffix": "SLS-OPP-CR",
+      "id_sample": "C4_W16_V17_SLS-OPP-CR"
+    },
+    {
+      "text": "Lead",
+      "stable_suffix": "MKT-LEA-CR",
+      "id_sample": "C4_W16_V17_MKT-LEA-CR"
+    },
+    {
+      "text": "Master Data",
+      "stable_suffix": "MD-ALL",
+      "id_sample": "C4_W16_V17_MD-ALL"
+    },
+    {
+      "text": "Employees",
+      "stable_suffix": "MD-EMPL-SR",
+      "id_sample": "C4_W16_V17_MD-EMPL-SR"
+    },
+    {
+      "text": "Account Hierarchies",
+      "stable_suffix": "MD-BPH-SR",
+      "id_sample": "C4_W16_V17_MD-BPH-SR"
+    },
+    {
+      "text": "Objects",
+      "stable_suffix": "MD-IOBJ-SR",
+      "id_sample": "C4_W16_V17_MD-IOBJ-SR"
+    },
+    {
+      "text": "Installed Bases",
+      "stable_suffix": "MD-INB-SR",
+      "id_sample": "C4_W16_V17_MD-INB-SR"
+    },
+    {
+      "text": "Warranties",
+      "stable_suffix": "MD-WARR-SR",
+      "id_sample": "C4_W16_V17_MD-WARR-SR"
+    },
+    {
+      "text": "Products",
+      "stable_suffix": "MD-MAT-SR",
+      "id_sample": "C4_W16_V17_MD-MAT-SR"
+    },
+    {
+      "text": "Services",
+      "stable_suffix": "MD-SERV-SR",
+      "id_sample": "C4_W16_V17_MD-SERV-SR"
+    },
+    {
+      "text": "Service Orders",
+      "stable_suffix": "SRV-ORD",
+      "id_sample": "C4_W16_V17_SRV-ORD"
+    },
+    {
+      "text": "Service Order Quotations",
+      "stable_suffix": "SRV-QOT-SR",
+      "id_sample": "C4_W16_V17_SRV-QOT-SR"
+    },
+    {
+      "text": "Service Contracts",
+      "stable_suffix": "SRV-CONTR",
+      "id_sample": "C4_W16_V17_SRV-CONTR"
+    },
+    {
+      "text": "Service Contract Quotations",
+      "stable_suffix": "SRV-SCQ-SR",
+      "id_sample": "C4_W16_V17_SRV-SCQ-SR"
+    },
+    {
+      "text": "Service Agreement",
+      "stable_suffix": "SRV-SAG-CR",
+      "id_sample": "C4_W16_V17_SRV-SAG-CR"
+    },
+    {
+      "text": "Service Agreements",
+      "stable_suffix": "SRV-SAG-SR",
+      "id_sample": "C4_W16_V17_SRV-SAG-SR"
+    },
+    {
+      "text": "Reporte de precios ESP",
+      "stable_suffix": "ZSD_ESP",
+      "id_sample": "C5_W18_V19_ZSD_ESP"
+    },
+    {
+      "text": "Recent Items",
+      "stable_suffix": "RecentObjects__title",
+      "id_sample": "C6_W23_V24_RecentObjects__title"
+    },
+    {
+      "text": "245451 Horas Assesoria SW IBM - BR",
+      "stable_suffix": "1",
+      "id_sample": "C6_W23_V24_1"
+    },
+    {
+      "text": "245372 Agentes Virtuales IA para Mercadeo - BR",
+      "stable_suffix": "2",
+      "id_sample": "C6_W23_V24_2"
+    },
+    {
+      "text": "242418 CÃ©lula AI Banrural - PA - TOPD",
+      "stable_suffix": "3",
+      "id_sample": "C6_W23_V24_3"
+    },
+    {
+      "text": "246459 2626508 RFP Proyecto de CertificaciÃ³n Fu",
+      "stable_suffix": "4",
+      "id_sample": "C6_W23_V24_4"
+    },
+    {
+      "text": "244701 Optimizar WAS - BR",
+      "stable_suffix": "5",
+      "id_sample": "C6_W23_V24_5"
+    },
+    {
+      "text": "Forecast GBM",
+      "stable_suffix": "ZREP_FOREC",
+      "id_sample": "C5_W18_V19_ZREP_FOREC"
+    },
+    {
+      "text": "Forecast Employee GBM",
+      "stable_suffix": "ZREP_FOREM",
+      "id_sample": "C5_W18_V19_ZREP_FOREM"
+    },
+    {
+      "text": "Back",
+      "stable_suffix": "BackButton",
+      "id_sample": "BackButton"
+    },
+    {
+      "text": "Save",
+      "stable_suffix": "thtmlb_button_1",
+      "id_sample": "C53_W143_V145_thtmlb_button_1"
+    },
+    {
+      "text": "New",
+      "stable_suffix": "thtmlb_button_3",
+      "id_sample": "C53_W143_V145_thtmlb_button_3"
+    },
+    {
+      "text": "Print",
+      "stable_suffix": "thtmlb_button_6",
+      "id_sample": "C53_W143_V145_thtmlb_button_6"
+    },
+    {
+      "text": "Print Preview",
+      "stable_suffix": "thtmlb_button_7",
+      "id_sample": "C53_W143_V145_thtmlb_button_7"
+    },
+    {
+      "text": "Actions",
+      "stable_suffix": "but_1",
+      "id_sample": "C53_W143_V145_but_1"
+    },
+    {
+      "text": "Reject All Items",
+      "stable_suffix": "but_3",
+      "id_sample": "C53_W143_V145_but_3"
+    },
+    {
+      "text": "Reset Item Rejection",
+      "stable_suffix": "but_4",
+      "id_sample": "C53_W143_V145_but_4"
+    },
+    {
+      "text": "Service Contract Quotation Details",
+      "stable_suffix": "0001_expand_link",
+      "id_sample": "C53_W143_V145_0001_expand_link"
+    },
+    {
+      "text": "Items",
+      "stable_suffix": "0002_expand_link",
+      "id_sample": "C53_W143_V145_0002_expand_link"
+    },
+    {
+      "text": "Insert",
+      "stable_suffix": "10",
+      "id_sample": "C53_W143_V145_V151_10"
+    },
+    {
+      "text": "Predecessor Items",
+      "stable_suffix": "40",
+      "id_sample": "C53_W143_V145_V151_40"
+    },
+    {
+      "text": "Release All Items",
+      "stable_suffix": "50",
+      "id_sample": "C53_W143_V145_V151_50"
+    },
+    {
+      "text": "Transaction History",
+      "stable_suffix": "0006_expand_link",
+      "id_sample": "C53_W143_V145_0006_expand_link"
+    },
+    {
+      "text": "Price Totals",
+      "stable_suffix": "0008_expand_link",
+      "id_sample": "C53_W143_V145_0008_expand_link"
+    },
+    {
+      "text": "No text",
+      "stable_suffix": "UsrSettings",
+      "id_sample": "C1_W1_V2_UsrSettings"
+    },
+    {
+      "text": "standard",
+      "stable_suffix": "ACTION_WINDOW_CLOSE",
+      "id_sample": "C1_W1_V2_ACTION_WINDOW_CLOSE"
+    }
+  ],
+  "tables": [
+    {
+      "title": "",
+      "columns": [
+        "Personalize",
+        "System News",
+        "Log Off"
+      ]
+    },
+    {
+      "title": "",
+      "columns": [
+        "Personalize",
+        "System News",
+        "Log Off"
+      ]
+    },
+    {
+      "title": "",
+      "columns": [
+        "Reporte ZSD_ESP",
+        "Recent Items",
+        "Reporte Forecast GBM"
+      ]
+    },
+    {
+      "title": "",
+      "columns": [
+        "Cont Quot Manual: New",
+        "Back"
+      ]
+    },
+    {
+      "title": "",
+      "columns": [
+        "Cont Quot Manual: New",
+        "Back"
+      ]
+    },
+    {
+      "title": "",
+      "columns": [
+        "Service Contract Quotation DetailsEdit",
+        "Service Contract Quotation Details",
+        "Edit"
+      ]
+    },
+    {
+      "title": "",
+      "columns": [
+        "Service Contract Quotation Details",
+        "Edit"
+      ]
+    },
+    {
+      "title": "",
+      "columns": [
+        "General Data",
+        "ID:",
+        "Description:",
+        "Sold-To Party:",
+        "Contact:",
+        "Employee Responsible:",
+        "*Â Text:",
+        "Processing Data",
+        "External Reference:",
+        "Status:",
+        "Quotation accepted:",
+        "Net Value:",
+        "Dates",
+        "Contract Start:",
+        "Contract End:"
+      ]
+    },
+    {
+      "title": "",
+      "columns": [
+        "ItemsEdit List",
+        "Items",
+        "Edit List"
+      ]
+    },
+    {
+      "title": "",
+      "columns": [
+        "Items",
+        "Edit List"
+      ]
+    },
+    {
+      "title": "",
+      "columns": [
+        "Actions",
+        "Item No.",
+        "Higher-Level Item",
+        "Product ID",
+        "Unit",
+        "Quantity",
+        "Product",
+        "Item Category",
+        "Service Profile",
+        "Response Profile",
+        "Net Value",
+        "Currency",
+        "Status",
+        "Object ID (Obj. List)",
+        "Product ID (Obj. List)"
+      ]
+    },
+    {
+      "title": "",
+      "columns": [
+        "Transaction History",
+        "Transaction History"
+      ]
+    },
+    {
+      "title": "",
+      "columns": [
+        "Price Totals",
+        "Price Totals"
+      ]
+    },
+    {
+      "title": "",
+      "columns": [
+        "Gross ValueÂ Â Â Â Net ValueÂ Â Â Â Tax Amount",
+        "Gross Value",
+        "Net Value",
+        "Tax Amount",
+        "Net Value Excl. Freight",
+        "Shipment Costs"
+      ]
+    }
+  ],
+  "dropdowns": [],
+  "checkboxes": []
+}
