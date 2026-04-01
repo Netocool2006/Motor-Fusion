@@ -88,6 +88,7 @@ def _ensure_domain(name: str, description: str = "") -> dict:
             "file": "patterns.json",
             "entry_type": "pattern",
             "auto_created": True,
+            "num_entries": 0,  # Inicialmente vacío
         }
         KNOWLEDGE_DIR.mkdir(parents=True, exist_ok=True)
         all_domains[name] = new_entry
@@ -164,6 +165,18 @@ def _save_domain(domain: str, data: dict):
             json.dump(data, f, indent=2, ensure_ascii=False)
         _atomic_replace(tmp, path)
 
+    # Actualizar num_entries en domains.json
+    try:
+        all_domains = _load_all_domains()
+        if domain in all_domains:
+            all_domains[domain]["num_entries"] = len(data.get("entries", {}))
+            tmp = DOMAINS_FILE.with_suffix(".tmp")
+            with open(tmp, "w", encoding="utf-8") as f:
+                json.dump(all_domains, f, indent=2, ensure_ascii=False)
+            _atomic_replace(tmp, DOMAINS_FILE)
+    except Exception:
+        pass  # No fallar si no se puede actualizar metadata
+
 
 def _entry_id(key: str) -> str:
     """ID determinista a partir de un key (12 hex chars de SHA-256)."""
@@ -203,6 +216,9 @@ def _compute_idf(entries: dict, query_words: set[str]) -> dict[str, float]:
     Calcula IDF (Inverse Document Frequency) para las palabras del query.
     IDF(t) = log(N / (1 + df(t)))
     donde N = total entries, df(t) = entries que contienen t.
+
+    Nota: Se usa max(..., 0.1) para asegurar IDF > 0 incluso con corpus pequeño.
+    Esto permite que palabras exactas tengan score positivo en dominios con pocas entries.
     """
     n = max(len(entries), 1)
     df: Counter = Counter()
@@ -221,7 +237,9 @@ def _compute_idf(entries: dict, query_words: set[str]) -> dict[str, float]:
 
     idf = {}
     for word in query_words:
-        idf[word] = math.log(n / (1 + df.get(word, 0)))
+        # max(..., 0.1) asegura que IDF sea siempre > 0 cuando hay match
+        raw_idf = math.log(n / (1 + df.get(word, 0)))
+        idf[word] = max(raw_idf, 0.1)  # Minimum IDF to ensure searchability
     return idf
 
 
