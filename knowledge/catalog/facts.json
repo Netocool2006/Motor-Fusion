@@ -1,0 +1,150 @@
+{
+  "domain": "catalog",
+  "description": "Catálogo productos: IBM, SAP, servicios GBM, códigos, precios, SKUs",
+  "entries": {
+    "0c651edb35b0": {
+      "id": "0c651edb35b0",
+      "type": "fact",
+      "key": "was",
+      "fact": {
+        "rule": "IBM WebSphere Application Server",
+        "code": "WAS",
+        "product_type": "software_license",
+        "variants": [
+          "WAS_PS",
+          "WAS_RN"
+        ],
+        "source": "IBM Price List",
+        "confidence": "verified"
+      },
+      "tags": [
+        "ibm",
+        "websphere",
+        "java",
+        "licencia",
+        "producto"
+      ],
+      "created_at": "2026-03-13T21:47:52.568023+00:00",
+      "updated_at": "2026-03-13T21:47:52.568023+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0
+      }
+    },
+    "69a889d2b92d": {
+      "id": "69a889d2b92d",
+      "type": "fact",
+      "key": "gbm_css_variables",
+      "fact": {
+        "rule": "Variables CSS: --gbm-bg:#0a0a0f, --gbm-surface:#16161e, --gbm-accent:#1DC19C, --gbm-accent2:#2A6DCE, --gbm-radius:16px",
+        "source": "index.html",
+        "confidence": "verified"
+      },
+      "tags": [
+        "css",
+        "variables",
+        "design"
+      ],
+      "created_at": "2026-03-15T04:00:57.828076+00:00",
+      "updated_at": "2026-03-15T04:00:57.828076+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-03-20T22:39:06.822628+00:00",
+        "access_count": 1
+      }
+    },
+    "55b89f9ac780": {
+      "id": "55b89f9ac780",
+      "type": "fact",
+      "key": "gbm_z_index_hierarchy",
+      "fact": {
+        "rule": "Z-index hierarchy: header=9500, overlays=9000, contenido devin=default",
+        "applies_to": "Nuevos elementos flotantes",
+        "source": "Session 2026-03-14",
+        "confidence": "verified"
+      },
+      "tags": [
+        "css",
+        "z-index",
+        "layout"
+      ],
+      "created_at": "2026-03-15T04:00:57.889455+00:00",
+      "updated_at": "2026-03-15T04:00:57.889455+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-03-20T22:39:06.822628+00:00",
+        "access_count": 2
+      }
+    }
+  },
+  "tag_index": {
+    "ibm": [
+      "0fbf55a36e5e",
+      "0c651edb35b0",
+      "9ff99cb9d871",
+      "8b4b46c7e66d"
+    ],
+    "db2": [
+      "0fbf55a36e5e"
+    ],
+    "base_datos": [
+      "0fbf55a36e5e"
+    ],
+    "licencia": [
+      "0fbf55a36e5e",
+      "0c651edb35b0",
+      "9ff99cb9d871",
+      "8b4b46c7e66d"
+    ],
+    "producto": [
+      "0fbf55a36e5e",
+      "0c651edb35b0",
+      "9ff99cb9d871",
+      "8b4b46c7e66d"
+    ],
+    "websphere": [
+      "0c651edb35b0"
+    ],
+    "java": [
+      "0c651edb35b0"
+    ],
+    "mq": [
+      "9ff99cb9d871"
+    ],
+    "mensajeria": [
+      "9ff99cb9d871"
+    ],
+    "instana": [
+      "8b4b46c7e66d"
+    ],
+    "observabilidad": [
+      "8b4b46c7e66d"
+    ],
+    "apm": [
+      "8b4b46c7e66d"
+    ],
+    "css": [
+      "69a889d2b92d",
+      "55b89f9ac780"
+    ],
+    "variables": [
+      "69a889d2b92d"
+    ],
+    "design": [
+      "69a889d2b92d"
+    ],
+    "z-index": [
+      "55b89f9ac780"
+    ],
+    "layout": [
+      "55b89f9ac780"
+    ]
+  },
+  "stats": {
+    "total_entries": 6,
+    "total_lookups": 667,
+    "total_hits": 53
+  }
+}

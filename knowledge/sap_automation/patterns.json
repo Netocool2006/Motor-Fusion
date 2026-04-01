@@ -1,0 +1,3373 @@
+{
+  "domain": "sap_automation",
+  "description": "Dominio auto-creado: sap_automation",
+  "entries": {
+    "bd2a3108b92c": {
+      "id": "bd2a3108b92c",
+      "type": "pattern",
+      "key": "sap_crm_frame_structure",
+      "solution": {
+        "strategy": "iframe_navigation",
+        "description": "SAP CRM WebUI (puerto 8105) usa multiples niveles de iframes anidados",
+        "code_snippet": "# SAP CRM estructura de frames:\n# <frameset>\n#   <frame name=\"WorkAreaFrame1\">\n#     <iframe name=\"CRMApplicationFrame\">\n#       <iframe id=\"isolatedWorkArea\">\n#         ... contenido real ...\n\n# Playwright:\nwork = (page\n    .frame_locator('frame[name=\"WorkAreaFrame1\"]')\n    .frame_locator('iframe[name=\"CRMApplicationFrame\"]')\n    .frame_locator('iframe#isolatedWorkArea'))\n\n# Selenium:\ndriver.switch_to.frame(\"WorkAreaFrame1\")\ndriver.switch_to.frame(\"CRMApplicationFrame\")\ndriver.switch_to.frame(\"isolatedWorkArea\")",
+        "notes": "SIEMPRE navegar frames antes de buscar elementos. Sin esto, find_element falla con NoSuchElement.",
+        "url_pattern": "wdp-sap.gbm.net:8105",
+        "confidence": "high"
+      },
+      "tags": [
+        "sap",
+        "frames",
+        "iframe",
+        "dom",
+        "estructura",
+        "playwright",
+        "selenium"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-21T02:39:26.593091+00:00",
+      "updated_at": "2026-03-21T02:39:26.593091+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-31T20:16:06.436696+00:00",
+        "access_count": 33
+      }
+    },
+    "ece1885243bc": {
+      "id": "ece1885243bc",
+      "type": "pattern",
+      "key": "sap_crm_frame_reset",
+      "solution": {
+        "strategy": "frame_context_management",
+        "description": "Despues de cada navegacion SAP recarga frames - re-obtener referencia",
+        "code_snippet": "def get_work_area(page):\n    '''Helper: siempre retorna el frame correcto.'''\n    return (page\n        .frame_locator('frame[name=\"WorkAreaFrame1\"]')\n        .frame_locator('iframe[name=\"CRMApplicationFrame\"]')\n        .frame_locator('iframe#isolatedWorkArea'))\n\n# Uso correcto:\nwork = get_work_area(page)\nwork.locator('[aria-label*=\"Account\"]').fill(\"IBM\")\n\n# Despues de click en tab/menu:\nwork.locator('text=Items').click()\npage.wait_for_load_state('networkidle')\nwork = get_work_area(page)  # RE-OBTENER!",
+        "notes": "Error clasico: guardar referencia al frame y reutilizarla. Se invalida tras navegacion.",
+        "confidence": "high"
+      },
+      "tags": [
+        "sap",
+        "frames",
+        "refresh",
+        "stale",
+        "navegacion"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-21T02:39:26.670821+00:00",
+      "updated_at": "2026-03-21T02:39:26.670821+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-30T04:05:00.744792+00:00",
+        "access_count": 38
+      }
+    },
+    "944d67edda2e": {
+      "id": "944d67edda2e",
+      "type": "pattern",
+      "key": "sap_crm_frameset_detection",
+      "solution": {
+        "strategy": "detect_frameset_vs_iframe",
+        "description": "SAP usa <frameset> (no iframe) para el nivel superior - Playwright y Selenium lo manejan distinto",
+        "code_snippet": "# <frameset> vs <iframe> - SON DIFERENTES:\n# - frameset: tag HTML antiguo, NO es un iframe\n# - Playwright: frame_locator('frame[name=...]') para frameset\n# - Selenium: switch_to.frame('nombre') para ambos\n\n# DETECCION en runtime:\nframes = page.frames\nfor f in frames:\n    print(f.name, f.url)\n# Buscar el frame que tiene la URL de la app CRM\n\n# Si hay error \"Frame not found\":\n# 1. Verificar que la pagina cargo completamente\n# 2. page.wait_for_selector('frame[name=\"WorkAreaFrame1\"]')\n# 3. Verificar que no hay popup/alert bloqueando",
+        "notes": "frameset es HTML4, SAP CRM aun lo usa. No confundir con iframe moderno.",
+        "confidence": "high"
+      },
+      "tags": [
+        "sap",
+        "frameset",
+        "frame",
+        "html4",
+        "deteccion"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-21T02:39:26.744309+00:00",
+      "updated_at": "2026-03-21T02:39:26.744309+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-31T20:28:16.443156+00:00",
+        "access_count": 116
+      }
+    },
+    "92906df82d07": {
+      "id": "92906df82d07",
+      "type": "pattern",
+      "key": "sap_dynamic_ids_never_use",
+      "solution": {
+        "strategy": "never_use_dynamic_ids",
+        "description": "SAP genera IDs como C42_W133_V134_btreelbl3 que cambian cada sesion",
+        "code_snippet": "# MALO - NUNCA usar IDs con patron C{n}_W{n}_V{n}:\npage.locator('#C42_W133_V134_V141_btreelbl3')  # FALLA!\n\n# El patron de IDs SAP: C{counter}_W{window}_V{view}_{tipo}{n}\n# Donde TODOS los numeros cambian entre sesiones\n\n# BUENO - Selectores estables:\n# 1. aria-label (MAS CONFIABLE)\npage.locator('[aria-label*=\"Description\"]')\n\n# 2. placeholder\npage.locator('[placeholder*=\"Search\"]')\n\n# 3. title\npage.locator('[title=\"Account Name\"]')\n\n# 4. Texto visible\npage.locator('text=Save')\n\n# 5. name attribute (a veces estable)\npage.locator('[name=\"sap-user\"]')\n\n# 6. Clase CSS + posicion (ultimo recurso)\npage.locator('.urEdfTxtEnbl').nth(2)",
+        "notes": "REGLA DE ORO: Si el selector contiene numeros aleatorios (C42_W133), es dinamico y FALLARA.",
+        "confidence": "verified"
+      },
+      "tags": [
+        "sap",
+        "ids",
+        "dinamicos",
+        "selectores",
+        "regla"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-21T02:39:26.795645+00:00",
+      "updated_at": "2026-03-21T02:39:26.795645+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-31T20:28:16.443156+00:00",
+        "access_count": 60
+      }
+    },
+    "e6b5e455c82b": {
+      "id": "e6b5e455c82b",
+      "type": "pattern",
+      "key": "sap_stable_selectors_catalog",
+      "solution": {
+        "strategy": "selector_catalog",
+        "description": "Catalogo de selectores estables para SAP CRM WebUI",
+        "code_snippet": "# === LOGIN ===\nUSER_FIELD     = 'input[name=\"sap-user\"]'\nPASS_FIELD     = 'input[name=\"sap-password\"]'\nCLIENT_FIELD   = 'input[name=\"sap-client\"]'\nLOGIN_BTN      = 'input[type=\"submit\"]'\n\n# === CAMPOS POR ARIA-LABEL ===\ndef field(label):\n    return f'[aria-label*=\"{label}\"]'\n\nACCOUNT        = field(\"Account\")\nDESCRIPTION    = field(\"Description\")\nEXPECTED_VALUE = field(\"Expected Value\")\nCURRENCY       = field(\"Currency\")\nSTATUS         = field(\"Status\")\n\n# === TABLAS ===\nTABLE_ROW      = 'tr.urSTSStd'\nADD_ROW_BTN    = '[title*=\"Add Row\"], [title*=\"Insert\"]'\nDELETE_ROW_BTN = '[title*=\"Delete\"], [title*=\"Remove\"]'\n\n# === BOTONES ===\nSAVE_BTN       = 'button:has-text(\"Save\"), [title=\"Save\"]'\nEDIT_BTN       = 'button:has-text(\"Edit\"), [title=\"Edit\"]'\nCANCEL_BTN     = 'button:has-text(\"Cancel\")'\n\n# === NAVEGACION ===\nNAV_TAB        = '.urTbsLstTxt'\nWORKCENTER     = '[aria-label*=\"Work Center\"]'",
+        "notes": "Estos selectores sobreviven entre sesiones. Actualizar si SAP cambia version.",
+        "confidence": "high"
+      },
+      "tags": [
+        "sap",
+        "selectores",
+        "catalogo",
+        "campos",
+        "login",
+        "botones"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-21T02:39:26.828705+00:00",
+      "updated_at": "2026-03-21T02:39:26.828705+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-31T20:28:16.443156+00:00",
+        "access_count": 56
+      }
+    },
+    "319d9b6e8b40": {
+      "id": "319d9b6e8b40",
+      "type": "pattern",
+      "key": "sap_xpath_when_no_aria",
+      "solution": {
+        "strategy": "xpath_relative_to_label",
+        "description": "Cuando aria-label no existe, usar XPath relativo al label visible",
+        "code_snippet": "# Sin aria-label? Usar XPath relativo:\n\n# 1. Label + siguiente input\npage.locator('xpath=//label[contains(text(),\"Account\")]/following::input[1]')\n\n# 2. Texto en celda + input en misma fila\npage.locator('xpath=//td[contains(text(),\"Description\")]/following-sibling::td//input')\n\n# 3. Header de tabla + columna\npage.locator('xpath=//th[contains(text(),\"Quantity\")]')\n\n# 4. Clase CSS de SAP para inputs\npage.locator('[class*=\"urEdf\"][class*=\"Enbl\"]')  # input editable\npage.locator('[class*=\"urEdf\"][class*=\"Dsbl\"]')  # input read-only\npage.locator('[class*=\"urBtnStd\"]')              # boton estandar\npage.locator('[class*=\"urTbsLstTxt\"]')           # tab de navegacion\n\n# Prioridad: aria-label > name > title > xpath > css class",
+        "notes": "XPath es mas fragil que aria-label pero mas estable que IDs dinamicos",
+        "confidence": "medium"
+      },
+      "tags": [
+        "sap",
+        "xpath",
+        "selectores",
+        "fallback",
+        "label",
+        "css"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-21T02:39:26.984264+00:00",
+      "updated_at": "2026-03-21T02:39:26.984264+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-31T20:28:16.443156+00:00",
+        "access_count": 51
+      }
+    },
+    "4dd4fb8adcfa": {
+      "id": "4dd4fb8adcfa",
+      "type": "pattern",
+      "key": "sap_fill_vs_type",
+      "solution": {
+        "strategy": "type_with_delay_not_fill",
+        "description": "En SAP CRM NUNCA usar .fill() para passwords ni campos con validacion server-side",
+        "code_snippet": "# PROBLEMA: .fill() pone el valor instantaneamente pero SAP\n# necesita eventos de teclado para activar validacion JS\n\n# MALO para passwords:\npage.locator('[name=\"sap-password\"]').fill(\"mipass\")  # SAP no detecta el input!\n\n# BUENO para passwords:\npage.locator('[name=\"sap-password\"]').type(\"mipass\", delay=50)\n\n# Para campos normales .fill() funciona, PERO:\n# Siempre presionar Tab despues para trigger validacion server-side\nfield = work.locator('[aria-label*=\"Account\"]')\nfield.fill(\"IBM\")\nfield.press(\"Tab\")  # CRITICO: sin Tab, SAP no valida\npage.wait_for_timeout(500)  # Esperar validacion\n\n# Selenium equivalente:\nfrom selenium.webdriver.common.keys import Keys\nelement.clear()\nelement.send_keys(\"IBM\")\nelement.send_keys(Keys.TAB)",
+        "notes": ".fill() para texto normal + Tab. .type(delay=50) para passwords. NUNCA .fill() sin Tab.",
+        "confidence": "verified",
+        "attempts_to_solve": 5,
+        "time_to_solve_seconds": 600
+      },
+      "tags": [
+        "sap",
+        "fill",
+        "type",
+        "password",
+        "tab",
+        "validacion",
+        "campos"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-21T02:39:27.067739+00:00",
+      "updated_at": "2026-03-21T02:39:27.067739+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-31T20:16:06.436696+00:00",
+        "access_count": 40
+      }
+    },
+    "a3e73b88bb95": {
+      "id": "a3e73b88bb95",
+      "type": "pattern",
+      "key": "sap_field_clear_before_fill",
+      "solution": {
+        "strategy": "triple_click_then_type",
+        "description": "Limpiar campo SAP antes de escribir - clear() no siempre funciona",
+        "code_snippet": "# PROBLEMA: .clear() no siempre limpia en SAP (eventos JS no se disparan)\n\n# SOLUCION 1: Triple-click + type (selecciona todo y reemplaza)\nfield = work.locator('[aria-label*=\"Description\"]')\nfield.click(click_count=3)  # Selecciona todo el texto\nfield.type(\"Nuevo valor\", delay=30)\n\n# SOLUCION 2: Ctrl+A + Delete + type\nfield.click()\nfield.press(\"Control+a\")\nfield.press(\"Delete\")\nfield.type(\"Nuevo valor\", delay=30)\n\n# SOLUCION 3: Selenium\nelement.click()\nelement.send_keys(Keys.CONTROL, \"a\")\nelement.send_keys(Keys.DELETE)\nelement.send_keys(\"Nuevo valor\")\n\n# Despues de llenar SIEMPRE:\nfield.press(\"Tab\")  # Validacion server-side",
+        "notes": "Triple-click es lo mas confiable para limpiar campos SAP.",
+        "confidence": "high"
+      },
+      "tags": [
+        "sap",
+        "clear",
+        "limpiar",
+        "campo",
+        "triple-click",
+        "select-all"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-21T02:39:27.165654+00:00",
+      "updated_at": "2026-03-21T02:39:27.165654+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-30T04:05:00.744792+00:00",
+        "access_count": 38
+      }
+    },
+    "a01c821ab37a": {
+      "id": "a01c821ab37a",
+      "type": "pattern",
+      "key": "sap_dropdown_select",
+      "solution": {
+        "strategy": "dropdown_click_then_option",
+        "description": "Dropdowns en SAP no son <select> HTML - son divs con JS custom",
+        "code_snippet": "# SAP CRM NO usa <select> nativo. Sus dropdowns son:\n# <input readonly> + boton de flecha + popup div con opciones\n\n# PASO 1: Click en la flecha del dropdown\ndropdown = work.locator('[aria-label*=\"Status\"]')\narrow = dropdown.locator('xpath=./following-sibling::*[contains(@class,\"urBtnStd\")]')\narrow.click()\n\n# PASO 2: Esperar popup\npage.wait_for_timeout(500)\n\n# PASO 3: Click en la opcion deseada (esta en un popup, NO en el iframe original)\n# A veces el popup esta en otro frame o en el nivel superior\npage.locator(f'text=\"{opcion_deseada}\"').click()\n\n# ALTERNATIVA: Escribir directamente en el input + Tab\ndropdown_input = work.locator('[aria-label*=\"Status\"] input')\ndropdown_input.fill(\"Open\")\ndropdown_input.press(\"Tab\")\npage.wait_for_timeout(500)\n\n# ALTERNATIVA Selenium:\n# Igual: no usar Select(), usar click + send_keys",
+        "notes": "Los dropdowns de SAP son HTML custom, NO <select>. Nunca usar Select() de Selenium.",
+        "confidence": "high"
+      },
+      "tags": [
+        "sap",
+        "dropdown",
+        "select",
+        "combobox",
+        "popup",
+        "opciones"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-21T02:39:27.218224+00:00",
+      "updated_at": "2026-03-21T02:39:27.218224+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-31T20:28:16.443156+00:00",
+        "access_count": 119
+      }
+    },
+    "632cdd16eda7": {
+      "id": "632cdd16eda7",
+      "type": "pattern",
+      "key": "sap_table_row_fill",
+      "solution": {
+        "strategy": "table_add_row_then_fill",
+        "description": "Llenar filas en tablas de items SAP CRM",
+        "code_snippet": "# Las tablas de items en SAP CRM (ej: items de oportunidad):\n\n# 1. Click en \"Add Row\" / \"Insert\"\nwork.locator('[title*=\"Add\"], [title*=\"Insert\"]').click()\npage.wait_for_timeout(1000)\n\n# 2. La fila nueva aparece al final - identificarla\nnew_row = work.locator('tr.urSTSStd').last\n# O por indice:\nrow_count = work.locator('tr.urSTSStd').count()\nnew_row = work.locator(f'tr.urSTSStd:nth-child({row_count})')\n\n# 3. Llenar celdas de la fila\ncells = new_row.locator('td input[class*=\"urEdf\"]')\ncells.nth(0).fill(\"Producto X\")\ncells.nth(0).press(\"Tab\")\ncells.nth(1).fill(\"5\")        # Cantidad\ncells.nth(1).press(\"Tab\")\ncells.nth(2).fill(\"100.00\")   # Precio\ncells.nth(2).press(\"Tab\")\n\n# 4. ESPERAR validacion de cada celda\npage.wait_for_timeout(500)\n\n# IMPORTANTE: El orden de Tab importa - SAP valida secuencialmente",
+        "notes": "Siempre Tab despues de cada celda. SAP valida server-side campo por campo.",
+        "confidence": "high"
+      },
+      "tags": [
+        "sap",
+        "tabla",
+        "items",
+        "filas",
+        "add-row",
+        "celdas"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-21T02:39:27.263731+00:00",
+      "updated_at": "2026-03-21T02:39:27.263731+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-30T21:30:06.644837+00:00",
+        "access_count": 48
+      }
+    },
+    "3dd388b769a2": {
+      "id": "3dd388b769a2",
+      "type": "pattern",
+      "key": "sap_timeout_networkidle",
+      "solution": {
+        "strategy": "wait_strategies",
+        "description": "SAP CRM es lento - estrategias de espera correctas",
+        "code_snippet": "# SAP CRM tarda en cargar. Estrategias:\n\n# 1. Esperar network idle (lo mejor)\npage.wait_for_load_state('networkidle', timeout=30000)\n\n# 2. Esperar elemento especifico\nwork.locator('[aria-label*=\"Account\"]').wait_for(state='visible', timeout=15000)\n\n# 3. Esperar que desaparezca el spinner\npage.wait_for_selector('.urBusy', state='hidden', timeout=20000)\n# O el overlay de carga:\npage.wait_for_selector('[class*=\"urLoadingOverlay\"]', state='hidden')\n\n# 4. Retry pattern para elementos que tardan\nimport time\nfor attempt in range(5):\n    try:\n        element = work.locator('[aria-label*=\"Account\"]')\n        element.wait_for(state='visible', timeout=5000)\n        break\n    except:\n        time.sleep(2)\n        work = get_work_area(page)  # Re-obtener frame\n\n# NUNCA usar time.sleep() fijo como unica estrategia",
+        "notes": "networkidle es la mejor espera. Timeout minimo 15s para SAP. Siempre retry con re-frame.",
+        "confidence": "verified"
+      },
+      "tags": [
+        "sap",
+        "timeout",
+        "espera",
+        "wait",
+        "networkidle",
+        "spinner",
+        "lento"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-21T02:39:27.379557+00:00",
+      "updated_at": "2026-03-21T02:39:27.379557+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-31T20:28:16.443156+00:00",
+        "access_count": 42
+      }
+    },
+    "351083e5c0e5": {
+      "id": "351083e5c0e5",
+      "type": "pattern",
+      "key": "sap_stale_element_fix",
+      "solution": {
+        "strategy": "always_relocate",
+        "description": "StaleElementException en SAP - el DOM se regenera constantemente",
+        "code_snippet": "# SAP regenera el DOM en cada accion server-side.\n# Cualquier referencia guardada se vuelve stale.\n\n# MALO:\nbutton = work.locator('text=Save')\n# ... otras acciones ...\nbutton.click()  # StaleElementReferenceException!\n\n# BUENO: Siempre re-localizar justo antes de usar\nwork = get_work_area(page)  # Frame fresco\nwork.locator('text=Save').click()  # Localizar + click atomico\n\n# PATRON SEGURO para multiples campos:\ndef fill_field(page, label, value):\n    work = get_work_area(page)\n    field = work.locator(f'[aria-label*=\"{label}\"]')\n    field.wait_for(state='visible', timeout=10000)\n    field.fill(value)\n    field.press('Tab')\n    page.wait_for_timeout(500)\n\nfill_field(page, 'Account', 'IBM')\nfill_field(page, 'Description', 'Oportunidad nueva')\nfill_field(page, 'Expected Value', '50000')",
+        "notes": "NUNCA guardar referencias a elementos SAP. Siempre re-localizar antes de cada interaccion.",
+        "confidence": "verified"
+      },
+      "tags": [
+        "sap",
+        "stale",
+        "element",
+        "dom",
+        "regenera",
+        "relocate"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-21T02:39:27.461794+00:00",
+      "updated_at": "2026-03-21T02:39:27.461794+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-31T20:28:16.443156+00:00",
+        "access_count": 43
+      }
+    },
+    "0b5a3aa3d82d": {
+      "id": "0b5a3aa3d82d",
+      "type": "pattern",
+      "key": "sap_login_flow",
+      "solution": {
+        "strategy": "login_sequence",
+        "description": "Secuencia completa de login en SAP CRM WebUI",
+        "code_snippet": "from playwright.sync_api import sync_playwright\n\ndef sap_login(page, user, password, client='500'):\n    # 1. Navegar\n    page.goto('https://wdp-sap.gbm.net:8105/sap/crm_logon?sap-client=' + client)\n    page.wait_for_load_state('networkidle')\n\n    # 2. Llenar credenciales\n    page.locator('input[name=\"sap-user\"]').fill(user)\n    # PASSWORD: usar .type() con delay, NUNCA .fill()\n    page.locator('input[name=\"sap-password\"]').type(password, delay=50)\n    page.locator('input[name=\"sap-client\"]').fill(client)\n\n    # 3. Submit\n    page.locator('input[type=\"submit\"]').click()\n\n    # 4. Esperar que cargue la app\n    page.wait_for_load_state('networkidle', timeout=30000)\n\n    # 5. Verificar login exitoso\n    try:\n        page.wait_for_selector('frame[name=\"WorkAreaFrame1\"]', timeout=15000)\n        return True\n    except:\n        # Verificar si hay mensaje de error\n        error = page.locator('.urMsgBarTxt').text_content()\n        raise Exception(f'Login fallido: {error}')\n\n# Uso:\nwith sync_playwright() as p:\n    browser = p.chromium.launch(headless=False)\n    page = browser.new_page(ignore_https_errors=True)\n    sap_login(page, 'NTOLEDO', 'password123')",
+        "notes": "ignore_https_errors=True necesario si el cert SSL es self-signed. .type(delay=50) para password.",
+        "confidence": "verified"
+      },
+      "tags": [
+        "sap",
+        "login",
+        "credenciales",
+        "playwright",
+        "secuencia"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-21T02:39:27.501482+00:00",
+      "updated_at": "2026-03-21T02:39:27.501482+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-31T20:16:06.436696+00:00",
+        "access_count": 104
+      }
+    },
+    "f804f50cb7a6": {
+      "id": "f804f50cb7a6",
+      "type": "pattern",
+      "key": "sap_popup_alert_handling",
+      "solution": {
+        "strategy": "handle_sap_popups",
+        "description": "SAP muestra popups/alerts que bloquean la automatizacion",
+        "code_snippet": "# SAP tiene varios tipos de popups:\n\n# 1. Popup de sesion duplicada\n# \"You have already logged on...\" -> Click \"Continue\"\npage.on('dialog', lambda d: d.accept())  # Auto-aceptar JS alerts\n\n# 2. Popup HTML de SAP (no JS alert, es un div)\npopup = page.locator('[class*=\"urPopup\"], [class*=\"urMsgBox\"]')\nif popup.is_visible():\n    popup.locator('button:has-text(\"OK\"), button:has-text(\"Yes\")').click()\n\n# 3. Warning de datos no guardados\n# Aparece al navegar sin guardar\npage.locator('button:has-text(\"OK\"), button:has-text(\"Yes\")').click()\npage.wait_for_timeout(500)\n\n# 4. Timeout de sesion\n# SAP desconecta despues de ~30 min inactivo\n# Solucion: verificar antes de cada accion\ndef is_session_alive(page):\n    try:\n        page.wait_for_selector('frame[name=\"WorkAreaFrame1\"]', timeout=3000)\n        return True\n    except:\n        return False",
+        "notes": "Siempre manejar popups ANTES de intentar acceder elementos. Un popup invisible bloquea todo.",
+        "confidence": "high"
+      },
+      "tags": [
+        "sap",
+        "popup",
+        "alert",
+        "dialog",
+        "sesion",
+        "bloqueo"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-21T02:39:27.578566+00:00",
+      "updated_at": "2026-03-21T02:39:27.578566+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-31T20:28:16.443156+00:00",
+        "access_count": 124
+      }
+    },
+    "6e392cf83fa0": {
+      "id": "6e392cf83fa0",
+      "type": "pattern",
+      "key": "sap_ssl_certificate",
+      "solution": {
+        "strategy": "ignore_ssl_errors",
+        "description": "SAP CRM usa certificados self-signed que bloquean la conexion",
+        "code_snippet": "# Playwright:\nbrowser = p.chromium.launch(headless=False)\ncontext = browser.new_context(ignore_https_errors=True)\npage = context.new_page()\n\n# Selenium:\nfrom selenium.webdriver.chrome.options import Options\nopts = Options()\nopts.add_argument('--ignore-certificate-errors')\nopts.add_argument('--ignore-ssl-errors')\ndriver = webdriver.Chrome(options=opts)\n\n# Requests (para API calls):\nimport requests\nresponse = requests.get(url, verify=False)\nimport urllib3\nurllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)",
+        "notes": "SAP interno usa cert self-signed. SIEMPRE ignorar SSL errors en automatizacion.",
+        "confidence": "verified"
+      },
+      "tags": [
+        "sap",
+        "ssl",
+        "certificado",
+        "https",
+        "self-signed"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-21T02:39:27.629473+00:00",
+      "updated_at": "2026-03-21T02:39:27.629473+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-31T17:56:27.314868+00:00",
+        "access_count": 88
+      }
+    },
+    "073de6d4041f": {
+      "id": "073de6d4041f",
+      "type": "pattern",
+      "key": "sap_create_opportunity",
+      "solution": {
+        "strategy": "full_opportunity_flow",
+        "description": "Flujo completo para crear oportunidad en SAP CRM",
+        "code_snippet": "def create_opportunity(page, data):\n    work = get_work_area(page)\n\n    # 1. Navegar a Oportunidades\n    work.locator('text=Opportunities').click()\n    page.wait_for_load_state('networkidle')\n    work = get_work_area(page)\n\n    # 2. Click en \"New\" / \"Create\"\n    work.locator('[title*=\"New\"], [title*=\"Create\"]').click()\n    page.wait_for_load_state('networkidle')\n    work = get_work_area(page)\n\n    # 3. Llenar campos (con Tab despues de cada uno)\n    for label, value in data.items():\n        field = work.locator(f'[aria-label*=\"{label}\"]')\n        field.wait_for(state='visible', timeout=10000)\n        field.click(click_count=3)  # Limpiar\n        field.type(str(value), delay=30)\n        field.press('Tab')\n        page.wait_for_timeout(500)  # Validacion server-side\n        work = get_work_area(page)  # Re-obtener por si SAP recargo\n\n    # 4. Guardar\n    work = get_work_area(page)\n    work.locator('button:has-text(\"Save\"), [title=\"Save\"]').click()\n    page.wait_for_load_state('networkidle')\n\n    # 5. Verificar\n    work = get_work_area(page)\n    msg = work.locator('[class*=\"urMsgBar\"]').text_content()\n    return 'saved' in msg.lower() or 'created' in msg.lower()\n\n# Uso:\ncreate_opportunity(page, {\n    'Description': 'Proyecto IBM Cloud 2026',\n    'Account': 'IBM Guatemala',\n    'Expected Value': '150000',\n    'Currency': 'USD',\n})",
+        "notes": "Re-obtener work despues de CADA Tab/click. SAP recarga DOM constantemente.",
+        "confidence": "high"
+      },
+      "tags": [
+        "sap",
+        "oportunidad",
+        "crear",
+        "flujo",
+        "completo",
+        "campos"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-21T02:39:27.676454+00:00",
+      "updated_at": "2026-03-21T02:39:27.676454+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-04-01T03:19:45.515889+00:00",
+        "access_count": 53
+      }
+    },
+    "58a12434f8b9": {
+      "id": "58a12434f8b9",
+      "type": "fact",
+      "key": "sap_crm_webui_architecture",
+      "fact": {
+        "rule": "SAP CRM WebUI es una aplicacion web antigua basada en framesets HTML4, no SPA moderna",
+        "details": "Usa framesets anidados, IDs dinamicos, validacion server-side por campo, y recarga parcial del DOM en cada interaccion",
+        "implications": [
+          "No se puede usar React/Angular testing tools",
+          "Los IDs cambian en cada sesion",
+          "Hay que navegar frames manualmente",
+          "Cada Tab dispara un roundtrip al server"
+        ],
+        "url": "wdp-sap.gbm.net:8105",
+        "client": "500"
+      },
+      "tags": [
+        "sap",
+        "arquitectura",
+        "webui",
+        "html4"
+      ],
+      "created_at": "2026-03-21T02:39:27.709695+00:00",
+      "updated_at": "2026-03-21T02:39:27.709695+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-03-31T20:16:06.436696+00:00",
+        "access_count": 132
+      }
+    },
+    "bf90861f0c45": {
+      "id": "bf90861f0c45",
+      "type": "fact",
+      "key": "sap_crm_css_classes",
+      "fact": {
+        "rule": "SAP CRM WebUI usa clases CSS con prefijo 'ur' (UI Rendering) que son semi-estables",
+        "details": "Las clases ur* son parte del framework SAP UI y cambian menos que los IDs",
+        "classes": {
+          "urEdfTxtEnbl": "Input de texto editable habilitado",
+          "urEdfTxtDsbl": "Input de texto deshabilitado",
+          "urBtnStd": "Boton estandar",
+          "urBtnEmph": "Boton enfatizado (primario)",
+          "urTbsLstTxt": "Texto de tab de navegacion",
+          "urSTSStd": "Fila estandar de tabla",
+          "urSTSWhlDat": "Celda de datos en tabla",
+          "urPopup": "Popup/modal",
+          "urMsgBarTxt": "Texto en barra de mensajes",
+          "urBusy": "Indicador de carga (spinner)",
+          "urLoadingOverlay": "Overlay de carga completo"
+        }
+      },
+      "tags": [
+        "sap",
+        "css",
+        "clases",
+        "ui",
+        "rendering"
+      ],
+      "created_at": "2026-03-21T02:39:27.750804+00:00",
+      "updated_at": "2026-03-21T02:39:27.750804+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-03-31T20:28:16.443156+00:00",
+        "access_count": 54
+      }
+    },
+    "53cfe37dbf0e": {
+      "id": "53cfe37dbf0e",
+      "type": "fact",
+      "key": "sap_crm_field_validation_rules",
+      "fact": {
+        "rule": "SAP CRM valida campos en el servidor cuando se presiona Tab, no al escribir",
+        "details": "Cada Tab dispara un HTTP request al backend SAP. Si el valor es invalido, SAP reemplaza el campo con el valor anterior o muestra error en la barra de mensajes.",
+        "implications": [
+          "SIEMPRE presionar Tab despues de llenar un campo",
+          "Esperar 500ms-1s despues del Tab para que la validacion complete",
+          "Verificar la barra de mensajes despues de cada Tab",
+          "El DOM puede cambiar despues de Tab (re-obtener referencias)"
+        ],
+        "applies_to": "todos los campos editables en SAP CRM"
+      },
+      "tags": [
+        "sap",
+        "validacion",
+        "tab",
+        "server-side",
+        "campos"
+      ],
+      "created_at": "2026-03-21T02:39:27.803692+00:00",
+      "updated_at": "2026-03-21T02:39:27.803692+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-03-30T21:30:06.644837+00:00",
+        "access_count": 38
+      }
+    },
+    "105b351ead6d": {
+      "id": "105b351ead6d",
+      "type": "fact",
+      "key": "sap_crm_session_limits",
+      "fact": {
+        "rule": "SAP CRM tiene limites de sesion que afectan la automatizacion",
+        "details": "Timeout de sesion ~30 min inactivo, maximo 6 sesiones simultaneas por usuario, popup de sesion duplicada al login",
+        "limits": {
+          "session_timeout_minutes": 30,
+          "max_concurrent_sessions": 6,
+          "duplicate_session_popup": true,
+          "ssl_certificate": "self-signed"
+        }
+      },
+      "tags": [
+        "sap",
+        "sesion",
+        "timeout",
+        "limites",
+        "concurrencia"
+      ],
+      "created_at": "2026-03-21T02:39:27.836158+00:00",
+      "updated_at": "2026-03-21T02:39:27.836158+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-03-31T20:28:16.443156+00:00",
+        "access_count": 32
+      }
+    },
+    "062cdf9b4d26": {
+      "id": "062cdf9b4d26",
+      "type": "fact",
+      "key": "sap_python_libraries",
+      "fact": {
+        "rule": "Librerias Python recomendadas para automatizar SAP CRM WebUI",
+        "recommended": {
+          "playwright": "Preferida. Manejo nativo de frames, auto-wait, mas rapido que Selenium.",
+          "selenium": "Alternativa madura. Mas documentacion, mas lento, requiere WebDriver.",
+          "requests": "Solo para API REST de SAP (no para WebUI).",
+          "beautifulsoup": "Para parsear HTML estatico de SAP (reportes descargados)."
+        },
+        "install": "pip install playwright && python -m playwright install chromium",
+        "install_selenium": "pip install selenium webdriver-manager"
+      },
+      "tags": [
+        "sap",
+        "python",
+        "librerias",
+        "playwright",
+        "selenium",
+        "instalacion"
+      ],
+      "created_at": "2026-03-21T02:39:27.878466+00:00",
+      "updated_at": "2026-03-21T02:39:27.878466+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-03-31T20:28:16.443156+00:00",
+        "access_count": 122
+      }
+    },
+    "37ec1471c02d": {
+      "id": "37ec1471c02d",
+      "type": "fact",
+      "key": "sap_crm_common_errors",
+      "fact": {
+        "rule": "Errores frecuentes al automatizar SAP CRM y sus soluciones",
+        "errors": {
+          "TimeoutError: waiting for selector": "El elemento esta en un iframe. Navegar frames primero.",
+          "StaleElementReferenceException": "SAP regenero el DOM. Re-localizar el elemento.",
+          "Element is not visible": "Hay un popup/overlay bloqueando. Cerrar popup primero.",
+          "net::ERR_CERT_AUTHORITY_INVALID": "Certificado self-signed. Usar ignore_https_errors=True.",
+          "Session expired": "Timeout de 30 min. Re-hacer login.",
+          "fill() no funciona en password": "Usar .type(password, delay=50) en vez de .fill().",
+          "Campo no se valida": "Falta presionar Tab despues de fill().",
+          "NoSuchElementException": "Verificar: 1) frames, 2) ID dinamico, 3) pagina cargada"
+        }
+      },
+      "tags": [
+        "sap",
+        "errores",
+        "comunes",
+        "troubleshooting",
+        "debug"
+      ],
+      "created_at": "2026-03-21T02:39:27.936589+00:00",
+      "updated_at": "2026-03-21T02:39:27.936589+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-03-31T20:16:06.436696+00:00",
+        "access_count": 53
+      }
+    },
+    "4a19c369be47": {
+      "id": "4a19c369be47",
+      "type": "pattern",
+      "key": "sap_popup_types_catalog",
+      "solution": {
+        "strategy": "identify_popup_type_first",
+        "description": "SAP CRM tiene 4 tipos de popups diferentes, cada uno se maneja distinto",
+        "code_snippet": "# TIPO 1: JavaScript alert/confirm/prompt (nativo del browser)\n# Se detecta porque bloquea TODO el browser\npage.on('dialog', lambda d: d.accept())  # Auto-aceptar\n# O manejar selectivamente:\ndef handle_dialog(dialog):\n    if 'save' in dialog.message.lower():\n        dialog.accept()\n    elif 'delete' in dialog.message.lower():\n        dialog.dismiss()  # Cancelar borrados\n    else:\n        dialog.accept()\npage.on('dialog', handle_dialog)\n\n# TIPO 2: Popup HTML de SAP (div overlay, NO js alert)\n# Se ve como modal con fondo gris. Es HTML dentro del mismo frame\npopup = work.locator('[class*=\"urPopup\"], [class*=\"urMsgBox\"], [class*=\"urOvrly\"]')\nif popup.count() > 0 and popup.first.is_visible():\n    popup.first.locator('button:has-text(\"OK\"), button:has-text(\"Yes\")').click()\n\n# TIPO 3: Window popup (window.open) - nueva ventana/tab\n# SAP a veces abre buscadores en popup window\nwith page.expect_popup() as popup_info:\n    work.locator('[title*=\"Search Help\"]').click()\npopup_page = popup_info.value\npopup_page.wait_for_load_state('networkidle')\npopup_page.locator('text=IBM Guatemala').click()\npopup_page.close()\n\n# TIPO 4: iFrame modal (popup dentro de un iframe nuevo)\n# SAP inserta un iframe temporal para el popup\nmodal_frame = page.frame_locator('[class*=\"urPopup\"] iframe')\nmodal_frame.locator('input[name=\"search\"]').fill(\"IBM\")\nmodal_frame.locator('button:has-text(\"Search\")').click()",
+        "notes": "SIEMPRE identificar el TIPO de popup antes de intentar cerrarlo. Cada tipo necesita estrategia diferente.",
+        "confidence": "high"
+      },
+      "tags": [
+        "sap",
+        "popup",
+        "tipos",
+        "alert",
+        "modal",
+        "overlay",
+        "window"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-21T02:43:13.397532+00:00",
+      "updated_at": "2026-03-21T02:43:13.397532+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-31T20:28:16.443156+00:00",
+        "access_count": 146
+      }
+    },
+    "e0900cdd7557": {
+      "id": "e0900cdd7557",
+      "type": "pattern",
+      "key": "sap_popup_session_duplicate",
+      "solution": {
+        "strategy": "handle_duplicate_session",
+        "description": "Popup 'You have already logged on' al hacer login cuando hay sesion activa",
+        "code_snippet": "# Este popup aparece DESPUES del login si el usuario ya tiene sesion activa\n# Es un popup HTML de SAP, no JS alert\n\ndef handle_login_popups(page):\n    '''Manejar todos los popups post-login.'''\n    import time\n    time.sleep(2)  # SAP tarda en mostrar el popup\n\n    # Opcion 1: Buscar boton \"Continue\" o \"Log On\"\n    try:\n        # El popup tiene botones: \"Continue\", \"End Other Sessions\", \"Cancel\"\n        continue_btn = page.locator('button:has-text(\"Continue\"), '\n                                     'button:has-text(\"Log On\"), '\n                                     '[title*=\"Continue\"]')\n        if continue_btn.count() > 0 and continue_btn.first.is_visible():\n            continue_btn.first.click()\n            page.wait_for_load_state('networkidle')\n            return 'continued'\n    except:\n        pass\n\n    # Opcion 2: Popup en un frame\n    try:\n        for frame in page.frames:\n            btn = frame.locator('button:has-text(\"Continue\")')\n            if btn.count() > 0 and btn.first.is_visible():\n                btn.first.click()\n                return 'continued_in_frame'\n    except:\n        pass\n\n    return 'no_popup'\n\n# Uso despues de login:\nsap_login(page, user, password)\nresult = handle_login_popups(page)\nprint(f'Login popup: {result}')",
+        "notes": "Este popup es el mas comun. Aparece si la sesion anterior no se cerro bien (comun en automatizacion).",
+        "confidence": "verified",
+        "attempts_to_solve": 3
+      },
+      "tags": [
+        "sap",
+        "popup",
+        "sesion",
+        "duplicada",
+        "login",
+        "continue"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-21T02:43:13.428041+00:00",
+      "updated_at": "2026-03-21T02:43:13.428041+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-31T20:28:16.443156+00:00",
+        "access_count": 121
+      }
+    },
+    "c949be72bd10": {
+      "id": "c949be72bd10",
+      "type": "pattern",
+      "key": "sap_popup_value_help",
+      "solution": {
+        "strategy": "f4_value_help_popup",
+        "description": "Popup de ayuda de valores (F4/Search Help) para campos con catalogo",
+        "code_snippet": "# Muchos campos SAP tienen un icono de busqueda (F4 help)\n# Al clickearlo abre un popup de busqueda\n\n# 1. Abrir el value help\nsearch_icon = work.locator(\n    '[aria-label*=\"Account\"] ~ [class*=\"urBtnStd\"], '\n    '[aria-label*=\"Account\"] + [title*=\"Value Help\"], '\n    'xpath=//input[contains(@aria-label,\"Account\")]/following::img[contains(@class,\"urImgBtnStd\")][1]'\n)\nsearch_icon.click()\npage.wait_for_timeout(1000)\n\n# 2. El popup puede ser: window.open O iframe modal\n# Detectar cual es:\npopup_page = None\n\n# Intentar window.open primero:\npages = page.context.pages\nif len(pages) > 1:\n    popup_page = pages[-1]  # Ultima ventana abierta\n    popup_page.wait_for_load_state('networkidle')\nelse:\n    # Es iframe modal dentro de la pagina\n    popup_frame = page.frame_locator('[class*=\"urPopup\"] iframe, [class*=\"urOvrly\"] iframe')\n\n# 3. Buscar en el popup\nif popup_page:\n    popup_page.locator('input[name*=\"search\"], input[type=\"text\"]').first.fill(\"IBM\")\n    popup_page.locator('button:has-text(\"Search\"), [title*=\"Search\"]').click()\n    popup_page.wait_for_load_state('networkidle')\n    popup_page.locator('text=IBM Guatemala').click()\n    # popup se cierra automaticamente al seleccionar\nelse:\n    popup_frame.locator('input').first.fill(\"IBM\")\n    popup_frame.locator('button:has-text(\"Go\")').click()\n\n# 4. Esperar que el valor se llene en el campo original\npage.wait_for_timeout(1000)\nwork = get_work_area(page)",
+        "notes": "F4/Value Help puede abrir window.open O iframe modal. Siempre detectar cual es.",
+        "confidence": "high"
+      },
+      "tags": [
+        "sap",
+        "popup",
+        "value-help",
+        "f4",
+        "busqueda",
+        "catalogo",
+        "search-help"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-21T02:43:13.468005+00:00",
+      "updated_at": "2026-03-21T02:43:13.468005+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-31T20:28:16.443156+00:00",
+        "access_count": 68
+      }
+    },
+    "a22522510feb": {
+      "id": "a22522510feb",
+      "type": "pattern",
+      "key": "sap_popup_unsaved_data",
+      "solution": {
+        "strategy": "handle_unsaved_changes",
+        "description": "Popup 'Data has been changed' al navegar sin guardar",
+        "code_snippet": "# SAP muestra este popup cuando:\n# - Navegas a otra seccion sin guardar\n# - Cierras un formulario editado\n# - Cambias de tab con datos sin guardar\n\n# PREVENCION: Guardar antes de navegar\nwork.locator('[title=\"Save\"]').click()\npage.wait_for_load_state('networkidle')\n\n# MANEJO si aparece:\ndef dismiss_unsaved_warning(page):\n    '''Click Yes/OK en popup de datos no guardados.'''\n    selectors = [\n        'button:has-text(\"Yes\")',\n        'button:has-text(\"OK\")',\n        'button:has-text(\"Discard\")',\n        '[title*=\"Yes\"]',\n        '[class*=\"urBtnEmph\"]',  # Boton enfatizado (generalmente el default)\n    ]\n    for sel in selectors:\n        try:\n            btn = page.locator(sel)\n            if btn.count() > 0 and btn.first.is_visible():\n                btn.first.click()\n                page.wait_for_timeout(500)\n                return True\n        except:\n            continue\n\n    # Buscar en frames\n    for frame in page.frames:\n        for sel in selectors:\n            try:\n                btn = frame.locator(sel)\n                if btn.count() > 0 and btn.first.is_visible():\n                    btn.first.click()\n                    return True\n            except:\n                continue\n    return False\n\n# Uso antes de cada navegacion:\nwork.locator('text=Opportunities').click()\npage.wait_for_timeout(1000)\ndismiss_unsaved_warning(page)  # Por si aparece\npage.wait_for_load_state('networkidle')",
+        "notes": "Siempre guardar antes de navegar. Si no, manejar el popup con dismiss_unsaved_warning().",
+        "confidence": "high"
+      },
+      "tags": [
+        "sap",
+        "popup",
+        "unsaved",
+        "guardar",
+        "warning",
+        "navegacion"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-21T02:43:13.517676+00:00",
+      "updated_at": "2026-03-21T02:43:13.517676+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-31T20:28:16.443156+00:00",
+        "access_count": 37
+      }
+    },
+    "8ae5de3e591f": {
+      "id": "8ae5de3e591f",
+      "type": "pattern",
+      "key": "sap_popup_error_message_bar",
+      "solution": {
+        "strategy": "read_message_bar",
+        "description": "La barra de mensajes de SAP (no popup, pero critica) muestra errores y confirmaciones",
+        "code_snippet": "# SAP muestra mensajes en la barra superior (urMsgBar)\n# NO es popup, pero es la forma principal de feedback\n\ndef read_sap_message(page):\n    '''Lee el ultimo mensaje de la barra de SAP.'''\n    work = get_work_area(page)\n    selectors = [\n        '[class*=\"urMsgBarTxt\"]',\n        '[class*=\"urMsgBar\"] span',\n        '[class*=\"sapMsgBarMsg\"]',\n    ]\n    for sel in selectors:\n        try:\n            msg = work.locator(sel)\n            if msg.count() > 0:\n                text = msg.first.text_content().strip()\n                if text:\n                    return text\n        except:\n            continue\n    return \"\"\n\ndef check_sap_error(page):\n    '''Verifica si hay error en la barra de mensajes.'''\n    msg = read_sap_message(page)\n    error_indicators = ['error', 'failed', 'invalid', 'not found',\n                        'already exists', 'mandatory', 'required']\n    is_error = any(ind in msg.lower() for ind in error_indicators)\n    return {'message': msg, 'is_error': is_error}\n\n# Uso despues de Save:\nwork.locator('[title=\"Save\"]').click()\npage.wait_for_load_state('networkidle')\nresult = check_sap_error(page)\nif result['is_error']:\n    print(f'ERROR SAP: {result[\"message\"]}')\nelse:\n    print(f'OK: {result[\"message\"]}')",
+        "notes": "Siempre leer la barra de mensajes despues de Save, Create, Delete. Es el feedback principal de SAP.",
+        "confidence": "verified"
+      },
+      "tags": [
+        "sap",
+        "mensaje",
+        "barra",
+        "error",
+        "confirmacion",
+        "feedback"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-21T02:43:13.613437+00:00",
+      "updated_at": "2026-03-21T02:43:13.613437+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-30T04:05:00.744792+00:00",
+        "access_count": 37
+      }
+    },
+    "d3ebd1df1e60": {
+      "id": "d3ebd1df1e60",
+      "type": "pattern",
+      "key": "sap_javascript_eval_in_frame",
+      "solution": {
+        "strategy": "evaluate_js_in_correct_frame",
+        "description": "Ejecutar JavaScript dentro del frame correcto de SAP",
+        "code_snippet": "# JavaScript se ejecuta en el contexto del frame\n# Si ejecutas en page, no ve los elementos del iframe\n\n# MALO: JS en el contexto raiz\npage.evaluate('document.querySelector(\"[aria-label*=Account]\")')  # null!\n\n# BUENO: JS en el frame correcto\n# Playwright: Obtener el frame object, no frame_locator\nsap_frame = None\nfor frame in page.frames:\n    if 'CRMApplicationFrame' in (frame.name or ''):\n        sap_frame = frame\n        break\n\n# Ahora ejecutar JS en ESE frame:\nif sap_frame:\n    result = sap_frame.evaluate('''() => {\n        const inputs = document.querySelectorAll(\"input[class*='urEdf']\");\n        return Array.from(inputs).map(i => ({\n            ariaLabel: i.getAttribute(\"aria-label\"),\n            value: i.value,\n            id: i.id,\n            readOnly: i.readOnly\n        }));\n    }''')\n    for inp in result:\n        print(f'{inp[\"ariaLabel\"]}: {inp[\"value\"]} (readonly={inp[\"readOnly\"]})')\n\n# Selenium:\ndriver.switch_to.frame(\"WorkAreaFrame1\")\ndriver.switch_to.frame(\"CRMApplicationFrame\")\nresult = driver.execute_script('return document.title')",
+        "notes": "JavaScript SIEMPRE en el frame correcto. page.evaluate() corre en el frame raiz, no ve nada del iframe.",
+        "confidence": "high"
+      },
+      "tags": [
+        "sap",
+        "javascript",
+        "evaluate",
+        "frame",
+        "contexto"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-21T02:43:13.662858+00:00",
+      "updated_at": "2026-03-21T02:43:13.662858+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-30T04:05:00.744792+00:00",
+        "access_count": 41
+      }
+    },
+    "91553b4943a8": {
+      "id": "91553b4943a8",
+      "type": "pattern",
+      "key": "sap_javascript_trigger_events",
+      "solution": {
+        "strategy": "dispatch_events_manually",
+        "description": "SAP escucha eventos JS especificos - a veces hay que dispararlos manualmente",
+        "code_snippet": "# SAP CRM usa event handlers propios. A veces .fill() no dispara el evento\n# que SAP necesita para procesar el valor.\n\n# Disparar eventos manualmente via JS:\nsap_frame.evaluate('''(selector, value) => {\n    const el = document.querySelector(selector);\n    el.value = value;\n    // Disparar eventos que SAP escucha:\n    el.dispatchEvent(new Event('input', {bubbles: true}));\n    el.dispatchEvent(new Event('change', {bubbles: true}));\n    el.dispatchEvent(new Event('blur', {bubbles: true}));\n    // SAP especifico - sapUI5 events:\n    el.dispatchEvent(new Event('liveChange', {bubbles: true}));\n}''', '[aria-label*=\"Account\"]', 'IBM')\n\n# Tambien: simular keypress\nsap_frame.evaluate('''(selector) => {\n    const el = document.querySelector(selector);\n    el.dispatchEvent(new KeyboardEvent('keydown', {key: 'Tab', keyCode: 9}));\n    el.dispatchEvent(new KeyboardEvent('keyup', {key: 'Tab', keyCode: 9}));\n}''', '[aria-label*=\"Account\"]')\n\n# CUANDO USAR ESTO:\n# - .fill() pone el valor pero SAP no lo reconoce\n# - El campo se limpia solo despues de Tab\n# - SAP muestra \"campo obligatorio\" aunque ya lo llenaste",
+        "notes": "Ultimo recurso. Probar primero .fill()+Tab, luego .type(delay=50), y si nada funciona, JS events.",
+        "confidence": "medium"
+      },
+      "tags": [
+        "sap",
+        "javascript",
+        "events",
+        "dispatch",
+        "input",
+        "change",
+        "blur"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-21T02:43:13.712209+00:00",
+      "updated_at": "2026-03-21T02:43:13.712209+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-31T20:16:06.436696+00:00",
+        "access_count": 42
+      }
+    },
+    "69ea6932573f": {
+      "id": "69ea6932573f",
+      "type": "pattern",
+      "key": "sap_javascript_read_field_values",
+      "solution": {
+        "strategy": "read_values_via_js",
+        "description": "Leer valores de campos SAP via JavaScript cuando .text_content() no funciona",
+        "code_snippet": "# A veces .text_content() o .input_value() no retorna lo esperado en SAP\n# porque el valor esta en propiedades JS, no en el DOM visible\n\n# Leer todos los campos visibles con sus valores:\nfields = sap_frame.evaluate('''() => {\n    const results = [];\n    // Inputs\n    document.querySelectorAll(\"input:not([type='hidden'])\").forEach(el => {\n        if (el.offsetParent !== null) {  // solo visibles\n            results.push({\n                type: 'input',\n                label: el.getAttribute('aria-label') || el.getAttribute('title') || el.name || '',\n                value: el.value,\n                readonly: el.readOnly || el.disabled,\n                className: el.className\n            });\n        }\n    });\n    // Textareas\n    document.querySelectorAll(\"textarea\").forEach(el => {\n        if (el.offsetParent !== null) {\n            results.push({\n                type: 'textarea',\n                label: el.getAttribute('aria-label') || '',\n                value: el.value\n            });\n        }\n    });\n    // Spans con valores (SAP muestra valores read-only como spans)\n    document.querySelectorAll(\"span[class*='urTxtStd']\").forEach(el => {\n        if (el.offsetParent !== null && el.textContent.trim()) {\n            results.push({\n                type: 'display',\n                value: el.textContent.trim()\n            });\n        }\n    });\n    return results;\n}''')\n\nfor f in fields:\n    if f.get('label'):\n        print(f'{f[\"label\"]}: {f[\"value\"]} {\"(readonly)\" if f.get(\"readonly\") else \"\"}')",
+        "notes": "Util para verificar que los valores se guardaron correctamente despues de fill/save.",
+        "confidence": "high"
+      },
+      "tags": [
+        "sap",
+        "javascript",
+        "leer",
+        "valores",
+        "campos",
+        "verificar"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-21T02:43:13.760908+00:00",
+      "updated_at": "2026-03-21T02:43:13.760908+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-30T21:30:06.644837+00:00",
+        "access_count": 53
+      }
+    },
+    "89c701272fe6": {
+      "id": "89c701272fe6",
+      "type": "pattern",
+      "key": "sap_javascript_wait_for_busy",
+      "solution": {
+        "strategy": "wait_busy_indicator_js",
+        "description": "Detectar y esperar el indicador de busy/carga de SAP via JavaScript",
+        "code_snippet": "# SAP muestra un spinner/overlay cuando procesa. Hay que esperarlo.\n\n# Metodo 1: Esperar que desaparezca el busy indicator via JS\ndef wait_sap_not_busy(page, timeout=15):\n    '''Espera que SAP termine de procesar.'''\n    page.wait_for_function('''() => {\n        // Buscar en todos los frames\n        function checkFrame(doc) {\n            const busy = doc.querySelector('.urBusy, [class*=\"urLoadingOverlay\"], .sapUiLocalBusy');\n            if (busy && busy.offsetParent !== null) return false;\n            // Revisar iframes\n            const iframes = doc.querySelectorAll('iframe');\n            for (const iframe of iframes) {\n                try {\n                    if (!checkFrame(iframe.contentDocument)) return false;\n                } catch(e) {}  // cross-origin\n            }\n            return true;\n        }\n        return checkFrame(document);\n    }''', timeout=timeout * 1000)\n\n# Metodo 2: Verificar pendientes XHR\ndef wait_no_pending_xhr(page, timeout=15):\n    page.wait_for_function('''() => {\n        return window.performance.getEntriesByType(\"resource\")\n            .filter(r => !r.responseEnd).length === 0;\n    }''', timeout=timeout * 1000)\n\n# Uso:\nwork.locator('[title=\"Save\"]').click()\nwait_sap_not_busy(page)\nwork = get_work_area(page)",
+        "notes": "Mas confiable que wait_for_load_state porque detecta el spinner DENTRO de los iframes.",
+        "confidence": "high"
+      },
+      "tags": [
+        "sap",
+        "javascript",
+        "busy",
+        "spinner",
+        "carga",
+        "wait",
+        "xhr"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-21T02:43:13.835407+00:00",
+      "updated_at": "2026-03-21T02:43:13.835407+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-30T20:57:51.000442+00:00",
+        "access_count": 70
+      }
+    },
+    "53e9052e63f0": {
+      "id": "53e9052e63f0",
+      "type": "pattern",
+      "key": "sap_javascript_navigate_menu",
+      "solution": {
+        "strategy": "js_click_on_hidden_menu",
+        "description": "Navegar menus SAP que requieren hover o JS para desplegarse",
+        "code_snippet": "# Los menus de SAP CRM a veces requieren hover para desplegarse\n# Playwright hover no siempre funciona en framesets\n\n# Metodo 1: Hover + click\nwork.locator('[class*=\"urTbsLstTxt\"]:has-text(\"Sales\")').hover()\npage.wait_for_timeout(500)\nwork.locator('text=Opportunities').click()\n\n# Metodo 2: JS directo si hover no funciona\nsap_frame.evaluate('''(text) => {\n    const links = document.querySelectorAll('a, span, td');\n    for (const el of links) {\n        if (el.textContent.trim() === text) {\n            el.click();\n            return true;\n        }\n    }\n    return false;\n}''', 'Opportunities')\n\n# Metodo 3: Navegar por URL directa (si la conoces)\n# SAP CRM tiene URLs internas para cada vista:\n# page.goto('https://wdp-sap.gbm.net:8105/sap(...)/?sap-wd-configId=...')\n# Pero estas URLs tambien tienen IDs dinamicos\n\n# Metodo 4: Workcenter navigation\nwork.locator('[aria-label*=\"Work Center\"]').click()\npage.wait_for_timeout(500)\nwork.locator('text=Sales Operations').click()\npage.wait_for_load_state('networkidle')\nwork = get_work_area(page)",
+        "notes": "Si click normal falla, usar JS evaluate para click. Si hover no funciona, usar JS mouseover event.",
+        "confidence": "medium"
+      },
+      "tags": [
+        "sap",
+        "javascript",
+        "menu",
+        "navegacion",
+        "hover",
+        "click",
+        "workcenter"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-21T02:43:13.901003+00:00",
+      "updated_at": "2026-03-21T02:43:13.901003+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-31T20:28:16.443156+00:00",
+        "access_count": 60
+      }
+    },
+    "8cd0d017b622": {
+      "id": "8cd0d017b622",
+      "type": "fact",
+      "key": "sap_crm_javascript_framework",
+      "fact": {
+        "rule": "SAP CRM WebUI usa su propio framework JavaScript (UR Library), no jQuery ni frameworks modernos",
+        "details": "El framework se llama UR (Unified Rendering). Genera HTML server-side y usa JS solo para eventos de UI. No es SAP UI5/Fiori.",
+        "key_objects": {
+          "ur.*": "Todas las clases CSS empiezan con 'ur'",
+          "sapUrMapi_*": "Funciones JS internas para manejo de UI",
+          "htmlb": "Tag library server-side que genera el HTML",
+          "AJAX roundtrips": "Cada Tab/click puede disparar un XMLHttpRequest al backend ABAP"
+        },
+        "implications": [
+          "No hay virtual DOM - el HTML se regenera en el servidor",
+          "Los IDs son generados por el servidor y cambian con cada render",
+          "No se puede interceptar el router porque no hay router JS",
+          "Las validaciones corren en ABAP (servidor), no en JS"
+        ]
+      },
+      "tags": [
+        "sap",
+        "javascript",
+        "framework",
+        "ur",
+        "rendering",
+        "ajax"
+      ],
+      "created_at": "2026-03-21T02:43:13.938888+00:00",
+      "updated_at": "2026-03-21T02:43:13.938888+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-03-30T20:57:51.000442+00:00",
+        "access_count": 125
+      }
+    },
+    "de79eae99200": {
+      "id": "de79eae99200",
+      "type": "fact",
+      "key": "sap_crm_popup_decision_tree",
+      "fact": {
+        "rule": "Arbol de decision para manejar popups SAP CRM",
+        "decision_tree": {
+          "1_detect": "Verificar si hay popup visible con: page.locator('[class*=urPopup], [class*=urOvrly], [class*=urMsgBox]').count() > 0",
+          "2_js_alert": "Si page.on('dialog') se disparo -> es JS nativo -> dialog.accept() o dialog.dismiss()",
+          "3_html_popup": "Si hay [class*=urPopup] visible -> es HTML SAP -> buscar boton OK/Yes/Continue dentro",
+          "4_window_popup": "Si page.context.pages tiene mas de 1 -> es window.open -> acceder pages[-1]",
+          "5_iframe_modal": "Si hay iframe dentro del popup -> frame_locator('[class*=urPopup] iframe')",
+          "6_message_bar": "Si no hay popup pero hay mensaje -> leer [class*=urMsgBarTxt]"
+        },
+        "priority": "Siempre verificar en este orden: JS alert > HTML popup > window > iframe > message bar"
+      },
+      "tags": [
+        "sap",
+        "popup",
+        "decision",
+        "arbol",
+        "tipos",
+        "manejo"
+      ],
+      "created_at": "2026-03-21T02:43:14.012503+00:00",
+      "updated_at": "2026-03-21T02:43:14.012503+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-03-31T20:28:16.443156+00:00",
+        "access_count": 111
+      }
+    },
+    "167f308ad5ed": {
+      "id": "167f308ad5ed",
+      "type": "fact",
+      "key": "sap_crm_javascript_events_map",
+      "fact": {
+        "rule": "Mapa de eventos JavaScript que SAP CRM escucha en campos de input",
+        "events": {
+          "onfocus": "SAP prepara el campo (puede cambiar estilo/clase)",
+          "onkeydown/onkeyup": "SAP procesa cada tecla (para autocomplete en algunos campos)",
+          "onchange": "SAP detecta cambio de valor (CRITICO para validacion)",
+          "onblur": "SAP envia el valor al servidor para validacion (equivalente a Tab)",
+          "liveChange": "Evento SAP custom para cambios en tiempo real",
+          "sapUI5 events": "Si es Fiori/UI5, usa sap.ui.core.Control events (diferente de CRM WebUI)"
+        },
+        "important": "El evento mas importante es onblur/change. Sin el, SAP no procesa el valor aunque este visible en el campo."
+      },
+      "tags": [
+        "sap",
+        "javascript",
+        "eventos",
+        "input",
+        "onblur",
+        "onchange"
+      ],
+      "created_at": "2026-03-21T02:43:14.059011+00:00",
+      "updated_at": "2026-03-21T02:43:14.059011+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-03-31T17:56:27.314868+00:00",
+        "access_count": 67
+      }
+    },
+    "0211f363a475": {
+      "id": "0211f363a475",
+      "type": "fact",
+      "key": "sap_crm_popup_common_messages",
+      "fact": {
+        "rule": "Mensajes comunes en popups SAP CRM y que significan",
+        "messages": {
+          "You have already logged on": "Sesion duplicada. Click 'Continue' para forzar.",
+          "Session timed out": "Inactividad >30 min. Re-login necesario.",
+          "Data has been changed": "Datos sin guardar al navegar. Click 'Yes' para descartar o 'No' para volver.",
+          "Mandatory field is empty": "Campo obligatorio vacio. Buscar campo con borde rojo.",
+          "No authorization": "Sin permisos para esa accion. Contactar admin SAP.",
+          "Object is locked": "Otro usuario esta editando. Esperar o contactar usuario.",
+          "Entry does not exist": "Valor ingresado no es valido en el catalogo. Usar F4/Value Help.",
+          "Maximum number of sessions reached": "Maximo 6 sesiones. Cerrar otras sesiones en SM04."
+        }
+      },
+      "tags": [
+        "sap",
+        "popup",
+        "mensajes",
+        "comunes",
+        "significado",
+        "troubleshooting"
+      ],
+      "created_at": "2026-03-21T02:43:14.091343+00:00",
+      "updated_at": "2026-03-21T02:43:14.091343+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-03-31T20:16:06.436696+00:00",
+        "access_count": 41
+      }
+    },
+    "15e1cc81d3b1": {
+      "id": "15e1cc81d3b1",
+      "type": "pattern",
+      "key": "selenium_webdriver_setup",
+      "solution": {
+        "strategy": "chrome_options_for_sap",
+        "description": "Setup correcto de Selenium WebDriver para SAP CRM",
+        "code_snippet": "from selenium import webdriver\nfrom selenium.webdriver.chrome.service import Service\nfrom selenium.webdriver.chrome.options import Options\nfrom webdriver_manager.chrome import ChromeDriverManager\n\nopts = Options()\nopts.add_argument('--ignore-certificate-errors')\nopts.add_argument('--ignore-ssl-errors')\nopts.add_argument('--disable-web-security')\nopts.add_argument('--window-size=1920,1080')\n# NO usar headless con SAP - muchos elementos no renderizan\n# opts.add_argument('--headless')  # EVITAR\n\nservice = Service(ChromeDriverManager().install())\ndriver = webdriver.Chrome(service=service, options=opts)\ndriver.implicitly_wait(10)\ndriver.set_page_load_timeout(60)",
+        "notes": "No usar headless con SAP CRM. Muchos elementos dependen de CSS visible para renderizar.",
+        "confidence": "verified"
+      },
+      "tags": [
+        "selenium",
+        "webdriver",
+        "setup",
+        "chrome",
+        "configuracion"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-21T15:25:44.342012+00:00",
+      "updated_at": "2026-03-21T15:25:44.342012+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-31T20:16:06.436696+00:00",
+        "access_count": 53
+      }
+    },
+    "e2bfc76d7fa6": {
+      "id": "e2bfc76d7fa6",
+      "type": "pattern",
+      "key": "selenium_frame_navigation",
+      "solution": {
+        "strategy": "switch_to_frame_chain",
+        "description": "Navegar cadena de frames en Selenium para SAP CRM",
+        "code_snippet": "from selenium.webdriver.common.by import By\nfrom selenium.webdriver.support.ui import WebDriverWait\nfrom selenium.webdriver.support import expected_conditions as EC\n\ndef enter_sap_frames(driver):\n    '''Navega los 3 niveles de frames de SAP CRM.'''\n    driver.switch_to.default_content()\n    # Frame 1: WorkAreaFrame1\n    WebDriverWait(driver, 15).until(\n        EC.frame_to_be_available_and_switch_to_it(\"WorkAreaFrame1\"))\n    # Frame 2: CRMApplicationFrame\n    WebDriverWait(driver, 15).until(\n        EC.frame_to_be_available_and_switch_to_it(\"CRMApplicationFrame\"))\n    # Frame 3: isolatedWorkArea (puede no existir en todas las vistas)\n    try:\n        WebDriverWait(driver, 5).until(\n            EC.frame_to_be_available_and_switch_to_it(\"isolatedWorkArea\"))\n    except:\n        pass  # Algunas vistas no tienen este nivel\n\ndef exit_sap_frames(driver):\n    '''Vuelve al contexto raiz.'''\n    driver.switch_to.default_content()\n\n# IMPORTANTE: Despues de CADA click/navegacion:\nenter_sap_frames(driver)  # re-entrar",
+        "notes": "switch_to.default_content() ANTES de re-entrar. Si no, intenta entrar al sub-frame desde el sub-frame.",
+        "confidence": "verified"
+      },
+      "tags": [
+        "selenium",
+        "frames",
+        "switch",
+        "navigation",
+        "webdriverwait"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-21T15:25:44.417091+00:00",
+      "updated_at": "2026-03-21T15:25:44.417091+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-31T20:28:16.443156+00:00",
+        "access_count": 37
+      }
+    },
+    "6d5483f10b99": {
+      "id": "6d5483f10b99",
+      "type": "pattern",
+      "key": "selenium_explicit_waits",
+      "solution": {
+        "strategy": "webdriverwait_patterns",
+        "description": "Patrones de espera explicita para Selenium con SAP",
+        "code_snippet": "from selenium.webdriver.support.ui import WebDriverWait\nfrom selenium.webdriver.support import expected_conditions as EC\nfrom selenium.webdriver.common.by import By\n\n# Esperar elemento visible\nelement = WebDriverWait(driver, 15).until(\n    EC.visibility_of_element_located((By.CSS_SELECTOR, '[aria-label*=\"Account\"]')))\n\n# Esperar elemento clickeable\nbtn = WebDriverWait(driver, 15).until(\n    EC.element_to_be_clickable((By.XPATH, '//button[contains(text(),\"Save\")]')))\n\n# Esperar que desaparezca spinner\nWebDriverWait(driver, 30).until(\n    EC.invisibility_of_element_located((By.CSS_SELECTOR, '.urBusy')))\n\n# Esperar que aparezca texto en barra de mensajes\nWebDriverWait(driver, 15).until(\n    EC.text_to_be_present_in_element((By.CSS_SELECTOR, '[class*=\"urMsgBar\"]'), 'saved'))\n\n# Custom wait: campo tiene valor\nWebDriverWait(driver, 10).until(\n    lambda d: d.find_element(By.CSS_SELECTOR, '[aria-label*=\"Account\"]').get_attribute('value') != '')",
+        "notes": "NUNCA usar time.sleep() como unica espera. WebDriverWait con condicion explicita.",
+        "confidence": "verified"
+      },
+      "tags": [
+        "selenium",
+        "wait",
+        "explicit",
+        "webdriverwait",
+        "condiciones"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-21T15:25:44.519342+00:00",
+      "updated_at": "2026-03-21T15:25:44.519342+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-31T20:28:16.443156+00:00",
+        "access_count": 34
+      }
+    },
+    "2b215f418fe1": {
+      "id": "2b215f418fe1",
+      "type": "pattern",
+      "key": "selenium_action_chains",
+      "solution": {
+        "strategy": "action_chains_for_complex_interactions",
+        "description": "ActionChains para interacciones complejas en SAP (drag, hover, right-click)",
+        "code_snippet": "from selenium.webdriver.common.action_chains import ActionChains\nfrom selenium.webdriver.common.keys import Keys\n\nactions = ActionChains(driver)\n\n# Hover sobre menu para desplegar\nmenu = driver.find_element(By.CSS_SELECTOR, '[class*=\"urTbsLstTxt\"]')\nactions.move_to_element(menu).perform()\n\n# Double-click para editar celda de tabla\ncell = driver.find_element(By.CSS_SELECTOR, 'td.urSTSWhlDat')\nactions.double_click(cell).perform()\n\n# Right-click para menu contextual\nactions.context_click(element).perform()\n\n# Drag and drop (raro en SAP pero existe en calendarios)\nsource = driver.find_element(By.ID, 'drag_source')\ntarget = driver.find_element(By.ID, 'drop_target')\nactions.drag_and_drop(source, target).perform()\n\n# Keyboard shortcut\nactions.key_down(Keys.CONTROL).send_keys('s').key_up(Keys.CONTROL).perform()",
+        "notes": "ActionChains necesario para hover de menus SAP. move_to_element antes de click.",
+        "confidence": "high"
+      },
+      "tags": [
+        "selenium",
+        "actionchains",
+        "hover",
+        "drag",
+        "keyboard",
+        "shortcuts"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-21T15:25:44.564226+00:00",
+      "updated_at": "2026-03-21T15:25:44.564226+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-30T21:30:06.644837+00:00",
+        "access_count": 40
+      }
+    },
+    "e807bebd1f95": {
+      "id": "e807bebd1f95",
+      "type": "pattern",
+      "key": "selenium_screenshot_on_error",
+      "solution": {
+        "strategy": "auto_screenshot_debug",
+        "description": "Capturar screenshot automaticamente cuando hay error en SAP",
+        "code_snippet": "import functools\nfrom datetime import datetime\n\ndef screenshot_on_error(func):\n    '''Decorador: captura screenshot si la funcion falla.'''\n    @functools.wraps(func)\n    def wrapper(driver, *args, **kwargs):\n        try:\n            return func(driver, *args, **kwargs)\n        except Exception as e:\n            ts = datetime.now().strftime('%Y%m%d_%H%M%S')\n            filename = f'sap_error_{func.__name__}_{ts}.png'\n            try:\n                driver.switch_to.default_content()\n                driver.save_screenshot(filename)\n                print(f'Screenshot guardado: {filename}')\n            except:\n                pass\n            raise\n    return wrapper\n\n@screenshot_on_error\ndef fill_account(driver, value):\n    enter_sap_frames(driver)\n    el = driver.find_element(By.CSS_SELECTOR, '[aria-label*=\"Account\"]')\n    el.clear()\n    el.send_keys(value, Keys.TAB)\n\n# Playwright equivalente:\npage.screenshot(path=f'sap_error_{datetime.now():%Y%m%d_%H%M%S}.png')",
+        "notes": "SIEMPRE switch_to.default_content() antes de screenshot, si no captura solo el frame.",
+        "confidence": "high"
+      },
+      "tags": [
+        "selenium",
+        "screenshot",
+        "debug",
+        "error",
+        "decorador"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-21T15:25:44.604819+00:00",
+      "updated_at": "2026-03-21T15:25:44.604819+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-31T20:16:06.436696+00:00",
+        "access_count": 36
+      }
+    },
+    "11685984dac1": {
+      "id": "11685984dac1",
+      "type": "pattern",
+      "key": "sap_datepicker_direct_input",
+      "solution": {
+        "strategy": "type_date_directly",
+        "description": "Escribir fecha directamente en campo de fecha SAP sin usar el picker",
+        "code_snippet": "# SAP tiene un datepicker custom. Es MAS FACIL escribir la fecha directo.\n\n# Formato SAP: depende del locale del usuario\n# Guatemala/US: MM/DD/YYYY\n# Europa: DD.MM.YYYY\n\n# Playwright:\ndate_field = work.locator('[aria-label*=\"Start Date\"], [aria-label*=\"Fecha\"]')\ndate_field.click(click_count=3)  # Seleccionar todo\ndate_field.type('03/15/2026', delay=30)\ndate_field.press('Tab')\npage.wait_for_timeout(500)\n\n# Selenium:\ndate_el = driver.find_element(By.CSS_SELECTOR, '[aria-label*=\"Start Date\"]')\ndate_el.click()\ndate_el.send_keys(Keys.CONTROL, 'a')\ndate_el.send_keys('03/15/2026')\ndate_el.send_keys(Keys.TAB)",
+        "notes": "Escribir fecha directamente es 10x mas confiable que intentar usar el calendario popup.",
+        "confidence": "verified"
+      },
+      "tags": [
+        "sap",
+        "fecha",
+        "datepicker",
+        "calendario",
+        "input"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-21T15:25:44.637208+00:00",
+      "updated_at": "2026-03-21T15:25:44.637208+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-31T20:28:16.443156+00:00",
+        "access_count": 39
+      }
+    },
+    "023424b4eed2": {
+      "id": "023424b4eed2",
+      "type": "pattern",
+      "key": "sap_datepicker_popup",
+      "solution": {
+        "strategy": "calendar_popup_navigation",
+        "description": "Usar el calendario popup de SAP cuando se necesita (raro)",
+        "code_snippet": "# Solo usar calendario popup cuando el campo NO acepta typing directo\n\n# 1. Click en icono del calendario (al lado del campo de fecha)\ncal_icon = work.locator('[aria-label*=\"Date\"] ~ [class*=\"urBtnStd\"], '\n                         '[title*=\"Calendar\"], [title*=\"Date Picker\"]')\ncal_icon.click()\npage.wait_for_timeout(500)\n\n# 2. El calendario es un popup HTML de SAP\n# Navegar meses con flechas\nprev_month = page.locator('[title*=\"Previous Month\"]')\nnext_month = page.locator('[title*=\"Next Month\"]')\nnext_month.click()  # Avanzar un mes\n\n# 3. Click en el dia\npage.locator(f'td:has-text(\"{day_number}\")').click()\n\n# 4. El popup se cierra y el campo se llena automaticamente\npage.wait_for_timeout(500)\nwork = get_work_area(page)",
+        "notes": "Evitar el popup si es posible. Escribir fecha directo es mas rapido y confiable.",
+        "confidence": "medium"
+      },
+      "tags": [
+        "sap",
+        "calendario",
+        "popup",
+        "datepicker",
+        "navegacion"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-21T15:25:44.664079+00:00",
+      "updated_at": "2026-03-21T15:25:44.664079+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-31T20:16:06.436696+00:00",
+        "access_count": 117
+      }
+    },
+    "840573a19ed6": {
+      "id": "840573a19ed6",
+      "type": "pattern",
+      "key": "sap_file_upload_attachment",
+      "solution": {
+        "strategy": "file_input_or_drag",
+        "description": "Subir archivos/adjuntos en SAP CRM",
+        "code_snippet": "# SAP CRM tiene seccion de Attachments (Anexos)\n\n# 1. Navegar a tab de Attachments\nwork.locator('text=Attachments, text=Anexos, [title*=\"Attachment\"]').click()\npage.wait_for_load_state('networkidle')\nwork = get_work_area(page)\n\n# 2. Click en \"Add\" o \"Upload\"\nwork.locator('[title*=\"Add\"], [title*=\"Upload\"], text=Add').click()\npage.wait_for_timeout(1000)\n\n# 3. Puede abrir: file input HTML o popup\n# Opcion A: input[type=file] oculto\nfile_input = page.locator('input[type=\"file\"]')\nif file_input.count() > 0:\n    file_input.set_input_files('/path/to/document.pdf')\nelse:\n    # Opcion B: popup con browse\n    popup = page.locator('[class*=\"urPopup\"]')\n    popup.locator('input[type=\"file\"]').set_input_files('/path/to/document.pdf')\n    popup.locator('button:has-text(\"Upload\"), button:has-text(\"OK\")').click()\n\n# 4. Esperar upload\npage.wait_for_load_state('networkidle')\n\n# Selenium:\nfile_input = driver.find_element(By.CSS_SELECTOR, 'input[type=\"file\"]')\nfile_input.send_keys('C:\\\\path\\\\to\\\\document.pdf')",
+        "notes": "set_input_files en Playwright, send_keys con ruta absoluta en Selenium. No intentar click en file dialog.",
+        "confidence": "high"
+      },
+      "tags": [
+        "sap",
+        "archivo",
+        "upload",
+        "attachment",
+        "adjunto",
+        "file"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-21T15:25:44.687435+00:00",
+      "updated_at": "2026-03-21T15:25:44.687435+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-31T20:28:16.443156+00:00",
+        "access_count": 113
+      }
+    },
+    "476b0a73ed4a": {
+      "id": "476b0a73ed4a",
+      "type": "pattern",
+      "key": "sap_file_download",
+      "solution": {
+        "strategy": "download_attachment",
+        "description": "Descargar archivos adjuntos desde SAP CRM",
+        "code_snippet": "# Playwright: configurar directorio de descarga\ncontext = browser.new_context(\n    ignore_https_errors=True,\n    accept_downloads=True\n)\npage = context.new_page()\n\n# Click en el link del attachment\nwith page.expect_download() as download_info:\n    work.locator('a:has-text(\"document.pdf\")').click()\ndownload = download_info.value\ndownload.save_as(f'/downloads/{download.suggested_filename}')\n\n# Selenium: configurar descarga automatica\nopts = Options()\nprefs = {\n    'download.default_directory': 'C:\\\\downloads',\n    'download.prompt_for_download': False,\n}\nopts.add_experimental_option('prefs', prefs)",
+        "notes": "accept_downloads=True necesario en Playwright. En Selenium, configurar prefs de Chrome.",
+        "confidence": "high"
+      },
+      "tags": [
+        "sap",
+        "descargar",
+        "download",
+        "attachment",
+        "archivo"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-21T15:25:44.715732+00:00",
+      "updated_at": "2026-03-21T15:25:44.715732+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-30T04:05:00.744792+00:00",
+        "access_count": 47
+      }
+    },
+    "dd0e450bc8a9": {
+      "id": "dd0e450bc8a9",
+      "type": "pattern",
+      "key": "sap_search_opportunities",
+      "solution": {
+        "strategy": "search_via_workcenter",
+        "description": "Buscar oportunidades en SAP CRM",
+        "code_snippet": "# 1. Ir a la vista de busqueda\nwork.locator('text=Opportunities').click()\npage.wait_for_load_state('networkidle')\nwork = get_work_area(page)\n\n# 2. Llenar criterios de busqueda\nwork.locator('[aria-label*=\"Description\"], [aria-label*=\"Search\"]').fill('IBM Cloud')\nwork.locator('[aria-label*=\"Account\"]').fill('IBM Guatemala')\n\n# 3. Click en Search/Go\nwork.locator('button:has-text(\"Search\"), button:has-text(\"Go\"), [title*=\"Search\"]').click()\npage.wait_for_load_state('networkidle')\nwork = get_work_area(page)\n\n# 4. Leer resultados de la tabla\nrows = work.locator('tr.urSTSStd, tr[class*=\"urSTS\"]')\ncount = rows.count()\nprint(f'Resultados: {count}')\n\nfor i in range(count):\n    row = rows.nth(i)\n    cells = row.locator('td')\n    text = [cells.nth(j).text_content().strip() for j in range(min(cells.count(), 5))]\n    print(f'  Fila {i}: {text}')\n\n# 5. Click en un resultado para abrirlo\nrows.nth(0).locator('a, [class*=\"urLnk\"]').first.click()",
+        "notes": "La tabla de resultados usa tr.urSTSStd. Los links son <a> o spans con clase urLnk.",
+        "confidence": "high"
+      },
+      "tags": [
+        "sap",
+        "buscar",
+        "search",
+        "oportunidad",
+        "filtro",
+        "resultados"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-21T15:25:44.741407+00:00",
+      "updated_at": "2026-03-21T15:25:44.741407+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-30T21:30:06.644837+00:00",
+        "access_count": 56
+      }
+    },
+    "3c3df06d2d1a": {
+      "id": "3c3df06d2d1a",
+      "type": "pattern",
+      "key": "sap_filter_table_results",
+      "solution": {
+        "strategy": "column_filter",
+        "description": "Filtrar resultados en tablas SAP por columna",
+        "code_snippet": "# SAP tiene filtros por columna en headers de tabla\n\n# 1. Click derecho en header de columna (o buscar icono de filtro)\nheader = work.locator('th:has-text(\"Status\")')\n# A veces hay un icono de filtro en el header\nfilter_icon = header.locator('[class*=\"urTblHdrFlt\"], [title*=\"Filter\"]')\nif filter_icon.count() > 0:\n    filter_icon.click()\nelse:\n    header.click(button='right')  # Menu contextual\n\npage.wait_for_timeout(500)\n\n# 2. Seleccionar valor de filtro\npage.locator('text=Open, text=In Process').click()\n\n# 3. Aplicar\npage.locator('button:has-text(\"OK\"), button:has-text(\"Apply\")').click()\npage.wait_for_load_state('networkidle')\nwork = get_work_area(page)",
+        "notes": "No todas las tablas SAP soportan filtros. Verificar si el header tiene icono de filtro.",
+        "confidence": "medium"
+      },
+      "tags": [
+        "sap",
+        "filtro",
+        "tabla",
+        "columna",
+        "header"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-21T15:25:44.767663+00:00",
+      "updated_at": "2026-03-21T15:25:44.767663+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-31T20:28:16.443156+00:00",
+        "access_count": 54
+      }
+    },
+    "a10434da93c9": {
+      "id": "a10434da93c9",
+      "type": "pattern",
+      "key": "sap_pagination_table",
+      "solution": {
+        "strategy": "navigate_table_pages",
+        "description": "Navegar paginacion de tablas en SAP CRM",
+        "code_snippet": "# Tablas grandes en SAP se paginan (20-50 filas por pagina)\n\n# Detectar paginacion\npager = work.locator('[class*=\"urPager\"], [class*=\"urTblNav\"]')\nif pager.count() > 0:\n    # Navegar a pagina siguiente\n    next_btn = pager.locator('[title*=\"Next\"], [title*=\"Siguiente\"], text=>>')\n    if next_btn.count() > 0 and next_btn.first.is_enabled():\n        next_btn.first.click()\n        page.wait_for_load_state('networkidle')\n        work = get_work_area(page)\n\n# Iterar TODAS las paginas:\nall_data = []\nwhile True:\n    rows = work.locator('tr.urSTSStd')\n    for i in range(rows.count()):\n        cells = rows.nth(i).locator('td')\n        row_data = [cells.nth(j).text_content().strip() for j in range(cells.count())]\n        all_data.append(row_data)\n\n    next_btn = work.locator('[title*=\"Next Page\"]')\n    if next_btn.count() == 0 or not next_btn.first.is_enabled():\n        break\n    next_btn.first.click()\n    page.wait_for_load_state('networkidle')\n    work = get_work_area(page)",
+        "notes": "Esperar networkidle despues de cada cambio de pagina. Re-obtener work cada vez.",
+        "confidence": "high"
+      },
+      "tags": [
+        "sap",
+        "paginacion",
+        "tabla",
+        "paginas",
+        "next",
+        "iterar"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-21T15:25:44.801224+00:00",
+      "updated_at": "2026-03-21T15:25:44.801224+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-30T21:30:06.644837+00:00",
+        "access_count": 44
+      }
+    },
+    "7fd34228fb64": {
+      "id": "7fd34228fb64",
+      "type": "pattern",
+      "key": "sap_create_quote_manual",
+      "solution": {
+        "strategy": "quote_creation_flow",
+        "description": "Crear cotizacion manual en SAP CRM desde oportunidad",
+        "code_snippet": "def create_quote(page, opp_id, items):\n    work = get_work_area(page)\n\n    # 1. Abrir oportunidad\n    work.locator(f'a:has-text(\"{opp_id}\")').click()\n    page.wait_for_load_state('networkidle')\n    work = get_work_area(page)\n\n    # 2. Ir a tab de Quotes/Cotizaciones\n    work.locator('text=Quotes, text=Quotations').click()\n    page.wait_for_load_state('networkidle')\n    work = get_work_area(page)\n\n    # 3. Create new quote\n    work.locator('[title*=\"Create\"], [title*=\"New\"]').click()\n    page.wait_for_load_state('networkidle')\n    work = get_work_area(page)\n\n    # 4. Seleccionar tipo de quote\n    # Puede ser: Manual, Contract, Standard\n    work.locator('text=Manual Quote').click()\n    page.wait_for_load_state('networkidle')\n    work = get_work_area(page)\n\n    # 5. Llenar items\n    for item in items:\n        work.locator('[title*=\"Add Row\"]').click()\n        page.wait_for_timeout(1000)\n        work = get_work_area(page)\n\n        last_row = work.locator('tr.urSTSStd').last\n        inputs = last_row.locator('input[class*=\"urEdf\"]')\n        inputs.nth(0).fill(item['product'])\n        inputs.nth(0).press('Tab')\n        page.wait_for_timeout(500)\n\n        inputs.nth(1).fill(str(item['quantity']))\n        inputs.nth(1).press('Tab')\n        page.wait_for_timeout(500)\n        work = get_work_area(page)\n\n    # 6. Save\n    work.locator('[title=\"Save\"]').click()\n    page.wait_for_load_state('networkidle')",
+        "notes": "Cada tipo de quote (Manual, Contract, Standard) tiene pantallas ligeramente diferentes.",
+        "confidence": "high"
+      },
+      "tags": [
+        "sap",
+        "cotizacion",
+        "quote",
+        "crear",
+        "manual",
+        "items"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-21T15:25:44.832151+00:00",
+      "updated_at": "2026-03-21T15:25:44.832151+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-31T20:28:16.443156+00:00",
+        "access_count": 40
+      }
+    },
+    "93712caeb6a1": {
+      "id": "93712caeb6a1",
+      "type": "pattern",
+      "key": "sap_quote_pricing",
+      "solution": {
+        "strategy": "pricing_adjustment",
+        "description": "Ajustar precios en cotizacion SAP CRM",
+        "code_snippet": "# Los precios en SAP CRM tienen estructura compleja:\n# Net Price = List Price - Discounts + Surcharges\n\n# 1. Ir a tab de Pricing en la cotizacion\nwork.locator('text=Pricing, text=Conditions').click()\npage.wait_for_load_state('networkidle')\nwork = get_work_area(page)\n\n# 2. Los precios estan en una tabla de condiciones\n# Cada fila es un tipo de condicion (precio lista, descuento, etc.)\nrows = work.locator('tr.urSTSStd')\n\n# 3. Modificar un precio\n# Buscar la fila del precio lista (PR00 o similar)\nfor i in range(rows.count()):\n    cell_text = rows.nth(i).text_content()\n    if 'PR00' in cell_text or 'List Price' in cell_text:\n        price_input = rows.nth(i).locator('input[class*=\"urEdf\"]').last\n        price_input.click(click_count=3)\n        price_input.type('15000.00', delay=30)\n        price_input.press('Tab')\n        page.wait_for_timeout(1000)\n        break\n\n# 4. Agregar descuento\nwork.locator('[title*=\"Add Condition\"]').click()\npage.wait_for_timeout(500)\n# Seleccionar tipo de descuento\nwork.locator('[aria-label*=\"Condition Type\"]').fill('ZDSC')\nwork.locator('[aria-label*=\"Condition Type\"]').press('Tab')",
+        "notes": "PR00 = precio lista. ZDSC/ZK01 = descuentos. Los codigos varian por configuracion SAP.",
+        "confidence": "medium"
+      },
+      "tags": [
+        "sap",
+        "pricing",
+        "precios",
+        "cotizacion",
+        "condiciones",
+        "descuento"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-21T15:25:44.857330+00:00",
+      "updated_at": "2026-03-21T15:25:44.857330+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-31T20:28:16.443156+00:00",
+        "access_count": 59
+      }
+    },
+    "c9d3a35c96f6": {
+      "id": "c9d3a35c96f6",
+      "type": "pattern",
+      "key": "sap_change_status",
+      "solution": {
+        "strategy": "status_dropdown_or_action",
+        "description": "Cambiar status de oportunidad/cotizacion en SAP CRM",
+        "code_snippet": "# SAP tiene 2 formas de cambiar status:\n# 1. Dropdown directo (si existe)\n# 2. Boton de accion (Actions menu)\n\n# Metodo 1: Dropdown\nstatus_field = work.locator('[aria-label*=\"Status\"], [aria-label*=\"User Status\"]')\nif status_field.count() > 0:\n    status_field.click()\n    page.wait_for_timeout(300)\n    # Escribir el nuevo status\n    status_field.fill('Won')\n    status_field.press('Tab')\n    page.wait_for_timeout(1000)\n    work = get_work_area(page)\n\n# Metodo 2: Actions menu\nactions_btn = work.locator('[title*=\"Actions\"], button:has-text(\"Actions\")')\nactions_btn.click()\npage.wait_for_timeout(500)\n# Menu desplegable con opciones de status\npage.locator('text=Set to Won').click()\npage.wait_for_load_state('networkidle')\nwork = get_work_area(page)\n\n# Verificar\nnew_status = work.locator('[aria-label*=\"Status\"]').input_value()\nprint(f'Nuevo status: {new_status}')",
+        "notes": "Algunos cambios de status requieren campos obligatorios adicionales (razon, fecha cierre, etc.).",
+        "confidence": "high"
+      },
+      "tags": [
+        "sap",
+        "status",
+        "cambiar",
+        "workflow",
+        "oportunidad",
+        "won",
+        "lost"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-21T15:25:44.886984+00:00",
+      "updated_at": "2026-03-21T15:25:44.886984+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-31T20:28:16.443156+00:00",
+        "access_count": 42
+      }
+    },
+    "16a090a589cb": {
+      "id": "16a090a589cb",
+      "type": "pattern",
+      "key": "sap_workflow_approval",
+      "solution": {
+        "strategy": "submit_for_approval",
+        "description": "Enviar documento SAP a aprobacion via workflow",
+        "code_snippet": "# Documentos como cotizaciones pueden requerir aprobacion\n\n# 1. Verificar si hay boton de Submit/Approve\nsubmit = work.locator('[title*=\"Submit\"], button:has-text(\"Submit for Approval\")')\nif submit.count() > 0:\n    submit.click()\n    page.wait_for_timeout(1000)\n\n    # Puede pedir confirmacion\n    confirm = page.locator('button:has-text(\"Yes\"), button:has-text(\"OK\")')\n    if confirm.count() > 0 and confirm.first.is_visible():\n        confirm.first.click()\n\n    page.wait_for_load_state('networkidle')\n    work = get_work_area(page)\n\n    # Verificar estado\n    msg = read_sap_message(page)\n    print(f'Resultado: {msg}')\n\n# 2. Ver historial de aprobaciones\nwork.locator('text=Approval History, text=Workflow Log').click()\npage.wait_for_load_state('networkidle')",
+        "notes": "El workflow de aprobacion depende de la configuracion ABAP. Los umbrales varian por empresa.",
+        "confidence": "medium"
+      },
+      "tags": [
+        "sap",
+        "workflow",
+        "aprobacion",
+        "submit",
+        "approval"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-21T15:25:44.914546+00:00",
+      "updated_at": "2026-03-21T15:25:44.914546+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-31T20:28:16.443156+00:00",
+        "access_count": 39
+      }
+    },
+    "2cc83479f0d4": {
+      "id": "2cc83479f0d4",
+      "type": "pattern",
+      "key": "sap_notes_textarea",
+      "solution": {
+        "strategy": "fill_textarea_notes",
+        "description": "Llenar campos de notas/texto largo en SAP CRM",
+        "code_snippet": "# Las notas en SAP CRM usan <textarea> o CKEditor/rich text\n\n# 1. Ir a tab de Notes\nwork.locator('text=Notes, text=Texts').click()\npage.wait_for_load_state('networkidle')\nwork = get_work_area(page)\n\n# 2. Hay que hacer click en \"Edit\" primero en muchos casos\nedit_btn = work.locator('[title*=\"Edit\"], button:has-text(\"Edit\")')\nif edit_btn.count() > 0:\n    edit_btn.click()\n    page.wait_for_timeout(500)\n    work = get_work_area(page)\n\n# 3. Llenar textarea\ntextarea = work.locator('textarea, [contenteditable=\"true\"], [class*=\"urTxa\"]')\nif textarea.count() > 0:\n    textarea.first.click()\n    textarea.first.fill('Reunion con cliente IBM para discutir renovacion.')\n    textarea.first.press('Tab')\nelse:\n    # Rich text editor (iframe dentro de iframe)\n    editor_frame = work.frame_locator('iframe[class*=\"cke\"], iframe[title*=\"Rich Text\"]')\n    editor_body = editor_frame.locator('body')\n    editor_body.fill('Reunion con cliente IBM para discutir renovacion.')\n\n# 4. Seleccionar tipo de nota si aplica\nnote_type = work.locator('[aria-label*=\"Text Type\"], [aria-label*=\"Note Type\"]')\nif note_type.count() > 0:\n    note_type.fill('Internal Note')\n    note_type.press('Tab')",
+        "notes": "SAP puede usar textarea simple o CKEditor (rich text en iframe). Verificar cual es.",
+        "confidence": "high"
+      },
+      "tags": [
+        "sap",
+        "notas",
+        "textarea",
+        "texto",
+        "notes",
+        "editor"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-21T15:25:44.941204+00:00",
+      "updated_at": "2026-03-21T15:25:44.941204+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-31T20:16:06.436696+00:00",
+        "access_count": 45
+      }
+    },
+    "8a707e1f00d2": {
+      "id": "8a707e1f00d2",
+      "type": "pattern",
+      "key": "sap_add_partner",
+      "solution": {
+        "strategy": "add_business_partner",
+        "description": "Agregar partner/contacto a oportunidad SAP CRM",
+        "code_snippet": "# Tab de Partners en oportunidad/cotizacion\n\n# 1. Ir a tab Partners\nwork.locator('text=Partners, text=Parties Involved').click()\npage.wait_for_load_state('networkidle')\nwork = get_work_area(page)\n\n# 2. Add partner\nwork.locator('[title*=\"Add\"], [title*=\"Insert Row\"]').click()\npage.wait_for_timeout(500)\nwork = get_work_area(page)\n\n# 3. Llenar partner function (rol)\nlast_row = work.locator('tr.urSTSStd').last\nrole_field = last_row.locator('[aria-label*=\"Partner Function\"], [aria-label*=\"Role\"]')\nrole_field.fill('Contact Person')\nrole_field.press('Tab')\npage.wait_for_timeout(500)\n\n# 4. Llenar partner (puede requerir F4 help)\npartner_field = last_row.locator('[aria-label*=\"Partner\"], [aria-label*=\"Business Partner\"]')\npartner_field.fill('Juan Perez')\npartner_field.press('Tab')\npage.wait_for_timeout(1000)  # SAP valida contra master data\n\n# 5. Verificar validacion\nwork = get_work_area(page)\nmsg = read_sap_message(page)\nif 'not found' in msg.lower():\n    print('Partner no existe en master data - usar F4 help')",
+        "notes": "Los partners deben existir en master data. Si no, SAP rechaza. Usar F4 help para buscar.",
+        "confidence": "high"
+      },
+      "tags": [
+        "sap",
+        "partner",
+        "contacto",
+        "agregar",
+        "parties",
+        "business"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-21T15:25:44.969893+00:00",
+      "updated_at": "2026-03-21T15:25:44.969893+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-31T20:16:06.436696+00:00",
+        "access_count": 49
+      }
+    },
+    "d37700181569": {
+      "id": "d37700181569",
+      "type": "pattern",
+      "key": "sap_currency_handling",
+      "solution": {
+        "strategy": "currency_decimal_format",
+        "description": "Manejo de moneda y decimales en campos SAP CRM",
+        "code_snippet": "# SAP usa formatos de numero segun locale:\n# US/GT: 1,234.56 (coma miles, punto decimal)\n# DE:    1.234,56 (punto miles, coma decimal)\n\n# IMPORTANTE: SAP valida el formato al presionar Tab\n# Si el formato es incorrecto, SAP lo rechaza o lo cambia\n\n# Metodo seguro: usar formato sin miles, solo decimal\namount_field = work.locator('[aria-label*=\"Expected Value\"], [aria-label*=\"Amount\"]')\namount_field.click(click_count=3)\namount_field.type('150000.00', delay=30)  # Sin separador de miles\namount_field.press('Tab')\npage.wait_for_timeout(1000)\n\n# Verificar que SAP acepto el valor\nwork = get_work_area(page)\nactual = work.locator('[aria-label*=\"Expected Value\"]').input_value()\nprint(f'Valor guardado: {actual}')\n# SAP puede reformatearlo a: 150,000.00\n\n# Para moneda:\ncurrency_field = work.locator('[aria-label*=\"Currency\"]')\ncurrency_field.fill('USD')\ncurrency_field.press('Tab')\n# Codigos comunes: USD, GTQ, EUR, MXN",
+        "notes": "Nunca usar separador de miles al escribir. SAP lo reformatea automaticamente.",
+        "confidence": "verified"
+      },
+      "tags": [
+        "sap",
+        "moneda",
+        "currency",
+        "decimal",
+        "formato",
+        "numero",
+        "valor"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-21T15:25:44.997987+00:00",
+      "updated_at": "2026-03-21T15:25:44.997987+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-31T20:16:06.436696+00:00",
+        "access_count": 46
+      }
+    },
+    "4d17a6b2ac42": {
+      "id": "4d17a6b2ac42",
+      "type": "pattern",
+      "key": "sap_keyboard_shortcuts",
+      "solution": {
+        "strategy": "keyboard_shortcuts_catalog",
+        "description": "Atajos de teclado utiles en SAP CRM WebUI",
+        "code_snippet": "# Atajos que funcionan en SAP CRM WebUI:\n\n# Navegacion\npage.keyboard.press('F5')       # Refresh\npage.keyboard.press('F7')       # Back\npage.keyboard.press('Enter')    # Ejecutar accion default (buscar, guardar)\n\n# Edicion\npage.keyboard.press('F2')       # Edit mode (toggle)\npage.keyboard.press('Control+s') # Guardar (a veces funciona)\npage.keyboard.press('Escape')    # Cancelar / cerrar popup\n\n# Campos\npage.keyboard.press('F4')       # Value Help (search help)\npage.keyboard.press('Tab')      # Siguiente campo + validar\npage.keyboard.press('Shift+Tab') # Campo anterior\n\n# Tablas\npage.keyboard.press('Control+Insert')  # Insertar fila (a veces)\npage.keyboard.press('Control+Delete')  # Borrar fila (a veces)\n\n# IMPORTANTE: Los shortcuts dependen del foco\n# Asegurarse de que el elemento correcto tiene foco antes del shortcut",
+        "notes": "F4 para Value Help es universal en SAP. F5 para refresh. Escape para cancelar.",
+        "confidence": "high"
+      },
+      "tags": [
+        "sap",
+        "keyboard",
+        "shortcuts",
+        "atajos",
+        "teclado",
+        "f4",
+        "f5"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-21T15:25:45.023070+00:00",
+      "updated_at": "2026-03-21T15:25:45.023070+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-31T20:28:16.443156+00:00",
+        "access_count": 53
+      }
+    },
+    "9017d2539012": {
+      "id": "9017d2539012",
+      "type": "pattern",
+      "key": "sap_extract_table_data",
+      "solution": {
+        "strategy": "scrape_table_to_dict",
+        "description": "Extraer datos de tabla SAP CRM a lista de diccionarios Python",
+        "code_snippet": "def extract_sap_table(page, get_work_area_fn):\n    '''Extrae todos los datos de una tabla SAP CRM.'''\n    work = get_work_area_fn(page)\n\n    # Obtener headers\n    headers = []\n    ths = work.locator('th[class*=\"urSTS\"], th[class*=\"urTbl\"]')\n    for i in range(ths.count()):\n        text = ths.nth(i).text_content().strip()\n        if text:\n            headers.append(text)\n\n    # Obtener filas\n    data = []\n    rows = work.locator('tr.urSTSStd, tr[class*=\"urSTS\"]:not(tr[class*=\"Hdr\"])')\n    for i in range(rows.count()):\n        cells = rows.nth(i).locator('td')\n        row = {}\n        for j in range(min(cells.count(), len(headers))):\n            # Intentar input_value primero (campos editables)\n            cell = cells.nth(j)\n            inp = cell.locator('input')\n            if inp.count() > 0:\n                val = inp.first.input_value()\n            else:\n                val = cell.text_content().strip()\n            if j < len(headers):\n                row[headers[j]] = val\n        if any(row.values()):\n            data.append(row)\n\n    return data\n\n# Uso:\ntable_data = extract_sap_table(page, get_work_area)\nfor row in table_data:\n    print(row)\n\n# Exportar a pandas:\nimport pandas as pd\ndf = pd.DataFrame(table_data)\ndf.to_excel('sap_export.xlsx', index=False)",
+        "notes": "input_value() para campos editables, text_content() para read-only. Verificar headers vs cells count.",
+        "confidence": "high"
+      },
+      "tags": [
+        "sap",
+        "extraer",
+        "tabla",
+        "scraping",
+        "datos",
+        "export",
+        "pandas"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-21T15:25:45.052278+00:00",
+      "updated_at": "2026-03-21T15:25:45.052278+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-30T21:30:06.644837+00:00",
+        "access_count": 197
+      }
+    },
+    "15cbcb9c708e": {
+      "id": "15cbcb9c708e",
+      "type": "pattern",
+      "key": "sap_extract_form_data",
+      "solution": {
+        "strategy": "scrape_form_fields",
+        "description": "Extraer todos los valores de un formulario SAP CRM",
+        "code_snippet": "def extract_sap_form(page, get_work_area_fn):\n    '''Extrae label:value de todos los campos visibles.'''\n    work = get_work_area_fn(page)\n    fields = {}\n\n    # Inputs con aria-label\n    inputs = work.locator('input[aria-label]:not([type=\"hidden\"])')\n    for i in range(inputs.count()):\n        inp = inputs.nth(i)\n        if inp.is_visible():\n            label = inp.get_attribute('aria-label') or ''\n            value = inp.input_value()\n            if label:\n                fields[label] = value\n\n    # Inputs con label asociado via xpath\n    labels = work.locator('label')\n    for i in range(labels.count()):\n        lbl = labels.nth(i)\n        if lbl.is_visible():\n            label_text = lbl.text_content().strip()\n            # Buscar input siguiente\n            sibling_input = lbl.locator('xpath=./following::input[1]')\n            if sibling_input.count() > 0:\n                fields[label_text] = sibling_input.first.input_value()\n\n    # Spans de display (campos read-only)\n    display_spans = work.locator('[class*=\"urTxtStd\"]')\n    for i in range(display_spans.count()):\n        span = display_spans.nth(i)\n        if span.is_visible():\n            text = span.text_content().strip()\n            if text and len(text) < 200:\n                parent_label = span.locator('xpath=./preceding::label[1]')\n                if parent_label.count() > 0:\n                    fields[parent_label.first.text_content().strip()] = text\n\n    return fields\n\nform_data = extract_sap_form(page, get_work_area)\nfor label, value in form_data.items():\n    print(f'{label}: {value}')",
+        "notes": "Combina aria-label, label/input y spans para capturar tanto editables como read-only.",
+        "confidence": "high"
+      },
+      "tags": [
+        "sap",
+        "extraer",
+        "formulario",
+        "campos",
+        "valores",
+        "scraping"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-21T15:25:45.080383+00:00",
+      "updated_at": "2026-03-21T15:25:45.080383+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-31T20:16:06.436696+00:00",
+        "access_count": 41
+      }
+    },
+    "be5af4104afb": {
+      "id": "be5af4104afb",
+      "type": "pattern",
+      "key": "sap_retry_pattern",
+      "solution": {
+        "strategy": "retry_with_backoff",
+        "description": "Patron de retry con backoff para operaciones SAP que fallan intermitentemente",
+        "code_snippet": "import time\nimport functools\n\ndef sap_retry(max_attempts=3, backoff=2, reraise=True):\n    '''Decorador: reintenta operacion SAP con backoff exponencial.'''\n    def decorator(func):\n        @functools.wraps(func)\n        def wrapper(*args, **kwargs):\n            last_error = None\n            for attempt in range(1, max_attempts + 1):\n                try:\n                    return func(*args, **kwargs)\n                except Exception as e:\n                    last_error = e\n                    if attempt < max_attempts:\n                        wait = backoff ** attempt\n                        print(f'Intento {attempt} fallo: {e}. Reintentando en {wait}s...')\n                        time.sleep(wait)\n                        # Re-obtener frame por si se invalido\n                        if args and hasattr(args[0], 'frames'):\n                            pass  # page object, re-frame en la funcion\n            if reraise:\n                raise last_error\n            return None\n        return wrapper\n    return decorator\n\n@sap_retry(max_attempts=3, backoff=2)\ndef fill_account(page, value):\n    work = get_work_area(page)\n    field = work.locator('[aria-label*=\"Account\"]')\n    field.wait_for(state='visible', timeout=5000)\n    field.fill(value)\n    field.press('Tab')\n    page.wait_for_timeout(500)\n\n# Uso:\nfill_account(page, 'IBM Guatemala')",
+        "notes": "Backoff exponencial: 2s, 4s, 8s. Siempre re-obtener frame en cada retry.",
+        "confidence": "verified"
+      },
+      "tags": [
+        "sap",
+        "retry",
+        "backoff",
+        "error",
+        "recovery",
+        "decorador"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-21T15:25:45.108327+00:00",
+      "updated_at": "2026-03-21T15:25:45.108327+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-28T01:23:15.439096+00:00",
+        "access_count": 27
+      }
+    },
+    "f54b6361a060": {
+      "id": "f54b6361a060",
+      "type": "pattern",
+      "key": "sap_session_recovery",
+      "solution": {
+        "strategy": "detect_and_recover_session",
+        "description": "Detectar sesion expirada y reconectar automaticamente",
+        "code_snippet": "def is_session_valid(page):\n    '''Verifica si la sesion SAP sigue activa.'''\n    try:\n        # Verificar que el frame principal existe\n        page.wait_for_selector('frame[name=\"WorkAreaFrame1\"]', timeout=3000)\n        return True\n    except:\n        pass\n\n    # Verificar si hay pagina de login\n    try:\n        login = page.locator('input[name=\"sap-user\"]')\n        if login.count() > 0 and login.first.is_visible():\n            return False\n    except:\n        pass\n\n    # Verificar si hay error de sesion\n    try:\n        body_text = page.text_content('body') or ''\n        if any(x in body_text.lower() for x in ['session expired', 'timed out', 'logon']):\n            return False\n    except:\n        pass\n\n    return True\n\ndef ensure_session(page, user, password, client='500'):\n    '''Reconecta si la sesion expiro.'''\n    if not is_session_valid(page):\n        print('Sesion expirada, reconectando...')\n        sap_login(page, user, password, client)\n        handle_login_popups(page)\n        return True  # reconecto\n    return False  # sesion valida\n\n# Usar antes de cada operacion importante:\nensure_session(page, 'NTOLEDO', 'mypass')\nwork = get_work_area(page)",
+        "notes": "Llamar ensure_session() antes de operaciones criticas. SAP expira en ~30 min.",
+        "confidence": "verified"
+      },
+      "tags": [
+        "sap",
+        "sesion",
+        "recovery",
+        "expirada",
+        "reconectar",
+        "login"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-21T15:25:45.137750+00:00",
+      "updated_at": "2026-03-21T15:25:45.137750+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-31T20:16:06.436696+00:00",
+        "access_count": 43
+      }
+    },
+    "43384d5c0410": {
+      "id": "43384d5c0410",
+      "type": "pattern",
+      "key": "sap_error_handling_comprehensive",
+      "solution": {
+        "strategy": "try_except_with_context",
+        "description": "Manejo de errores comprehensivo para scripts SAP",
+        "code_snippet": "class SAPError(Exception):\n    pass\n\nclass SAPSessionExpired(SAPError):\n    pass\n\nclass SAPFieldValidationError(SAPError):\n    pass\n\nclass SAPElementNotFound(SAPError):\n    pass\n\ndef safe_sap_action(page, action_fn, description='', screenshot=True):\n    '''Wrapper seguro para acciones SAP.'''\n    try:\n        result = action_fn(page)\n        return {'success': True, 'result': result}\n    except TimeoutError as e:\n        # Verificar si es sesion expirada\n        if not is_session_valid(page):\n            raise SAPSessionExpired(f'{description}: sesion expirada')\n        if screenshot:\n            page.screenshot(path=f'sap_timeout_{description}.png')\n        raise SAPElementNotFound(f'{description}: elemento no encontrado - {e}')\n    except Exception as e:\n        # Leer barra de mensajes SAP\n        try:\n            msg = read_sap_message(page)\n            if msg:\n                raise SAPFieldValidationError(f'{description}: SAP dice: {msg}')\n        except:\n            pass\n        if screenshot:\n            try:\n                page.screenshot(path=f'sap_error_{description}.png')\n            except:\n                pass\n        raise SAPError(f'{description}: {e}')\n\n# Uso:\nresult = safe_sap_action(page,\n    lambda p: fill_account(p, 'IBM'),\n    description='fill_account')",
+        "notes": "Siempre leer barra de mensajes SAP en el except. Screenshot para debug post-mortem.",
+        "confidence": "high"
+      },
+      "tags": [
+        "sap",
+        "error",
+        "handling",
+        "exceptions",
+        "screenshot",
+        "debug"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-21T15:25:45.164297+00:00",
+      "updated_at": "2026-03-21T15:25:45.164297+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-30T21:30:06.644837+00:00",
+        "access_count": 32
+      }
+    },
+    "150e28ff4ac2": {
+      "id": "150e28ff4ac2",
+      "type": "pattern",
+      "key": "sap_performance_tips",
+      "solution": {
+        "strategy": "speed_optimization",
+        "description": "Tips para acelerar scripts de automatizacion SAP",
+        "code_snippet": "# 1. NO esperar networkidle cuando no es necesario\n# networkidle espera 500ms sin actividad de red - lento\n# Usar solo despues de navegacion/save, no despues de cada fill\n\n# 2. Reducir wait_for_timeout\n# En vez de 1000ms fijo, usar espera condicional:\nwork.locator('[aria-label*=\"Account\"]').wait_for(state='visible', timeout=5000)\n\n# 3. Batch fills sin Tab intermedio (si SAP lo permite)\n# Algunos formularios permiten llenar todo y Tab solo al final\nfields = {'Account': 'IBM', 'Description': 'Proyecto X', 'Currency': 'USD'}\nfor label, value in fields.items():\n    work.locator(f'[aria-label*=\"{label}\"]').fill(value)\n# Un solo Tab al final del ultimo campo\nwork.locator(f'[aria-label*=\"Currency\"]').press('Tab')\npage.wait_for_timeout(1000)  # Una sola espera de validacion\n\n# 4. Reusar browser context entre tests\n# No abrir/cerrar browser para cada operacion\ncontext = browser.new_context(ignore_https_errors=True)\npage = context.new_page()\n# ... muchas operaciones ...\ncontext.close()  # Al final\n\n# 5. Paralizar operaciones independientes con asyncio\n# (Solo Playwright async)",
+        "notes": "El mayor ahorro: reducir networkidle y wait_for_timeout innecesarios.",
+        "confidence": "high"
+      },
+      "tags": [
+        "sap",
+        "performance",
+        "velocidad",
+        "optimizacion",
+        "tips"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-21T15:25:45.192560+00:00",
+      "updated_at": "2026-03-21T15:25:45.192560+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-04-01T03:19:45.515889+00:00",
+        "access_count": 70
+      }
+    },
+    "d8ef8c203688": {
+      "id": "d8ef8c203688",
+      "type": "pattern",
+      "key": "sap_headless_considerations",
+      "solution": {
+        "strategy": "headless_mode_quirks",
+        "description": "Consideraciones para correr automatizacion SAP en modo headless",
+        "code_snippet": "# SAP CRM tiene problemas en headless porque:\n# 1. Algunos CSS :hover no se disparan\n# 2. Elementos con visibility:hidden no renderizan\n# 3. Popups pueden no posicionarse correctamente\n\n# Si NECESITAS headless (ej: servidor CI/CD):\nbrowser = p.chromium.launch(\n    headless=True,\n    args=[\n        '--window-size=1920,1080',\n        '--disable-gpu',\n        '--no-sandbox',\n        '--disable-dev-shm-usage',\n    ]\n)\ncontext = browser.new_context(\n    viewport={'width': 1920, 'height': 1080},\n    ignore_https_errors=True\n)\n\n# ALTERNATIVA: Usar Xvfb (Linux) para headless visual\n# xvfb-run python sap_script.py\n# Esto renderiza como si hubiera pantalla pero sin monitor fisico\n\n# ALTERNATIVA Windows: usar hidden window\nbrowser = p.chromium.launch(headless=False)\n# Minimizar la ventana via JS:\npage.evaluate('window.moveTo(-2000, -2000)')",
+        "notes": "Preferir headed mode. Si headless es obligatorio, usar viewport grande y Xvfb en Linux.",
+        "confidence": "medium"
+      },
+      "tags": [
+        "sap",
+        "headless",
+        "servidor",
+        "ci",
+        "cd",
+        "xvfb",
+        "rendimiento"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-21T15:25:45.221466+00:00",
+      "updated_at": "2026-03-21T15:25:45.221466+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-31T20:28:16.443156+00:00",
+        "access_count": 99
+      }
+    },
+    "982541a75126": {
+      "id": "982541a75126",
+      "type": "pattern",
+      "key": "sap_multi_tab_handling",
+      "solution": {
+        "strategy": "manage_multiple_sap_tabs",
+        "description": "Manejar multiples tabs/ventanas abiertas por SAP",
+        "code_snippet": "# SAP puede abrir nuevas ventanas/tabs para:\n# - Value Help (F4)\n# - Print preview\n# - Reports\n# - External links\n\n# Playwright: escuchar nuevas paginas\npage.context.on('page', lambda new_page: print(f'Nueva ventana: {new_page.url}'))\n\n# Esperar y capturar nueva ventana\nwith page.expect_popup() as popup_info:\n    work.locator('[title*=\"Print Preview\"]').click()\nnew_page = popup_info.value\nnew_page.wait_for_load_state('networkidle')\n\n# Trabajar en la nueva ventana\nprint(new_page.title())\nnew_page.close()\n\n# Volver a la ventana principal\npage.bring_to_front()\nwork = get_work_area(page)\n\n# Selenium:\nmain_window = driver.current_window_handle\ndriver.find_element(By.CSS_SELECTOR, '[title*=\"Print\"]').click()\n# Esperar nueva ventana\nWebDriverWait(driver, 10).until(lambda d: len(d.window_handles) > 1)\nnew_window = [w for w in driver.window_handles if w != main_window][0]\ndriver.switch_to.window(new_window)\n# ... trabajar ...\ndriver.close()\ndriver.switch_to.window(main_window)",
+        "notes": "SIEMPRE volver a la ventana principal despues de cerrar popup. bring_to_front() en Playwright.",
+        "confidence": "high"
+      },
+      "tags": [
+        "sap",
+        "tabs",
+        "ventanas",
+        "popup",
+        "window",
+        "multi"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-21T15:25:45.250067+00:00",
+      "updated_at": "2026-03-21T15:25:45.250067+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-31T20:16:06.436696+00:00",
+        "access_count": 38
+      }
+    },
+    "6b8b97660443": {
+      "id": "6b8b97660443",
+      "type": "pattern",
+      "key": "sap_create_activity",
+      "solution": {
+        "strategy": "create_call_meeting_task",
+        "description": "Crear actividades (llamada, reunion, tarea) en SAP CRM",
+        "code_snippet": "def create_activity(page, activity_type, data):\n    '''\n    activity_type: 'Phone Call', 'Meeting', 'Task', 'Email'\n    data: dict con campos\n    '''\n    work = get_work_area(page)\n\n    # 1. Crear nueva actividad\n    work.locator('text=Activities, text=Calendar').click()\n    page.wait_for_load_state('networkidle')\n    work = get_work_area(page)\n\n    # 2. Click en Create y seleccionar tipo\n    work.locator('[title*=\"Create\"], [title*=\"New\"]').click()\n    page.wait_for_timeout(500)\n    page.locator(f'text={activity_type}').click()\n    page.wait_for_load_state('networkidle')\n    work = get_work_area(page)\n\n    # 3. Llenar campos\n    for label, value in data.items():\n        field = work.locator(f'[aria-label*=\"{label}\"]')\n        if field.count() > 0:\n            field.first.click(click_count=3)\n            field.first.type(str(value), delay=30)\n            field.first.press('Tab')\n            page.wait_for_timeout(500)\n            work = get_work_area(page)\n\n    # 4. Guardar\n    work.locator('[title=\"Save\"]').click()\n    page.wait_for_load_state('networkidle')\n    return read_sap_message(page)\n\n# Uso:\ncreate_activity(page, 'Phone Call', {\n    'Description': 'Llamada seguimiento IBM',\n    'Account': 'IBM Guatemala',\n    'Contact': 'Juan Perez',\n    'Start Date': '03/20/2026',\n    'Category': 'Sales Call',\n    'Priority': 'Normal',\n    'Notes': 'Discutir renovacion de contrato',\n})",
+        "notes": "Los tipos de actividad disponibles dependen de la configuracion SAP. Verificar cuales existen.",
+        "confidence": "high"
+      },
+      "tags": [
+        "sap",
+        "actividad",
+        "llamada",
+        "reunion",
+        "tarea",
+        "crear",
+        "calendario"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-21T15:25:45.277757+00:00",
+      "updated_at": "2026-03-21T15:25:45.277757+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-30T04:05:00.744792+00:00",
+        "access_count": 54
+      }
+    },
+    "a3efddf25974": {
+      "id": "a3efddf25974",
+      "type": "pattern",
+      "key": "sap_export_to_excel",
+      "solution": {
+        "strategy": "export_list_to_excel",
+        "description": "Exportar lista/tabla SAP a Excel",
+        "code_snippet": "# SAP CRM tiene boton de Export en listas de resultados\n\n# 1. Buscar boton de export\nexport_btn = work.locator(\n    '[title*=\"Export\"], [title*=\"Download\"], '\n    'button:has-text(\"Export\"), [title*=\"Spreadsheet\"]'\n)\n\nif export_btn.count() > 0:\n    # 2. Click y esperar descarga\n    with page.expect_download() as download_info:\n        export_btn.first.click()\n        # Puede pedir formato\n        page.wait_for_timeout(500)\n        format_option = page.locator('text=Excel, text=CSV, text=Spreadsheet')\n        if format_option.count() > 0:\n            format_option.first.click()\n\n    download = download_info.value\n    download.save_as(f'sap_export_{datetime.now():%Y%m%d}.xlsx')\n    print(f'Exportado: {download.suggested_filename}')\nelse:\n    # Fallback: scraping manual\n    data = extract_sap_table(page, get_work_area)\n    import pandas as pd\n    df = pd.DataFrame(data)\n    df.to_excel('sap_manual_export.xlsx', index=False)\n    print(f'Scraping manual: {len(data)} filas')",
+        "notes": "No todas las vistas tienen boton Export. Fallback: scraping con extract_sap_table().",
+        "confidence": "high"
+      },
+      "tags": [
+        "sap",
+        "export",
+        "excel",
+        "descargar",
+        "reporte",
+        "spreadsheet"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-21T15:25:45.308550+00:00",
+      "updated_at": "2026-03-21T15:25:45.308550+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-31T20:28:16.443156+00:00",
+        "access_count": 196
+      }
+    },
+    "69e5855e7b42": {
+      "id": "69e5855e7b42",
+      "type": "pattern",
+      "key": "sap_copy_document",
+      "solution": {
+        "strategy": "copy_opportunity_or_quote",
+        "description": "Copiar/clonar oportunidad o cotizacion existente en SAP",
+        "code_snippet": "# SAP permite copiar documentos como base para nuevos\n\n# 1. Abrir el documento original\nwork.locator(f'a:has-text(\"{original_id}\")').click()\npage.wait_for_load_state('networkidle')\nwork = get_work_area(page)\n\n# 2. Buscar accion de Copy\ncopy_btn = work.locator(\n    '[title*=\"Copy\"], button:has-text(\"Copy\"), '\n    '[title*=\"Clone\"], button:has-text(\"Create Follow-Up\")'\n)\n\n# A veces esta en el menu Actions\nif copy_btn.count() == 0:\n    work.locator('[title*=\"Actions\"], button:has-text(\"Actions\")').click()\n    page.wait_for_timeout(500)\n    copy_btn = page.locator('text=Copy, text=Clone')\n\ncopy_btn.first.click()\npage.wait_for_load_state('networkidle')\nwork = get_work_area(page)\n\n# 3. Modificar campos del nuevo documento\nwork.locator('[aria-label*=\"Description\"]').click(click_count=3)\nwork.locator('[aria-label*=\"Description\"]').type('COPIA - ' + new_description, delay=30)\nwork.locator('[aria-label*=\"Description\"]').press('Tab')\n\n# 4. Guardar\nwork.locator('[title=\"Save\"]').click()\npage.wait_for_load_state('networkidle')",
+        "notes": "Copy crea nuevo documento con datos del original. Follow-Up crea documento vinculado.",
+        "confidence": "high"
+      },
+      "tags": [
+        "sap",
+        "copiar",
+        "clonar",
+        "copy",
+        "clone",
+        "followup"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-21T15:25:45.337225+00:00",
+      "updated_at": "2026-03-21T15:25:45.337225+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-30T21:30:06.644837+00:00",
+        "access_count": 32
+      }
+    },
+    "d2f433c82e11": {
+      "id": "d2f433c82e11",
+      "type": "fact",
+      "key": "sap_crm_object_types",
+      "fact": {
+        "rule": "Tipos de objetos principales en SAP CRM y sus relaciones",
+        "objects": {
+          "Opportunity": "Oportunidad de venta. Tiene: items, partners, notes, attachments, quotes",
+          "Quotation": "Cotizacion formal. Se crea desde oportunidad. Tiene: items, pricing, partners",
+          "Sales Order": "Orden de venta confirmada. Se crea desde cotizacion aprobada",
+          "Activity": "Llamada, reunion, tarea, email. Se asocia a oportunidad o cuenta",
+          "Account": "Empresa/cliente. Master data. Tiene: contactos, direcciones, jerarquia",
+          "Contact": "Persona de contacto. Asociada a Account",
+          "Lead": "Prospecto no calificado. Se convierte en Opportunity al calificar",
+          "Service Request": "Ticket de soporte. Diferente workflow que Sales"
+        },
+        "hierarchy": "Lead -> Opportunity -> Quotation -> Sales Order"
+      },
+      "tags": [
+        "sap",
+        "objetos",
+        "tipos",
+        "jerarquia",
+        "oportunidad",
+        "cotizacion"
+      ],
+      "created_at": "2026-03-21T15:25:45.365251+00:00",
+      "updated_at": "2026-03-21T15:25:45.365251+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-03-31T20:28:16.443156+00:00",
+        "access_count": 37
+      }
+    },
+    "f2e1770fbe91": {
+      "id": "f2e1770fbe91",
+      "type": "fact",
+      "key": "sap_crm_url_patterns",
+      "fact": {
+        "rule": "Patrones de URL en SAP CRM WebUI para navegacion directa",
+        "patterns": {
+          "login": "https://host:8105/sap/crm_logon?sap-client=500",
+          "main": "https://host:8105/sap/crm_bsp_frame?sap-client=500",
+          "search": "URL contiene sap-wd-configId=CONFIGID que identifica la vista",
+          "document": "URL contiene sap-wd-containerUniqueId=GUID del documento"
+        },
+        "notes": "Los configId y containerUniqueId son dinamicos. No se puede bookmark una oportunidad especifica.",
+        "port": "8105 es el puerto ICM de SAP para WebUI (HTTP/HTTPS)"
+      },
+      "tags": [
+        "sap",
+        "url",
+        "navegacion",
+        "patron",
+        "puerto",
+        "8105"
+      ],
+      "created_at": "2026-03-21T15:25:45.392240+00:00",
+      "updated_at": "2026-03-21T15:25:45.392240+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-03-31T20:28:16.443156+00:00",
+        "access_count": 49
+      }
+    },
+    "b5a78ba273c2": {
+      "id": "b5a78ba273c2",
+      "type": "fact",
+      "key": "sap_crm_html_element_classes",
+      "fact": {
+        "rule": "Mapa extendido de clases CSS de SAP CRM WebUI (framework UR)",
+        "input_classes": {
+          "urEdfTxtEnbl": "Input texto editable",
+          "urEdfTxtDsbl": "Input texto deshabilitado",
+          "urEdfTxtRo": "Input texto read-only",
+          "urEdfTxtReq": "Input texto obligatorio (required)",
+          "urEdfTxtErr": "Input texto con error de validacion",
+          "urEdfPsw": "Input de password",
+          "urTxa": "Textarea",
+          "urTxaEnbl": "Textarea editable"
+        },
+        "button_classes": {
+          "urBtnStd": "Boton estandar",
+          "urBtnEmph": "Boton enfatizado (primario/default)",
+          "urBtnDsbl": "Boton deshabilitado",
+          "urBtnImgStd": "Boton con icono"
+        },
+        "layout_classes": {
+          "urTblHdr": "Header de tabla",
+          "urSTSStd": "Fila estandar de tabla",
+          "urSTSAlt": "Fila alternada de tabla (zebra)",
+          "urSTSSel": "Fila seleccionada de tabla",
+          "urTbsLst": "Lista de tabs",
+          "urTbsLstTxt": "Texto de tab",
+          "urTbsLstSel": "Tab seleccionado/activo",
+          "urPnl": "Panel/contenedor",
+          "urGrp": "Grupo de campos",
+          "urGrpHdr": "Header de grupo"
+        },
+        "status_classes": {
+          "urMsgBar": "Barra de mensajes (contenedor)",
+          "urMsgBarTxt": "Texto del mensaje",
+          "urMsgBarErr": "Mensaje de error",
+          "urMsgBarWrn": "Mensaje de warning",
+          "urMsgBarInf": "Mensaje informativo",
+          "urMsgBarScs": "Mensaje de exito"
+        },
+        "overlay_classes": {
+          "urPopup": "Contenedor de popup",
+          "urOvrly": "Overlay de fondo",
+          "urBusy": "Indicador de busy/carga",
+          "urLoadingOverlay": "Overlay de carga completo"
+        }
+      },
+      "tags": [
+        "sap",
+        "css",
+        "clases",
+        "mapa",
+        "completo",
+        "input",
+        "boton",
+        "tabla",
+        "mensaje"
+      ],
+      "created_at": "2026-03-21T15:25:45.423137+00:00",
+      "updated_at": "2026-03-21T15:25:45.423137+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-03-31T20:28:16.443156+00:00",
+        "access_count": 131
+      }
+    },
+    "5d01e333320c": {
+      "id": "5d01e333320c",
+      "type": "fact",
+      "key": "sap_abap_error_codes",
+      "fact": {
+        "rule": "Codigos de error ABAP comunes que aparecen en SAP CRM",
+        "codes": {
+          "MESSAGE_TYPE_X": "Dump/crash del sistema. Error critico en ABAP.",
+          "CX_BSP_WD_RUNTIME_ERROR": "Error en componente WebUI. Recargar pagina.",
+          "RABAX_STATE": "Runtime error ABAP. Reportar a equipo Basis.",
+          "TIME_OUT": "El programa ABAP excedio el tiempo maximo (RFC timeout).",
+          "DBIF_RSQL_INVALID_RSQL": "Error de SQL en backend. Dato invalido enviado.",
+          "CONVERSION_EXIT": "Error al convertir valor (ej: texto en campo numerico).",
+          "OBJECTS_OBJREF_NOT_ASSIGNED": "Referencia a objeto null. Bug en codigo ABAP.",
+          "CX_SY_ZERO_DIVIDE": "Division por cero en calculo de precios."
+        },
+        "where_to_see": "Transaction SM21 (System Log) o ST22 (Dump Analysis) en SAP GUI"
+      },
+      "tags": [
+        "sap",
+        "abap",
+        "errores",
+        "codigos",
+        "dump",
+        "runtime"
+      ],
+      "created_at": "2026-03-21T15:25:45.452227+00:00",
+      "updated_at": "2026-03-21T15:25:45.452227+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-03-30T21:30:06.644837+00:00",
+        "access_count": 28
+      }
+    },
+    "862bbf0c40ed": {
+      "id": "862bbf0c40ed",
+      "type": "fact",
+      "key": "sap_crm_transaction_codes",
+      "fact": {
+        "rule": "Transacciones SAP GUI relevantes para soporte de CRM WebUI",
+        "transactions": {
+          "SM04": "Ver sesiones activas de usuarios (matar sesiones colgadas)",
+          "SM21": "System log - ver errores recientes",
+          "ST22": "ABAP dumps - ver crashes",
+          "SM50": "Work processes - ver procesos bloqueados",
+          "SM12": "Lock entries - ver objetos bloqueados",
+          "SM37": "Background jobs - ver jobs programados",
+          "CRMD_ORDER": "Mostrar/editar cualquier documento CRM",
+          "BP": "Mantener Business Partners (master data)",
+          "SPRO": "Customizing - configuracion del sistema",
+          "SE80": "ABAP Workbench - ver/editar codigo"
+        },
+        "notes": "Estas transacciones son para SAP GUI (no WebUI). Utiles para debug."
+      },
+      "tags": [
+        "sap",
+        "transacciones",
+        "gui",
+        "soporte",
+        "debug",
+        "sm04"
+      ],
+      "created_at": "2026-03-21T15:25:45.480652+00:00",
+      "updated_at": "2026-03-21T15:25:45.480652+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-03-31T20:28:16.443156+00:00",
+        "access_count": 51
+      }
+    },
+    "18dd8a9e5e41": {
+      "id": "18dd8a9e5e41",
+      "type": "fact",
+      "key": "sap_crm_testing_checklist",
+      "fact": {
+        "rule": "Checklist para validar script de automatizacion SAP CRM antes de produccion",
+        "checklist": [
+          "Login funciona con credenciales reales",
+          "Maneja popup de sesion duplicada",
+          "Navega frames correctamente (3 niveles)",
+          "NO usa IDs dinamicos (C42_W133...)",
+          "Usa aria-label o selectores estables",
+          "Presiona Tab despues de cada campo",
+          "Espera validacion server-side (500ms min)",
+          "Re-obtiene frame despues de cada navegacion/click",
+          "Maneja timeout de sesion (30 min)",
+          "Captura screenshot en errores",
+          "Lee barra de mensajes despues de Save",
+          "Maneja popups de datos no guardados",
+          "Funciona con SSL self-signed",
+          "NO corre en headless (a menos que sea necesario)",
+          "Tiene retry con backoff para operaciones fragiles",
+          "Exporta datos correctamente (headers + valores)",
+          "Cierra sesion al terminar (evitar sesiones huerfanas)"
+        ]
+      },
+      "tags": [
+        "sap",
+        "testing",
+        "checklist",
+        "validacion",
+        "produccion",
+        "qa"
+      ],
+      "created_at": "2026-03-21T15:25:45.512849+00:00",
+      "updated_at": "2026-03-21T15:25:45.512849+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-03-31T20:28:16.443156+00:00",
+        "access_count": 61
+      }
+    },
+    "09ef23362b3f": {
+      "id": "09ef23362b3f",
+      "type": "fact",
+      "key": "sap_crm_field_types",
+      "fact": {
+        "rule": "Tipos de campos en formularios SAP CRM y como automatizar cada uno",
+        "field_types": {
+          "Text Input": "fill() + Tab. Clase: urEdfTxtEnbl",
+          "Password": "type(delay=50). NUNCA fill(). Clase: urEdfPsw",
+          "Dropdown (custom)": "Click flecha + seleccionar opcion. NO es <select>",
+          "Date": "Escribir fecha directo (MM/DD/YYYY) + Tab",
+          "Checkbox": "click() para toggle. Verificar con is_checked()",
+          "Radio Button": "click() en la opcion deseada",
+          "Textarea": "fill() para texto largo. Clase: urTxa",
+          "Rich Text": "frame_locator del editor + fill en body",
+          "Read-only": "No editable. Leer con text_content(). Clase: urEdfTxtRo",
+          "Required": "Borde rojo si vacio. Clase incluye: urEdfTxtReq",
+          "Value Help (F4)": "Click icono busqueda o F4. Abre popup/window",
+          "Currency": "Numero sin separador miles + Tab. SAP reformatea",
+          "Table Cell": "Double-click para editar, luego type + Tab",
+          "Link": "Click directo. Clase: urLnk"
+        }
+      },
+      "tags": [
+        "sap",
+        "campos",
+        "tipos",
+        "automatizar",
+        "referencia",
+        "guia"
+      ],
+      "created_at": "2026-03-21T15:25:45.542163+00:00",
+      "updated_at": "2026-03-21T15:25:45.542163+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-03-31T17:56:27.314868+00:00",
+        "access_count": 52
+      }
+    },
+    "ee2443024685": {
+      "id": "ee2443024685",
+      "type": "fact",
+      "key": "sap_playwright_vs_selenium_for_sap",
+      "fact": {
+        "rule": "Comparacion Playwright vs Selenium para automatizar SAP CRM",
+        "comparison": {
+          "Playwright ventajas": [
+            "frame_locator() mas intuitivo que switch_to.frame()",
+            "Auto-wait integrado (no necesita WebDriverWait)",
+            "expect_popup() para manejar ventanas nuevas",
+            "set_input_files() para uploads",
+            "expect_download() para descargas",
+            "Mas rapido (WebSocket vs HTTP)",
+            "async/await nativo",
+            "Mejor manejo de errores (timeout descriptivos)"
+          ],
+          "Selenium ventajas": [
+            "Mas documentacion y ejemplos para SAP",
+            "Comunidad mas grande",
+            "Funciona con mas browsers legacy",
+            "ActionChains mas maduro",
+            "Mas facil integrar con frameworks de test (pytest-selenium)"
+          ],
+          "Recomendacion": "Playwright para proyectos nuevos. Selenium si ya hay codigo existente."
+        }
+      },
+      "tags": [
+        "sap",
+        "playwright",
+        "selenium",
+        "comparacion",
+        "elegir",
+        "recomendacion"
+      ],
+      "created_at": "2026-03-21T15:25:45.575324+00:00",
+      "updated_at": "2026-03-21T15:25:45.575324+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-01T03:19:45.515889+00:00",
+        "access_count": 52
+      }
+    },
+    "f0f7067ac578": {
+      "key": "sap_forensics_prompts",
+      "type": "fact",
+      "tags": [
+        "sap",
+        "forensics",
+        "debug",
+        "chrome"
+      ],
+      "content": "Prompts forenses para SAP CRM WebUI. PROMPT1: Scan estructura frames/inputs. PROMPT2: Auditoria Save (htmlbSL, thBtMgr). PROMPT3: Auditoria completa (botones, estados, validacion, shortcuts). PROMPT4: Explicacion tecnica post-accion. PROMPT5: Scan post Edit List. HALLAZGOS: orderedprod solo en Edit List, SAP pagina 10+ items, omni_input excluir, Save con JS click visible, Qty doble Enter, simulateType+simulateEnter graba, WorkAreaFrame1 es UI principal."
+    }
+  },
+  "tag_index": {
+    "sap": [
+      "bd2a3108b92c",
+      "ece1885243bc",
+      "944d67edda2e",
+      "92906df82d07",
+      "e6b5e455c82b",
+      "319d9b6e8b40",
+      "4dd4fb8adcfa",
+      "a3e73b88bb95",
+      "a01c821ab37a",
+      "632cdd16eda7",
+      "3dd388b769a2",
+      "351083e5c0e5",
+      "0b5a3aa3d82d",
+      "f804f50cb7a6",
+      "6e392cf83fa0",
+      "073de6d4041f",
+      "58a12434f8b9",
+      "bf90861f0c45",
+      "53cfe37dbf0e",
+      "105b351ead6d",
+      "062cdf9b4d26",
+      "37ec1471c02d",
+      "4a19c369be47",
+      "e0900cdd7557",
+      "c949be72bd10",
+      "a22522510feb",
+      "8ae5de3e591f",
+      "d3ebd1df1e60",
+      "91553b4943a8",
+      "69ea6932573f",
+      "89c701272fe6",
+      "53e9052e63f0",
+      "8cd0d017b622",
+      "de79eae99200",
+      "167f308ad5ed",
+      "0211f363a475",
+      "11685984dac1",
+      "023424b4eed2",
+      "840573a19ed6",
+      "476b0a73ed4a",
+      "dd0e450bc8a9",
+      "3c3df06d2d1a",
+      "a10434da93c9",
+      "7fd34228fb64",
+      "93712caeb6a1",
+      "c9d3a35c96f6",
+      "16a090a589cb",
+      "2cc83479f0d4",
+      "8a707e1f00d2",
+      "d37700181569",
+      "4d17a6b2ac42",
+      "9017d2539012",
+      "15cbcb9c708e",
+      "be5af4104afb",
+      "f54b6361a060",
+      "43384d5c0410",
+      "150e28ff4ac2",
+      "d8ef8c203688",
+      "982541a75126",
+      "6b8b97660443",
+      "a3efddf25974",
+      "69e5855e7b42",
+      "d2f433c82e11",
+      "f2e1770fbe91",
+      "b5a78ba273c2",
+      "5d01e333320c",
+      "862bbf0c40ed",
+      "18dd8a9e5e41",
+      "09ef23362b3f",
+      "ee2443024685"
+    ],
+    "frames": [
+      "bd2a3108b92c",
+      "ece1885243bc",
+      "e2bfc76d7fa6"
+    ],
+    "iframe": [
+      "bd2a3108b92c"
+    ],
+    "dom": [
+      "bd2a3108b92c",
+      "351083e5c0e5"
+    ],
+    "estructura": [
+      "bd2a3108b92c"
+    ],
+    "playwright": [
+      "bd2a3108b92c",
+      "0b5a3aa3d82d",
+      "062cdf9b4d26",
+      "ee2443024685"
+    ],
+    "selenium": [
+      "bd2a3108b92c",
+      "062cdf9b4d26",
+      "15e1cc81d3b1",
+      "e2bfc76d7fa6",
+      "6d5483f10b99",
+      "2b215f418fe1",
+      "e807bebd1f95",
+      "ee2443024685"
+    ],
+    "refresh": [
+      "ece1885243bc"
+    ],
+    "stale": [
+      "ece1885243bc",
+      "351083e5c0e5"
+    ],
+    "navegacion": [
+      "ece1885243bc",
+      "a22522510feb",
+      "53e9052e63f0",
+      "023424b4eed2",
+      "f2e1770fbe91"
+    ],
+    "frameset": [
+      "944d67edda2e"
+    ],
+    "frame": [
+      "944d67edda2e",
+      "d3ebd1df1e60"
+    ],
+    "html4": [
+      "944d67edda2e",
+      "58a12434f8b9"
+    ],
+    "deteccion": [
+      "944d67edda2e"
+    ],
+    "ids": [
+      "92906df82d07"
+    ],
+    "dinamicos": [
+      "92906df82d07"
+    ],
+    "selectores": [
+      "92906df82d07",
+      "e6b5e455c82b",
+      "319d9b6e8b40"
+    ],
+    "regla": [
+      "92906df82d07"
+    ],
+    "catalogo": [
+      "e6b5e455c82b",
+      "c949be72bd10"
+    ],
+    "campos": [
+      "e6b5e455c82b",
+      "4dd4fb8adcfa",
+      "073de6d4041f",
+      "53cfe37dbf0e",
+      "69ea6932573f",
+      "15cbcb9c708e",
+      "09ef23362b3f"
+    ],
+    "login": [
+      "e6b5e455c82b",
+      "0b5a3aa3d82d",
+      "e0900cdd7557",
+      "f54b6361a060"
+    ],
+    "botones": [
+      "e6b5e455c82b"
+    ],
+    "xpath": [
+      "319d9b6e8b40"
+    ],
+    "fallback": [
+      "319d9b6e8b40"
+    ],
+    "label": [
+      "319d9b6e8b40"
+    ],
+    "css": [
+      "319d9b6e8b40",
+      "bf90861f0c45",
+      "b5a78ba273c2"
+    ],
+    "fill": [
+      "4dd4fb8adcfa"
+    ],
+    "type": [
+      "4dd4fb8adcfa"
+    ],
+    "password": [
+      "4dd4fb8adcfa"
+    ],
+    "tab": [
+      "4dd4fb8adcfa",
+      "53cfe37dbf0e"
+    ],
+    "validacion": [
+      "4dd4fb8adcfa",
+      "53cfe37dbf0e",
+      "18dd8a9e5e41"
+    ],
+    "clear": [
+      "a3e73b88bb95"
+    ],
+    "limpiar": [
+      "a3e73b88bb95"
+    ],
+    "campo": [
+      "a3e73b88bb95"
+    ],
+    "triple-click": [
+      "a3e73b88bb95"
+    ],
+    "select-all": [
+      "a3e73b88bb95"
+    ],
+    "dropdown": [
+      "a01c821ab37a"
+    ],
+    "select": [
+      "a01c821ab37a"
+    ],
+    "combobox": [
+      "a01c821ab37a"
+    ],
+    "popup": [
+      "a01c821ab37a",
+      "f804f50cb7a6",
+      "4a19c369be47",
+      "e0900cdd7557",
+      "c949be72bd10",
+      "a22522510feb",
+      "de79eae99200",
+      "0211f363a475",
+      "023424b4eed2",
+      "982541a75126"
+    ],
+    "opciones": [
+      "a01c821ab37a"
+    ],
+    "tabla": [
+      "632cdd16eda7",
+      "3c3df06d2d1a",
+      "a10434da93c9",
+      "9017d2539012",
+      "b5a78ba273c2"
+    ],
+    "items": [
+      "632cdd16eda7",
+      "7fd34228fb64"
+    ],
+    "filas": [
+      "632cdd16eda7"
+    ],
+    "add-row": [
+      "632cdd16eda7"
+    ],
+    "celdas": [
+      "632cdd16eda7"
+    ],
+    "timeout": [
+      "3dd388b769a2",
+      "105b351ead6d"
+    ],
+    "espera": [
+      "3dd388b769a2"
+    ],
+    "wait": [
+      "3dd388b769a2",
+      "89c701272fe6",
+      "6d5483f10b99"
+    ],
+    "networkidle": [
+      "3dd388b769a2"
+    ],
+    "spinner": [
+      "3dd388b769a2",
+      "89c701272fe6"
+    ],
+    "lento": [
+      "3dd388b769a2"
+    ],
+    "element": [
+      "351083e5c0e5"
+    ],
+    "regenera": [
+      "351083e5c0e5"
+    ],
+    "relocate": [
+      "351083e5c0e5"
+    ],
+    "credenciales": [
+      "0b5a3aa3d82d"
+    ],
+    "secuencia": [
+      "0b5a3aa3d82d"
+    ],
+    "alert": [
+      "f804f50cb7a6",
+      "4a19c369be47"
+    ],
+    "dialog": [
+      "f804f50cb7a6"
+    ],
+    "sesion": [
+      "f804f50cb7a6",
+      "105b351ead6d",
+      "e0900cdd7557",
+      "f54b6361a060"
+    ],
+    "bloqueo": [
+      "f804f50cb7a6"
+    ],
+    "ssl": [
+      "6e392cf83fa0"
+    ],
+    "certificado": [
+      "6e392cf83fa0"
+    ],
+    "https": [
+      "6e392cf83fa0"
+    ],
+    "self-signed": [
+      "6e392cf83fa0"
+    ],
+    "oportunidad": [
+      "073de6d4041f",
+      "dd0e450bc8a9",
+      "c9d3a35c96f6",
+      "d2f433c82e11"
+    ],
+    "crear": [
+      "073de6d4041f",
+      "7fd34228fb64",
+      "6b8b97660443"
+    ],
+    "flujo": [
+      "073de6d4041f"
+    ],
+    "completo": [
+      "073de6d4041f",
+      "b5a78ba273c2"
+    ],
+    "arquitectura": [
+      "58a12434f8b9"
+    ],
+    "webui": [
+      "58a12434f8b9"
+    ],
+    "clases": [
+      "bf90861f0c45",
+      "b5a78ba273c2"
+    ],
+    "ui": [
+      "bf90861f0c45"
+    ],
+    "rendering": [
+      "bf90861f0c45",
+      "8cd0d017b622"
+    ],
+    "server-side": [
+      "53cfe37dbf0e"
+    ],
+    "limites": [
+      "105b351ead6d"
+    ],
+    "concurrencia": [
+      "105b351ead6d"
+    ],
+    "python": [
+      "062cdf9b4d26"
+    ],
+    "librerias": [
+      "062cdf9b4d26"
+    ],
+    "instalacion": [
+      "062cdf9b4d26"
+    ],
+    "errores": [
+      "37ec1471c02d",
+      "5d01e333320c"
+    ],
+    "comunes": [
+      "37ec1471c02d",
+      "0211f363a475"
+    ],
+    "troubleshooting": [
+      "37ec1471c02d",
+      "0211f363a475"
+    ],
+    "debug": [
+      "37ec1471c02d",
+      "e807bebd1f95",
+      "43384d5c0410",
+      "862bbf0c40ed"
+    ],
+    "tipos": [
+      "4a19c369be47",
+      "de79eae99200",
+      "d2f433c82e11",
+      "09ef23362b3f"
+    ],
+    "modal": [
+      "4a19c369be47"
+    ],
+    "overlay": [
+      "4a19c369be47"
+    ],
+    "window": [
+      "4a19c369be47",
+      "982541a75126"
+    ],
+    "duplicada": [
+      "e0900cdd7557"
+    ],
+    "continue": [
+      "e0900cdd7557"
+    ],
+    "value-help": [
+      "c949be72bd10"
+    ],
+    "f4": [
+      "c949be72bd10",
+      "4d17a6b2ac42"
+    ],
+    "busqueda": [
+      "c949be72bd10"
+    ],
+    "search-help": [
+      "c949be72bd10"
+    ],
+    "unsaved": [
+      "a22522510feb"
+    ],
+    "guardar": [
+      "a22522510feb"
+    ],
+    "warning": [
+      "a22522510feb"
+    ],
+    "mensaje": [
+      "8ae5de3e591f",
+      "b5a78ba273c2"
+    ],
+    "barra": [
+      "8ae5de3e591f"
+    ],
+    "error": [
+      "8ae5de3e591f",
+      "e807bebd1f95",
+      "be5af4104afb",
+      "43384d5c0410"
+    ],
+    "confirmacion": [
+      "8ae5de3e591f"
+    ],
+    "feedback": [
+      "8ae5de3e591f"
+    ],
+    "javascript": [
+      "d3ebd1df1e60",
+      "91553b4943a8",
+      "69ea6932573f",
+      "89c701272fe6",
+      "53e9052e63f0",
+      "8cd0d017b622",
+      "167f308ad5ed"
+    ],
+    "evaluate": [
+      "d3ebd1df1e60"
+    ],
+    "contexto": [
+      "d3ebd1df1e60"
+    ],
+    "events": [
+      "91553b4943a8"
+    ],
+    "dispatch": [
+      "91553b4943a8"
+    ],
+    "input": [
+      "91553b4943a8",
+      "167f308ad5ed",
+      "11685984dac1",
+      "b5a78ba273c2"
+    ],
+    "change": [
+      "91553b4943a8"
+    ],
+    "blur": [
+      "91553b4943a8"
+    ],
+    "leer": [
+      "69ea6932573f"
+    ],
+    "valores": [
+      "69ea6932573f",
+      "15cbcb9c708e"
+    ],
+    "verificar": [
+      "69ea6932573f"
+    ],
+    "busy": [
+      "89c701272fe6"
+    ],
+    "carga": [
+      "89c701272fe6"
+    ],
+    "xhr": [
+      "89c701272fe6"
+    ],
+    "menu": [
+      "53e9052e63f0"
+    ],
+    "hover": [
+      "53e9052e63f0",
+      "2b215f418fe1"
+    ],
+    "click": [
+      "53e9052e63f0"
+    ],
+    "workcenter": [
+      "53e9052e63f0"
+    ],
+    "framework": [
+      "8cd0d017b622"
+    ],
+    "ur": [
+      "8cd0d017b622"
+    ],
+    "ajax": [
+      "8cd0d017b622"
+    ],
+    "decision": [
+      "de79eae99200"
+    ],
+    "arbol": [
+      "de79eae99200"
+    ],
+    "manejo": [
+      "de79eae99200"
+    ],
+    "eventos": [
+      "167f308ad5ed"
+    ],
+    "onblur": [
+      "167f308ad5ed"
+    ],
+    "onchange": [
+      "167f308ad5ed"
+    ],
+    "mensajes": [
+      "0211f363a475"
+    ],
+    "significado": [
+      "0211f363a475"
+    ],
+    "webdriver": [
+      "15e1cc81d3b1"
+    ],
+    "setup": [
+      "15e1cc81d3b1"
+    ],
+    "chrome": [
+      "15e1cc81d3b1"
+    ],
+    "configuracion": [
+      "15e1cc81d3b1"
+    ],
+    "switch": [
+      "e2bfc76d7fa6"
+    ],
+    "navigation": [
+      "e2bfc76d7fa6"
+    ],
+    "webdriverwait": [
+      "e2bfc76d7fa6",
+      "6d5483f10b99"
+    ],
+    "explicit": [
+      "6d5483f10b99"
+    ],
+    "condiciones": [
+      "6d5483f10b99",
+      "93712caeb6a1"
+    ],
+    "actionchains": [
+      "2b215f418fe1"
+    ],
+    "drag": [
+      "2b215f418fe1"
+    ],
+    "keyboard": [
+      "2b215f418fe1",
+      "4d17a6b2ac42"
+    ],
+    "shortcuts": [
+      "2b215f418fe1",
+      "4d17a6b2ac42"
+    ],
+    "screenshot": [
+      "e807bebd1f95",
+      "43384d5c0410"
+    ],
+    "decorador": [
+      "e807bebd1f95",
+      "be5af4104afb"
+    ],
+    "fecha": [
+      "11685984dac1"
+    ],
+    "datepicker": [
+      "11685984dac1",
+      "023424b4eed2"
+    ],
+    "calendario": [
+      "11685984dac1",
+      "023424b4eed2",
+      "6b8b97660443"
+    ],
+    "archivo": [
+      "840573a19ed6",
+      "476b0a73ed4a"
+    ],
+    "upload": [
+      "840573a19ed6"
+    ],
+    "attachment": [
+      "840573a19ed6",
+      "476b0a73ed4a"
+    ],
+    "adjunto": [
+      "840573a19ed6"
+    ],
+    "file": [
+      "840573a19ed6"
+    ],
+    "descargar": [
+      "476b0a73ed4a",
+      "a3efddf25974"
+    ],
+    "download": [
+      "476b0a73ed4a"
+    ],
+    "buscar": [
+      "dd0e450bc8a9"
+    ],
+    "search": [
+      "dd0e450bc8a9"
+    ],
+    "filtro": [
+      "dd0e450bc8a9",
+      "3c3df06d2d1a"
+    ],
+    "resultados": [
+      "dd0e450bc8a9"
+    ],
+    "columna": [
+      "3c3df06d2d1a"
+    ],
+    "header": [
+      "3c3df06d2d1a"
+    ],
+    "paginacion": [
+      "a10434da93c9"
+    ],
+    "paginas": [
+      "a10434da93c9"
+    ],
+    "next": [
+      "a10434da93c9"
+    ],
+    "iterar": [
+      "a10434da93c9"
+    ],
+    "cotizacion": [
+      "7fd34228fb64",
+      "93712caeb6a1",
+      "d2f433c82e11"
+    ],
+    "quote": [
+      "7fd34228fb64"
+    ],
+    "manual": [
+      "7fd34228fb64"
+    ],
+    "pricing": [
+      "93712caeb6a1"
+    ],
+    "precios": [
+      "93712caeb6a1"
+    ],
+    "descuento": [
+      "93712caeb6a1"
+    ],
+    "status": [
+      "c9d3a35c96f6"
+    ],
+    "cambiar": [
+      "c9d3a35c96f6"
+    ],
+    "workflow": [
+      "c9d3a35c96f6",
+      "16a090a589cb"
+    ],
+    "won": [
+      "c9d3a35c96f6"
+    ],
+    "lost": [
+      "c9d3a35c96f6"
+    ],
+    "aprobacion": [
+      "16a090a589cb"
+    ],
+    "submit": [
+      "16a090a589cb"
+    ],
+    "approval": [
+      "16a090a589cb"
+    ],
+    "notas": [
+      "2cc83479f0d4"
+    ],
+    "textarea": [
+      "2cc83479f0d4"
+    ],
+    "texto": [
+      "2cc83479f0d4"
+    ],
+    "notes": [
+      "2cc83479f0d4"
+    ],
+    "editor": [
+      "2cc83479f0d4"
+    ],
+    "partner": [
+      "8a707e1f00d2"
+    ],
+    "contacto": [
+      "8a707e1f00d2"
+    ],
+    "agregar": [
+      "8a707e1f00d2"
+    ],
+    "parties": [
+      "8a707e1f00d2"
+    ],
+    "business": [
+      "8a707e1f00d2"
+    ],
+    "moneda": [
+      "d37700181569"
+    ],
+    "currency": [
+      "d37700181569"
+    ],
+    "decimal": [
+      "d37700181569"
+    ],
+    "formato": [
+      "d37700181569"
+    ],
+    "numero": [
+      "d37700181569"
+    ],
+    "valor": [
+      "d37700181569"
+    ],
+    "atajos": [
+      "4d17a6b2ac42"
+    ],
+    "teclado": [
+      "4d17a6b2ac42"
+    ],
+    "f5": [
+      "4d17a6b2ac42"
+    ],
+    "extraer": [
+      "9017d2539012",
+      "15cbcb9c708e"
+    ],
+    "scraping": [
+      "9017d2539012",
+      "15cbcb9c708e"
+    ],
+    "datos": [
+      "9017d2539012"
+    ],
+    "export": [
+      "9017d2539012",
+      "a3efddf25974"
+    ],
+    "pandas": [
+      "9017d2539012"
+    ],
+    "formulario": [
+      "15cbcb9c708e"
+    ],
+    "retry": [
+      "be5af4104afb"
+    ],
+    "backoff": [
+      "be5af4104afb"
+    ],
+    "recovery": [
+      "be5af4104afb",
+      "f54b6361a060"
+    ],
+    "expirada": [
+      "f54b6361a060"
+    ],
+    "reconectar": [
+      "f54b6361a060"
+    ],
+    "handling": [
+      "43384d5c0410"
+    ],
+    "exceptions": [
+      "43384d5c0410"
+    ],
+    "performance": [
+      "150e28ff4ac2"
+    ],
+    "velocidad": [
+      "150e28ff4ac2"
+    ],
+    "optimizacion": [
+      "150e28ff4ac2"
+    ],
+    "tips": [
+      "150e28ff4ac2"
+    ],
+    "headless": [
+      "d8ef8c203688"
+    ],
+    "servidor": [
+      "d8ef8c203688"
+    ],
+    "ci": [
+      "d8ef8c203688"
+    ],
+    "cd": [
+      "d8ef8c203688"
+    ],
+    "xvfb": [
+      "d8ef8c203688"
+    ],
+    "rendimiento": [
+      "d8ef8c203688"
+    ],
+    "tabs": [
+      "982541a75126"
+    ],
+    "ventanas": [
+      "982541a75126"
+    ],
+    "multi": [
+      "982541a75126"
+    ],
+    "actividad": [
+      "6b8b97660443"
+    ],
+    "llamada": [
+      "6b8b97660443"
+    ],
+    "reunion": [
+      "6b8b97660443"
+    ],
+    "tarea": [
+      "6b8b97660443"
+    ],
+    "excel": [
+      "a3efddf25974"
+    ],
+    "reporte": [
+      "a3efddf25974"
+    ],
+    "spreadsheet": [
+      "a3efddf25974"
+    ],
+    "copiar": [
+      "69e5855e7b42"
+    ],
+    "clonar": [
+      "69e5855e7b42"
+    ],
+    "copy": [
+      "69e5855e7b42"
+    ],
+    "clone": [
+      "69e5855e7b42"
+    ],
+    "followup": [
+      "69e5855e7b42"
+    ],
+    "objetos": [
+      "d2f433c82e11"
+    ],
+    "jerarquia": [
+      "d2f433c82e11"
+    ],
+    "url": [
+      "f2e1770fbe91"
+    ],
+    "patron": [
+      "f2e1770fbe91"
+    ],
+    "puerto": [
+      "f2e1770fbe91"
+    ],
+    "8105": [
+      "f2e1770fbe91"
+    ],
+    "mapa": [
+      "b5a78ba273c2"
+    ],
+    "boton": [
+      "b5a78ba273c2"
+    ],
+    "abap": [
+      "5d01e333320c"
+    ],
+    "codigos": [
+      "5d01e333320c"
+    ],
+    "dump": [
+      "5d01e333320c"
+    ],
+    "runtime": [
+      "5d01e333320c"
+    ],
+    "transacciones": [
+      "862bbf0c40ed"
+    ],
+    "gui": [
+      "862bbf0c40ed"
+    ],
+    "soporte": [
+      "862bbf0c40ed"
+    ],
+    "sm04": [
+      "862bbf0c40ed"
+    ],
+    "testing": [
+      "18dd8a9e5e41"
+    ],
+    "checklist": [
+      "18dd8a9e5e41"
+    ],
+    "produccion": [
+      "18dd8a9e5e41"
+    ],
+    "qa": [
+      "18dd8a9e5e41"
+    ],
+    "automatizar": [
+      "09ef23362b3f"
+    ],
+    "referencia": [
+      "09ef23362b3f"
+    ],
+    "guia": [
+      "09ef23362b3f"
+    ],
+    "comparacion": [
+      "ee2443024685"
+    ],
+    "elegir": [
+      "ee2443024685"
+    ],
+    "recomendacion": [
+      "ee2443024685"
+    ]
+  },
+  "stats": {
+    "total_entries": 75,
+    "total_lookups": 472,
+    "total_hits": 357
+  }
+}

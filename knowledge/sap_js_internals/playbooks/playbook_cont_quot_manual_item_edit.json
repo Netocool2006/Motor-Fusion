@@ -1,0 +1,1728 @@
+{
+  "screen": "cont_quot_manual_item_edit",
+  "description": "Screen: Cont Quot Manual Item: 15, CO-AI LEVEL2 SPECIALIST MAN POWER PACKAG - [SAP]",
+  "timestamp": "2026-03-27T20:45:14",
+  "mode": "SCAN",
+  "tab_title": "Cont Quot Manual Item: 15, CO-AI LEVEL2 SPECIALIST MAN POWER PACKAG - [SAP]",
+  "fields": [
+    {
+      "stable_suffix": "btadmini_struct.ordered_prod",
+      "selector": "[id$=\"btadmini_struct.ordered_prod\"]",
+      "label": "Product",
+      "value": "SWS_AI_MP_L2",
+      "type": "input",
+      "editable": false,
+      "visible": true,
+      "id_sample": "C125_W156_V315_V316_btadmini_struct.ordered_prod"
+    },
+    {
+      "stable_suffix": "btadmini_struct.description",
+      "selector": "[id$=\"btadmini_struct.description\"]",
+      "label": "",
+      "value": "CO-AI LEVEL2 SPECIALIST MAN POWER PACKAG",
+      "type": "input",
+      "editable": true,
+      "visible": true,
+      "id_sample": "C125_W156_V315_V316_btadmini_struct.description"
+    },
+    {
+      "stable_suffix": "btadmini_quantity",
+      "selector": "[id$=\"btadmini_quantity\"]",
+      "label": "Quantity",
+      "value": "0,500",
+      "type": "input",
+      "editable": true,
+      "visible": true,
+      "id_sample": "C125_W156_V315_V316_btadmini_quantity"
+    },
+    {
+      "stable_suffix": "btadmini_process_qty_unit",
+      "selector": "[id$=\"btadmini_process_qty_unit\"]",
+      "label": "",
+      "value": "UN",
+      "type": "input",
+      "editable": true,
+      "visible": true,
+      "id_sample": "C125_W156_V315_V316_btadmini_process_qty_unit"
+    },
+    {
+      "stable_suffix": "btadmini_lcstatus",
+      "selector": "[id$=\"btadmini_lcstatus\"]",
+      "label": "",
+      "value": "Completed",
+      "type": "input",
+      "editable": true,
+      "visible": true,
+      "id_sample": "C125_W156_V315_V316_btadmini_lcstatus"
+    },
+    {
+      "stable_suffix": "btadmini_net_value",
+      "selector": "[id$=\"btadmini_net_value\"]",
+      "label": "Net Value",
+      "value": "0,00",
+      "type": "input",
+      "editable": true,
+      "visible": true,
+      "id_sample": "C125_W156_V315_V316_btadmini_net_value"
+    },
+    {
+      "stable_suffix": "btadmini_currency",
+      "selector": "[id$=\"btadmini_currency\"]",
+      "label": "",
+      "value": "USD",
+      "type": "input",
+      "editable": false,
+      "visible": true,
+      "id_sample": "C125_W156_V315_V316_btadmini_currency"
+    },
+    {
+      "stable_suffix": "btadmini_target_value",
+      "selector": "[id$=\"btadmini_target_value\"]",
+      "label": "Target Value",
+      "value": "0,00",
+      "type": "input",
+      "editable": true,
+      "visible": true,
+      "id_sample": "C125_W156_V315_V316_btadmini_target_value"
+    },
+    {
+      "stable_suffix": "btcumulated_cum_quantity",
+      "selector": "[id$=\"btcumulated_cum_quantity\"]",
+      "label": "Released Quantity",
+      "value": "",
+      "type": "input",
+      "editable": false,
+      "visible": true,
+      "id_sample": "C125_W156_V315_V316_btcumulated_cum_quantity"
+    },
+    {
+      "stable_suffix": "btcumulated_cum_currency",
+      "selector": "[id$=\"btcumulated_cum_currency\"]",
+      "label": "",
+      "value": "",
+      "type": "input",
+      "editable": false,
+      "visible": true,
+      "id_sample": "C125_W156_V315_V316_btcumulated_cum_currency"
+    },
+    {
+      "stable_suffix": "btcumulated_cum_value",
+      "selector": "[id$=\"btcumulated_cum_value\"]",
+      "label": "Released Value",
+      "value": "",
+      "type": "input",
+      "editable": false,
+      "visible": true,
+      "id_sample": "C125_W156_V315_V316_btcumulated_cum_value"
+    },
+    {
+      "stable_suffix": "btcumulated_cum_quantity_unit",
+      "selector": "[id$=\"btcumulated_cum_quantity_unit\"]",
+      "label": "",
+      "value": "",
+      "type": "input",
+      "editable": false,
+      "visible": true,
+      "id_sample": "C125_W156_V315_V316_btcumulated_cum_quantity_unit"
+    },
+    {
+      "stable_suffix": "btservicei_struct.srv_serwi",
+      "selector": "[id$=\"btservicei_struct.srv_serwi\"]",
+      "label": "",
+      "value": "",
+      "type": "input",
+      "editable": true,
+      "visible": true,
+      "id_sample": "C125_W156_V315_V316_btservicei_struct.srv_serwi"
+    },
+    {
+      "stable_suffix": "btservicei_struct.srv_escal",
+      "selector": "[id$=\"btservicei_struct.srv_escal\"]",
+      "label": "",
+      "value": "",
+      "type": "input",
+      "editable": true,
+      "visible": true,
+      "id_sample": "C125_W156_V315_V316_btservicei_struct.srv_escal"
+    },
+    {
+      "stable_suffix": "btdatecontractstart_date",
+      "selector": "[id$=\"btdatecontractstart_date\"]",
+      "label": "",
+      "value": "26.12.2025",
+      "type": "input",
+      "editable": true,
+      "visible": true,
+      "id_sample": "C125_W156_V315_V316_btdatecontractstart_date"
+    },
+    {
+      "stable_suffix": "btdatecontractstart_time",
+      "selector": "[id$=\"btdatecontractstart_time\"]",
+      "label": "",
+      "value": "00:00",
+      "type": "input",
+      "editable": true,
+      "visible": true,
+      "id_sample": "C125_W156_V315_V316_btdatecontractstart_time"
+    },
+    {
+      "stable_suffix": "btdatecontractend_date",
+      "selector": "[id$=\"btdatecontractend_date\"]",
+      "label": "",
+      "value": "26.12.2026",
+      "type": "input",
+      "editable": true,
+      "visible": true,
+      "id_sample": "C125_W156_V315_V316_btdatecontractend_date"
+    },
+    {
+      "stable_suffix": "btdatecontractend_time",
+      "selector": "[id$=\"btdatecontractend_time\"]",
+      "label": "",
+      "value": "00:00",
+      "type": "input",
+      "editable": true,
+      "visible": true,
+      "id_sample": "C125_W156_V315_V316_btdatecontractend_time"
+    },
+    {
+      "stable_suffix": "ObjListEL_omni_input_cel",
+      "selector": "[id$=\"ObjListEL_omni_input_cel\"]",
+      "label": "",
+      "value": "",
+      "type": "input",
+      "editable": true,
+      "visible": true,
+      "id_sample": "C126_W319_V320_ObjListEL_omni_input_cel"
+    },
+    {
+      "stable_suffix": "btordprpobj_table[1].ibase_header",
+      "selector": "[id$=\"btordprpobj_table[1].ibase_header\"]",
+      "label": "",
+      "value": "0",
+      "type": "input",
+      "editable": true,
+      "visible": true,
+      "id_sample": "C126_W319_V320_btordprpobj_table[1].ibase_header"
+    },
+    {
+      "stable_suffix": "btordprpobj_table[1].ibase_component",
+      "selector": "[id$=\"btordprpobj_table[1].ibase_component\"]",
+      "label": "",
+      "value": "0",
+      "type": "input",
+      "editable": true,
+      "visible": true,
+      "id_sample": "C126_W319_V320_btordprpobj_table[1].ibase_component"
+    },
+    {
+      "stable_suffix": "btordprpobj_table[1].iobject_id",
+      "selector": "[id$=\"btordprpobj_table[1].iobject_id\"]",
+      "label": "",
+      "value": "",
+      "type": "input",
+      "editable": true,
+      "visible": true,
+      "id_sample": "C126_W319_V320_btordprpobj_table[1].iobject_id"
+    },
+    {
+      "stable_suffix": "btordprpobj_table[1].product_id",
+      "selector": "[id$=\"btordprpobj_table[1].product_id\"]",
+      "label": "",
+      "value": "",
+      "type": "input",
+      "editable": true,
+      "visible": true,
+      "id_sample": "C126_W319_V320_btordprpobj_table[1].product_id"
+    },
+    {
+      "stable_suffix": "DtlListEL_omni_input_cel",
+      "selector": "[id$=\"DtlListEL_omni_input_cel\"]",
+      "label": "Insert\n\nÂ Create Price Agreement",
+      "value": "",
+      "type": "input",
+      "editable": true,
+      "visible": true,
+      "id_sample": "C127_W323_V324_DtlListEL_omni_input_cel"
+    },
+    {
+      "stable_suffix": "btordprpdtl_table[1].product_id",
+      "selector": "[id$=\"btordprpdtl_table[1].product_id\"]",
+      "label": "",
+      "value": "",
+      "type": "input",
+      "editable": true,
+      "visible": true,
+      "id_sample": "C127_W323_V324_btordprpdtl_table[1].product_id"
+    },
+    {
+      "stable_suffix": "btordprpdtl_table[1].category_id",
+      "selector": "[id$=\"btordprpdtl_table[1].category_id\"]",
+      "label": "",
+      "value": "",
+      "type": "input",
+      "editable": true,
+      "visible": true,
+      "id_sample": "C127_W323_V324_btordprpdtl_table[1].category_id"
+    },
+    {
+      "stable_suffix": "Table1_omni_input_cel",
+      "selector": "[id$=\"Table1_omni_input_cel\"]",
+      "label": "Insert\nÂ Reprice\nComplete Reprice",
+      "value": "",
+      "type": "input",
+      "editable": true,
+      "visible": true,
+      "id_sample": "C128_W301_V302_V304_Table1_omni_input_cel"
+    },
+    {
+      "stable_suffix": "condline_table[1].kbetr_prt",
+      "selector": "[id$=\"condline_table[1].kbetr_prt\"]",
+      "label": "Service Fee",
+      "value": "0,00",
+      "type": "input",
+      "editable": true,
+      "visible": true,
+      "id_sample": "C128_W301_V302_V304_condline_table[1].kbetr_prt"
+    },
+    {
+      "stable_suffix": "condline_table[1].koein",
+      "selector": "[id$=\"condline_table[1].koein\"]",
+      "label": "",
+      "value": "USD",
+      "type": "input",
+      "editable": true,
+      "visible": true,
+      "id_sample": "C128_W301_V302_V304_condline_table[1].koein"
+    },
+    {
+      "stable_suffix": "condline_table[1].kpein",
+      "selector": "[id$=\"condline_table[1].kpein\"]",
+      "label": "",
+      "value": "1",
+      "type": "input",
+      "editable": true,
+      "visible": true,
+      "id_sample": "C128_W301_V302_V304_condline_table[1].kpein"
+    },
+    {
+      "stable_suffix": "condline_table[1].kmein",
+      "selector": "[id$=\"condline_table[1].kmein\"]",
+      "label": "",
+      "value": "UN",
+      "type": "input",
+      "editable": true,
+      "visible": true,
+      "id_sample": "C128_W301_V302_V304_condline_table[1].kmein"
+    },
+    {
+      "stable_suffix": "condline_table[3].kbetr_prt",
+      "selector": "[id$=\"condline_table[3].kbetr_prt\"]",
+      "label": "Maint Factor %",
+      "value": "0,000",
+      "type": "input",
+      "editable": true,
+      "visible": true,
+      "id_sample": "C128_W301_V302_V304_condline_table[3].kbetr_prt"
+    },
+    {
+      "stable_suffix": "tv1_omni_input_afh",
+      "selector": "[id$=\"tv1_omni_input_afh\"]",
+      "label": "Price AgreementsNew\nEdit List",
+      "value": "",
+      "type": "input",
+      "editable": true,
+      "visible": true,
+      "id_sample": "C129_W158_V333_tv1_omni_input_afh"
+    },
+    {
+      "stable_suffix": "btdatesset_cancelreceipt",
+      "selector": "[id$=\"btdatesset_cancelreceipt\"]",
+      "label": "",
+      "value": "",
+      "type": "input",
+      "editable": true,
+      "visible": true,
+      "id_sample": "C130_W335_V336_V337_btdatesset_cancelreceipt"
+    },
+    {
+      "stable_suffix": "btdatesset_reqcanceldate",
+      "selector": "[id$=\"btdatesset_reqcanceldate\"]",
+      "label": "",
+      "value": "",
+      "type": "input",
+      "editable": true,
+      "visible": true,
+      "id_sample": "C130_W335_V336_V337_btdatesset_reqcanceldate"
+    },
+    {
+      "stable_suffix": "btcancelset_nextcancellation",
+      "selector": "[id$=\"btcancelset_nextcancellation\"]",
+      "label": "Calculated Next Cancellation Date",
+      "value": "",
+      "type": "input",
+      "editable": false,
+      "visible": true,
+      "id_sample": "C130_W335_V336_V337_btcancelset_nextcancellation"
+    },
+    {
+      "stable_suffix": "btdatesset_actualcanceldate",
+      "selector": "[id$=\"btdatesset_actualcanceldate\"]",
+      "label": "",
+      "value": "",
+      "type": "input",
+      "editable": true,
+      "visible": true,
+      "id_sample": "C130_W335_V336_V337_btdatesset_actualcanceldate"
+    },
+    {
+      "stable_suffix": "btcancelset_struct.cancparty",
+      "selector": "[id$=\"btcancelset_struct.cancparty\"]",
+      "label": "",
+      "value": "",
+      "type": "input",
+      "editable": true,
+      "visible": true,
+      "id_sample": "C130_W335_V336_V337_btcancelset_struct.cancparty"
+    },
+    {
+      "stable_suffix": "btcancelset_struct.canc_reason",
+      "selector": "[id$=\"btcancelset_struct.canc_reason\"]",
+      "label": "",
+      "value": "",
+      "type": "input",
+      "editable": true,
+      "visible": true,
+      "id_sample": "C130_W335_V336_V337_btcancelset_struct.canc_reason"
+    },
+    {
+      "stable_suffix": "AccResTable_omni_input_cel",
+      "selector": "[id$=\"AccResTable_omni_input_cel\"]",
+      "label": "Insert",
+      "value": "",
+      "type": "input",
+      "editable": true,
+      "visible": true,
+      "id_sample": "C130_W335_V336_V339_AccResTable_omni_input_cel"
+    },
+    {
+      "stable_suffix": "AccResTable_omni_input_cel",
+      "selector": "[id$=\"AccResTable_omni_input_cel\"]",
+      "label": "",
+      "value": "",
+      "type": "input",
+      "editable": true,
+      "visible": true,
+      "id_sample": "C130_W335_V336_V340_AccResTable_omni_input_cel"
+    }
+  ],
+  "spans": [
+    {
+      "stable_suffix": ":T_link:U_SESSIONTIMEOUT:I_SESSIONTIMEOUT",
+      "label": "",
+      "value": "00:58"
+    },
+    {
+      "stable_suffix": ":T_link:U_PERSONALIZE:I_PERSONALIZE",
+      "label": "",
+      "value": "Personalize"
+    },
+    {
+      "stable_suffix": "PERSONALIZE",
+      "label": "",
+      "value": "Personalize"
+    },
+    {
+      "stable_suffix": ":T_link:U_SYSMSG:I_SYSMSG",
+      "label": "Personalize",
+      "value": "System News"
+    },
+    {
+      "stable_suffix": "SYSMSG",
+      "label": "Personalize",
+      "value": "System News"
+    },
+    {
+      "stable_suffix": ":T_link:U_LOGOFF:I_LOGOFF",
+      "label": "System News",
+      "value": "Log Off"
+    },
+    {
+      "stable_suffix": "LOGOFF",
+      "label": "System News",
+      "value": "Log Off"
+    },
+    {
+      "stable_suffix": "SearchMenuAnchor1",
+      "label": "",
+      "value": "Saved Searches"
+    },
+    {
+      "stable_suffix": "QUICKSEARCH",
+      "label": "Saved Searches",
+      "value": "Go"
+    },
+    {
+      "stable_suffix": "thtmlb_button_1",
+      "label": "Saved Searches",
+      "value": "Advanced"
+    },
+    {
+      "stable_suffix": "SLS-HOME",
+      "label": "",
+      "value": "Home"
+    },
+    {
+      "stable_suffix": "SLS-ACC",
+      "label": "",
+      "value": "Account Management"
+    },
+    {
+      "stable_suffix": "SLS-ACT",
+      "label": "",
+      "value": "Activities"
+    },
+    {
+      "stable_suffix": "SLS-CYCLE",
+      "label": "",
+      "value": "Sales Cycle"
+    },
+    {
+      "stable_suffix": "MD-ALL",
+      "label": "",
+      "value": "Master Data"
+    },
+    {
+      "stable_suffix": "SRV-ORD",
+      "label": "",
+      "value": "Service Orders"
+    },
+    {
+      "stable_suffix": "SRV-CONTR",
+      "label": "",
+      "value": "Service Contracts"
+    },
+    {
+      "stable_suffix": "ZSD_ESP",
+      "label": "",
+      "value": "Reporte de precios ESP"
+    },
+    {
+      "stable_suffix": "RecentObjects__title",
+      "label": "",
+      "value": "Recent Items"
+    },
+    {
+      "stable_suffix": "1",
+      "label": "",
+      "value": "8010043700 CÃ©lula AI Banrural"
+    },
+    {
+      "stable_suffix": "2",
+      "label": "",
+      "value": "245930 Renovacion IBM Blueworks"
+    },
+    {
+      "stable_suffix": "3",
+      "label": "",
+      "value": "10072052"
+    },
+    {
+      "stable_suffix": "4",
+      "label": "",
+      "value": "245372 Agentes Virtuales IA para Mercadeo - BR"
+    },
+    {
+      "stable_suffix": "5",
+      "label": "",
+      "value": "244701 Optimizar WAS - BR"
+    },
+    {
+      "stable_suffix": "ZREP_FOREC",
+      "label": "",
+      "value": "Forecast GBM"
+    },
+    {
+      "stable_suffix": "ZREP_FOREM",
+      "label": "",
+      "value": "Forecast Employee GBM"
+    },
+    {
+      "stable_suffix": "BackButton",
+      "label": "",
+      "value": "Back"
+    },
+    {
+      "stable_suffix": "thtmlb_button_4",
+      "label": "",
+      "value": "New"
+    },
+    {
+      "stable_suffix": "thtmlb_button_7",
+      "label": "",
+      "value": "Print Preview"
+    },
+    {
+      "stable_suffix": "0001_expand_link",
+      "label": "",
+      "value": "Service Contract Quotation Item Details"
+    },
+    {
+      "stable_suffix": "but1",
+      "label": "",
+      "value": "Edit"
+    },
+    {
+      "stable_suffix": "thtmlb_textView_1",
+      "label": "",
+      "value": "General Data"
+    },
+    {
+      "stable_suffix": "thtmlb_textView_13",
+      "label": "",
+      "value": "Service Level Agreements"
+    },
+    {
+      "stable_suffix": "thtmlb_textView_2",
+      "label": "",
+      "value": "Dates"
+    },
+    {
+      "stable_suffix": "0002_expand_link",
+      "label": "",
+      "value": "Notes"
+    },
+    {
+      "stable_suffix": "0003_expand_link",
+      "label": "",
+      "value": "Object List"
+    },
+    {
+      "stable_suffix": "thtmlb_button_3",
+      "label": "",
+      "value": "Proposal for Service Plan"
+    },
+    {
+      "stable_suffix": "thtmlb_button_5",
+      "label": "",
+      "value": "Create Object"
+    },
+    {
+      "stable_suffix": "ObjListEL__header_bee__1",
+      "label": "",
+      "value": "Actions"
+    },
+    {
+      "stable_suffix": "ObjListEL__header_bee__2",
+      "label": "",
+      "value": "Installed Base ID"
+    },
+    {
+      "stable_suffix": "ObjListEL__header_bee__3",
+      "label": "",
+      "value": "Component ID"
+    },
+    {
+      "stable_suffix": "ObjListEL__header_bee__4",
+      "label": "",
+      "value": "Object ID"
+    },
+    {
+      "stable_suffix": "ObjListEL__header_bee__5",
+      "label": "",
+      "value": "Product ID"
+    },
+    {
+      "stable_suffix": "ObjListEL__header_bee__6",
+      "label": "",
+      "value": "Description"
+    },
+    {
+      "stable_suffix": "0004_expand_link",
+      "label": "",
+      "value": "Product List"
+    },
+    {
+      "stable_suffix": "DtlListEL__header_bee__1",
+      "label": "",
+      "value": "Actions"
+    },
+    {
+      "stable_suffix": "DtlListEL__header_bee__2",
+      "label": "",
+      "value": "Product ID"
+    },
+    {
+      "stable_suffix": "DtlListEL__header_bee__3",
+      "label": "",
+      "value": "Product Category ID"
+    },
+    {
+      "stable_suffix": "DtlListEL__header_bee__4",
+      "label": "",
+      "value": "Description"
+    },
+    {
+      "stable_suffix": "0006_expand_link",
+      "label": "",
+      "value": "Price Totals"
+    },
+    {
+      "stable_suffix": "thtmlb_textView_3",
+      "label": "0,00",
+      "value": "USD"
+    },
+    {
+      "stable_suffix": "thtmlb_textView_7",
+      "label": "",
+      "value": "Net Value"
+    },
+    {
+      "stable_suffix": "thtmlb_textView_8",
+      "label": "Net Value",
+      "value": "0,00"
+    },
+    {
+      "stable_suffix": "thtmlb_textView_9",
+      "label": "0,00",
+      "value": "USD"
+    },
+    {
+      "stable_suffix": "thtmlb_textView_14",
+      "label": "Tax Amount",
+      "value": "0,00"
+    },
+    {
+      "stable_suffix": "thtmlb_textView_15",
+      "label": "0,00",
+      "value": "USD"
+    },
+    {
+      "stable_suffix": "thtmlb_textView_4",
+      "label": "",
+      "value": "Net Value excl. Freight"
+    },
+    {
+      "stable_suffix": "thtmlb_textView_5",
+      "label": "Net Value excl. Freight",
+      "value": "0,00"
+    },
+    {
+      "stable_suffix": "thtmlb_textView_6",
+      "label": "0,00",
+      "value": "USD"
+    },
+    {
+      "stable_suffix": "thtmlb_textView_10",
+      "label": "",
+      "value": "Shipment Costs"
+    },
+    {
+      "stable_suffix": "thtmlb_textView_11",
+      "label": "Shipment Costs",
+      "value": "0,00"
+    },
+    {
+      "stable_suffix": "thtmlb_textView_12",
+      "label": "0,00",
+      "value": "USD"
+    },
+    {
+      "stable_suffix": "0007_expand_link",
+      "label": "",
+      "value": "Price Details"
+    },
+    {
+      "stable_suffix": "add",
+      "label": "",
+      "value": "Add"
+    },
+    {
+      "stable_suffix": "editlist",
+      "label": "",
+      "value": "Edit List"
+    },
+    {
+      "stable_suffix": "thtmlb_button_2",
+      "label": "",
+      "value": "Reprice"
+    },
+    {
+      "stable_suffix": "Table1__header_bee__1",
+      "label": "",
+      "value": "Actions"
+    },
+    {
+      "stable_suffix": "Table1__header_bee__2",
+      "label": "",
+      "value": "Status"
+    },
+    {
+      "stable_suffix": "Table1__header_bee__3",
+      "label": "",
+      "value": "Price Element"
+    },
+    {
+      "stable_suffix": "Table1__header_bee__4",
+      "label": "",
+      "value": "Price"
+    },
+    {
+      "stable_suffix": "Table1__header_bee__5",
+      "label": "",
+      "value": "Unit"
+    },
+    {
+      "stable_suffix": "Table1__header_bee__6",
+      "label": "",
+      "value": "Price Unit"
+    },
+    {
+      "stable_suffix": "Table1__header_bee__7",
+      "label": "",
+      "value": "UoM"
+    },
+    {
+      "stable_suffix": "Table1__header_bee__8",
+      "label": "",
+      "value": "End Value"
+    },
+    {
+      "stable_suffix": "Table1__header_bee__9",
+      "label": "",
+      "value": "Currency"
+    },
+    {
+      "stable_suffix": "condline_table[1].vtext",
+      "label": "",
+      "value": "Service Fee"
+    },
+    {
+      "stable_suffix": "condline_table[1].kwert_prt",
+      "label": "",
+      "value": "0,00"
+    },
+    {
+      "stable_suffix": "condline_table[1].waerk",
+      "label": "0,00",
+      "value": "USD"
+    },
+    {
+      "stable_suffix": "condline_table[2].vtext",
+      "label": "",
+      "value": "Gross Value"
+    },
+    {
+      "stable_suffix": "condline_table[2].kbetr_prt",
+      "label": "Gross Value",
+      "value": "0,00"
+    },
+    {
+      "stable_suffix": "condline_table[2].koein",
+      "label": "0,00",
+      "value": "USD"
+    },
+    {
+      "stable_suffix": "condline_table[2].kpein",
+      "label": "USD",
+      "value": "1"
+    },
+    {
+      "stable_suffix": "condline_table[2].kmein",
+      "label": "1",
+      "value": "UN"
+    },
+    {
+      "stable_suffix": "condline_table[2].kwert_prt",
+      "label": "UN",
+      "value": "0,00"
+    },
+    {
+      "stable_suffix": "condline_table[2].waerk",
+      "label": "0,00",
+      "value": "USD"
+    },
+    {
+      "stable_suffix": "condline_table[3].vtext",
+      "label": "",
+      "value": "Maint Factor %"
+    },
+    {
+      "stable_suffix": "condline_table[3].koein",
+      "label": "",
+      "value": "%"
+    },
+    {
+      "stable_suffix": "condline_table[3].kpein",
+      "label": "%",
+      "value": "0"
+    },
+    {
+      "stable_suffix": "condline_table[3].kwert_prt",
+      "label": "",
+      "value": "0,00"
+    },
+    {
+      "stable_suffix": "condline_table[3].waerk",
+      "label": "0,00",
+      "value": "USD"
+    },
+    {
+      "stable_suffix": "condline_table[4].vtext",
+      "label": "",
+      "value": "Gross Value"
+    },
+    {
+      "stable_suffix": "condline_table[4].kbetr_prt",
+      "label": "Gross Value",
+      "value": "0,00"
+    },
+    {
+      "stable_suffix": "condline_table[4].koein",
+      "label": "0,00",
+      "value": "USD"
+    },
+    {
+      "stable_suffix": "condline_table[4].kpein",
+      "label": "USD",
+      "value": "1"
+    },
+    {
+      "stable_suffix": "condline_table[4].kmein",
+      "label": "1",
+      "value": "UN"
+    },
+    {
+      "stable_suffix": "condline_table[4].kwert_prt",
+      "label": "UN",
+      "value": "0,00"
+    },
+    {
+      "stable_suffix": "condline_table[4].waerk",
+      "label": "0,00",
+      "value": "USD"
+    },
+    {
+      "stable_suffix": "condline_table[5].vtext",
+      "label": "",
+      "value": "Net Value"
+    },
+    {
+      "stable_suffix": "condline_table[5].kbetr_prt",
+      "label": "Net Value",
+      "value": "0,00"
+    },
+    {
+      "stable_suffix": "condline_table[5].koein",
+      "label": "0,00",
+      "value": "USD"
+    },
+    {
+      "stable_suffix": "condline_table[5].kpein",
+      "label": "USD",
+      "value": "1"
+    },
+    {
+      "stable_suffix": "condline_table[5].kmein",
+      "label": "1",
+      "value": "UN"
+    },
+    {
+      "stable_suffix": "condline_table[5].kwert_prt",
+      "label": "UN",
+      "value": "0,00"
+    },
+    {
+      "stable_suffix": "condline_table[5].waerk",
+      "label": "0,00",
+      "value": "USD"
+    },
+    {
+      "stable_suffix": "condline_table[6].vtext",
+      "label": "",
+      "value": "Output Tax"
+    },
+    {
+      "stable_suffix": "condline_table[6].kbetr_prt",
+      "label": "Output Tax",
+      "value": "12,000"
+    },
+    {
+      "stable_suffix": "condline_table[6].koein",
+      "label": "12,000",
+      "value": "%"
+    },
+    {
+      "stable_suffix": "condline_table[6].kpein",
+      "label": "%",
+      "value": "0"
+    },
+    {
+      "stable_suffix": "condline_table[6].kwert_prt",
+      "label": "",
+      "value": "0,00"
+    },
+    {
+      "stable_suffix": "condline_table[6].waerk",
+      "label": "0,00",
+      "value": "USD"
+    },
+    {
+      "stable_suffix": "condline_table[7].vtext",
+      "label": "",
+      "value": "Final Amount"
+    },
+    {
+      "stable_suffix": "condline_table[7].kbetr_prt",
+      "label": "Final Amount",
+      "value": "0,00"
+    },
+    {
+      "stable_suffix": "condline_table[7].koein",
+      "label": "0,00",
+      "value": "USD"
+    },
+    {
+      "stable_suffix": "condline_table[7].kpein",
+      "label": "USD",
+      "value": "1"
+    },
+    {
+      "stable_suffix": "condline_table[7].kmein",
+      "label": "1",
+      "value": "UN"
+    },
+    {
+      "stable_suffix": "condline_table[7].kwert_prt",
+      "label": "UN",
+      "value": "0,00"
+    },
+    {
+      "stable_suffix": "condline_table[7].waerk",
+      "label": "0,00",
+      "value": "USD"
+    },
+    {
+      "stable_suffix": "0008_expand_link",
+      "label": "",
+      "value": "Price Agreements"
+    },
+    {
+      "stable_suffix": "new",
+      "label": "",
+      "value": "New"
+    },
+    {
+      "stable_suffix": "0015_expand_link",
+      "label": "",
+      "value": "Cancellation"
+    },
+    {
+      "stable_suffix": "AccResTable__header_bee__1",
+      "label": "",
+      "value": "Rule"
+    },
+    {
+      "stable_suffix": "AccResTable__header_bee__2",
+      "label": "",
+      "value": "Valid From"
+    },
+    {
+      "stable_suffix": "AccResTable__header_bee__3",
+      "label": "",
+      "value": "Valid To"
+    },
+    {
+      "stable_suffix": "AccResTable__header_bee__4",
+      "label": "",
+      "value": "Party"
+    },
+    {
+      "stable_suffix": "AccResTable__header_bee__5",
+      "label": "",
+      "value": "Effective Date"
+    },
+    {
+      "stable_suffix": "AccResTable__header_bee__6",
+      "label": "",
+      "value": "Date Of Receipt"
+    }
+  ],
+  "buttons": [
+    {
+      "text": "Cancel",
+      "stable_suffix": "thCancelSIP",
+      "id_sample": "thCancelSIP"
+    },
+    {
+      "text": "Personalize",
+      "stable_suffix": "PERSONALIZE",
+      "id_sample": "PERSONALIZE"
+    },
+    {
+      "text": "System News",
+      "stable_suffix": "SYSMSG",
+      "id_sample": "SYSMSG"
+    },
+    {
+      "text": "Log Off",
+      "stable_suffix": "LOGOFF",
+      "id_sample": "LOGOFF"
+    },
+    {
+      "text": "Cancel",
+      "stable_suffix": "thCancelSIP",
+      "id_sample": "thCancelSIP"
+    },
+    {
+      "text": "Saved Searches",
+      "stable_suffix": "SearchMenuAnchor1",
+      "id_sample": "C12_W37_V38_SearchMenuAnchor1"
+    },
+    {
+      "text": "Home",
+      "stable_suffix": "SLS-HOME",
+      "id_sample": "C4_W16_V17_SLS-HOME"
+    },
+    {
+      "text": "Account Management",
+      "stable_suffix": "SLS-ACC",
+      "id_sample": "C4_W16_V17_SLS-ACC"
+    },
+    {
+      "text": "Accounts",
+      "stable_suffix": "MD-BP-SR",
+      "id_sample": "C4_W16_V17_MD-BP-SR"
+    },
+    {
+      "text": "Contacts",
+      "stable_suffix": "MD-CONP-SR",
+      "id_sample": "C4_W16_V17_MD-CONP-SR"
+    },
+    {
+      "text": "Contact",
+      "stable_suffix": "MD-CONP-CR",
+      "id_sample": "C4_W16_V17_MD-CONP-CR"
+    },
+    {
+      "text": "Activities",
+      "stable_suffix": "SLS-ACT",
+      "id_sample": "C4_W16_V17_SLS-ACT"
+    },
+    {
+      "text": "Activity Scheduling",
+      "stable_suffix": "SLS-ACS-CR",
+      "id_sample": "C4_W16_V17_SLS-ACS-CR"
+    },
+    {
+      "text": "Visit Plans",
+      "stable_suffix": "SLS-VP-SR",
+      "id_sample": "C4_W16_V17_SLS-VP-SR"
+    },
+    {
+      "text": "Appointment",
+      "stable_suffix": "SLS-APP-CR",
+      "id_sample": "C4_W16_V17_SLS-APP-CR"
+    },
+    {
+      "text": "E-Mail",
+      "stable_suffix": "SLS-MAI-CR",
+      "id_sample": "C4_W16_V17_SLS-MAI-CR"
+    },
+    {
+      "text": "Task",
+      "stable_suffix": "SLS-TSK-CR",
+      "id_sample": "C4_W16_V17_SLS-TSK-CR"
+    },
+    {
+      "text": "Visit Plan",
+      "stable_suffix": "SLS-VP-CR",
+      "id_sample": "C4_W16_V17_SLS-VP-CR"
+    },
+    {
+      "text": "Sales Cycle",
+      "stable_suffix": "SLS-CYCLE",
+      "id_sample": "C4_W16_V17_SLS-CYCLE"
+    },
+    {
+      "text": "Sales Planning",
+      "stable_suffix": "SLS-CYC-SP",
+      "id_sample": "C4_W16_V17_SLS-CYC-SP"
+    },
+    {
+      "text": "Campaigns",
+      "stable_suffix": "MKT-CP-SR",
+      "id_sample": "C4_W16_V17_MKT-CP-SR"
+    },
+    {
+      "text": "Leads",
+      "stable_suffix": "MKT-LEA-SR",
+      "id_sample": "C4_W16_V17_MKT-LEA-SR"
+    },
+    {
+      "text": "Opportunities",
+      "stable_suffix": "SLS-OPP-SR",
+      "id_sample": "C4_W16_V17_SLS-OPP-SR"
+    },
+    {
+      "text": "Quotations",
+      "stable_suffix": "SLS-QUT-SR",
+      "id_sample": "C4_W16_V17_SLS-QUT-SR"
+    },
+    {
+      "text": "Sales Orders",
+      "stable_suffix": "SLS-SLO-SR",
+      "id_sample": "C4_W16_V17_SLS-SLO-SR"
+    },
+    {
+      "text": "Opportunity",
+      "stable_suffix": "SLS-OPP-CR",
+      "id_sample": "C4_W16_V17_SLS-OPP-CR"
+    },
+    {
+      "text": "Lead",
+      "stable_suffix": "MKT-LEA-CR",
+      "id_sample": "C4_W16_V17_MKT-LEA-CR"
+    },
+    {
+      "text": "Master Data",
+      "stable_suffix": "MD-ALL",
+      "id_sample": "C4_W16_V17_MD-ALL"
+    },
+    {
+      "text": "Employees",
+      "stable_suffix": "MD-EMPL-SR",
+      "id_sample": "C4_W16_V17_MD-EMPL-SR"
+    },
+    {
+      "text": "Account Hierarchies",
+      "stable_suffix": "MD-BPH-SR",
+      "id_sample": "C4_W16_V17_MD-BPH-SR"
+    },
+    {
+      "text": "Objects",
+      "stable_suffix": "MD-IOBJ-SR",
+      "id_sample": "C4_W16_V17_MD-IOBJ-SR"
+    },
+    {
+      "text": "Installed Bases",
+      "stable_suffix": "MD-INB-SR",
+      "id_sample": "C4_W16_V17_MD-INB-SR"
+    },
+    {
+      "text": "Warranties",
+      "stable_suffix": "MD-WARR-SR",
+      "id_sample": "C4_W16_V17_MD-WARR-SR"
+    },
+    {
+      "text": "Products",
+      "stable_suffix": "MD-MAT-SR",
+      "id_sample": "C4_W16_V17_MD-MAT-SR"
+    },
+    {
+      "text": "Services",
+      "stable_suffix": "MD-SERV-SR",
+      "id_sample": "C4_W16_V17_MD-SERV-SR"
+    },
+    {
+      "text": "Service Orders",
+      "stable_suffix": "SRV-ORD",
+      "id_sample": "C4_W16_V17_SRV-ORD"
+    },
+    {
+      "text": "Service Order Quotations",
+      "stable_suffix": "SRV-QOT-SR",
+      "id_sample": "C4_W16_V17_SRV-QOT-SR"
+    },
+    {
+      "text": "Service Contracts",
+      "stable_suffix": "SRV-CONTR",
+      "id_sample": "C4_W16_V17_SRV-CONTR"
+    },
+    {
+      "text": "Service Contract Quotations",
+      "stable_suffix": "SRV-SCQ-SR",
+      "id_sample": "C4_W16_V17_SRV-SCQ-SR"
+    },
+    {
+      "text": "Service Agreement",
+      "stable_suffix": "SRV-SAG-CR",
+      "id_sample": "C4_W16_V17_SRV-SAG-CR"
+    },
+    {
+      "text": "Service Agreements",
+      "stable_suffix": "SRV-SAG-SR",
+      "id_sample": "C4_W16_V17_SRV-SAG-SR"
+    },
+    {
+      "text": "Reporte de precios ESP",
+      "stable_suffix": "ZSD_ESP",
+      "id_sample": "C5_W18_V19_ZSD_ESP"
+    },
+    {
+      "text": "Recent Items",
+      "stable_suffix": "RecentObjects__title",
+      "id_sample": "C6_W23_V24_RecentObjects__title"
+    },
+    {
+      "text": "8010043700 CÃ©lula AI Banrural",
+      "stable_suffix": "1",
+      "id_sample": "C6_W23_V24_1"
+    },
+    {
+      "text": "245930 Renovacion IBM Blueworks",
+      "stable_suffix": "2",
+      "id_sample": "C6_W23_V24_2"
+    },
+    {
+      "text": "10072052",
+      "stable_suffix": "3",
+      "id_sample": "C6_W23_V24_3"
+    },
+    {
+      "text": "245372 Agentes Virtuales IA para Mercadeo - BR",
+      "stable_suffix": "4",
+      "id_sample": "C6_W23_V24_4"
+    },
+    {
+      "text": "244701 Optimizar WAS - BR",
+      "stable_suffix": "5",
+      "id_sample": "C6_W23_V24_5"
+    },
+    {
+      "text": "Forecast GBM",
+      "stable_suffix": "ZREP_FOREC",
+      "id_sample": "C5_W18_V19_ZREP_FOREC"
+    },
+    {
+      "text": "Forecast Employee GBM",
+      "stable_suffix": "ZREP_FOREM",
+      "id_sample": "C5_W18_V19_ZREP_FOREM"
+    },
+    {
+      "text": "Back",
+      "stable_suffix": "BackButton",
+      "id_sample": "BackButton"
+    },
+    {
+      "text": "Cont Quot Manual: 8010043700, CÃ©lula AI Banrural",
+      "stable_suffix": "",
+      "id_sample": ""
+    },
+    {
+      "text": "Search: Opportunities",
+      "stable_suffix": "",
+      "id_sample": ""
+    },
+    {
+      "text": "Search: Service Order Quotations",
+      "stable_suffix": "",
+      "id_sample": ""
+    },
+    {
+      "text": "Accounts & Products",
+      "stable_suffix": "",
+      "id_sample": ""
+    },
+    {
+      "text": "New",
+      "stable_suffix": "thtmlb_button_4",
+      "id_sample": "C125_W156_V315_thtmlb_button_4"
+    },
+    {
+      "text": "Print Preview",
+      "stable_suffix": "thtmlb_button_7",
+      "id_sample": "C125_W156_V315_thtmlb_button_7"
+    },
+    {
+      "text": "Service Contract Quotation Item Details",
+      "stable_suffix": "0001_expand_link",
+      "id_sample": "C125_W156_V315_0001_expand_link"
+    },
+    {
+      "text": "Notes",
+      "stable_suffix": "0002_expand_link",
+      "id_sample": "C125_W156_V315_0002_expand_link"
+    },
+    {
+      "text": "Object List",
+      "stable_suffix": "0003_expand_link",
+      "id_sample": "C125_W156_V315_0003_expand_link"
+    },
+    {
+      "text": "Insert",
+      "stable_suffix": "thtmlb_button_1",
+      "id_sample": "C126_W319_V320_thtmlb_button_1"
+    },
+    {
+      "text": "Create Object",
+      "stable_suffix": "thtmlb_button_5",
+      "id_sample": "C126_W319_V320_thtmlb_button_5"
+    },
+    {
+      "text": "Product List",
+      "stable_suffix": "0004_expand_link",
+      "id_sample": "C125_W156_V315_0004_expand_link"
+    },
+    {
+      "text": "Price Totals",
+      "stable_suffix": "0006_expand_link",
+      "id_sample": "C125_W156_V315_0006_expand_link"
+    },
+    {
+      "text": "Price Details",
+      "stable_suffix": "0007_expand_link",
+      "id_sample": "C125_W156_V315_0007_expand_link"
+    },
+    {
+      "text": "Add",
+      "stable_suffix": "add",
+      "id_sample": "C128_W301_V302_V304_add"
+    },
+    {
+      "text": "Reprice",
+      "stable_suffix": "thtmlb_button_2",
+      "id_sample": "C128_W301_V302_V304_thtmlb_button_2"
+    },
+    {
+      "text": "Complete Reprice",
+      "stable_suffix": "thtmlb_button_3",
+      "id_sample": "C128_W301_V302_V304_thtmlb_button_3"
+    },
+    {
+      "text": "Price Agreements",
+      "stable_suffix": "0008_expand_link",
+      "id_sample": "C125_W156_V315_0008_expand_link"
+    },
+    {
+      "text": "Cancellation",
+      "stable_suffix": "0015_expand_link",
+      "id_sample": "C125_W156_V315_0015_expand_link"
+    },
+    {
+      "text": "No text",
+      "stable_suffix": "UsrSettings",
+      "id_sample": "C1_W1_V2_UsrSettings"
+    },
+    {
+      "text": "standard",
+      "stable_suffix": "ACTION_WINDOW_CLOSE",
+      "id_sample": "C1_W1_V2_ACTION_WINDOW_CLOSE"
+    },
+    {
+      "text": "O50003632",
+      "stable_suffix": "",
+      "id_sample": ""
+    }
+  ],
+  "tables": [
+    {
+      "title": "",
+      "columns": [
+        "Personalize",
+        "System News",
+        "Log Off"
+      ]
+    },
+    {
+      "title": "",
+      "columns": [
+        "Personalize",
+        "System News",
+        "Log Off"
+      ]
+    },
+    {
+      "title": "",
+      "columns": [
+        "Reporte ZSD_ESP",
+        "Recent Items",
+        "Reporte Forecast GBM"
+      ]
+    },
+    {
+      "title": "",
+      "columns": [
+        "Back",
+        "&NBSP;\n    Back\nÂ \n\nÂ New\n\n\nPrint Preview"
+      ]
+    },
+    {
+      "title": "",
+      "columns": [
+        "Service Contract Quotation Item Details",
+        "Edit"
+      ]
+    },
+    {
+      "title": "",
+      "columns": [
+        "Service Contract Quotation Item Details",
+        "Edit"
+      ]
+    },
+    {
+      "title": "",
+      "columns": [
+        "General Data",
+        "Product:",
+        "Quantity:",
+        "Status:",
+        "Quotation Accepted:",
+        "Net Value:",
+        "Target Value:",
+        "Released Quantity:",
+        "Released Value:",
+        "Service Level Agreements",
+        "Service Profile:",
+        "Response Profile:",
+        "DatesContract Start:Contract End:",
+        "Dates",
+        "Contract Start:",
+        "Contract End:"
+      ]
+    },
+    {
+      "title": "",
+      "columns": [
+        "Notes",
+        "Notes"
+      ]
+    },
+    {
+      "title": "",
+      "columns": [
+        "Object ListEdit List",
+        "Object List",
+        "Edit List"
+      ]
+    },
+    {
+      "title": "",
+      "columns": [
+        "Object List",
+        "Edit List"
+      ]
+    },
+    {
+      "title": "",
+      "columns": [
+        "Actions",
+        "Installed Base ID",
+        "Component ID",
+        "Object ID",
+        "Product ID",
+        "Description"
+      ]
+    },
+    {
+      "title": "",
+      "columns": [
+        "Product ListEdit List",
+        "Product List",
+        "Edit List"
+      ]
+    },
+    {
+      "title": "",
+      "columns": [
+        "Product List",
+        "Edit List"
+      ]
+    },
+    {
+      "title": "",
+      "columns": [
+        "Insert\n\nÂ Create Price Agreement",
+        "Filter:"
+      ]
+    },
+    {
+      "title": "",
+      "columns": [
+        "Actions",
+        "Product ID",
+        "Product Category ID",
+        "Description"
+      ]
+    },
+    {
+      "title": "",
+      "columns": [
+        "Price Totals",
+        "Price Totals"
+      ]
+    },
+    {
+      "title": "",
+      "columns": [
+        "Gross Value",
+        "0,00",
+        "USD",
+        "Net Value",
+        "0,00",
+        "USD",
+        "Tax Amount",
+        "0,00",
+        "USD",
+        "Net Value excl. Freight",
+        "0,00",
+        "USD",
+        "Shipment Costs",
+        "0,00",
+        "USD"
+      ]
+    },
+    {
+      "title": "",
+      "columns": [
+        "Gross Value",
+        "0,00",
+        "USD"
+      ]
+    },
+    {
+      "title": "",
+      "columns": [
+        "Net Value excl. Freight",
+        "0,00",
+        "USD"
+      ]
+    },
+    {
+      "title": "",
+      "columns": [
+        "Price DetailsAdd\nEdit List",
+        "Price Details",
+        "Add\nEdit List"
+      ]
+    },
+    {
+      "title": "",
+      "columns": [
+        "Price Details",
+        "Add\nEdit List"
+      ]
+    },
+    {
+      "title": "",
+      "columns": [
+        "Insert\nÂ Reprice\nComplete Reprice",
+        "Filter:"
+      ]
+    },
+    {
+      "title": "",
+      "columns": [
+        "Actions",
+        "Status",
+        "Price Element",
+        "Price",
+        "Unit",
+        "Price Unit",
+        "UoM",
+        "End Value",
+        "Currency"
+      ]
+    },
+    {
+      "title": "",
+      "columns": [
+        "Price AgreementsNew\nEdit List",
+        "Price Agreements",
+        "New\nEdit List",
+        "Filter:"
+      ]
+    },
+    {
+      "title": "",
+      "columns": [
+        "Price Agreements",
+        "New\nEdit List"
+      ]
+    },
+    {
+      "title": "",
+      "columns": [
+        "CancellationEdit",
+        "Cancellation",
+        "Edit"
+      ]
+    },
+    {
+      "title": "",
+      "columns": [
+        "Cancellation",
+        "Edit"
+      ]
+    },
+    {
+      "title": "",
+      "columns": [
+        "Cancellation Receipt:",
+        "Requested Cancellation Date:",
+        "Calculated Next Cancellation Date:",
+        "Actual Cancellation Date:",
+        "Cancelling Party:Reason:",
+        "Cancelling Party:",
+        "Reason:"
+      ]
+    },
+    {
+      "title": "",
+      "columns": [
+        "Cancellation Receipt:",
+        "Requested Cancellation Date:",
+        "Calculated Next Cancellation Date:",
+        "Actual Cancellation Date:",
+        "Cancelling Party:Reason:",
+        "Cancelling Party:",
+        "Reason:"
+      ]
+    },
+    {
+      "title": "",
+      "columns": [
+        "Individual Cancellation Rules",
+        "Individual Cancellation Rules"
+      ]
+    },
+    {
+      "title": "",
+      "columns": [
+        "Insert",
+        "Filter:"
+      ]
+    },
+    {
+      "title": "",
+      "columns": [
+        "Rule",
+        "Valid From",
+        "Valid To",
+        "Party",
+        "Effective Date",
+        "Date Of Receipt"
+      ]
+    },
+    {
+      "title": "",
+      "columns": [
+        "Calculated Dates",
+        "Calculated Dates"
+      ]
+    },
+    {
+      "title": "",
+      "columns": [
+        "Rule",
+        "Rule ID",
+        "Effective Date",
+        "Invalid",
+        "Chosen"
+      ]
+    }
+  ],
+  "dropdowns": [],
+  "checkboxes": []
+}

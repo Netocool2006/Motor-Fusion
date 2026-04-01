@@ -1,0 +1,111 @@
+{
+  "domain": "general",
+  "description": "Dominio auto-creado: general",
+  "entries": {
+    "3e66c847b6e8": {
+      "id": "3e66c847b6e8",
+      "type": "pattern",
+      "key": "iter_20260320_200802_i2",
+      "solution": {
+        "strategy": "new_experience_capture",
+        "notes": "Iteracion 2:\n[NUEVO] Sin conocimiento previo en KB.\n  Ejecuto: python test.py\n  Ejecuto: python broken.py",
+        "auto_learned": true,
+        "source": "post_tool_hook",
+        "msg_type": "instruction",
+        "had_kb_match": false,
+        "files_touched": [],
+        "activity": {
+          "reads": 0,
+          "edits": 0,
+          "writes": 0,
+          "commands": 2,
+          "searches": 0,
+          "browser": 0,
+          "total": 2
+        },
+        "iteration": 2
+      },
+      "tags": [
+        "auto-learned",
+        "iteration",
+        "general",
+        "new"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-21T02:08:02.555569+00:00",
+      "updated_at": "2026-03-21T02:08:02.555569+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-21T02:08:02.555569+00:00",
+        "access_count": 0
+      }
+    },
+    "6f9546346691": {
+      "id": "6f9546346691",
+      "type": "pattern",
+      "key": "iter_20260320_201054_i3",
+      "solution": {
+        "strategy": "new_experience_capture",
+        "notes": "Iteracion 3:\n[NUEVO] Sin conocimiento previo en KB.\n  Leyo config.py\n  Ejecuto: python app.py\n  Ejecuto: pip install requests && python app.py",
+        "auto_learned": true,
+        "source": "post_tool_hook",
+        "msg_type": "instruction",
+        "had_kb_match": false,
+        "files_touched": [
+          "C:/Chance1/Motor_Inteligente_IA/config.py"
+        ],
+        "activity": {
+          "reads": 1,
+          "edits": 0,
+          "writes": 0,
+          "commands": 2,
+          "searches": 0,
+          "browser": 0,
+          "total": 3
+        },
+        "iteration": 3
+      },
+      "tags": [
+        "auto-learned",
+        "iteration",
+        "general",
+        "new"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-21T02:10:54.706102+00:00",
+      "updated_at": "2026-03-21T02:10:54.706102+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-21T02:10:54.706102+00:00",
+        "access_count": 0
+      }
+    }
+  },
+  "tag_index": {
+    "auto-learned": [
+      "3e66c847b6e8",
+      "6f9546346691"
+    ],
+    "iteration": [
+      "3e66c847b6e8",
+      "6f9546346691"
+    ],
+    "general": [
+      "3e66c847b6e8",
+      "6f9546346691"
+    ],
+    "new": [
+      "3e66c847b6e8",
+      "6f9546346691"
+    ]
+  },
+  "stats": {
+    "total_entries": 2,
+    "total_lookups": 0,
+    "total_hits": 0
+  }
+}

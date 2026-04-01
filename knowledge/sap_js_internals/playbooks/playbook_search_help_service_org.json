@@ -1,0 +1,1110 @@
+{
+  "screen": "search_help_service_org",
+  "description": "Screen: Search Help",
+  "timestamp": "2026-03-27T20:18:31",
+  "mode": "SCAN",
+  "tab_title": "Search Help",
+  "fields": [],
+  "spans": [
+    {
+      "stable_suffix": "submitInProgressText",
+      "label": "",
+      "value": "Please wait..."
+    },
+    {
+      "stable_suffix": "dynshlp__header_bee__1",
+      "label": "",
+      "value": "Service Organization"
+    },
+    {
+      "stable_suffix": "dynshlp__header_bee__2",
+      "label": "",
+      "value": "Description"
+    },
+    {
+      "stable_suffix": "dynshlp_1_1",
+      "label": "",
+      "value": "CR"
+    },
+    {
+      "stable_suffix": "dynshlp_1_2",
+      "label": "CR",
+      "value": "Costa Rica SLM (Gestion)"
+    },
+    {
+      "stable_suffix": "dynshlp_2_1",
+      "label": "",
+      "value": "CR DC Srv"
+    },
+    {
+      "stable_suffix": "dynshlp_2_2",
+      "label": "CR DC Srv",
+      "value": "Costa Rica Data Center Services"
+    },
+    {
+      "stable_suffix": "dynshlp_3_1",
+      "label": "",
+      "value": "CR HVP TSS"
+    },
+    {
+      "stable_suffix": "dynshlp_3_2",
+      "label": "CR HVP TSS",
+      "value": "Costa Rica HVP TSS"
+    },
+    {
+      "stable_suffix": "dynshlp_4_1",
+      "label": "",
+      "value": "CR HVPTSS FM"
+    },
+    {
+      "stable_suffix": "dynshlp_4_2",
+      "label": "CR HVPTSS FM",
+      "value": "Costa Rica HVP TSS Field Manager"
+    },
+    {
+      "stable_suffix": "dynshlp_5_1",
+      "label": "",
+      "value": "CR NOC"
+    },
+    {
+      "stable_suffix": "dynshlp_5_2",
+      "label": "CR NOC",
+      "value": "Costa Rica NOC"
+    },
+    {
+      "stable_suffix": "dynshlp_6_1",
+      "label": "",
+      "value": "CR Printing"
+    },
+    {
+      "stable_suffix": "dynshlp_6_2",
+      "label": "CR Printing",
+      "value": "Costa Rica Printing"
+    },
+    {
+      "stable_suffix": "dynshlp_7_1",
+      "label": "",
+      "value": "CR SLM FM"
+    },
+    {
+      "stable_suffix": "dynshlp_7_2",
+      "label": "CR SLM FM",
+      "value": "Costa Rica SLM Field Manager"
+    },
+    {
+      "stable_suffix": "dynshlp_8_1",
+      "label": "",
+      "value": "CR SW FM"
+    },
+    {
+      "stable_suffix": "dynshlp_8_2",
+      "label": "CR SW FM",
+      "value": "Costa Rica SW Services Field Manager"
+    },
+    {
+      "stable_suffix": "dynshlp_9_1",
+      "label": "",
+      "value": "CR Smrt Save"
+    },
+    {
+      "stable_suffix": "dynshlp_9_2",
+      "label": "CR Smrt Save",
+      "value": "Costa Rica SmartSave"
+    },
+    {
+      "stable_suffix": "dynshlp_10_1",
+      "label": "",
+      "value": "CR Smt Sv FM"
+    },
+    {
+      "stable_suffix": "dynshlp_10_2",
+      "label": "CR Smt Sv FM",
+      "value": "Costa Rica Smartsave Field Manager"
+    },
+    {
+      "stable_suffix": "dynshlp_11_1",
+      "label": "",
+      "value": "CR TSS FM"
+    },
+    {
+      "stable_suffix": "dynshlp_11_2",
+      "label": "CR TSS FM",
+      "value": "Costa Rica TSS Field Manager"
+    },
+    {
+      "stable_suffix": "dynshlp_12_1",
+      "label": "",
+      "value": "CR xseries"
+    },
+    {
+      "stable_suffix": "dynshlp_12_2",
+      "label": "CR xseries",
+      "value": "Costa Rica Grupo Xseries"
+    },
+    {
+      "stable_suffix": "dynshlp_13_1",
+      "label": "",
+      "value": "CRM_SALES"
+    },
+    {
+      "stable_suffix": "dynshlp_13_2",
+      "label": "CRM_SALES",
+      "value": "CRM Sales"
+    },
+    {
+      "stable_suffix": "dynshlp_14_1",
+      "label": "",
+      "value": "DOM Mg Sv"
+    },
+    {
+      "stable_suffix": "dynshlp_14_2",
+      "label": "DOM Mg Sv",
+      "value": "Dominicana Managed Services"
+    },
+    {
+      "stable_suffix": "dynshlp_15_1",
+      "label": "",
+      "value": "DOM SW Srv"
+    },
+    {
+      "stable_suffix": "dynshlp_15_2",
+      "label": "DOM SW Srv",
+      "value": "Dominicana Software Services"
+    },
+    {
+      "stable_suffix": "dynshlp_16_1",
+      "label": "",
+      "value": "ES DC Srv"
+    },
+    {
+      "stable_suffix": "dynshlp_16_2",
+      "label": "ES DC Srv",
+      "value": "El Salvador DataCenter Services"
+    },
+    {
+      "stable_suffix": "dynshlp_17_1",
+      "label": "",
+      "value": "ES NOC"
+    },
+    {
+      "stable_suffix": "dynshlp_17_2",
+      "label": "ES NOC",
+      "value": "El Salvador NOC"
+    },
+    {
+      "stable_suffix": "dynshlp_18_1",
+      "label": "",
+      "value": "ES Prt"
+    },
+    {
+      "stable_suffix": "dynshlp_18_2",
+      "label": "ES Prt",
+      "value": "El Salvador Printing"
+    },
+    {
+      "stable_suffix": "dynshlp_19_1",
+      "label": "",
+      "value": "ES SLM"
+    },
+    {
+      "stable_suffix": "dynshlp_19_2",
+      "label": "ES SLM",
+      "value": "El Salvador SLM (Gestion)"
+    },
+    {
+      "stable_suffix": "dynshlp_20_1",
+      "label": "",
+      "value": "ES SS"
+    },
+    {
+      "stable_suffix": "dynshlp_20_2",
+      "label": "ES SS",
+      "value": "El Salvador SmartSave"
+    },
+    {
+      "stable_suffix": "dynshlp_21_1",
+      "label": "",
+      "value": "GBM_PA"
+    },
+    {
+      "stable_suffix": "dynshlp_21_2",
+      "label": "GBM_PA",
+      "value": "GBM Panama"
+    },
+    {
+      "stable_suffix": "dynshlp_22_1",
+      "label": "",
+      "value": "HN DC Srv"
+    },
+    {
+      "stable_suffix": "dynshlp_22_2",
+      "label": "HN DC Srv",
+      "value": "Honduras DataCenter Services"
+    },
+    {
+      "stable_suffix": "dynshlp_23_1",
+      "label": "",
+      "value": "HN HVP TSS"
+    },
+    {
+      "stable_suffix": "dynshlp_23_2",
+      "label": "HN HVP TSS",
+      "value": "Honduras HVP TSS"
+    },
+    {
+      "stable_suffix": "dynshlp_24_1",
+      "label": "",
+      "value": "HN NOC"
+    },
+    {
+      "stable_suffix": "dynshlp_24_2",
+      "label": "HN NOC",
+      "value": "Honduras NOC"
+    },
+    {
+      "stable_suffix": "dynshlp_25_1",
+      "label": "",
+      "value": "HN Prt"
+    },
+    {
+      "stable_suffix": "dynshlp_25_2",
+      "label": "HN Prt",
+      "value": "Honduras Printing"
+    },
+    {
+      "stable_suffix": "dynshlp_26_1",
+      "label": "",
+      "value": "HN SLM"
+    },
+    {
+      "stable_suffix": "dynshlp_26_2",
+      "label": "HN SLM",
+      "value": "Honduras SLM (Gestion)"
+    },
+    {
+      "stable_suffix": "dynshlp_27_1",
+      "label": "",
+      "value": "HN SS"
+    },
+    {
+      "stable_suffix": "dynshlp_27_2",
+      "label": "HN SS",
+      "value": "Honduras SmartSave"
+    },
+    {
+      "stable_suffix": "dynshlp_28_1",
+      "label": "",
+      "value": "HN TSS"
+    },
+    {
+      "stable_suffix": "dynshlp_28_2",
+      "label": "HN TSS",
+      "value": "Honduras TSS"
+    },
+    {
+      "stable_suffix": "dynshlp_29_1",
+      "label": "",
+      "value": "Inf Reg Mgr"
+    },
+    {
+      "stable_suffix": "dynshlp_29_2",
+      "label": "Inf Reg Mgr",
+      "value": "Infrastructure Sales Regional Manager"
+    },
+    {
+      "stable_suffix": "dynshlp_30_1",
+      "label": "",
+      "value": "NI SLM"
+    },
+    {
+      "stable_suffix": "dynshlp_30_2",
+      "label": "NI SLM",
+      "value": "Nicaragua SLM (Gestion)"
+    },
+    {
+      "stable_suffix": "dynshlp_31_1",
+      "label": "",
+      "value": "New Org Unit"
+    },
+    {
+      "stable_suffix": "dynshlp_31_2",
+      "label": "New Org Unit",
+      "value": "Nicaragua Smart Save"
+    },
+    {
+      "stable_suffix": "dynshlp_32_1",
+      "label": "",
+      "value": "Ni DC Srv"
+    },
+    {
+      "stable_suffix": "dynshlp_32_2",
+      "label": "Ni DC Srv",
+      "value": "Nicaragua DataCenter Services"
+    },
+    {
+      "stable_suffix": "dynshlp_33_1",
+      "label": "",
+      "value": "Ni NOC"
+    },
+    {
+      "stable_suffix": "dynshlp_33_2",
+      "label": "Ni NOC",
+      "value": "Nicaragua NOC"
+    },
+    {
+      "stable_suffix": "dynshlp_34_1",
+      "label": "",
+      "value": "O50003350"
+    },
+    {
+      "stable_suffix": "dynshlp_34_2",
+      "label": "O50003350",
+      "value": "Support"
+    },
+    {
+      "stable_suffix": "dynshlp_35_1",
+      "label": "",
+      "value": "O50003579"
+    },
+    {
+      "stable_suffix": "dynshlp_35_2",
+      "label": "O50003579",
+      "value": "Managed Services"
+    },
+    {
+      "stable_suffix": "dynshlp_36_1",
+      "label": "",
+      "value": "O50003580"
+    },
+    {
+      "stable_suffix": "dynshlp_36_2",
+      "label": "O50003580",
+      "value": "IT Advisory Services"
+    },
+    {
+      "stable_suffix": "dynshlp_37_1",
+      "label": "",
+      "value": "O50003581"
+    },
+    {
+      "stable_suffix": "dynshlp_37_2",
+      "label": "O50003581",
+      "value": "Data Center"
+    },
+    {
+      "stable_suffix": "dynshlp_38_1",
+      "label": "",
+      "value": "O50003583"
+    },
+    {
+      "stable_suffix": "dynshlp_38_2",
+      "label": "O50003583",
+      "value": "Costa Rica Service Delivery"
+    },
+    {
+      "stable_suffix": "dynshlp_39_1",
+      "label": "",
+      "value": "O50003587"
+    },
+    {
+      "stable_suffix": "dynshlp_39_2",
+      "label": "O50003587",
+      "value": "Power Systems & Storage"
+    },
+    {
+      "stable_suffix": "dynshlp_40_1",
+      "label": "",
+      "value": "O50003595"
+    },
+    {
+      "stable_suffix": "dynshlp_40_2",
+      "label": "O50003595",
+      "value": "Power Systems & System X"
+    },
+    {
+      "stable_suffix": "dynshlp_41_1",
+      "label": "",
+      "value": "O50003599"
+    },
+    {
+      "stable_suffix": "dynshlp_41_2",
+      "label": "O50003599",
+      "value": "Networking Adv"
+    },
+    {
+      "stable_suffix": "dynshlp_42_1",
+      "label": "",
+      "value": "O50003603"
+    },
+    {
+      "stable_suffix": "dynshlp_42_2",
+      "label": "O50003603",
+      "value": "Microsoft"
+    },
+    {
+      "stable_suffix": "dynshlp_43_1",
+      "label": "",
+      "value": "O50003604"
+    },
+    {
+      "stable_suffix": "dynshlp_43_2",
+      "label": "O50003604",
+      "value": "Power Systems"
+    },
+    {
+      "stable_suffix": "dynshlp_44_1",
+      "label": "",
+      "value": "O50003605"
+    },
+    {
+      "stable_suffix": "dynshlp_44_2",
+      "label": "O50003605",
+      "value": "Storage & Virtualization"
+    },
+    {
+      "stable_suffix": "dynshlp_45_1",
+      "label": "",
+      "value": "O50003612"
+    },
+    {
+      "stable_suffix": "dynshlp_45_2",
+      "label": "O50003612",
+      "value": "Panama Service Delivery"
+    },
+    {
+      "stable_suffix": "dynshlp_46_1",
+      "label": "",
+      "value": "O50003613"
+    },
+    {
+      "stable_suffix": "dynshlp_46_2",
+      "label": "O50003613",
+      "value": "Costa Rica"
+    },
+    {
+      "stable_suffix": "dynshlp_47_1",
+      "label": "",
+      "value": "O50003614"
+    },
+    {
+      "stable_suffix": "dynshlp_47_2",
+      "label": "O50003614",
+      "value": "Panama"
+    },
+    {
+      "stable_suffix": "dynshlp_48_1",
+      "label": "",
+      "value": "O50003615"
+    },
+    {
+      "stable_suffix": "dynshlp_48_2",
+      "label": "O50003615",
+      "value": "Dominicana"
+    },
+    {
+      "stable_suffix": "dynshlp_49_1",
+      "label": "",
+      "value": "O50003616"
+    },
+    {
+      "stable_suffix": "dynshlp_49_2",
+      "label": "O50003616",
+      "value": "Honduras"
+    },
+    {
+      "stable_suffix": "dynshlp_50_1",
+      "label": "",
+      "value": "O50003617"
+    },
+    {
+      "stable_suffix": "dynshlp_50_2",
+      "label": "O50003617",
+      "value": "Nicaragua"
+    },
+    {
+      "stable_suffix": "dynshlp_51_1",
+      "label": "",
+      "value": "O50003618"
+    },
+    {
+      "stable_suffix": "dynshlp_51_2",
+      "label": "O50003618",
+      "value": "Guatemala"
+    },
+    {
+      "stable_suffix": "dynshlp_52_1",
+      "label": "",
+      "value": "O50003619"
+    },
+    {
+      "stable_suffix": "dynshlp_52_2",
+      "label": "O50003619",
+      "value": "El Salvador"
+    },
+    {
+      "stable_suffix": "dynshlp_53_1",
+      "label": "",
+      "value": "O50003622"
+    },
+    {
+      "stable_suffix": "dynshlp_53_2",
+      "label": "O50003622",
+      "value": "Dominicana Service Delivery"
+    },
+    {
+      "stable_suffix": "dynshlp_54_1",
+      "label": "",
+      "value": "O50003625"
+    },
+    {
+      "stable_suffix": "dynshlp_54_2",
+      "label": "O50003625",
+      "value": "HQ"
+    },
+    {
+      "stable_suffix": "dynshlp_55_1",
+      "label": "",
+      "value": "O50003630"
+    },
+    {
+      "stable_suffix": "dynshlp_55_2",
+      "label": "O50003630",
+      "value": "Costa Rica"
+    },
+    {
+      "stable_suffix": "dynshlp_56_1",
+      "label": "",
+      "value": "O50003631"
+    },
+    {
+      "stable_suffix": "dynshlp_56_2",
+      "label": "O50003631",
+      "value": "PanamÃ¡"
+    },
+    {
+      "stable_suffix": "dynshlp_57_1",
+      "label": "",
+      "value": "O50003632"
+    },
+    {
+      "stable_suffix": "dynshlp_57_2",
+      "label": "O50003632",
+      "value": "Guatemala Service Delivery"
+    },
+    {
+      "stable_suffix": "dynshlp_58_1",
+      "label": "",
+      "value": "O50003634"
+    },
+    {
+      "stable_suffix": "dynshlp_58_2",
+      "label": "O50003634",
+      "value": "Dominicana"
+    },
+    {
+      "stable_suffix": "dynshlp_59_1",
+      "label": "",
+      "value": "O50003635"
+    },
+    {
+      "stable_suffix": "dynshlp_59_2",
+      "label": "O50003635",
+      "value": "Honduras"
+    },
+    {
+      "stable_suffix": "dynshlp_60_1",
+      "label": "",
+      "value": "O50003636"
+    },
+    {
+      "stable_suffix": "dynshlp_60_2",
+      "label": "O50003636",
+      "value": "Nicaragua"
+    },
+    {
+      "stable_suffix": "dynshlp_61_1",
+      "label": "",
+      "value": "O50003637"
+    },
+    {
+      "stable_suffix": "dynshlp_61_2",
+      "label": "O50003637",
+      "value": "El Salvador"
+    },
+    {
+      "stable_suffix": "dynshlp_62_1",
+      "label": "",
+      "value": "O50003638"
+    },
+    {
+      "stable_suffix": "dynshlp_62_2",
+      "label": "O50003638",
+      "value": "Guatemala"
+    },
+    {
+      "stable_suffix": "dynshlp_63_1",
+      "label": "",
+      "value": "O50003640"
+    },
+    {
+      "stable_suffix": "dynshlp_63_2",
+      "label": "O50003640",
+      "value": "Florida"
+    },
+    {
+      "stable_suffix": "dynshlp_64_1",
+      "label": "",
+      "value": "O50003641"
+    },
+    {
+      "stable_suffix": "dynshlp_64_2",
+      "label": "O50003641",
+      "value": "Venezuela"
+    },
+    {
+      "stable_suffix": "dynshlp_65_1",
+      "label": "",
+      "value": "O50003644"
+    },
+    {
+      "stable_suffix": "dynshlp_65_2",
+      "label": "O50003644",
+      "value": "Regional Software Services"
+    },
+    {
+      "stable_suffix": "dynshlp_66_1",
+      "label": "",
+      "value": "O50003650"
+    },
+    {
+      "stable_suffix": "dynshlp_66_2",
+      "label": "O50003650",
+      "value": "Honduras Service Delivery"
+    },
+    {
+      "stable_suffix": "dynshlp_67_1",
+      "label": "",
+      "value": "O50003656"
+    },
+    {
+      "stable_suffix": "dynshlp_67_2",
+      "label": "O50003656",
+      "value": "BVI"
+    },
+    {
+      "stable_suffix": "dynshlp_68_1",
+      "label": "",
+      "value": "O50003728"
+    },
+    {
+      "stable_suffix": "dynshlp_68_2",
+      "label": "O50003728",
+      "value": "El Salvador Service Delivery"
+    },
+    {
+      "stable_suffix": "dynshlp_69_1",
+      "label": "",
+      "value": "O50003734"
+    },
+    {
+      "stable_suffix": "dynshlp_69_2",
+      "label": "O50003734",
+      "value": "Costa Rica"
+    },
+    {
+      "stable_suffix": "dynshlp_70_1",
+      "label": "",
+      "value": "O50003735"
+    },
+    {
+      "stable_suffix": "dynshlp_70_2",
+      "label": "O50003735",
+      "value": "Panama"
+    },
+    {
+      "stable_suffix": "dynshlp_71_1",
+      "label": "",
+      "value": "O50003744"
+    },
+    {
+      "stable_suffix": "dynshlp_71_2",
+      "label": "O50003744",
+      "value": "Dominicana"
+    },
+    {
+      "stable_suffix": "dynshlp_72_1",
+      "label": "",
+      "value": "O50003746"
+    },
+    {
+      "stable_suffix": "dynshlp_72_2",
+      "label": "O50003746",
+      "value": "Honduras"
+    },
+    {
+      "stable_suffix": "dynshlp_73_1",
+      "label": "",
+      "value": "O50003748"
+    },
+    {
+      "stable_suffix": "dynshlp_73_2",
+      "label": "O50003748",
+      "value": "Nicaragua"
+    },
+    {
+      "stable_suffix": "dynshlp_74_1",
+      "label": "",
+      "value": "O50003750"
+    },
+    {
+      "stable_suffix": "dynshlp_74_2",
+      "label": "O50003750",
+      "value": "Guatemala"
+    },
+    {
+      "stable_suffix": "dynshlp_75_1",
+      "label": "",
+      "value": "O50003752"
+    },
+    {
+      "stable_suffix": "dynshlp_75_2",
+      "label": "O50003752",
+      "value": "El Salvador"
+    },
+    {
+      "stable_suffix": "dynshlp_76_1",
+      "label": "",
+      "value": "O50003754"
+    },
+    {
+      "stable_suffix": "dynshlp_76_2",
+      "label": "O50003754",
+      "value": "Nicaragua Service Delivery"
+    },
+    {
+      "stable_suffix": "dynshlp_77_1",
+      "label": "",
+      "value": "O50003774"
+    },
+    {
+      "stable_suffix": "dynshlp_77_2",
+      "label": "O50003774",
+      "value": "Outsourcing"
+    },
+    {
+      "stable_suffix": "dynshlp_78_1",
+      "label": "",
+      "value": "O50003815"
+    },
+    {
+      "stable_suffix": "dynshlp_78_2",
+      "label": "O50003815",
+      "value": "Workplace"
+    },
+    {
+      "stable_suffix": "dynshlp_79_1",
+      "label": "",
+      "value": "O50003816"
+    },
+    {
+      "stable_suffix": "dynshlp_79_2",
+      "label": "O50003816",
+      "value": "Storage"
+    },
+    {
+      "stable_suffix": "dynshlp_80_1",
+      "label": "",
+      "value": "O50003908"
+    },
+    {
+      "stable_suffix": "dynshlp_80_2",
+      "label": "O50003908",
+      "value": "IT Advisory Services Resources"
+    },
+    {
+      "stable_suffix": "dynshlp_81_1",
+      "label": "",
+      "value": "O50004260"
+    },
+    {
+      "stable_suffix": "dynshlp_81_2",
+      "label": "O50004260",
+      "value": "System Advisor"
+    },
+    {
+      "stable_suffix": "dynshlp_82_1",
+      "label": "",
+      "value": "O50004263"
+    },
+    {
+      "stable_suffix": "dynshlp_82_2",
+      "label": "O50004263",
+      "value": "HQ"
+    },
+    {
+      "stable_suffix": "dynshlp_83_1",
+      "label": "",
+      "value": "O70009765"
+    },
+    {
+      "stable_suffix": "dynshlp_83_2",
+      "label": "O70009765",
+      "value": "SAP Software Consulting"
+    },
+    {
+      "stable_suffix": "dynshlp_84_1",
+      "label": "",
+      "value": "O70009775"
+    },
+    {
+      "stable_suffix": "dynshlp_84_2",
+      "label": "O70009775",
+      "value": "SAP SW Costa Rica"
+    },
+    {
+      "stable_suffix": "dynshlp_85_1",
+      "label": "",
+      "value": "O70009776"
+    },
+    {
+      "stable_suffix": "dynshlp_85_2",
+      "label": "O70009776",
+      "value": "SAP SW Panama"
+    },
+    {
+      "stable_suffix": "dynshlp_86_1",
+      "label": "",
+      "value": "O70009777"
+    },
+    {
+      "stable_suffix": "dynshlp_86_2",
+      "label": "O70009777",
+      "value": "SAP SW Nicaragua"
+    },
+    {
+      "stable_suffix": "dynshlp_87_1",
+      "label": "",
+      "value": "O70009778"
+    },
+    {
+      "stable_suffix": "dynshlp_87_2",
+      "label": "O70009778",
+      "value": "SAP SW Guatemala"
+    },
+    {
+      "stable_suffix": "dynshlp_88_1",
+      "label": "",
+      "value": "O70009779"
+    },
+    {
+      "stable_suffix": "dynshlp_88_2",
+      "label": "O70009779",
+      "value": "SAP SW El Salvador"
+    },
+    {
+      "stable_suffix": "dynshlp_89_1",
+      "label": "",
+      "value": "O70009780"
+    },
+    {
+      "stable_suffix": "dynshlp_89_2",
+      "label": "O70009780",
+      "value": "SAP SW Honduras"
+    },
+    {
+      "stable_suffix": "dynshlp_90_1",
+      "label": "",
+      "value": "O70009781"
+    },
+    {
+      "stable_suffix": "dynshlp_90_2",
+      "label": "O70009781",
+      "value": "SAP SW HQ"
+    },
+    {
+      "stable_suffix": "dynshlp_91_1",
+      "label": "",
+      "value": "O70009782"
+    },
+    {
+      "stable_suffix": "dynshlp_91_2",
+      "label": "O70009782",
+      "value": "SAP SW Florida"
+    },
+    {
+      "stable_suffix": "dynshlp_92_1",
+      "label": "",
+      "value": "O70009783"
+    },
+    {
+      "stable_suffix": "dynshlp_92_2",
+      "label": "O70009783",
+      "value": "SAP SW BVI"
+    },
+    {
+      "stable_suffix": "dynshlp_93_1",
+      "label": "",
+      "value": "O70009784"
+    },
+    {
+      "stable_suffix": "dynshlp_93_2",
+      "label": "O70009784",
+      "value": "SAP SW Venezuela"
+    },
+    {
+      "stable_suffix": "dynshlp_94_1",
+      "label": "",
+      "value": "O70009785"
+    },
+    {
+      "stable_suffix": "dynshlp_94_2",
+      "label": "O70009785",
+      "value": "SAP SW Rep. Dominicana"
+    },
+    {
+      "stable_suffix": "dynshlp_95_1",
+      "label": "",
+      "value": "O70009802"
+    },
+    {
+      "stable_suffix": "dynshlp_95_2",
+      "label": "O70009802",
+      "value": "GBM Consulting"
+    },
+    {
+      "stable_suffix": "dynshlp_96_1",
+      "label": "",
+      "value": "O70009803"
+    },
+    {
+      "stable_suffix": "dynshlp_96_2",
+      "label": "O70009803",
+      "value": "Enterprise Support"
+    },
+    {
+      "stable_suffix": "dynshlp_97_1",
+      "label": "",
+      "value": "O70010729"
+    },
+    {
+      "stable_suffix": "dynshlp_97_2",
+      "label": "O70010729",
+      "value": "System Management"
+    },
+    {
+      "stable_suffix": "dynshlp_98_1",
+      "label": "",
+      "value": "O70010730"
+    },
+    {
+      "stable_suffix": "dynshlp_98_2",
+      "label": "O70010730",
+      "value": "Smart Ops"
+    },
+    {
+      "stable_suffix": "dynshlp_99_1",
+      "label": "",
+      "value": "O70010976"
+    },
+    {
+      "stable_suffix": "dynshlp_99_2",
+      "label": "O70010976",
+      "value": "GBM Miami"
+    },
+    {
+      "stable_suffix": "dynshlp_100_1",
+      "label": "",
+      "value": "ORG_REG_SW"
+    },
+    {
+      "stable_suffix": "dynshlp_100_2",
+      "label": "ORG_REG_SW",
+      "value": "Regional Software Organization"
+    },
+    {
+      "stable_suffix": "dynshlp_101_1",
+      "label": "",
+      "value": "PA SW Srv"
+    },
+    {
+      "stable_suffix": "dynshlp_101_2",
+      "label": "PA SW Srv",
+      "value": "Panama Software Services"
+    },
+    {
+      "stable_suffix": "dynshlp_102_1",
+      "label": "",
+      "value": "P_REG_SW_SM"
+    },
+    {
+      "stable_suffix": "dynshlp_102_2",
+      "label": "P_REG_SW_SM",
+      "value": "Regional Software Manager"
+    },
+    {
+      "stable_suffix": "dynshlp_103_1",
+      "label": "",
+      "value": "Reg Infrastr"
+    },
+    {
+      "stable_suffix": "dynshlp_103_2",
+      "label": "Reg Infrastr",
+      "value": "Regional Infrastructure"
+    },
+    {
+      "stable_suffix": "dynshlp_104_1",
+      "label": "",
+      "value": "Regional TSS"
+    },
+    {
+      "stable_suffix": "dynshlp_104_2",
+      "label": "Regional TSS",
+      "value": "Regional TSS"
+    },
+    {
+      "stable_suffix": "dynshlp_105_1",
+      "label": "",
+      "value": "SV HVP TSS"
+    },
+    {
+      "stable_suffix": "dynshlp_105_2",
+      "label": "SV HVP TSS",
+      "value": "El Salvador HVP TSS"
+    },
+    {
+      "stable_suffix": "dynshlp_106_1",
+      "label": "",
+      "value": "SV TSS"
+    },
+    {
+      "stable_suffix": "dynshlp_106_2",
+      "label": "SV TSS",
+      "value": "El Salvador TSS"
+    }
+  ],
+  "buttons": [
+    {
+      "text": "Cancel",
+      "stable_suffix": "thCancelSIP",
+      "id_sample": "thCancelSIP"
+    }
+  ],
+  "tables": [
+    {
+      "title": "",
+      "columns": [
+        "Service Organization",
+        "Description"
+      ]
+    },
+    {
+      "title": "",
+      "columns": [
+        "CR",
+        "Costa Rica SLM (Gestion)"
+      ]
+    }
+  ],
+  "dropdowns": [],
+  "checkboxes": []
+}
