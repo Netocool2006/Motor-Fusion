@@ -397,3 +397,20 @@
 [2026-04-01T13:10:56.196010] WorkingMemory clear: cannot import name 'WORKING_MEMORY_MAX_ITEMS' from 'config' (C:\Hooks_IA\config.py)
 [2026-04-01T13:10:56.196010] DomainPromoter: cannot import name 'DOMAINS_FILE' from 'config' (C:\Hooks_IA\config.py)
 [2026-04-01T13:10:56.196010] Hook session_end completed successfully
+[2026-04-01T13:12:59.110845] Hook session_end fired. Fields: ['session_id', 'transcript_path', 'cwd', 'permission_mode', 'hook_event_name', 'stop_hook_active', 'last_assistant_message']
+[2026-04-01T13:12:59.110845] session_id=a469a7ed-31a8-4085-a8dd-ae35b95c6d7f
+[2026-04-01T13:12:59.110845] transcript_path=C:\Users\ntoledo\AppData\Local\ClaudeCode\.claude\projects\C--Chance1\a469a7ed-31a8-4085-a8dd-ae35b95c6d7f.jsonl
+[2026-04-01T13:12:59.178367] Transcript: 2107 messages loaded
+[2026-04-01T13:12:59.212752] Extracted: 73 user msgs, 10 errors
+[2026-04-01T13:12:59.212752] Tools (final): 28 reads, 16 edits, 269 commands
+[2026-04-01T13:12:59.216750] Session merged at index 0
+[2026-04-01T13:12:59.220667] Co-occurrence updated for domains: ['files', 'sap_tierra']
+[2026-04-01T13:12:59.222631] Markov sequence: files -> sap_tierra
+[2026-04-01T13:12:59.222631] KB: DOMAINS not available, skipping auto-extract
+[2026-04-01T13:12:59.223632] KB: flush attempt: cannot import name 'STATE_FILE' from 'config' (C:\Hooks_IA\config.py)
+[2026-04-01T13:12:59.227686] Episodic FTS5 index failed: cannot import name 'EPISODIC_DB' from 'config' (C:\Hooks_IA\config.py)
+[2026-04-01T13:12:59.227686] HintTracker: cannot import name 'HINT_EFFECTIVENESS_DECAY' from 'config' (C:\Hooks_IA\config.py)
+[2026-04-01T13:12:59.228683] MemoryPruner: cannot import name 'MEMORY_FILE' from 'config' (C:\Hooks_IA\config.py)
+[2026-04-01T13:12:59.230660] WorkingMemory clear: cannot import name 'WORKING_MEMORY_MAX_ITEMS' from 'config' (C:\Hooks_IA\config.py)
+[2026-04-01T13:12:59.231664] DomainPromoter: cannot import name 'DOMAINS_FILE' from 'config' (C:\Hooks_IA\config.py)
+[2026-04-01T13:12:59.231664] Hook session_end completed successfully

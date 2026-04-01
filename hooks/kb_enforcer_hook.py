@@ -1,11 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 """
-kb_enforcer_hook.py - KB Enforcer Hook
-Hook obligatorio - MANEJA AMBOS FORMATOS DE TRANSCRIPT
-Se ejecuta ANTES de cada respuesta para buscar en KB.
-Registrado en settings.json
-No hardcoded paths - uses config.py for portability
+kb_enforcer_hook.py - Hook que ejecuta búsqueda en KB e inyecta contexto
+Se ejecuta ANTES de cada respuesta - retorna JSON con additionalContext
 """
 
 import sys
@@ -15,11 +12,9 @@ from datetime import datetime
 
 def safe_kb_search():
     """
-    Busca el último mensaje del usuario en el transcript.
-    Maneja ambos formatos: simple y el de Claude Code.
+    Busca el último mensaje del usuario y ejecuta búsqueda en KB
     """
     try:
-        # Importar configuración (sin paths quemados)
         hooks_dir = Path(__file__).parent
         project_root = hooks_dir.parent
         sys.path.insert(0, str(project_root))
@@ -27,7 +22,6 @@ def safe_kb_search():
         from config import CHANCE_PROJECT_DIR
         from core.kb_response_engine import process_query_with_kb
 
-        # Buscar el archivo más reciente (usando config)
         transcript_dir = CHANCE_PROJECT_DIR
         if not transcript_dir.exists():
             return None
@@ -38,26 +32,21 @@ def safe_kb_search():
 
         transcript_file = max(transcript_files, key=lambda p: p.stat().st_mtime)
 
-        # Leer el archivo y buscar el último mensaje del usuario
         query = None
         with open(transcript_file, 'r', encoding='utf-8', errors='ignore') as f:
             lines = f.readlines()
 
-        # Buscar en las últimas 200 líneas (de atrás hacia adelante)
         for line in reversed(lines[-200:]):
             try:
                 data = json.loads(line)
 
-                # Formato 1: data.get('type') == 'user'
                 if data.get('type') == 'user':
-                    # Puede estar en data['content'] (formato simple)
                     content = data.get('content')
                     if content and isinstance(content, str):
                         query = content.strip()
                         if query:
                             break
 
-                    # O puede estar en data['message']['content'] (formato Claude Code)
                     msg = data.get('message', {})
                     msg_content = msg.get('content', [])
                     if isinstance(msg_content, list):
@@ -86,48 +75,45 @@ def safe_kb_search():
 
 def main():
     """
-    Hook principal.
+    Hook principal - retorna JSON con additionalContext
     """
     try:
         result = safe_kb_search()
 
         if result:
-            # Construcción del reporte OBLIGATORIO
-            mandatory_footer = result['sources_footer']
+            # CONSTRUCCION DEL CONTEXTO A INYECTAR EN CLAUDE
+            kb_context = f"""[KB_SEARCH_EXECUTED]
+Query: {result['query']}
+Domain: {result['domain']}
+KB Entries Found: {result['kb_found']}
+KB Coverage: {result['kb_pct']}%
+Internet Coverage: {result['internet_pct']}%
+ML Coverage: {result['ml_pct']}%
+Required Footer: {result['sources_footer']}
+[/KB_SEARCH_EXECUTED]"""
 
-            separator = "=" * 70
-            print("\n" + separator)
-            print("*** MANDATORY KB ENFORCER REPORT ***")
-            print(separator)
-            print(f"\nQuery: {result['query'][:60]}...")
-            print(f"Domain: {result['domain']}")
-            print(f"KB Entries Found: {result['kb_found']}")
-            print(f"\n{separator}")
-            print("REQUIRED IN YOUR RESPONSE:")
-            print(separator)
-            print(f"\n{mandatory_footer}")
-            print(f"\n{separator}")
-            print("Coverage Breakdown:")
-            print(f"  KB:       {result['kb_pct']}%")
-            print(f"  Internet: {result['internet_pct']}%")
-            print(f"  ML:       {result['ml_pct']}%")
-            print(f"  TOTAL:    100%")
+            # RETORNAR JSON CON additionalContext PARA QUE CLAUDE CODE LO INYECTE
+            hook_output = {
+                "hookSpecificOutput": {
+                    "additionalContext": kb_context
+                }
+            }
 
-            if result['should_save']:
-                print(f"\n[AUTO-SAVE] Response will be saved to KB (KB=0%)")
+            # IMPRIMIR JSON (Claude Code lo procesa)
+            print(json.dumps(hook_output, ensure_ascii=False))
 
-            print(f"\n{separator}")
-            print("INCLUDE THE ABOVE SOURCES IN YOUR RESPONSE")
-            print(separator + "\n")
-
-            # Log de ejecución
+            # GUARDAR LOGS PARA VERIFICACION
             try:
                 log_file = Path(r"C:\Hooks_IA\core\kb_enforcer.log")
                 log_file.parent.mkdir(parents=True, exist_ok=True)
                 log_entry = {
                     "timestamp": datetime.now().isoformat(),
                     "query": result['query'][:100],
+                    "domain": result['domain'],
                     "kb_pct": result['kb_pct'],
+                    "internet_pct": result['internet_pct'],
+                    "ml_pct": result['ml_pct'],
+                    "kb_found": result['kb_found'],
                     "auto_save": result['should_save']
                 }
                 with open(log_file, "a", encoding="utf-8") as f:
@@ -135,29 +121,12 @@ def main():
             except:
                 pass
 
-            # Guardar reporte obligatorio en archivo
+            # GUARDAR RESULTADO EN ARCHIVO PARA VERIFICACION
             try:
-                report_file = Path(r"C:\Hooks_IA\core\MANDATORY_SOURCES_REPORT.txt")
-                with open(report_file, "w", encoding="utf-8") as f:
-                    f.write(result['sources_footer'] + "\n")
-            except:
-                pass
-
-            # GUARDAR RESULTADO PARA QUE CLAUDE LEA EN RESPUESTA
-            try:
-                shared_result = Path(r"C:\Hooks_IA\core\kb_search_result.json")
-                result_data = {
-                    "timestamp": datetime.now().isoformat(),
-                    "query": result['query'],
-                    "domain": result['domain'],
-                    "kb_pct": result['kb_pct'],
-                    "internet_pct": result['internet_pct'],
-                    "ml_pct": result['ml_pct'],
-                    "sources_footer": result['sources_footer'],
-                    "kb_found": result['kb_found']
-                }
-                with open(shared_result, "w", encoding="utf-8") as f:
-                    f.write(json.dumps(result_data, ensure_ascii=False, indent=2))
+                result_file = Path(r"C:\Hooks_IA\core\kb_search_result.json")
+                result_file.parent.mkdir(parents=True, exist_ok=True)
+                with open(result_file, "w", encoding="utf-8") as f:
+                    f.write(json.dumps(hook_output, ensure_ascii=False, indent=2))
             except:
                 pass
 
