@@ -1,0 +1,1832 @@
+{
+  "domain": "sap_cloud",
+  "description": "Dominio auto-creado: sap_cloud",
+  "entries": {
+    "38ff61d44261": {
+      "id": "38ff61d44261",
+      "type": "fact",
+      "key": "fiori_architecture",
+      "fact": {
+        "rule": "SAP Cloud CRM usa SAP Fiori/UI5 - es SPA moderna, NO frameset como WebUI",
+        "differences_from_webui": {
+          "framework": "SAPUI5 (basado en jQuery/MVC) vs UR Library (HTML4)",
+          "rendering": "Client-side rendering vs Server-side rendering",
+          "DOM": "Shadow DOM posible, web components, NO framesets",
+          "routing": "Hash-based routing (#/) vs full page reload",
+          "API": "OData REST vs RFC/BAPI",
+          "selectors": "data-sap-ui, aria roles, semantic HTML vs IDs dinamicos C42_W133"
+        },
+        "url": "my1000880.us1.crm.cloud.sap"
+      },
+      "tags": [
+        "sap",
+        "cloud",
+        "fiori",
+        "ui5",
+        "arquitectura"
+      ],
+      "created_at": "2026-03-21T15:38:58.209380+00:00",
+      "updated_at": "2026-03-21T15:38:58.209380+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-03-30T21:30:06.653907+00:00",
+        "access_count": 111
+      }
+    },
+    "e6a5b8337433": {
+      "id": "e6a5b8337433",
+      "type": "fact",
+      "key": "fiori_vs_webui",
+      "fact": {
+        "rule": "Diferencias criticas entre SAP Cloud (Fiori) y SAP WebUI para automatizacion",
+        "fiori_advantages": [
+          "NO tiene framesets - todo en un DOM",
+          "Selectores mas estables (data-sap-ui-*)",
+          "API OData accesible directamente",
+          "Responsive design - funciona en cualquier viewport",
+          "Mejor soporte para aria roles"
+        ],
+        "fiori_challenges": [
+          "Shadow DOM en algunos componentes",
+          "Lazy loading de componentes",
+          "SPA routing - URL no cambia al navegar",
+          "CSRF token necesario para API calls",
+          "SSO/OAuth authentication"
+        ]
+      },
+      "tags": [
+        "sap",
+        "cloud",
+        "fiori",
+        "webui",
+        "diferencias"
+      ],
+      "created_at": "2026-03-21T15:38:58.251294+00:00",
+      "updated_at": "2026-03-21T15:38:58.251294+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-01T04:07:40.274475+00:00",
+        "access_count": 42
+      }
+    },
+    "b7aa44d1e030": {
+      "id": "b7aa44d1e030",
+      "type": "fact",
+      "key": "fiori_dom_structure",
+      "fact": {
+        "rule": "Estructura DOM de SAP Fiori/UI5 apps",
+        "structure": {
+          "shell": "sap-ui-shell - contenedor principal",
+          "content": "sap-ui-content - area de contenido",
+          "page": "sapMPage - pagina actual",
+          "header": "sapMPageHeader - header con titulo y acciones",
+          "form": "sapUiForm - formulario con campos",
+          "table": "sapMTable o sapUiTable - tabla de datos",
+          "dialog": "sapMDialog - popup/modal",
+          "input": "sapMInput - campo de texto",
+          "select": "sapMSelect - dropdown",
+          "datepicker": "sapMDatePicker - selector de fecha",
+          "button": "sapMButton - boton"
+        }
+      },
+      "tags": [
+        "sap",
+        "cloud",
+        "fiori",
+        "dom",
+        "estructura",
+        "clases"
+      ],
+      "created_at": "2026-03-21T15:38:58.355918+00:00",
+      "updated_at": "2026-03-21T15:38:58.355918+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-01T04:23:46.708573+00:00",
+        "access_count": 44
+      }
+    },
+    "68fc6915f810": {
+      "id": "68fc6915f810",
+      "type": "pattern",
+      "key": "fiori_login_sso",
+      "solution": {
+        "strategy": "handle_sso_oauth",
+        "description": "Login en SAP Cloud CRM - SSO/OAuth flow",
+        "code_snippet": "# SAP Cloud usa SSO (Single Sign-On) - NO form login simple\n# El flow es: URL -> redirect a IdP -> login -> redirect back\n\nfrom playwright.sync_api import sync_playwright\n\ndef sap_cloud_login(page, url, user, password):\n    page.goto(url)\n    page.wait_for_load_state('networkidle')\n\n    # Detectar pagina de login (IdP)\n    # Puede ser SAP IAS, Azure AD, Okta, etc.\n    if 'accounts.sap.com' in page.url or 'login' in page.url.lower():\n        # SAP Identity Authentication Service\n        page.locator('input[name=\"j_username\"], input[name=\"email\"], #j_username').fill(user)\n        page.locator('input[name=\"j_password\"], input[name=\"password\"], #j_password').fill(password)\n        page.locator('button[type=\"submit\"], #logOnFormSubmit').click()\n        page.wait_for_load_state('networkidle', timeout=30000)\n\n    # Verificar que llego a la app\n    page.wait_for_selector('[class*=\"sapUiShell\"], [class*=\"sapMShell\"]', timeout=15000)\n    return True\n\nwith sync_playwright() as p:\n    browser = p.chromium.launch(headless=False)\n    context = browser.new_context(ignore_https_errors=True)\n    page = context.new_page()\n    sap_cloud_login(page, 'https://my1000880.us1.crm.cloud.sap', 'user@company.com', 'pass')",
+        "notes": "El IdP varia por tenant. Puede ser SAP IAS, Azure AD, Okta. Detectar por URL.",
+        "confidence": "high"
+      },
+      "tags": [
+        "sap",
+        "cloud",
+        "login",
+        "sso",
+        "oauth",
+        "idp",
+        "authentication"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-21T15:38:58.418596+00:00",
+      "updated_at": "2026-03-21T15:38:58.418596+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-30T21:30:06.653907+00:00",
+        "access_count": 99
+      }
+    },
+    "1878ae1a0565": {
+      "id": "1878ae1a0565",
+      "type": "pattern",
+      "key": "fiori_login_cookie_reuse",
+      "solution": {
+        "strategy": "save_and_reuse_auth",
+        "description": "Reusar cookies de sesion para evitar re-login en cada ejecucion",
+        "code_snippet": "import json\n\n# Guardar cookies despues de login exitoso\ncookies = context.cookies()\nwith open('sap_cloud_cookies.json', 'w') as f:\n    json.dump(cookies, f)\n\n# En proxima ejecucion: cargar cookies\nwith open('sap_cloud_cookies.json') as f:\n    cookies = json.load(f)\ncontext.add_cookies(cookies)\npage.goto('https://my1000880.us1.crm.cloud.sap')\n# Si las cookies son validas, salta el login\n\n# Verificar si la sesion es valida\ntry:\n    page.wait_for_selector('[class*=\"sapUiShell\"]', timeout=5000)\n    print('Sesion reutilizada')\nexcept:\n    print('Cookies expiradas, re-login necesario')\n    sap_cloud_login(page, url, user, password)",
+        "notes": "Las cookies SSO expiran (~8-12 horas). Guardar y reusar ahorra tiempo en dev/testing.",
+        "confidence": "high"
+      },
+      "tags": [
+        "sap",
+        "cloud",
+        "cookies",
+        "sesion",
+        "reusar",
+        "auth"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-21T15:38:58.475161+00:00",
+      "updated_at": "2026-03-21T15:38:58.475161+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-04-01T13:59:26.051641+00:00",
+        "access_count": 61
+      }
+    },
+    "a562a4cb4e63": {
+      "id": "a562a4cb4e63",
+      "type": "pattern",
+      "key": "fiori_selectors_strategy",
+      "solution": {
+        "strategy": "fiori_selector_priority",
+        "description": "Prioridad de selectores para SAP Fiori/UI5 apps",
+        "code_snippet": "# PRIORIDAD de selectores en Fiori (de mas estable a menos):\n\n# 1. data-sap-ui-* attributes (UNICO y estable)\npage.locator('[data-sap-ui=\"accountName\"]')\n\n# 2. aria-label / aria-labelledby\npage.locator('[aria-label=\"Account Name\"]')\n\n# 3. placeholder\npage.locator('[placeholder=\"Enter account name\"]')\n\n# 4. Clase semantica de SAPUI5 + contenido\npage.locator('.sapMInput:has([aria-label*=\"Account\"])')\n\n# 5. Label asociado\npage.locator('label:has-text(\"Account\") + .sapMInput input')\n\n# 6. Test ID (si existe)\npage.locator('[data-testid=\"accountInput\"]')\n\n# 7. Clase CSS de UI5 (semi-estable)\npage.locator('.sapMInputBaseInner')\n\n# NUNCA usar:\n# - IDs generados: __input0-inner, __button12\n# - Indices de DOM que cambian con el layout",
+        "notes": "data-sap-ui-* es el mas estable. Los IDs __input0 son generados y cambian.",
+        "confidence": "verified"
+      },
+      "tags": [
+        "sap",
+        "cloud",
+        "fiori",
+        "selectores",
+        "prioridad",
+        "estable"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-21T15:38:58.549431+00:00",
+      "updated_at": "2026-03-21T15:38:58.549431+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-04-01T13:59:26.051641+00:00",
+        "access_count": 55
+      }
+    },
+    "2d21c97f5ce8": {
+      "id": "2d21c97f5ce8",
+      "type": "pattern",
+      "key": "fiori_input_field",
+      "solution": {
+        "strategy": "fill_sapui5_input",
+        "description": "Llenar campo de texto en SAP Fiori/UI5",
+        "code_snippet": "# Los inputs en Fiori son componentes sapMInput\n# El input real esta dentro de un wrapper\n\n# Metodo 1: Por aria-label\nfield = page.locator('[aria-label=\"Account Name\"] input, input[aria-label=\"Account Name\"]')\nfield.fill('IBM Guatemala')\n\n# Metodo 2: Por label text asociado\nfield = page.locator('label:has-text(\"Account Name\")').locator('xpath=./following::input[1]')\nfield.fill('IBM Guatemala')\n\n# Metodo 3: Por placeholder\nfield = page.locator('input[placeholder*=\"account\"]')\nfield.fill('IBM Guatemala')\n\n# IMPORTANTE: En Fiori, .fill() funciona mejor que .type()\n# porque UI5 escucha el evento 'input', no keypress individual\n\n# Despues de fill, trigger liveChange:\nfield.dispatch_event('input')\nfield.press('Tab')\npage.wait_for_timeout(300)",
+        "notes": ".fill() funciona bien en Fiori (a diferencia de WebUI donde passwords necesitan .type()). Tab sigue siendo importante.",
+        "confidence": "high"
+      },
+      "tags": [
+        "sap",
+        "cloud",
+        "fiori",
+        "input",
+        "campo",
+        "llenar",
+        "fill"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-21T15:38:58.596947+00:00",
+      "updated_at": "2026-03-21T15:38:58.596947+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-04-01T04:23:56.843727+00:00",
+        "access_count": 58
+      }
+    },
+    "ca6981abb47d": {
+      "id": "ca6981abb47d",
+      "type": "pattern",
+      "key": "fiori_select_dropdown",
+      "solution": {
+        "strategy": "sapui5_select_component",
+        "description": "Seleccionar valor en dropdown/Select de SAP Fiori",
+        "code_snippet": "# Fiori usa sapMSelect o sapMComboBox (son diferentes)\n\n# sapMSelect: dropdown simple\nselect = page.locator('[aria-label=\"Status\"] [role=\"combobox\"]')\nselect.click()  # Abre la lista\npage.wait_for_timeout(300)\n# Las opciones aparecen en un popover\npage.locator('[class*=\"sapMSelectList\"] li:has-text(\"Open\")').click()\n\n# sapMComboBox: dropdown con busqueda\ncombo = page.locator('[aria-label=\"Account\"] input')\ncombo.fill('IBM')  # Filtra mientras escribe\npage.wait_for_timeout(500)\n# Seleccionar de la lista filtrada\npage.locator('[class*=\"sapMComboBoxItem\"]:has-text(\"IBM Guatemala\")').click()\n\n# sapMMultiComboBox: multi-seleccion\nmulti = page.locator('[aria-label=\"Categories\"] input')\nmulti.click()\npage.locator('[class*=\"sapMToken\"]:has-text(\"Software\")').click()\npage.locator('[class*=\"sapMToken\"]:has-text(\"Services\")').click()\npage.keyboard.press('Escape')  # Cerrar lista",
+        "notes": "Click abre el popover. Las opciones estan en sapMSelectList o sapMSuggestionPopover.",
+        "confidence": "high"
+      },
+      "tags": [
+        "sap",
+        "cloud",
+        "fiori",
+        "select",
+        "dropdown",
+        "combobox"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-21T15:38:58.656109+00:00",
+      "updated_at": "2026-03-21T15:38:58.656109+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-04-01T04:23:56.843727+00:00",
+        "access_count": 71
+      }
+    },
+    "9ae8db38ffba": {
+      "id": "9ae8db38ffba",
+      "type": "pattern",
+      "key": "fiori_datepicker",
+      "solution": {
+        "strategy": "sapui5_datepicker",
+        "description": "Llenar campo de fecha en SAP Fiori DatePicker",
+        "code_snippet": "# Fiori DatePicker acepta input directo\n\n# Metodo 1: Escribir fecha directo (RECOMENDADO)\ndate_field = page.locator('[aria-label=\"Start Date\"] input')\ndate_field.fill('Mar 15, 2026')  # Formato depende del locale\ndate_field.press('Tab')\n\n# Metodo 2: Formato ISO\ndate_field.fill('2026-03-15')\ndate_field.press('Tab')\n\n# Metodo 3: Usar el picker\npicker_icon = page.locator('[aria-label=\"Start Date\"] [class*=\"sapUiIcon\"]')\npicker_icon.click()\npage.wait_for_timeout(300)\n# Navegar calendario\npage.locator('[class*=\"sapUiCalItem\"]:has-text(\"15\")').click()\n\n# DateRangePicker (rango de fechas)\nrange_field = page.locator('[aria-label=\"Date Range\"] input')\nrange_field.fill('Mar 15, 2026 - Mar 30, 2026')\nrange_field.press('Tab')",
+        "notes": "Escribir fecha directo es mas confiable que usar el calendario UI. Formato depende del locale del usuario.",
+        "confidence": "high"
+      },
+      "tags": [
+        "sap",
+        "cloud",
+        "fiori",
+        "fecha",
+        "datepicker",
+        "calendario"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-21T15:38:58.723806+00:00",
+      "updated_at": "2026-03-21T15:38:58.723806+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-31T20:16:06.455846+00:00",
+        "access_count": 41
+      }
+    },
+    "632891096c4a": {
+      "id": "632891096c4a",
+      "type": "pattern",
+      "key": "fiori_checkbox_toggle",
+      "solution": {
+        "strategy": "sapui5_checkbox",
+        "description": "Manejar checkboxes y toggles en SAP Fiori",
+        "code_snippet": "# Checkbox en Fiori\ncb = page.locator('[aria-label=\"Active\"] [role=\"checkbox\"]')\n# Verificar estado actual\nis_checked = cb.get_attribute('aria-checked') == 'true'\nif not is_checked:\n    cb.click()\n\n# Toggle/Switch\ntoggle = page.locator('[aria-label=\"Enabled\"] [role=\"switch\"]')\ntoggle.click()  # Toggle\n\n# CheckBox en tabla (seleccionar filas)\n# Seleccionar todas\npage.locator('[aria-label=\"Select All\"]').click()\n# Seleccionar fila especifica\npage.locator('tr:has-text(\"IBM\") [role=\"checkbox\"]').click()",
+        "notes": "Verificar aria-checked antes de click para no des-checkear.",
+        "confidence": "high"
+      },
+      "tags": [
+        "sap",
+        "cloud",
+        "fiori",
+        "checkbox",
+        "toggle",
+        "switch"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-21T15:38:58.796182+00:00",
+      "updated_at": "2026-03-21T15:38:58.796182+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-04-01T04:23:56.843727+00:00",
+        "access_count": 55
+      }
+    },
+    "d59898ea4e1e": {
+      "id": "d59898ea4e1e",
+      "type": "pattern",
+      "key": "fiori_textarea_richtext",
+      "solution": {
+        "strategy": "sapui5_textarea",
+        "description": "Llenar textarea y rich text en Fiori",
+        "code_snippet": "# Textarea simple\ntextarea = page.locator('[aria-label=\"Description\"] textarea')\ntextarea.fill('Descripcion del proyecto IBM Cloud')\n\n# Rich Text Editor (sapMRichTextEditor)\n# El editor usa un iframe con contenteditable\nrte = page.frame_locator('[class*=\"sapMRTE\"] iframe')\nrte.locator('body[contenteditable=\"true\"]').fill('Texto formateado')\n\n# Si el RTE usa TinyMCE o CKEditor:\nrte_frame = page.frame_locator('iframe[id*=\"tinymce\"], iframe[class*=\"cke\"]')\nrte_frame.locator('body').fill('Contenido del editor')",
+        "notes": "Textarea simple: fill() directo. Rich text: entrar al iframe del editor.",
+        "confidence": "high"
+      },
+      "tags": [
+        "sap",
+        "cloud",
+        "fiori",
+        "textarea",
+        "richtext",
+        "editor"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-21T15:38:58.868339+00:00",
+      "updated_at": "2026-03-21T15:38:58.868339+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-04-01T04:23:56.843727+00:00",
+        "access_count": 51
+      }
+    },
+    "e28b57ed97b4": {
+      "id": "e28b57ed97b4",
+      "type": "pattern",
+      "key": "fiori_navigation_spa",
+      "solution": {
+        "strategy": "navigate_fiori_spa",
+        "description": "Navegar en SAP Fiori SPA - NO usa page reload",
+        "code_snippet": "# Fiori es SPA: la URL cambia con hash (#) pero la pagina no recarga\n\n# Navegacion por menu/tiles\npage.locator('[class*=\"sapMTile\"]:has-text(\"Opportunities\")').click()\npage.wait_for_selector('[class*=\"sapMList\"], [class*=\"sapUiTable\"]', timeout=10000)\n\n# Navegacion por shell navigation\npage.locator('[class*=\"sapUiShellNavItem\"]:has-text(\"Sales\")').click()\n\n# Navegacion directa por hash (si conoces la ruta)\npage.evaluate('window.location.hash = \"#/Opportunities\"')\npage.wait_for_timeout(1000)\n\n# Back button\npage.locator('[class*=\"sapMNavBack\"], [aria-label=\"Back\"]').click()\n\n# IMPORTANTE: No usar page.goto() para navegar dentro de la app\n# Esto recarga la SPA completa y pierde estado",
+        "notes": "NUNCA page.goto() para navegar dentro de Fiori. Usar clicks o hash navigation.",
+        "confidence": "verified"
+      },
+      "tags": [
+        "sap",
+        "cloud",
+        "fiori",
+        "navegacion",
+        "spa",
+        "hash",
+        "routing"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-21T15:38:58.937599+00:00",
+      "updated_at": "2026-03-21T15:38:58.937599+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-04-01T04:07:40.274475+00:00",
+        "access_count": 41
+      }
+    },
+    "efaf2236a96e": {
+      "id": "efaf2236a96e",
+      "type": "pattern",
+      "key": "fiori_shell_navigation",
+      "solution": {
+        "strategy": "navigate_via_shell",
+        "description": "Usar el Fiori Launchpad shell para navegar entre apps",
+        "code_snippet": "# El Fiori Launchpad tiene:\n# 1. Tiles (iconos de apps en la home)\n# 2. Search bar (buscar apps/objetos)\n# 3. Navigation menu (hamburger)\n# 4. User menu (avatar)\n\n# Ir a Home\npage.locator('[aria-label=\"Home\"], [class*=\"sapUiShellHome\"]').click()\npage.wait_for_timeout(1000)\n\n# Buscar app por nombre\nsearch = page.locator('[class*=\"sapUiShellSearch\"] input, [aria-label=\"Search\"]')\nsearch.fill('Opportunities')\npage.wait_for_timeout(500)\npage.locator('[class*=\"sapUiShellSearchResult\"]:has-text(\"Manage Opportunities\")').click()\n\n# Abrir app directa por semantic object\npage.evaluate('''\n    sap.ushell.Container.getServiceAsync(\"CrossApplicationNavigation\").then(srv => {\n        srv.toExternal({target: {semanticObject: \"Opportunity\", action: \"display\"}});\n    });\n''')",
+        "notes": "sap.ushell.Container es el API JS del Launchpad. Util para navegacion programatica.",
+        "confidence": "medium"
+      },
+      "tags": [
+        "sap",
+        "cloud",
+        "fiori",
+        "launchpad",
+        "shell",
+        "tiles",
+        "buscar"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-21T15:38:58.989101+00:00",
+      "updated_at": "2026-03-21T15:38:58.989101+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-04-01T04:07:40.274475+00:00",
+        "access_count": 110
+      }
+    },
+    "78ccde59faeb": {
+      "id": "78ccde59faeb",
+      "type": "pattern",
+      "key": "fiori_table_responsive",
+      "solution": {
+        "strategy": "sapui5_responsive_table",
+        "description": "Interactuar con tablas responsivas de Fiori (sapMTable)",
+        "code_snippet": "# sapMTable: tabla responsiva (la mas comun en Fiori apps)\n\n# Leer filas\nrows = page.locator('[class*=\"sapMListItems\"] [class*=\"sapMListItem\"], [class*=\"sapMLIB\"]')\ncount = rows.count()\nprint(f'Filas: {count}')\n\n# Leer contenido de una fila\nfor i in range(count):\n    row = rows.nth(i)\n    cells = row.locator('[class*=\"sapMListItemCell\"], [class*=\"sapMObjLAttr\"]')\n    values = [cells.nth(j).text_content().strip() for j in range(cells.count())]\n    print(f'Fila {i}: {values}')\n\n# Click en una fila para abrir detalle\nrows.nth(0).click()\npage.wait_for_timeout(1000)\n\n# Seleccionar fila (checkbox)\nrows.nth(0).locator('[role=\"checkbox\"]').click()\n\n# Scroll para cargar mas (lazy loading / growing)\npage.locator('[class*=\"sapMGrowingList\"] [class*=\"sapMGrowingListTrigger\"]').click()\npage.wait_for_timeout(1000)",
+        "notes": "sapMTable usa lazy loading (growing). Click en 'More' para cargar mas filas.",
+        "confidence": "high"
+      },
+      "tags": [
+        "sap",
+        "cloud",
+        "fiori",
+        "tabla",
+        "responsiva",
+        "sapMTable",
+        "filas"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-21T15:38:59.037819+00:00",
+      "updated_at": "2026-03-21T15:38:59.037819+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-30T21:30:06.653907+00:00",
+        "access_count": 41
+      }
+    },
+    "5cbb842977d8": {
+      "id": "5cbb842977d8",
+      "type": "pattern",
+      "key": "fiori_table_analytical",
+      "solution": {
+        "strategy": "sapui5_analytical_table",
+        "description": "Interactuar con tablas analiticas de Fiori (sapUiTable)",
+        "code_snippet": "# sapUiTable: tabla analitica con scroll virtual (datos grandes)\n\n# Las filas se renderizan dinamicamente al hacer scroll\nrows = page.locator('[class*=\"sapUiTableRow\"]:not([class*=\"sapUiTableRowHdr\"])')\n\n# Scroll virtual: solo N filas visibles a la vez\n# Para acceder filas no visibles, hacer scroll\ntable = page.locator('[class*=\"sapUiTable\"]')\ntable.locator('[class*=\"sapUiTableVSb\"]').evaluate(\n    'el => el.scrollTop = 500'  # Scroll 500px\n)\npage.wait_for_timeout(500)\n\n# Editar celda: double-click para activar modo edicion\ncell = rows.nth(2).locator('[class*=\"sapUiTableCell\"]').nth(1)\ncell.dblclick()\npage.wait_for_timeout(300)\n# Ahora hay un input dentro de la celda\ncell.locator('input').fill('nuevo valor')\ncell.locator('input').press('Tab')\n\n# Ordenar por columna\npage.locator('[class*=\"sapUiTableCol\"]:has-text(\"Amount\")').click()  # Ascendente\npage.locator('[class*=\"sapUiTableCol\"]:has-text(\"Amount\")').click()  # Descendente",
+        "notes": "sapUiTable tiene scroll virtual. Solo las filas visibles existen en el DOM.",
+        "confidence": "high"
+      },
+      "tags": [
+        "sap",
+        "cloud",
+        "fiori",
+        "tabla",
+        "analitica",
+        "scroll",
+        "virtual"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-21T15:38:59.090095+00:00",
+      "updated_at": "2026-03-21T15:38:59.090095+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-31T20:28:16.478492+00:00",
+        "access_count": 48
+      }
+    },
+    "1bbba150b88d": {
+      "id": "1bbba150b88d",
+      "type": "pattern",
+      "key": "fiori_table_add_row",
+      "solution": {
+        "strategy": "add_row_to_fiori_table",
+        "description": "Agregar fila a tabla en Fiori",
+        "code_snippet": "# Boton de agregar (varía por app)\npage.locator('[aria-label*=\"Add\"], [aria-label*=\"Create\"], '\n             'button:has-text(\"Add\"), button:has-text(\"+\")').click()\npage.wait_for_timeout(500)\n\n# La fila nueva puede aparecer:\n# A) Al final de la tabla\nlast_row = page.locator('[class*=\"sapMListItem\"]').last\n# B) En un dialog/popover para llenar datos\ndialog = page.locator('[class*=\"sapMDialog\"]')\nif dialog.is_visible():\n    dialog.locator('[aria-label=\"Product\"] input').fill('IBM Cloud Pak')\n    dialog.locator('[aria-label=\"Quantity\"] input').fill('5')\n    dialog.locator('button:has-text(\"OK\"), button:has-text(\"Add\")').click()\n\n# C) Inline editing (fila editable aparece en la tabla)\nnew_row = page.locator('[class*=\"sapMListItem\"]').last\nnew_row.locator('input').nth(0).fill('Producto')\nnew_row.locator('input').nth(1).fill('10')",
+        "notes": "Fiori puede agregar inline, en dialog, o en pagina nueva. Detectar cual metodo usa la app.",
+        "confidence": "high"
+      },
+      "tags": [
+        "sap",
+        "cloud",
+        "fiori",
+        "tabla",
+        "agregar",
+        "fila",
+        "add"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-21T15:38:59.132283+00:00",
+      "updated_at": "2026-03-21T15:38:59.132283+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-04-01T04:23:56.843727+00:00",
+        "access_count": 68
+      }
+    },
+    "02d453516797": {
+      "id": "02d453516797",
+      "type": "pattern",
+      "key": "fiori_table_delete_row",
+      "solution": {
+        "strategy": "delete_row_from_fiori_table",
+        "description": "Eliminar fila de tabla en Fiori",
+        "code_snippet": "# 1. Seleccionar la fila\npage.locator('tr:has-text(\"IBM\") [role=\"checkbox\"]').click()\n\n# 2. Click en Delete\npage.locator('button:has-text(\"Delete\"), [aria-label=\"Delete\"]').click()\npage.wait_for_timeout(300)\n\n# 3. Confirmar en dialog\ndialog = page.locator('[class*=\"sapMDialog\"]')\nif dialog.is_visible():\n    dialog.locator('button:has-text(\"OK\"), button:has-text(\"Delete\"), '\n                   'button:has-text(\"Yes\")').click()\n\npage.wait_for_timeout(500)",
+        "notes": "Siempre hay dialog de confirmacion. Esperar el dialog antes de confirmar.",
+        "confidence": "high"
+      },
+      "tags": [
+        "sap",
+        "cloud",
+        "fiori",
+        "tabla",
+        "eliminar",
+        "delete"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-21T15:38:59.165505+00:00",
+      "updated_at": "2026-03-21T15:38:59.165505+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-04-01T04:23:56.843727+00:00",
+        "access_count": 55
+      }
+    },
+    "e9a670402a88": {
+      "id": "e9a670402a88",
+      "type": "pattern",
+      "key": "fiori_dialog_handling",
+      "solution": {
+        "strategy": "handle_sapui5_dialog",
+        "description": "Manejar dialogs/modals en SAP Fiori",
+        "code_snippet": "# Fiori usa sapMDialog - son modals HTML (no JS alert)\n\n# Detectar dialog abierto\ndialog = page.locator('[class*=\"sapMDialog\"][role=\"dialog\"]')\n\n# Esperar dialog\npage.wait_for_selector('[class*=\"sapMDialog\"][role=\"dialog\"]', timeout=5000)\n\n# Leer titulo\ntitle = dialog.locator('[class*=\"sapMDialogTitle\"]').text_content()\n\n# Leer contenido/mensaje\nmessage = dialog.locator('[class*=\"sapMDialogContent\"], [class*=\"sapMText\"]').text_content()\n\n# Botones del dialog (footer)\nok_btn = dialog.locator('button:has-text(\"OK\"), button:has-text(\"Save\")')\ncancel_btn = dialog.locator('button:has-text(\"Cancel\"), button:has-text(\"Close\")')\n\n# Click en boton\nok_btn.click()\npage.wait_for_timeout(300)\n\n# Dialog de confirmacion\npage.locator('[class*=\"sapMMessageBox\"] button:has-text(\"Yes\")').click()",
+        "notes": "Los dialogs de Fiori siempre son sapMDialog. Nunca son JS alert().",
+        "confidence": "verified"
+      },
+      "tags": [
+        "sap",
+        "cloud",
+        "fiori",
+        "dialog",
+        "modal",
+        "popup",
+        "confirmacion"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-21T15:38:59.195115+00:00",
+      "updated_at": "2026-03-21T15:38:59.195115+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-31T20:28:16.478492+00:00",
+        "access_count": 111
+      }
+    },
+    "91b3dd812c3e": {
+      "id": "91b3dd812c3e",
+      "type": "pattern",
+      "key": "fiori_message_toast",
+      "solution": {
+        "strategy": "detect_message_toast",
+        "description": "Detectar mensajes toast/strip en Fiori (notificaciones temporales)",
+        "code_snippet": "# Fiori usa MessageToast (desaparece solo) y MessageStrip (persiste)\n\n# MessageToast: notificacion temporal (3-5 segundos)\n# Aparece y desaparece automaticamente\ntoast = page.locator('[class*=\"sapMMessageToast\"]')\ntry:\n    toast.wait_for(state='visible', timeout=3000)\n    msg = toast.text_content()\n    print(f'Toast: {msg}')\nexcept:\n    print('No toast')\n\n# MessageStrip: barra de mensaje persistente\nstrip = page.locator('[class*=\"sapMMessageStrip\"]')\nif strip.count() > 0:\n    msg_type = strip.get_attribute('class')  # contiene Error, Warning, Success, Information\n    msg_text = strip.locator('[class*=\"sapMMessageStripText\"]').text_content()\n    is_error = 'Error' in msg_type\n    print(f'Strip: {msg_text} (error={is_error})')\n\n# MessagePopover: icono con badge de errores\nmsg_btn = page.locator('[class*=\"sapMMessagePopoverButton\"], [aria-label*=\"message\"]')\nif msg_btn.count() > 0:\n    badge = msg_btn.locator('[class*=\"sapMBadgeIndicator\"]')\n    if badge.count() > 0:\n        msg_btn.click()\n        page.wait_for_timeout(300)\n        messages = page.locator('[class*=\"sapMMessagePopover\"] [class*=\"sapMListItem\"]')\n        for i in range(messages.count()):\n            print(f'  Msg {i}: {messages.nth(i).text_content().strip()[:80]}')",
+        "notes": "MessageToast desaparece rapido - capturarlo con timeout corto. MessageStrip persiste.",
+        "confidence": "high"
+      },
+      "tags": [
+        "sap",
+        "cloud",
+        "fiori",
+        "toast",
+        "mensaje",
+        "strip",
+        "notificacion"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-21T15:38:59.219130+00:00",
+      "updated_at": "2026-03-21T15:38:59.219130+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-31T20:28:16.478492+00:00",
+        "access_count": 42
+      }
+    },
+    "31056dfc9e4d": {
+      "id": "31056dfc9e4d",
+      "type": "pattern",
+      "key": "fiori_value_help_dialog",
+      "solution": {
+        "strategy": "handle_fiori_value_help",
+        "description": "Manejar Value Help Dialog (F4) en SAP Fiori",
+        "code_snippet": "# Value Help en Fiori es un Dialog con tabla de busqueda\n\n# 1. Abrir value help\nvh_icon = page.locator('[aria-label=\"Account\"] [class*=\"sapUiIcon\"], '\n                        '[aria-label=\"Account\"] ~ button[class*=\"sapMInputValHelp\"]')\nvh_icon.click()\npage.wait_for_selector('[class*=\"sapMDialog\"]', timeout=5000)\n\n# 2. El dialog tiene: barra de busqueda + tabla de resultados\ndialog = page.locator('[class*=\"sapMDialog\"]')\nsearch = dialog.locator('input[type=\"search\"], [class*=\"sapMSearchField\"] input')\nsearch.fill('IBM')\nsearch.press('Enter')\npage.wait_for_timeout(1000)\n\n# 3. Seleccionar de la tabla\ndialog.locator('[class*=\"sapMListItem\"]:has-text(\"IBM Guatemala\")').click()\n# El dialog se cierra automaticamente\n\n# 4. Verificar que el campo se lleno\npage.wait_for_timeout(500)\nvalue = page.locator('[aria-label=\"Account\"] input').input_value()\nprint(f'Seleccionado: {value}')",
+        "notes": "El Value Help de Fiori siempre es un sapMDialog con sapMSearchField + sapMTable.",
+        "confidence": "high"
+      },
+      "tags": [
+        "sap",
+        "cloud",
+        "fiori",
+        "valuehelp",
+        "f4",
+        "busqueda",
+        "dialog"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-21T15:38:59.244100+00:00",
+      "updated_at": "2026-03-21T15:38:59.244100+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-04-01T04:23:56.843727+00:00",
+        "access_count": 79
+      }
+    },
+    "a4462fe3c478": {
+      "id": "a4462fe3c478",
+      "type": "pattern",
+      "key": "fiori_form_layout",
+      "solution": {
+        "strategy": "navigate_fiori_form",
+        "description": "Estructura de formularios en Fiori y como navegar secciones",
+        "code_snippet": "# Los formularios Fiori usan sapUiForm con FormContainers (secciones)\n\n# Navegar por secciones/tabs\nsections = page.locator('[class*=\"sapUxAPObjectPageSection\"]')\nfor i in range(sections.count()):\n    title = sections.nth(i).locator('[class*=\"sapUxAPObjectPageSectionTitle\"]').text_content()\n    print(f'Seccion {i}: {title}')\n\n# Click en seccion especifica (anchor bar)\npage.locator('[class*=\"sapUxAPAnchorBarButton\"]:has-text(\"Details\")').click()\npage.wait_for_timeout(300)\n\n# Scroll a seccion\npage.locator('[class*=\"sapUxAPObjectPageSection\"]:has-text(\"Items\")').scroll_into_view_if_needed()\n\n# Modo Edit vs Display\n# Verificar si esta en modo display\nis_display = page.locator('[class*=\"sapMObjectHeaderTitle\"]').count() > 0\nif is_display:\n    page.locator('button:has-text(\"Edit\")').click()\n    page.wait_for_timeout(500)",
+        "notes": "Fiori usa ObjectPage con secciones colapsables. Siempre verificar modo Edit vs Display.",
+        "confidence": "high"
+      },
+      "tags": [
+        "sap",
+        "cloud",
+        "fiori",
+        "formulario",
+        "secciones",
+        "objectpage",
+        "edit"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-21T15:38:59.282125+00:00",
+      "updated_at": "2026-03-21T15:38:59.282125+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-30T21:30:06.653907+00:00",
+        "access_count": 37
+      }
+    },
+    "ffa8ee2832d2": {
+      "id": "ffa8ee2832d2",
+      "type": "pattern",
+      "key": "fiori_smart_field",
+      "solution": {
+        "strategy": "handle_smart_fields",
+        "description": "SmartField: campos inteligentes de Fiori que cambian tipo segun metadata",
+        "code_snippet": "# SmartField renderiza diferente segun el tipo de dato OData:\n# String -> Input\n# Date -> DatePicker\n# Boolean -> CheckBox\n# Enum -> Select\n# Navigation -> ValueHelp\n\n# Detectar tipo de campo:\nfield = page.locator('[aria-label=\"Status\"]')\ntag = field.evaluate('el => el.tagName')\nrole = field.get_attribute('role')\nfield_type = field.get_attribute('type')\n\n# Llenar segun tipo:\nif role == 'combobox':\n    # Es dropdown\n    field.click()\n    page.locator(f'li:has-text(\"{value}\")').click()\nelif role == 'checkbox':\n    if field.get_attribute('aria-checked') != str(value).lower():\n        field.click()\nelif tag.lower() == 'textarea':\n    field.fill(value)\nelse:\n    # Input normal\n    field.locator('input').fill(value)\n    field.locator('input').press('Tab')",
+        "notes": "SmartField cambia de tipo en runtime. Siempre detectar el tipo antes de interactuar.",
+        "confidence": "high"
+      },
+      "tags": [
+        "sap",
+        "cloud",
+        "fiori",
+        "smartfield",
+        "metadata",
+        "tipos"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-21T15:38:59.308318+00:00",
+      "updated_at": "2026-03-21T15:38:59.308318+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-04-01T04:23:46.708573+00:00",
+        "access_count": 37
+      }
+    },
+    "4fcb60afb200": {
+      "id": "4fcb60afb200",
+      "type": "pattern",
+      "key": "fiori_form_validation",
+      "solution": {
+        "strategy": "check_fiori_validation",
+        "description": "Verificar validacion de formulario en Fiori",
+        "code_snippet": "# Fiori marca campos invalidos con ValueState\n\n# Detectar campos con error\nerror_fields = page.locator('[class*=\"sapMInputBaseError\"], [aria-invalid=\"true\"]')\nprint(f'Campos con error: {error_fields.count()}')\n\nfor i in range(error_fields.count()):\n    field = error_fields.nth(i)\n    label = field.get_attribute('aria-label') or ''\n    value = field.locator('input').input_value() if field.locator('input').count() > 0 else ''\n    print(f'  Error en: {label} = \"{value}\"')\n\n# Detectar campos obligatorios vacios\nrequired = page.locator('[aria-required=\"true\"]')\nfor i in range(required.count()):\n    field = required.nth(i)\n    inp = field.locator('input')\n    if inp.count() > 0 and not inp.input_value():\n        label = field.get_attribute('aria-label') or ''\n        print(f'  Obligatorio vacio: {label}')\n\n# Verificar MessagePopover para errores detallados\nmsg_btn = page.locator('[class*=\"sapMBtn\"]:has([class*=\"sapMBadge\"])')\nif msg_btn.count() > 0:\n    msg_btn.first.click()\n    page.wait_for_timeout(300)",
+        "notes": "aria-invalid=true y clase sapMInputBaseError indican campo invalido. aria-required=true para obligatorios.",
+        "confidence": "verified"
+      },
+      "tags": [
+        "sap",
+        "cloud",
+        "fiori",
+        "validacion",
+        "error",
+        "required",
+        "campos"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-21T15:38:59.334270+00:00",
+      "updated_at": "2026-03-21T15:38:59.334270+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-04-01T04:07:40.274475+00:00",
+        "access_count": 39
+      }
+    },
+    "222a7e82f9b0": {
+      "id": "222a7e82f9b0",
+      "type": "pattern",
+      "key": "fiori_odata_direct",
+      "solution": {
+        "strategy": "use_odata_api_directly",
+        "description": "Usar OData API de SAP Cloud directamente en vez de UI automation",
+        "code_snippet": "import requests\n\nBASE = 'https://my1000880.us1.crm.cloud.sap/sap/c4c/odata/v1/c4codataapi'\n\n# Autenticar (Basic Auth o OAuth token)\nsession = requests.Session()\nsession.auth = ('user', 'password')\nsession.headers['Accept'] = 'application/json'\nsession.verify = False  # Si cert self-signed\n\n# CSRF Token (necesario para POST/PUT/DELETE)\nr = session.get(BASE + '/$metadata', headers={'X-CSRF-Token': 'Fetch'})\ncsrf = r.headers.get('X-CSRF-Token', '')\nsession.headers['X-CSRF-Token'] = csrf\n\n# GET: Leer oportunidades\nr = session.get(BASE + '/OpportunityCollection',\n    params={'$filter': \"AccountName eq 'IBM'\", '$top': 10, '$format': 'json'})\ndata = r.json()['d']['results']\nfor opp in data:\n    print(f'{opp[\"OpportunityID\"]}: {opp[\"Name\"]}')\n\n# POST: Crear oportunidad\nnew_opp = {\n    'Name': 'Proyecto IBM Cloud 2026',\n    'AccountID': 'ACC001',\n    'ExpectedRevenueAmount': '150000',\n    'ExpectedRevenueCurrencyCode': 'USD',\n}\nr = session.post(BASE + '/OpportunityCollection', json=new_opp)\nprint(f'Creado: {r.status_code}')\n\n# PATCH: Actualizar\nr = session.patch(BASE + \"/OpportunityCollection('OPP001')\",\n    json={'StatusCode': '2'})  # 2 = Won",
+        "notes": "OData API es mas rapido y confiable que UI automation para operaciones CRUD masivas.",
+        "confidence": "high"
+      },
+      "tags": [
+        "sap",
+        "cloud",
+        "odata",
+        "api",
+        "rest",
+        "crud",
+        "requests"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-21T15:38:59.359473+00:00",
+      "updated_at": "2026-03-21T15:38:59.359473+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-04-01T04:23:56.843727+00:00",
+        "access_count": 61
+      }
+    },
+    "82ab2ddbfb55": {
+      "id": "82ab2ddbfb55",
+      "type": "pattern",
+      "key": "fiori_odata_batch",
+      "solution": {
+        "strategy": "odata_batch_operations",
+        "description": "Operaciones batch via OData para crear/actualizar multiples registros",
+        "code_snippet": "# OData batch: multiples operaciones en un solo HTTP request\n\nboundary = 'batch_001'\nchangeset = 'changeset_001'\n\nbody = f'''--{boundary}\nContent-Type: multipart/mixed; boundary={changeset}\n\n--{changeset}\nContent-Type: application/http\nContent-Transfer-Encoding: binary\n\nPOST OpportunityCollection HTTP/1.1\nContent-Type: application/json\n\n{{\"Name\": \"Opp 1\", \"AccountID\": \"ACC001\"}}\n--{changeset}\nContent-Type: application/http\nContent-Transfer-Encoding: binary\n\nPOST OpportunityCollection HTTP/1.1\nContent-Type: application/json\n\n{{\"Name\": \"Opp 2\", \"AccountID\": \"ACC002\"}}\n--{changeset}--\n--{boundary}--'''\n\nr = session.post(BASE + '/$batch',\n    data=body,\n    headers={\n        'Content-Type': f'multipart/mixed; boundary={boundary}',\n        'X-CSRF-Token': csrf\n    })\nprint(f'Batch: {r.status_code}')",
+        "notes": "Batch es ideal para crear/actualizar 10+ registros. Mucho mas rapido que UI.",
+        "confidence": "high"
+      },
+      "tags": [
+        "sap",
+        "cloud",
+        "odata",
+        "batch",
+        "masivo",
+        "multiple"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-21T15:38:59.387975+00:00",
+      "updated_at": "2026-03-21T15:38:59.387975+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-28T01:23:13.201288+00:00",
+        "access_count": 41
+      }
+    },
+    "08352a8b77ac": {
+      "id": "08352a8b77ac",
+      "type": "pattern",
+      "key": "fiori_create_opportunity",
+      "solution": {
+        "strategy": "full_opportunity_flow_fiori",
+        "description": "Flujo completo para crear oportunidad en SAP Cloud CRM",
+        "code_snippet": "def create_opportunity_fiori(page, data):\n    # 1. Navegar a Opportunities\n    page.locator('[class*=\"sapMTile\"]:has-text(\"Opportunities\"), '\n                 'a:has-text(\"Opportunities\")').click()\n    page.wait_for_selector('[class*=\"sapMList\"]', timeout=10000)\n\n    # 2. Click Create\n    page.locator('button:has-text(\"Create\"), button:has-text(\"+\")').click()\n    page.wait_for_timeout(1000)\n\n    # 3. Llenar campos\n    for label, value in data.items():\n        field = page.locator(f'[aria-label=\"{label}\"] input, '\n                             f'input[aria-label=\"{label}\"]')\n        if field.count() > 0:\n            field.first.fill(str(value))\n            field.first.press('Tab')\n            page.wait_for_timeout(300)\n\n    # 4. Save\n    page.locator('button:has-text(\"Save\")').click()\n    page.wait_for_timeout(2000)\n\n    # 5. Verificar\n    toast = page.locator('[class*=\"sapMMessageToast\"]')\n    try:\n        toast.wait_for(state='visible', timeout=3000)\n        return {'success': True, 'message': toast.text_content()}\n    except:\n        strip = page.locator('[class*=\"sapMMessageStrip\"]')\n        if strip.count() > 0:\n            return {'success': 'Error' not in strip.get_attribute('class'),\n                    'message': strip.text_content()}\n    return {'success': False, 'message': 'No feedback'}\n\ncreate_opportunity_fiori(page, {\n    'Name': 'Proyecto IBM Cloud 2026',\n    'Account': 'IBM Guatemala',\n    'Expected Revenue': '150000',\n    'Currency': 'USD',\n    'Close Date': '2026-06-30',\n})",
+        "notes": "Verificar toast (exito) o message strip (error) despues de Save.",
+        "confidence": "high"
+      },
+      "tags": [
+        "sap",
+        "cloud",
+        "fiori",
+        "oportunidad",
+        "crear",
+        "flujo"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-21T15:38:59.415523+00:00",
+      "updated_at": "2026-03-21T15:38:59.415523+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-04-01T04:23:56.843727+00:00",
+        "access_count": 62
+      }
+    },
+    "5a0a5c1a6599": {
+      "id": "5a0a5c1a6599",
+      "type": "pattern",
+      "key": "fiori_create_lead",
+      "solution": {
+        "strategy": "create_lead_fiori",
+        "description": "Crear Lead/Prospecto en SAP Cloud CRM",
+        "code_snippet": "def create_lead(page, data):\n    page.locator('a:has-text(\"Leads\"), [class*=\"sapMTile\"]:has-text(\"Leads\")').click()\n    page.wait_for_timeout(1000)\n    page.locator('button:has-text(\"Create\"), button:has-text(\"+\")').click()\n    page.wait_for_timeout(1000)\n\n    field_map = {\n        'Company': data.get('company', ''),\n        'Contact': data.get('contact', ''),\n        'Source': data.get('source', 'Web'),\n        'Notes': data.get('notes', ''),\n    }\n    for label, value in field_map.items():\n        if value:\n            f = page.locator(f'[aria-label*=\"{label}\"] input')\n            if f.count() > 0:\n                f.first.fill(value)\n                f.first.press('Tab')\n                page.wait_for_timeout(300)\n\n    page.locator('button:has-text(\"Save\")').click()\n    page.wait_for_timeout(2000)",
+        "notes": "Lead se convierte a Opportunity al calificar. Campos varian por configuracion.",
+        "confidence": "high"
+      },
+      "tags": [
+        "sap",
+        "cloud",
+        "fiori",
+        "lead",
+        "prospecto",
+        "crear"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-21T15:38:59.442416+00:00",
+      "updated_at": "2026-03-21T15:38:59.442416+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-30T21:30:06.653907+00:00",
+        "access_count": 46
+      }
+    },
+    "9fcb40088017": {
+      "id": "9fcb40088017",
+      "type": "pattern",
+      "key": "fiori_create_activity",
+      "solution": {
+        "strategy": "create_activity_fiori",
+        "description": "Crear actividad (llamada, reunion, tarea) en SAP Cloud",
+        "code_snippet": "def create_activity_fiori(page, activity_type, data):\n    # Navegar a Activities\n    page.locator('a:has-text(\"Activities\")').click()\n    page.wait_for_timeout(1000)\n\n    # Create\n    page.locator('button:has-text(\"Create\")').click()\n    page.wait_for_timeout(500)\n\n    # Seleccionar tipo si hay opciones\n    type_option = page.locator(f'[class*=\"sapMListItem\"]:has-text(\"{activity_type}\")')\n    if type_option.count() > 0:\n        type_option.click()\n        page.wait_for_timeout(500)\n\n    # Llenar campos\n    for label, value in data.items():\n        f = page.locator(f'[aria-label*=\"{label}\"] input, '\n                         f'[aria-label*=\"{label}\"] textarea')\n        if f.count() > 0:\n            f.first.fill(str(value))\n            f.first.press('Tab')\n            page.wait_for_timeout(200)\n\n    page.locator('button:has-text(\"Save\")').click()\n\ncreate_activity_fiori(page, 'Phone Call', {\n    'Subject': 'Seguimiento IBM',\n    'Account': 'IBM Guatemala',\n    'Date': '2026-03-25',\n    'Notes': 'Discutir renovacion',\n})",
+        "notes": "Tipos comunes: Phone Call, Appointment, Task, Email.",
+        "confidence": "high"
+      },
+      "tags": [
+        "sap",
+        "cloud",
+        "fiori",
+        "actividad",
+        "crear",
+        "llamada",
+        "reunion"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-21T15:38:59.468385+00:00",
+      "updated_at": "2026-03-21T15:38:59.468385+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-04-01T04:23:56.843727+00:00",
+        "access_count": 62
+      }
+    },
+    "1fec02b5c1ab": {
+      "id": "1fec02b5c1ab",
+      "type": "pattern",
+      "key": "fiori_search_and_filter",
+      "solution": {
+        "strategy": "search_filter_fiori_list",
+        "description": "Buscar y filtrar en listas de SAP Fiori",
+        "code_snippet": "# Barra de busqueda\nsearch = page.locator('[class*=\"sapMSearchField\"] input, input[type=\"search\"]')\nsearch.fill('IBM')\nsearch.press('Enter')\npage.wait_for_timeout(1000)\n\n# Filter bar (filtros avanzados)\nfilter_btn = page.locator('button:has-text(\"Filters\"), button:has-text(\"Adapt Filters\")')\nfilter_btn.click()\npage.wait_for_timeout(500)\n\n# Llenar filtros en el dialog/panel\ndialog = page.locator('[class*=\"sapMDialog\"], [class*=\"sapMPanel\"]')\ndialog.locator('[aria-label=\"Status\"] input').fill('Open')\ndialog.locator('[aria-label=\"Account\"] input').fill('IBM')\ndialog.locator('button:has-text(\"Go\"), button:has-text(\"Search\"), button:has-text(\"OK\")').click()\npage.wait_for_timeout(1000)\n\n# Leer count de resultados\ncount_text = page.locator('[class*=\"sapMTitle\"]:has-text(\"(\")').text_content()\nprint(f'Resultados: {count_text}')",
+        "notes": "Filter bar de Fiori tiene modo 'Adapt Filters' para filtros avanzados.",
+        "confidence": "high"
+      },
+      "tags": [
+        "sap",
+        "cloud",
+        "fiori",
+        "buscar",
+        "filtrar",
+        "search",
+        "filter"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-21T15:38:59.493493+00:00",
+      "updated_at": "2026-03-21T15:38:59.493493+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-04-01T04:23:56.843727+00:00",
+        "access_count": 74
+      }
+    },
+    "cd4d021c399b": {
+      "id": "cd4d021c399b",
+      "type": "pattern",
+      "key": "fiori_sort_group",
+      "solution": {
+        "strategy": "sort_and_group_list",
+        "description": "Ordenar y agrupar resultados en listas Fiori",
+        "code_snippet": "# Sort/Group via View Settings Dialog\nsettings_btn = page.locator('button[aria-label*=\"Sort\"], button[aria-label*=\"Settings\"], '\n                             '[class*=\"sapMTableSettingsBtn\"]')\nsettings_btn.click()\npage.wait_for_timeout(300)\n\n# Tab Sort\npage.locator('[class*=\"sapMSegBBtn\"]:has-text(\"Sort\")').click()\npage.locator('[class*=\"sapMListItem\"]:has-text(\"Amount\")').click()\n# Descending\npage.locator('[class*=\"sapMListItem\"]:has-text(\"Descending\")').click()\npage.locator('button:has-text(\"OK\")').click()\n\n# Tab Group\nsettings_btn.click()\npage.locator('[class*=\"sapMSegBBtn\"]:has-text(\"Group\")').click()\npage.locator('[class*=\"sapMListItem\"]:has-text(\"Status\")').click()\npage.locator('button:has-text(\"OK\")').click()",
+        "notes": "ViewSettingsDialog tiene tabs: Sort, Filter, Group.",
+        "confidence": "high"
+      },
+      "tags": [
+        "sap",
+        "cloud",
+        "fiori",
+        "ordenar",
+        "agrupar",
+        "sort",
+        "group"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-21T15:38:59.524022+00:00",
+      "updated_at": "2026-03-21T15:38:59.524022+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-31T20:28:16.478492+00:00",
+        "access_count": 102
+      }
+    },
+    "448feaa1a6f8": {
+      "id": "448feaa1a6f8",
+      "type": "pattern",
+      "key": "fiori_file_upload",
+      "solution": {
+        "strategy": "upload_file_fiori",
+        "description": "Subir archivos en SAP Fiori (UploadCollection/UploadSet)",
+        "code_snippet": "# Fiori usa sapMUploadCollection o sapMUploadSet\n\n# Metodo 1: UploadSet (moderno)\nupload_btn = page.locator('[class*=\"sapMUploadSet\"] button:has-text(\"Upload\"), '\n                           'button:has-text(\"Add\")')\nfile_input = page.locator('[class*=\"sapMUploadSet\"] input[type=\"file\"]')\nfile_input.set_input_files('/path/to/document.pdf')\npage.wait_for_timeout(2000)\n\n# Metodo 2: Drag and drop area\ndrop_area = page.locator('[class*=\"sapMUploadCollection\"], [class*=\"sapUiDnD\"]')\n# Playwright no soporta drag&drop de archivos nativamente\n# Usar set_input_files en el input oculto\n\n# Metodo 3: Si no hay input visible\npage.locator('input[type=\"file\"]').set_input_files('/path/to/doc.pdf')",
+        "notes": "Siempre buscar input[type=file] oculto. set_input_files() es el metodo mas confiable.",
+        "confidence": "high"
+      },
+      "tags": [
+        "sap",
+        "cloud",
+        "fiori",
+        "upload",
+        "archivo",
+        "adjuntar"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-21T15:38:59.551756+00:00",
+      "updated_at": "2026-03-21T15:38:59.551756+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-04-01T04:23:46.708573+00:00",
+        "access_count": 39
+      }
+    },
+    "2db56f1e4600": {
+      "id": "2db56f1e4600",
+      "type": "pattern",
+      "key": "fiori_export_excel",
+      "solution": {
+        "strategy": "export_to_excel_fiori",
+        "description": "Exportar datos de SAP Fiori a Excel/CSV",
+        "code_snippet": "# Metodo 1: Boton de export nativo\nexport_btn = page.locator('button:has-text(\"Export\"), button[aria-label*=\"Export\"], '\n                           '[class*=\"sapMTableExport\"]')\nif export_btn.count() > 0:\n    with page.expect_download() as dl:\n        export_btn.click()\n        # Puede pedir formato\n        page.wait_for_timeout(500)\n        fmt = page.locator('text=Excel, text=CSV')\n        if fmt.count() > 0:\n            fmt.first.click()\n    download = dl.value\n    download.save_as(f'export.xlsx')\n\n# Metodo 2: OData API (mas confiable para datos grandes)\nr = session.get(BASE + '/OpportunityCollection',\n    params={'$format': 'json', '$top': 5000})\nimport pandas as pd\ndf = pd.DataFrame(r.json()['d']['results'])\ndf.to_excel('sap_cloud_export.xlsx', index=False)",
+        "notes": "Para datos grandes, OData API es mejor que export UI (sin limite de filas).",
+        "confidence": "high"
+      },
+      "tags": [
+        "sap",
+        "cloud",
+        "fiori",
+        "export",
+        "excel",
+        "descargar"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-21T15:38:59.572671+00:00",
+      "updated_at": "2026-03-21T15:38:59.572671+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-31T20:28:16.478492+00:00",
+        "access_count": 190
+      }
+    },
+    "ed10b6d2e6a6": {
+      "id": "ed10b6d2e6a6",
+      "type": "pattern",
+      "key": "fiori_error_handling",
+      "solution": {
+        "strategy": "comprehensive_error_handling_fiori",
+        "description": "Manejo de errores completo para automatizacion Fiori",
+        "code_snippet": "def safe_fiori_action(page, action_fn, description=''):\n    try:\n        return action_fn(page)\n    except TimeoutError:\n        # Verificar si hay dialog de error\n        dialog = page.locator('[class*=\"sapMDialog\"]')\n        if dialog.count() > 0 and dialog.is_visible():\n            msg = dialog.locator('[class*=\"sapMText\"]').text_content()\n            dialog.locator('button:has-text(\"Close\"), button:has-text(\"OK\")').click()\n            raise Exception(f'Dialog error: {msg}')\n        # Verificar message strip\n        strip = page.locator('[class*=\"sapMMessageStripError\"]')\n        if strip.count() > 0:\n            msg = strip.text_content()\n            raise Exception(f'Strip error: {msg}')\n        raise\n    except Exception as e:\n        page.screenshot(path=f'fiori_error_{description}.png')\n        raise",
+        "notes": "Siempre verificar dialog y message strip en el except. Screenshot para debug.",
+        "confidence": "high"
+      },
+      "tags": [
+        "sap",
+        "cloud",
+        "fiori",
+        "error",
+        "handling",
+        "dialog",
+        "screenshot"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-21T15:38:59.604665+00:00",
+      "updated_at": "2026-03-21T15:38:59.604665+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-30T21:30:06.653907+00:00",
+        "access_count": 35
+      }
+    },
+    "87934d64c374": {
+      "id": "87934d64c374",
+      "type": "pattern",
+      "key": "fiori_wait_busy",
+      "solution": {
+        "strategy": "wait_fiori_busy_indicator",
+        "description": "Esperar indicador de carga en Fiori",
+        "code_snippet": "# Fiori muestra BusyIndicator durante operaciones\n\n# Esperar que desaparezca\npage.wait_for_selector('[class*=\"sapUiLocalBusy\"], [class*=\"sapMBusyDialog\"]',\n                        state='hidden', timeout=30000)\n\n# O verificar via JS\npage.wait_for_function('''() => {\n    return !document.querySelector('.sapUiLocalBusy') &&\n           !document.querySelector('.sapMBusyDialog') &&\n           !document.querySelector('.sapUiBusy');\n}''', timeout=30000)\n\n# Esperar que aparezca Y desaparezca (para operaciones que tardan)\ntry:\n    page.wait_for_selector('[class*=\"sapMBusyDialog\"]', state='visible', timeout=2000)\nexcept:\n    pass  # Puede ser tan rapido que no se ve\npage.wait_for_selector('[class*=\"sapMBusyDialog\"]', state='hidden', timeout=30000)",
+        "notes": "sapMBusyDialog es el spinner global. sapUiLocalBusy es spinner de un componente.",
+        "confidence": "high"
+      },
+      "tags": [
+        "sap",
+        "cloud",
+        "fiori",
+        "busy",
+        "spinner",
+        "carga",
+        "wait"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-21T15:38:59.634881+00:00",
+      "updated_at": "2026-03-21T15:38:59.634881+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-31T20:28:16.478492+00:00",
+        "access_count": 47
+      }
+    },
+    "14d315993b25": {
+      "id": "14d315993b25",
+      "type": "fact",
+      "key": "fiori_css_classes_map",
+      "fact": {
+        "rule": "Mapa de clases CSS de SAP Fiori/UI5 para selectores",
+        "input": {
+          "sapMInput": "Input wrapper",
+          "sapMInputBaseInner": "Input real",
+          "sapMInputBaseError": "Input con error",
+          "sapMInputFocused": "Input con foco"
+        },
+        "buttons": {
+          "sapMBtn": "Boton wrapper",
+          "sapMBtnEmphasized": "Boton primario",
+          "sapMBtnAccept": "Boton aceptar/verde",
+          "sapMBtnReject": "Boton rechazar/rojo"
+        },
+        "tables": {
+          "sapMTable": "Tabla responsiva",
+          "sapMListItem": "Fila de tabla",
+          "sapUiTable": "Tabla analitica",
+          "sapUiTableRow": "Fila de tabla analitica"
+        },
+        "layout": {
+          "sapMPage": "Pagina",
+          "sapUxAPObjectPage": "Object page",
+          "sapMDialog": "Dialog/modal",
+          "sapMPanel": "Panel colapsable"
+        },
+        "messages": {
+          "sapMMessageToast": "Toast temporal",
+          "sapMMessageStrip": "Strip persistente",
+          "sapMMessagePopover": "Popover con lista de mensajes",
+          "sapMBusyDialog": "Spinner"
+        }
+      },
+      "tags": [
+        "sap",
+        "cloud",
+        "fiori",
+        "css",
+        "clases",
+        "mapa",
+        "selectores"
+      ],
+      "created_at": "2026-03-21T15:38:59.654472+00:00",
+      "updated_at": "2026-03-21T15:38:59.654472+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-03-31T20:28:16.478492+00:00",
+        "access_count": 44
+      }
+    },
+    "327d82637905": {
+      "id": "327d82637905",
+      "type": "fact",
+      "key": "fiori_odata_endpoints",
+      "fact": {
+        "rule": "Endpoints OData comunes en SAP Cloud for Customer",
+        "base": "https://myXXXXXX.crm.cloud.sap/sap/c4c/odata/v1/c4codataapi",
+        "endpoints": {
+          "OpportunityCollection": "Oportunidades CRUD",
+          "LeadCollection": "Leads/Prospectos",
+          "AccountCollection": "Cuentas/Clientes",
+          "ContactCollection": "Contactos",
+          "ActivityCollection": "Actividades (llamadas, reuniones)",
+          "AppointmentCollection": "Reuniones/Citas",
+          "TaskCollection": "Tareas",
+          "SalesQuoteCollection": "Cotizaciones",
+          "ProductCollection": "Productos",
+          "EmployeeCollection": "Empleados"
+        },
+        "query_params": {
+          "$filter": "Filtrar: Name eq 'IBM'",
+          "$select": "Campos: OpportunityID,Name",
+          "$expand": "Relacionados: OpportunityItem",
+          "$top": "Limite: 100",
+          "$skip": "Offset: 0",
+          "$orderby": "Orden: Name asc",
+          "$count": "Total: true"
+        }
+      },
+      "tags": [
+        "sap",
+        "cloud",
+        "odata",
+        "endpoints",
+        "api",
+        "colecciones"
+      ],
+      "created_at": "2026-03-21T15:38:59.686337+00:00",
+      "updated_at": "2026-03-21T15:38:59.686337+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-01T04:23:56.843727+00:00",
+        "access_count": 55
+      }
+    },
+    "8a5b88588676": {
+      "id": "8a5b88588676",
+      "type": "fact",
+      "key": "fiori_keyboard_shortcuts",
+      "fact": {
+        "rule": "Atajos de teclado en SAP Fiori/UI5",
+        "shortcuts": {
+          "Ctrl+S": "Guardar",
+          "Ctrl+Enter": "Ejecutar accion default (buscar, submit)",
+          "F2": "Editar celda de tabla seleccionada",
+          "F4": "Abrir Value Help del campo con foco",
+          "F5": "Refrescar vista",
+          "Escape": "Cerrar dialog/popover, cancelar edicion",
+          "Tab/Shift+Tab": "Navegar campos",
+          "Enter": "Activar boton/link con foco",
+          "Space": "Toggle checkbox/switch",
+          "Alt+Arrow": "Navegar tabs"
+        }
+      },
+      "tags": [
+        "sap",
+        "cloud",
+        "fiori",
+        "keyboard",
+        "shortcuts",
+        "atajos"
+      ],
+      "created_at": "2026-03-21T15:38:59.717545+00:00",
+      "updated_at": "2026-03-21T15:38:59.717545+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-03-31T20:28:16.478492+00:00",
+        "access_count": 33
+      }
+    },
+    "7929d230d2ab": {
+      "id": "7929d230d2ab",
+      "type": "fact",
+      "key": "fiori_testing_checklist",
+      "fact": {
+        "rule": "Checklist para validar scripts de automatizacion SAP Cloud/Fiori",
+        "checklist": [
+          "SSO/OAuth login funciona y maneja re-auth",
+          "Cookies se pueden reusar entre ejecuciones",
+          "NO usa IDs generados (__input0, __button12)",
+          "Usa aria-label, data-sap-ui, o clases semanticas",
+          "Maneja SPA routing (no page.goto dentro de app)",
+          "Espera BusyIndicator despues de cada accion",
+          "Detecta MessageToast y MessageStrip",
+          "Maneja Value Help Dialogs",
+          "Maneja lazy loading en tablas (growing/scroll virtual)",
+          "Verifica modo Edit vs Display antes de llenar campos",
+          "Captura screenshot en errores",
+          "Considera usar OData API para operaciones masivas",
+          "CSRF token obtenido antes de POST/PUT/DELETE",
+          "Maneja session timeout y re-login"
+        ]
+      },
+      "tags": [
+        "sap",
+        "cloud",
+        "fiori",
+        "testing",
+        "checklist",
+        "validacion"
+      ],
+      "created_at": "2026-03-21T15:38:59.743531+00:00",
+      "updated_at": "2026-03-21T15:38:59.743531+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-01T13:59:26.051641+00:00",
+        "access_count": 68
+      }
+    },
+    "075c60dcf5f2": {
+      "id": "075c60dcf5f2",
+      "type": "fact",
+      "key": "fiori_common_errors",
+      "fact": {
+        "rule": "Errores comunes al automatizar SAP Cloud/Fiori y soluciones",
+        "errors": {
+          "Element not found with __input0": "Usando ID generado. Cambiar a aria-label.",
+          "SPA navigation broke": "Usando page.goto(). Usar clicks o hash navigation.",
+          "CSRF token validation failed": "Obtener token con GET + X-CSRF-Token:Fetch header.",
+          "403 Forbidden en API": "Token CSRF expirado o permisos insuficientes.",
+          "Stale element": "El componente UI5 se re-renderizo. Re-localizar.",
+          "Dialog not found": "El dialog tiene lazy rendering. Esperar con wait_for_selector.",
+          "Table shows 0 rows": "Lazy loading. Click 'More' o scroll para cargar.",
+          "Fields read-only": "La vista esta en modo Display. Click 'Edit' primero.",
+          "Toast disappears too fast": "Usar timeout corto (2-3s) con wait_for.",
+          "Value Help returns wrong value": "Verificar que el campo recibio el valor despues de cerrar dialog."
+        }
+      },
+      "tags": [
+        "sap",
+        "cloud",
+        "fiori",
+        "errores",
+        "comunes",
+        "soluciones"
+      ],
+      "created_at": "2026-03-21T15:38:59.770987+00:00",
+      "updated_at": "2026-03-21T15:38:59.770987+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-01T04:07:40.274475+00:00",
+        "access_count": 48
+      }
+    },
+    "f3d876722d09": {
+      "id": "f3d876722d09",
+      "type": "fact",
+      "key": "fiori_js_api_access",
+      "fact": {
+        "rule": "Acceder a objetos JavaScript de SAPUI5 para debug y automatizacion avanzada",
+        "apis": {
+          "sap.ui.getCore()": "Core de UI5 - acceso a todos los controles",
+          "sap.ui.getCore().byId('id')": "Obtener control por ID",
+          "sap.ui.getCore().getModel()": "Obtener modelo de datos",
+          "sap.ushell.Container": "Shell del Launchpad",
+          "sap.ui.getCore().getMessageManager()": "Manager de mensajes (errores/warnings)",
+          "jQuery('[aria-label]')": "jQuery disponible globalmente en UI5"
+        },
+        "example": "page.evaluate('sap.ui.getCore().getModel().getData()')"
+      },
+      "tags": [
+        "sap",
+        "cloud",
+        "fiori",
+        "javascript",
+        "api",
+        "debug",
+        "core"
+      ],
+      "created_at": "2026-03-21T15:38:59.798713+00:00",
+      "updated_at": "2026-03-21T15:38:59.798713+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-03-30T03:12:44.276329+00:00",
+        "access_count": 122
+      }
+    }
+  },
+  "tag_index": {
+    "sap": [
+      "38ff61d44261",
+      "e6a5b8337433",
+      "b7aa44d1e030",
+      "68fc6915f810",
+      "1878ae1a0565",
+      "a562a4cb4e63",
+      "2d21c97f5ce8",
+      "ca6981abb47d",
+      "9ae8db38ffba",
+      "632891096c4a",
+      "d59898ea4e1e",
+      "e28b57ed97b4",
+      "efaf2236a96e",
+      "78ccde59faeb",
+      "5cbb842977d8",
+      "1bbba150b88d",
+      "02d453516797",
+      "e9a670402a88",
+      "91b3dd812c3e",
+      "31056dfc9e4d",
+      "a4462fe3c478",
+      "ffa8ee2832d2",
+      "4fcb60afb200",
+      "222a7e82f9b0",
+      "82ab2ddbfb55",
+      "08352a8b77ac",
+      "5a0a5c1a6599",
+      "9fcb40088017",
+      "1fec02b5c1ab",
+      "cd4d021c399b",
+      "448feaa1a6f8",
+      "2db56f1e4600",
+      "ed10b6d2e6a6",
+      "87934d64c374",
+      "14d315993b25",
+      "327d82637905",
+      "8a5b88588676",
+      "7929d230d2ab",
+      "075c60dcf5f2",
+      "f3d876722d09"
+    ],
+    "cloud": [
+      "38ff61d44261",
+      "e6a5b8337433",
+      "b7aa44d1e030",
+      "68fc6915f810",
+      "1878ae1a0565",
+      "a562a4cb4e63",
+      "2d21c97f5ce8",
+      "ca6981abb47d",
+      "9ae8db38ffba",
+      "632891096c4a",
+      "d59898ea4e1e",
+      "e28b57ed97b4",
+      "efaf2236a96e",
+      "78ccde59faeb",
+      "5cbb842977d8",
+      "1bbba150b88d",
+      "02d453516797",
+      "e9a670402a88",
+      "91b3dd812c3e",
+      "31056dfc9e4d",
+      "a4462fe3c478",
+      "ffa8ee2832d2",
+      "4fcb60afb200",
+      "222a7e82f9b0",
+      "82ab2ddbfb55",
+      "08352a8b77ac",
+      "5a0a5c1a6599",
+      "9fcb40088017",
+      "1fec02b5c1ab",
+      "cd4d021c399b",
+      "448feaa1a6f8",
+      "2db56f1e4600",
+      "ed10b6d2e6a6",
+      "87934d64c374",
+      "14d315993b25",
+      "327d82637905",
+      "8a5b88588676",
+      "7929d230d2ab",
+      "075c60dcf5f2",
+      "f3d876722d09"
+    ],
+    "fiori": [
+      "38ff61d44261",
+      "e6a5b8337433",
+      "b7aa44d1e030",
+      "a562a4cb4e63",
+      "2d21c97f5ce8",
+      "ca6981abb47d",
+      "9ae8db38ffba",
+      "632891096c4a",
+      "d59898ea4e1e",
+      "e28b57ed97b4",
+      "efaf2236a96e",
+      "78ccde59faeb",
+      "5cbb842977d8",
+      "1bbba150b88d",
+      "02d453516797",
+      "e9a670402a88",
+      "91b3dd812c3e",
+      "31056dfc9e4d",
+      "a4462fe3c478",
+      "ffa8ee2832d2",
+      "4fcb60afb200",
+      "08352a8b77ac",
+      "5a0a5c1a6599",
+      "9fcb40088017",
+      "1fec02b5c1ab",
+      "cd4d021c399b",
+      "448feaa1a6f8",
+      "2db56f1e4600",
+      "ed10b6d2e6a6",
+      "87934d64c374",
+      "14d315993b25",
+      "8a5b88588676",
+      "7929d230d2ab",
+      "075c60dcf5f2",
+      "f3d876722d09"
+    ],
+    "ui5": [
+      "38ff61d44261"
+    ],
+    "arquitectura": [
+      "38ff61d44261"
+    ],
+    "webui": [
+      "e6a5b8337433"
+    ],
+    "diferencias": [
+      "e6a5b8337433"
+    ],
+    "dom": [
+      "b7aa44d1e030"
+    ],
+    "estructura": [
+      "b7aa44d1e030"
+    ],
+    "clases": [
+      "b7aa44d1e030",
+      "14d315993b25"
+    ],
+    "login": [
+      "68fc6915f810"
+    ],
+    "sso": [
+      "68fc6915f810"
+    ],
+    "oauth": [
+      "68fc6915f810"
+    ],
+    "idp": [
+      "68fc6915f810"
+    ],
+    "authentication": [
+      "68fc6915f810"
+    ],
+    "cookies": [
+      "1878ae1a0565"
+    ],
+    "sesion": [
+      "1878ae1a0565"
+    ],
+    "reusar": [
+      "1878ae1a0565"
+    ],
+    "auth": [
+      "1878ae1a0565"
+    ],
+    "selectores": [
+      "a562a4cb4e63",
+      "14d315993b25"
+    ],
+    "prioridad": [
+      "a562a4cb4e63"
+    ],
+    "estable": [
+      "a562a4cb4e63"
+    ],
+    "input": [
+      "2d21c97f5ce8"
+    ],
+    "campo": [
+      "2d21c97f5ce8"
+    ],
+    "llenar": [
+      "2d21c97f5ce8"
+    ],
+    "fill": [
+      "2d21c97f5ce8"
+    ],
+    "select": [
+      "ca6981abb47d"
+    ],
+    "dropdown": [
+      "ca6981abb47d"
+    ],
+    "combobox": [
+      "ca6981abb47d"
+    ],
+    "fecha": [
+      "9ae8db38ffba"
+    ],
+    "datepicker": [
+      "9ae8db38ffba"
+    ],
+    "calendario": [
+      "9ae8db38ffba"
+    ],
+    "checkbox": [
+      "632891096c4a"
+    ],
+    "toggle": [
+      "632891096c4a"
+    ],
+    "switch": [
+      "632891096c4a"
+    ],
+    "textarea": [
+      "d59898ea4e1e"
+    ],
+    "richtext": [
+      "d59898ea4e1e"
+    ],
+    "editor": [
+      "d59898ea4e1e"
+    ],
+    "navegacion": [
+      "e28b57ed97b4"
+    ],
+    "spa": [
+      "e28b57ed97b4"
+    ],
+    "hash": [
+      "e28b57ed97b4"
+    ],
+    "routing": [
+      "e28b57ed97b4"
+    ],
+    "launchpad": [
+      "efaf2236a96e"
+    ],
+    "shell": [
+      "efaf2236a96e"
+    ],
+    "tiles": [
+      "efaf2236a96e"
+    ],
+    "buscar": [
+      "efaf2236a96e",
+      "1fec02b5c1ab"
+    ],
+    "tabla": [
+      "78ccde59faeb",
+      "5cbb842977d8",
+      "1bbba150b88d",
+      "02d453516797"
+    ],
+    "responsiva": [
+      "78ccde59faeb"
+    ],
+    "sapMTable": [
+      "78ccde59faeb"
+    ],
+    "filas": [
+      "78ccde59faeb"
+    ],
+    "analitica": [
+      "5cbb842977d8"
+    ],
+    "scroll": [
+      "5cbb842977d8"
+    ],
+    "virtual": [
+      "5cbb842977d8"
+    ],
+    "agregar": [
+      "1bbba150b88d"
+    ],
+    "fila": [
+      "1bbba150b88d"
+    ],
+    "add": [
+      "1bbba150b88d"
+    ],
+    "eliminar": [
+      "02d453516797"
+    ],
+    "delete": [
+      "02d453516797"
+    ],
+    "dialog": [
+      "e9a670402a88",
+      "31056dfc9e4d",
+      "ed10b6d2e6a6"
+    ],
+    "modal": [
+      "e9a670402a88"
+    ],
+    "popup": [
+      "e9a670402a88"
+    ],
+    "confirmacion": [
+      "e9a670402a88"
+    ],
+    "toast": [
+      "91b3dd812c3e"
+    ],
+    "mensaje": [
+      "91b3dd812c3e"
+    ],
+    "strip": [
+      "91b3dd812c3e"
+    ],
+    "notificacion": [
+      "91b3dd812c3e"
+    ],
+    "valuehelp": [
+      "31056dfc9e4d"
+    ],
+    "f4": [
+      "31056dfc9e4d"
+    ],
+    "busqueda": [
+      "31056dfc9e4d"
+    ],
+    "formulario": [
+      "a4462fe3c478"
+    ],
+    "secciones": [
+      "a4462fe3c478"
+    ],
+    "objectpage": [
+      "a4462fe3c478"
+    ],
+    "edit": [
+      "a4462fe3c478"
+    ],
+    "smartfield": [
+      "ffa8ee2832d2"
+    ],
+    "metadata": [
+      "ffa8ee2832d2"
+    ],
+    "tipos": [
+      "ffa8ee2832d2"
+    ],
+    "validacion": [
+      "4fcb60afb200",
+      "7929d230d2ab"
+    ],
+    "error": [
+      "4fcb60afb200",
+      "ed10b6d2e6a6"
+    ],
+    "required": [
+      "4fcb60afb200"
+    ],
+    "campos": [
+      "4fcb60afb200"
+    ],
+    "odata": [
+      "222a7e82f9b0",
+      "82ab2ddbfb55",
+      "327d82637905"
+    ],
+    "api": [
+      "222a7e82f9b0",
+      "327d82637905",
+      "f3d876722d09"
+    ],
+    "rest": [
+      "222a7e82f9b0"
+    ],
+    "crud": [
+      "222a7e82f9b0"
+    ],
+    "requests": [
+      "222a7e82f9b0"
+    ],
+    "batch": [
+      "82ab2ddbfb55"
+    ],
+    "masivo": [
+      "82ab2ddbfb55"
+    ],
+    "multiple": [
+      "82ab2ddbfb55"
+    ],
+    "oportunidad": [
+      "08352a8b77ac"
+    ],
+    "crear": [
+      "08352a8b77ac",
+      "5a0a5c1a6599",
+      "9fcb40088017"
+    ],
+    "flujo": [
+      "08352a8b77ac"
+    ],
+    "lead": [
+      "5a0a5c1a6599"
+    ],
+    "prospecto": [
+      "5a0a5c1a6599"
+    ],
+    "actividad": [
+      "9fcb40088017"
+    ],
+    "llamada": [
+      "9fcb40088017"
+    ],
+    "reunion": [
+      "9fcb40088017"
+    ],
+    "filtrar": [
+      "1fec02b5c1ab"
+    ],
+    "search": [
+      "1fec02b5c1ab"
+    ],
+    "filter": [
+      "1fec02b5c1ab"
+    ],
+    "ordenar": [
+      "cd4d021c399b"
+    ],
+    "agrupar": [
+      "cd4d021c399b"
+    ],
+    "sort": [
+      "cd4d021c399b"
+    ],
+    "group": [
+      "cd4d021c399b"
+    ],
+    "upload": [
+      "448feaa1a6f8"
+    ],
+    "archivo": [
+      "448feaa1a6f8"
+    ],
+    "adjuntar": [
+      "448feaa1a6f8"
+    ],
+    "export": [
+      "2db56f1e4600"
+    ],
+    "excel": [
+      "2db56f1e4600"
+    ],
+    "descargar": [
+      "2db56f1e4600"
+    ],
+    "handling": [
+      "ed10b6d2e6a6"
+    ],
+    "screenshot": [
+      "ed10b6d2e6a6"
+    ],
+    "busy": [
+      "87934d64c374"
+    ],
+    "spinner": [
+      "87934d64c374"
+    ],
+    "carga": [
+      "87934d64c374"
+    ],
+    "wait": [
+      "87934d64c374"
+    ],
+    "css": [
+      "14d315993b25"
+    ],
+    "mapa": [
+      "14d315993b25"
+    ],
+    "endpoints": [
+      "327d82637905"
+    ],
+    "colecciones": [
+      "327d82637905"
+    ],
+    "keyboard": [
+      "8a5b88588676"
+    ],
+    "shortcuts": [
+      "8a5b88588676"
+    ],
+    "atajos": [
+      "8a5b88588676"
+    ],
+    "testing": [
+      "7929d230d2ab"
+    ],
+    "checklist": [
+      "7929d230d2ab"
+    ],
+    "errores": [
+      "075c60dcf5f2"
+    ],
+    "comunes": [
+      "075c60dcf5f2"
+    ],
+    "soluciones": [
+      "075c60dcf5f2"
+    ],
+    "javascript": [
+      "f3d876722d09"
+    ],
+    "debug": [
+      "f3d876722d09"
+    ],
+    "core": [
+      "f3d876722d09"
+    ]
+  },
+  "stats": {
+    "total_entries": 40,
+    "total_lookups": 513,
+    "total_hits": 362
+  }
+}

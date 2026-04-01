@@ -1,0 +1,2054 @@
+{
+  "domain": "general",
+  "description": "Dominio auto-creado: general",
+  "entries": {
+    "c96f6c8005a2": {
+      "id": "c96f6c8005a2",
+      "type": "fact",
+      "key": "test_ba_politica_vacaciones",
+      "fact": {
+        "strategy": "politica_vacaciones",
+        "notes": "Las vacaciones se solicitan con 2 semanas de anticipación via RRHH"
+      },
+      "tags": [
+        "politica",
+        "vacaciones",
+        "rrhh",
+        "general"
+      ],
+      "created_at": "2026-03-20T18:29:15.574786+00:00",
+      "updated_at": "2026-03-20T18:29:15.574786+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-01T13:59:24.490711+00:00",
+        "access_count": 158
+      }
+    },
+    "b43715eabd63": {
+      "id": "b43715eabd63",
+      "type": "pattern",
+      "key": "test_n2_general_transversal",
+      "solution": {
+        "strategy": "general_transversal",
+        "content": "kw_n2_general_unico: regla transversal que aplica a todos los dominios"
+      },
+      "tags": [
+        "transversal",
+        "test_n2"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-20T23:17:58.490108+00:00",
+      "updated_at": "2026-03-20T23:17:58.490108+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-04-01T13:59:24.490711+00:00",
+        "access_count": 118
+      }
+    },
+    "287435c78a47": {
+      "id": "287435c78a47",
+      "type": "pattern",
+      "key": "iter_20260331_125626_i1",
+      "solution": {
+        "strategy": "differential_capture",
+        "notes": "Iteracion 1:\n[DIFERENCIAL] Complemento a KB existente.\n  Ejecuto: ls \"C:/chance1/IA_excel/\" 2>/dev/null\n  Ejecuto: ls \"C:/chance1/IA_word/\" 2>/dev/null\n  Ejecuto: ls \"C:/chance1/\" | grep -i \"ia_\"\n  Ejecuto: git clone https://github.com/Netocool2006/IA_PowerPoint \"C:/chance1/IA_PowerPoint\" 2>&1\n  Ejecuto: ls \"C:/chance1/IA_PowerPoint/\" 2>/dev/null\n  Ejecuto: find \"C:/chance1/IA_Excel/\" -type f -name \"*.py\" | head -30\n  Ejecuto: find \"C:/chance1/IA_Word/\" -type f -name \"*.py\" | head -30",
+        "auto_learned": true,
+        "source": "post_tool_hook",
+        "msg_type": "instruction",
+        "had_kb_match": true,
+        "files_touched": [],
+        "activity": {
+          "reads": 0,
+          "edits": 0,
+          "writes": 0,
+          "commands": 7,
+          "searches": 0,
+          "browser": 0,
+          "total": 7
+        },
+        "iteration": 1
+      },
+      "tags": [
+        "auto-learned",
+        "iteration",
+        "general",
+        "differential"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-31T18:56:26.352574+00:00",
+      "updated_at": "2026-03-31T18:56:26.352574+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-04-01T03:59:43.296883+00:00",
+        "access_count": 26
+      }
+    },
+    "2bbe9b17e211": {
+      "id": "2bbe9b17e211",
+      "type": "pattern",
+      "key": "iter_20260331_125951_i3",
+      "solution": {
+        "strategy": "differential_capture",
+        "notes": "Iteracion 3:\n[DIFERENCIAL] Complemento a KB existente.\n  Ejecuto: mkdir -p \"C:/chance1/IA_PowerPoint/src\" \"C:/chance1/IA_PowerPoint/tests\"\n  Creo __init__.py\n  Creo __init__.py\n  Creo requirements.txt",
+        "auto_learned": true,
+        "source": "post_tool_hook",
+        "msg_type": "instruction",
+        "had_kb_match": true,
+        "files_touched": [
+          "C:/chance1/IA_PowerPoint/src/__init__.py",
+          "C:/chance1/IA_PowerPoint/tests/__init__.py",
+          "C:/chance1/IA_PowerPoint/requirements.txt"
+        ],
+        "activity": {
+          "reads": 0,
+          "edits": 0,
+          "writes": 3,
+          "commands": 1,
+          "searches": 0,
+          "browser": 0,
+          "total": 4
+        },
+        "iteration": 3
+      },
+      "tags": [
+        "auto-learned",
+        "iteration",
+        "general",
+        "differential"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-31T18:59:51.971815+00:00",
+      "updated_at": "2026-03-31T18:59:51.971815+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-04-01T13:59:24.490711+00:00",
+        "access_count": 35
+      }
+    },
+    "0dc37101dd8a": {
+      "id": "0dc37101dd8a",
+      "type": "pattern",
+      "key": "iter_20260331_130237_i4",
+      "solution": {
+        "strategy": "differential_capture",
+        "notes": "Iteracion 4:\n[DIFERENCIAL] Complemento a KB existente.\n  Creo constants.py",
+        "auto_learned": true,
+        "source": "post_tool_hook",
+        "msg_type": "instruction",
+        "had_kb_match": true,
+        "files_touched": [
+          "C:/chance1/IA_PowerPoint/src/constants.py"
+        ],
+        "activity": {
+          "reads": 0,
+          "edits": 0,
+          "writes": 1,
+          "commands": 0,
+          "searches": 0,
+          "browser": 0,
+          "total": 1
+        },
+        "iteration": 4
+      },
+      "tags": [
+        "auto-learned",
+        "iteration",
+        "general",
+        "differential"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-31T19:02:37.887584+00:00",
+      "updated_at": "2026-03-31T19:02:37.887584+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-04-01T03:24:23.173953+00:00",
+        "access_count": 22
+      }
+    },
+    "49833872964f": {
+      "id": "49833872964f",
+      "type": "pattern",
+      "key": "iter_20260331_130618_i7",
+      "solution": {
+        "strategy": "differential_capture",
+        "notes": "Iteracion 7:\n[DIFERENCIAL] Complemento a KB existente.\n  Creo test_powerpoint_features.py",
+        "auto_learned": true,
+        "source": "post_tool_hook",
+        "msg_type": "instruction",
+        "had_kb_match": true,
+        "files_touched": [
+          "C:/chance1/IA_PowerPoint/tests/test_powerpoint_features.py"
+        ],
+        "activity": {
+          "reads": 0,
+          "edits": 0,
+          "writes": 1,
+          "commands": 0,
+          "searches": 0,
+          "browser": 0,
+          "total": 1
+        },
+        "iteration": 7
+      },
+      "tags": [
+        "auto-learned",
+        "iteration",
+        "general",
+        "differential"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-31T19:06:18.208685+00:00",
+      "updated_at": "2026-03-31T19:06:18.208685+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-04-01T13:59:24.490711+00:00",
+        "access_count": 35
+      }
+    },
+    "c6b60be5ff16": {
+      "id": "c6b60be5ff16",
+      "type": "pattern",
+      "key": "iter_20260331_131001_i10",
+      "solution": {
+        "strategy": "differential_capture",
+        "notes": "Iteracion 10:\n[DIFERENCIAL] Complemento a KB existente.\n  Ejecuto: cd \"C:/chance1/IA_PowerPoint\" && python -m pytest tests/test_powerpoint_features.py::TestOpenPresentation::test_01_open_",
+        "auto_learned": true,
+        "source": "post_tool_hook",
+        "msg_type": "instruction",
+        "had_kb_match": true,
+        "files_touched": [],
+        "activity": {
+          "reads": 0,
+          "edits": 0,
+          "writes": 0,
+          "commands": 1,
+          "searches": 0,
+          "browser": 0,
+          "total": 1
+        },
+        "iteration": 10
+      },
+      "tags": [
+        "auto-learned",
+        "iteration",
+        "general",
+        "differential"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-31T19:10:01.974114+00:00",
+      "updated_at": "2026-03-31T19:10:01.974114+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-04-01T13:59:24.490711+00:00",
+        "access_count": 34
+      }
+    },
+    "de4957844158": {
+      "id": "de4957844158",
+      "type": "pattern",
+      "key": "iter_20260331_131117_i11",
+      "solution": {
+        "strategy": "differential_capture",
+        "notes": "Iteracion 11:\n[DIFERENCIAL] Complemento a KB existente.\n  Ejecuto: cd \"C:/chance1/IA_PowerPoint\" && python -m unittest tests.test_powerpoint_features.TestOpenPresentation.test_01_open_pre",
+        "auto_learned": true,
+        "source": "post_tool_hook",
+        "msg_type": "instruction",
+        "had_kb_match": true,
+        "files_touched": [],
+        "activity": {
+          "reads": 0,
+          "edits": 0,
+          "writes": 0,
+          "commands": 1,
+          "searches": 0,
+          "browser": 0,
+          "total": 1
+        },
+        "iteration": 11
+      },
+      "tags": [
+        "auto-learned",
+        "iteration",
+        "general",
+        "differential"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-31T19:11:17.080003+00:00",
+      "updated_at": "2026-03-31T19:11:17.080003+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-04-01T13:59:24.490711+00:00",
+        "access_count": 34
+      }
+    },
+    "e8e55adb9fa5": {
+      "id": "e8e55adb9fa5",
+      "type": "pattern",
+      "key": "iter_20260331_132917_i27",
+      "solution": {
+        "strategy": "differential_capture",
+        "notes": "Iteracion 27:\n[DIFERENCIAL] Complemento a KB existente.\n  Leyo powerpoint_com.py\n  Edito powerpoint_com.py > cambio:     def quit(self) -> None:         \"\"\"Close presentation an ->     def quit(sel\n  Edito test_powerpoint_features.py > cambio: def tearDownModule():     global client, test_pptx_path      -> def tearDownModu\n  Busco 'def tearDown' en test_powerpoint_features.py\n  Edito test_powerpoint_features.py > cambio: import os import sys import tempfile import shutil import un -> import os import\n  Edito test_powerpoint_features.py > cambio:         if os.path.exists(self._tmp):             os.unlink( ->         if os.pa",
+        "auto_learned": true,
+        "source": "post_tool_hook",
+        "msg_type": "instruction",
+        "had_kb_match": true,
+        "files_touched": [
+          "C:/chance1/IA_PowerPoint/src/powerpoint_com.py",
+          "C:/chance1/IA_PowerPoint/tests/test_powerpoint_features.py"
+        ],
+        "activity": {
+          "reads": 1,
+          "edits": 4,
+          "writes": 0,
+          "commands": 0,
+          "searches": 1,
+          "browser": 0,
+          "total": 6
+        },
+        "iteration": 27
+      },
+      "tags": [
+        "auto-learned",
+        "iteration",
+        "general",
+        "differential"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-31T19:29:17.488651+00:00",
+      "updated_at": "2026-03-31T19:29:17.488651+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-04-01T13:59:24.490711+00:00",
+        "access_count": 35
+      }
+    },
+    "9fa1da23bf0c": {
+      "id": "9fa1da23bf0c",
+      "type": "pattern",
+      "key": "iter_20260331_133030_i28",
+      "solution": {
+        "strategy": "differential_capture",
+        "notes": "Iteracion 28:\n[DIFERENCIAL] Complemento a KB existente.\n  Edito powerpoint_com.py > cambio:     def _ensure_app(self) -> None:         \"\"\"Create the Pow ->     def _ensure_",
+        "auto_learned": true,
+        "source": "post_tool_hook",
+        "msg_type": "instruction",
+        "had_kb_match": true,
+        "files_touched": [
+          "C:/chance1/IA_PowerPoint/src/powerpoint_com.py"
+        ],
+        "activity": {
+          "reads": 0,
+          "edits": 1,
+          "writes": 0,
+          "commands": 0,
+          "searches": 0,
+          "browser": 0,
+          "total": 1
+        },
+        "iteration": 28
+      },
+      "tags": [
+        "auto-learned",
+        "iteration",
+        "general",
+        "differential"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-31T19:30:30.141087+00:00",
+      "updated_at": "2026-03-31T19:30:30.141087+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-04-01T03:24:23.173953+00:00",
+        "access_count": 21
+      }
+    },
+    "e89211be181b": {
+      "id": "e89211be181b",
+      "type": "pattern",
+      "key": "iter_20260331_133056_i29",
+      "solution": {
+        "strategy": "differential_capture",
+        "notes": "Iteracion 29:\n[DIFERENCIAL] Complemento a KB existente.\n  Ejecuto: taskkill //f //im POWERPNT.EXE 2>/dev/null; echo \"cleaned\"",
+        "auto_learned": true,
+        "source": "post_tool_hook",
+        "msg_type": "instruction",
+        "had_kb_match": true,
+        "files_touched": [],
+        "activity": {
+          "reads": 0,
+          "edits": 0,
+          "writes": 0,
+          "commands": 1,
+          "searches": 0,
+          "browser": 0,
+          "total": 1
+        },
+        "iteration": 29
+      },
+      "tags": [
+        "auto-learned",
+        "iteration",
+        "general",
+        "differential"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-31T19:30:56.591480+00:00",
+      "updated_at": "2026-03-31T19:30:56.591480+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-31T23:43:05.288710+00:00",
+        "access_count": 18
+      }
+    },
+    "0c19e3c93459": {
+      "id": "0c19e3c93459",
+      "type": "pattern",
+      "key": "iter_20260331_133343_i31",
+      "solution": {
+        "strategy": "differential_capture",
+        "notes": "Iteracion 31:\n[DIFERENCIAL] Complemento a KB existente.\n  Ejecuto: taskkill //f //im POWERPNT.EXE 2>/dev/null; sleep 2; python -c \"\nimport pythoncom, win32com.client, time\npythoncom.CoIni",
+        "auto_learned": true,
+        "source": "post_tool_hook",
+        "msg_type": "instruction",
+        "had_kb_match": true,
+        "files_touched": [],
+        "activity": {
+          "reads": 0,
+          "edits": 0,
+          "writes": 0,
+          "commands": 1,
+          "searches": 0,
+          "browser": 0,
+          "total": 1
+        },
+        "iteration": 31
+      },
+      "tags": [
+        "auto-learned",
+        "iteration",
+        "general",
+        "differential"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-31T19:33:43.611493+00:00",
+      "updated_at": "2026-03-31T19:33:43.611493+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-31T23:43:05.288710+00:00",
+        "access_count": 18
+      }
+    },
+    "3f9350f156cf": {
+      "id": "3f9350f156cf",
+      "type": "pattern",
+      "key": "iter_20260331_133503_i32",
+      "solution": {
+        "strategy": "differential_capture",
+        "notes": "Iteracion 32:\n[DIFERENCIAL] Complemento a KB existente.\n  Ejecuto: sleep 15 && cat \"C:\\Users\\ntoledo\\AppData\\Local\\Temp\\claude\\C--chance1\\19d70785-68f4-4468-824c-220be686e5ba\\tasks\\bofnl3\n  Ejecuto: python -c \"\nimport win32com.client, shutil, os\ngen_path = os.path.join(os.environ.get('LOCALAPPDATA', ''), 'Temp', 'gen_",
+        "auto_learned": true,
+        "source": "post_tool_hook",
+        "msg_type": "instruction",
+        "had_kb_match": true,
+        "files_touched": [],
+        "activity": {
+          "reads": 0,
+          "edits": 0,
+          "writes": 0,
+          "commands": 2,
+          "searches": 0,
+          "browser": 0,
+          "total": 2
+        },
+        "iteration": 32
+      },
+      "tags": [
+        "auto-learned",
+        "iteration",
+        "general",
+        "differential"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-31T19:35:03.046903+00:00",
+      "updated_at": "2026-03-31T19:35:03.046903+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-04-01T03:24:23.173953+00:00",
+        "access_count": 24
+      }
+    },
+    "c47841b4eda1": {
+      "id": "c47841b4eda1",
+      "type": "pattern",
+      "key": "iter_20260331_133528_i33",
+      "solution": {
+        "strategy": "differential_capture",
+        "notes": "Iteracion 33:\n[DIFERENCIAL] Complemento a KB existente.\n  Ejecuto: taskkill //f //im POWERPNT.EXE 2>/dev/null; sleep 3; python -c \"\nimport pythoncom, win32com.client, time\npythoncom.CoIni",
+        "auto_learned": true,
+        "source": "post_tool_hook",
+        "msg_type": "instruction",
+        "had_kb_match": true,
+        "files_touched": [],
+        "activity": {
+          "reads": 0,
+          "edits": 0,
+          "writes": 0,
+          "commands": 1,
+          "searches": 0,
+          "browser": 0,
+          "total": 1
+        },
+        "iteration": 33
+      },
+      "tags": [
+        "auto-learned",
+        "iteration",
+        "general",
+        "differential"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-31T19:35:28.771213+00:00",
+      "updated_at": "2026-03-31T19:35:28.771213+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-31T23:43:05.288710+00:00",
+        "access_count": 18
+      }
+    },
+    "ce6cfbdda304": {
+      "id": "ce6cfbdda304",
+      "type": "pattern",
+      "key": "iter_20260331_133639_i34",
+      "solution": {
+        "strategy": "differential_capture",
+        "notes": "Iteracion 34:\n[DIFERENCIAL] Complemento a KB existente.\n  Ejecuto: sleep 20 && cat \"C:\\Users\\ntoledo\\AppData\\Local\\Temp\\claude\\C--chance1\\19d70785-68f4-4468-824c-220be686e5ba\\tasks\\bm384x",
+        "auto_learned": true,
+        "source": "post_tool_hook",
+        "msg_type": "instruction",
+        "had_kb_match": true,
+        "files_touched": [],
+        "activity": {
+          "reads": 0,
+          "edits": 0,
+          "writes": 0,
+          "commands": 1,
+          "searches": 0,
+          "browser": 0,
+          "total": 1
+        },
+        "iteration": 34
+      },
+      "tags": [
+        "auto-learned",
+        "iteration",
+        "general",
+        "differential"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-31T19:36:39.425205+00:00",
+      "updated_at": "2026-03-31T19:36:39.425205+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-04-01T03:24:23.173953+00:00",
+        "access_count": 24
+      }
+    },
+    "c257c41adf5f": {
+      "id": "c257c41adf5f",
+      "type": "pattern",
+      "key": "iter_20260331_133721_i36",
+      "solution": {
+        "strategy": "differential_capture",
+        "notes": "Iteracion 36:\n[DIFERENCIAL] Complemento a KB existente.\n  Ejecuto: sleep 15 && cat \"C:\\Users\\ntoledo\\AppData\\Local\\Temp\\claude\\C--chance1\\19d70785-68f4-4468-824c-220be686e5ba\\tasks\\br38nq",
+        "auto_learned": true,
+        "source": "post_tool_hook",
+        "msg_type": "instruction",
+        "had_kb_match": true,
+        "files_touched": [],
+        "activity": {
+          "reads": 0,
+          "edits": 0,
+          "writes": 0,
+          "commands": 1,
+          "searches": 0,
+          "browser": 0,
+          "total": 1
+        },
+        "iteration": 36
+      },
+      "tags": [
+        "auto-learned",
+        "iteration",
+        "general",
+        "differential"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-31T19:37:21.530751+00:00",
+      "updated_at": "2026-03-31T19:37:21.530751+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-04-01T03:24:23.173953+00:00",
+        "access_count": 24
+      }
+    },
+    "449cddd0ec1a": {
+      "id": "449cddd0ec1a",
+      "type": "pattern",
+      "key": "iter_20260331_134047_i38",
+      "solution": {
+        "strategy": "differential_capture",
+        "notes": "Iteracion 38:\n[DIFERENCIAL] Complemento a KB existente.\n  Ejecuto: cat \"C:\\Users\\ntoledo\\AppData\\Local\\Temp\\claude\\C--chance1\\19d70785-68f4-4468-824c-220be686e5ba\\tasks\\br38nqrv8.output\" \n  Leyo br38nqrv8.output",
+        "auto_learned": true,
+        "source": "post_tool_hook",
+        "msg_type": "instruction",
+        "had_kb_match": true,
+        "files_touched": [
+          "C:\\Users\\ntoledo\\AppData\\Local\\Temp\\claude\\C--chance1\\19d70785-68f4-4468-824c-220be686e5ba\\tasks\\br38nqrv8.output"
+        ],
+        "activity": {
+          "reads": 1,
+          "edits": 0,
+          "writes": 0,
+          "commands": 1,
+          "searches": 0,
+          "browser": 0,
+          "total": 2
+        },
+        "iteration": 38
+      },
+      "tags": [
+        "auto-learned",
+        "iteration",
+        "general",
+        "differential"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-31T19:40:47.065238+00:00",
+      "updated_at": "2026-03-31T19:40:47.065238+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-04-01T03:24:23.173953+00:00",
+        "access_count": 27
+      }
+    },
+    "8a9859b13408": {
+      "id": "8a9859b13408",
+      "type": "pattern",
+      "key": "iter_20260331_134113_i39",
+      "solution": {
+        "strategy": "differential_capture",
+        "notes": "Iteracion 39:\n[DIFERENCIAL] Complemento a KB existente.\n  Ejecuto: taskkill //f //im POWERPNT.EXE 2>/dev/null; sleep 2; echo \"killed\"",
+        "auto_learned": true,
+        "source": "post_tool_hook",
+        "msg_type": "instruction",
+        "had_kb_match": true,
+        "files_touched": [],
+        "activity": {
+          "reads": 0,
+          "edits": 0,
+          "writes": 0,
+          "commands": 1,
+          "searches": 0,
+          "browser": 0,
+          "total": 1
+        },
+        "iteration": 39
+      },
+      "tags": [
+        "auto-learned",
+        "iteration",
+        "general",
+        "differential"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-31T19:41:13.086268+00:00",
+      "updated_at": "2026-03-31T19:41:13.086268+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-31T23:43:05.288710+00:00",
+        "access_count": 18
+      }
+    },
+    "4d715ab9eacf": {
+      "id": "4d715ab9eacf",
+      "type": "pattern",
+      "key": "iter_20260331_134131_i40",
+      "solution": {
+        "strategy": "differential_capture",
+        "notes": "Iteracion 40:\n[DIFERENCIAL] Complemento a KB existente.\n  Ejecuto: python -c \"\nimport win32com.client\n# Regenerate PowerPoint type library\ntry:\n    gen = win32com.client.gencache.EnsureMo",
+        "auto_learned": true,
+        "source": "post_tool_hook",
+        "msg_type": "instruction",
+        "had_kb_match": true,
+        "files_touched": [],
+        "activity": {
+          "reads": 0,
+          "edits": 0,
+          "writes": 0,
+          "commands": 1,
+          "searches": 0,
+          "browser": 0,
+          "total": 1
+        },
+        "iteration": 40
+      },
+      "tags": [
+        "auto-learned",
+        "iteration",
+        "general",
+        "differential"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-31T19:41:31.366061+00:00",
+      "updated_at": "2026-03-31T19:41:31.366061+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-31T22:10:12.802658+00:00",
+        "access_count": 17
+      }
+    },
+    "4d2f1690d3a9": {
+      "id": "4d2f1690d3a9",
+      "type": "pattern",
+      "key": "iter_20260331_134429_i43",
+      "solution": {
+        "strategy": "differential_capture",
+        "notes": "Iteracion 43:\n[DIFERENCIAL] Complemento a KB existente.\n  Ejecuto: sleep 20 && cat \"C:\\Users\\ntoledo\\AppData\\Local\\Temp\\claude\\C--chance1\\19d70785-68f4-4468-824c-220be686e5ba\\tasks\\ba7ags\n  Leyo ba7agsh8j.output",
+        "auto_learned": true,
+        "source": "post_tool_hook",
+        "msg_type": "instruction",
+        "had_kb_match": true,
+        "files_touched": [
+          "C:\\Users\\ntoledo\\AppData\\Local\\Temp\\claude\\C--chance1\\19d70785-68f4-4468-824c-220be686e5ba\\tasks\\ba7agsh8j.output"
+        ],
+        "activity": {
+          "reads": 1,
+          "edits": 0,
+          "writes": 0,
+          "commands": 1,
+          "searches": 0,
+          "browser": 0,
+          "total": 2
+        },
+        "iteration": 43
+      },
+      "tags": [
+        "auto-learned",
+        "iteration",
+        "general",
+        "differential"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-31T19:44:29.922519+00:00",
+      "updated_at": "2026-03-31T19:44:29.922519+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-04-01T03:24:23.173953+00:00",
+        "access_count": 27
+      }
+    },
+    "7885a17367f1": {
+      "id": "7885a17367f1",
+      "type": "pattern",
+      "key": "iter_20260331_134945_i49",
+      "solution": {
+        "strategy": "differential_capture",
+        "notes": "Iteracion 49:\n[DIFERENCIAL] Complemento a KB existente.\n  Ejecuto: taskkill //f //im POWERPNT.EXE 2>/dev/null; sleep 5; python -c \"\nimport pythoncom, win32com.client, time\n\npythoncom.CoIn",
+        "auto_learned": true,
+        "source": "post_tool_hook",
+        "msg_type": "instruction",
+        "had_kb_match": true,
+        "files_touched": [],
+        "activity": {
+          "reads": 0,
+          "edits": 0,
+          "writes": 0,
+          "commands": 1,
+          "searches": 0,
+          "browser": 0,
+          "total": 1
+        },
+        "iteration": 49
+      },
+      "tags": [
+        "auto-learned",
+        "iteration",
+        "general",
+        "differential"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-31T19:49:45.130500+00:00",
+      "updated_at": "2026-03-31T19:49:45.130500+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-31T23:43:05.288710+00:00",
+        "access_count": 18
+      }
+    },
+    "b29456923ac8": {
+      "id": "b29456923ac8",
+      "type": "pattern",
+      "key": "iter_20260331_135416_i51",
+      "solution": {
+        "strategy": "differential_capture",
+        "notes": "Iteracion 51:\n[DIFERENCIAL] Complemento a KB existente.\n  Ejecuto: taskkill //f //im POWERPNT.EXE 2>/dev/null; taskkill //f //im python.exe 2>/dev/null; sleep 3; echo \"all killed\"",
+        "auto_learned": true,
+        "source": "post_tool_hook",
+        "msg_type": "instruction",
+        "had_kb_match": true,
+        "files_touched": [],
+        "activity": {
+          "reads": 0,
+          "edits": 0,
+          "writes": 0,
+          "commands": 1,
+          "searches": 0,
+          "browser": 0,
+          "total": 1
+        },
+        "iteration": 51
+      },
+      "tags": [
+        "auto-learned",
+        "iteration",
+        "general",
+        "differential"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-31T19:54:16.246748+00:00",
+      "updated_at": "2026-03-31T19:54:16.246748+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-31T23:43:05.288710+00:00",
+        "access_count": 18
+      }
+    },
+    "0bb8273d3906": {
+      "id": "0bb8273d3906",
+      "type": "pattern",
+      "key": "iter_20260331_135630_i52",
+      "solution": {
+        "strategy": "differential_capture",
+        "notes": "Iteracion 52:\n[DIFERENCIAL] Complemento a KB existente.\n  Ejecuto: tasklist 2>/dev/null | grep -i \"powerpnt\\|POWERPNT\" ; echo \"done\"\n  Ejecuto: echo \"test\" 2>&1",
+        "auto_learned": true,
+        "source": "post_tool_hook",
+        "msg_type": "instruction",
+        "had_kb_match": true,
+        "files_touched": [],
+        "activity": {
+          "reads": 0,
+          "edits": 0,
+          "writes": 0,
+          "commands": 2,
+          "searches": 0,
+          "browser": 0,
+          "total": 2
+        },
+        "iteration": 52
+      },
+      "tags": [
+        "auto-learned",
+        "iteration",
+        "general",
+        "differential"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-31T19:56:30.160650+00:00",
+      "updated_at": "2026-03-31T19:56:30.160650+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-04-01T13:59:24.490711+00:00",
+        "access_count": 28
+      }
+    },
+    "3c646dc6a94e": {
+      "id": "3c646dc6a94e",
+      "type": "pattern",
+      "key": "iter_20260331_135658_i53",
+      "solution": {
+        "strategy": "differential_capture",
+        "notes": "Iteracion 53:\n[DIFERENCIAL] Complemento a KB existente.\n  Ejecuto: tasklist | findstr /i \"POWERPNT\" 2>&1 ; echo \"checked\"\n  Ejecuto: powershell -Command \"Get-Process POWERPNT -ErrorAction SilentlyContinue | Stop-Process -Force -ErrorAction SilentlyConti",
+        "auto_learned": true,
+        "source": "post_tool_hook",
+        "msg_type": "instruction",
+        "had_kb_match": true,
+        "files_touched": [],
+        "activity": {
+          "reads": 0,
+          "edits": 0,
+          "writes": 0,
+          "commands": 2,
+          "searches": 0,
+          "browser": 0,
+          "total": 2
+        },
+        "iteration": 53
+      },
+      "tags": [
+        "auto-learned",
+        "iteration",
+        "general",
+        "differential"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-31T19:56:58.493026+00:00",
+      "updated_at": "2026-03-31T19:56:58.493026+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-31T23:43:05.288710+00:00",
+        "access_count": 18
+      }
+    },
+    "96c74624cc60": {
+      "id": "96c74624cc60",
+      "type": "pattern",
+      "key": "iter_20260331_141045_i55",
+      "solution": {
+        "strategy": "differential_capture",
+        "notes": "Iteracion 55:\n[DIFERENCIAL] Complemento a KB existente.\n  Ejecuto: cd \"C:/chance1/IA_PowerPoint\" && timeout 120 python -c \"\nimport sys; sys.path.insert(0, '.')\nfrom src.powerpoint_com imp\n  Ejecuto: powershell -Command \"Get-Process POWERPNT -ErrorAction SilentlyContinue | Stop-Process -Force -ErrorAction SilentlyConti",
+        "auto_learned": true,
+        "source": "post_tool_hook",
+        "msg_type": "instruction",
+        "had_kb_match": true,
+        "files_touched": [],
+        "activity": {
+          "reads": 0,
+          "edits": 0,
+          "writes": 0,
+          "commands": 2,
+          "searches": 0,
+          "browser": 0,
+          "total": 2
+        },
+        "iteration": 55
+      },
+      "tags": [
+        "auto-learned",
+        "iteration",
+        "general",
+        "differential"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-31T20:10:45.446988+00:00",
+      "updated_at": "2026-03-31T20:10:45.446988+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-04-01T03:24:23.173953+00:00",
+        "access_count": 21
+      }
+    },
+    "b99f93e1dfd7": {
+      "id": "b99f93e1dfd7",
+      "type": "pattern",
+      "key": "iter_20260331_142525_i64",
+      "solution": {
+        "strategy": "context_capture",
+        "notes": "Iteracion 64:\n[CONTEXTO] Informacion recibida del usuario.\n  Leyo test_powerpoint_features.py",
+        "auto_learned": true,
+        "source": "post_tool_hook",
+        "msg_type": "informing",
+        "had_kb_match": true,
+        "files_touched": [
+          "C:/chance1/IA_PowerPoint/tests/test_powerpoint_features.py"
+        ],
+        "activity": {
+          "reads": 1,
+          "edits": 0,
+          "writes": 0,
+          "commands": 0,
+          "searches": 0,
+          "browser": 0,
+          "total": 1
+        },
+        "iteration": 64
+      },
+      "tags": [
+        "auto-learned",
+        "iteration",
+        "general",
+        "context"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-31T20:25:25.622171+00:00",
+      "updated_at": "2026-03-31T20:25:25.622171+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-04-01T13:59:24.490711+00:00",
+        "access_count": 34
+      }
+    },
+    "afcb94a57584": {
+      "id": "afcb94a57584",
+      "type": "pattern",
+      "key": "iter_20260331_142605_i66",
+      "solution": {
+        "strategy": "differential_capture",
+        "notes": "Iteracion 66:\n[DIFERENCIAL] Complemento a KB existente.\n  Edito test_powerpoint_features.py > cambio: class TestFindReplace(unittest.TestCase):      def setUp(sel -> def _open_writab\n  Leyo test_powerpoint_features.py",
+        "auto_learned": true,
+        "source": "post_tool_hook",
+        "msg_type": "informing",
+        "had_kb_match": true,
+        "files_touched": [
+          "C:/chance1/IA_PowerPoint/tests/test_powerpoint_features.py"
+        ],
+        "activity": {
+          "reads": 1,
+          "edits": 1,
+          "writes": 0,
+          "commands": 0,
+          "searches": 0,
+          "browser": 0,
+          "total": 2
+        },
+        "iteration": 66
+      },
+      "tags": [
+        "auto-learned",
+        "iteration",
+        "general",
+        "differential"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-31T20:26:05.597786+00:00",
+      "updated_at": "2026-03-31T20:26:05.597786+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-04-01T13:59:24.490711+00:00",
+        "access_count": 34
+      }
+    },
+    "589fc43d508f": {
+      "id": "589fc43d508f",
+      "type": "pattern",
+      "key": "iter_20260331_144835_i69",
+      "solution": {
+        "strategy": "auto_iteration_capture",
+        "notes": "Iteracion 69:\n  Leyo test_powerpoint_features.py\n  Leyo test_powerpoint_features.py",
+        "auto_learned": true,
+        "source": "post_tool_hook",
+        "msg_type": "instruction",
+        "had_kb_match": true,
+        "files_touched": [
+          "C:/chance1/IA_PowerPoint/tests/test_powerpoint_features.py"
+        ],
+        "activity": {
+          "reads": 2,
+          "edits": 0,
+          "writes": 0,
+          "commands": 0,
+          "searches": 0,
+          "browser": 0,
+          "total": 2
+        },
+        "iteration": 69
+      },
+      "tags": [
+        "auto-learned",
+        "iteration",
+        "general",
+        "auto"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-31T20:48:35.153821+00:00",
+      "updated_at": "2026-03-31T20:48:35.153821+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-04-01T13:59:24.490711+00:00",
+        "access_count": 32
+      }
+    },
+    "0068bc0ca2c5": {
+      "id": "0068bc0ca2c5",
+      "type": "pattern",
+      "key": "iter_20260331_145035_i70",
+      "solution": {
+        "strategy": "differential_capture",
+        "notes": "Iteracion 70:\n[DIFERENCIAL] Complemento a KB existente.\n  Edito test_powerpoint_features.py > cambio:     def tearDown(self):         try:             client.clos ->     def tearDown\n  Edito test_powerpoint_features.py > cambio: class TestSlideManagement(unittest.TestCase):      def setUp -> class TestSlideM\n  Edito test_powerpoint_features.py > cambio: class TestTransitions(unittest.TestCase):      def setUp(sel -> class TestTransi\n  Edito test_powerpoint_features.py > cambio: class TestLayouts(unittest.TestCase):      def setUp(self):  -> class TestLayout\n  Busco 'client\\.close_presentation.*save=False' en test_powerpoint_features.py\n  Edito test_powerpoint_features.py > cambio: def _open_writable_copy(suffix=\"test\"): -> def _reopen_readonly():     \"\"\"Safely\n  Edito test_powerpoint_features.py > cambio:     def setUp(self):         try:             client.close_p ->     def setUp(se\n  Busco 'class TestSave|class TestErrors' en test_powerpoint_features.py\n  Edito test_powerpoint_features.py > cambio: class TestSave(unittest.TestCase):      def setUp(self):     -> class TestSave(u\n  Leyo test_powerpoint_features.py\n  Edito test_powerpoint_features.py > cambio:     def tearDown(self):         try:             client.clos ->     def tearDown\n  Edito test_powerpoint_features.py > cambio:     def test_58_no_presentation_error(self):         \"\"\"Acce ->     def test_58_\n  Leyo test_powerpoint_features.py\n  Leyo test_powerpoint_features.py",
+        "auto_learned": true,
+        "source": "post_tool_hook",
+        "msg_type": "instruction",
+        "had_kb_match": true,
+        "files_touched": [
+          "C:/chance1/IA_PowerPoint/tests/test_powerpoint_features.py"
+        ],
+        "activity": {
+          "reads": 3,
+          "edits": 9,
+          "writes": 0,
+          "commands": 0,
+          "searches": 2,
+          "browser": 0,
+          "total": 14
+        },
+        "iteration": 70
+      },
+      "tags": [
+        "auto-learned",
+        "iteration",
+        "general",
+        "differential"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-31T20:50:35.101168+00:00",
+      "updated_at": "2026-03-31T20:50:35.101168+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-04-01T13:59:24.490711+00:00",
+        "access_count": 33
+      }
+    },
+    "9f1ff74298ec": {
+      "id": "9f1ff74298ec",
+      "type": "pattern",
+      "key": "iter_20260331_145118_i71",
+      "solution": {
+        "strategy": "differential_capture",
+        "notes": "Iteracion 71:\n[DIFERENCIAL] Complemento a KB existente.\n  Edito test_powerpoint_features.py > cambio: class TestLayouts(unittest.TestCase):      def setUp(self):  -> class TestLayout\n  Leyo test_powerpoint_features.py\n  Leyo test_powerpoint_features.py\n  Edito test_powerpoint_features.py > cambio:     def test_56_save_in_place(self):         \"\"\"Save present ->     def test_56_",
+        "auto_learned": true,
+        "source": "post_tool_hook",
+        "msg_type": "instruction",
+        "had_kb_match": true,
+        "files_touched": [
+          "C:/chance1/IA_PowerPoint/tests/test_powerpoint_features.py"
+        ],
+        "activity": {
+          "reads": 2,
+          "edits": 2,
+          "writes": 0,
+          "commands": 0,
+          "searches": 0,
+          "browser": 0,
+          "total": 4
+        },
+        "iteration": 71
+      },
+      "tags": [
+        "auto-learned",
+        "iteration",
+        "general",
+        "differential"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-31T20:51:18.303924+00:00",
+      "updated_at": "2026-03-31T20:51:18.303924+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-04-01T13:59:24.490711+00:00",
+        "access_count": 32
+      }
+    },
+    "5c62d0779ac0": {
+      "id": "5c62d0779ac0",
+      "type": "pattern",
+      "key": "iter_20260331_145252_i72",
+      "solution": {
+        "strategy": "auto_iteration_capture",
+        "notes": "Iteracion 72:\n  Busco 'client\\.close_presentation' en test_powerpoint_features.py",
+        "auto_learned": true,
+        "source": "post_tool_hook",
+        "msg_type": "instruction",
+        "had_kb_match": true,
+        "files_touched": [],
+        "activity": {
+          "reads": 0,
+          "edits": 0,
+          "writes": 0,
+          "commands": 0,
+          "searches": 1,
+          "browser": 0,
+          "total": 1
+        },
+        "iteration": 72
+      },
+      "tags": [
+        "auto-learned",
+        "iteration",
+        "general",
+        "auto"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-31T20:52:52.342670+00:00",
+      "updated_at": "2026-03-31T20:52:52.342670+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-04-01T13:59:24.490711+00:00",
+        "access_count": 29
+      }
+    },
+    "e5897b4e5acf": {
+      "id": "e5897b4e5acf",
+      "type": "pattern",
+      "key": "iter_20260331_145618_i73",
+      "solution": {
+        "strategy": "differential_capture",
+        "notes": "Iteracion 73:\n[DIFERENCIAL] Complemento a KB existente.\n  Edito test_powerpoint_features.py > cambio: def _reopen_readonly():     \"\"\"Safely reopen the test file i -> _keepalive_path ",
+        "auto_learned": true,
+        "source": "post_tool_hook",
+        "msg_type": "instruction",
+        "had_kb_match": true,
+        "files_touched": [
+          "C:/chance1/IA_PowerPoint/tests/test_powerpoint_features.py"
+        ],
+        "activity": {
+          "reads": 0,
+          "edits": 1,
+          "writes": 0,
+          "commands": 0,
+          "searches": 0,
+          "browser": 0,
+          "total": 1
+        },
+        "iteration": 73
+      },
+      "tags": [
+        "auto-learned",
+        "iteration",
+        "general",
+        "differential"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-31T20:56:18.109151+00:00",
+      "updated_at": "2026-03-31T20:56:18.109151+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-04-01T13:59:24.490711+00:00",
+        "access_count": 34
+      }
+    },
+    "45e824e049fb": {
+      "id": "45e824e049fb",
+      "type": "pattern",
+      "key": "iter_20260331_150433_i75",
+      "solution": {
+        "strategy": "differential_capture",
+        "notes": "Iteracion 75:\n[DIFERENCIAL] Complemento a KB existente.\n  Ejecuto: powershell -Command \"Get-Process POWERPNT -ErrorAction SilentlyContinue | Stop-Process -Force -ErrorAction SilentlyConti",
+        "auto_learned": true,
+        "source": "post_tool_hook",
+        "msg_type": "instruction",
+        "had_kb_match": true,
+        "files_touched": [],
+        "activity": {
+          "reads": 0,
+          "edits": 0,
+          "writes": 0,
+          "commands": 1,
+          "searches": 0,
+          "browser": 0,
+          "total": 1
+        },
+        "iteration": 75
+      },
+      "tags": [
+        "auto-learned",
+        "iteration",
+        "general",
+        "differential"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-31T21:04:33.903392+00:00",
+      "updated_at": "2026-03-31T21:04:33.903392+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-31T22:10:12.802658+00:00",
+        "access_count": 17
+      }
+    },
+    "2b36443fcd42": {
+      "id": "2b36443fcd42",
+      "type": "pattern",
+      "key": "iter_20260331_150449_i76",
+      "solution": {
+        "strategy": "differential_capture",
+        "notes": "Iteracion 76:\n[DIFERENCIAL] Complemento a KB existente.\n  Ejecuto: sleep 180 && cat \"C:\\Users\\ntoledo\\AppData\\Local\\Temp\\claude\\C--chance1\\19d70785-68f4-4468-824c-220be686e5ba\\tasks\\bicuq",
+        "auto_learned": true,
+        "source": "post_tool_hook",
+        "msg_type": "instruction",
+        "had_kb_match": true,
+        "files_touched": [],
+        "activity": {
+          "reads": 0,
+          "edits": 0,
+          "writes": 0,
+          "commands": 1,
+          "searches": 0,
+          "browser": 0,
+          "total": 1
+        },
+        "iteration": 76
+      },
+      "tags": [
+        "auto-learned",
+        "iteration",
+        "general",
+        "differential"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-31T21:04:49.268492+00:00",
+      "updated_at": "2026-03-31T21:04:49.268492+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-04-01T03:24:23.173953+00:00",
+        "access_count": 24
+      }
+    },
+    "6a630690dd24": {
+      "id": "6a630690dd24",
+      "type": "pattern",
+      "key": "iter_20260331_152135_i79",
+      "solution": {
+        "strategy": "differential_capture",
+        "notes": "Iteracion 79:\n[DIFERENCIAL] Complemento a KB existente.\n  Ejecuto: sleep 300 && cat \"C:\\Users\\ntoledo\\AppData\\Local\\Temp\\claude\\C--chance1\\19d70785-68f4-4468-824c-220be686e5ba\\tasks\\bshvc",
+        "auto_learned": true,
+        "source": "post_tool_hook",
+        "msg_type": "informational",
+        "had_kb_match": true,
+        "files_touched": [],
+        "activity": {
+          "reads": 0,
+          "edits": 0,
+          "writes": 0,
+          "commands": 1,
+          "searches": 0,
+          "browser": 0,
+          "total": 1
+        },
+        "iteration": 79
+      },
+      "tags": [
+        "auto-learned",
+        "iteration",
+        "general",
+        "differential"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-31T21:21:35.679535+00:00",
+      "updated_at": "2026-03-31T21:21:35.679535+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-04-01T03:24:23.173953+00:00",
+        "access_count": 22
+      }
+    },
+    "f32a0f880d75": {
+      "id": "f32a0f880d75",
+      "type": "pattern",
+      "key": "iter_20260331_154124_i82",
+      "solution": {
+        "strategy": "differential_capture",
+        "notes": "Iteracion 82:\n[DIFERENCIAL] Complemento a KB existente.\n  Ejecuto: sleep 420 && cat \"C:\\Users\\ntoledo\\AppData\\Local\\Temp\\claude\\C--chance1\\19d70785-68f4-4468-824c-220be686e5ba\\tasks\\b8mwv",
+        "auto_learned": true,
+        "source": "post_tool_hook",
+        "msg_type": "informing",
+        "had_kb_match": true,
+        "files_touched": [],
+        "activity": {
+          "reads": 0,
+          "edits": 0,
+          "writes": 0,
+          "commands": 1,
+          "searches": 0,
+          "browser": 0,
+          "total": 1
+        },
+        "iteration": 82
+      },
+      "tags": [
+        "auto-learned",
+        "iteration",
+        "general",
+        "differential"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-31T21:41:24.029072+00:00",
+      "updated_at": "2026-03-31T21:41:24.029072+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-04-01T03:24:23.173953+00:00",
+        "access_count": 22
+      }
+    },
+    "b1af2a8d4ab4": {
+      "id": "b1af2a8d4ab4",
+      "type": "pattern",
+      "key": "iter_20260331_155734_i88",
+      "solution": {
+        "strategy": "context_capture",
+        "notes": "Iteracion 88:\n[CONTEXTO] Informacion recibida del usuario.\n  WebFetch\n  Leyo powerpoint_com.py\n  Leyo powerpoint_com.py",
+        "auto_learned": true,
+        "source": "post_tool_hook",
+        "msg_type": "informing",
+        "had_kb_match": true,
+        "files_touched": [
+          "C:/chance1/IA_PowerPoint/src/powerpoint_com.py"
+        ],
+        "activity": {
+          "reads": 2,
+          "edits": 0,
+          "writes": 0,
+          "commands": 0,
+          "searches": 0,
+          "browser": 0,
+          "total": 3
+        },
+        "iteration": 88
+      },
+      "tags": [
+        "auto-learned",
+        "iteration",
+        "general",
+        "context"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-31T21:57:34.506068+00:00",
+      "updated_at": "2026-03-31T21:57:34.506068+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-04-01T03:24:23.173953+00:00",
+        "access_count": 8
+      }
+    },
+    "f6a4d20294ce": {
+      "id": "f6a4d20294ce",
+      "type": "pattern",
+      "key": "iter_20260331_155951_i90",
+      "solution": {
+        "strategy": "differential_capture",
+        "notes": "Iteracion 90:\n[DIFERENCIAL] Complemento a KB existente.\n  Edito test_powerpoint_features.py > cambio: def _save_copy_and_open(suffix):     \"\"\"Save current present -> def _save_copy_a\n  Edito test_powerpoint_features.py > cambio:     ft.cell(2, 0).text = \"IVA 12%\"     ft.cell(2, 1).text =  ->     ft.cell(2, 0",
+        "auto_learned": true,
+        "source": "post_tool_hook",
+        "msg_type": "informing",
+        "had_kb_match": true,
+        "files_touched": [
+          "C:/chance1/IA_PowerPoint/tests/test_powerpoint_features.py"
+        ],
+        "activity": {
+          "reads": 0,
+          "edits": 2,
+          "writes": 0,
+          "commands": 0,
+          "searches": 0,
+          "browser": 0,
+          "total": 2
+        },
+        "iteration": 90
+      },
+      "tags": [
+        "auto-learned",
+        "iteration",
+        "general",
+        "differential"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-31T21:59:51.088166+00:00",
+      "updated_at": "2026-03-31T21:59:51.088166+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-04-01T13:59:24.490711+00:00",
+        "access_count": 18
+      }
+    },
+    "bdf85b8651d2": {
+      "id": "bdf85b8651d2",
+      "type": "pattern",
+      "key": "iter_20260331_160228_i92",
+      "solution": {
+        "strategy": "differential_capture",
+        "notes": "Iteracion 92:\n[DIFERENCIAL] Complemento a KB existente.\n  Edito test_powerpoint_features.py > cambio:         self.assertIn(\"subtotal\", all_text) ->         self.assertIn(\"sub-total\"\n  Edito test_powerpoint_features.py > cambio: def _close_copy_reopen_original(tmp_path):     \"\"\"Close all  -> def _close_copy_\n  Edito powerpoint_com.py > cambio:     def _find_labeled_value(self, data: list, labels: list)  ->     def _find_la",
+        "auto_learned": true,
+        "source": "post_tool_hook",
+        "msg_type": "informing",
+        "had_kb_match": true,
+        "files_touched": [
+          "C:/chance1/IA_PowerPoint/src/powerpoint_com.py",
+          "C:/chance1/IA_PowerPoint/tests/test_powerpoint_features.py"
+        ],
+        "activity": {
+          "reads": 0,
+          "edits": 3,
+          "writes": 0,
+          "commands": 0,
+          "searches": 0,
+          "browser": 0,
+          "total": 3
+        },
+        "iteration": 92
+      },
+      "tags": [
+        "auto-learned",
+        "iteration",
+        "general",
+        "differential"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-31T22:02:28.606405+00:00",
+      "updated_at": "2026-03-31T22:02:28.606405+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-04-01T13:59:24.490711+00:00",
+        "access_count": 18
+      }
+    },
+    "8785409c82fb": {
+      "id": "8785409c82fb",
+      "type": "pattern",
+      "key": "iter_20260331_161114_i99",
+      "solution": {
+        "strategy": "differential_capture",
+        "notes": "Iteracion 99:\n[DIFERENCIAL] Complemento a KB existente.\n  Ejecuto: cd \"C:/chance1/IA_PowerPoint\" && git status 2>&1\n  Ejecuto: cd \"C:/chance1/IA_PowerPoint\" && git add CLAUDE.md requirements.txt src/ tests/ && git status 2>&1\n  Ejecuto: cd \"C:/chance1/IA_PowerPoint\" && git reset HEAD src/__pycache__ tests/__pycache__ 2>&1 && printf '__pycache__/\\n*.pyc\\n'\n  Ejecuto: cd \"C:/chance1/IA_PowerPoint\" && git log --oneline -3 2>&1\n  Ejecuto: cd \"C:/chance1/IA_PowerPoint\" && git commit -m \"$(cat <<'EOF'\nfeat: Complete IA_PowerPoint COM automation library with M\n  Ejecuto: cd \"C:/chance1/IA_PowerPoint\" && git push origin main 2>&1",
+        "auto_learned": true,
+        "source": "post_tool_hook",
+        "msg_type": "instruction",
+        "had_kb_match": true,
+        "files_touched": [],
+        "activity": {
+          "reads": 0,
+          "edits": 0,
+          "writes": 0,
+          "commands": 6,
+          "searches": 0,
+          "browser": 0,
+          "total": 6
+        },
+        "iteration": 99
+      },
+      "tags": [
+        "auto-learned",
+        "iteration",
+        "general",
+        "differential"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-31T22:11:14.135063+00:00",
+      "updated_at": "2026-03-31T22:11:14.135063+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-04-01T13:59:24.490711+00:00",
+        "access_count": 16
+      }
+    },
+    "f8a1fe74028c": {
+      "id": "f8a1fe74028c",
+      "type": "pattern",
+      "key": "iter_20260331_161257_i100",
+      "solution": {
+        "strategy": "auto_iteration_capture",
+        "notes": "Iteracion 100:\n  WebSearch\n  WebSearch\n  WebSearch",
+        "auto_learned": true,
+        "source": "post_tool_hook",
+        "msg_type": "instruction",
+        "had_kb_match": true,
+        "files_touched": [],
+        "activity": {
+          "reads": 0,
+          "edits": 0,
+          "writes": 0,
+          "commands": 0,
+          "searches": 0,
+          "browser": 0,
+          "total": 3
+        },
+        "iteration": 100
+      },
+      "tags": [
+        "auto-learned",
+        "iteration",
+        "general",
+        "auto"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-31T22:12:57.731853+00:00",
+      "updated_at": "2026-03-31T22:12:57.731853+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-31T22:12:57.731853+00:00",
+        "access_count": 0
+      }
+    },
+    "b2d30fedd3e7": {
+      "id": "b2d30fedd3e7",
+      "type": "pattern",
+      "key": "iter_20260331_161315_i101",
+      "solution": {
+        "strategy": "auto_iteration_capture",
+        "notes": "Iteracion 101:\n  WebSearch\n  WebSearch",
+        "auto_learned": true,
+        "source": "post_tool_hook",
+        "msg_type": "instruction",
+        "had_kb_match": true,
+        "files_touched": [],
+        "activity": {
+          "reads": 0,
+          "edits": 0,
+          "writes": 0,
+          "commands": 0,
+          "searches": 0,
+          "browser": 0,
+          "total": 2
+        },
+        "iteration": 101
+      },
+      "tags": [
+        "auto-learned",
+        "iteration",
+        "general",
+        "auto"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-31T22:13:15.873126+00:00",
+      "updated_at": "2026-03-31T22:13:15.873126+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-31T22:13:15.873126+00:00",
+        "access_count": 0
+      }
+    },
+    "8141cdca97ba": {
+      "id": "8141cdca97ba",
+      "type": "pattern",
+      "key": "iter_20260331_162703_i103",
+      "solution": {
+        "strategy": "differential_capture",
+        "notes": "Iteracion 103:\n[DIFERENCIAL] Complemento a KB existente.\n  Edito powerpoint_com.py > cambio:             results.append({                 \"slide\": i,     ->             resu\n  Leyo test_powerpoint_features.py\n  Leyo test_powerpoint_features.py\n  Leyo test_powerpoint_features.py",
+        "auto_learned": true,
+        "source": "post_tool_hook",
+        "msg_type": "informing",
+        "had_kb_match": true,
+        "files_touched": [
+          "C:/chance1/IA_PowerPoint/tests/test_powerpoint_features.py",
+          "C:/chance1/IA_PowerPoint/src/powerpoint_com.py"
+        ],
+        "activity": {
+          "reads": 3,
+          "edits": 1,
+          "writes": 0,
+          "commands": 0,
+          "searches": 0,
+          "browser": 0,
+          "total": 4
+        },
+        "iteration": 103
+      },
+      "tags": [
+        "auto-learned",
+        "iteration",
+        "general",
+        "differential"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-31T22:27:03.203634+00:00",
+      "updated_at": "2026-03-31T22:27:03.203634+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-04-01T13:59:24.490711+00:00",
+        "access_count": 13
+      }
+    },
+    "a00393694379": {
+      "id": "a00393694379",
+      "type": "pattern",
+      "key": "session_auto_20260331_162954",
+      "solution": {
+        "strategy": "auto_captured_from_session",
+        "notes": "Razonamiento (texto antes de cada tool call):\n  [Bash] Ahora corro los tests por clase, una a la vez. Empiezo con todos los tests read-only (01-13):\n  [Read] Let me take a bulk approach - replace all remaining old-style tearDown methods:\n  [Edit] Let me do a bulk replacement. I'll rewrite the entire file with all fixes applied:\n  [Grep] Now let me verify there are no more `client.close_presentation` calls left (except in tearDownModule):\nResumen: quiero el proyecto homologo de IA_excel y de IA_word que estan en chance1 valida ambos y realiza pruebas exhaustivas para validar todas las funcionali -> busca en el internet funciones complejas no pr\nEditados: powerpoint_com.py, test_powerpoint_features.py\nCreados: __init__.py, __init__.py, requirements.txt, constants.py, powerpoint_com.py, mcp_server.py, test_powerpoint_features.py, CLAUDE.md\nDecisiones: empezar explorando los proyectos existentes y clonando el repo. Déjame hacer todo en paralelo.; crear el proyecto IA_PowerPoint homólogo. Uso el mismo patrón arquitectónico:; crear todos los archivos en paralelo.; correr en bloques por clase de test (una clase a la vez, no un test individual):; tomar el approach más pragmático: **hacer que todos los tests de escritura reabran desde la presentación base** que siempre está abierta, evitando el ciclo close/reopen que mata PowerPoint:\nErrores resueltos: File content (11079 tokens) exceeds maximum allowed tokens (10000). Use offset a; File content (10880 tokens) exceeds maximum allowed tokens (10000). Use offset a; Exit code 1\ntest_17_find_replace_body (tests.test_powerpoint_features.TestFindRe",
+        "auto_learned": true,
+        "source": "hook_session_end",
+        "files_touched": [
+          "C:/chance1/IA_PowerPoint/src/powerpoint_com.py",
+          "C:/chance1/IA_PowerPoint/tests/test_powerpoint_features.py",
+          "C:/chance1/IA_PowerPoint/src/__init__.py",
+          "C:/chance1/IA_PowerPoint/tests/__init__.py",
+          "C:/chance1/IA_PowerPoint/requirements.txt",
+          "C:/chance1/IA_PowerPoint/src/constants.py",
+          "C:/chance1/IA_PowerPoint/src/powerpoint_com.py",
+          "C:/chance1/IA_PowerPoint/src/mcp_server.py",
+          "C:/chance1/IA_PowerPoint/tests/test_powerpoint_features.py",
+          "C:/chance1/IA_PowerPoint/CLAUDE.md"
+        ],
+        "domain_detected": "general"
+      },
+      "tags": [
+        "auto-learned",
+        "session",
+        "general"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-31T22:29:54.704960+00:00",
+      "updated_at": "2026-03-31T22:29:54.704960+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-04-01T13:59:24.490711+00:00",
+        "access_count": 155
+      }
+    },
+    "890792811f62": {
+      "id": "890792811f62",
+      "type": "pattern",
+      "key": "iter_20260331_162954_i106",
+      "solution": {
+        "strategy": "differential_capture",
+        "notes": "Iteracion 106:\n[DIFERENCIAL] Complemento a KB existente.\n  Ejecuto: powershell -Command \"Get-Process POWERPNT -ErrorAction SilentlyContinue | Stop-Process -Force -ErrorAction SilentlyConti\n  Ejecuto: cd \"C:/chance1/IA_PowerPoint\" && git add -A && git status 2>&1\n  Ejecuto: cd \"C:/chance1/IA_PowerPoint\" && git commit -m \"$(cat <<'EOF'\nfeat: Add 10 advanced COM operations with 18 new tests (78\n  Ejecuto: cd \"C:/chance1/IA_PowerPoint\" && git push origin main 2>&1",
+        "auto_learned": true,
+        "source": "post_tool_hook",
+        "msg_type": "informational",
+        "had_kb_match": true,
+        "files_touched": [],
+        "activity": {
+          "reads": 0,
+          "edits": 0,
+          "writes": 0,
+          "commands": 4,
+          "searches": 0,
+          "browser": 0,
+          "total": 4
+        },
+        "iteration": 106
+      },
+      "tags": [
+        "auto-learned",
+        "iteration",
+        "general",
+        "differential"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-31T22:29:54.743051+00:00",
+      "updated_at": "2026-03-31T22:29:54.743051+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-04-01T13:59:24.490711+00:00",
+        "access_count": 14
+      }
+    }
+  },
+  "tag_index": {
+    "politica": [
+      "c96f6c8005a2"
+    ],
+    "vacaciones": [
+      "c96f6c8005a2"
+    ],
+    "rrhh": [
+      "c96f6c8005a2"
+    ],
+    "general": [
+      "c96f6c8005a2",
+      "287435c78a47",
+      "2bbe9b17e211",
+      "0dc37101dd8a",
+      "49833872964f",
+      "c6b60be5ff16",
+      "de4957844158",
+      "e8e55adb9fa5",
+      "9fa1da23bf0c",
+      "e89211be181b",
+      "0c19e3c93459",
+      "3f9350f156cf",
+      "c47841b4eda1",
+      "ce6cfbdda304",
+      "c257c41adf5f",
+      "449cddd0ec1a",
+      "8a9859b13408",
+      "4d715ab9eacf",
+      "4d2f1690d3a9",
+      "7885a17367f1",
+      "b29456923ac8",
+      "0bb8273d3906",
+      "3c646dc6a94e",
+      "96c74624cc60",
+      "b99f93e1dfd7",
+      "afcb94a57584",
+      "589fc43d508f",
+      "0068bc0ca2c5",
+      "9f1ff74298ec",
+      "5c62d0779ac0",
+      "e5897b4e5acf",
+      "45e824e049fb",
+      "2b36443fcd42",
+      "6a630690dd24",
+      "f32a0f880d75",
+      "b1af2a8d4ab4",
+      "f6a4d20294ce",
+      "bdf85b8651d2",
+      "8785409c82fb",
+      "f8a1fe74028c",
+      "b2d30fedd3e7",
+      "8141cdca97ba",
+      "a00393694379",
+      "890792811f62"
+    ],
+    "transversal": [
+      "b43715eabd63",
+      "b43715eabd63",
+      "b43715eabd63",
+      "b43715eabd63",
+      "b43715eabd63",
+      "b43715eabd63",
+      "b43715eabd63",
+      "b43715eabd63",
+      "b43715eabd63",
+      "b43715eabd63",
+      "b43715eabd63",
+      "b43715eabd63",
+      "b43715eabd63",
+      "b43715eabd63",
+      "b43715eabd63",
+      "b43715eabd63",
+      "b43715eabd63",
+      "b43715eabd63",
+      "b43715eabd63"
+    ],
+    "test_n2": [
+      "b43715eabd63",
+      "b43715eabd63",
+      "b43715eabd63",
+      "b43715eabd63",
+      "b43715eabd63",
+      "b43715eabd63",
+      "b43715eabd63",
+      "b43715eabd63",
+      "b43715eabd63",
+      "b43715eabd63",
+      "b43715eabd63",
+      "b43715eabd63",
+      "b43715eabd63",
+      "b43715eabd63",
+      "b43715eabd63",
+      "b43715eabd63",
+      "b43715eabd63",
+      "b43715eabd63",
+      "b43715eabd63"
+    ],
+    "auto-learned": [
+      "287435c78a47",
+      "2bbe9b17e211",
+      "0dc37101dd8a",
+      "49833872964f",
+      "c6b60be5ff16",
+      "de4957844158",
+      "e8e55adb9fa5",
+      "9fa1da23bf0c",
+      "e89211be181b",
+      "0c19e3c93459",
+      "3f9350f156cf",
+      "c47841b4eda1",
+      "ce6cfbdda304",
+      "c257c41adf5f",
+      "449cddd0ec1a",
+      "8a9859b13408",
+      "4d715ab9eacf",
+      "4d2f1690d3a9",
+      "7885a17367f1",
+      "b29456923ac8",
+      "0bb8273d3906",
+      "3c646dc6a94e",
+      "96c74624cc60",
+      "b99f93e1dfd7",
+      "afcb94a57584",
+      "589fc43d508f",
+      "0068bc0ca2c5",
+      "9f1ff74298ec",
+      "5c62d0779ac0",
+      "e5897b4e5acf",
+      "45e824e049fb",
+      "2b36443fcd42",
+      "6a630690dd24",
+      "f32a0f880d75",
+      "b1af2a8d4ab4",
+      "f6a4d20294ce",
+      "bdf85b8651d2",
+      "8785409c82fb",
+      "f8a1fe74028c",
+      "b2d30fedd3e7",
+      "8141cdca97ba",
+      "a00393694379",
+      "890792811f62"
+    ],
+    "iteration": [
+      "287435c78a47",
+      "2bbe9b17e211",
+      "0dc37101dd8a",
+      "49833872964f",
+      "c6b60be5ff16",
+      "de4957844158",
+      "e8e55adb9fa5",
+      "9fa1da23bf0c",
+      "e89211be181b",
+      "0c19e3c93459",
+      "3f9350f156cf",
+      "c47841b4eda1",
+      "ce6cfbdda304",
+      "c257c41adf5f",
+      "449cddd0ec1a",
+      "8a9859b13408",
+      "4d715ab9eacf",
+      "4d2f1690d3a9",
+      "7885a17367f1",
+      "b29456923ac8",
+      "0bb8273d3906",
+      "3c646dc6a94e",
+      "96c74624cc60",
+      "b99f93e1dfd7",
+      "afcb94a57584",
+      "589fc43d508f",
+      "0068bc0ca2c5",
+      "9f1ff74298ec",
+      "5c62d0779ac0",
+      "e5897b4e5acf",
+      "45e824e049fb",
+      "2b36443fcd42",
+      "6a630690dd24",
+      "f32a0f880d75",
+      "b1af2a8d4ab4",
+      "f6a4d20294ce",
+      "bdf85b8651d2",
+      "8785409c82fb",
+      "f8a1fe74028c",
+      "b2d30fedd3e7",
+      "8141cdca97ba",
+      "890792811f62"
+    ],
+    "differential": [
+      "287435c78a47",
+      "2bbe9b17e211",
+      "0dc37101dd8a",
+      "49833872964f",
+      "c6b60be5ff16",
+      "de4957844158",
+      "e8e55adb9fa5",
+      "9fa1da23bf0c",
+      "e89211be181b",
+      "0c19e3c93459",
+      "3f9350f156cf",
+      "c47841b4eda1",
+      "ce6cfbdda304",
+      "c257c41adf5f",
+      "449cddd0ec1a",
+      "8a9859b13408",
+      "4d715ab9eacf",
+      "4d2f1690d3a9",
+      "7885a17367f1",
+      "b29456923ac8",
+      "0bb8273d3906",
+      "3c646dc6a94e",
+      "96c74624cc60",
+      "afcb94a57584",
+      "0068bc0ca2c5",
+      "9f1ff74298ec",
+      "e5897b4e5acf",
+      "45e824e049fb",
+      "2b36443fcd42",
+      "6a630690dd24",
+      "f32a0f880d75",
+      "f6a4d20294ce",
+      "bdf85b8651d2",
+      "8785409c82fb",
+      "8141cdca97ba",
+      "890792811f62"
+    ],
+    "context": [
+      "b99f93e1dfd7",
+      "b1af2a8d4ab4"
+    ],
+    "auto": [
+      "589fc43d508f",
+      "5c62d0779ac0",
+      "f8a1fe74028c",
+      "b2d30fedd3e7"
+    ],
+    "session": [
+      "a00393694379"
+    ]
+  },
+  "stats": {
+    "total_entries": 63,
+    "total_lookups": 1571,
+    "total_hits": 462
+  }
+}

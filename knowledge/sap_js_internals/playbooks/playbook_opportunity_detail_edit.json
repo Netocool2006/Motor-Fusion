@@ -1,0 +1,758 @@
+{
+  "screen": "Opportunity_Detail_EDIT",
+  "timestamp": "2026-03-27T23:42:07.238Z",
+  "iframe_chain": [
+    "CRMApplicationFrame",
+    "CRMApplicationFrame",
+    "WorkAreaFrame1"
+  ],
+  "fields": [
+    {
+      "stable_suffix": "btadminh_struct.proc_type_descr",
+      "selector": "[id$=\"btadminh_struct.proc_type_descr\"]",
+      "label": "Type",
+      "value": "Opp Multiservice",
+      "type": "input",
+      "editable": false
+    },
+    {
+      "stable_suffix": "btadminh_struct.object_id",
+      "selector": "[id$=\"btadminh_struct.object_id\"]",
+      "label": "ID",
+      "value": "245372",
+      "type": "input",
+      "editable": false
+    },
+    {
+      "stable_suffix": "btadminh_struct.description",
+      "selector": "[id$=\"btadminh_struct.description\"]",
+      "label": "Description",
+      "value": "Agentes Virtuales IA para Mercadeo - BR",
+      "type": "input",
+      "editable": true
+    },
+    {
+      "stable_suffix": "btpartnerprospect_partnerno",
+      "selector": "[id$=\"btpartnerprospect_partnerno\"]",
+      "label": "",
+      "value": "BANCO AGROMERCANTIL DE GUATEMALA, S. A.",
+      "type": "input",
+      "editable": true
+    },
+    {
+      "stable_suffix": "btpartnerprospect_struct.address_short",
+      "selector": "[id$=\"btpartnerprospect_struct.address_short\"]",
+      "label": "Prospect Address",
+      "value": "7A. AVENIDA 7-30 ZONA 9 / 01009 GUATEMALA",
+      "type": "input",
+      "editable": false
+    },
+    {
+      "stable_suffix": "btpartnermain_partnerno",
+      "selector": "[id$=\"btpartnermain_partnerno\"]",
+      "label": "",
+      "value": "Mr. LUIS VALLE",
+      "type": "input",
+      "editable": true
+    },
+    {
+      "stable_suffix": "btpartnerowner_partnerno",
+      "selector": "[id$=\"btpartnerowner_partnerno\"]",
+      "label": "",
+      "value": "Ms. BIANCA PAOLA RODAS",
+      "type": "input",
+      "editable": true
+    },
+    {
+      "stable_suffix": "btadminh_ext.zzfld00000e",
+      "selector": "[id$=\"btadminh_ext.zzfld00000e\"]",
+      "label": "Total Rev. Pipeline",
+      "value": "0,00",
+      "type": "input",
+      "editable": true
+    },
+    {
+      "stable_suffix": "btadminh_ext.zzfld00000q",
+      "selector": "[id$=\"btadminh_ext.zzfld00000q\"]",
+      "label": "Total Rev.Forecast",
+      "value": "0,00",
+      "type": "input",
+      "editable": true
+    },
+    {
+      "stable_suffix": "btadminh_ext.zzfld00000r",
+      "selector": "[id$=\"btadminh_ext.zzfld00000r\"]",
+      "label": "Total Rev. Best Est.",
+      "value": "0,00",
+      "type": "input",
+      "editable": true
+    },
+    {
+      "stable_suffix": "btadminh_ext.zzfld00000s",
+      "selector": "[id$=\"btadminh_ext.zzfld00000s\"]",
+      "label": "New Signings",
+      "value": "0,00",
+      "type": "input",
+      "editable": true
+    },
+    {
+      "stable_suffix": "btopporth_struct.startdate",
+      "selector": "[id$=\"btopporth_struct.startdate\"]",
+      "label": "",
+      "value": "05.02.2026",
+      "type": "input",
+      "editable": true
+    },
+    {
+      "stable_suffix": "btopporth_struct.expect_end",
+      "selector": "[id$=\"btopporth_struct.expect_end\"]",
+      "label": "",
+      "value": "05.06.2026",
+      "type": "input",
+      "editable": true
+    },
+    {
+      "stable_suffix": "btopporth_struct.curr_phase",
+      "selector": "[id$=\"btopporth_struct.curr_phase\"]",
+      "label": "",
+      "value": "Quotation",
+      "type": "input",
+      "editable": true
+    },
+    {
+      "stable_suffix": "btopporth_struct.probability",
+      "selector": "[id$=\"btopporth_struct.probability\"]",
+      "label": "Chance of Success",
+      "value": "50",
+      "type": "input",
+      "editable": true
+    },
+    {
+      "stable_suffix": "btopporth_percent",
+      "selector": "[id$=\"btopporth_percent\"]",
+      "label": "",
+      "value": "%",
+      "type": "input",
+      "editable": false
+    },
+    {
+      "stable_suffix": "btopporth_struct.sys_probability",
+      "selector": "[id$=\"btopporth_struct.sys_probability\"]",
+      "label": "Calculated Chance",
+      "value": "0",
+      "type": "input",
+      "editable": false
+    },
+    {
+      "stable_suffix": "btopporth_percent1",
+      "selector": "[id$=\"btopporth_percent1\"]",
+      "label": "",
+      "value": "%",
+      "type": "input",
+      "editable": false
+    },
+    {
+      "stable_suffix": "btstatus_struct.act_status",
+      "selector": "[id$=\"btstatus_struct.act_status\"]",
+      "label": "",
+      "value": "Open",
+      "type": "input",
+      "editable": true
+    },
+    {
+      "stable_suffix": "btsubject_struct.conc_key",
+      "selector": "[id$=\"btsubject_struct.conc_key\"]",
+      "label": "",
+      "value": "",
+      "type": "input",
+      "editable": false
+    },
+    {
+      "stable_suffix": "btstatushsum_struct.credit_not_ok",
+      "selector": "[id$=\"btstatushsum_struct.credit_not_ok\"]",
+      "label": "Credit Status",
+      "value": "",
+      "type": "input",
+      "editable": false
+    },
+    {
+      "stable_suffix": "btopporth_struct.type",
+      "selector": "[id$=\"btopporth_struct.type\"]",
+      "label": "",
+      "value": "",
+      "type": "input",
+      "editable": true
+    },
+    {
+      "stable_suffix": "btopporth_struct.source",
+      "selector": "[id$=\"btopporth_struct.source\"]",
+      "label": "",
+      "value": "Sales Visit",
+      "type": "input",
+      "editable": true
+    },
+    {
+      "stable_suffix": "btopporth_struct.importance",
+      "selector": "[id$=\"btopporth_struct.importance\"]",
+      "label": "",
+      "value": "Medium",
+      "type": "input",
+      "editable": true
+    },
+    {
+      "stable_suffix": "btadminh_ext.zzfld00003x",
+      "selector": "[id$=\"btadminh_ext.zzfld00003x\"]",
+      "label": "",
+      "value": "New",
+      "type": "input",
+      "editable": true
+    },
+    {
+      "stable_suffix": "text_lines",
+      "selector": "[id$=\"text_lines\"]",
+      "label": "",
+      "value": "El cliente ya púbico el RFP en Coupa para ofertar, debemos d",
+      "type": "textarea",
+      "editable": true
+    },
+    {
+      "stable_suffix": "TABLE_omni_input_afh",
+      "selector": "[id$=\"TABLE_omni_input_afh\"]",
+      "label": "Block Forecast.Edit List",
+      "value": "",
+      "type": "input",
+      "editable": true
+    },
+    {
+      "stable_suffix": "prodtable_omni_input_afh",
+      "selector": "[id$=\"prodtable_omni_input_afh\"]",
+      "label": "ItemsNew\nEdit List",
+      "value": "",
+      "type": "input",
+      "editable": true
+    },
+    {
+      "stable_suffix": "Table_omni_input_afh",
+      "selector": "[id$=\"Table_omni_input_afh\"]",
+      "label": "ContactsNew",
+      "value": "",
+      "type": "input",
+      "editable": true
+    },
+    {
+      "stable_suffix": "Salesteam_omni_input_afh",
+      "selector": "[id$=\"Salesteam_omni_input_afh\"]",
+      "label": "Sales TeamEdit List",
+      "value": "",
+      "type": "input",
+      "editable": true
+    },
+    {
+      "stable_suffix": "Table_omni_input_afh",
+      "selector": "[id$=\"Table_omni_input_afh\"]",
+      "label": "Parties InvolvedEdit List",
+      "value": "",
+      "type": "input",
+      "editable": true
+    },
+    {
+      "stable_suffix": "SurveyTable_omni_input_afh",
+      "selector": "[id$=\"SurveyTable_omni_input_afh\"]",
+      "label": "Assessments",
+      "value": "",
+      "type": "input",
+      "editable": true
+    },
+    {
+      "stable_suffix": "ChangeHistoryTable_omni_input_afh",
+      "selector": "[id$=\"ChangeHistoryTable_omni_input_afh\"]",
+      "label": "Change HistoryDisplay Period",
+      "value": "",
+      "type": "input",
+      "editable": true
+    },
+    {
+      "stable_suffix": "Table_omni_input_afh",
+      "selector": "[id$=\"Table_omni_input_afh\"]",
+      "label": "SubopportunitiesNew\n Add Existing Opportunity",
+      "value": "",
+      "type": "input",
+      "editable": true
+    }
+  ],
+  "dropdowns": [],
+  "buttons": [
+    {
+      "text": "Cancel",
+      "stable_suffix": "thCancelSIP"
+    },
+    {
+      "text": "Saved Searches",
+      "stable_suffix": "SearchMenuAnchor1"
+    },
+    {
+      "text": "Contact",
+      "stable_suffix": "MD-CONP-CR"
+    },
+    {
+      "text": "Activity Scheduling",
+      "stable_suffix": "SLS-ACS-CR"
+    },
+    {
+      "text": "Visit Plans",
+      "stable_suffix": "SLS-VP-SR"
+    },
+    {
+      "text": "Appointment",
+      "stable_suffix": "SLS-APP-CR"
+    },
+    {
+      "text": "E-Mail",
+      "stable_suffix": "SLS-MAI-CR"
+    },
+    {
+      "text": "Task",
+      "stable_suffix": "SLS-TSK-CR"
+    },
+    {
+      "text": "Activity Scheduling",
+      "stable_suffix": "SLS-ACS-CR"
+    },
+    {
+      "text": "Visit Plan",
+      "stable_suffix": "SLS-VP-CR"
+    },
+    {
+      "text": "Sales Planning",
+      "stable_suffix": "SLS-CYC-SP"
+    },
+    {
+      "text": "Sales Planning",
+      "stable_suffix": "SLS-CYC-SP"
+    },
+    {
+      "text": "Campaigns",
+      "stable_suffix": "MKT-CP-SR"
+    },
+    {
+      "text": "Leads",
+      "stable_suffix": "MKT-LEA-SR"
+    },
+    {
+      "text": "Opportunities",
+      "stable_suffix": "SLS-OPP-SR"
+    },
+    {
+      "text": "Quotations",
+      "stable_suffix": "SLS-QUT-SR"
+    },
+    {
+      "text": "Sales Orders",
+      "stable_suffix": "SLS-SLO-SR"
+    },
+    {
+      "text": "Opportunity",
+      "stable_suffix": "SLS-OPP-CR"
+    },
+    {
+      "text": "Lead",
+      "stable_suffix": "MKT-LEA-CR"
+    },
+    {
+      "text": "Employees",
+      "stable_suffix": "MD-EMPL-SR"
+    },
+    {
+      "text": "Account Hierarchies",
+      "stable_suffix": "MD-BPH-SR"
+    },
+    {
+      "text": "Objects",
+      "stable_suffix": "MD-IOBJ-SR"
+    },
+    {
+      "text": "Installed Bases",
+      "stable_suffix": "MD-INB-SR"
+    },
+    {
+      "text": "Warranties",
+      "stable_suffix": "MD-WARR-SR"
+    },
+    {
+      "text": "Products",
+      "stable_suffix": "MD-MAT-SR"
+    },
+    {
+      "text": "Services",
+      "stable_suffix": "MD-SERV-SR"
+    },
+    {
+      "text": "Service Order Quotations",
+      "stable_suffix": "SRV-QOT-SR"
+    },
+    {
+      "text": "Service Contract Quotations",
+      "stable_suffix": "SRV-SCQ-SR"
+    },
+    {
+      "text": "Service Agreement",
+      "stable_suffix": "SRV-SAG-CR"
+    },
+    {
+      "text": "Service Agreements",
+      "stable_suffix": "SRV-SAG-SR"
+    },
+    {
+      "text": "Reporte de precios ESP",
+      "stable_suffix": "ZSD_ESP"
+    },
+    {
+      "text": "Recent Items",
+      "stable_suffix": "RecentObjects__title"
+    },
+    {
+      "text": "242418 Célula AI Banrural - PA - TOPD",
+      "stable_suffix": "2"
+    },
+    {
+      "text": "245451 Horas Assesoria SW IBM - BR",
+      "stable_suffix": "4"
+    },
+    {
+      "text": "244701 Optimizar WAS - BR",
+      "stable_suffix": "5"
+    },
+    {
+      "text": "Forecast GBM",
+      "stable_suffix": "ZREP_FOREC"
+    },
+    {
+      "text": "Forecast Employee GBM",
+      "stable_suffix": "ZREP_FOREM"
+    },
+    {
+      "text": "Back",
+      "stable_suffix": "BackButton"
+    },
+    {
+      "text": "Search: Opportunities",
+      "stable_suffix": ""
+    },
+    {
+      "text": "Save",
+      "stable_suffix": "thtmlb_button_1"
+    },
+    {
+      "text": "Cancel",
+      "stable_suffix": "thtmlb_button_2"
+    },
+    {
+      "text": "New",
+      "stable_suffix": "thtmlb_button_3"
+    },
+    {
+      "text": "Create Follow-Up",
+      "stable_suffix": "thtmlb_button_6"
+    },
+    {
+      "text": "Trigger Output",
+      "stable_suffix": "thtmlb_button_7"
+    },
+    {
+      "text": "Preview Output",
+      "stable_suffix": "but_1"
+    },
+    {
+      "text": "Sales Assistant",
+      "stable_suffix": "but_3"
+    },
+    {
+      "text": "Distribute",
+      "stable_suffix": "but_4"
+    },
+    {
+      "text": "Redetermine Partners",
+      "stable_suffix": "but_5"
+    },
+    {
+      "text": "Opportunity Details",
+      "stable_suffix": "0001_expand_link"
+    },
+    {
+      "text": "Block Forecast.",
+      "stable_suffix": "0002_expand_link"
+    },
+    {
+      "text": "Edit List",
+      "stable_suffix": "TABLE_EDIT"
+    },
+    {
+      "text": "Items",
+      "stable_suffix": "0003_expand_link"
+    },
+    {
+      "text": "New",
+      "stable_suffix": "but1"
+    },
+    {
+      "text": "Edit List",
+      "stable_suffix": "but2"
+    },
+    {
+      "text": "IMPLEMENTACION NIVEL 2",
+      "stable_suffix": "btadmini_table[1].description"
+    },
+    {
+      "text": "IMPLEMENTACION NIVEL 2",
+      "stable_suffix": "btadmini_table[1].productdescription"
+    },
+    {
+      "text": "SERVICIOS DE LIDER TECNICO",
+      "stable_suffix": "btadmini_table[2].description"
+    },
+    {
+      "text": "SERVICIOS DE LIDER TECNICO",
+      "stable_suffix": "btadmini_table[2].productdescription"
+    },
+    {
+      "text": "CO-AI SUPPORT SERVICES",
+      "stable_suffix": "btadmini_table[3].description"
+    },
+    {
+      "text": "CO-AI SUPPORT SERVICES",
+      "stable_suffix": "btadmini_table[3].productdescription"
+    },
+    {
+      "text": "CO-AI ASSISTANCE SERVICES",
+      "stable_suffix": "btadmini_table[4].description"
+    },
+    {
+      "text": "CO-AI ASSISTANCE SERVICES",
+      "stable_suffix": "btadmini_table[4].productdescription"
+    },
+    {
+      "text": "New",
+      "stable_suffix": "but1"
+    },
+    {
+      "text": "Mr. LUIS VALLE",
+      "stable_suffix": "btpartner_table[1].partnerno"
+    },
+    {
+      "text": "luis.valle@bam.com.gt",
+      "stable_suffix": "btpartner_table[1].e_mail"
+    },
+    {
+      "text": "Sales Team",
+      "stable_suffix": "0005_expand_link"
+    },
+    {
+      "text": "Edit List",
+      "stable_suffix": "but1"
+    },
+    {
+      "text": "Mr. PABLO ESTUARDO ARROYAVE",
+      "stable_suffix": "btpartner_table[1].partner_descr"
+    },
+    {
+      "text": "PARROYAVE@GBM.NET",
+      "stable_suffix": "btpartner_table[1].email"
+    },
+    {
+      "text": "Ms. BIANCA PAOLA RODAS",
+      "stable_suffix": "btpartner_table[2].partner_descr"
+    },
+    {
+      "text": "BRODAS@GBM.NET",
+      "stable_suffix": "btpartner_table[2].email"
+    },
+    {
+      "text": "Mr. LUIS EDUARDO REYES",
+      "stable_suffix": "btpartner_table[3].partner_descr"
+    },
+    {
+      "text": "LEREYES@GBM.NET",
+      "stable_suffix": "btpartner_table[3].email"
+    },
+    {
+      "text": "Ms. GRECIA DEL ROCIO GARCIA",
+      "stable_suffix": "btpartner_table[4].partner_descr"
+    },
+    {
+      "text": "GRGARCIA@GBM.NET",
+      "stable_suffix": "btpartner_table[4].email"
+    },
+    {
+      "text": "Mr. JUAN DIEGO VEGA",
+      "stable_suffix": "btpartner_table[5].partner_descr"
+    },
+    {
+      "text": "JDVEGA@GBM.NET",
+      "stable_suffix": "btpartner_table[5].email"
+    },
+    {
+      "text": "Ms. IRMA ELENA MARTINEZ",
+      "stable_suffix": "btpartner_table[6].partner_descr"
+    },
+    {
+      "text": "Parties Involved",
+      "stable_suffix": "0006_expand_link"
+    },
+    {
+      "text": "Edit List",
+      "stable_suffix": "but1"
+    },
+    {
+      "text": "70039972",
+      "stable_suffix": "btpartner_table[1].partner_no"
+    },
+    {
+      "text": "Mr. LUIS VALLE",
+      "stable_suffix": "btpartner_table[1].partner_no_descr"
+    },
+    {
+      "text": "AA20000109",
+      "stable_suffix": "btpartner_table[2].partner_no"
+    },
+    {
+      "text": "Ms. IRMA ELENA MARTINEZ",
+      "stable_suffix": "btpartner_table[2].partner_no_descr"
+    },
+    {
+      "text": "AA20000145",
+      "stable_suffix": "btpartner_table[3].partner_no"
+    },
+    {
+      "text": "Ms. BIANCA PAOLA RODAS",
+      "stable_suffix": "btpartner_table[3].partner_no_descr"
+    },
+    {
+      "text": "AA20000243",
+      "stable_suffix": "btpartner_table[4].partner_no"
+    },
+    {
+      "text": "Mr. LUIS EDUARDO REYES",
+      "stable_suffix": "btpartner_table[4].partner_no_descr"
+    },
+    {
+      "text": "10001927",
+      "stable_suffix": "btpartner_table[5].partner_no"
+    },
+    {
+      "text": "BANCO AGROMERCANTIL DE GUATEMALA, S. A.",
+      "stable_suffix": "btpartner_table[5].partner_no_descr"
+    },
+    {
+      "text": "AA00201010",
+      "stable_suffix": "btpartner_table[6].partner_no"
+    },
+    {
+      "text": "Mr. PABLO ESTUARDO ARROYAVE",
+      "stable_suffix": "btpartner_table[6].partner_no_descr"
+    },
+    {
+      "text": "AA20000351",
+      "stable_suffix": "btpartner_table[7].partner_no"
+    },
+    {
+      "text": "Mr. JUAN DIEGO VEGA",
+      "stable_suffix": "btpartner_table[7].partner_no_descr"
+    },
+    {
+      "text": "AA30000354",
+      "stable_suffix": "btpartner_table[8].partner_no"
+    },
+    {
+      "text": "Ms. GRECIA DEL ROCIO GARCIA",
+      "stable_suffix": "btpartner_table[8].partner_no_descr"
+    },
+    {
+      "text": "Assessments",
+      "stable_suffix": "0007_expand_link"
+    },
+    {
+      "text": "OPPT_PROJECT",
+      "stable_suffix": "surveyui_table[1].surveyid_info_text"
+    },
+    {
+      "text": "Attachments",
+      "stable_suffix": "0008_expand_link"
+    },
+    {
+      "text": "Planned Activities",
+      "stable_suffix": "0009_expand_link"
+    },
+    {
+      "text": "Completed Activities",
+      "stable_suffix": "0010_expand_link"
+    },
+    {
+      "text": "Organizational Data",
+      "stable_suffix": "0011_expand_link"
+    },
+    {
+      "text": "Sales Stage History",
+      "stable_suffix": "0012_expand_link"
+    },
+    {
+      "text": "Transaction History",
+      "stable_suffix": "0013_expand_link"
+    },
+    {
+      "text": "Change History",
+      "stable_suffix": "0014_expand_link"
+    },
+    {
+      "text": "Display Period",
+      "stable_suffix": "but1"
+    },
+    {
+      "text": "Expand",
+      "stable_suffix": "ChangeHistoryTable_pag_exp"
+    },
+    {
+      "text": "Forward",
+      "stable_suffix": "ChangeHistoryTable_pag_fwd"
+    },
+    {
+      "text": "Subopportunities",
+      "stable_suffix": "0015_expand_link"
+    },
+    {
+      "text": "New",
+      "stable_suffix": "but1"
+    },
+    {
+      "text": "Add Existing Opportunity",
+      "stable_suffix": "but3"
+    },
+    {
+      "text": "Price Totals",
+      "stable_suffix": "0016_expand_link"
+    },
+    {
+      "text": "No text",
+      "stable_suffix": "UsrSettings"
+    },
+    {
+      "text": "No text",
+      "stable_suffix": "Share"
+    },
+    {
+      "text": "No text",
+      "stable_suffix": "SysMsg"
+    },
+    {
+      "text": "No text",
+      "stable_suffix": "HelpCenter"
+    },
+    {
+      "text": "standard",
+      "stable_suffix": "ACTION_WINDOW_CLOSE"
+    },
+    {
+      "text": "standard",
+      "stable_suffix": "ACTION_SAVE"
+    }
+  ]
+}

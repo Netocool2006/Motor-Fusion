@@ -1,0 +1,67 @@
+{
+  "sow": {
+    "description": "SOWs: generación, revisión, fusión (hasta 6 prácticas), propuesta económica",
+    "file": "patterns.json",
+    "entry_type": "pattern"
+  },
+  "bom": {
+    "description": "BoMs: validación math, part numbers, clasificación, fusión, pricing, tipo de cambio",
+    "file": "patterns.json",
+    "entry_type": "pattern"
+  },
+  "pptx": {
+    "description": "Presentaciones: resumen propuestas, offering productos/servicios",
+    "file": "patterns.json",
+    "entry_type": "pattern"
+  },
+  "sap_tierra": {
+    "description": "SAP CRM Web (Tierra): quotes, items, oportunidades, Playwright automation",
+    "file": "patterns.json",
+    "entry_type": "pattern"
+  },
+  "sap_nube": {
+    "description": "SAP CRM Nube: formularios cloud, oportunidades",
+    "file": "patterns.json",
+    "entry_type": "pattern"
+  },
+  "monday": {
+    "description": "Monday.com: pipeline propuestas, bitácora, seguimiento",
+    "file": "patterns.json",
+    "entry_type": "pattern"
+  },
+  "bpm_bau": {
+    "description": "BPM BAU: procesos autorización, forms, pestañas",
+    "file": "patterns.json",
+    "entry_type": "pattern"
+  },
+  "outlook": {
+    "description": "Outlook: correos, adjuntos, integración SAP",
+    "file": "patterns.json",
+    "entry_type": "pattern"
+  },
+  "files": {
+    "description": "Archivos multi-formato: PDF, Excel, DOCX, JPG, conversiones",
+    "file": "patterns.json",
+    "entry_type": "pattern"
+  },
+  "sessions": {
+    "description": "Sesiones: cliente (upsell), internas (preventa, AMs), nuevos productos",
+    "file": "facts.json",
+    "entry_type": "fact"
+  },
+  "clients": {
+    "description": "Proyectos por cliente: SOWs, BoMs, propuestas, docs de Bantrab, etc.",
+    "file": "facts.json",
+    "entry_type": "fact"
+  },
+  "business_rules": {
+    "description": "Reglas negocio GBM: nomenclatura (_PS, _RN), tarifas, cláusulas, SLAs, procesos",
+    "file": "facts.json",
+    "entry_type": "fact"
+  },
+  "catalog": {
+    "description": "Catálogo productos: IBM, SAP, servicios GBM, códigos, precios, SKUs",
+    "file": "facts.json",
+    "entry_type": "fact"
+  }
+}

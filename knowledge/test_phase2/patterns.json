@@ -1,0 +1,39 @@
+{
+  "domain": "test_phase2",
+  "description": "Dominio auto-creado: test_phase2",
+  "entries": {
+    "b9d9ebd771c3": {
+      "id": "b9d9ebd771c3",
+      "type": "pattern",
+      "key": "test_pattern",
+      "solution": {
+        "titulo": "Test",
+        "contenido": "Test content",
+        "fecha": "2026-04-01"
+      },
+      "tags": [
+        "test"
+      ],
+      "error_context": null,
+      "created_at": "2026-04-01T13:49:08.799368+00:00",
+      "updated_at": "2026-04-01T13:49:08.799368+00:00",
+      "stats": {
+        "lookups": 1,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-04-01T13:59:26.404433+00:00",
+        "access_count": 7
+      }
+    }
+  },
+  "tag_index": {
+    "test": [
+      "b9d9ebd771c3"
+    ]
+  },
+  "stats": {
+    "total_entries": 1,
+    "total_lookups": 8,
+    "total_hits": 7
+  }
+}
