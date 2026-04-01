@@ -1,0 +1,1305 @@
+{
+  "domain": "claude_chrome",
+  "description": "Dominio auto-creado: claude_chrome",
+  "entries": {
+    "319c5e3f97ef": {
+      "id": "319c5e3f97ef",
+      "type": "fact",
+      "key": "claude_chrome_architecture",
+      "fact": {
+        "rule": "Claude in Chrome usa MCP tools para automatizar el browser, NO Playwright/Selenium",
+        "approach": {
+          "model": "Claude actua como agente visual+semantico sobre un browser real",
+          "tools": [
+            "read_page: Lee el accessibility tree (roles, labels, refs)",
+            "find: Busca elementos por descripcion natural ('search bar', 'login button')",
+            "form_input: Setea valores en inputs usando ref IDs",
+            "computer: Mouse clicks, keyboard, screenshots, scroll",
+            "javascript_tool: Ejecuta JS en el contexto de la pagina",
+            "navigate: Navega a URLs",
+            "file_upload: Sube archivos a inputs"
+          ],
+          "key_difference": "No necesita selectores CSS/XPath. Usa refs del accessibility tree + vision.",
+          "extension": "Se instala como extension de Chrome (Claude in Chrome MCP)"
+        }
+      },
+      "tags": [
+        "claude",
+        "chrome",
+        "mcp",
+        "arquitectura",
+        "tools"
+      ],
+      "created_at": "2026-03-21T15:51:03.837042+00:00",
+      "updated_at": "2026-03-21T15:51:03.837042+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-03-30T21:30:06.678795+00:00",
+        "access_count": 44
+      }
+    },
+    "f1a41f39df93": {
+      "id": "f1a41f39df93",
+      "type": "fact",
+      "key": "claude_chrome_vs_playwright",
+      "fact": {
+        "rule": "Comparacion: Claude in Chrome vs Playwright/Selenium para automatizacion",
+        "claude_chrome": {
+          "ventajas": [
+            "NO necesita escribir selectores CSS/XPath",
+            "Encuentra elementos por lenguaje natural ('boton de guardar')",
+            "Entiende el contexto visual (screenshots)",
+            "Se adapta a cambios de UI automaticamente",
+            "Puede manejar CAPTCHAs visuales con human-in-the-loop",
+            "Funciona con cualquier sitio sin codigo previo"
+          ],
+          "desventajas": [
+            "Mas lento (cada accion requiere LLM call)",
+            "Mas costoso (tokens de API)",
+            "No es programatico puro (depende del modelo)",
+            "Dificil de integrar en CI/CD sin supervision",
+            "No soporta headless nativo"
+          ]
+        },
+        "playwright_selenium": {
+          "ventajas": [
+            "Rapido (ejecucion directa, sin LLM)",
+            "Programatico (scripts reproducibles)",
+            "CI/CD friendly",
+            "Headless mode",
+            "Sin costo de API"
+          ],
+          "desventajas": [
+            "Selectores fragiles (se rompen con cambios de UI)",
+            "Requiere mantenimiento constante",
+            "No entiende contexto semantico",
+            "Iframes/shadow DOM complicados"
+          ]
+        },
+        "recommendation": "Claude Chrome para exploracion/prototipo. Playwright para produccion repetitiva."
+      },
+      "tags": [
+        "claude",
+        "chrome",
+        "playwright",
+        "selenium",
+        "comparacion"
+      ],
+      "created_at": "2026-03-21T15:51:03.876997+00:00",
+      "updated_at": "2026-03-21T15:51:03.876997+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-03-31T20:28:16.578992+00:00",
+        "access_count": 32
+      }
+    },
+    "b42fd6646ccd": {
+      "id": "b42fd6646ccd",
+      "type": "pattern",
+      "key": "claude_chrome_workflow",
+      "solution": {
+        "strategy": "read_find_interact_verify",
+        "description": "Flujo estandar de Claude in Chrome para llenar formularios",
+        "code_snippet": "# FLUJO CLAUDE IN CHROME:\n# 1. navigate: Ir a la URL\n# 2. read_page: Obtener accessibility tree (estructura de la pagina)\n# 3. find: Buscar elementos por descripcion natural\n# 4. form_input o computer: Interactuar con el elemento\n# 5. computer(screenshot): Verificar resultado visualmente\n\n# Ejemplo conceptual (estas son llamadas MCP, no Python directo):\n\n# Paso 1: Navegar\nnavigate(url=\"https://example.com/form\", tabId=TAB_ID)\n\n# Paso 2: Leer la pagina\ntree = read_page(tabId=TAB_ID, filter=\"interactive\")\n# Retorna: ref_1: textbox \"Email\" (value: \"\")\n#          ref_2: textbox \"Password\"\n#          ref_3: button \"Log In\"\n\n# Paso 3: Llenar campos usando refs\nform_input(ref=\"ref_1\", value=\"nestor@gbm.net\", tabId=TAB_ID)\nform_input(ref=\"ref_2\", value=\"password123\", tabId=TAB_ID)\n\n# Paso 4: Click en boton\ncomputer(action=\"left_click\", ref=\"ref_3\", tabId=TAB_ID)\n\n# Paso 5: Verificar\ncomputer(action=\"screenshot\", tabId=TAB_ID)",
+        "notes": "El flujo siempre es: leer estructura -> encontrar elemento -> interactuar -> verificar.",
+        "confidence": "verified"
+      },
+      "tags": [
+        "claude",
+        "chrome",
+        "flujo",
+        "workflow",
+        "formulario"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-21T15:51:03.973902+00:00",
+      "updated_at": "2026-03-21T15:51:03.973902+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-31T20:28:16.578992+00:00",
+        "access_count": 36
+      }
+    },
+    "352c63013067": {
+      "id": "352c63013067",
+      "type": "pattern",
+      "key": "read_page_accessibility_tree",
+      "solution": {
+        "strategy": "use_accessibility_tree",
+        "description": "read_page retorna el accessibility tree con refs para cada elemento interactivo",
+        "code_snippet": "# read_page retorna estructura como:\n# ref_1: heading \"Login Form\" (level=1)\n# ref_2: textbox \"Email\" (required, value: \"\")\n# ref_3: textbox \"Password\" (required, value: \"\")\n# ref_4: checkbox \"Remember me\" (checked: false)\n# ref_5: button \"Log In\"\n# ref_6: link \"Forgot password?\"\n\n# Parametros utiles:\n# filter=\"interactive\" -> solo elementos interactivos (inputs, buttons, links)\n# filter=\"all\" -> todos los elementos (incluye texto, headings, etc.)\n# depth=5 -> limitar profundidad del arbol\n# ref_id=\"ref_10\" -> leer solo hijos de un elemento especifico\n\n# CUANDO USAR:\n# - Al llegar a una pagina nueva\n# - Despues de una accion que cambia el DOM (submit, click en tab)\n# - Cuando screenshot no es suficiente para entender la estructura\n# - Para obtener ref_ids necesarios para form_input",
+        "notes": "filter='interactive' es mas rapido y retorna solo lo que se puede clickear/llenar.",
+        "confidence": "verified"
+      },
+      "tags": [
+        "claude",
+        "chrome",
+        "read_page",
+        "accessibility",
+        "tree",
+        "refs"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-21T15:51:04.080637+00:00",
+      "updated_at": "2026-03-21T15:51:04.080637+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-31T20:16:06.592644+00:00",
+        "access_count": 38
+      }
+    },
+    "3bf873d920b1": {
+      "id": "3bf873d920b1",
+      "type": "pattern",
+      "key": "read_page_focused_area",
+      "solution": {
+        "strategy": "focus_on_specific_area",
+        "description": "Usar ref_id para leer solo una seccion de la pagina (evitar output enorme)",
+        "code_snippet": "# Paginas grandes generan accessibility trees enormes\n# Solucion: enfocar en un area especifica\n\n# 1. Primer read_page general (profundidad baja)\nread_page(tabId=TAB_ID, depth=3)\n# Esto da la estructura general con refs de contenedores\n\n# 2. Encontrar el contenedor del formulario\n# ref_15: form \"Contact Form\"\n\n# 3. Leer solo ese contenedor\nread_page(tabId=TAB_ID, ref_id=\"ref_15\")\n# Ahora solo retorna los campos del formulario\n\n# ALTERNATIVA: usar find para ir directo al elemento\nfind(query=\"contact form\", tabId=TAB_ID)\n# Retorna refs de elementos que matchean",
+        "notes": "Para paginas grandes, SIEMPRE usar ref_id o depth para limitar output.",
+        "confidence": "high"
+      },
+      "tags": [
+        "claude",
+        "chrome",
+        "read_page",
+        "focus",
+        "seccion",
+        "performance"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-21T15:51:04.148368+00:00",
+      "updated_at": "2026-03-21T15:51:04.148368+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-31T20:16:06.592644+00:00",
+        "access_count": 22
+      }
+    },
+    "0111373b55f0": {
+      "id": "0111373b55f0",
+      "type": "pattern",
+      "key": "find_elements_natural_language",
+      "solution": {
+        "strategy": "find_by_description",
+        "description": "find busca elementos por descripcion natural en lenguaje humano",
+        "code_snippet": "# find acepta descripciones naturales:\n\nfind(query=\"search bar\", tabId=TAB_ID)\nfind(query=\"login button\", tabId=TAB_ID)\nfind(query=\"email input field\", tabId=TAB_ID)\nfind(query=\"submit form button\", tabId=TAB_ID)\nfind(query=\"dropdown for country selection\", tabId=TAB_ID)\nfind(query=\"checkbox for terms and conditions\", tabId=TAB_ID)\nfind(query=\"upload file button\", tabId=TAB_ID)\nfind(query=\"date picker\", tabId=TAB_ID)\nfind(query=\"navigation menu\", tabId=TAB_ID)\nfind(query=\"error message\", tabId=TAB_ID)\nfind(query=\"success notification\", tabId=TAB_ID)\nfind(query=\"close button on modal\", tabId=TAB_ID)\n\n# Retorna: lista de refs con su rol y texto\n# ref_5: textbox \"Email Address\" (match: 95%)\n# ref_12: textbox \"Confirm Email\" (match: 60%)\n\n# CUANDO USAR vs read_page:\n# find: cuando sabes QUE buscas pero no DONDE esta\n# read_page: cuando quieres ver TODO lo que hay",
+        "notes": "find es mas rapido que read_page para encontrar un elemento especifico. Maximo 20 resultados.",
+        "confidence": "verified"
+      },
+      "tags": [
+        "claude",
+        "chrome",
+        "find",
+        "buscar",
+        "natural",
+        "language"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-21T15:51:04.186886+00:00",
+      "updated_at": "2026-03-21T15:51:04.186886+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-31T20:28:16.578992+00:00",
+        "access_count": 39
+      }
+    },
+    "d35a9deef4f2": {
+      "id": "d35a9deef4f2",
+      "type": "pattern",
+      "key": "find_by_text_content",
+      "solution": {
+        "strategy": "find_by_visible_text",
+        "description": "Buscar elementos por su texto visible",
+        "code_snippet": "# Buscar por texto exacto visible en la pagina:\n\nfind(query=\"product titled 'IBM Cloud Pak'\", tabId=TAB_ID)\nfind(query=\"row containing 'Guatemala'\", tabId=TAB_ID)\nfind(query=\"link that says 'View Details'\", tabId=TAB_ID)\nfind(query=\"cell with value '150,000'\", tabId=TAB_ID)\nfind(query=\"tab labeled 'Settings'\", tabId=TAB_ID)\n\n# Buscar elementos dentro de contexto:\nfind(query=\"edit button in the first row\", tabId=TAB_ID)\nfind(query=\"delete icon next to 'IBM'\", tabId=TAB_ID)\nfind(query=\"status dropdown in the header\", tabId=TAB_ID)",
+        "notes": "Incluir contexto en la query mejora precision ('edit button in first row' vs solo 'edit button').",
+        "confidence": "high"
+      },
+      "tags": [
+        "claude",
+        "chrome",
+        "find",
+        "texto",
+        "contenido",
+        "buscar"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-21T15:51:04.250595+00:00",
+      "updated_at": "2026-03-21T15:51:04.250595+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-31T20:16:06.592644+00:00",
+        "access_count": 100
+      }
+    },
+    "9349ca9a7b14": {
+      "id": "9349ca9a7b14",
+      "type": "pattern",
+      "key": "form_input_fill_fields",
+      "solution": {
+        "strategy": "set_value_by_ref",
+        "description": "form_input setea valores en campos de formulario usando ref IDs",
+        "code_snippet": "# form_input usa el ref_id obtenido de read_page o find\n\n# Texto simple\nform_input(ref=\"ref_5\", value=\"Nestor Toledo\", tabId=TAB_ID)\n\n# Email\nform_input(ref=\"ref_6\", value=\"nestor@gbm.net\", tabId=TAB_ID)\n\n# Numero\nform_input(ref=\"ref_7\", value=\"150000\", tabId=TAB_ID)\n\n# Fecha (formato del campo)\nform_input(ref=\"ref_8\", value=\"2026-03-15\", tabId=TAB_ID)\n\n# Select/Dropdown\nform_input(ref=\"ref_9\", value=\"Guatemala\", tabId=TAB_ID)\n\n# Checkbox (booleano)\nform_input(ref=\"ref_10\", value=True, tabId=TAB_ID)\n\n# Textarea\nform_input(ref=\"ref_11\", value=\"Texto largo con descripcion completa\", tabId=TAB_ID)\n\n# IMPORTANTE: form_input maneja el tipo de campo automaticamente\n# No necesitas saber si es input, select, textarea, etc.",
+        "notes": "form_input es inteligente: detecta el tipo de campo y usa el metodo correcto internamente.",
+        "confidence": "verified"
+      },
+      "tags": [
+        "claude",
+        "chrome",
+        "form_input",
+        "llenar",
+        "campos",
+        "ref"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-21T15:51:04.301619+00:00",
+      "updated_at": "2026-03-21T15:51:04.301619+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-30T21:30:06.678795+00:00",
+        "access_count": 27
+      }
+    },
+    "b6ea6736b7be": {
+      "id": "b6ea6736b7be",
+      "type": "pattern",
+      "key": "form_input_select_option",
+      "solution": {
+        "strategy": "select_dropdown_option",
+        "description": "Seleccionar opcion en dropdowns con form_input",
+        "code_snippet": "# Para <select> nativo:\nform_input(ref=\"ref_country\", value=\"Guatemala\", tabId=TAB_ID)\n# form_input matchea por value O por texto visible\n\n# Para dropdown custom (React, MUI, etc.):\n# form_input puede no funcionar -> usar computer click\n\n# 1. Click para abrir dropdown\ncomputer(action=\"left_click\", ref=\"ref_dropdown\", tabId=TAB_ID)\n\n# 2. Esperar opciones\ncomputer(action=\"wait\", duration=0.5, tabId=TAB_ID)\n\n# 3. Buscar y click en opcion\nfind(query=\"option Guatemala in dropdown\", tabId=TAB_ID)\n# -> ref_42: option \"Guatemala\"\ncomputer(action=\"left_click\", ref=\"ref_42\", tabId=TAB_ID)",
+        "notes": "form_input funciona para <select> nativo. Para custom dropdowns, usar click sequence.",
+        "confidence": "high"
+      },
+      "tags": [
+        "claude",
+        "chrome",
+        "select",
+        "dropdown",
+        "opcion",
+        "custom"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-21T15:51:04.374851+00:00",
+      "updated_at": "2026-03-21T15:51:04.374851+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-31T20:16:06.592644+00:00",
+        "access_count": 16
+      }
+    },
+    "c795a1abb642": {
+      "id": "c795a1abb642",
+      "type": "pattern",
+      "key": "computer_clicks",
+      "solution": {
+        "strategy": "mouse_click_actions",
+        "description": "Acciones de mouse: click, double-click, right-click con computer tool",
+        "code_snippet": "# Click por ref (PREFERIDO - mas preciso)\ncomputer(action=\"left_click\", ref=\"ref_5\", tabId=TAB_ID)\n\n# Click por coordenadas (cuando ref no funciona)\ncomputer(action=\"left_click\", coordinate=[500, 300], tabId=TAB_ID)\n\n# Double click (para editar celdas de tabla)\ncomputer(action=\"double_click\", ref=\"ref_cell\", tabId=TAB_ID)\n\n# Right click (menu contextual)\ncomputer(action=\"right_click\", ref=\"ref_item\", tabId=TAB_ID)\n\n# Triple click (seleccionar todo el texto de un campo)\ncomputer(action=\"triple_click\", ref=\"ref_input\", tabId=TAB_ID)\n\n# Click con modificador\ncomputer(action=\"left_click\", ref=\"ref_link\", modifiers=\"ctrl\", tabId=TAB_ID)  # Nueva tab\ncomputer(action=\"left_click\", ref=\"ref_item\", modifiers=\"shift\", tabId=TAB_ID)  # Multi-select\n\n# IMPORTANTE: Siempre tomar screenshot antes de click por coordenadas\n# para verificar que el elemento esta donde esperas",
+        "notes": "Preferir ref sobre coordenadas. Coordenadas solo si ref no esta disponible.",
+        "confidence": "verified"
+      },
+      "tags": [
+        "claude",
+        "chrome",
+        "computer",
+        "click",
+        "mouse",
+        "doble",
+        "derecho"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-21T15:51:04.462541+00:00",
+      "updated_at": "2026-03-21T15:51:04.462541+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-30T21:30:06.678795+00:00",
+        "access_count": 33
+      }
+    },
+    "a6d783256da3": {
+      "id": "a6d783256da3",
+      "type": "pattern",
+      "key": "computer_keyboard",
+      "solution": {
+        "strategy": "keyboard_typing_keys",
+        "description": "Acciones de teclado: escribir texto, presionar teclas",
+        "code_snippet": "# Escribir texto\ncomputer(action=\"type\", text=\"Nestor Toledo\", tabId=TAB_ID)\n\n# Teclas especiales\ncomputer(action=\"key\", text=\"Enter\", tabId=TAB_ID)\ncomputer(action=\"key\", text=\"Tab\", tabId=TAB_ID)\ncomputer(action=\"key\", text=\"Escape\", tabId=TAB_ID)\ncomputer(action=\"key\", text=\"Backspace\", tabId=TAB_ID)\n\n# Shortcuts\ncomputer(action=\"key\", text=\"cmd+a\", tabId=TAB_ID)     # Select all (Mac)\ncomputer(action=\"key\", text=\"ctrl+a\", tabId=TAB_ID)     # Select all (Windows)\ncomputer(action=\"key\", text=\"ctrl+c\", tabId=TAB_ID)     # Copy\ncomputer(action=\"key\", text=\"ctrl+v\", tabId=TAB_ID)     # Paste\ncomputer(action=\"key\", text=\"ctrl+s\", tabId=TAB_ID)     # Save\n\n# Multiples teclas en secuencia\ncomputer(action=\"key\", text=\"Tab Tab Tab Enter\", tabId=TAB_ID)\n\n# Repetir tecla\ncomputer(action=\"key\", text=\"ArrowDown\", repeat=5, tabId=TAB_ID)  # 5 veces",
+        "notes": "type para texto. key para teclas especiales y shortcuts. cmd para Mac, ctrl para Windows.",
+        "confidence": "verified"
+      },
+      "tags": [
+        "claude",
+        "chrome",
+        "computer",
+        "keyboard",
+        "teclas",
+        "type",
+        "enter"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-21T15:51:04.515353+00:00",
+      "updated_at": "2026-03-21T15:51:04.515353+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-30T21:30:06.678795+00:00",
+        "access_count": 16
+      }
+    },
+    "7a31d49a3220": {
+      "id": "7a31d49a3220",
+      "type": "pattern",
+      "key": "computer_scroll",
+      "solution": {
+        "strategy": "scroll_page_element",
+        "description": "Scroll en pagina o dentro de elementos",
+        "code_snippet": "# Scroll down en la pagina\ncomputer(action=\"scroll\", coordinate=[500, 400], scroll_direction=\"down\", tabId=TAB_ID)\n\n# Scroll up\ncomputer(action=\"scroll\", coordinate=[500, 400], scroll_direction=\"up\", tabId=TAB_ID)\n\n# Scroll mas rapido (mas ticks)\ncomputer(action=\"scroll\", coordinate=[500, 400], scroll_direction=\"down\",\n         scroll_amount=10, tabId=TAB_ID)\n\n# Scroll horizontal\ncomputer(action=\"scroll\", coordinate=[500, 400], scroll_direction=\"right\", tabId=TAB_ID)\n\n# Scroll a un elemento especifico (scroll_to con ref)\ncomputer(action=\"scroll_to\", ref=\"ref_footer\", tabId=TAB_ID)\n\n# FLUJO para infinite scroll:\n# 1. Scroll down\n# 2. Wait para cargar\n# 3. Screenshot para verificar\n# 4. Repetir si hay mas contenido",
+        "notes": "scroll_to con ref es lo mejor para hacer visible un elemento. scroll con coordenadas para pagina general.",
+        "confidence": "verified"
+      },
+      "tags": [
+        "claude",
+        "chrome",
+        "computer",
+        "scroll",
+        "pagina",
+        "elemento"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-21T15:51:04.586444+00:00",
+      "updated_at": "2026-03-21T15:51:04.586444+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-31T20:16:06.592644+00:00",
+        "access_count": 13
+      }
+    },
+    "575617f72b78": {
+      "id": "575617f72b78",
+      "type": "pattern",
+      "key": "computer_screenshot",
+      "solution": {
+        "strategy": "screenshot_and_zoom",
+        "description": "Capturar screenshots y zoom para verificacion visual",
+        "code_snippet": "# Screenshot completo de la pagina\ncomputer(action=\"screenshot\", tabId=TAB_ID)\n\n# Zoom en area especifica (para leer texto pequeno o iconos)\ncomputer(action=\"zoom\", region=[100, 200, 400, 350], tabId=TAB_ID)\n# region = [x0, y0, x1, y1] - rectangulo a ampliar\n\n# CUANDO TOMAR SCREENSHOT:\n# - Antes de click por coordenadas (verificar posicion)\n# - Despues de submit (verificar resultado)\n# - Cuando hay error (debug)\n# - Para verificar que un campo se lleno correctamente\n# - Antes de scroll (saber donde estamos)\n\n# Guardar screenshot a disco\ncomputer(action=\"screenshot\", save_to_disk=True, tabId=TAB_ID)",
+        "notes": "Screenshot es la 'vision' de Claude. Usarlo frecuentemente para verificar estado.",
+        "confidence": "verified"
+      },
+      "tags": [
+        "claude",
+        "chrome",
+        "computer",
+        "screenshot",
+        "zoom",
+        "visual"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-21T15:51:04.660012+00:00",
+      "updated_at": "2026-03-21T15:51:04.660012+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-31T20:16:06.592644+00:00",
+        "access_count": 20
+      }
+    },
+    "9a5162372469": {
+      "id": "9a5162372469",
+      "type": "pattern",
+      "key": "computer_hover",
+      "solution": {
+        "strategy": "hover_for_tooltips_menus",
+        "description": "Hover sobre elementos para revelar menus o tooltips",
+        "code_snippet": "# Hover por ref\ncomputer(action=\"hover\", ref=\"ref_menu_item\", tabId=TAB_ID)\n\n# Hover por coordenadas\ncomputer(action=\"hover\", coordinate=[300, 150], tabId=TAB_ID)\n\n# FLUJO para menus con hover:\n# 1. Hover sobre menu principal\ncomputer(action=\"hover\", ref=\"ref_menu\", tabId=TAB_ID)\n# 2. Esperar que submenu aparezca\ncomputer(action=\"wait\", duration=0.5, tabId=TAB_ID)\n# 3. Click en submenu item\ncomputer(action=\"left_click\", ref=\"ref_submenu_item\", tabId=TAB_ID)\n\n# Para tooltips:\ncomputer(action=\"hover\", ref=\"ref_icon\", tabId=TAB_ID)\ncomputer(action=\"wait\", duration=1, tabId=TAB_ID)\ncomputer(action=\"screenshot\", tabId=TAB_ID)  # Ver tooltip",
+        "notes": "Esperar 300-500ms despues de hover para que submenu/tooltip aparezca.",
+        "confidence": "high"
+      },
+      "tags": [
+        "claude",
+        "chrome",
+        "computer",
+        "hover",
+        "menu",
+        "tooltip"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-21T15:51:04.732820+00:00",
+      "updated_at": "2026-03-21T15:51:04.732820+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-30T21:30:06.678795+00:00",
+        "access_count": 15
+      }
+    },
+    "aa3619fc65af": {
+      "id": "aa3619fc65af",
+      "type": "pattern",
+      "key": "computer_drag_drop",
+      "solution": {
+        "strategy": "drag_elements",
+        "description": "Drag and drop con computer tool",
+        "code_snippet": "# Drag and drop usando start_coordinate y coordinate\ncomputer(\n    action=\"left_click_drag\",\n    start_coordinate=[100, 200],   # Donde agarrar\n    coordinate=[400, 200],          # Donde soltar\n    tabId=TAB_ID\n)\n\n# Para sliders/range inputs:\n# 1. Screenshot para ver posicion actual\ncomputer(action=\"screenshot\", tabId=TAB_ID)\n# 2. Drag el handle\ncomputer(action=\"left_click_drag\", start_coordinate=[150, 300], coordinate=[350, 300], tabId=TAB_ID)\n\n# Para reordenar items en listas:\ncomputer(action=\"left_click_drag\", start_coordinate=[200, 100], coordinate=[200, 400], tabId=TAB_ID)",
+        "notes": "Necesita coordenadas exactas. Siempre screenshot antes para ubicar elementos.",
+        "confidence": "high"
+      },
+      "tags": [
+        "claude",
+        "chrome",
+        "computer",
+        "drag",
+        "drop",
+        "arrastrar"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-21T15:51:04.798222+00:00",
+      "updated_at": "2026-03-21T15:51:04.798222+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-30T21:30:06.678795+00:00",
+        "access_count": 21
+      }
+    },
+    "31efddc6d243": {
+      "id": "31efddc6d243",
+      "type": "pattern",
+      "key": "claude_chrome_file_upload",
+      "solution": {
+        "strategy": "upload_via_ref_or_coordinate",
+        "description": "Subir archivos usando file_upload o upload_image tools",
+        "code_snippet": "# Metodo 1: file_upload con ref del input[type=file]\n# Primero encontrar el file input\nread_page(tabId=TAB_ID, filter=\"interactive\")\n# ref_20: file input \"Upload Document\"\n\nfile_upload(\n    paths=[\"/path/to/document.pdf\"],\n    ref=\"ref_20\",\n    tabId=TAB_ID\n)\n\n# Metodo 2: Multiples archivos\nfile_upload(\n    paths=[\"/path/to/doc1.pdf\", \"/path/to/doc2.xlsx\"],\n    ref=\"ref_20\",\n    tabId=TAB_ID\n)\n\n# Metodo 3: upload_image (para imagenes capturadas/screenshots)\nupload_image(\n    imageId=\"screenshot_123\",  # ID de screenshot previo\n    ref=\"ref_file_input\",\n    tabId=TAB_ID\n)\n\n# Metodo 4: Drag and drop upload\nupload_image(\n    imageId=\"screenshot_123\",\n    coordinate=[500, 300],  # Coordenadas del drop area\n    tabId=TAB_ID\n)",
+        "notes": "NUNCA hacer click en input[type=file]. Usar file_upload con ref directamente.",
+        "confidence": "verified"
+      },
+      "tags": [
+        "claude",
+        "chrome",
+        "file",
+        "upload",
+        "adjuntar",
+        "imagen"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-21T15:51:04.863131+00:00",
+      "updated_at": "2026-03-21T15:51:04.863131+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-31T20:16:06.592644+00:00",
+        "access_count": 27
+      }
+    },
+    "87bfc83745d8": {
+      "id": "87bfc83745d8",
+      "type": "pattern",
+      "key": "claude_chrome_javascript",
+      "solution": {
+        "strategy": "execute_js_in_page",
+        "description": "Ejecutar JavaScript en el contexto de la pagina con javascript_tool",
+        "code_snippet": "# Leer valores de campos\njavascript_tool(\n    action=\"javascript_exec\",\n    text=\"document.querySelector('#email').value\",\n    tabId=TAB_ID\n)\n\n# Setear valor via JS (bypass de eventos)\njavascript_tool(\n    action=\"javascript_exec\",\n    text=\"\"\"\n    const input = document.querySelector('[name=\"amount\"]');\n    input.value = '150000';\n    input.dispatchEvent(new Event('input', {bubbles: true}));\n    input.dispatchEvent(new Event('change', {bubbles: true}));\n    \"\"\",\n    tabId=TAB_ID\n)\n\n# Leer toda la tabla\njavascript_tool(\n    action=\"javascript_exec\",\n    text=\"\"\"\n    Array.from(document.querySelectorAll('table tbody tr')).map(row =>\n        Array.from(row.querySelectorAll('td')).map(td => td.textContent.trim())\n    )\n    \"\"\",\n    tabId=TAB_ID\n)\n\n# Scroll a elemento\njavascript_tool(\n    action=\"javascript_exec\",\n    text=\"document.querySelector('#footer').scrollIntoView()\",\n    tabId=TAB_ID\n)\n\n# Verificar si checkbox esta checked\njavascript_tool(\n    action=\"javascript_exec\",\n    text=\"document.querySelector('#terms').checked\",\n    tabId=TAB_ID\n)",
+        "notes": "javascript_tool corre en el contexto de la pagina. Util cuando form_input/computer no bastan.",
+        "confidence": "verified"
+      },
+      "tags": [
+        "claude",
+        "chrome",
+        "javascript",
+        "eval",
+        "dom",
+        "valores"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-21T15:51:04.905345+00:00",
+      "updated_at": "2026-03-21T15:51:04.905345+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-30T21:30:06.678795+00:00",
+        "access_count": 32
+      }
+    },
+    "ded9e0a1ab50": {
+      "id": "ded9e0a1ab50",
+      "type": "pattern",
+      "key": "claude_chrome_navigate",
+      "solution": {
+        "strategy": "navigate_urls",
+        "description": "Navegar a URLs y usar historial con navigate tool",
+        "code_snippet": "# Ir a URL\nnavigate(url=\"https://example.com/form\", tabId=TAB_ID)\n\n# Atras en historial\nnavigate(url=\"back\", tabId=TAB_ID)\n\n# Adelante\nnavigate(url=\"forward\", tabId=TAB_ID)\n\n# IMPORTANTE: Despues de navigate, esperar y leer la pagina\ncomputer(action=\"wait\", duration=2, tabId=TAB_ID)\nread_page(tabId=TAB_ID)\n\n# Para SPA: NO usar navigate para navegacion interna\n# Usar clicks en links/botones de la app",
+        "notes": "navigate recarga la pagina. Para SPA, usar clicks internos.",
+        "confidence": "verified"
+      },
+      "tags": [
+        "claude",
+        "chrome",
+        "navigate",
+        "url",
+        "historial",
+        "back"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-21T15:51:04.968517+00:00",
+      "updated_at": "2026-03-21T15:51:04.968517+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-31T20:28:16.578992+00:00",
+        "access_count": 17
+      }
+    },
+    "3a028c89c9f9": {
+      "id": "3a028c89c9f9",
+      "type": "pattern",
+      "key": "claude_chrome_tabs",
+      "solution": {
+        "strategy": "manage_tabs",
+        "description": "Manejar tabs del browser con Claude in Chrome",
+        "code_snippet": "# Ver tabs disponibles\ntabs_context_mcp(createIfEmpty=True)\n# Retorna: lista de tabs con IDs\n\n# Crear nueva tab\ntabs_create_mcp()\n# Retorna: nuevo tabId\n\n# Cerrar tab\ntabs_close_mcp(tabId=TAB_ID)\n\n# FLUJO multi-tab:\n# 1. Tab 1: formulario principal\n# 2. Tab 2: abrir referencia/consulta\n# 3. Copiar dato de Tab 2\n# 4. Volver a Tab 1 y pegar\n\n# IMPORTANTE: cada tool call necesita el tabId correcto\n# Siempre verificar en que tab estas",
+        "notes": "tabs_context_mcp SIEMPRE debe llamarse primero para obtener tabs disponibles.",
+        "confidence": "verified"
+      },
+      "tags": [
+        "claude",
+        "chrome",
+        "tabs",
+        "pestanas",
+        "multiples"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-21T15:51:05.031251+00:00",
+      "updated_at": "2026-03-21T15:51:05.031251+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-30T20:57:51.039813+00:00",
+        "access_count": 28
+      }
+    },
+    "80c9e89af5ce": {
+      "id": "80c9e89af5ce",
+      "type": "pattern",
+      "key": "claude_chrome_debug",
+      "solution": {
+        "strategy": "read_console_network",
+        "description": "Leer console y network para debug",
+        "code_snippet": "# Leer errores de consola\nread_console_messages(tabId=TAB_ID, onlyErrors=True)\n\n# Buscar mensajes especificos\nread_console_messages(tabId=TAB_ID, pattern=\"error|warning\")\n\n# Leer requests de red\nread_network_requests(tabId=TAB_ID, urlPattern=\"/api/\")\n\n# Ver requests fallidas\n# Util para detectar si un submit fallo en el backend",
+        "notes": "Console y network son vitales para debug cuando un formulario no funciona como esperado.",
+        "confidence": "high"
+      },
+      "tags": [
+        "claude",
+        "chrome",
+        "console",
+        "network",
+        "debug",
+        "errores"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-21T15:51:05.102757+00:00",
+      "updated_at": "2026-03-21T15:51:05.102757+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-30T21:30:06.678795+00:00",
+        "access_count": 13
+      }
+    },
+    "12216069255b": {
+      "id": "12216069255b",
+      "type": "pattern",
+      "key": "claude_chrome_form_complete_flow",
+      "solution": {
+        "strategy": "complete_form_fill_pattern",
+        "description": "Patron completo para llenar un formulario con Claude in Chrome",
+        "code_snippet": "# PATRON ESTANDAR:\n\n# 1. Navegar al formulario\nnavigate(url=\"https://example.com/form\", tabId=TAB_ID)\ncomputer(action=\"wait\", duration=2, tabId=TAB_ID)\n\n# 2. Leer estructura\ntree = read_page(tabId=TAB_ID, filter=\"interactive\")\n# Analizar que campos hay y sus refs\n\n# 3. Llenar campos\nform_input(ref=\"ref_name\", value=\"Nestor Toledo\", tabId=TAB_ID)\nform_input(ref=\"ref_email\", value=\"nestor@gbm.net\", tabId=TAB_ID)\nform_input(ref=\"ref_company\", value=\"GBM Guatemala\", tabId=TAB_ID)\nform_input(ref=\"ref_country\", value=\"Guatemala\", tabId=TAB_ID)\n\n# 4. Checkboxes\ncomputer(action=\"left_click\", ref=\"ref_terms\", tabId=TAB_ID)\n\n# 5. File upload\nfile_upload(paths=[\"/path/to/doc.pdf\"], ref=\"ref_file\", tabId=TAB_ID)\n\n# 6. Screenshot pre-submit (verificar)\ncomputer(action=\"screenshot\", tabId=TAB_ID)\n\n# 7. Submit\ncomputer(action=\"left_click\", ref=\"ref_submit\", tabId=TAB_ID)\ncomputer(action=\"wait\", duration=2, tabId=TAB_ID)\n\n# 8. Verificar resultado\ncomputer(action=\"screenshot\", tabId=TAB_ID)\nread_page(tabId=TAB_ID)  # Buscar mensaje de exito/error",
+        "notes": "SIEMPRE screenshot antes de submit y despues. Verificar resultado con read_page.",
+        "confidence": "verified"
+      },
+      "tags": [
+        "claude",
+        "chrome",
+        "formulario",
+        "completo",
+        "patron",
+        "flujo"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-21T15:51:05.152007+00:00",
+      "updated_at": "2026-03-21T15:51:05.152007+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-30T21:30:06.678795+00:00",
+        "access_count": 27
+      }
+    },
+    "e63669e66a46": {
+      "id": "e63669e66a46",
+      "type": "pattern",
+      "key": "claude_chrome_popup_handling",
+      "solution": {
+        "strategy": "handle_popups_modals",
+        "description": "Manejar popups y modals con Claude in Chrome",
+        "code_snippet": "# Popup/modal HTML:\n# 1. Detectar que hay popup\nread_page(tabId=TAB_ID)\n# Buscar elementos con role=\"dialog\" o clase modal\n\n# 2. Interactuar dentro del popup\nfind(query=\"OK button in dialog\", tabId=TAB_ID)\ncomputer(action=\"left_click\", ref=\"ref_ok\", tabId=TAB_ID)\n\n# 3. Verificar que cerro\ncomputer(action=\"screenshot\", tabId=TAB_ID)\n\n# Cookie consent:\nfind(query=\"accept cookies button\", tabId=TAB_ID)\ncomputer(action=\"left_click\", ref=\"ref_accept\", tabId=TAB_ID)\n\n# Notificacion del browser:\n# Claude in Chrome no puede manejar permisos del browser (location, notifications)\n# Esos se configuran en el context del browser",
+        "notes": "find() es muy util para popups: 'close button on popup', 'accept cookies', etc.",
+        "confidence": "high"
+      },
+      "tags": [
+        "claude",
+        "chrome",
+        "popup",
+        "modal",
+        "dialog",
+        "cookies"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-21T15:51:05.192424+00:00",
+      "updated_at": "2026-03-21T15:51:05.192424+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-30T21:30:06.678795+00:00",
+        "access_count": 105
+      }
+    },
+    "87e5423b1474": {
+      "id": "87e5423b1474",
+      "type": "pattern",
+      "key": "claude_chrome_table_interaction",
+      "solution": {
+        "strategy": "interact_with_tables",
+        "description": "Leer e interactuar con tablas web usando Claude in Chrome",
+        "code_snippet": "# 1. Leer tabla\nread_page(tabId=TAB_ID, filter=\"all\")\n# El accessibility tree muestra la tabla con rows y cells\n\n# 2. Buscar fila especifica\nfind(query=\"row containing IBM in the table\", tabId=TAB_ID)\n\n# 3. Click en celda o boton de la fila\nfind(query=\"edit button in IBM row\", tabId=TAB_ID)\ncomputer(action=\"left_click\", ref=\"ref_edit_btn\", tabId=TAB_ID)\n\n# 4. Leer datos de tabla via JS\njavascript_tool(\n    action=\"javascript_exec\",\n    text=\"\"\"\n    Array.from(document.querySelectorAll('table tbody tr')).map(row => {\n        const cells = row.querySelectorAll('td');\n        return {\n            name: cells[0]?.textContent?.trim(),\n            status: cells[1]?.textContent?.trim(),\n            amount: cells[2]?.textContent?.trim()\n        };\n    })\n    \"\"\",\n    tabId=TAB_ID\n)\n\n# 5. Para tablas con paginacion\nfind(query=\"next page button\", tabId=TAB_ID)\ncomputer(action=\"left_click\", ref=\"ref_next\", tabId=TAB_ID)\ncomputer(action=\"wait\", duration=1, tabId=TAB_ID)",
+        "notes": "javascript_tool es mas eficiente para extraer datos de tablas grandes.",
+        "confidence": "high"
+      },
+      "tags": [
+        "claude",
+        "chrome",
+        "tabla",
+        "filas",
+        "celdas",
+        "datos"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-21T15:51:05.215036+00:00",
+      "updated_at": "2026-03-21T15:51:05.215036+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-31T20:28:16.578992+00:00",
+        "access_count": 33
+      }
+    },
+    "5e5e7f5539e2": {
+      "id": "5e5e7f5539e2",
+      "type": "pattern",
+      "key": "claude_chrome_radio_checkbox_toggle",
+      "solution": {
+        "strategy": "interact_radio_checkbox",
+        "description": "Interactuar con radio buttons, checkboxes, y toggles",
+        "code_snippet": "# Checkbox - click para toggle\nfind(query=\"checkbox for terms and conditions\", tabId=TAB_ID)\ncomputer(action=\"left_click\", ref=\"ref_checkbox\", tabId=TAB_ID)\n\n# Verificar estado\nread_page(tabId=TAB_ID, ref_id=\"ref_checkbox\")\n# Retorna: checkbox \"I agree\" (checked: true)\n\n# Radio button\nfind(query=\"radio button for express shipping\", tabId=TAB_ID)\ncomputer(action=\"left_click\", ref=\"ref_radio\", tabId=TAB_ID)\n\n# Toggle/Switch\nfind(query=\"toggle for notifications\", tabId=TAB_ID)\ncomputer(action=\"left_click\", ref=\"ref_toggle\", tabId=TAB_ID)\n\n# Multiples checkboxes\nfor option in [\"Software\", \"Services\", \"Support\"]:\n    find(query=f\"checkbox for {option}\", tabId=TAB_ID)\n    # Obtener ref del resultado\n    computer(action=\"left_click\", ref=f\"ref_{option}\", tabId=TAB_ID)",
+        "notes": "Verificar estado con read_page despues de click para confirmar toggle.",
+        "confidence": "high"
+      },
+      "tags": [
+        "claude",
+        "chrome",
+        "checkbox",
+        "radio",
+        "toggle",
+        "switch"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-21T15:51:05.241484+00:00",
+      "updated_at": "2026-03-21T15:51:05.241484+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-30T21:30:06.678795+00:00",
+        "access_count": 15
+      }
+    },
+    "af02c3cda7a5": {
+      "id": "af02c3cda7a5",
+      "type": "pattern",
+      "key": "claude_chrome_date_field",
+      "solution": {
+        "strategy": "fill_date_field",
+        "description": "Llenar campos de fecha con Claude in Chrome",
+        "code_snippet": "# Metodo 1: form_input directo (para input[type=date])\nform_input(ref=\"ref_date\", value=\"2026-03-15\", tabId=TAB_ID)\n\n# Metodo 2: Escribir texto (para datepickers custom)\ncomputer(action=\"left_click\", ref=\"ref_date\", tabId=TAB_ID)\ncomputer(action=\"triple_click\", ref=\"ref_date\", tabId=TAB_ID)  # Seleccionar todo\ncomputer(action=\"type\", text=\"03/15/2026\", tabId=TAB_ID)\ncomputer(action=\"key\", text=\"Tab\", tabId=TAB_ID)\n\n# Metodo 3: Navegar calendario visual\ncomputer(action=\"left_click\", ref=\"ref_calendar_icon\", tabId=TAB_ID)\ncomputer(action=\"wait\", duration=0.5, tabId=TAB_ID)\nfind(query=\"day 15 in calendar\", tabId=TAB_ID)\ncomputer(action=\"left_click\", ref=\"ref_day15\", tabId=TAB_ID)\n\n# Metodo 4: JS para input[type=date]\njavascript_tool(\n    action=\"javascript_exec\",\n    text=\"\"\"\n    const input = document.querySelector('[name=\"start_date\"]');\n    const nativeSetter = Object.getOwnPropertyDescriptor(HTMLInputElement.prototype, 'value').set;\n    nativeSetter.call(input, '2026-03-15');\n    input.dispatchEvent(new Event('input', {bubbles: true}));\n    input.dispatchEvent(new Event('change', {bubbles: true}));\n    \"\"\",\n    tabId=TAB_ID\n)",
+        "notes": "form_input para input[type=date]. type para datepickers custom. JS como ultimo recurso.",
+        "confidence": "high"
+      },
+      "tags": [
+        "claude",
+        "chrome",
+        "fecha",
+        "date",
+        "picker",
+        "calendario"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-21T15:51:05.265221+00:00",
+      "updated_at": "2026-03-21T15:51:05.265221+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-30T21:30:06.678795+00:00",
+        "access_count": 102
+      }
+    },
+    "661e97ab7f5c": {
+      "id": "661e97ab7f5c",
+      "type": "fact",
+      "key": "claude_chrome_tools_reference",
+      "fact": {
+        "rule": "Referencia rapida de todos los MCP tools de Claude in Chrome",
+        "tools": {
+          "read_page": "Lee accessibility tree. Params: tabId, filter(interactive/all), depth, ref_id",
+          "find": "Busca elementos por lenguaje natural. Params: query, tabId. Max 20 resultados.",
+          "form_input": "Setea valor en campo. Params: ref, value, tabId. Inteligente con tipo.",
+          "computer": "Mouse/keyboard/screenshot. Actions: left_click, type, key, scroll, screenshot, hover, drag",
+          "javascript_tool": "Ejecuta JS en pagina. Params: action='javascript_exec', text, tabId",
+          "navigate": "Navega URL o back/forward. Params: url, tabId",
+          "file_upload": "Sube archivos a input[file]. Params: paths, ref, tabId",
+          "upload_image": "Sube screenshot/imagen. Params: imageId, ref o coordinate, tabId",
+          "tabs_context_mcp": "Lista tabs disponibles. Llamar primero siempre.",
+          "tabs_create_mcp": "Crea nueva tab.",
+          "tabs_close_mcp": "Cierra tab. Params: tabId",
+          "read_console_messages": "Lee console del browser. Params: tabId, pattern, onlyErrors",
+          "read_network_requests": "Lee requests HTTP. Params: tabId, urlPattern",
+          "get_page_text": "Extrae texto plano de la pagina. Params: tabId"
+        }
+      },
+      "tags": [
+        "claude",
+        "chrome",
+        "tools",
+        "referencia",
+        "mcp",
+        "completo"
+      ],
+      "created_at": "2026-03-21T15:51:05.298954+00:00",
+      "updated_at": "2026-03-21T15:51:05.298954+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-03-30T21:30:06.678795+00:00",
+        "access_count": 36
+      }
+    },
+    "292e31b624ff": {
+      "id": "292e31b624ff",
+      "type": "fact",
+      "key": "claude_chrome_best_practices",
+      "fact": {
+        "rule": "Best practices para automatizar con Claude in Chrome",
+        "practices": [
+          "SIEMPRE llamar tabs_context_mcp primero para obtener tabId",
+          "read_page con filter='interactive' para formularios (mas rapido)",
+          "find para buscar elementos especificos por descripcion",
+          "form_input para campos simples, computer para interacciones complejas",
+          "Screenshot ANTES y DESPUES de acciones importantes",
+          "javascript_tool para operaciones batch o lectura de datos masiva",
+          "Usar ref de read_page/find, no coordenadas (mas preciso)",
+          "Coordenadas solo cuando ref no funciona (verificar con screenshot)",
+          "Esperar (wait) despues de clicks que cargan contenido",
+          "Para popups: find('close button on popup') es muy efectivo",
+          "NO hacer click en input[type=file] - usar file_upload"
+        ]
+      },
+      "tags": [
+        "claude",
+        "chrome",
+        "best",
+        "practices",
+        "tips"
+      ],
+      "created_at": "2026-03-21T15:51:05.326149+00:00",
+      "updated_at": "2026-03-21T15:51:05.326149+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-03-31T20:16:06.592644+00:00",
+        "access_count": 31
+      }
+    },
+    "21b529cfb385": {
+      "id": "21b529cfb385",
+      "type": "fact",
+      "key": "claude_chrome_common_issues",
+      "fact": {
+        "rule": "Problemas comunes con Claude in Chrome y soluciones",
+        "issues": {
+          "ref no funciona": "El DOM cambio. Hacer read_page de nuevo para refs frescos.",
+          "click en lugar equivocado": "Screenshot antes de click. Usar ref en vez de coordenadas.",
+          "campo no se llena": "Probar: form_input -> type -> triple_click+type -> javascript_tool.",
+          "popup bloquea": "Buscar con find('close button') y cerrar antes de continuar.",
+          "pagina no carga": "navigate recarga. Esperar con wait. Verificar con screenshot.",
+          "tabla no se lee bien": "Usar javascript_tool para extraer datos de tabla.",
+          "iframe contenido": "read_page puede no ver dentro de cross-origin iframes.",
+          "output muy grande": "Usar depth o ref_id para limitar read_page.",
+          "no hay tabId": "Llamar tabs_context_mcp(createIfEmpty=True) primero."
+        }
+      },
+      "tags": [
+        "claude",
+        "chrome",
+        "problemas",
+        "comunes",
+        "soluciones"
+      ],
+      "created_at": "2026-03-21T15:51:05.347867+00:00",
+      "updated_at": "2026-03-21T15:51:05.347867+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-03-31T20:16:06.592644+00:00",
+        "access_count": 34
+      }
+    },
+    "9355ea5d044b": {
+      "id": "9355ea5d044b",
+      "type": "fact",
+      "key": "claude_chrome_sap_specific",
+      "fact": {
+        "rule": "Tips especificos para usar Claude in Chrome con SAP CRM",
+        "sap_tips": {
+          "framesets": "read_page PUEDE leer a traves de frames. Pero find puede no encontrar elementos en iframes profundos.",
+          "ids_dinamicos": "No importa - Claude in Chrome usa accessibility tree, no IDs.",
+          "password": "form_input funciona para passwords en SAP.",
+          "popups_sap": "find('continue button') o find('OK button in popup') para manejar popups SAP.",
+          "lentitud": "Usar wait con 2-3 segundos despues de cada click en SAP. SAP es lento.",
+          "ssl": "Claude in Chrome hereda la configuracion del browser. Si el cert esta aceptado en Chrome, funciona.",
+          "table_fill": "Para tablas SAP: click en Add Row, luego form_input en cada celda con ref."
+        }
+      },
+      "tags": [
+        "claude",
+        "chrome",
+        "sap",
+        "especifico",
+        "tips"
+      ],
+      "created_at": "2026-03-21T15:51:05.379226+00:00",
+      "updated_at": "2026-03-21T15:51:05.379226+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-03-31T20:16:06.592644+00:00",
+        "access_count": 54
+      }
+    }
+  },
+  "tag_index": {
+    "claude": [
+      "319c5e3f97ef",
+      "f1a41f39df93",
+      "b42fd6646ccd",
+      "352c63013067",
+      "3bf873d920b1",
+      "0111373b55f0",
+      "d35a9deef4f2",
+      "9349ca9a7b14",
+      "b6ea6736b7be",
+      "c795a1abb642",
+      "a6d783256da3",
+      "7a31d49a3220",
+      "575617f72b78",
+      "9a5162372469",
+      "aa3619fc65af",
+      "31efddc6d243",
+      "87bfc83745d8",
+      "ded9e0a1ab50",
+      "3a028c89c9f9",
+      "80c9e89af5ce",
+      "12216069255b",
+      "e63669e66a46",
+      "87e5423b1474",
+      "5e5e7f5539e2",
+      "af02c3cda7a5",
+      "661e97ab7f5c",
+      "292e31b624ff",
+      "21b529cfb385",
+      "9355ea5d044b"
+    ],
+    "chrome": [
+      "319c5e3f97ef",
+      "f1a41f39df93",
+      "b42fd6646ccd",
+      "352c63013067",
+      "3bf873d920b1",
+      "0111373b55f0",
+      "d35a9deef4f2",
+      "9349ca9a7b14",
+      "b6ea6736b7be",
+      "c795a1abb642",
+      "a6d783256da3",
+      "7a31d49a3220",
+      "575617f72b78",
+      "9a5162372469",
+      "aa3619fc65af",
+      "31efddc6d243",
+      "87bfc83745d8",
+      "ded9e0a1ab50",
+      "3a028c89c9f9",
+      "80c9e89af5ce",
+      "12216069255b",
+      "e63669e66a46",
+      "87e5423b1474",
+      "5e5e7f5539e2",
+      "af02c3cda7a5",
+      "661e97ab7f5c",
+      "292e31b624ff",
+      "21b529cfb385",
+      "9355ea5d044b"
+    ],
+    "mcp": [
+      "319c5e3f97ef",
+      "661e97ab7f5c"
+    ],
+    "arquitectura": [
+      "319c5e3f97ef"
+    ],
+    "tools": [
+      "319c5e3f97ef",
+      "661e97ab7f5c"
+    ],
+    "playwright": [
+      "f1a41f39df93"
+    ],
+    "selenium": [
+      "f1a41f39df93"
+    ],
+    "comparacion": [
+      "f1a41f39df93"
+    ],
+    "flujo": [
+      "b42fd6646ccd",
+      "12216069255b"
+    ],
+    "workflow": [
+      "b42fd6646ccd"
+    ],
+    "formulario": [
+      "b42fd6646ccd",
+      "12216069255b"
+    ],
+    "read_page": [
+      "352c63013067",
+      "3bf873d920b1"
+    ],
+    "accessibility": [
+      "352c63013067"
+    ],
+    "tree": [
+      "352c63013067"
+    ],
+    "refs": [
+      "352c63013067"
+    ],
+    "focus": [
+      "3bf873d920b1"
+    ],
+    "seccion": [
+      "3bf873d920b1"
+    ],
+    "performance": [
+      "3bf873d920b1"
+    ],
+    "find": [
+      "0111373b55f0",
+      "d35a9deef4f2"
+    ],
+    "buscar": [
+      "0111373b55f0",
+      "d35a9deef4f2"
+    ],
+    "natural": [
+      "0111373b55f0"
+    ],
+    "language": [
+      "0111373b55f0"
+    ],
+    "texto": [
+      "d35a9deef4f2"
+    ],
+    "contenido": [
+      "d35a9deef4f2"
+    ],
+    "form_input": [
+      "9349ca9a7b14"
+    ],
+    "llenar": [
+      "9349ca9a7b14"
+    ],
+    "campos": [
+      "9349ca9a7b14"
+    ],
+    "ref": [
+      "9349ca9a7b14"
+    ],
+    "select": [
+      "b6ea6736b7be"
+    ],
+    "dropdown": [
+      "b6ea6736b7be"
+    ],
+    "opcion": [
+      "b6ea6736b7be"
+    ],
+    "custom": [
+      "b6ea6736b7be"
+    ],
+    "computer": [
+      "c795a1abb642",
+      "a6d783256da3",
+      "7a31d49a3220",
+      "575617f72b78",
+      "9a5162372469",
+      "aa3619fc65af"
+    ],
+    "click": [
+      "c795a1abb642"
+    ],
+    "mouse": [
+      "c795a1abb642"
+    ],
+    "doble": [
+      "c795a1abb642"
+    ],
+    "derecho": [
+      "c795a1abb642"
+    ],
+    "keyboard": [
+      "a6d783256da3"
+    ],
+    "teclas": [
+      "a6d783256da3"
+    ],
+    "type": [
+      "a6d783256da3"
+    ],
+    "enter": [
+      "a6d783256da3"
+    ],
+    "scroll": [
+      "7a31d49a3220"
+    ],
+    "pagina": [
+      "7a31d49a3220"
+    ],
+    "elemento": [
+      "7a31d49a3220"
+    ],
+    "screenshot": [
+      "575617f72b78"
+    ],
+    "zoom": [
+      "575617f72b78"
+    ],
+    "visual": [
+      "575617f72b78"
+    ],
+    "hover": [
+      "9a5162372469"
+    ],
+    "menu": [
+      "9a5162372469"
+    ],
+    "tooltip": [
+      "9a5162372469"
+    ],
+    "drag": [
+      "aa3619fc65af"
+    ],
+    "drop": [
+      "aa3619fc65af"
+    ],
+    "arrastrar": [
+      "aa3619fc65af"
+    ],
+    "file": [
+      "31efddc6d243"
+    ],
+    "upload": [
+      "31efddc6d243"
+    ],
+    "adjuntar": [
+      "31efddc6d243"
+    ],
+    "imagen": [
+      "31efddc6d243"
+    ],
+    "javascript": [
+      "87bfc83745d8"
+    ],
+    "eval": [
+      "87bfc83745d8"
+    ],
+    "dom": [
+      "87bfc83745d8"
+    ],
+    "valores": [
+      "87bfc83745d8"
+    ],
+    "navigate": [
+      "ded9e0a1ab50"
+    ],
+    "url": [
+      "ded9e0a1ab50"
+    ],
+    "historial": [
+      "ded9e0a1ab50"
+    ],
+    "back": [
+      "ded9e0a1ab50"
+    ],
+    "tabs": [
+      "3a028c89c9f9"
+    ],
+    "pestanas": [
+      "3a028c89c9f9"
+    ],
+    "multiples": [
+      "3a028c89c9f9"
+    ],
+    "console": [
+      "80c9e89af5ce"
+    ],
+    "network": [
+      "80c9e89af5ce"
+    ],
+    "debug": [
+      "80c9e89af5ce"
+    ],
+    "errores": [
+      "80c9e89af5ce"
+    ],
+    "completo": [
+      "12216069255b",
+      "661e97ab7f5c"
+    ],
+    "patron": [
+      "12216069255b"
+    ],
+    "popup": [
+      "e63669e66a46"
+    ],
+    "modal": [
+      "e63669e66a46"
+    ],
+    "dialog": [
+      "e63669e66a46"
+    ],
+    "cookies": [
+      "e63669e66a46"
+    ],
+    "tabla": [
+      "87e5423b1474"
+    ],
+    "filas": [
+      "87e5423b1474"
+    ],
+    "celdas": [
+      "87e5423b1474"
+    ],
+    "datos": [
+      "87e5423b1474"
+    ],
+    "checkbox": [
+      "5e5e7f5539e2"
+    ],
+    "radio": [
+      "5e5e7f5539e2"
+    ],
+    "toggle": [
+      "5e5e7f5539e2"
+    ],
+    "switch": [
+      "5e5e7f5539e2"
+    ],
+    "fecha": [
+      "af02c3cda7a5"
+    ],
+    "date": [
+      "af02c3cda7a5"
+    ],
+    "picker": [
+      "af02c3cda7a5"
+    ],
+    "calendario": [
+      "af02c3cda7a5"
+    ],
+    "referencia": [
+      "661e97ab7f5c"
+    ],
+    "best": [
+      "292e31b624ff"
+    ],
+    "practices": [
+      "292e31b624ff"
+    ],
+    "tips": [
+      "292e31b624ff",
+      "9355ea5d044b"
+    ],
+    "problemas": [
+      "21b529cfb385"
+    ],
+    "comunes": [
+      "21b529cfb385"
+    ],
+    "soluciones": [
+      "21b529cfb385"
+    ],
+    "sap": [
+      "9355ea5d044b"
+    ],
+    "especifico": [
+      "9355ea5d044b"
+    ]
+  },
+  "stats": {
+    "total_entries": 29,
+    "total_lookups": 461,
+    "total_hits": 246
+  }
+}

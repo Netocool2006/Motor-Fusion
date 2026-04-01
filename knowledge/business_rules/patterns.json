@@ -1,0 +1,3410 @@
+{
+  "domain": "business_rules",
+  "description": "Domain business_rules",
+  "entries": {
+    "636511208dc9": {
+      "id": "636511208dc9",
+      "type": "fact",
+      "key": "sufijo_PS_contratos",
+      "fact": {
+        "rule": "Códigos de items de contrato llevan sufijo _PS (post-sale support)",
+        "applies_to": "Oportunidades tipo contrato en SAP CRM",
+        "examples": [
+          {
+            "input": "LLML245",
+            "output": "LLML245_PS",
+            "context": "contrato"
+          },
+          {
+            "input": "LLML245",
+            "output": "LLML245",
+            "context": "proyecto"
+          },
+          {
+            "input": "DB2ENT100",
+            "output": "DB2ENT100_PS",
+            "context": "contrato IBM"
+          }
+        ],
+        "exceptions": "Renovaciones usan _RN. Proyectos no llevan sufijo.",
+        "source": "Proceso interno GBM",
+        "confidence": "verified"
+      },
+      "tags": [
+        "nomenclatura",
+        "codigos",
+        "contrato",
+        "PS",
+        "items",
+        "oportunidad"
+      ],
+      "created_at": "2026-03-22T19:42:59.207954+00:00",
+      "updated_at": "2026-03-22T19:42:59.207954+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-01T03:19:45.429458+00:00",
+        "access_count": 40
+      }
+    },
+    "b7aa9f1666cf": {
+      "id": "b7aa9f1666cf",
+      "type": "fact",
+      "key": "sufijo_RN_renovaciones",
+      "fact": {
+        "rule": "Códigos de renovación llevan sufijo _RN",
+        "applies_to": "Oportunidades tipo renovación de licencia",
+        "examples": [
+          {
+            "input": "SAPLIC200",
+            "output": "SAPLIC200_RN",
+            "context": "renovación anual"
+          }
+        ],
+        "exceptions": "Solo renovaciones, no contratos ni proyectos",
+        "source": "Proceso interno GBM",
+        "confidence": "verified"
+      },
+      "tags": [
+        "nomenclatura",
+        "codigos",
+        "renovacion",
+        "RN"
+      ],
+      "created_at": "2026-03-22T19:42:59.255348+00:00",
+      "updated_at": "2026-03-22T19:42:59.255348+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-01T03:19:45.429458+00:00",
+        "access_count": 43
+      }
+    },
+    "657b2f3a9368": {
+      "id": "657b2f3a9368",
+      "type": "fact",
+      "key": "tarifas_soporte",
+      "fact": {
+        "rule": "Tarifas estándar GBM por tipo de servicio",
+        "applies_to": "Propuestas económicas, SOWs, BoMs",
+        "examples": [
+          {
+            "input": "Soporte 24x7",
+            "output": "$80-85 USD/hr",
+            "context": "crítico"
+          },
+          {
+            "input": "Asistencia 8x5",
+            "output": "$60 USD/hr",
+            "context": "estándar"
+          },
+          {
+            "input": "Célula desarrollo",
+            "output": "$28.95 USD/hr",
+            "context": "dedicado"
+          },
+          {
+            "input": "Per Call",
+            "output": "$140 USD/hr",
+            "context": "por incidente"
+          }
+        ],
+        "source": "SOW Style Guide GBM",
+        "confidence": "verified"
+      },
+      "tags": [
+        "tarifas",
+        "precios",
+        "soporte",
+        "sow",
+        "propuesta",
+        "bom"
+      ],
+      "created_at": "2026-03-22T19:42:59.315140+00:00",
+      "updated_at": "2026-03-22T19:42:59.315140+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-03-30T20:57:50.970391+00:00",
+        "access_count": 26
+      }
+    },
+    "cad080dfde9b": {
+      "id": "cad080dfde9b",
+      "type": "fact",
+      "key": "clausulas_estandar",
+      "fact": {
+        "rule": "Cláusulas estándar para SOWs de GBM",
+        "applies_to": "Todos los SOWs",
+        "examples": [
+          {
+            "input": "Liability cap",
+            "output": "10% contrato (max $100K)",
+            "context": ""
+          },
+          {
+            "input": "Vigencia oferta",
+            "output": "30 días",
+            "context": ""
+          },
+          {
+            "input": "Aceptación tácita",
+            "output": "3 días hábiles",
+            "context": ""
+          },
+          {
+            "input": "Garantía",
+            "output": "30-60 días",
+            "context": ""
+          },
+          {
+            "input": "Penalidad cliente",
+            "output": "0.2%/día",
+            "context": ""
+          },
+          {
+            "input": "Fee reanudación",
+            "output": "10%",
+            "context": ""
+          },
+          {
+            "input": "Mora pago",
+            "output": "3%/mes",
+            "context": ""
+          },
+          {
+            "input": "No solicitud",
+            "output": "12-24 meses",
+            "context": ""
+          }
+        ],
+        "source": "GBM_SOW_Style_Guide.md",
+        "confidence": "verified"
+      },
+      "tags": [
+        "clausulas",
+        "sow",
+        "contrato",
+        "legal"
+      ],
+      "created_at": "2026-03-22T19:42:59.382201+00:00",
+      "updated_at": "2026-03-22T19:42:59.382201+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-03-30T20:57:50.970391+00:00",
+        "access_count": 18
+      }
+    },
+    "d67dcd7523b4": {
+      "id": "d67dcd7523b4",
+      "type": "fact",
+      "key": "iva_guatemala",
+      "fact": {
+        "rule": "IVA Guatemala es 12%, aplica a todas las propuestas económicas",
+        "applies_to": "Propuestas económicas Guatemala",
+        "source": "Legislación Guatemala",
+        "confidence": "verified"
+      },
+      "tags": [
+        "iva",
+        "impuesto",
+        "guatemala",
+        "propuesta"
+      ],
+      "created_at": "2026-03-22T19:42:59.444938+00:00",
+      "updated_at": "2026-03-22T19:42:59.444938+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-01T02:04:08.887485+00:00",
+        "access_count": 194
+      }
+    },
+    "22e7b9e5aaa3": {
+      "id": "22e7b9e5aaa3",
+      "type": "fact",
+      "key": "tipos_sow",
+      "fact": {
+        "rule": "5 tipos de SOW con estructura distinta",
+        "applies_to": "Generación de SOWs",
+        "examples": [
+          {
+            "input": "Tipo 1",
+            "output": "Renovación de Licencias",
+            "context": "renewal"
+          },
+          {
+            "input": "Tipo 2",
+            "output": "Proyecto de Servicios",
+            "context": "project"
+          },
+          {
+            "input": "Tipo 3",
+            "output": "Bolsa de Horas / Soporte",
+            "context": "support"
+          },
+          {
+            "input": "Tipo 4",
+            "output": "Respuesta a RFP",
+            "context": "rfp"
+          },
+          {
+            "input": "Tipo 5",
+            "output": "Célula de Desarrollo",
+            "context": "dev cell"
+          }
+        ],
+        "source": "SOW Style Guide",
+        "confidence": "verified"
+      },
+      "tags": [
+        "sow",
+        "tipos",
+        "estructura"
+      ],
+      "created_at": "2026-03-22T19:42:59.498267+00:00",
+      "updated_at": "2026-03-22T19:42:59.498267+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-01T03:19:45.429458+00:00",
+        "access_count": 19
+      }
+    },
+    "c39647d437cf": {
+      "id": "c39647d437cf",
+      "type": "fact",
+      "key": "tipos_quote_sap",
+      "fact": {
+        "rule": "SAP CRM maneja diferentes tipos de quote, cada uno con pantallas distintas",
+        "applies_to": "Creación de quotes en SAP CRM",
+        "examples": [
+          {
+            "input": "Quote manual",
+            "output": "Pantalla libre, campos abiertos",
+            "context": "flexible"
+          },
+          {
+            "input": "Quote contrato",
+            "output": "Vinculado a contrato existente, items preconfigurados",
+            "context": "renewal/support"
+          },
+          {
+            "input": "Quote estándar",
+            "output": "Template predefinido, flujo guiado",
+            "context": "standard"
+          }
+        ],
+        "source": "Proceso SAP CRM GBM",
+        "confidence": "verified"
+      },
+      "tags": [
+        "quote",
+        "sap",
+        "tipos",
+        "crm"
+      ],
+      "created_at": "2026-03-22T19:42:59.562090+00:00",
+      "updated_at": "2026-03-22T19:42:59.562090+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-03-31T17:56:27.273095+00:00",
+        "access_count": 36
+      }
+    },
+    "e544b973b16d": {
+      "id": "e544b973b16d",
+      "type": "fact",
+      "key": "bom_clasificaciones",
+      "fact": {
+        "rule": "Items en BoM se clasifican en categorías que afectan pricing y estructura",
+        "applies_to": "Validación y creación de BoMs",
+        "examples": [
+          {
+            "input": "Servicio",
+            "output": "Horas consultoría, soporte, asistencia",
+            "context": ""
+          },
+          {
+            "input": "Licencia",
+            "output": "Software licensing (PVU, VPC, suscripción)",
+            "context": ""
+          },
+          {
+            "input": "Software",
+            "output": "Producto software empaquetado",
+            "context": ""
+          },
+          {
+            "input": "Hardware",
+            "output": "Equipo físico, servidores, storage",
+            "context": ""
+          },
+          {
+            "input": "Híbrido",
+            "output": "Combinación de 2+ categorías",
+            "context": ""
+          }
+        ],
+        "source": "Proceso interno GBM",
+        "confidence": "verified"
+      },
+      "tags": [
+        "bom",
+        "clasificacion",
+        "items",
+        "producto",
+        "servicio"
+      ],
+      "created_at": "2026-03-22T19:42:59.615339+00:00",
+      "updated_at": "2026-03-22T19:42:59.615339+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-03-30T21:30:06.606686+00:00",
+        "access_count": 25
+      }
+    },
+    "d8cb8c63d3d5": {
+      "id": "d8cb8c63d3d5",
+      "type": "fact",
+      "key": "propuesta_no_es_copypaste",
+      "fact": {
+        "rule": "La propuesta económica NO es copy-paste del BoM, requiere análisis",
+        "applies_to": "Transformación BoM → propuesta económica",
+        "examples": [
+          {
+            "input": "Pricing",
+            "output": "Decidir si subir precio o ir a MEP",
+            "context": "estrategia"
+          },
+          {
+            "input": "Pagos",
+            "output": "Reestructurar (ej: 12 meses → 5 pagos)",
+            "context": "cliente pidió"
+          },
+          {
+            "input": "Tipo cambio",
+            "output": "Evaluar si conviene ajustar TC por estrategia",
+            "context": ""
+          }
+        ],
+        "source": "Experiencia Néstor / proceso GBM",
+        "confidence": "verified"
+      },
+      "tags": [
+        "propuesta",
+        "economica",
+        "bom",
+        "pricing",
+        "mep",
+        "pagos"
+      ],
+      "created_at": "2026-03-22T19:42:59.680280+00:00",
+      "updated_at": "2026-03-22T19:42:59.680280+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-03-31T20:28:16.286774+00:00",
+        "access_count": 19
+      }
+    },
+    "6701fa986b35": {
+      "id": "6701fa986b35",
+      "type": "fact",
+      "key": "sow_fusion_reglas",
+      "fact": {
+        "rule": "Al fusionar SOWs: secciones comunes se unifican, específicas se preservan",
+        "applies_to": "Fusión de 2-6 SOWs de diferentes prácticas",
+        "examples": [
+          {
+            "input": "Instana + Fábrica",
+            "output": "1 SOW unificado",
+            "context": "2 prácticas"
+          },
+          {
+            "input": "6 prácticas",
+            "output": "1 SOW con 6 secciones técnicas",
+            "context": "máximo"
+          }
+        ],
+        "exceptions": "Portada, T&C, Aceptación siempre se unifican. Alcance técnico se preserva por práctica.",
+        "source": "Proceso GBM",
+        "confidence": "verified"
+      },
+      "tags": [
+        "sow",
+        "fusion",
+        "merge",
+        "practicas"
+      ],
+      "created_at": "2026-03-22T19:42:59.740347+00:00",
+      "updated_at": "2026-03-22T19:42:59.740347+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-03-30T21:30:06.606686+00:00",
+        "access_count": 17
+      }
+    },
+    "3d9b7248b90c": {
+      "id": "3d9b7248b90c",
+      "type": "fact",
+      "key": "service_desk",
+      "fact": {
+        "rule": "GBM Service Desk: 7 países, extensión 3911, SLA 4 niveles",
+        "applies_to": "Anexos de SOW",
+        "source": "SOW Style Guide",
+        "confidence": "verified"
+      },
+      "tags": [
+        "service_desk",
+        "soporte",
+        "sla"
+      ],
+      "created_at": "2026-03-22T19:42:59.808676+00:00",
+      "updated_at": "2026-03-22T19:42:59.808676+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-03-31T20:16:06.296316+00:00",
+        "access_count": 7
+      }
+    },
+    "9667cd78b286": {
+      "id": "9667cd78b286",
+      "type": "fact",
+      "key": "bom_formato_excel",
+      "fact": {
+        "rule": "BoM GBM: Excel 8 hojas, Arial 10pt, headers azul #2E75B6, filas alternadas",
+        "applies_to": "Creación de BoMs",
+        "source": "Proceso interno GBM",
+        "confidence": "verified"
+      },
+      "tags": [
+        "bom",
+        "excel",
+        "formato"
+      ],
+      "created_at": "2026-03-22T19:42:59.866967+00:00",
+      "updated_at": "2026-03-22T19:42:59.866967+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-03-30T20:57:50.970391+00:00",
+        "access_count": 12
+      }
+    },
+    "8edf52b1de63": {
+      "id": "8edf52b1de63",
+      "type": "fact",
+      "key": "",
+      "fact": {
+        "source": "NUL",
+        "confidence": "observed",
+        "rule": ""
+      },
+      "tags": [],
+      "created_at": "2026-03-22T04:29:12.680650+00:00",
+      "updated_at": "2026-03-22T04:29:12.680650+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-03-30T17:11:59.922375+00:00",
+        "access_count": 2
+      }
+    },
+    "4f496bdeb28b": {
+      "id": "4f496bdeb28b",
+      "type": "fact",
+      "key": "test_rule_frontend",
+      "fact": {
+        "source": "C:\\Users\\ntoledo\\AppData\\Local\\Temp\\tmpno65v8u2.txt",
+        "confidence": "observed",
+        "rule": "test_rule_frontend",
+        "applies_to": "testing",
+        "examples": [
+          {
+            "input": "esto es una regla de prueba e2e",
+            "output": "",
+            "context": ""
+          }
+        ]
+      },
+      "tags": [],
+      "created_at": "2026-03-22T19:42:53.181789+00:00",
+      "updated_at": "2026-03-22T19:42:53.181789+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-03-30T17:11:59.922375+00:00",
+        "access_count": 30
+      }
+    },
+    "2970741f27ec": {
+      "id": "2970741f27ec",
+      "type": "fact",
+      "key": "test_rule_2",
+      "fact": {
+        "source": "C:\\Users\\ntoledo\\AppData\\Local\\Temp\\tmpno65v8u2.txt",
+        "confidence": "observed",
+        "rule": "test_rule_2",
+        "applies_to": "validacion",
+        "examples": [
+          {
+            "input": "segunda regla de prueba",
+            "output": "",
+            "context": ""
+          }
+        ]
+      },
+      "tags": [],
+      "created_at": "2026-03-22T19:42:53.249577+00:00",
+      "updated_at": "2026-03-22T19:42:53.249577+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-03-30T17:11:59.922375+00:00",
+        "access_count": 34
+      }
+    },
+    "8d6a068c9bff": {
+      "id": "8d6a068c9bff",
+      "type": "pattern",
+      "key": "auto_auto_learned_20260321_225758",
+      "solution": {
+        "strategy": "regla_sufijo",
+        "code_snippet": "",
+        "notes": "Contrato → sufijo _PS. Código final: IBMMQ245_PS",
+        "auto_learned": true,
+        "source": "hook_stop_event"
+      },
+      "tags": [
+        "auto_learned",
+        "business_rules",
+        "auto_learned"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-22T04:57:58.542527+00:00",
+      "updated_at": "2026-03-22T04:57:58.542527+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-31T18:56:53.743618+00:00",
+        "access_count": 34
+      }
+    },
+    "ad0cb1391f4c": {
+      "id": "ad0cb1391f4c",
+      "type": "pattern",
+      "key": "auto_auto_learned_20260321_225817",
+      "solution": {
+        "strategy": "calculo_iva",
+        "code_snippet": "",
+        "notes": "IVA Guatemala 12%. Base $50,000 + IVA $6,000 = Total $56,000",
+        "auto_learned": true,
+        "source": "hook_stop_event"
+      },
+      "tags": [
+        "auto_learned",
+        "business_rules",
+        "auto_learned"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-22T04:58:17.931250+00:00",
+      "updated_at": "2026-03-22T04:58:17.931250+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-31T18:56:53.743618+00:00",
+        "access_count": 24
+      }
+    },
+    "fb3e436dbe1d": {
+      "id": "fb3e436dbe1d",
+      "type": "pattern",
+      "key": "auto_auto_learned_20260321_225834",
+      "solution": {
+        "strategy": "consulta_tarifas",
+        "code_snippet": "",
+        "notes": "tarifas encontradas",
+        "auto_learned": true,
+        "source": "hook_stop_event"
+      },
+      "tags": [
+        "auto_learned",
+        "business_rules",
+        "auto_learned"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-22T04:58:34.063944+00:00",
+      "updated_at": "2026-03-22T04:58:34.063944+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-31T18:56:53.743618+00:00",
+        "access_count": 9
+      }
+    },
+    "0657baf1ec2b": {
+      "id": "0657baf1ec2b",
+      "type": "pattern",
+      "key": "auto_auto_learned_20260321_225853",
+      "solution": {
+        "strategy": "calculo_mep_descuento",
+        "code_snippet": "",
+        "notes": "precio_lista=120000 descuento=15pct mep_resultado=102000",
+        "auto_learned": true,
+        "source": "hook_stop_event"
+      },
+      "tags": [
+        "auto_learned",
+        "business_rules",
+        "auto_learned"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-22T04:58:53.644466+00:00",
+      "updated_at": "2026-03-22T04:58:53.644466+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-31T18:56:53.743618+00:00",
+        "access_count": 8
+      }
+    },
+    "aa2c648eef4d": {
+      "id": "aa2c648eef4d",
+      "type": "pattern",
+      "key": "auto_auto_learned_20260321_225917",
+      "solution": {
+        "strategy": "calculo_mep_descuento",
+        "code_snippet": "",
+        "notes": "reutilizado",
+        "auto_learned": true,
+        "source": "hook_stop_event"
+      },
+      "tags": [
+        "auto_learned",
+        "business_rules",
+        "auto_learned"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-22T04:59:17.142143+00:00",
+      "updated_at": "2026-03-22T04:59:17.142143+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-31T18:56:53.743618+00:00",
+        "access_count": 8
+      }
+    },
+    "01d0afee2b8b": {
+      "id": "01d0afee2b8b",
+      "type": "pattern",
+      "key": "auto_auto_learned_20260321_225946",
+      "solution": {
+        "strategy": "sow_renovacion",
+        "code_snippet": "",
+        "notes": "tipo_sow y secciones clave identificadas",
+        "auto_learned": true,
+        "source": "hook_stop_event"
+      },
+      "tags": [
+        "auto_learned",
+        "business_rules",
+        "auto_learned"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-22T04:59:46.580779+00:00",
+      "updated_at": "2026-03-22T04:59:46.580779+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-31T18:56:53.743618+00:00",
+        "access_count": 19
+      }
+    },
+    "073fcd6a220a": {
+      "id": "073fcd6a220a",
+      "type": "pattern",
+      "key": "auto_auto_learned_20260321_230021",
+      "solution": {
+        "strategy": "bom_clasificacion",
+        "code_snippet": "",
+        "notes": "DB2ENT clasificado como Software/Licencia. Soporte anual va como línea separada tipo Servicio. Validaciones: math, P/N por plataforma, métrica PVU/VPC, separación licencia vs soporte, MEP y sufijo oportunidad.",
+        "auto_learned": true,
+        "source": "hook_stop_event"
+      },
+      "tags": [
+        "auto_learned",
+        "business_rules",
+        "auto_learned"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-22T05:00:21.394818+00:00",
+      "updated_at": "2026-03-22T05:00:21.394818+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-31T18:56:53.743618+00:00",
+        "access_count": 39
+      }
+    },
+    "82676f2d7e43": {
+      "id": "82676f2d7e43",
+      "type": "pattern",
+      "key": "auto_auto_learned_20260321_230053",
+      "solution": {
+        "strategy": "sap_login_knowledge",
+        "code_snippet": "",
+        "notes": "Pasos y selectores identificados desde KB local (sap_tierra/login_crm, éxito 100%). Selectores estables: name/aria-label/type. Password siempre .type() delay=50. IDs dinámicos descartados.",
+        "auto_learned": true,
+        "source": "hook_stop_event"
+      },
+      "tags": [
+        "auto_learned",
+        "business_rules",
+        "auto_learned"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-22T05:00:53.952482+00:00",
+      "updated_at": "2026-03-22T05:00:53.952482+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-31T18:56:53.743618+00:00",
+        "access_count": 25
+      }
+    },
+    "dd0a3ccf97f3": {
+      "id": "dd0a3ccf97f3",
+      "type": "pattern",
+      "key": "auto_sow_economic_20260321_230125",
+      "solution": {
+        "strategy": "propuesta_economica_pagos",
+        "code_snippet": "",
+        "notes": "monto_iva y cuotas calculados",
+        "auto_learned": true,
+        "source": "hook_stop_event"
+      },
+      "tags": [
+        "sow_economic",
+        "business_rules",
+        "auto_learned"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-22T05:01:25.693480+00:00",
+      "updated_at": "2026-03-22T05:01:25.693480+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-31T18:56:53.743618+00:00",
+        "access_count": 19
+      }
+    },
+    "223c92d6c724": {
+      "id": "223c92d6c724",
+      "type": "pattern",
+      "key": "auto_auto_learned_20260321_230222",
+      "solution": {
+        "strategy": "regla_sufijo",
+        "code_snippet": "",
+        "notes": "IBMMQ245 + sufijo _PS = IBMMQ245_PS. Regla: contrato → _PS, renovación → _RN, proyecto → sin sufijo.",
+        "auto_learned": true,
+        "source": "hook_stop_event"
+      },
+      "tags": [
+        "auto_learned",
+        "business_rules",
+        "auto_learned"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-22T05:02:22.094559+00:00",
+      "updated_at": "2026-03-22T05:02:22.094559+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-04-01T03:19:45.429458+00:00",
+        "access_count": 33
+      }
+    },
+    "5e32a4eee6e7": {
+      "id": "5e32a4eee6e7",
+      "type": "pattern",
+      "key": "auto_auto_learned_20260321_230243",
+      "solution": {
+        "strategy": "calculo_iva",
+        "code_snippet": "",
+        "notes": "IVA Guatemala = 12% fijo. Aplica sobre precio neto. Total = base × 1.12.",
+        "auto_learned": true,
+        "source": "hook_stop_event"
+      },
+      "tags": [
+        "auto_learned",
+        "business_rules",
+        "auto_learned"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-22T05:02:43.592574+00:00",
+      "updated_at": "2026-03-22T05:02:43.592574+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-31T18:56:53.743618+00:00",
+        "access_count": 21
+      }
+    },
+    "1580c6e8442a": {
+      "id": "1580c6e8442a",
+      "type": "pattern",
+      "key": "auto_auto_learned_20260321_230300",
+      "solution": {
+        "strategy": "consulta_tarifas",
+        "code_snippet": "",
+        "notes": "tarifas tomadas de business_rules CLAUDE.md — 24x7=$80-85, 8x5=$60, Dev=$28.95, PerCall=$140",
+        "auto_learned": true,
+        "source": "hook_stop_event"
+      },
+      "tags": [
+        "auto_learned",
+        "business_rules",
+        "auto_learned"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-22T05:03:00.804712+00:00",
+      "updated_at": "2026-03-22T05:03:00.804712+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-31T18:56:53.743618+00:00",
+        "access_count": 17
+      }
+    },
+    "769fcafd080f": {
+      "id": "769fcafd080f",
+      "type": "pattern",
+      "key": "auto_auto_learned_20260321_230322",
+      "solution": {
+        "strategy": "calculo_mep_descuento",
+        "code_snippet": "",
+        "notes": "precio_lista=120000, descuento=15pct, mep_resultado=102000",
+        "auto_learned": true,
+        "source": "hook_stop_event"
+      },
+      "tags": [
+        "auto_learned",
+        "business_rules",
+        "auto_learned"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-22T05:03:22.939585+00:00",
+      "updated_at": "2026-03-22T05:03:22.939585+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-31T18:56:53.743618+00:00",
+        "access_count": 8
+      }
+    },
+    "5a1866139c32": {
+      "id": "5a1866139c32",
+      "type": "pattern",
+      "key": "auto_auto_learned_20260321_230346",
+      "solution": {
+        "strategy": "calculo_mep_descuento",
+        "code_snippet": "",
+        "notes": "reutilizado — patrón bom_economic, éxito 100%, sin cálculo nuevo",
+        "auto_learned": true,
+        "source": "hook_stop_event"
+      },
+      "tags": [
+        "auto_learned",
+        "business_rules",
+        "auto_learned"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-22T05:03:46.839427+00:00",
+      "updated_at": "2026-03-22T05:03:46.839427+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-31T18:56:53.743618+00:00",
+        "access_count": 11
+      }
+    },
+    "6c0026053987": {
+      "id": "6c0026053987",
+      "type": "pattern",
+      "key": "auto_sow_generate_20260321_230420",
+      "solution": {
+        "strategy": "sow_renovacion",
+        "code_snippet": "",
+        "notes": "tipo_sow=renovacion_soporte, sufijo=_RN, IVA=12%, SLA=4_niveles, secciones=11",
+        "auto_learned": true,
+        "source": "hook_stop_event"
+      },
+      "tags": [
+        "sow_generate",
+        "business_rules",
+        "auto_learned"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-22T05:04:20.772298+00:00",
+      "updated_at": "2026-03-22T05:04:20.772298+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-31T20:16:06.296316+00:00",
+        "access_count": 29
+      }
+    },
+    "dc07de6ab87b": {
+      "id": "dc07de6ab87b",
+      "type": "pattern",
+      "key": "auto_auto_learned_20260321_230505",
+      "solution": {
+        "strategy": "bom_clasificacion",
+        "code_snippet": "",
+        "notes": "DB2 Enterprise = licencia base + S&S. Licenciado por PVU. Verificar cores del servidor destino antes de incluir en propuesta. Checklist bom_validate_systematic aplicado.",
+        "auto_learned": true,
+        "source": "hook_stop_event"
+      },
+      "tags": [
+        "auto_learned",
+        "business_rules",
+        "auto_learned"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-22T05:05:05.283896+00:00",
+      "updated_at": "2026-03-22T05:05:05.283896+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-31T18:56:53.743618+00:00",
+        "access_count": 53
+      }
+    },
+    "6a6629e38c0a": {
+      "id": "6a6629e38c0a",
+      "type": "pattern",
+      "key": "auto_auto_learned_20260321_230546",
+      "solution": {
+        "strategy": "sap_login_knowledge",
+        "code_snippet": "",
+        "notes": "Fuente: sap_actions/sap_login.py + patrón [sap_login] éxito 100%. Selectores por type/name/aria-label. .type() delay=50ms para password. IDs dinámicos descartados.",
+        "auto_learned": true,
+        "source": "hook_stop_event"
+      },
+      "tags": [
+        "auto_learned",
+        "business_rules",
+        "auto_learned"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-22T05:05:46.619919+00:00",
+      "updated_at": "2026-03-22T05:05:46.619919+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-31T18:56:53.743618+00:00",
+        "access_count": 22
+      }
+    },
+    "383eb508e8d3": {
+      "id": "383eb508e8d3",
+      "type": "pattern",
+      "key": "auto_sow_economic_20260321_230613",
+      "solution": {
+        "strategy": "propuesta_economica_pagos",
+        "code_snippet": "",
+        "notes": "monto_iva=268800, cuota=53760 USD, TC referencial Q7.70 — recomendar facturar en USD con TC del dia de pago",
+        "auto_learned": true,
+        "source": "hook_stop_event"
+      },
+      "tags": [
+        "sow_economic",
+        "business_rules",
+        "auto_learned"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-22T05:06:13.388620+00:00",
+      "updated_at": "2026-03-22T05:06:13.388620+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-31T18:56:53.743618+00:00",
+        "access_count": 19
+      }
+    },
+    "82e17d15ec09": {
+      "id": "82e17d15ec09",
+      "type": "pattern",
+      "key": "auto_auto_learned_20260322_103604",
+      "solution": {
+        "strategy": "bom_validacion_completa",
+        "code_snippet": "",
+        "notes": "total_bom_sin_iva=$122400, total_con_iva=$137088, matematica_ok=true, clasificacion=3_servicios, flag_sufijo=oportunidad_mixta_RN+proyecto_recomendar_split, precios_en_rango=true, tarifa_impl=$60_8x5",
+        "auto_learned": true,
+        "source": "hook_stop_event"
+      },
+      "tags": [
+        "auto_learned",
+        "business_rules",
+        "auto_learned"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-22T16:36:04.044226+00:00",
+      "updated_at": "2026-03-22T16:36:04.044226+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-04-01T03:19:45.429458+00:00",
+        "access_count": 34
+      }
+    },
+    "d2abf5d776a5": {
+      "id": "d2abf5d776a5",
+      "type": "pattern",
+      "key": "auto_auto_learned_20260322_103707",
+      "solution": {
+        "strategy": "propuesta_economica_descuento_fx",
+        "code_snippet": "",
+        "notes": "monto_final_usd=126120.96, monto_final_gtq=986265.90, descuento_aplicado=8pct_special_bid, iva=12pct_guatemala, tc=7.82, cuotas=3 (40/30/30), ahorro_cliente_usd=9792.00",
+        "auto_learned": true,
+        "source": "hook_stop_event"
+      },
+      "tags": [
+        "auto_learned",
+        "business_rules",
+        "auto_learned"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-22T16:37:07.934373+00:00",
+      "updated_at": "2026-03-22T16:37:07.934373+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-31T18:56:53.743618+00:00",
+        "access_count": 30
+      }
+    },
+    "70ad5ebb5345": {
+      "id": "70ad5ebb5345",
+      "type": "pattern",
+      "key": "auto_auto_learned_20260322_103812",
+      "solution": {
+        "strategy": "sow_generacion_renovacion",
+        "code_snippet": "",
+        "notes": "tipo_sow=mixto_renovacion_soporte+implementacion, sufijo=_RN, secciones=11+4_anexos, IVA=12%_Guatemala, liability_cap=10pct_max100k, vigencia_oferta=30_dias, aceptacion_tacita=3_dias_habiles, flag=split_no_aplica_40hrs_accesorio",
+        "auto_learned": true,
+        "source": "hook_stop_event"
+      },
+      "tags": [
+        "auto_learned",
+        "business_rules",
+        "auto_learned"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-22T16:38:12.397511+00:00",
+      "updated_at": "2026-03-22T16:38:12.397511+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-31T18:56:53.743618+00:00",
+        "access_count": 30
+      }
+    },
+    "809da26ae5b0": {
+      "id": "809da26ae5b0",
+      "type": "pattern",
+      "key": "auto_auto_learned_20260322_103900",
+      "solution": {
+        "strategy": "sow_revision_legal",
+        "code_snippet": "",
+        "notes": "errores_criticos=[monto_incorrecto_122400_vs_112608, codigo_sin_sufijo_RN, confidencialidad_sin_post_contractual, plazo_aceptacion_15_vs_10_dias_habiles], error_menor=[iva_no_desglosado], accion_inmediata=corregir_4_criticos_antes_de_firma, pendiente_confirmacion=plazo_aceptacion_con_nestor",
+        "auto_learned": true,
+        "source": "hook_stop_event"
+      },
+      "tags": [
+        "auto_learned",
+        "business_rules",
+        "auto_learned"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-22T16:39:00.918486+00:00",
+      "updated_at": "2026-03-22T16:39:00.918486+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-31T18:56:53.743618+00:00",
+        "access_count": 36
+      }
+    },
+    "cf535a7d1990": {
+      "id": "cf535a7d1990",
+      "type": "pattern",
+      "key": "auto_auto_learned_20260322_103950",
+      "solution": {
+        "strategy": "sow_fusion_3_practicas",
+        "code_snippet": "",
+        "notes": "estructura_fusion_definida",
+        "auto_learned": true,
+        "source": "hook_stop_event"
+      },
+      "tags": [
+        "auto_learned",
+        "business_rules",
+        "auto_learned"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-22T16:39:50.291227+00:00",
+      "updated_at": "2026-03-22T16:39:50.291227+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-31T18:56:53.743618+00:00",
+        "access_count": 8
+      }
+    },
+    "340716df1492": {
+      "id": "340716df1492",
+      "type": "pattern",
+      "key": "auto_sap_login_navigate_opportunity_20260322_104140",
+      "solution": {
+        "strategy": "sap_login_navigate_opportunity",
+        "code_snippet": "",
+        "notes": "Búsqueda por nombre no por ID. Client 500 en URL. iFrames detectados dinámicamente.",
+        "auto_learned": true,
+        "source": "hook_stop_event"
+      },
+      "tags": [
+        "sap_login_navigate_opportunity",
+        "business_rules",
+        "auto_learned"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-22T16:41:40.866193+00:00",
+      "updated_at": "2026-03-22T16:41:40.866193+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-31T18:56:53.743618+00:00",
+        "access_count": 20
+      }
+    },
+    "d26401036aab": {
+      "id": "d26401036aab",
+      "type": "pattern",
+      "key": "auto_auto_learned_20260322_104534",
+      "solution": {
+        "strategy": "sap_fill_items_oportunidad",
+        "code_snippet": "",
+        "notes": "flujo_items: orderedprod_JS+Enter → qty_triple_click+Tab → netval_JS+Tab → Save",
+        "auto_learned": true,
+        "source": "hook_stop_event"
+      },
+      "tags": [
+        "auto_learned",
+        "business_rules",
+        "auto_learned"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-22T16:45:34.179971+00:00",
+      "updated_at": "2026-03-22T16:45:34.179971+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-31T18:56:53.743618+00:00",
+        "access_count": 29
+      }
+    },
+    "df5685fb5ba0": {
+      "id": "df5685fb5ba0",
+      "type": "pattern",
+      "key": "auto_auto_learned_20260322_104857",
+      "solution": {
+        "strategy": "sap_crear_quote_contrato",
+        "code_snippet": "",
+        "notes": "tipo_quote_contrato_requiere_dropdown_seleccion_y_campos_vigencia_ValidFrom_ValidTo_monto_en_header_no_en_items",
+        "auto_learned": true,
+        "source": "hook_stop_event"
+      },
+      "tags": [
+        "auto_learned",
+        "business_rules",
+        "auto_learned"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-22T16:48:57.939664+00:00",
+      "updated_at": "2026-03-22T16:48:57.939664+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-31T20:28:16.286774+00:00",
+        "access_count": 37
+      }
+    },
+    "fb28b4c4b153": {
+      "id": "fb28b4c4b153",
+      "type": "pattern",
+      "key": "auto_auto_learned_20260322_104933",
+      "solution": {
+        "strategy": "monday_update_pipeline_deal",
+        "code_snippet": "",
+        "notes": "campos_actualizados",
+        "auto_learned": true,
+        "source": "hook_stop_event"
+      },
+      "tags": [
+        "auto_learned",
+        "business_rules",
+        "auto_learned"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-22T16:49:33.928477+00:00",
+      "updated_at": "2026-03-22T16:49:33.928477+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-31T18:56:53.743618+00:00",
+        "access_count": 11
+      }
+    },
+    "9cb350c7f5b0": {
+      "id": "9cb350c7f5b0",
+      "type": "pattern",
+      "key": "auto_auto_learned_20260322_105109",
+      "solution": {
+        "strategy": "bom_validacion_completa",
+        "code_snippet": "",
+        "notes": "total_bom $122,400 (sin IVA) / $137,088 (con IVA 12%). Matemática OK. Clasificación: híbrido (soporte software + servicios). Sufijo _RN correcto para el core. Precios en rango. 3 alertas menores: tarifa horas, IVA exención, separación de oportunidad para servicios.",
+        "auto_learned": true,
+        "source": "hook_stop_event"
+      },
+      "tags": [
+        "auto_learned",
+        "business_rules",
+        "auto_learned"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-22T16:51:09.065708+00:00",
+      "updated_at": "2026-03-22T16:51:09.065708+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-31T18:56:53.743618+00:00",
+        "access_count": 63
+      }
+    },
+    "c8bad74e3997": {
+      "id": "c8bad74e3997",
+      "type": "pattern",
+      "key": "auto_auto_learned_20260322_105142",
+      "solution": {
+        "strategy": "propuesta_economica_descuento_fx",
+        "code_snippet": "",
+        "notes": "monto_final_usd=126120.96, precio_neto=112608.00, descuento_8pct=9792.00, iva_12pct=13512.96, fx=7.82, monto_final_gtq=986085.90",
+        "auto_learned": true,
+        "source": "hook_stop_event"
+      },
+      "tags": [
+        "auto_learned",
+        "business_rules",
+        "auto_learned"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-22T16:51:42.120962+00:00",
+      "updated_at": "2026-03-22T16:51:42.120962+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-31T18:56:53.743618+00:00",
+        "access_count": 18
+      }
+    },
+    "99694acd66f5": {
+      "id": "99694acd66f5",
+      "type": "pattern",
+      "key": "auto_auto_learned_20260322_105230",
+      "solution": {
+        "strategy": "sow_generacion_renovacion",
+        "code_snippet": "",
+        "notes": "tipo_sow=renovacion_con_servicios, sufijo=_RN, IVA=12%, liability_cap=10%_max_$100K, aceptacion_tacita=3_dias_habiles, vigencia_oferta=30_dias, pagos=40-30-30, secciones=14, alcance_split=soporte+implementacion",
+        "auto_learned": true,
+        "source": "hook_stop_event"
+      },
+      "tags": [
+        "auto_learned",
+        "business_rules",
+        "auto_learned"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-22T16:52:30.962688+00:00",
+      "updated_at": "2026-03-22T16:52:30.962688+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-31T18:56:53.743618+00:00",
+        "access_count": 28
+      }
+    },
+    "cee0b6bedc88": {
+      "id": "cee0b6bedc88",
+      "type": "pattern",
+      "key": "auto_sow_review_20260322_105314",
+      "solution": {
+        "strategy": "sow_revision_legal",
+        "code_snippet": "",
+        "notes": "errores_criticos: 5/5 puntos requieren corrección. Punto 1 monto precio lista vs precio con descuento 8%. Punto 2 plazo no conforme politica interna 10 dias. Punto 3 confidencialidad sin periodo post-contractual riesgo sector bancario regulado. Punto 4 codigo sin sufijo _RN viola nomenclatura. Punto 5 IVA sin desglosar requerido por contabilidad fiscal cliente.",
+        "auto_learned": true,
+        "source": "hook_stop_event"
+      },
+      "tags": [
+        "sow_review",
+        "business_rules",
+        "auto_learned"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-22T16:53:14.321665+00:00",
+      "updated_at": "2026-03-22T16:53:14.321665+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-31T20:28:16.286774+00:00",
+        "access_count": 34
+      }
+    },
+    "4d88757bbb23": {
+      "id": "4d88757bbb23",
+      "type": "pattern",
+      "key": "auto_sow_fusion_20260322_105415",
+      "solution": {
+        "strategy": "sow_fusion_3_practicas",
+        "code_snippet": "",
+        "notes": "",
+        "auto_learned": true,
+        "source": "hook_stop_event"
+      },
+      "tags": [
+        "sow_fusion",
+        "business_rules",
+        "auto_learned"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-22T16:54:15.460184+00:00",
+      "updated_at": "2026-03-22T16:54:15.460184+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-31T18:56:53.743618+00:00",
+        "access_count": 8
+      }
+    },
+    "023066dbfa05": {
+      "id": "023066dbfa05",
+      "type": "pattern",
+      "key": "auto_sap_login_navigate_opportunity_20260322_105507",
+      "solution": {
+        "strategy": "aria_label_iframe_detect_dynamic",
+        "code_snippet": "",
+        "notes": "IDs SAP son dinámicos - aria-label es la fuente confiable. Tab post-campo es crítico para validación server-side. iFrame WorkAreaFrame1 puede variar - siempre tener fallback por URL.",
+        "auto_learned": true,
+        "source": "hook_stop_event"
+      },
+      "tags": [
+        "sap_login_navigate_opportunity",
+        "business_rules",
+        "auto_learned"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-22T16:55:07.580026+00:00",
+      "updated_at": "2026-03-22T16:55:07.580026+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-31T18:56:53.743618+00:00",
+        "access_count": 29
+      }
+    },
+    "0fdea27604e9": {
+      "id": "0fdea27604e9",
+      "type": "pattern",
+      "key": "auto_sap_fill_items_oportunidad_20260322_105802",
+      "solution": {
+        "strategy": "js_simulateType_for_pid__keyboard_type_for_qty_price__tab_validation",
+        "code_snippet": "",
+        "notes": "flujo_items: pid→enter(SAP resolve)→qty keyboard→tab→price keyboard→tab. Save al final.",
+        "auto_learned": true,
+        "source": "hook_stop_event"
+      },
+      "tags": [
+        "sap_fill_items_oportunidad",
+        "business_rules",
+        "auto_learned"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-22T16:58:02.412292+00:00",
+      "updated_at": "2026-03-22T16:58:02.412292+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-31T18:56:53.743618+00:00",
+        "access_count": 29
+      }
+    },
+    "4583b4ef2c3a": {
+      "id": "4583b4ef2c3a",
+      "type": "pattern",
+      "key": "auto_auto_learned_20260322_105936",
+      "solution": {
+        "strategy": "sap_crear_quote_contrato",
+        "code_snippet": "",
+        "notes": "tipo_quote=contrato requiere seleccionar dropdown primero → SAP recarga form con Billing Type + Contract Type + fechas vigencia. Monto va en header (no en items). Manual/Estándar NO tienen este campo. Fechas formato MM/DD/YYYY. Tab después de cada campo obligatorio.",
+        "auto_learned": true,
+        "source": "hook_stop_event"
+      },
+      "tags": [
+        "auto_learned",
+        "business_rules",
+        "auto_learned"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-22T16:59:36.109667+00:00",
+      "updated_at": "2026-03-22T16:59:36.109667+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-31T20:28:16.286774+00:00",
+        "access_count": 44
+      }
+    },
+    "f8643014ebe9": {
+      "id": "f8643014ebe9",
+      "type": "pattern",
+      "key": "auto_monday_update_pipeline_20260322_110026",
+      "solution": {
+        "strategy": "monday_update_pipeline_deal",
+        "code_snippet": "",
+        "notes": "proceso_ui_manual_monday_board_pipeline",
+        "auto_learned": true,
+        "source": "hook_stop_event"
+      },
+      "tags": [
+        "monday_update_pipeline",
+        "business_rules",
+        "auto_learned"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-22T17:00:26.905600+00:00",
+      "updated_at": "2026-03-22T17:00:26.905600+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-31T18:56:53.743618+00:00",
+        "access_count": 11
+      }
+    },
+    "8c278fb9d7df": {
+      "id": "8c278fb9d7df",
+      "type": "pattern",
+      "key": "auto_auto_learned_20260322_110413",
+      "solution": {
+        "strategy": "calculo_iva",
+        "code_snippet": "",
+        "notes": "IVA Guatemala 12% fijo. Base $50,000 → IVA $6,000 → Total $56,000. Siempre desglosar en propuesta.",
+        "auto_learned": true,
+        "source": "hook_stop_event"
+      },
+      "tags": [
+        "auto_learned",
+        "business_rules",
+        "auto_learned"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-22T17:04:13.257579+00:00",
+      "updated_at": "2026-03-22T17:04:13.257579+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-31T18:56:53.743618+00:00",
+        "access_count": 24
+      }
+    },
+    "6d389ae3e0a8": {
+      "id": "6d389ae3e0a8",
+      "type": "pattern",
+      "key": "auto_auto_learned_20260322_110431",
+      "solution": {
+        "strategy": "consulta_tarifas",
+        "code_snippet": "",
+        "notes": "tarifas extraídas de business_rules en CLAUDE.md — fuente KB local, sin ML",
+        "auto_learned": true,
+        "source": "hook_stop_event"
+      },
+      "tags": [
+        "auto_learned",
+        "business_rules",
+        "auto_learned"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-22T17:04:31.312170+00:00",
+      "updated_at": "2026-03-22T17:04:31.312170+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-31T18:56:53.743618+00:00",
+        "access_count": 16
+      }
+    },
+    "533a8ec333a4": {
+      "id": "533a8ec333a4",
+      "type": "pattern",
+      "key": "auto_auto_learned_20260322_110455",
+      "solution": {
+        "strategy": "calculo_mep_descuento",
+        "code_snippet": "",
+        "notes": "precio_lista=120000, descuento=15pct, mep_resultado=102000",
+        "auto_learned": true,
+        "source": "hook_stop_event"
+      },
+      "tags": [
+        "auto_learned",
+        "business_rules",
+        "auto_learned"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-22T17:04:55.775453+00:00",
+      "updated_at": "2026-03-22T17:04:55.775453+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-31T18:56:53.743618+00:00",
+        "access_count": 8
+      }
+    },
+    "b51ac6752349": {
+      "id": "b51ac6752349",
+      "type": "pattern",
+      "key": "auto_auto_learned_20260322_110524",
+      "solution": {
+        "strategy": "calculo_mep_descuento",
+        "code_snippet": "",
+        "notes": "reutilizado",
+        "auto_learned": true,
+        "source": "hook_stop_event"
+      },
+      "tags": [
+        "auto_learned",
+        "business_rules",
+        "auto_learned"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-22T17:05:24.345445+00:00",
+      "updated_at": "2026-03-22T17:05:24.345445+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-31T18:56:53.743618+00:00",
+        "access_count": 8
+      }
+    },
+    "ed517185c866": {
+      "id": "ed517185c866",
+      "type": "pattern",
+      "key": "auto_auto_learned_20260322_110554",
+      "solution": {
+        "strategy": "sow_renovacion",
+        "code_snippet": "",
+        "notes": "tipo_sow = soporte_anual | sufijo = _RN | IVA = 12% | estructura = sow_template_standard con alcance técnico IBM MQ | fuente = KB business_rules + KB sow",
+        "auto_learned": true,
+        "source": "hook_stop_event"
+      },
+      "tags": [
+        "auto_learned",
+        "business_rules",
+        "auto_learned"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-22T17:05:54.020432+00:00",
+      "updated_at": "2026-03-22T17:05:54.020432+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-31T18:56:53.743618+00:00",
+        "access_count": 20
+      }
+    },
+    "c32776fb1a87": {
+      "id": "c32776fb1a87",
+      "type": "pattern",
+      "key": "auto_auto_learned_20260322_110640",
+      "solution": {
+        "strategy": "bom_clasificacion",
+        "code_snippet": "",
+        "notes": "Licencia base = Licencia. Soporte anual S&S = Servicio separado. Verificar cores servidor, P/N por plataforma, sufijo oportunidad (_PS/_RN/sin sufijo). Checklist bom_validate_systematic aplicado.",
+        "auto_learned": true,
+        "source": "hook_stop_event"
+      },
+      "tags": [
+        "auto_learned",
+        "business_rules",
+        "auto_learned"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-22T17:06:40.831070+00:00",
+      "updated_at": "2026-03-22T17:06:40.831070+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-31T18:56:53.743618+00:00",
+        "access_count": 56
+      }
+    },
+    "0f8edd8bbfd5": {
+      "id": "0f8edd8bbfd5",
+      "type": "pattern",
+      "key": "auto_auto_learned_20260322_110717",
+      "solution": {
+        "strategy": "sap_login_knowledge",
+        "code_snippet": "",
+        "notes": "IDs dinámicos → usar aria-label. .fill() no dispara keyevents → SAP ignora el password. .type(delay=50) simula teclas reales. Tab post-campo activa validación server-side.",
+        "auto_learned": true,
+        "source": "hook_stop_event"
+      },
+      "tags": [
+        "auto_learned",
+        "business_rules",
+        "auto_learned"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-22T17:07:17.711646+00:00",
+      "updated_at": "2026-03-22T17:07:17.711646+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-04-01T02:04:08.887485+00:00",
+        "access_count": 204
+      }
+    },
+    "cdafef64b0ab": {
+      "id": "cdafef64b0ab",
+      "type": "pattern",
+      "key": "auto_bom_to_proposal_20260322_110748",
+      "solution": {
+        "strategy": "propuesta_economica_pagos",
+        "code_snippet": "",
+        "notes": "monto_base=240000, iva_12pct=28800, total_iva=268800, cuotas=5, cuota_usd=53760, tc_referencial=7.70, cuota_gtq=413952",
+        "auto_learned": true,
+        "source": "hook_stop_event"
+      },
+      "tags": [
+        "bom_to_proposal",
+        "business_rules",
+        "auto_learned"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-22T17:07:48.334971+00:00",
+      "updated_at": "2026-03-22T17:07:48.334971+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-31T18:56:53.743618+00:00",
+        "access_count": 18
+      }
+    },
+    "769f3bc1cb0d": {
+      "id": "769f3bc1cb0d",
+      "type": "pattern",
+      "key": "auto_bom_validate_20260322_110912",
+      "solution": {
+        "strategy": "bom_validate_systematic",
+        "code_snippet": "",
+        "notes": "total_bom_sin_iva=$122400, iva_12pct=$14688, total_con_iva=$137088. 3 items: 2 híbridos renovación IBM (MQ+DB2), 1 servicio implementación. Sufijos _RN correctos. Tarifa servicios $60/hr = 8x5 estándar — verificar si aplica o debe ser $80-85/hr. Oportunidad mixta: decidir split o consolidar en SAP.",
+        "auto_learned": true,
+        "source": "hook_stop_event"
+      },
+      "tags": [
+        "bom_validate",
+        "business_rules",
+        "auto_learned"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-22T17:09:12.088536+00:00",
+      "updated_at": "2026-03-22T17:09:12.088536+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-31T18:56:53.743618+00:00",
+        "access_count": 41
+      }
+    },
+    "86744255343a": {
+      "id": "86744255343a",
+      "type": "pattern",
+      "key": "auto_auto_learned_20260322_110940",
+      "solution": {
+        "strategy": "propuesta_economica_descuento_fx",
+        "code_snippet": "",
+        "notes": "monto_final_usd=126120.96, monto_final_gtq=986565.91, descuento_aplicado=9792.00, iva=13512.96, cuota1_usd=50448.38, cuota2_usd=37836.29, cuota3_usd=37836.29, tc=7.82",
+        "auto_learned": true,
+        "source": "hook_stop_event"
+      },
+      "tags": [
+        "auto_learned",
+        "business_rules",
+        "auto_learned"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-22T17:09:40.751863+00:00",
+      "updated_at": "2026-03-22T17:09:40.751863+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-31T18:56:53.743618+00:00",
+        "access_count": 15
+      }
+    },
+    "68b2ca530d64": {
+      "id": "68b2ca530d64",
+      "type": "pattern",
+      "key": "auto_auto_learned_20260322_111037",
+      "solution": {
+        "strategy": "sow_generacion_renovacion",
+        "code_snippet": "",
+        "notes": "tipo_sow=mixto_renovacion_soporte+implementacion_accesoria, sufijo=_RN, IVA=12%_Guatemala, total_con_IVA=$126120.96, liability_cap=10pct_max100k, aceptacion_tacita=3_dias_habiles, vigencia_oferta=30_dias, split_no_aplica=40hrs_subordinadas_al_total, secciones=12+4_anexos, clausulas_criticas=liability+garantia+aceptacion+confidencialidad_post_contractual",
+        "auto_learned": true,
+        "source": "hook_stop_event"
+      },
+      "tags": [
+        "auto_learned",
+        "business_rules",
+        "auto_learned"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-22T17:10:37.469134+00:00",
+      "updated_at": "2026-03-22T17:10:37.469134+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-31T18:56:53.743618+00:00",
+        "access_count": 22
+      }
+    },
+    "9f0c062c1788": {
+      "id": "9f0c062c1788",
+      "type": "pattern",
+      "key": "auto_sow_review_20260322_111124",
+      "solution": {
+        "strategy": "sow_revision_legal",
+        "code_snippet": "",
+        "notes": "errores_criticos: 5/5 — monto_incorrecto, plazo_no_estandar, confidencialidad_sin_post_contractual, codigo_sin_sufijo_tipo, iva_sin_desglose",
+        "auto_learned": true,
+        "source": "hook_stop_event"
+      },
+      "tags": [
+        "sow_review",
+        "business_rules",
+        "auto_learned"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-22T17:11:24.754137+00:00",
+      "updated_at": "2026-03-22T17:11:24.754137+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-31T18:56:53.743618+00:00",
+        "access_count": 30
+      }
+    },
+    "702486258e4a": {
+      "id": "702486258e4a",
+      "type": "pattern",
+      "key": "auto_auto_learned_20260322_111223",
+      "solution": {
+        "strategy": "sow_fusion_3_practicas",
+        "code_snippet": "",
+        "notes": "estructura_fusion: secciones_comunes_unificadas + alcance_separado_por_practica + propuesta_desglosada_con_total. Conflictos identificados: 4 (fechas, pagos, escalacion, terminacion). Math fábrica: $13,896/yr. Verificar si Instana $18K es neto o con IVA.",
+        "auto_learned": true,
+        "source": "hook_stop_event"
+      },
+      "tags": [
+        "auto_learned",
+        "business_rules",
+        "auto_learned"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-22T17:12:23.966320+00:00",
+      "updated_at": "2026-03-22T17:12:23.966320+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-31T18:56:53.743618+00:00",
+        "access_count": 17
+      }
+    },
+    "66be81ce8fea": {
+      "id": "66be81ce8fea",
+      "type": "pattern",
+      "key": "auto_auto_learned_20260322_111326",
+      "solution": {
+        "strategy": "sap_login_navigate_opportunity",
+        "code_snippet": "",
+        "notes": "Password con .type(delay=50). iFrames detectados dinámicamente por name. Tab obligatorio post-fill. Selectores por aria-label, nunca por ID dinámico.",
+        "auto_learned": true,
+        "source": "hook_stop_event"
+      },
+      "tags": [
+        "auto_learned",
+        "business_rules",
+        "auto_learned"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-22T17:13:26.446176+00:00",
+      "updated_at": "2026-03-22T17:13:26.446176+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-31T18:56:53.743618+00:00",
+        "access_count": 15
+      }
+    },
+    "595385bb1f38": {
+      "id": "595385bb1f38",
+      "type": "pattern",
+      "key": "auto_sap_fill_items_20260322_111425",
+      "solution": {
+        "strategy": "sap_fill_items_oportunidad",
+        "code_snippet": "",
+        "notes": "Script ya existía de sesión anterior. KB hit 100%. flujo_items: orderedprod_JS+Enter → qty_triple_click+Tab → netval_JS+Tab → Save",
+        "auto_learned": true,
+        "source": "hook_stop_event"
+      },
+      "tags": [
+        "sap_fill_items",
+        "business_rules",
+        "auto_learned"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-22T17:14:25.494964+00:00",
+      "updated_at": "2026-03-22T17:14:25.494964+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-31T18:56:53.743618+00:00",
+        "access_count": 25
+      }
+    },
+    "0ca640bc1a36": {
+      "id": "0ca640bc1a36",
+      "type": "pattern",
+      "key": "auto_sap_quote_contrato_20260322_111535",
+      "solution": {
+        "strategy": "js_fill_aria_label_with_tab_validation",
+        "code_snippet": "",
+        "notes": "tipo_quote=contrato agrega Billing Type + Contract Type + Valid From/To vs Manual (form básico, monto por item) vs Estándar (price list automático). Monto se ingresa en header solo en Contrato.",
+        "auto_learned": true,
+        "source": "hook_stop_event"
+      },
+      "tags": [
+        "sap_quote_contrato",
+        "business_rules",
+        "auto_learned"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-22T17:15:35.050349+00:00",
+      "updated_at": "2026-03-22T17:15:35.050349+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-31T18:56:53.743618+00:00",
+        "access_count": 39
+      }
+    },
+    "28e4522f1f50": {
+      "id": "28e4522f1f50",
+      "type": "pattern",
+      "key": "auto_monday_update_pipeline_20260322_111623",
+      "solution": {
+        "strategy": "monday_api_or_ui",
+        "code_snippet": "",
+        "notes": "campos_actualizados — proceso UI directo, no hay API script local para Monday",
+        "auto_learned": true,
+        "source": "hook_stop_event"
+      },
+      "tags": [
+        "monday_update_pipeline",
+        "business_rules",
+        "auto_learned"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-22T17:16:23.554415+00:00",
+      "updated_at": "2026-03-22T17:16:23.554415+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-31T18:56:53.743618+00:00",
+        "access_count": 13
+      }
+    },
+    "72677095f057": {
+      "id": "72677095f057",
+      "type": "pattern",
+      "key": "auto_auto_learned_20260322_134313",
+      "solution": {
+        "strategy": "regla_sufijo",
+        "code_snippet": "",
+        "notes": "IBMMQ245 → IBMMQ245_PS por ser oportunidad tipo CONTRATO (sufijo _PS = post-sale support, regla KB business_rules)",
+        "auto_learned": true,
+        "source": "hook_stop_event"
+      },
+      "tags": [
+        "auto_learned",
+        "business_rules",
+        "auto_learned"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-22T19:43:13.854379+00:00",
+      "updated_at": "2026-03-22T19:43:13.854379+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-31T18:56:53.743618+00:00",
+        "access_count": 23
+      }
+    },
+    "6e7322f6a0ab": {
+      "id": "6e7322f6a0ab",
+      "type": "pattern",
+      "key": "auto_auto_learned_20260322_134314",
+      "solution": {
+        "strategy": "regla_sufijo",
+        "code_snippet": "",
+        "notes": "IBMMQ245 → IBMMQ245_PS por ser oportunidad tipo CONTRATO (sufijo _PS = post-sale support, regla KB business_rules)",
+        "auto_learned": true,
+        "source": "hook_stop_event"
+      },
+      "tags": [
+        "auto_learned",
+        "business_rules",
+        "auto_learned"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-22T19:43:14.163900+00:00",
+      "updated_at": "2026-03-22T19:43:14.163900+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-31T18:56:53.743618+00:00",
+        "access_count": 23
+      }
+    },
+    "cd106f8ad160": {
+      "id": "cd106f8ad160",
+      "type": "pattern",
+      "key": "auto_auto_learned_20260322_134343",
+      "solution": {
+        "strategy": "calculo_iva",
+        "code_snippet": "",
+        "notes": "IVA Guatemala = 12%. $50,000 × 1.12 = $56,000. Siempre mostrar subtotal + IVA como líneas separadas en la propuesta económica.",
+        "auto_learned": true,
+        "source": "hook_stop_event"
+      },
+      "tags": [
+        "auto_learned",
+        "business_rules",
+        "auto_learned"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-22T19:43:43.678257+00:00",
+      "updated_at": "2026-03-22T19:43:43.678257+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-31T18:56:53.743618+00:00",
+        "access_count": 18
+      }
+    },
+    "97030a913e0c": {
+      "id": "97030a913e0c",
+      "type": "pattern",
+      "key": "auto_auto_learned_20260322_134410",
+      "solution": {
+        "strategy": "consulta_tarifas",
+        "code_snippet": "",
+        "notes": "tarifas tomadas de business_rules en CLAUDE.md. 24x7=$80-85/hr, 8x5=$60/hr, Dev=$28.95/hr, Per Call=$140/hr. Confirmar con AM si aplica descuento o ajuste por volumen.",
+        "auto_learned": true,
+        "source": "hook_stop_event"
+      },
+      "tags": [
+        "auto_learned",
+        "business_rules",
+        "auto_learned"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-22T19:44:10.746483+00:00",
+      "updated_at": "2026-03-22T19:44:10.746483+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-31T18:56:53.743618+00:00",
+        "access_count": 14
+      }
+    },
+    "72fe64dc07e9": {
+      "id": "72fe64dc07e9",
+      "type": "pattern",
+      "key": "auto_auto_learned_20260322_134411",
+      "solution": {
+        "strategy": "consulta_tarifas",
+        "code_snippet": "",
+        "notes": "tarifas tomadas de business_rules en CLAUDE.md. 24x7=$80-85/hr, 8x5=$60/hr, Dev=$28.95/hr, Per Call=$140/hr. Confirmar con AM si aplica descuento o ajuste por volumen.",
+        "auto_learned": true,
+        "source": "hook_stop_event"
+      },
+      "tags": [
+        "auto_learned",
+        "business_rules",
+        "auto_learned"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-22T19:44:11.029218+00:00",
+      "updated_at": "2026-03-22T19:44:11.029218+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-31T18:56:53.743618+00:00",
+        "access_count": 14
+      }
+    },
+    "d8083f79b477": {
+      "id": "d8083f79b477",
+      "type": "pattern",
+      "key": "auto_auto_learned_20260322_134441",
+      "solution": {
+        "strategy": "calculo_mep_descuento",
+        "code_snippet": "",
+        "notes": "precio_lista=120000, descuento=15pct, mep_resultado=102000",
+        "auto_learned": true,
+        "source": "hook_stop_event"
+      },
+      "tags": [
+        "auto_learned",
+        "business_rules",
+        "auto_learned"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-22T19:44:41.462332+00:00",
+      "updated_at": "2026-03-22T19:44:41.462332+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-31T18:56:53.743618+00:00",
+        "access_count": 8
+      }
+    },
+    "56b3801a051a": {
+      "id": "56b3801a051a",
+      "type": "pattern",
+      "key": "auto_auto_learned_20260322_134512",
+      "solution": {
+        "strategy": "calculo_mep_descuento",
+        "code_snippet": "",
+        "notes": "reutilizado",
+        "auto_learned": true,
+        "source": "hook_stop_event"
+      },
+      "tags": [
+        "auto_learned",
+        "business_rules",
+        "auto_learned"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-22T19:45:12.656234+00:00",
+      "updated_at": "2026-03-22T19:45:12.656234+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-31T18:56:53.743618+00:00",
+        "access_count": 8
+      }
+    },
+    "6f26210dfeee": {
+      "id": "6f26210dfeee",
+      "type": "pattern",
+      "key": "auto_auto_learned_20260322_134553",
+      "solution": {
+        "strategy": "sow_renovacion",
+        "code_snippet": "",
+        "notes": "tipo_sow=soporte_anual, sufijo=_RN, iva=12%, template=sow_template_standard",
+        "auto_learned": true,
+        "source": "hook_stop_event"
+      },
+      "tags": [
+        "auto_learned",
+        "business_rules",
+        "auto_learned"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-22T19:45:53.890106+00:00",
+      "updated_at": "2026-03-22T19:45:53.890106+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-31T18:56:53.743618+00:00",
+        "access_count": 8
+      }
+    },
+    "067767169623": {
+      "id": "067767169623",
+      "type": "pattern",
+      "key": "auto_auto_learned_20260322_134648",
+      "solution": {
+        "strategy": "bom_clasificacion",
+        "code_snippet": "",
+        "notes": "clasificacion=software_licencia, sub_tipo=licencia_perpetua_o_suscripcion, metrica=VPC_o_authorized_user, iva=12pct, validar_part_number_y_metrica_antes_de_propuesta",
+        "auto_learned": true,
+        "source": "hook_stop_event"
+      },
+      "tags": [
+        "auto_learned",
+        "business_rules",
+        "auto_learned"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-22T19:46:48.997087+00:00",
+      "updated_at": "2026-03-22T19:46:48.997087+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-31T18:56:53.743618+00:00",
+        "access_count": 22
+      }
+    },
+    "0982e960007a": {
+      "id": "0982e960007a",
+      "type": "pattern",
+      "key": "auto_auto_learned_20260322_134726",
+      "solution": {
+        "strategy": "sap_login_knowledge",
+        "code_snippet": "",
+        "notes": "IDs dinámicos = inútiles. aria-label es el selector estable. .fill() no dispara keydown/keyup events que SAP necesita para password. .type(delay=50) simula tecleo real. Tab obligatorio post-campo para server-side validation.",
+        "auto_learned": true,
+        "source": "hook_stop_event"
+      },
+      "tags": [
+        "auto_learned",
+        "business_rules",
+        "auto_learned"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-22T19:47:26.565376+00:00",
+      "updated_at": "2026-03-22T19:47:26.565376+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-04-01T02:04:08.887485+00:00",
+        "access_count": 199
+      }
+    },
+    "e3e940683ded": {
+      "id": "e3e940683ded",
+      "type": "pattern",
+      "key": "auto_auto_learned_20260322_134810",
+      "solution": {
+        "strategy": "propuesta_economica_pagos",
+        "code_snippet": "",
+        "notes": "monto_iva=$268800, cuota_x5=$53760, tc_referencial=7.75, ambiguedad_cuotas=no_mensual_sino_5_pagos",
+        "auto_learned": true,
+        "source": "hook_stop_event"
+      },
+      "tags": [
+        "auto_learned",
+        "business_rules",
+        "auto_learned"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-22T19:48:10.398897+00:00",
+      "updated_at": "2026-03-22T19:48:10.398897+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-31T18:56:53.743618+00:00",
+        "access_count": 12
+      }
+    },
+    "982b93a86b87": {
+      "id": "982b93a86b87",
+      "type": "fact",
+      "key": "regla_oro_2_backups",
+      "fact": {
+        "rule": "Backups incrementales post-cambios",
+        "script": "C:/Chance1/Buscador_IA/backup_checkpoint.py",
+        "commands": {
+          "manual": "python backup_checkpoint.py [label]",
+          "list": "python backup_checkpoint.py --list",
+          "rollback": "python backup_checkpoint.py --rollback"
+        },
+        "auto": "brand_mirror.py crea backup automatico antes de cada regeneracion",
+        "files": [
+          "dashboard.py",
+          "brand_mirror.py",
+          "index.html",
+          "index_original.html",
+          "llm_config.json",
+          "url_aliases.json"
+        ],
+        "max_per_file": 20
+      },
+      "tags": [
+        "backup",
+        "rollback",
+        "regla_oro",
+        "dashboard"
+      ],
+      "created_at": "2026-03-24T16:29:29.881259+00:00",
+      "updated_at": "2026-03-24T16:29:29.881259+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-03-31T17:56:27.273095+00:00",
+        "access_count": 152
+      }
+    },
+    "bf6df445ab88": {
+      "id": "bf6df445ab88",
+      "type": "pattern",
+      "key": "iter_20260331_125916_i2",
+      "solution": {
+        "strategy": "auto_iteration_capture",
+        "notes": "Iteracion 2:\n  Leyo mcp_server.py\n  Leyo constants.py\n  Leyo requirements.txt\n  Leyo mcp_server.py\n  Leyo excel_com.py\n  Leyo validators.py\n  Leyo business_rules.py\n  Leyo word_com.py\n  Leyo word_com.py\n  Leyo excel_com.py\n  Leyo test_excel_features.py\n  Leyo excel_com.py",
+        "auto_learned": true,
+        "source": "post_tool_hook",
+        "msg_type": "instruction",
+        "had_kb_match": true,
+        "files_touched": [
+          "C:/chance1/IA_Word/src/business_rules.py",
+          "C:/chance1/IA_Excel/src/mcp_server.py",
+          "C:/chance1/IA_Excel/src/excel_com.py",
+          "C:/chance1/IA_Word/src/word_com.py",
+          "C:/chance1/IA_Excel/src/constants.py",
+          "C:/chance1/IA_Excel/tests/test_excel_features.py",
+          "C:/chance1/IA_Excel/requirements.txt",
+          "C:/chance1/IA_Word/src/validators.py",
+          "C:/chance1/IA_Word/src/mcp_server.py"
+        ],
+        "activity": {
+          "reads": 12,
+          "edits": 0,
+          "writes": 0,
+          "commands": 0,
+          "searches": 0,
+          "browser": 0,
+          "total": 12
+        },
+        "iteration": 2
+      },
+      "tags": [
+        "auto-learned",
+        "iteration",
+        "business_rules",
+        "auto"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-31T18:59:16.529742+00:00",
+      "updated_at": "2026-03-31T18:59:16.529742+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-31T22:25:51.114338+00:00",
+        "access_count": 3
+      }
+    }
+  },
+  "tag_index": {
+    "nomenclatura": [
+      "636511208dc9",
+      "b7aa9f1666cf",
+      "636511208dc9",
+      "b7aa9f1666cf",
+      "636511208dc9",
+      "b7aa9f1666cf",
+      "636511208dc9",
+      "b7aa9f1666cf",
+      "636511208dc9",
+      "b7aa9f1666cf",
+      "636511208dc9",
+      "b7aa9f1666cf",
+      "636511208dc9",
+      "b7aa9f1666cf",
+      "636511208dc9",
+      "b7aa9f1666cf",
+      "636511208dc9",
+      "b7aa9f1666cf",
+      "636511208dc9",
+      "b7aa9f1666cf",
+      "636511208dc9",
+      "b7aa9f1666cf",
+      "636511208dc9",
+      "b7aa9f1666cf",
+      "636511208dc9",
+      "b7aa9f1666cf"
+    ],
+    "codigos": [
+      "636511208dc9",
+      "b7aa9f1666cf",
+      "636511208dc9",
+      "b7aa9f1666cf",
+      "636511208dc9",
+      "b7aa9f1666cf",
+      "636511208dc9",
+      "b7aa9f1666cf",
+      "636511208dc9",
+      "b7aa9f1666cf",
+      "636511208dc9",
+      "b7aa9f1666cf",
+      "636511208dc9",
+      "b7aa9f1666cf",
+      "636511208dc9",
+      "b7aa9f1666cf",
+      "636511208dc9",
+      "b7aa9f1666cf",
+      "636511208dc9",
+      "b7aa9f1666cf",
+      "636511208dc9",
+      "b7aa9f1666cf",
+      "636511208dc9",
+      "b7aa9f1666cf",
+      "636511208dc9",
+      "b7aa9f1666cf"
+    ],
+    "contrato": [
+      "636511208dc9",
+      "cad080dfde9b",
+      "636511208dc9",
+      "cad080dfde9b",
+      "636511208dc9",
+      "cad080dfde9b",
+      "636511208dc9",
+      "cad080dfde9b",
+      "636511208dc9",
+      "cad080dfde9b",
+      "636511208dc9",
+      "cad080dfde9b",
+      "636511208dc9",
+      "cad080dfde9b",
+      "636511208dc9",
+      "cad080dfde9b",
+      "636511208dc9",
+      "cad080dfde9b",
+      "636511208dc9",
+      "cad080dfde9b",
+      "636511208dc9",
+      "cad080dfde9b",
+      "636511208dc9",
+      "cad080dfde9b",
+      "636511208dc9",
+      "cad080dfde9b"
+    ],
+    "PS": [
+      "636511208dc9",
+      "636511208dc9",
+      "636511208dc9",
+      "636511208dc9",
+      "636511208dc9",
+      "636511208dc9",
+      "636511208dc9",
+      "636511208dc9",
+      "636511208dc9",
+      "636511208dc9",
+      "636511208dc9",
+      "636511208dc9",
+      "636511208dc9"
+    ],
+    "items": [
+      "636511208dc9",
+      "e544b973b16d",
+      "636511208dc9",
+      "e544b973b16d",
+      "636511208dc9",
+      "e544b973b16d",
+      "636511208dc9",
+      "e544b973b16d",
+      "636511208dc9",
+      "e544b973b16d",
+      "636511208dc9",
+      "e544b973b16d",
+      "636511208dc9",
+      "e544b973b16d",
+      "636511208dc9",
+      "e544b973b16d",
+      "636511208dc9",
+      "e544b973b16d",
+      "636511208dc9",
+      "e544b973b16d",
+      "636511208dc9",
+      "e544b973b16d",
+      "636511208dc9",
+      "e544b973b16d",
+      "636511208dc9",
+      "e544b973b16d"
+    ],
+    "oportunidad": [
+      "636511208dc9",
+      "636511208dc9",
+      "636511208dc9",
+      "636511208dc9",
+      "636511208dc9",
+      "636511208dc9",
+      "636511208dc9",
+      "636511208dc9",
+      "636511208dc9",
+      "636511208dc9",
+      "636511208dc9",
+      "636511208dc9",
+      "636511208dc9"
+    ],
+    "renovacion": [
+      "b7aa9f1666cf",
+      "b7aa9f1666cf",
+      "b7aa9f1666cf",
+      "b7aa9f1666cf",
+      "b7aa9f1666cf",
+      "b7aa9f1666cf",
+      "b7aa9f1666cf",
+      "b7aa9f1666cf",
+      "b7aa9f1666cf",
+      "b7aa9f1666cf",
+      "b7aa9f1666cf",
+      "b7aa9f1666cf",
+      "b7aa9f1666cf"
+    ],
+    "RN": [
+      "b7aa9f1666cf",
+      "b7aa9f1666cf",
+      "b7aa9f1666cf",
+      "b7aa9f1666cf",
+      "b7aa9f1666cf",
+      "b7aa9f1666cf",
+      "b7aa9f1666cf",
+      "b7aa9f1666cf",
+      "b7aa9f1666cf",
+      "b7aa9f1666cf",
+      "b7aa9f1666cf",
+      "b7aa9f1666cf",
+      "b7aa9f1666cf"
+    ],
+    "tarifas": [
+      "657b2f3a9368",
+      "657b2f3a9368",
+      "657b2f3a9368",
+      "657b2f3a9368",
+      "657b2f3a9368",
+      "657b2f3a9368",
+      "657b2f3a9368",
+      "657b2f3a9368",
+      "657b2f3a9368",
+      "657b2f3a9368",
+      "657b2f3a9368",
+      "657b2f3a9368",
+      "657b2f3a9368"
+    ],
+    "precios": [
+      "657b2f3a9368",
+      "657b2f3a9368",
+      "657b2f3a9368",
+      "657b2f3a9368",
+      "657b2f3a9368",
+      "657b2f3a9368",
+      "657b2f3a9368",
+      "657b2f3a9368",
+      "657b2f3a9368",
+      "657b2f3a9368",
+      "657b2f3a9368",
+      "657b2f3a9368",
+      "657b2f3a9368"
+    ],
+    "soporte": [
+      "657b2f3a9368",
+      "3d9b7248b90c",
+      "657b2f3a9368",
+      "3d9b7248b90c",
+      "657b2f3a9368",
+      "3d9b7248b90c",
+      "657b2f3a9368",
+      "3d9b7248b90c",
+      "657b2f3a9368",
+      "3d9b7248b90c",
+      "657b2f3a9368",
+      "3d9b7248b90c",
+      "657b2f3a9368",
+      "3d9b7248b90c",
+      "657b2f3a9368",
+      "3d9b7248b90c",
+      "657b2f3a9368",
+      "3d9b7248b90c",
+      "657b2f3a9368",
+      "3d9b7248b90c",
+      "657b2f3a9368",
+      "3d9b7248b90c",
+      "657b2f3a9368",
+      "3d9b7248b90c",
+      "657b2f3a9368",
+      "3d9b7248b90c"
+    ],
+    "sow": [
+      "657b2f3a9368",
+      "cad080dfde9b",
+      "22e7b9e5aaa3",
+      "6701fa986b35",
+      "657b2f3a9368",
+      "cad080dfde9b",
+      "22e7b9e5aaa3",
+      "6701fa986b35",
+      "657b2f3a9368",
+      "cad080dfde9b",
+      "22e7b9e5aaa3",
+      "6701fa986b35",
+      "657b2f3a9368",
+      "cad080dfde9b",
+      "22e7b9e5aaa3",
+      "6701fa986b35",
+      "657b2f3a9368",
+      "cad080dfde9b",
+      "22e7b9e5aaa3",
+      "6701fa986b35",
+      "657b2f3a9368",
+      "cad080dfde9b",
+      "22e7b9e5aaa3",
+      "6701fa986b35",
+      "657b2f3a9368",
+      "cad080dfde9b",
+      "22e7b9e5aaa3",
+      "6701fa986b35",
+      "657b2f3a9368",
+      "cad080dfde9b",
+      "22e7b9e5aaa3",
+      "6701fa986b35",
+      "657b2f3a9368",
+      "cad080dfde9b",
+      "22e7b9e5aaa3",
+      "6701fa986b35",
+      "657b2f3a9368",
+      "cad080dfde9b",
+      "22e7b9e5aaa3",
+      "6701fa986b35",
+      "657b2f3a9368",
+      "cad080dfde9b",
+      "22e7b9e5aaa3",
+      "6701fa986b35",
+      "657b2f3a9368",
+      "cad080dfde9b",
+      "22e7b9e5aaa3",
+      "6701fa986b35",
+      "657b2f3a9368",
+      "cad080dfde9b",
+      "22e7b9e5aaa3",
+      "6701fa986b35"
+    ],
+    "propuesta": [
+      "657b2f3a9368",
+      "d67dcd7523b4",
+      "d8cb8c63d3d5",
+      "657b2f3a9368",
+      "d67dcd7523b4",
+      "d8cb8c63d3d5",
+      "657b2f3a9368",
+      "d67dcd7523b4",
+      "d8cb8c63d3d5",
+      "657b2f3a9368",
+      "d67dcd7523b4",
+      "d8cb8c63d3d5",
+      "657b2f3a9368",
+      "d67dcd7523b4",
+      "d8cb8c63d3d5",
+      "657b2f3a9368",
+      "d67dcd7523b4",
+      "d8cb8c63d3d5",
+      "657b2f3a9368",
+      "d67dcd7523b4",
+      "d8cb8c63d3d5",
+      "657b2f3a9368",
+      "d67dcd7523b4",
+      "d8cb8c63d3d5",
+      "657b2f3a9368",
+      "d67dcd7523b4",
+      "d8cb8c63d3d5",
+      "657b2f3a9368",
+      "d67dcd7523b4",
+      "d8cb8c63d3d5",
+      "657b2f3a9368",
+      "d67dcd7523b4",
+      "d8cb8c63d3d5",
+      "657b2f3a9368",
+      "d67dcd7523b4",
+      "d8cb8c63d3d5",
+      "657b2f3a9368",
+      "d67dcd7523b4",
+      "d8cb8c63d3d5"
+    ],
+    "bom": [
+      "657b2f3a9368",
+      "e544b973b16d",
+      "d8cb8c63d3d5",
+      "9667cd78b286",
+      "657b2f3a9368",
+      "e544b973b16d",
+      "d8cb8c63d3d5",
+      "9667cd78b286",
+      "657b2f3a9368",
+      "e544b973b16d",
+      "d8cb8c63d3d5",
+      "9667cd78b286",
+      "657b2f3a9368",
+      "e544b973b16d",
+      "d8cb8c63d3d5",
+      "9667cd78b286",
+      "657b2f3a9368",
+      "e544b973b16d",
+      "d8cb8c63d3d5",
+      "9667cd78b286",
+      "657b2f3a9368",
+      "e544b973b16d",
+      "d8cb8c63d3d5",
+      "9667cd78b286",
+      "657b2f3a9368",
+      "e544b973b16d",
+      "d8cb8c63d3d5",
+      "9667cd78b286",
+      "657b2f3a9368",
+      "e544b973b16d",
+      "d8cb8c63d3d5",
+      "9667cd78b286",
+      "657b2f3a9368",
+      "e544b973b16d",
+      "d8cb8c63d3d5",
+      "9667cd78b286",
+      "657b2f3a9368",
+      "e544b973b16d",
+      "d8cb8c63d3d5",
+      "9667cd78b286",
+      "657b2f3a9368",
+      "e544b973b16d",
+      "d8cb8c63d3d5",
+      "9667cd78b286",
+      "657b2f3a9368",
+      "e544b973b16d",
+      "d8cb8c63d3d5",
+      "9667cd78b286",
+      "657b2f3a9368",
+      "e544b973b16d",
+      "d8cb8c63d3d5",
+      "9667cd78b286"
+    ],
+    "clausulas": [
+      "cad080dfde9b",
+      "cad080dfde9b",
+      "cad080dfde9b",
+      "cad080dfde9b",
+      "cad080dfde9b",
+      "cad080dfde9b",
+      "cad080dfde9b",
+      "cad080dfde9b",
+      "cad080dfde9b",
+      "cad080dfde9b",
+      "cad080dfde9b",
+      "cad080dfde9b",
+      "cad080dfde9b"
+    ],
+    "legal": [
+      "cad080dfde9b",
+      "cad080dfde9b",
+      "cad080dfde9b",
+      "cad080dfde9b",
+      "cad080dfde9b",
+      "cad080dfde9b",
+      "cad080dfde9b",
+      "cad080dfde9b",
+      "cad080dfde9b",
+      "cad080dfde9b",
+      "cad080dfde9b",
+      "cad080dfde9b",
+      "cad080dfde9b"
+    ],
+    "iva": [
+      "d67dcd7523b4",
+      "d67dcd7523b4",
+      "d67dcd7523b4",
+      "d67dcd7523b4",
+      "d67dcd7523b4",
+      "d67dcd7523b4",
+      "d67dcd7523b4",
+      "d67dcd7523b4",
+      "d67dcd7523b4",
+      "d67dcd7523b4",
+      "d67dcd7523b4",
+      "d67dcd7523b4",
+      "d67dcd7523b4"
+    ],
+    "impuesto": [
+      "d67dcd7523b4",
+      "d67dcd7523b4",
+      "d67dcd7523b4",
+      "d67dcd7523b4",
+      "d67dcd7523b4",
+      "d67dcd7523b4",
+      "d67dcd7523b4",
+      "d67dcd7523b4",
+      "d67dcd7523b4",
+      "d67dcd7523b4",
+      "d67dcd7523b4",
+      "d67dcd7523b4",
+      "d67dcd7523b4"
+    ],
+    "guatemala": [
+      "d67dcd7523b4",
+      "d67dcd7523b4",
+      "d67dcd7523b4",
+      "d67dcd7523b4",
+      "d67dcd7523b4",
+      "d67dcd7523b4",
+      "d67dcd7523b4",
+      "d67dcd7523b4",
+      "d67dcd7523b4",
+      "d67dcd7523b4",
+      "d67dcd7523b4",
+      "d67dcd7523b4",
+      "d67dcd7523b4"
+    ],
+    "tipos": [
+      "22e7b9e5aaa3",
+      "c39647d437cf",
+      "22e7b9e5aaa3",
+      "c39647d437cf",
+      "22e7b9e5aaa3",
+      "c39647d437cf",
+      "22e7b9e5aaa3",
+      "c39647d437cf",
+      "22e7b9e5aaa3",
+      "c39647d437cf",
+      "22e7b9e5aaa3",
+      "c39647d437cf",
+      "22e7b9e5aaa3",
+      "c39647d437cf",
+      "22e7b9e5aaa3",
+      "c39647d437cf",
+      "22e7b9e5aaa3",
+      "c39647d437cf",
+      "22e7b9e5aaa3",
+      "c39647d437cf",
+      "22e7b9e5aaa3",
+      "c39647d437cf",
+      "22e7b9e5aaa3",
+      "c39647d437cf",
+      "22e7b9e5aaa3",
+      "c39647d437cf"
+    ],
+    "estructura": [
+      "22e7b9e5aaa3",
+      "22e7b9e5aaa3",
+      "22e7b9e5aaa3",
+      "22e7b9e5aaa3",
+      "22e7b9e5aaa3",
+      "22e7b9e5aaa3",
+      "22e7b9e5aaa3",
+      "22e7b9e5aaa3",
+      "22e7b9e5aaa3",
+      "22e7b9e5aaa3",
+      "22e7b9e5aaa3",
+      "22e7b9e5aaa3",
+      "22e7b9e5aaa3"
+    ],
+    "quote": [
+      "c39647d437cf",
+      "c39647d437cf",
+      "c39647d437cf",
+      "c39647d437cf",
+      "c39647d437cf",
+      "c39647d437cf",
+      "c39647d437cf",
+      "c39647d437cf",
+      "c39647d437cf",
+      "c39647d437cf",
+      "c39647d437cf",
+      "c39647d437cf",
+      "c39647d437cf"
+    ],
+    "sap": [
+      "c39647d437cf",
+      "c39647d437cf",
+      "c39647d437cf",
+      "c39647d437cf",
+      "c39647d437cf",
+      "c39647d437cf",
+      "c39647d437cf",
+      "c39647d437cf",
+      "c39647d437cf",
+      "c39647d437cf",
+      "c39647d437cf",
+      "c39647d437cf",
+      "c39647d437cf"
+    ],
+    "crm": [
+      "c39647d437cf",
+      "c39647d437cf",
+      "c39647d437cf",
+      "c39647d437cf",
+      "c39647d437cf",
+      "c39647d437cf",
+      "c39647d437cf",
+      "c39647d437cf",
+      "c39647d437cf",
+      "c39647d437cf",
+      "c39647d437cf",
+      "c39647d437cf",
+      "c39647d437cf"
+    ],
+    "clasificacion": [
+      "e544b973b16d",
+      "e544b973b16d",
+      "e544b973b16d",
+      "e544b973b16d",
+      "e544b973b16d",
+      "e544b973b16d",
+      "e544b973b16d",
+      "e544b973b16d",
+      "e544b973b16d",
+      "e544b973b16d",
+      "e544b973b16d",
+      "e544b973b16d",
+      "e544b973b16d"
+    ],
+    "producto": [
+      "e544b973b16d",
+      "e544b973b16d",
+      "e544b973b16d",
+      "e544b973b16d",
+      "e544b973b16d",
+      "e544b973b16d",
+      "e544b973b16d",
+      "e544b973b16d",
+      "e544b973b16d",
+      "e544b973b16d",
+      "e544b973b16d",
+      "e544b973b16d",
+      "e544b973b16d"
+    ],
+    "servicio": [
+      "e544b973b16d",
+      "e544b973b16d",
+      "e544b973b16d",
+      "e544b973b16d",
+      "e544b973b16d",
+      "e544b973b16d",
+      "e544b973b16d",
+      "e544b973b16d",
+      "e544b973b16d",
+      "e544b973b16d",
+      "e544b973b16d",
+      "e544b973b16d",
+      "e544b973b16d"
+    ],
+    "economica": [
+      "d8cb8c63d3d5",
+      "d8cb8c63d3d5",
+      "d8cb8c63d3d5",
+      "d8cb8c63d3d5",
+      "d8cb8c63d3d5",
+      "d8cb8c63d3d5",
+      "d8cb8c63d3d5",
+      "d8cb8c63d3d5",
+      "d8cb8c63d3d5",
+      "d8cb8c63d3d5",
+      "d8cb8c63d3d5",
+      "d8cb8c63d3d5",
+      "d8cb8c63d3d5"
+    ],
+    "pricing": [
+      "d8cb8c63d3d5",
+      "d8cb8c63d3d5",
+      "d8cb8c63d3d5",
+      "d8cb8c63d3d5",
+      "d8cb8c63d3d5",
+      "d8cb8c63d3d5",
+      "d8cb8c63d3d5",
+      "d8cb8c63d3d5",
+      "d8cb8c63d3d5",
+      "d8cb8c63d3d5",
+      "d8cb8c63d3d5",
+      "d8cb8c63d3d5",
+      "d8cb8c63d3d5"
+    ],
+    "mep": [
+      "d8cb8c63d3d5",
+      "d8cb8c63d3d5",
+      "d8cb8c63d3d5",
+      "d8cb8c63d3d5",
+      "d8cb8c63d3d5",
+      "d8cb8c63d3d5",
+      "d8cb8c63d3d5",
+      "d8cb8c63d3d5",
+      "d8cb8c63d3d5",
+      "d8cb8c63d3d5",
+      "d8cb8c63d3d5",
+      "d8cb8c63d3d5",
+      "d8cb8c63d3d5"
+    ],
+    "pagos": [
+      "d8cb8c63d3d5",
+      "d8cb8c63d3d5",
+      "d8cb8c63d3d5",
+      "d8cb8c63d3d5",
+      "d8cb8c63d3d5",
+      "d8cb8c63d3d5",
+      "d8cb8c63d3d5",
+      "d8cb8c63d3d5",
+      "d8cb8c63d3d5",
+      "d8cb8c63d3d5",
+      "d8cb8c63d3d5",
+      "d8cb8c63d3d5",
+      "d8cb8c63d3d5"
+    ],
+    "fusion": [
+      "6701fa986b35",
+      "6701fa986b35",
+      "6701fa986b35",
+      "6701fa986b35",
+      "6701fa986b35",
+      "6701fa986b35",
+      "6701fa986b35",
+      "6701fa986b35",
+      "6701fa986b35",
+      "6701fa986b35",
+      "6701fa986b35",
+      "6701fa986b35",
+      "6701fa986b35"
+    ],
+    "merge": [
+      "6701fa986b35",
+      "6701fa986b35",
+      "6701fa986b35",
+      "6701fa986b35",
+      "6701fa986b35",
+      "6701fa986b35",
+      "6701fa986b35",
+      "6701fa986b35",
+      "6701fa986b35",
+      "6701fa986b35",
+      "6701fa986b35",
+      "6701fa986b35",
+      "6701fa986b35"
+    ],
+    "practicas": [
+      "6701fa986b35",
+      "6701fa986b35",
+      "6701fa986b35",
+      "6701fa986b35",
+      "6701fa986b35",
+      "6701fa986b35",
+      "6701fa986b35",
+      "6701fa986b35",
+      "6701fa986b35",
+      "6701fa986b35",
+      "6701fa986b35",
+      "6701fa986b35",
+      "6701fa986b35"
+    ],
+    "service_desk": [
+      "3d9b7248b90c",
+      "3d9b7248b90c",
+      "3d9b7248b90c",
+      "3d9b7248b90c",
+      "3d9b7248b90c",
+      "3d9b7248b90c",
+      "3d9b7248b90c",
+      "3d9b7248b90c",
+      "3d9b7248b90c",
+      "3d9b7248b90c",
+      "3d9b7248b90c",
+      "3d9b7248b90c",
+      "3d9b7248b90c"
+    ],
+    "sla": [
+      "3d9b7248b90c",
+      "3d9b7248b90c",
+      "3d9b7248b90c",
+      "3d9b7248b90c",
+      "3d9b7248b90c",
+      "3d9b7248b90c",
+      "3d9b7248b90c",
+      "3d9b7248b90c",
+      "3d9b7248b90c",
+      "3d9b7248b90c",
+      "3d9b7248b90c",
+      "3d9b7248b90c",
+      "3d9b7248b90c"
+    ],
+    "excel": [
+      "9667cd78b286",
+      "9667cd78b286",
+      "9667cd78b286",
+      "9667cd78b286",
+      "9667cd78b286",
+      "9667cd78b286",
+      "9667cd78b286",
+      "9667cd78b286",
+      "9667cd78b286",
+      "9667cd78b286",
+      "9667cd78b286",
+      "9667cd78b286",
+      "9667cd78b286"
+    ],
+    "formato": [
+      "9667cd78b286",
+      "9667cd78b286",
+      "9667cd78b286",
+      "9667cd78b286",
+      "9667cd78b286",
+      "9667cd78b286",
+      "9667cd78b286",
+      "9667cd78b286",
+      "9667cd78b286",
+      "9667cd78b286",
+      "9667cd78b286",
+      "9667cd78b286",
+      "9667cd78b286"
+    ],
+    "auto_learned": [
+      "8d6a068c9bff",
+      "8d6a068c9bff",
+      "ad0cb1391f4c",
+      "ad0cb1391f4c",
+      "fb3e436dbe1d",
+      "fb3e436dbe1d",
+      "0657baf1ec2b",
+      "0657baf1ec2b",
+      "aa2c648eef4d",
+      "aa2c648eef4d",
+      "01d0afee2b8b",
+      "01d0afee2b8b",
+      "073fcd6a220a",
+      "073fcd6a220a",
+      "82676f2d7e43",
+      "82676f2d7e43",
+      "dd0a3ccf97f3",
+      "223c92d6c724",
+      "223c92d6c724",
+      "5e32a4eee6e7",
+      "5e32a4eee6e7",
+      "1580c6e8442a",
+      "1580c6e8442a",
+      "769fcafd080f",
+      "769fcafd080f",
+      "5a1866139c32",
+      "5a1866139c32",
+      "6c0026053987",
+      "dc07de6ab87b",
+      "dc07de6ab87b",
+      "6a6629e38c0a",
+      "6a6629e38c0a",
+      "383eb508e8d3",
+      "82e17d15ec09",
+      "82e17d15ec09",
+      "d2abf5d776a5",
+      "d2abf5d776a5",
+      "70ad5ebb5345",
+      "70ad5ebb5345",
+      "809da26ae5b0",
+      "809da26ae5b0",
+      "cf535a7d1990",
+      "cf535a7d1990",
+      "340716df1492",
+      "d26401036aab",
+      "d26401036aab",
+      "df5685fb5ba0",
+      "df5685fb5ba0",
+      "fb28b4c4b153",
+      "fb28b4c4b153",
+      "9cb350c7f5b0",
+      "9cb350c7f5b0",
+      "c8bad74e3997",
+      "c8bad74e3997",
+      "99694acd66f5",
+      "99694acd66f5",
+      "cee0b6bedc88",
+      "4d88757bbb23",
+      "023066dbfa05",
+      "0fdea27604e9",
+      "4583b4ef2c3a",
+      "4583b4ef2c3a",
+      "f8643014ebe9",
+      "8c278fb9d7df",
+      "8c278fb9d7df",
+      "6d389ae3e0a8",
+      "6d389ae3e0a8",
+      "533a8ec333a4",
+      "533a8ec333a4",
+      "b51ac6752349",
+      "b51ac6752349",
+      "ed517185c866",
+      "ed517185c866",
+      "c32776fb1a87",
+      "c32776fb1a87",
+      "0f8edd8bbfd5",
+      "0f8edd8bbfd5",
+      "cdafef64b0ab",
+      "769f3bc1cb0d",
+      "86744255343a",
+      "86744255343a",
+      "68b2ca530d64",
+      "68b2ca530d64",
+      "9f0c062c1788",
+      "702486258e4a",
+      "702486258e4a",
+      "66be81ce8fea",
+      "66be81ce8fea",
+      "595385bb1f38",
+      "0ca640bc1a36",
+      "28e4522f1f50",
+      "72677095f057",
+      "72677095f057",
+      "6e7322f6a0ab",
+      "6e7322f6a0ab",
+      "cd106f8ad160",
+      "cd106f8ad160",
+      "cd106f8ad160",
+      "cd106f8ad160",
+      "97030a913e0c",
+      "97030a913e0c",
+      "72fe64dc07e9",
+      "72fe64dc07e9",
+      "d8083f79b477",
+      "d8083f79b477",
+      "d8083f79b477",
+      "d8083f79b477",
+      "56b3801a051a",
+      "56b3801a051a",
+      "56b3801a051a",
+      "56b3801a051a",
+      "6f26210dfeee",
+      "6f26210dfeee",
+      "6f26210dfeee",
+      "6f26210dfeee",
+      "067767169623",
+      "067767169623",
+      "067767169623",
+      "067767169623",
+      "0982e960007a",
+      "0982e960007a",
+      "0982e960007a",
+      "0982e960007a",
+      "e3e940683ded",
+      "e3e940683ded",
+      "e3e940683ded",
+      "e3e940683ded"
+    ],
+    "business_rules": [
+      "8d6a068c9bff",
+      "ad0cb1391f4c",
+      "fb3e436dbe1d",
+      "0657baf1ec2b",
+      "aa2c648eef4d",
+      "01d0afee2b8b",
+      "073fcd6a220a",
+      "82676f2d7e43",
+      "dd0a3ccf97f3",
+      "223c92d6c724",
+      "5e32a4eee6e7",
+      "1580c6e8442a",
+      "769fcafd080f",
+      "5a1866139c32",
+      "6c0026053987",
+      "dc07de6ab87b",
+      "6a6629e38c0a",
+      "383eb508e8d3",
+      "82e17d15ec09",
+      "d2abf5d776a5",
+      "70ad5ebb5345",
+      "809da26ae5b0",
+      "cf535a7d1990",
+      "340716df1492",
+      "d26401036aab",
+      "df5685fb5ba0",
+      "fb28b4c4b153",
+      "9cb350c7f5b0",
+      "c8bad74e3997",
+      "99694acd66f5",
+      "cee0b6bedc88",
+      "4d88757bbb23",
+      "023066dbfa05",
+      "0fdea27604e9",
+      "4583b4ef2c3a",
+      "f8643014ebe9",
+      "8c278fb9d7df",
+      "6d389ae3e0a8",
+      "533a8ec333a4",
+      "b51ac6752349",
+      "ed517185c866",
+      "c32776fb1a87",
+      "0f8edd8bbfd5",
+      "cdafef64b0ab",
+      "769f3bc1cb0d",
+      "86744255343a",
+      "68b2ca530d64",
+      "9f0c062c1788",
+      "702486258e4a",
+      "66be81ce8fea",
+      "595385bb1f38",
+      "0ca640bc1a36",
+      "28e4522f1f50",
+      "72677095f057",
+      "6e7322f6a0ab",
+      "cd106f8ad160",
+      "cd106f8ad160",
+      "97030a913e0c",
+      "72fe64dc07e9",
+      "d8083f79b477",
+      "d8083f79b477",
+      "56b3801a051a",
+      "56b3801a051a",
+      "6f26210dfeee",
+      "6f26210dfeee",
+      "067767169623",
+      "067767169623",
+      "0982e960007a",
+      "0982e960007a",
+      "e3e940683ded",
+      "e3e940683ded",
+      "bf6df445ab88"
+    ],
+    "sow_economic": [
+      "dd0a3ccf97f3",
+      "383eb508e8d3"
+    ],
+    "sow_generate": [
+      "6c0026053987"
+    ],
+    "sap_login_navigate_opportunity": [
+      "340716df1492",
+      "023066dbfa05"
+    ],
+    "sow_review": [
+      "cee0b6bedc88",
+      "9f0c062c1788"
+    ],
+    "sow_fusion": [
+      "4d88757bbb23"
+    ],
+    "sap_fill_items_oportunidad": [
+      "0fdea27604e9"
+    ],
+    "monday_update_pipeline": [
+      "f8643014ebe9",
+      "28e4522f1f50"
+    ],
+    "bom_to_proposal": [
+      "cdafef64b0ab"
+    ],
+    "bom_validate": [
+      "769f3bc1cb0d"
+    ],
+    "sap_fill_items": [
+      "595385bb1f38"
+    ],
+    "sap_quote_contrato": [
+      "0ca640bc1a36"
+    ],
+    "backup": [
+      "982b93a86b87"
+    ],
+    "rollback": [
+      "982b93a86b87"
+    ],
+    "regla_oro": [
+      "982b93a86b87"
+    ],
+    "dashboard": [
+      "982b93a86b87"
+    ],
+    "auto-learned": [
+      "bf6df445ab88"
+    ],
+    "iteration": [
+      "bf6df445ab88"
+    ],
+    "auto": [
+      "bf6df445ab88"
+    ]
+  },
+  "stats": {
+    "total_entries": 236,
+    "total_lookups": 718,
+    "total_hits": 530
+  }
+}

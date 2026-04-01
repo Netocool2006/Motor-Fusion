@@ -1,0 +1,188 @@
+{
+  "screen": "popup_2",
+  "timestamp": "2026-03-27T19:36:46",
+  "mode": "SCAN",
+  "tab_title": "Follow-Up",
+  "tab_url": "https://wdp-sap.gbm.net:8105/sap(====)/bc/bsp/sap/bsp_wd_base/popup_buffered_frame_cached.htm?sap-client=500&sap-languag",
+  "fields": [
+    {
+      "stable_suffix": "Table_omni_input_cel",
+      "selector": "[id$=\"Table_omni_input_cel\"]",
+      "label": "",
+      "value": "",
+      "type": "input",
+      "editable": true,
+      "visible": true,
+      "id_sample": "C32_W98_V99_Table_omni_input_cel"
+    }
+  ],
+  "spans": [
+    {
+      "stable_suffix": "Table__header_bee__1",
+      "label": "",
+      "value": "Category Description"
+    },
+    {
+      "stable_suffix": "Table__header_bee__2",
+      "label": "",
+      "value": "Transaction Type Description"
+    },
+    {
+      "stable_suffix": "proctype_table[16].subob_cat_descr_20",
+      "label": "",
+      "value": "Sales Quotation"
+    },
+    {
+      "stable_suffix": "proctype_table[16].proc_type_descr_20",
+      "label": "Sales Quotation",
+      "value": "Quote Proyecto"
+    },
+    {
+      "stable_suffix": "proctype_table[17].subob_cat_descr_20",
+      "label": "",
+      "value": "Service Contract"
+    },
+    {
+      "stable_suffix": "proctype_table[17].proc_type_descr_20",
+      "label": "Service Contract",
+      "value": "Cont Quot Man Horas"
+    },
+    {
+      "stable_suffix": "proctype_table[18].subob_cat_descr_20",
+      "label": "",
+      "value": "Service Contract"
+    },
+    {
+      "stable_suffix": "proctype_table[18].proc_type_descr_20",
+      "label": "Service Contract",
+      "value": "Cont Quot Manual"
+    },
+    {
+      "stable_suffix": "proctype_table[19].subob_cat_descr_20",
+      "label": "",
+      "value": "Service Contract"
+    },
+    {
+      "stable_suffix": "proctype_table[19].proc_type_descr_20",
+      "label": "Service Contract",
+      "value": "Cont Quot V/Q Annual"
+    },
+    {
+      "stable_suffix": "proctype_table[20].subob_cat_descr_20",
+      "label": "",
+      "value": "Service Contract"
+    },
+    {
+      "stable_suffix": "proctype_table[20].proc_type_descr_20",
+      "label": "Service Contract",
+      "value": "Cont Quot V/Q Mon"
+    },
+    {
+      "stable_suffix": "proctype_table[21].subob_cat_descr_20",
+      "label": "",
+      "value": "Service Contract"
+    },
+    {
+      "stable_suffix": "proctype_table[21].proc_type_descr_20",
+      "label": "Service Contract",
+      "value": "Contr Quot Autom"
+    },
+    {
+      "stable_suffix": "proctype_table[22].subob_cat_descr_20",
+      "label": "",
+      "value": "Service Contract"
+    },
+    {
+      "stable_suffix": "proctype_table[22].proc_type_descr_20",
+      "label": "Service Contract",
+      "value": "Contr Quot Cons Auto"
+    },
+    {
+      "stable_suffix": "proctype_table[23].subob_cat_descr_20",
+      "label": "",
+      "value": "Service Contract"
+    },
+    {
+      "stable_suffix": "proctype_table[23].proc_type_descr_20",
+      "label": "Service Contract",
+      "value": "Contr Quot Cons Manu"
+    },
+    {
+      "stable_suffix": "proctype_table[24].subob_cat_descr_20",
+      "label": "",
+      "value": "Service Process"
+    },
+    {
+      "stable_suffix": "proctype_table[24].proc_type_descr_20",
+      "label": "Service Process",
+      "value": "Contract Pack Quot"
+    },
+    {
+      "stable_suffix": "proctype_table[25].subob_cat_descr_20",
+      "label": "",
+      "value": "Service Process"
+    },
+    {
+      "stable_suffix": "proctype_table[25].proc_type_descr_20",
+      "label": "Service Process",
+      "value": "Quotation Standard"
+    },
+    {
+      "stable_suffix": "proctype_table[26].subob_cat_descr_20",
+      "label": "",
+      "value": "Task"
+    },
+    {
+      "stable_suffix": "proctype_table[26].proc_type_descr_20",
+      "label": "Task",
+      "value": "Best Pr. Task"
+    },
+    {
+      "stable_suffix": "proctype_table[27].subob_cat_descr_20",
+      "label": "",
+      "value": "Task"
+    },
+    {
+      "stable_suffix": "proctype_table[27].proc_type_descr_20",
+      "label": "Task",
+      "value": "Internal Task"
+    },
+    {
+      "stable_suffix": "Table_pag_bck",
+      "label": "",
+      "value": "Back"
+    },
+    {
+      "stable_suffix": "Table_pag_pg-1",
+      "label": "",
+      "value": "1"
+    }
+  ],
+  "buttons": [
+    {
+      "text": "Cancel",
+      "stable_suffix": "thCancelSIP",
+      "id_sample": "thCancelSIP"
+    },
+    {
+      "text": "Back",
+      "stable_suffix": "Table_pag_bck",
+      "id_sample": "C32_W98_V99_Table_pag_bck"
+    },
+    {
+      "text": "1",
+      "stable_suffix": "Table_pag_pg-1",
+      "id_sample": "C32_W98_V99_Table_pag_pg-1"
+    }
+  ],
+  "tables": [
+    {
+      "title": "",
+      "columns": [
+        "Category Description",
+        "Transaction Type Description"
+      ]
+    }
+  ],
+  "dropdowns": []
+}

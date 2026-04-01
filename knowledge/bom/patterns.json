@@ -1,0 +1,848 @@
+{
+  "domain": "bom",
+  "description": "BoMs: validación math, part numbers, clasificación, fusión, pricing, tipo de cambio",
+  "entries": {
+    "79ca047a3d18": {
+      "id": "79ca047a3d18",
+      "type": "pattern",
+      "key": "validacion_checklist",
+      "solution": {
+        "strategy": "bom_validate_systematic",
+        "notes": "Checklist validación BoM: 1) Matemática cuadre (subtotales, totales, IVA). 2) Part numbers existan y sean correctos. 3) Clasificación correcta (servicio/licencia/software/hardware/híbrido). 4) Tipo de cambio aplicado correctamente. 5) Periodicidad coherente (mensual, anual, one-time). 6) Cantidades lógicas. 7) Descuentos dentro de rango permitido."
+      },
+      "tags": [
+        "bom",
+        "validacion",
+        "checklist",
+        "math"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-22T19:43:00.346384+00:00",
+      "updated_at": "2026-03-22T19:43:00.346384+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-31T22:41:45.827495+00:00",
+        "access_count": 39
+      }
+    },
+    "08b8804efeac": {
+      "id": "08b8804efeac",
+      "type": "pattern",
+      "key": "fusion_multiples",
+      "solution": {
+        "strategy": "bom_consolidation",
+        "notes": "Fusión BoMs: 1) Identificar estructura de cada BoM (hojas, columnas). 2) Normalizar formato (mismo estilo, mismas columnas). 3) Concatenar items por categoría. 4) Recalcular subtotales y totales. 5) Verificar no duplicar items. 6) Tipo de cambio unificado."
+      },
+      "tags": [
+        "bom",
+        "fusion",
+        "consolidar",
+        "excel"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-22T19:43:00.399347+00:00",
+      "updated_at": "2026-03-22T19:43:00.399347+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-31T22:41:45.827495+00:00",
+        "access_count": 42
+      }
+    },
+    "2c3f568db85d": {
+      "id": "2c3f568db85d",
+      "type": "pattern",
+      "key": "bom_to_propuesta",
+      "solution": {
+        "strategy": "bom_economic_transform",
+        "notes": "BoM → Propuesta: NO es copy-paste. Pasos: 1) Analizar si precio BoM es competitivo o hay que ajustar. 2) Decidir MEP vs precio lista (consultar con AM). 3) Reestructurar pagos según necesidad cliente. 4) Aplicar IVA 12%. 5) Verificar que total propuesta sea coherente con BoM."
+      },
+      "tags": [
+        "bom",
+        "propuesta",
+        "economica",
+        "pricing"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-22T19:43:00.454693+00:00",
+      "updated_at": "2026-03-22T19:43:00.454693+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-31T22:41:45.827495+00:00",
+        "access_count": 57
+      }
+    },
+    "3f61aaf13b92": {
+      "id": "3f61aaf13b92",
+      "type": "pattern",
+      "key": "iter_20260317_100356_i33",
+      "solution": {
+        "strategy": "auto_iteration_capture",
+        "notes": "Iteracion 33:\n  Ejecuto: curl -s -m 30 http://localhost:5000/api/chat -H \"Content-Type: application/json\" -d '{\"message\":\"ve al bom de parallel X\n  ToolSearch\n  Browser: tabs_context_mcp\n  ToolSearch\n  Browser: navigate",
+        "auto_learned": true,
+        "source": "post_tool_hook",
+        "files_touched": [],
+        "activity": {
+          "reads": 0,
+          "edits": 0,
+          "writes": 0,
+          "commands": 1,
+          "searches": 0,
+          "browser": 2,
+          "total": 5
+        },
+        "iteration": 33
+      },
+      "tags": [
+        "auto-learned",
+        "iteration",
+        "bom"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-17T16:03:56.991645+00:00",
+      "updated_at": "2026-03-17T16:03:56.991645+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-31T22:41:45.827495+00:00",
+        "access_count": 104
+      }
+    },
+    "342cd718ce44": {
+      "id": "342cd718ce44",
+      "type": "pattern",
+      "key": "iter_20260317_110901_i76",
+      "solution": {
+        "strategy": "auto_iteration_capture",
+        "notes": "Iteracion 76:\n  Creo Validador-BoM-Matematico.txt",
+        "auto_learned": true,
+        "source": "post_tool_hook",
+        "files_touched": [
+          "C:/Chance1/Prompts IA/Validador-BoM-Matematico.txt"
+        ],
+        "activity": {
+          "reads": 0,
+          "edits": 0,
+          "writes": 1,
+          "commands": 0,
+          "searches": 0,
+          "browser": 0,
+          "total": 1
+        },
+        "iteration": 76
+      },
+      "tags": [
+        "auto-learned",
+        "iteration",
+        "bom"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-17T17:09:01.704130+00:00",
+      "updated_at": "2026-03-17T17:09:01.704130+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-31T22:41:45.827495+00:00",
+        "access_count": 85
+      }
+    },
+    "ef3b037ed1f9": {
+      "id": "ef3b037ed1f9",
+      "type": "pattern",
+      "key": "iter_20260317_174709_i86",
+      "solution": {
+        "strategy": "auto_iteration_capture",
+        "notes": "Iteracion 86:\n  Ejecuto: cd \"C:/Chance1/Asistente IA\" && python -c \"\nimport requests as req, time\n\nqueries = [\n    ('Q07', 'compara el bom de ban",
+        "auto_learned": true,
+        "source": "post_tool_hook",
+        "files_touched": [],
+        "activity": {
+          "reads": 0,
+          "edits": 0,
+          "writes": 0,
+          "commands": 1,
+          "searches": 0,
+          "browser": 0,
+          "total": 1
+        },
+        "iteration": 86
+      },
+      "tags": [
+        "auto-learned",
+        "iteration",
+        "bom"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-17T23:47:09.524447+00:00",
+      "updated_at": "2026-03-17T23:47:09.524447+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-31T22:41:45.827495+00:00",
+        "access_count": 93
+      }
+    },
+    "ac0732b257c5": {
+      "id": "ac0732b257c5",
+      "type": "pattern",
+      "key": "iter_20260317_212705_i13",
+      "solution": {
+        "strategy": "auto_iteration_capture",
+        "notes": "Iteracion 13:\n  Ejecuto: curl -s -m 10 http://localhost:5000/api/chat -H \"Content-Type: application/json\" -d '{\"message\":\"que es un BOM\"}' | pyth",
+        "auto_learned": true,
+        "source": "post_tool_hook",
+        "files_touched": [],
+        "activity": {
+          "reads": 0,
+          "edits": 0,
+          "writes": 0,
+          "commands": 1,
+          "searches": 0,
+          "browser": 0,
+          "total": 1
+        },
+        "iteration": 13
+      },
+      "tags": [
+        "auto-learned",
+        "iteration",
+        "bom"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-18T03:27:05.874424+00:00",
+      "updated_at": "2026-03-18T03:27:05.874424+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-31T22:41:45.827495+00:00",
+        "access_count": 97
+      }
+    },
+    "94ebcaeb75a7": {
+      "id": "94ebcaeb75a7",
+      "type": "pattern",
+      "key": "iter_20260317_213454_i21",
+      "solution": {
+        "strategy": "auto_iteration_capture",
+        "notes": "Iteracion 21:\n  Ejecuto: sleep 6 && echo \"=== Test: que es un BOM ===\" && curl -s -m 15 http://localhost:5000/api/chat -H \"Content-Type: applicat\n  Ejecuto: echo \"=== service desk ===\" && curl -s -m 10 http://localhost:5000/api/chat -H \"Content-Type: application/json\" -d '{\"me",
+        "auto_learned": true,
+        "source": "post_tool_hook",
+        "files_touched": [],
+        "activity": {
+          "reads": 0,
+          "edits": 0,
+          "writes": 0,
+          "commands": 2,
+          "searches": 0,
+          "browser": 0,
+          "total": 2
+        },
+        "iteration": 21
+      },
+      "tags": [
+        "auto-learned",
+        "iteration",
+        "bom"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-18T03:34:54.940308+00:00",
+      "updated_at": "2026-03-18T03:34:54.940308+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-31T22:41:45.827495+00:00",
+        "access_count": 110
+      }
+    },
+    "27bb92b9d114": {
+      "id": "27bb92b9d114",
+      "type": "pattern",
+      "key": "iter_20260322_134649_i1",
+      "solution": {
+        "strategy": "differential_capture",
+        "notes": "Iteracion 1:\n[DIFERENCIAL] Complemento a KB existente.\n  Ejecuto: tail -1 ~/.adaptive_cli/last_learning.txt 2>/dev/null || echo \"(sin aprendizaje reciente)\"\n  Ejecuto: python \"C:\\Chance1\\Asistente IA\\knowledge_base.py\" export --query \"DB2ENT clasificacion bom licencia software\" 2>/dev/nu\n  Ejecuto: python \"C:\\Chance1\\Asistente IA\\knowledge_base.py\" export catalog --query \"DB2ENT IBM DB2\" 2>/dev/null | head -40",
+        "auto_learned": true,
+        "source": "post_tool_hook",
+        "msg_type": "instruction",
+        "had_kb_match": true,
+        "files_touched": [],
+        "activity": {
+          "reads": 0,
+          "edits": 0,
+          "writes": 0,
+          "commands": 3,
+          "searches": 0,
+          "browser": 0,
+          "total": 3
+        },
+        "iteration": 1
+      },
+      "tags": [
+        "auto-learned",
+        "iteration",
+        "bom",
+        "differential"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-22T19:46:49.049076+00:00",
+      "updated_at": "2026-03-22T19:46:49.049076+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-31T22:41:45.827495+00:00",
+        "access_count": 63
+      }
+    },
+    "84330e69ac98": {
+      "id": "84330e69ac98",
+      "type": "pattern",
+      "key": "iter_20260329_135203_i39",
+      "solution": {
+        "strategy": "auto_iteration_capture",
+        "notes": "Iteracion 39:\n  AskUserQuestion",
+        "auto_learned": true,
+        "source": "post_tool_hook",
+        "msg_type": "instruction",
+        "had_kb_match": true,
+        "files_touched": [],
+        "activity": {
+          "reads": 0,
+          "edits": 0,
+          "writes": 0,
+          "commands": 0,
+          "searches": 0,
+          "browser": 0,
+          "total": 1
+        },
+        "iteration": 39
+      },
+      "tags": [
+        "auto-learned",
+        "iteration",
+        "bom",
+        "auto"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-29T19:52:03.318837+00:00",
+      "updated_at": "2026-03-29T19:52:03.318837+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-31T22:41:45.827495+00:00",
+        "access_count": 10
+      }
+    }
+  },
+  "tag_index": {
+    "bom": [
+      "79ca047a3d18",
+      "08b8804efeac",
+      "2c3f568db85d",
+      "725c7abc2aec",
+      "34ef35d82f12",
+      "64efd594140c",
+      "ccad07bf7ce3",
+      "9ebc8667f6ae",
+      "cb7cb92c3aa9",
+      "4408067f945e",
+      "4fdbb443432f",
+      "a554478ba4c3",
+      "4955db2a5465",
+      "dd03de4df428",
+      "1697b82c1995",
+      "3f61aaf13b92",
+      "342cd718ce44",
+      "ef3b037ed1f9",
+      "ac0732b257c5",
+      "94ebcaeb75a7",
+      "79ca047a3d18",
+      "08b8804efeac",
+      "2c3f568db85d",
+      "79ca047a3d18",
+      "08b8804efeac",
+      "2c3f568db85d",
+      "79ca047a3d18",
+      "08b8804efeac",
+      "2c3f568db85d",
+      "79ca047a3d18",
+      "08b8804efeac",
+      "2c3f568db85d",
+      "79ca047a3d18",
+      "08b8804efeac",
+      "2c3f568db85d",
+      "79ca047a3d18",
+      "08b8804efeac",
+      "2c3f568db85d",
+      "79ca047a3d18",
+      "08b8804efeac",
+      "2c3f568db85d",
+      "79ca047a3d18",
+      "08b8804efeac",
+      "2c3f568db85d",
+      "79ca047a3d18",
+      "08b8804efeac",
+      "2c3f568db85d",
+      "79ca047a3d18",
+      "08b8804efeac",
+      "2c3f568db85d",
+      "79ca047a3d18",
+      "08b8804efeac",
+      "2c3f568db85d",
+      "79ca047a3d18",
+      "08b8804efeac",
+      "2c3f568db85d",
+      "79ca047a3d18",
+      "08b8804efeac",
+      "2c3f568db85d",
+      "27bb92b9d114",
+      "27bb92b9d114",
+      "84330e69ac98"
+    ],
+    "validacion": [
+      "79ca047a3d18",
+      "79ca047a3d18",
+      "79ca047a3d18",
+      "79ca047a3d18",
+      "79ca047a3d18",
+      "79ca047a3d18",
+      "79ca047a3d18",
+      "79ca047a3d18",
+      "79ca047a3d18",
+      "79ca047a3d18",
+      "79ca047a3d18",
+      "79ca047a3d18",
+      "79ca047a3d18",
+      "79ca047a3d18"
+    ],
+    "checklist": [
+      "79ca047a3d18",
+      "79ca047a3d18",
+      "79ca047a3d18",
+      "79ca047a3d18",
+      "79ca047a3d18",
+      "79ca047a3d18",
+      "79ca047a3d18",
+      "79ca047a3d18",
+      "79ca047a3d18",
+      "79ca047a3d18",
+      "79ca047a3d18",
+      "79ca047a3d18",
+      "79ca047a3d18",
+      "79ca047a3d18"
+    ],
+    "math": [
+      "79ca047a3d18",
+      "79ca047a3d18",
+      "79ca047a3d18",
+      "79ca047a3d18",
+      "79ca047a3d18",
+      "79ca047a3d18",
+      "79ca047a3d18",
+      "79ca047a3d18",
+      "79ca047a3d18",
+      "79ca047a3d18",
+      "79ca047a3d18",
+      "79ca047a3d18",
+      "79ca047a3d18",
+      "79ca047a3d18"
+    ],
+    "fusion": [
+      "08b8804efeac",
+      "08b8804efeac",
+      "08b8804efeac",
+      "08b8804efeac",
+      "08b8804efeac",
+      "08b8804efeac",
+      "08b8804efeac",
+      "08b8804efeac",
+      "08b8804efeac",
+      "08b8804efeac",
+      "08b8804efeac",
+      "08b8804efeac",
+      "08b8804efeac",
+      "08b8804efeac"
+    ],
+    "consolidar": [
+      "08b8804efeac",
+      "08b8804efeac",
+      "08b8804efeac",
+      "08b8804efeac",
+      "08b8804efeac",
+      "08b8804efeac",
+      "08b8804efeac",
+      "08b8804efeac",
+      "08b8804efeac",
+      "08b8804efeac",
+      "08b8804efeac",
+      "08b8804efeac",
+      "08b8804efeac",
+      "08b8804efeac"
+    ],
+    "excel": [
+      "08b8804efeac",
+      "08b8804efeac",
+      "08b8804efeac",
+      "08b8804efeac",
+      "08b8804efeac",
+      "08b8804efeac",
+      "08b8804efeac",
+      "08b8804efeac",
+      "08b8804efeac",
+      "08b8804efeac",
+      "08b8804efeac",
+      "08b8804efeac",
+      "08b8804efeac",
+      "08b8804efeac"
+    ],
+    "propuesta": [
+      "2c3f568db85d",
+      "0461b04a5309",
+      "2c3f568db85d",
+      "2c3f568db85d",
+      "2c3f568db85d",
+      "2c3f568db85d",
+      "2c3f568db85d",
+      "2c3f568db85d",
+      "2c3f568db85d",
+      "2c3f568db85d",
+      "2c3f568db85d",
+      "2c3f568db85d",
+      "2c3f568db85d",
+      "2c3f568db85d",
+      "2c3f568db85d"
+    ],
+    "economica": [
+      "2c3f568db85d",
+      "0461b04a5309",
+      "2c3f568db85d",
+      "2c3f568db85d",
+      "2c3f568db85d",
+      "2c3f568db85d",
+      "2c3f568db85d",
+      "2c3f568db85d",
+      "2c3f568db85d",
+      "2c3f568db85d",
+      "2c3f568db85d",
+      "2c3f568db85d",
+      "2c3f568db85d",
+      "2c3f568db85d",
+      "2c3f568db85d"
+    ],
+    "pricing": [
+      "2c3f568db85d",
+      "2c3f568db85d",
+      "2c3f568db85d",
+      "2c3f568db85d",
+      "2c3f568db85d",
+      "2c3f568db85d",
+      "2c3f568db85d",
+      "2c3f568db85d",
+      "2c3f568db85d",
+      "2c3f568db85d",
+      "2c3f568db85d",
+      "2c3f568db85d",
+      "2c3f568db85d",
+      "2c3f568db85d"
+    ],
+    "clientes": [
+      "a1abe5355389",
+      "ade4a4ced87e",
+      "725c7abc2aec",
+      "34ef35d82f12",
+      "64efd594140c",
+      "ccad07bf7ce3",
+      "9ebc8667f6ae",
+      "cb7cb92c3aa9",
+      "4408067f945e",
+      "4fdbb443432f",
+      "a554478ba4c3",
+      "4955db2a5465",
+      "f5194ed2e85c",
+      "dd03de4df428",
+      "1697b82c1995",
+      "339e81853ff2",
+      "938528f509a2",
+      "0461b04a5309"
+    ],
+    "banco_banrural": [
+      "a1abe5355389",
+      "ade4a4ced87e"
+    ],
+    "licencias_ace_banrur": [
+      "a1abe5355389",
+      "ade4a4ced87e"
+    ],
+    "quote": [
+      "a1abe5355389",
+      "ade4a4ced87e"
+    ],
+    "23.03.26": [
+      "a1abe5355389",
+      "ade4a4ced87e"
+    ],
+    "7330337809": [
+      "a1abe5355389"
+    ],
+    "7330337816": [
+      "ade4a4ced87e"
+    ],
+    "banco_bantrab": [
+      "725c7abc2aec",
+      "34ef35d82f12",
+      "64efd594140c",
+      "ccad07bf7ce3"
+    ],
+    "desarollo_del_portal": [
+      "725c7abc2aec"
+    ],
+    "bantrab": [
+      "725c7abc2aec",
+      "34ef35d82f12",
+      "ccad07bf7ce3"
+    ],
+    "desarrollo": [
+      "725c7abc2aec"
+    ],
+    "modernización_aplica": [
+      "34ef35d82f12"
+    ],
+    "modernización": [
+      "34ef35d82f12"
+    ],
+    "parallel_x": [
+      "64efd594140c"
+    ],
+    "copia": [
+      "64efd594140c"
+    ],
+    "de": [
+      "64efd594140c"
+    ],
+    "parallel_x_fase_2": [
+      "ccad07bf7ce3"
+    ],
+    "parallel": [
+      "ccad07bf7ce3"
+    ],
+    "banco_industrial": [
+      "9ebc8667f6ae",
+      "cb7cb92c3aa9"
+    ],
+    "2025": [
+      "9ebc8667f6ae"
+    ],
+    "bi": [
+      "9ebc8667f6ae",
+      "cb7cb92c3aa9"
+    ],
+    "monitoreo": [
+      "9ebc8667f6ae"
+    ],
+    "2026": [
+      "cb7cb92c3aa9"
+    ],
+    "rosa": [
+      "cb7cb92c3aa9"
+    ],
+    "banco_promerica": [
+      "4408067f945e",
+      "4fdbb443432f",
+      "a554478ba4c3",
+      "4955db2a5465",
+      "f5194ed2e85c",
+      "dd03de4df428",
+      "1697b82c1995",
+      "339e81853ff2",
+      "938528f509a2"
+    ],
+    "asesoria-horas-sopor": [
+      "4408067f945e",
+      "4fdbb443432f",
+      "a554478ba4c3",
+      "4955db2a5465",
+      "f5194ed2e85c",
+      "dd03de4df428",
+      "1697b82c1995",
+      "339e81853ff2",
+      "938528f509a2"
+    ],
+    "banco": [
+      "4408067f945e",
+      "4fdbb443432f",
+      "dd03de4df428",
+      "1697b82c1995"
+    ],
+    "promerica": [
+      "4408067f945e",
+      "4fdbb443432f",
+      "a554478ba4c3",
+      "dd03de4df428",
+      "1697b82c1995"
+    ],
+    "servicios": [
+      "a554478ba4c3"
+    ],
+    "soporte": [
+      "4955db2a5465"
+    ],
+    "y": [
+      "4955db2a5465"
+    ],
+    "guia3": [
+      "f5194ed2e85c",
+      "339e81853ff2",
+      "938528f509a2"
+    ],
+    "2": [
+      "339e81853ff2"
+    ],
+    "3": [
+      "938528f509a2"
+    ],
+    "seguros_assa": [
+      "0461b04a5309"
+    ],
+    "renovacion_ibm_bluew": [
+      "0461b04a5309"
+    ],
+    "deep_scan": [
+      "6d97ba109633",
+      "92fa91f4ec43",
+      "af5747f891e7",
+      "b70e701399a2",
+      "ec03e35805fc",
+      "1bcb0abc18b9",
+      "a7b08cdc9de9",
+      "177a7906e0dd",
+      "149143c87a2b"
+    ],
+    "_xxl_data": [
+      "6d97ba109633",
+      "92fa91f4ec43",
+      "af5747f891e7",
+      "b70e701399a2",
+      "ec03e35805fc",
+      "1bcb0abc18b9",
+      "a7b08cdc9de9",
+      "177a7906e0dd",
+      "149143c87a2b"
+    ],
+    "matplotlib": [
+      "6d97ba109633",
+      "92fa91f4ec43",
+      "af5747f891e7"
+    ],
+    "mpl-data": [
+      "6d97ba109633",
+      "92fa91f4ec43",
+      "af5747f891e7"
+    ],
+    "data": [
+      "6d97ba109633",
+      "149143c87a2b"
+    ],
+    "x": [
+      "6d97ba109633"
+    ],
+    "x2": [
+      "6d97ba109633"
+    ],
+    "msft": [
+      "92fa91f4ec43"
+    ],
+    "stocks": [
+      "af5747f891e7"
+    ],
+    "sklearn": [
+      "b70e701399a2",
+      "ec03e35805fc",
+      "1bcb0abc18b9",
+      "a7b08cdc9de9",
+      "177a7906e0dd",
+      "149143c87a2b"
+    ],
+    "datasets": [
+      "b70e701399a2",
+      "ec03e35805fc",
+      "1bcb0abc18b9",
+      "a7b08cdc9de9",
+      "177a7906e0dd",
+      "149143c87a2b"
+    ],
+    "boston": [
+      "b70e701399a2"
+    ],
+    "house": [
+      "b70e701399a2"
+    ],
+    "prices": [
+      "b70e701399a2"
+    ],
+    "breast": [
+      "ec03e35805fc"
+    ],
+    "cancer": [
+      "ec03e35805fc"
+    ],
+    "iris": [
+      "1bcb0abc18b9"
+    ],
+    "linnerud": [
+      "a7b08cdc9de9",
+      "177a7906e0dd"
+    ],
+    "exercise": [
+      "a7b08cdc9de9"
+    ],
+    "physiological": [
+      "177a7906e0dd"
+    ],
+    "wine": [
+      "149143c87a2b"
+    ],
+    "auto-learned": [
+      "3f61aaf13b92",
+      "342cd718ce44",
+      "ef3b037ed1f9",
+      "ac0732b257c5",
+      "94ebcaeb75a7",
+      "27bb92b9d114",
+      "27bb92b9d114",
+      "84330e69ac98"
+    ],
+    "iteration": [
+      "3f61aaf13b92",
+      "342cd718ce44",
+      "ef3b037ed1f9",
+      "ac0732b257c5",
+      "94ebcaeb75a7",
+      "27bb92b9d114",
+      "27bb92b9d114",
+      "84330e69ac98"
+    ],
+    "differential": [
+      "27bb92b9d114",
+      "27bb92b9d114"
+    ],
+    "auto": [
+      "84330e69ac98"
+    ]
+  },
+  "stats": {
+    "total_entries": 77,
+    "total_lookups": 1436,
+    "total_hits": 580
+  }
+}

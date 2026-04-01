@@ -1,0 +1,1382 @@
+{
+  "domain": "web_forms",
+  "description": "Dominio auto-creado: web_forms",
+  "entries": {
+    "a61f6f9c8c58": {
+      "id": "a61f6f9c8c58",
+      "type": "pattern",
+      "key": "playwright_setup",
+      "solution": {
+        "strategy": "playwright_python_setup",
+        "description": "Setup completo de Playwright para automatizacion de formularios web",
+        "code_snippet": "# Instalar\n# pip install playwright\n# python -m playwright install chromium\n\nfrom playwright.sync_api import sync_playwright\n\nwith sync_playwright() as p:\n    browser = p.chromium.launch(\n        headless=False,       # Ver el browser\n        slow_mo=100,          # Ralentizar para debug (ms entre acciones)\n    )\n    context = browser.new_context(\n        viewport={'width': 1920, 'height': 1080},\n        ignore_https_errors=True,\n        accept_downloads=True,\n        locale='es-GT',       # Locale para formatos de fecha/numero\n    )\n    page = context.new_page()\n    page.goto('https://example.com/form')\n    page.wait_for_load_state('networkidle')\n\n    # ... automatizar formulario ...\n\n    browser.close()",
+        "notes": "slow_mo=100 para debug visual. Quitarlo en produccion. locale afecta formatos de fecha.",
+        "confidence": "verified"
+      },
+      "tags": [
+        "web",
+        "playwright",
+        "setup",
+        "browser",
+        "configuracion"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-21T15:44:26.463734+00:00",
+      "updated_at": "2026-03-21T15:44:26.463734+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-30T21:30:06.670058+00:00",
+        "access_count": 94
+      }
+    },
+    "e0bda84dac10": {
+      "id": "e0bda84dac10",
+      "type": "pattern",
+      "key": "selenium_setup",
+      "solution": {
+        "strategy": "selenium_python_setup",
+        "description": "Setup completo de Selenium para automatizacion de formularios web",
+        "code_snippet": "# pip install selenium webdriver-manager\n\nfrom selenium import webdriver\nfrom selenium.webdriver.chrome.service import Service\nfrom selenium.webdriver.chrome.options import Options\nfrom selenium.webdriver.common.by import By\nfrom selenium.webdriver.common.keys import Keys\nfrom selenium.webdriver.support.ui import WebDriverWait\nfrom selenium.webdriver.support import expected_conditions as EC\nfrom webdriver_manager.chrome import ChromeDriverManager\n\nopts = Options()\nopts.add_argument('--window-size=1920,1080')\nopts.add_argument('--ignore-certificate-errors')\n# opts.add_argument('--headless')  # Sin ventana visible\n\nservice = Service(ChromeDriverManager().install())\ndriver = webdriver.Chrome(service=service, options=opts)\ndriver.implicitly_wait(10)\n\ndriver.get('https://example.com/form')",
+        "notes": "webdriver-manager descarga ChromeDriver automaticamente. implicitly_wait como fallback.",
+        "confidence": "verified"
+      },
+      "tags": [
+        "web",
+        "selenium",
+        "setup",
+        "browser",
+        "configuracion"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-21T15:44:26.526356+00:00",
+      "updated_at": "2026-03-21T15:44:26.526356+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-30T21:30:06.670058+00:00",
+        "access_count": 39
+      }
+    },
+    "e0bdf4ca99d5": {
+      "id": "e0bdf4ca99d5",
+      "type": "pattern",
+      "key": "fill_text_input",
+      "solution": {
+        "strategy": "fill_standard_input",
+        "description": "Llenar campo de texto standard HTML <input type='text'>",
+        "code_snippet": "# Playwright - Por ID\npage.locator('#username').fill('ntoledo')\n\n# Por name\npage.locator('[name=\"email\"]').fill('nestor@gbm.net')\n\n# Por placeholder\npage.locator('[placeholder=\"Enter your name\"]').fill('Nestor Toledo')\n\n# Por label (MEJOR para accesibilidad)\npage.get_by_label('First Name').fill('Nestor')\n\n# Por aria-label\npage.locator('[aria-label=\"Company Name\"]').fill('GBM Guatemala')\n\n# Limpiar antes de llenar\nfield = page.locator('#name')\nfield.clear()\nfield.fill('Nuevo valor')\n\n# Selenium equivalente\ndriver.find_element(By.ID, 'username').clear()\ndriver.find_element(By.ID, 'username').send_keys('ntoledo')\ndriver.find_element(By.NAME, 'email').send_keys('nestor@gbm.net')",
+        "notes": "page.get_by_label() es el metodo mas robusto en Playwright. Busca por <label> asociado.",
+        "confidence": "verified"
+      },
+      "tags": [
+        "web",
+        "input",
+        "texto",
+        "fill",
+        "campo",
+        "name",
+        "id"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-21T15:44:26.635529+00:00",
+      "updated_at": "2026-03-21T15:44:26.635529+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-31T20:16:06.560650+00:00",
+        "access_count": 97
+      }
+    },
+    "55f3e4c55954": {
+      "id": "55f3e4c55954",
+      "type": "pattern",
+      "key": "fill_password",
+      "solution": {
+        "strategy": "fill_password_field",
+        "description": "Llenar campo de password",
+        "code_snippet": "# Playwright\npage.locator('input[type=\"password\"]').fill('mypassword123')\n# O por label\npage.get_by_label('Password').fill('mypassword123')\n\n# Selenium\ndriver.find_element(By.CSS_SELECTOR, 'input[type=\"password\"]').send_keys('mypassword123')\n\n# Si .fill() no funciona (campos custom):\npage.locator('input[type=\"password\"]').type('mypassword123', delay=50)",
+        "notes": ".fill() para la mayoria. .type(delay=50) si el campo tiene validacion por keypress.",
+        "confidence": "verified"
+      },
+      "tags": [
+        "web",
+        "password",
+        "fill",
+        "campo",
+        "seguridad"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-21T15:44:26.706861+00:00",
+      "updated_at": "2026-03-21T15:44:26.706861+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-31T20:28:16.549302+00:00",
+        "access_count": 15
+      }
+    },
+    "81bacc3462bc": {
+      "id": "81bacc3462bc",
+      "type": "pattern",
+      "key": "fill_textarea",
+      "solution": {
+        "strategy": "fill_textarea_field",
+        "description": "Llenar <textarea> para texto largo",
+        "code_snippet": "# Playwright\npage.locator('textarea[name=\"description\"]').fill('Texto largo con\\nmultiples lineas')\npage.get_by_label('Comments').fill('Mi comentario detallado')\n\n# Textarea con limite de caracteres\ntextarea = page.locator('textarea#notes')\ntextarea.fill('x' * 500)  # Llenar hasta el limite\n\n# Rich text editor (CKEditor, TinyMCE, Quill)\n# Opcion A: iframe\neditor_frame = page.frame_locator('iframe.cke_wysiwyg_frame')\neditor_frame.locator('body').fill('Contenido con formato')\n\n# Opcion B: contenteditable div\npage.locator('[contenteditable=\"true\"]').fill('Contenido del editor')\n\n# Opcion C: Quill\npage.locator('.ql-editor').fill('Contenido Quill')",
+        "notes": "Rich text editors usan iframe o contenteditable. Detectar cual es primero.",
+        "confidence": "high"
+      },
+      "tags": [
+        "web",
+        "textarea",
+        "texto",
+        "largo",
+        "editor",
+        "richtext"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-21T15:44:26.774522+00:00",
+      "updated_at": "2026-03-21T15:44:26.774522+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-30T21:30:06.670058+00:00",
+        "access_count": 11
+      }
+    },
+    "aff1187f1ac5": {
+      "id": "aff1187f1ac5",
+      "type": "pattern",
+      "key": "fill_number_input",
+      "solution": {
+        "strategy": "fill_number_field",
+        "description": "Llenar campo numerico <input type='number'>",
+        "code_snippet": "# Directo\npage.locator('input[type=\"number\"]').fill('42')\n\n# Con validacion min/max\npage.locator('#quantity').fill('100')\n\n# Incrementar/decrementar con flechas\npage.locator('#quantity').press('ArrowUp')    # +1\npage.locator('#quantity').press('ArrowDown')  # -1\n\n# Monto con decimales\npage.locator('#price').fill('1500.99')\n\n# Si el campo no acepta .fill() para numeros:\nfield = page.locator('#amount')\nfield.click()\nfield.press('Control+a')\nfield.type('1500.99', delay=30)",
+        "notes": "input[type=number] puede tener min, max, step. Verificar constraints en HTML.",
+        "confidence": "high"
+      },
+      "tags": [
+        "web",
+        "input",
+        "numero",
+        "number",
+        "cantidad",
+        "monto"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-21T15:44:26.868900+00:00",
+      "updated_at": "2026-03-21T15:44:26.868900+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-30T04:05:00.784320+00:00",
+        "access_count": 93
+      }
+    },
+    "cb69c8653ea5": {
+      "id": "cb69c8653ea5",
+      "type": "pattern",
+      "key": "select_native_dropdown",
+      "solution": {
+        "strategy": "select_html_option",
+        "description": "Seleccionar opcion en <select> nativo HTML",
+        "code_snippet": "# Playwright - select_option (para <select> nativo)\npage.locator('select#country').select_option('GT')           # Por value\npage.locator('select#country').select_option(label='Guatemala')  # Por texto visible\npage.locator('select#country').select_option(index=5)        # Por indice\n\n# Multi-select\npage.locator('select[multiple]').select_option(['US', 'GT', 'MX'])\n\n# Selenium - Select class\nfrom selenium.webdriver.support.select import Select\nselect = Select(driver.find_element(By.ID, 'country'))\nselect.select_by_value('GT')\nselect.select_by_visible_text('Guatemala')\nselect.select_by_index(5)",
+        "notes": "select_option() solo funciona con <select> nativo. Para dropdowns custom, usar click.",
+        "confidence": "verified"
+      },
+      "tags": [
+        "web",
+        "select",
+        "dropdown",
+        "opcion",
+        "nativo",
+        "html"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-21T15:44:26.946337+00:00",
+      "updated_at": "2026-03-21T15:44:26.946337+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-31T20:16:06.560650+00:00",
+        "access_count": 173
+      }
+    },
+    "33f843016382": {
+      "id": "33f843016382",
+      "type": "pattern",
+      "key": "select_custom_dropdown",
+      "solution": {
+        "strategy": "click_custom_dropdown",
+        "description": "Seleccionar en dropdown custom (div/ul, no <select>)",
+        "code_snippet": "# Muchos frameworks usan dropdowns custom (no <select>)\n# Bootstrap, Material UI, Ant Design, etc.\n\n# Paso 1: Click para abrir el dropdown\npage.locator('[class*=\"dropdown-toggle\"], [role=\"combobox\"]').click()\npage.wait_for_timeout(300)\n\n# Paso 2: Click en la opcion\npage.locator('[role=\"option\"]:has-text(\"Guatemala\")').click()\n# O:\npage.locator('[class*=\"dropdown-item\"]:has-text(\"Guatemala\")').click()\n# O:\npage.locator('li:has-text(\"Guatemala\")').click()\n\n# Con busqueda/filtro\npage.locator('[role=\"combobox\"] input').fill('Guat')\npage.wait_for_timeout(300)\npage.locator('[role=\"option\"]:has-text(\"Guatemala\")').click()\n\n# Select2 (jQuery plugin popular)\npage.locator('.select2-container').click()\npage.locator('.select2-search__field').fill('Guatemala')\npage.locator('.select2-results__option:has-text(\"Guatemala\")').click()",
+        "notes": "Frameworks populares: Bootstrap(.dropdown-item), MUI(.MuiMenuItem), Ant(.ant-select-item).",
+        "confidence": "high"
+      },
+      "tags": [
+        "web",
+        "dropdown",
+        "custom",
+        "react",
+        "bootstrap",
+        "select2",
+        "material"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-21T15:44:27.024373+00:00",
+      "updated_at": "2026-03-21T15:44:27.024373+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-30T21:30:06.670058+00:00",
+        "access_count": 29
+      }
+    },
+    "ffbca3ca40fd": {
+      "id": "ffbca3ca40fd",
+      "type": "pattern",
+      "key": "click_checkbox",
+      "solution": {
+        "strategy": "check_uncheck_checkbox",
+        "description": "Marcar/desmarcar checkbox con Python",
+        "code_snippet": "# Playwright - check/uncheck\npage.locator('#terms').check()      # Marcar\npage.locator('#terms').uncheck()    # Desmarcar\n\n# Verificar estado\nis_checked = page.locator('#terms').is_checked()\n\n# Por label\npage.get_by_label('I agree to terms').check()\n\n# Checkbox custom (div con click)\ncb = page.locator('[role=\"checkbox\"][aria-label=\"Accept\"]')\nif cb.get_attribute('aria-checked') != 'true':\n    cb.click()\n\n# Selenium\ncb = driver.find_element(By.ID, 'terms')\nif not cb.is_selected():\n    cb.click()",
+        "notes": ".check() es idempotente (no des-checkea si ya esta checked). .click() es toggle.",
+        "confidence": "verified"
+      },
+      "tags": [
+        "web",
+        "checkbox",
+        "marcar",
+        "check",
+        "uncheck",
+        "toggle"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-21T15:44:27.141178+00:00",
+      "updated_at": "2026-03-21T15:44:27.141178+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-30T04:05:00.784320+00:00",
+        "access_count": 9
+      }
+    },
+    "04b2099664ca": {
+      "id": "04b2099664ca",
+      "type": "pattern",
+      "key": "click_radio_button",
+      "solution": {
+        "strategy": "select_radio_button",
+        "description": "Seleccionar radio button con Python",
+        "code_snippet": "# Playwright\npage.locator('input[type=\"radio\"][value=\"express\"]').check()\npage.get_by_label('Express Shipping').check()\n\n# Radio button custom (div/span con click)\npage.locator('[role=\"radio\"][aria-label=\"Premium\"]').click()\n\n# Radio group - seleccionar por texto del label\npage.locator('label:has-text(\"Premium Plan\")').click()\n\n# Selenium\ndriver.find_element(By.CSS_SELECTOR, 'input[type=\"radio\"][value=\"express\"]').click()\n\n# Verificar cual esta seleccionado\nselected = page.locator('input[type=\"radio\"]:checked').get_attribute('value')\nprint(f'Seleccionado: {selected}')",
+        "notes": ".check() para radio nativo. .click() para radio custom. Verificar con :checked o aria-checked.",
+        "confidence": "verified"
+      },
+      "tags": [
+        "web",
+        "radio",
+        "button",
+        "seleccionar",
+        "opcion",
+        "grupo"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-21T15:44:27.240583+00:00",
+      "updated_at": "2026-03-21T15:44:27.240583+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-30T04:05:00.784320+00:00",
+        "access_count": 11
+      }
+    },
+    "d97e988d6408": {
+      "id": "d97e988d6408",
+      "type": "pattern",
+      "key": "click_button",
+      "solution": {
+        "strategy": "click_buttons_various",
+        "description": "Click en botones de todo tipo con Python",
+        "code_snippet": "# Por texto\npage.locator('button:has-text(\"Submit\")').click()\npage.get_by_role('button', name='Submit').click()\n\n# Por tipo\npage.locator('input[type=\"submit\"]').click()\npage.locator('button[type=\"submit\"]').click()\n\n# Por ID/class\npage.locator('#submit-btn').click()\npage.locator('.btn-primary').click()\n\n# Link que parece boton\npage.locator('a:has-text(\"Continue\")').click()\n\n# Icono/imagen\npage.locator('[aria-label=\"Search\"] button').click()\npage.locator('button [class*=\"icon-search\"]').click()\n\n# Click con modificador\npage.locator('a').click(modifiers=['Control'])  # Ctrl+click (nueva tab)\n\n# Double click\npage.locator('td.editable').dblclick()\n\n# Right click\npage.locator('tr').click(button='right')\n\n# Click en coordenadas\npage.locator('#canvas').click(position={'x': 100, 'y': 200})",
+        "notes": "get_by_role('button', name=) es el selector mas semantico para botones.",
+        "confidence": "verified"
+      },
+      "tags": [
+        "web",
+        "click",
+        "boton",
+        "submit",
+        "doble",
+        "derecho",
+        "coordenadas"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-21T15:44:27.304612+00:00",
+      "updated_at": "2026-03-21T15:44:27.304612+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-31T20:28:16.549302+00:00",
+        "access_count": 36
+      }
+    },
+    "b7bae2988d1b": {
+      "id": "b7bae2988d1b",
+      "type": "pattern",
+      "key": "click_link",
+      "solution": {
+        "strategy": "click_navigate_links",
+        "description": "Click en links y navegacion",
+        "code_snippet": "# Por texto\npage.locator('a:has-text(\"Dashboard\")').click()\npage.get_by_role('link', name='Dashboard').click()\n\n# Por href\npage.locator('a[href=\"/dashboard\"]').click()\n\n# Esperar navegacion despues de click\nwith page.expect_navigation():\n    page.locator('a:has-text(\"Next\")').click()\n\n# Click que abre nueva tab\nwith page.expect_popup() as popup_info:\n    page.locator('a[target=\"_blank\"]').click()\nnew_page = popup_info.value\n\n# Selenium\ndriver.find_element(By.LINK_TEXT, 'Dashboard').click()\ndriver.find_element(By.PARTIAL_LINK_TEXT, 'Dash').click()",
+        "notes": "expect_navigation() para links que causan page load. expect_popup() para target=_blank.",
+        "confidence": "verified"
+      },
+      "tags": [
+        "web",
+        "link",
+        "click",
+        "navegacion",
+        "nueva-tab"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-21T15:44:27.378574+00:00",
+      "updated_at": "2026-03-21T15:44:27.378574+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-30T04:05:00.784320+00:00",
+        "access_count": 119
+      }
+    },
+    "cf1faf10dcad": {
+      "id": "cf1faf10dcad",
+      "type": "pattern",
+      "key": "keyboard_enter_tab",
+      "solution": {
+        "strategy": "keyboard_actions",
+        "description": "Acciones de teclado: Enter, Tab, Escape, shortcuts",
+        "code_snippet": "# Presionar teclas individuales\npage.keyboard.press('Enter')\npage.keyboard.press('Tab')\npage.keyboard.press('Escape')\npage.keyboard.press('Backspace')\npage.keyboard.press('Delete')\n\n# En un elemento especifico\npage.locator('#search').press('Enter')\npage.locator('#name').press('Tab')\n\n# Shortcuts\npage.keyboard.press('Control+a')   # Seleccionar todo\npage.keyboard.press('Control+c')   # Copiar\npage.keyboard.press('Control+v')   # Pegar\npage.keyboard.press('Control+z')   # Deshacer\npage.keyboard.press('Control+s')   # Guardar (prevenir default con JS)\n\n# Escribir texto caracter por caracter\npage.keyboard.type('Hello World', delay=50)\n\n# Combinaciones\npage.keyboard.down('Shift')\npage.keyboard.press('Tab')     # Shift+Tab\npage.keyboard.up('Shift')\n\n# Selenium\nfrom selenium.webdriver.common.keys import Keys\nelement.send_keys(Keys.ENTER)\nelement.send_keys(Keys.TAB)\nelement.send_keys(Keys.CONTROL, 'a')",
+        "notes": "press() para teclas especiales. type() para escribir texto. Selenium usa send_keys().",
+        "confidence": "verified"
+      },
+      "tags": [
+        "web",
+        "keyboard",
+        "enter",
+        "tab",
+        "escape",
+        "shortcuts",
+        "teclas"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-21T15:44:27.434347+00:00",
+      "updated_at": "2026-03-21T15:44:27.434347+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-30T21:30:06.670058+00:00",
+        "access_count": 21
+      }
+    },
+    "3817800d8dcb": {
+      "id": "3817800d8dcb",
+      "type": "pattern",
+      "key": "scroll_page",
+      "solution": {
+        "strategy": "scroll_various_methods",
+        "description": "Scroll en pagina y dentro de elementos con Python",
+        "code_snippet": "# Scroll al fondo de la pagina\npage.evaluate('window.scrollTo(0, document.body.scrollHeight)')\n\n# Scroll al inicio\npage.evaluate('window.scrollTo(0, 0)')\n\n# Scroll a un elemento\npage.locator('#footer').scroll_into_view_if_needed()\n\n# Scroll suave\npage.evaluate('window.scrollBy({top: 500, behavior: \"smooth\"})')\n\n# Scroll dentro de un contenedor (div scrolleable)\ncontainer = page.locator('#scroll-container')\ncontainer.evaluate('el => el.scrollTop = el.scrollHeight')\n\n# Scroll con rueda del mouse\npage.mouse.wheel(0, 500)   # Scroll down 500px\npage.mouse.wheel(0, -500)  # Scroll up\n\n# Infinite scroll: scroll hasta que no haya mas contenido\nprev_count = 0\nwhile True:\n    items = page.locator('.item')\n    current_count = items.count()\n    if current_count == prev_count:\n        break\n    prev_count = current_count\n    page.evaluate('window.scrollTo(0, document.body.scrollHeight)')\n    page.wait_for_timeout(1000)\n\n# Selenium\ndriver.execute_script('window.scrollTo(0, document.body.scrollHeight)')\nelement = driver.find_element(By.ID, 'target')\ndriver.execute_script('arguments[0].scrollIntoView()', element)",
+        "notes": "scroll_into_view_if_needed() es lo mejor para hacer visible un elemento antes de interactuar.",
+        "confidence": "verified"
+      },
+      "tags": [
+        "web",
+        "scroll",
+        "pagina",
+        "contenedor",
+        "infinite",
+        "mouse"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-21T15:44:27.485847+00:00",
+      "updated_at": "2026-03-21T15:44:27.485847+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-31T20:16:06.560650+00:00",
+        "access_count": 17
+      }
+    },
+    "7a9d6e942d25": {
+      "id": "7a9d6e942d25",
+      "type": "pattern",
+      "key": "file_upload",
+      "solution": {
+        "strategy": "upload_file_input",
+        "description": "Subir archivos en formularios web con Python",
+        "code_snippet": "# Metodo 1: input[type=file] visible\npage.locator('input[type=\"file\"]').set_input_files('/path/to/document.pdf')\n\n# Metodo 2: input[type=file] oculto (boton custom)\n# NO hacer click en el boton (abre dialog nativo)\n# Buscar el input oculto y usar set_input_files\nfile_input = page.locator('input[type=\"file\"]')  # aunque este hidden\nfile_input.set_input_files('/path/to/document.pdf')\n\n# Metodo 3: Multiples archivos\npage.locator('input[type=\"file\"]').set_input_files([\n    '/path/to/doc1.pdf',\n    '/path/to/doc2.xlsx',\n    '/path/to/image.png',\n])\n\n# Metodo 4: Drag and drop upload\n# (Playwright no soporta drag de archivos nativamente)\n# Usar set_input_files en el input oculto\n\n# Metodo 5: Limpiar archivos seleccionados\npage.locator('input[type=\"file\"]').set_input_files([])\n\n# Selenium\nfile_input = driver.find_element(By.CSS_SELECTOR, 'input[type=\"file\"]')\nfile_input.send_keys('C:\\\\path\\\\to\\\\document.pdf')",
+        "notes": "NUNCA hacer click en input[type=file] - abre dialog nativo no automatizable. Usar set_input_files().",
+        "confidence": "verified"
+      },
+      "tags": [
+        "web",
+        "file",
+        "upload",
+        "adjuntar",
+        "archivo",
+        "input"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-21T15:44:27.561748+00:00",
+      "updated_at": "2026-03-21T15:44:27.561748+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-31T20:28:16.549302+00:00",
+        "access_count": 26
+      }
+    },
+    "6ddffd2b5e33": {
+      "id": "6ddffd2b5e33",
+      "type": "pattern",
+      "key": "file_download",
+      "solution": {
+        "strategy": "download_file_web",
+        "description": "Descargar archivos desde paginas web con Python",
+        "code_snippet": "# Playwright - esperar descarga\nwith page.expect_download() as download_info:\n    page.locator('a:has-text(\"Download PDF\")').click()\ndownload = download_info.value\ndownload.save_as('/downloads/' + download.suggested_filename)\nprint(f'Descargado: {download.suggested_filename}')\n\n# Selenium - configurar directorio\nopts = Options()\nprefs = {\n    'download.default_directory': '/downloads',\n    'download.prompt_for_download': False,\n    'download.directory_upgrade': True,\n}\nopts.add_experimental_option('prefs', prefs)\n\n# Descargar via requests (cuando tienes la URL directa)\nimport requests\nurl = page.locator('a[href*=\".pdf\"]').get_attribute('href')\nr = requests.get(url, stream=True)\nwith open('document.pdf', 'wb') as f:\n    for chunk in r.iter_content(8192):\n        f.write(chunk)",
+        "notes": "expect_download() en Playwright es lo mas limpio. Selenium necesita configurar prefs.",
+        "confidence": "verified"
+      },
+      "tags": [
+        "web",
+        "file",
+        "download",
+        "descargar",
+        "pdf",
+        "archivo"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-21T15:44:27.602183+00:00",
+      "updated_at": "2026-03-21T15:44:27.602183+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-31T20:28:16.549302+00:00",
+        "access_count": 36
+      }
+    },
+    "7e6451c2d74c": {
+      "id": "7e6451c2d74c",
+      "type": "pattern",
+      "key": "handle_js_alert",
+      "solution": {
+        "strategy": "accept_dismiss_alert",
+        "description": "Manejar JavaScript alert/confirm/prompt con Python",
+        "code_snippet": "# Playwright - registrar handler ANTES de que aparezca\npage.on('dialog', lambda dialog: dialog.accept())\n\n# O manejar selectivamente:\ndef handle_dialog(dialog):\n    print(f'Dialog: {dialog.type} - {dialog.message}')\n    if dialog.type == 'alert':\n        dialog.accept()\n    elif dialog.type == 'confirm':\n        dialog.accept()  # o dialog.dismiss() para cancelar\n    elif dialog.type == 'prompt':\n        dialog.accept('Mi respuesta')  # Con texto\npage.on('dialog', handle_dialog)\n\n# Selenium\nfrom selenium.webdriver.common.alert import Alert\nalert = Alert(driver)\nprint(alert.text)      # Leer mensaje\nalert.accept()         # Aceptar\nalert.dismiss()        # Cancelar\nalert.send_keys('texto')  # Para prompts",
+        "notes": "Playwright: registrar handler ANTES del click que lo genera. Selenium: despues.",
+        "confidence": "verified"
+      },
+      "tags": [
+        "web",
+        "popup",
+        "alert",
+        "confirm",
+        "prompt",
+        "dialog",
+        "javascript"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-21T15:44:27.653086+00:00",
+      "updated_at": "2026-03-21T15:44:27.653086+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-30T21:30:06.670058+00:00",
+        "access_count": 10
+      }
+    },
+    "07b8753c33a4": {
+      "id": "07b8753c33a4",
+      "type": "pattern",
+      "key": "handle_modal_html",
+      "solution": {
+        "strategy": "interact_with_html_modal",
+        "description": "Interactuar con modals HTML (Bootstrap, MUI, etc.)",
+        "code_snippet": "# Esperar que el modal aparezca\npage.wait_for_selector('[role=\"dialog\"], .modal.show, [class*=\"MuiDialog\"]', timeout=5000)\n\n# Leer contenido\nmodal = page.locator('[role=\"dialog\"]')\ntitle = modal.locator('[class*=\"modal-title\"], [class*=\"MuiDialogTitle\"]').text_content()\nbody = modal.locator('[class*=\"modal-body\"], [class*=\"MuiDialogContent\"]').text_content()\n\n# Llenar campos dentro del modal\nmodal.locator('input[name=\"email\"]').fill('nestor@gbm.net')\nmodal.locator('textarea').fill('Mi mensaje')\n\n# Botones del modal\nmodal.locator('button:has-text(\"Submit\"), button:has-text(\"Save\")').click()\n# O cerrar\nmodal.locator('button:has-text(\"Close\"), [class*=\"close\"], button:has-text(\"Cancel\")').click()\n\n# Esperar que cierre\npage.wait_for_selector('[role=\"dialog\"]', state='hidden', timeout=5000)",
+        "notes": "Siempre esperar que el modal sea visible antes de interactuar. Esperar hidden despues de cerrar.",
+        "confidence": "verified"
+      },
+      "tags": [
+        "web",
+        "modal",
+        "dialog",
+        "bootstrap",
+        "popup",
+        "html"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-21T15:44:27.706599+00:00",
+      "updated_at": "2026-03-21T15:44:27.706599+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-31T20:28:16.549302+00:00",
+        "access_count": 105
+      }
+    },
+    "ef06023c6d8a": {
+      "id": "ef06023c6d8a",
+      "type": "pattern",
+      "key": "handle_popup_window",
+      "solution": {
+        "strategy": "interact_new_window",
+        "description": "Interactuar con ventanas popup (window.open)",
+        "code_snippet": "# Playwright\nwith page.expect_popup() as popup_info:\n    page.locator('button:has-text(\"Open Form\")').click()\npopup = popup_info.value\npopup.wait_for_load_state('networkidle')\n\n# Llenar formulario en el popup\npopup.locator('#name').fill('Nestor')\npopup.locator('button:has-text(\"Submit\")').click()\npopup.close()\n\n# Volver a la ventana principal\npage.bring_to_front()\n\n# Selenium\nmain = driver.current_window_handle\ndriver.find_element(By.ID, 'open-popup').click()\nWebDriverWait(driver, 10).until(lambda d: len(d.window_handles) > 1)\npopup = [w for w in driver.window_handles if w != main][0]\ndriver.switch_to.window(popup)\n# ... interactuar ...\ndriver.close()\ndriver.switch_to.window(main)",
+        "notes": "expect_popup() captura la nueva ventana. bring_to_front() para volver a la principal.",
+        "confidence": "verified"
+      },
+      "tags": [
+        "web",
+        "popup",
+        "ventana",
+        "window",
+        "nueva",
+        "tab"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-21T15:44:27.772049+00:00",
+      "updated_at": "2026-03-21T15:44:27.772049+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-31T20:16:06.560650+00:00",
+        "access_count": 14
+      }
+    },
+    "7de935bf44fa": {
+      "id": "7de935bf44fa",
+      "type": "pattern",
+      "key": "interact_iframe",
+      "solution": {
+        "strategy": "navigate_iframes",
+        "description": "Interactuar con contenido dentro de iframes",
+        "code_snippet": "# Playwright - frame_locator\niframe = page.frame_locator('iframe#payment')\niframe.locator('#card-number').fill('4111111111111111')\niframe.locator('#expiry').fill('12/28')\n\n# Por name\niframe = page.frame_locator('iframe[name=\"checkout\"]')\n\n# Iframes anidados\nouter = page.frame_locator('#outer-frame')\ninner = outer.frame_locator('#inner-frame')\ninner.locator('input').fill('valor')\n\n# Selenium\ndriver.switch_to.frame('payment')  # por name o id\ndriver.find_element(By.ID, 'card-number').send_keys('4111...')\ndriver.switch_to.default_content()  # Volver al nivel principal\ndriver.switch_to.parent_frame()     # Subir un nivel",
+        "notes": "Playwright frame_locator no necesita switch. Selenium requiere switch_to.frame/default_content.",
+        "confidence": "verified"
+      },
+      "tags": [
+        "web",
+        "iframe",
+        "frame",
+        "anidado",
+        "contenido"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-21T15:44:27.828183+00:00",
+      "updated_at": "2026-03-21T15:44:27.828183+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-31T20:28:16.549302+00:00",
+        "access_count": 11
+      }
+    },
+    "38b2a737208f": {
+      "id": "38b2a737208f",
+      "type": "pattern",
+      "key": "wait_strategies",
+      "solution": {
+        "strategy": "various_wait_methods",
+        "description": "Estrategias de espera para formularios web dinamicos",
+        "code_snippet": "# Playwright auto-wait (ya esta incluido en la mayoria de acciones)\n\n# Esperar elemento visible\npage.locator('#result').wait_for(state='visible', timeout=10000)\n\n# Esperar elemento oculto/removido\npage.locator('.spinner').wait_for(state='hidden')\n\n# Esperar texto especifico\npage.wait_for_selector('text=Form submitted successfully')\n\n# Esperar respuesta de API\nwith page.expect_response('**/api/submit') as response_info:\n    page.locator('button[type=\"submit\"]').click()\nresponse = response_info.value\nprint(f'API: {response.status}')\n\n# Esperar navegacion\nwith page.expect_navigation():\n    page.locator('a:has-text(\"Next\")').click()\n\n# Esperar condicion custom\npage.wait_for_function('document.querySelector(\"#count\").textContent > \"0\"')\n\n# Esperar network idle\npage.wait_for_load_state('networkidle')\n\n# Selenium\nelement = WebDriverWait(driver, 10).until(\n    EC.visibility_of_element_located((By.ID, 'result')))\nWebDriverWait(driver, 10).until(\n    EC.invisibility_of_element_located((By.CLASS_NAME, 'spinner')))",
+        "notes": "Playwright tiene auto-wait. Selenium necesita WebDriverWait explicito.",
+        "confidence": "verified"
+      },
+      "tags": [
+        "web",
+        "wait",
+        "espera",
+        "visible",
+        "hidden",
+        "timeout",
+        "condicion"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-21T15:44:27.895230+00:00",
+      "updated_at": "2026-03-21T15:44:27.895230+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-31T20:28:16.549302+00:00",
+        "access_count": 28
+      }
+    },
+    "e33ada38c57f": {
+      "id": "e33ada38c57f",
+      "type": "pattern",
+      "key": "multi_step_form",
+      "solution": {
+        "strategy": "fill_wizard_form",
+        "description": "Llenar formularios multi-paso (wizard) con Python",
+        "code_snippet": "def fill_multi_step_form(page, steps_data):\n    for step_num, fields in enumerate(steps_data, 1):\n        print(f'Paso {step_num}...')\n        for selector, value in fields.items():\n            field = page.locator(selector)\n            field.wait_for(state='visible', timeout=5000)\n            if field.evaluate('el => el.type') == 'checkbox':\n                if value:\n                    field.check()\n            elif field.evaluate('el => el.tagName') == 'SELECT':\n                field.select_option(value)\n            else:\n                field.fill(str(value))\n\n        # Click Next/Continue\n        next_btn = page.locator('button:has-text(\"Next\"), button:has-text(\"Continue\")')\n        if next_btn.count() > 0 and next_btn.first.is_visible():\n            next_btn.first.click()\n            page.wait_for_timeout(500)\n\n    # Submit final\n    page.locator('button:has-text(\"Submit\"), button[type=\"submit\"]').click()\n\nfill_multi_step_form(page, [\n    {'#name': 'Nestor', '#email': 'nestor@gbm.net'},\n    {'#company': 'GBM', '#phone': '+502555'},\n    {'#plan': 'Premium', '#terms': True},\n])",
+        "notes": "Esperar transicion entre pasos (animacion/carga). Verificar que el paso cambio.",
+        "confidence": "high"
+      },
+      "tags": [
+        "web",
+        "formulario",
+        "wizard",
+        "multi-paso",
+        "steps"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-21T15:44:27.969381+00:00",
+      "updated_at": "2026-03-21T15:44:27.969381+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-30T21:30:06.670058+00:00",
+        "access_count": 21
+      }
+    },
+    "8ce245a36a1f": {
+      "id": "8ce245a36a1f",
+      "type": "pattern",
+      "key": "hover_element",
+      "solution": {
+        "strategy": "hover_for_menus_tooltips",
+        "description": "Hover sobre elementos para revelar menus/tooltips",
+        "code_snippet": "# Hover para revelar menu\npage.locator('[class*=\"menu-item\"]:has-text(\"Products\")').hover()\npage.wait_for_timeout(300)\npage.locator('[class*=\"submenu\"] a:has-text(\"Software\")').click()\n\n# Hover para tooltip\npage.locator('#info-icon').hover()\ntooltip = page.locator('[role=\"tooltip\"], .tooltip').text_content()\n\n# Selenium\nfrom selenium.webdriver.common.action_chains import ActionChains\nactions = ActionChains(driver)\nmenu = driver.find_element(By.CSS_SELECTOR, '.menu-item')\nactions.move_to_element(menu).perform()",
+        "notes": "Esperar 200-300ms despues de hover para que el submenu/tooltip aparezca.",
+        "confidence": "high"
+      },
+      "tags": [
+        "web",
+        "hover",
+        "menu",
+        "tooltip",
+        "submenu",
+        "mouse"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-21T15:44:28.060101+00:00",
+      "updated_at": "2026-03-21T15:44:28.060101+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-30T21:30:06.670058+00:00",
+        "access_count": 19
+      }
+    },
+    "6a111651dcce": {
+      "id": "6a111651dcce",
+      "type": "pattern",
+      "key": "drag_and_drop",
+      "solution": {
+        "strategy": "drag_elements",
+        "description": "Drag and drop de elementos web con Python",
+        "code_snippet": "# Playwright\nsource = page.locator('#drag-source')\ntarget = page.locator('#drop-target')\nsource.drag_to(target)\n\n# Con posicion exacta\npage.locator('#slider').drag_to(page.locator('#slider'), target_position={'x': 200, 'y': 0})\n\n# Manualmente\nsource.hover()\npage.mouse.down()\ntarget.hover()\npage.mouse.up()\n\n# Selenium\nfrom selenium.webdriver.common.action_chains import ActionChains\nsource = driver.find_element(By.ID, 'drag')\ntarget = driver.find_element(By.ID, 'drop')\nActionChains(driver).drag_and_drop(source, target).perform()",
+        "notes": "drag_to() es lo mas limpio. Si no funciona, usar hover+mouse.down/up.",
+        "confidence": "high"
+      },
+      "tags": [
+        "web",
+        "drag",
+        "drop",
+        "arrastrar",
+        "soltar",
+        "mouse"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-21T15:44:28.141586+00:00",
+      "updated_at": "2026-03-21T15:44:28.141586+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-31T20:16:06.560650+00:00",
+        "access_count": 10
+      }
+    },
+    "f0bb794c7846": {
+      "id": "f0bb794c7846",
+      "type": "pattern",
+      "key": "screenshot_debug",
+      "solution": {
+        "strategy": "capture_screenshots",
+        "description": "Capturar screenshots para debug y evidencia",
+        "code_snippet": "# Screenshot completo\npage.screenshot(path='screenshot.png')\n\n# Screenshot de un elemento\npage.locator('#form').screenshot(path='form.png')\n\n# Full page (con scroll)\npage.screenshot(path='fullpage.png', full_page=True)\n\n# Capturar en cada paso (para debug)\nimport functools\nstep = [0]\ndef debug_screenshot(func):\n    @functools.wraps(func)\n    def wrapper(*args, **kwargs):\n        step[0] += 1\n        try:\n            result = func(*args, **kwargs)\n            page.screenshot(path=f'step_{step[0]:02d}_ok.png')\n            return result\n        except:\n            page.screenshot(path=f'step_{step[0]:02d}_error.png')\n            raise\n    return wrapper\n\n# Video (Playwright)\ncontext = browser.new_context(record_video_dir='videos/')\npage = context.new_page()\n# ... acciones ...\ncontext.close()  # Video se guarda al cerrar",
+        "notes": "full_page=True para paginas con scroll. record_video_dir para grabar la sesion completa.",
+        "confidence": "verified"
+      },
+      "tags": [
+        "web",
+        "screenshot",
+        "debug",
+        "evidencia",
+        "video",
+        "captura"
+      ],
+      "error_context": null,
+      "created_at": "2026-03-21T15:44:28.240025+00:00",
+      "updated_at": "2026-03-21T15:44:28.240025+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-03-31T20:16:06.560650+00:00",
+        "access_count": 11
+      }
+    },
+    "4ec9d20bd84f": {
+      "id": "4ec9d20bd84f",
+      "type": "fact",
+      "key": "web_selector_priority",
+      "fact": {
+        "rule": "Prioridad de selectores para formularios web (de mas estable a menos)",
+        "priority": [
+          "1. data-testid (testing attribute, muy estable)",
+          "2. role + name: get_by_role('button', name='Submit')",
+          "3. label: get_by_label('Email')",
+          "4. placeholder: get_by_placeholder('Enter email')",
+          "5. aria-label: [aria-label='Email']",
+          "6. name attribute: [name='email']",
+          "7. id: #email (puede cambiar en SPA)",
+          "8. CSS class: .btn-primary (fragil, cambia con redesign)",
+          "9. XPath: //div/form/input (muy fragil)",
+          "10. nth-child: Nunca si hay alternativa"
+        ]
+      },
+      "tags": [
+        "web",
+        "selectores",
+        "prioridad",
+        "estable",
+        "guia"
+      ],
+      "created_at": "2026-03-21T15:44:28.297771+00:00",
+      "updated_at": "2026-03-21T15:44:28.297771+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-03-29T19:16:43.815679+00:00",
+        "access_count": 27
+      }
+    },
+    "8949d6804e47": {
+      "id": "8949d6804e47",
+      "type": "fact",
+      "key": "web_form_element_types",
+      "fact": {
+        "rule": "Tipos de elementos de formulario HTML y como automatizar cada uno",
+        "elements": {
+          "input[type=text]": ".fill() o .type()",
+          "input[type=password]": ".fill() o .type(delay=50)",
+          "input[type=email]": ".fill()",
+          "input[type=number]": ".fill() con string numerico",
+          "input[type=tel]": ".fill()",
+          "input[type=date]": ".fill('2026-03-15') o .type()",
+          "input[type=file]": ".set_input_files() - NUNCA .click()",
+          "input[type=checkbox]": ".check() / .uncheck()",
+          "input[type=radio]": ".check()",
+          "input[type=range]": ".fill('50') o drag",
+          "input[type=color]": ".fill('#FF0000')",
+          "input[type=hidden]": ".evaluate() para setear valor via JS",
+          "select": ".select_option()",
+          "textarea": ".fill()",
+          "button": ".click()",
+          "a": ".click()",
+          "[contenteditable]": ".fill()",
+          "[role=combobox]": "click + seleccionar opcion",
+          "[role=slider]": "drag o keyboard arrows"
+        }
+      },
+      "tags": [
+        "web",
+        "formulario",
+        "elementos",
+        "tipos",
+        "referencia"
+      ],
+      "created_at": "2026-03-21T15:44:28.350790+00:00",
+      "updated_at": "2026-03-21T15:44:28.350790+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-03-31T17:56:27.347740+00:00",
+        "access_count": 96
+      }
+    },
+    "224a3ab3e4eb": {
+      "id": "224a3ab3e4eb",
+      "type": "fact",
+      "key": "web_common_frameworks_selectors",
+      "fact": {
+        "rule": "Selectores especificos para frameworks CSS/JS populares",
+        "frameworks": {
+          "Bootstrap": {
+            "modal": ".modal.show",
+            "dropdown": ".dropdown-item",
+            "form_group": ".form-group",
+            "alert": ".alert"
+          },
+          "Material UI (MUI)": {
+            "input": ".MuiInput-input",
+            "button": ".MuiButton-root",
+            "dialog": ".MuiDialog-root",
+            "select": ".MuiSelect-select"
+          },
+          "Ant Design": {
+            "input": ".ant-input",
+            "button": ".ant-btn",
+            "modal": ".ant-modal",
+            "select": ".ant-select-selector"
+          },
+          "Tailwind": {
+            "nota": "Tailwind usa clases utilitarias. Preferir data-testid o aria-label."
+          }
+        }
+      },
+      "tags": [
+        "web",
+        "frameworks",
+        "bootstrap",
+        "material",
+        "antd",
+        "selectores"
+      ],
+      "created_at": "2026-03-21T15:44:28.420320+00:00",
+      "updated_at": "2026-03-21T15:44:28.420320+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-03-30T21:30:06.670058+00:00",
+        "access_count": 24
+      }
+    },
+    "87779ff75c87": {
+      "id": "87779ff75c87",
+      "type": "fact",
+      "key": "web_testing_checklist",
+      "fact": {
+        "rule": "Checklist para scripts de automatizacion de formularios web",
+        "checklist": [
+          "Selectores estables (data-testid > role > label > id > class)",
+          "Esperas adecuadas (auto-wait o WebDriverWait, NO time.sleep)",
+          "Maneja popups JS (alert/confirm/prompt)",
+          "Maneja modals HTML",
+          "Maneja iframes si existen",
+          "File upload usa set_input_files (no click en input[file])",
+          "Screenshot en errores para debug",
+          "Maneja formularios multi-paso",
+          "Verifica resultado (mensaje de exito/error)",
+          "Maneja scroll para elementos fuera de vista",
+          "Funciona con campos requeridos vacios (validacion)",
+          "Maneja dropdowns custom (no solo <select>)",
+          "Limpia campos antes de llenar (triple-click o clear)",
+          "Tab/Enter donde sea necesario para trigger validacion"
+        ]
+      },
+      "tags": [
+        "web",
+        "testing",
+        "checklist",
+        "validacion",
+        "formularios"
+      ],
+      "created_at": "2026-03-21T15:44:28.495289+00:00",
+      "updated_at": "2026-03-21T15:44:28.495289+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-03-30T04:05:00.784320+00:00",
+        "access_count": 126
+      }
+    },
+    "d9d78c7993d6": {
+      "id": "d9d78c7993d6",
+      "type": "fact",
+      "key": "web_common_errors",
+      "fact": {
+        "rule": "Errores comunes al automatizar formularios web y soluciones",
+        "errors": {
+          "Element not visible": "Hacer scroll primero. scroll_into_view_if_needed()",
+          "Element intercepted by another": "Hay overlay/modal. Cerrar primero o click via JS.",
+          "Timeout waiting for selector": "Elemento no existe o esta en iframe. Verificar.",
+          "File dialog opened": "Hiciste click en input[file]. Usar set_input_files() en vez.",
+          "Select option not found": "Es dropdown custom, no <select>. Usar click + click opcion.",
+          "Form not submitting": "Falta click en submit. O el form usa JS, no submit nativo.",
+          "Stale element": "SPA re-renderizo. Re-localizar el elemento.",
+          "Cross-origin iframe": "No puedes acceder al contenido. Usar API directa si existe.",
+          "CAPTCHA blocking": "No se puede automatizar CAPTCHA. Usar servicio de terceros o manual."
+        }
+      },
+      "tags": [
+        "web",
+        "errores",
+        "comunes",
+        "soluciones",
+        "troubleshooting"
+      ],
+      "created_at": "2026-03-21T15:44:28.543976+00:00",
+      "updated_at": "2026-03-21T15:44:28.543976+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-03-31T20:16:06.560650+00:00",
+        "access_count": 31
+      }
+    }
+  },
+  "tag_index": {
+    "web": [
+      "a61f6f9c8c58",
+      "e0bda84dac10",
+      "e0bdf4ca99d5",
+      "55f3e4c55954",
+      "81bacc3462bc",
+      "aff1187f1ac5",
+      "cb69c8653ea5",
+      "33f843016382",
+      "ffbca3ca40fd",
+      "04b2099664ca",
+      "d97e988d6408",
+      "b7bae2988d1b",
+      "cf1faf10dcad",
+      "3817800d8dcb",
+      "7a9d6e942d25",
+      "6ddffd2b5e33",
+      "7e6451c2d74c",
+      "07b8753c33a4",
+      "ef06023c6d8a",
+      "7de935bf44fa",
+      "38b2a737208f",
+      "e33ada38c57f",
+      "8ce245a36a1f",
+      "6a111651dcce",
+      "f0bb794c7846",
+      "4ec9d20bd84f",
+      "8949d6804e47",
+      "224a3ab3e4eb",
+      "87779ff75c87",
+      "d9d78c7993d6"
+    ],
+    "playwright": [
+      "a61f6f9c8c58"
+    ],
+    "setup": [
+      "a61f6f9c8c58",
+      "e0bda84dac10"
+    ],
+    "browser": [
+      "a61f6f9c8c58",
+      "e0bda84dac10"
+    ],
+    "configuracion": [
+      "a61f6f9c8c58",
+      "e0bda84dac10"
+    ],
+    "selenium": [
+      "e0bda84dac10"
+    ],
+    "input": [
+      "e0bdf4ca99d5",
+      "aff1187f1ac5",
+      "7a9d6e942d25"
+    ],
+    "texto": [
+      "e0bdf4ca99d5",
+      "81bacc3462bc"
+    ],
+    "fill": [
+      "e0bdf4ca99d5",
+      "55f3e4c55954"
+    ],
+    "campo": [
+      "e0bdf4ca99d5",
+      "55f3e4c55954"
+    ],
+    "name": [
+      "e0bdf4ca99d5"
+    ],
+    "id": [
+      "e0bdf4ca99d5"
+    ],
+    "password": [
+      "55f3e4c55954"
+    ],
+    "seguridad": [
+      "55f3e4c55954"
+    ],
+    "textarea": [
+      "81bacc3462bc"
+    ],
+    "largo": [
+      "81bacc3462bc"
+    ],
+    "editor": [
+      "81bacc3462bc"
+    ],
+    "richtext": [
+      "81bacc3462bc"
+    ],
+    "numero": [
+      "aff1187f1ac5"
+    ],
+    "number": [
+      "aff1187f1ac5"
+    ],
+    "cantidad": [
+      "aff1187f1ac5"
+    ],
+    "monto": [
+      "aff1187f1ac5"
+    ],
+    "select": [
+      "cb69c8653ea5"
+    ],
+    "dropdown": [
+      "cb69c8653ea5",
+      "33f843016382"
+    ],
+    "opcion": [
+      "cb69c8653ea5",
+      "04b2099664ca"
+    ],
+    "nativo": [
+      "cb69c8653ea5"
+    ],
+    "html": [
+      "cb69c8653ea5",
+      "07b8753c33a4"
+    ],
+    "custom": [
+      "33f843016382"
+    ],
+    "react": [
+      "33f843016382"
+    ],
+    "bootstrap": [
+      "33f843016382",
+      "07b8753c33a4",
+      "224a3ab3e4eb"
+    ],
+    "select2": [
+      "33f843016382"
+    ],
+    "material": [
+      "33f843016382",
+      "224a3ab3e4eb"
+    ],
+    "checkbox": [
+      "ffbca3ca40fd"
+    ],
+    "marcar": [
+      "ffbca3ca40fd"
+    ],
+    "check": [
+      "ffbca3ca40fd"
+    ],
+    "uncheck": [
+      "ffbca3ca40fd"
+    ],
+    "toggle": [
+      "ffbca3ca40fd"
+    ],
+    "radio": [
+      "04b2099664ca"
+    ],
+    "button": [
+      "04b2099664ca"
+    ],
+    "seleccionar": [
+      "04b2099664ca"
+    ],
+    "grupo": [
+      "04b2099664ca"
+    ],
+    "click": [
+      "d97e988d6408",
+      "b7bae2988d1b"
+    ],
+    "boton": [
+      "d97e988d6408"
+    ],
+    "submit": [
+      "d97e988d6408"
+    ],
+    "doble": [
+      "d97e988d6408"
+    ],
+    "derecho": [
+      "d97e988d6408"
+    ],
+    "coordenadas": [
+      "d97e988d6408"
+    ],
+    "link": [
+      "b7bae2988d1b"
+    ],
+    "navegacion": [
+      "b7bae2988d1b"
+    ],
+    "nueva-tab": [
+      "b7bae2988d1b"
+    ],
+    "keyboard": [
+      "cf1faf10dcad"
+    ],
+    "enter": [
+      "cf1faf10dcad"
+    ],
+    "tab": [
+      "cf1faf10dcad",
+      "ef06023c6d8a"
+    ],
+    "escape": [
+      "cf1faf10dcad"
+    ],
+    "shortcuts": [
+      "cf1faf10dcad"
+    ],
+    "teclas": [
+      "cf1faf10dcad"
+    ],
+    "scroll": [
+      "3817800d8dcb"
+    ],
+    "pagina": [
+      "3817800d8dcb"
+    ],
+    "contenedor": [
+      "3817800d8dcb"
+    ],
+    "infinite": [
+      "3817800d8dcb"
+    ],
+    "mouse": [
+      "3817800d8dcb",
+      "8ce245a36a1f",
+      "6a111651dcce"
+    ],
+    "file": [
+      "7a9d6e942d25",
+      "6ddffd2b5e33"
+    ],
+    "upload": [
+      "7a9d6e942d25"
+    ],
+    "adjuntar": [
+      "7a9d6e942d25"
+    ],
+    "archivo": [
+      "7a9d6e942d25",
+      "6ddffd2b5e33"
+    ],
+    "download": [
+      "6ddffd2b5e33"
+    ],
+    "descargar": [
+      "6ddffd2b5e33"
+    ],
+    "pdf": [
+      "6ddffd2b5e33"
+    ],
+    "popup": [
+      "7e6451c2d74c",
+      "07b8753c33a4",
+      "ef06023c6d8a"
+    ],
+    "alert": [
+      "7e6451c2d74c"
+    ],
+    "confirm": [
+      "7e6451c2d74c"
+    ],
+    "prompt": [
+      "7e6451c2d74c"
+    ],
+    "dialog": [
+      "7e6451c2d74c",
+      "07b8753c33a4"
+    ],
+    "javascript": [
+      "7e6451c2d74c"
+    ],
+    "modal": [
+      "07b8753c33a4"
+    ],
+    "ventana": [
+      "ef06023c6d8a"
+    ],
+    "window": [
+      "ef06023c6d8a"
+    ],
+    "nueva": [
+      "ef06023c6d8a"
+    ],
+    "iframe": [
+      "7de935bf44fa"
+    ],
+    "frame": [
+      "7de935bf44fa"
+    ],
+    "anidado": [
+      "7de935bf44fa"
+    ],
+    "contenido": [
+      "7de935bf44fa"
+    ],
+    "wait": [
+      "38b2a737208f"
+    ],
+    "espera": [
+      "38b2a737208f"
+    ],
+    "visible": [
+      "38b2a737208f"
+    ],
+    "hidden": [
+      "38b2a737208f"
+    ],
+    "timeout": [
+      "38b2a737208f"
+    ],
+    "condicion": [
+      "38b2a737208f"
+    ],
+    "formulario": [
+      "e33ada38c57f",
+      "8949d6804e47"
+    ],
+    "wizard": [
+      "e33ada38c57f"
+    ],
+    "multi-paso": [
+      "e33ada38c57f"
+    ],
+    "steps": [
+      "e33ada38c57f"
+    ],
+    "hover": [
+      "8ce245a36a1f"
+    ],
+    "menu": [
+      "8ce245a36a1f"
+    ],
+    "tooltip": [
+      "8ce245a36a1f"
+    ],
+    "submenu": [
+      "8ce245a36a1f"
+    ],
+    "drag": [
+      "6a111651dcce"
+    ],
+    "drop": [
+      "6a111651dcce"
+    ],
+    "arrastrar": [
+      "6a111651dcce"
+    ],
+    "soltar": [
+      "6a111651dcce"
+    ],
+    "screenshot": [
+      "f0bb794c7846"
+    ],
+    "debug": [
+      "f0bb794c7846"
+    ],
+    "evidencia": [
+      "f0bb794c7846"
+    ],
+    "video": [
+      "f0bb794c7846"
+    ],
+    "captura": [
+      "f0bb794c7846"
+    ],
+    "selectores": [
+      "4ec9d20bd84f",
+      "224a3ab3e4eb"
+    ],
+    "prioridad": [
+      "4ec9d20bd84f"
+    ],
+    "estable": [
+      "4ec9d20bd84f"
+    ],
+    "guia": [
+      "4ec9d20bd84f"
+    ],
+    "elementos": [
+      "8949d6804e47"
+    ],
+    "tipos": [
+      "8949d6804e47"
+    ],
+    "referencia": [
+      "8949d6804e47"
+    ],
+    "frameworks": [
+      "224a3ab3e4eb"
+    ],
+    "antd": [
+      "224a3ab3e4eb"
+    ],
+    "testing": [
+      "87779ff75c87"
+    ],
+    "checklist": [
+      "87779ff75c87"
+    ],
+    "validacion": [
+      "87779ff75c87"
+    ],
+    "formularios": [
+      "87779ff75c87"
+    ],
+    "errores": [
+      "d9d78c7993d6"
+    ],
+    "comunes": [
+      "d9d78c7993d6"
+    ],
+    "soluciones": [
+      "d9d78c7993d6"
+    ],
+    "troubleshooting": [
+      "d9d78c7993d6"
+    ]
+  },
+  "stats": {
+    "total_entries": 30,
+    "total_lookups": 461,
+    "total_hits": 293
+  }
+}

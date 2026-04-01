@@ -1,0 +1,37 @@
+{
+  "domain": "aprendizajes_motor_ia",
+  "description": "Aprendizajes acumulados de Motor_IA desde .gbm_kb - Fórmulas BOM, SAP patterns, APIs LLM",
+  "source": "migrated_from_gbm_kb",
+  "migration_date": "2026-03-31",
+  "total_facts": 18,
+  "facts": [
+    {
+      "titulo": "Formula BOM a Propuesta Economica SOW Bantrab Remesas",
+      "dominio": "bom",
+      "contenido": "Fórmula verificada para SOW v1.0 Bantrab Portal Remesas (Opp 241849): 1) Sumar horas*tarifa por recurso del BOM (Precio Venta = $47,109.50). 2) Aplicar Incremento 10% por recurso individual ($52,343.89). 3) Aplicar IVA 12% ($58,625.16). 4) Multiplicar por TC 7.90 = Q463,138.76. El Comercial v3.0 usa Q535,820.56 pero el BOM adjunto NO llega a ese número — indica que existe un BOM actualizado v3.0 no proporcionado, o se ajustó TC/markup. INCONSISTENCIA detectada en Comercial v3.0: la tabla de Propuesta Económica dice Q535,820.56 pero la sección Precio en T&C dice Q599,148.20.",
+      "tags": ["bantrab", "remesas", "propuesta_economica", "formula", "bom", "tc"],
+      "fecha": "2026-03-23 10:47"
+    },
+    {
+      "titulo": "Formula BOM v2.0 a Propuesta Economica Bantrab Remesas",
+      "dominio": "bom",
+      "contenido": "BOM v2.0 Bantrab Remesas (Opp 241849): Duración 3.5 meses. Recursos: 1600hrs L2A, 112hrs L3A, 140hrs L3B, 80hrs DEV_L1, 3.91hrs ADVISOR_L4. Total Venta USD = $60,944.10. El monto Q535,820.56 del Comercial v3.0 se calcula: $60,944.10 × TC 7.85 × IVA 1.12 = Q535,820.56. El monto Q599,148.20 en T&C sale de: Incremento 10% + IVA [Q] del BOM v2.0 con TC 7.90.",
+      "tags": ["bantrab", "remesas", "bom_v2", "propuesta_economica", "tc"],
+      "fecha": "2026-03-23 11:04"
+    },
+    {
+      "titulo": "Formula BOM Modernizacion Web Core TC Bantrab Q1120811",
+      "dominio": "bom",
+      "contenido": "BOM Modernización Web Core TC (Bantrab, Opp 243425): Duración 6 meses, TC en BOM = 7.82. Total Venta USD = $114,732.75, Incr 10%+IVA USD = $142,778.53. La Propuesta Económica Q1,120,811.50 se calcula: $142,778.53 × TC 7.85 = Q1,120,811.50. PATRÓN CLAVE: ambas propuestas Bantrab usan TC 7.85 para conversión final a quetzales.",
+      "tags": ["bantrab", "web_core_tc", "propuesta_economica", "formula", "tc", "patron"],
+      "fecha": "2026-03-23 11:20"
+    },
+    {
+      "titulo": "APIs LLM gratuitas en la nube 2026",
+      "dominio": "general",
+      "contenido": "Mejores opciones gratuitas: 1) Google AI Studio (Gemini 2.5 Pro/Flash) - 1M tokens contexto. 2) Cerebras (Qwen3 235B, Llama 3.3 70B) - 30 RPM, 1M tokens/día. 3) Groq - Llama 3.3 70B, 14400 req/día. 4) SambaNova - Llama hasta 405B. 5) OpenRouter - agregador multi-modelo. 6) Cohere - Command R+ para RAG. Todos compatibles con OpenAI API format.",
+      "tags": ["apis", "llm", "gratuito", "cloud", "gemini", "llama"],
+      "fecha": "2026-03-23 12:00"
+    }
+  ]
+}

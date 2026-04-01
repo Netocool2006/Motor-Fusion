@@ -1,0 +1,1822 @@
+[
+  {
+    "id": "1.1.1",
+    "case": "1. FILE_LOCK",
+    "desc": "Lock exitoso - yields True",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "1.1.2",
+    "case": "1. FILE_LOCK",
+    "desc": "Lock con nombre alfanumerico valido",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "1.1.3",
+    "case": "1. FILE_LOCK",
+    "desc": "Lock con nombre unicode",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "1.2.1",
+    "case": "1. FILE_LOCK",
+    "desc": "Release normal - re-adquirible despues",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "1.2.2",
+    "case": "1. FILE_LOCK",
+    "desc": "Release en excepcion - lock se libera",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "1.3.1",
+    "case": "1. FILE_LOCK",
+    "desc": "Timeout corto - segundo lock falla",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "1.3.2",
+    "case": "1. FILE_LOCK",
+    "desc": "Timeout largo - no da error",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "1.4.1",
+    "case": "1. FILE_LOCK",
+    "desc": "Atomic replace archivo existente",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "1.4.2",
+    "case": "1. FILE_LOCK",
+    "desc": "Atomic replace archivo nuevo (dst no existe)",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "1.4.3",
+    "case": "1. FILE_LOCK",
+    "desc": "Atomic replace preserva contenido exacto",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "1.4.4",
+    "case": "1. FILE_LOCK",
+    "desc": "Atomic replace con src invalido - error graceful",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "2.1.1",
+    "case": "2. CONFIG",
+    "desc": "get_data_dir con MOTOR_IA_DATA env",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "2.1.2",
+    "case": "2. CONFIG",
+    "desc": "get_data_dir sin env - usa HOME",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "2.1.3",
+    "case": "2. CONFIG",
+    "desc": "get_data_dir con path relativo - retorna absoluto",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "2.2.1",
+    "case": "2. CONFIG",
+    "desc": "VERSION == 1.0.0-fusion",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "2.2.2",
+    "case": "2. CONFIG",
+    "desc": "DATA_DIR y KNOWLEDGE_DIR existen al importar",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "2.2.3",
+    "case": "2. CONFIG",
+    "desc": "Constantes numericas DEDUP_WINDOW y ITERATION_GAP",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "3.1.1",
+    "case": "3. LEARNING_MEMORY",
+    "desc": "Registro basico con todos los campos",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "3.1.2",
+    "case": "3. LEARNING_MEMORY",
+    "desc": "Registro con campos minimos",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "3.1.3",
+    "case": "3. LEARNING_MEMORY",
+    "desc": "Registro con 17 mem_types validos",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "3.1.4",
+    "case": "3. LEARNING_MEMORY",
+    "desc": "Registro con scope project vs personal",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "3.2.1",
+    "case": "3. LEARNING_MEMORY",
+    "desc": "Tier 1 upsert: mismo topic_key actualiza",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "3.2.2",
+    "case": "3. LEARNING_MEMORY",
+    "desc": "Tier 1 scope distinto: crea o upserta",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "3.2.3",
+    "case": "3. LEARNING_MEMORY",
+    "desc": "Tier 2 content hash dentro ventana",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "3.2.4",
+    "case": "3. LEARNING_MEMORY",
+    "desc": "Tier 2: contenido diferente crea nuevo",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "3.2.5",
+    "case": "3. LEARNING_MEMORY",
+    "desc": "Tier 3: contenido completamente nuevo",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "3.3.1",
+    "case": "3. LEARNING_MEMORY",
+    "desc": "Busqueda exacta por task_type + context_key",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "3.3.2",
+    "case": "3. LEARNING_MEMORY",
+    "desc": "Busqueda por tags (>= 2 coincidencias)",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "3.3.3",
+    "case": "3. LEARNING_MEMORY",
+    "desc": "Busqueda Jaccard similar",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "3.3.4",
+    "case": "3. LEARNING_MEMORY",
+    "desc": "Busqueda miss retorna None",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "3.3.5",
+    "case": "3. LEARNING_MEMORY",
+    "desc": "Busqueda no retorna soft-deleted",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "3.4.1",
+    "case": "3. LEARNING_MEMORY",
+    "desc": "Soft delete exitoso",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "3.4.2",
+    "case": "3. LEARNING_MEMORY",
+    "desc": "Soft delete ID inexistente retorna False",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "3.4.3",
+    "case": "3. LEARNING_MEMORY",
+    "desc": "Hard delete exitoso",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "3.4.4",
+    "case": "3. LEARNING_MEMORY",
+    "desc": "Hard delete ID inexistente retorna False",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "3.5.1",
+    "case": "3. LEARNING_MEMORY",
+    "desc": "Reuso exitoso success=True",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "3.5.2",
+    "case": "3. LEARNING_MEMORY",
+    "desc": "Reuso fallido success=False",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "3.5.3",
+    "case": "3. LEARNING_MEMORY",
+    "desc": "10 reusos exitosos - success_rate alto",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "3.5.4",
+    "case": "3. LEARNING_MEMORY",
+    "desc": "Reuso ID inexistente no crashea",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "3.6.1",
+    "case": "3. LEARNING_MEMORY",
+    "desc": "Update basico cambia solution",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "3.6.2",
+    "case": "3. LEARNING_MEMORY",
+    "desc": "Update patron inexistente retorna False",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "3.7.1",
+    "case": "3. LEARNING_MEMORY",
+    "desc": "get_stats retorna metricas validas",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "3.7.2",
+    "case": "3. LEARNING_MEMORY",
+    "desc": "export_for_context genera texto",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "3.7.3",
+    "case": "3. LEARNING_MEMORY",
+    "desc": "export_for_context con limit=3",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "3.8.1",
+    "case": "3. LEARNING_MEMORY",
+    "desc": "suggest_topic_key formato correcto",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "3.8.2",
+    "case": "3. LEARNING_MEMORY",
+    "desc": "suggest_topic_key con input vacio",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "4.1.1",
+    "case": "4. KNOWLEDGE_BASE",
+    "desc": "add_pattern basico - ID retornado",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "4.1.2",
+    "case": "4. KNOWLEDGE_BASE",
+    "desc": "add_pattern con tags - tag_index actualizado",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "4.1.3",
+    "case": "4. KNOWLEDGE_BASE",
+    "desc": "add_pattern con error_context",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "4.1.4",
+    "case": "4. KNOWLEDGE_BASE",
+    "desc": "add_pattern en dominio inexistente - auto-crea",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "4.1.5",
+    "case": "4. KNOWLEDGE_BASE",
+    "desc": "add_pattern duplicado mismo key - upsert",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "4.2.1",
+    "case": "4. KNOWLEDGE_BASE",
+    "desc": "add_fact basico",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "4.2.2",
+    "case": "4. KNOWLEDGE_BASE",
+    "desc": "add_fact con examples",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "4.2.3",
+    "case": "4. KNOWLEDGE_BASE",
+    "desc": "add_fact con confidence levels",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "4.2.4",
+    "case": "4. KNOWLEDGE_BASE",
+    "desc": "add_fact en dominio auto-creado",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "4.3.1",
+    "case": "4. KNOWLEDGE_BASE",
+    "desc": "search por key exacto",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "4.3.2",
+    "case": "4. KNOWLEDGE_BASE",
+    "desc": "search por tags",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "4.3.3",
+    "case": "4. KNOWLEDGE_BASE",
+    "desc": "search IDF por text_query",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "4.3.4",
+    "case": "4. KNOWLEDGE_BASE",
+    "desc": "search con temporal decay",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "4.3.5",
+    "case": "4. KNOWLEDGE_BASE",
+    "desc": "search en dominio vacio retorna []",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "4.3.6",
+    "case": "4. KNOWLEDGE_BASE",
+    "desc": "search fuzzy parcial",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "4.4.1",
+    "case": "4. KNOWLEDGE_BASE",
+    "desc": "cross_domain_search multiples dominios",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "4.4.2",
+    "case": "4. KNOWLEDGE_BASE",
+    "desc": "cross_domain_search dominios especificos",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "4.4.3",
+    "case": "4. KNOWLEDGE_BASE",
+    "desc": "cross_domain_search todos (domains=None)",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "4.5.1",
+    "case": "4. KNOWLEDGE_BASE",
+    "desc": "Nuevo dominio creado en list_domains",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "4.5.2",
+    "case": "4. KNOWLEDGE_BASE",
+    "desc": "Dominio existente no se duplica",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "4.5.3",
+    "case": "4. KNOWLEDGE_BASE",
+    "desc": "list_domains retorna lista",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "4.6.1",
+    "case": "4. KNOWLEDGE_BASE",
+    "desc": "ingest_business_rules_from_text",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "4.6.2",
+    "case": "4. KNOWLEDGE_BASE",
+    "desc": "ingest_catalog_from_text",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "4.6.3",
+    "case": "4. KNOWLEDGE_BASE",
+    "desc": "ingest texto vacio retorna lista vacia",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "4.7.1",
+    "case": "4. KNOWLEDGE_BASE",
+    "desc": "export_context con resultados",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "4.7.2",
+    "case": "4. KNOWLEDGE_BASE",
+    "desc": "export_context sin resultados",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "4.7.3",
+    "case": "4. KNOWLEDGE_BASE",
+    "desc": "get_global_stats retorna dict",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "5.1.1",
+    "case": "5. EPISODIC_INDEX",
+    "desc": "index_session completa y busqueda",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "5.1.2",
+    "case": "5. EPISODIC_INDEX",
+    "desc": "index_session minima no crashea",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "5.1.3",
+    "case": "5. EPISODIC_INDEX",
+    "desc": "Re-indexar misma fecha - INSERT OR REPLACE",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "5.2.1",
+    "case": "5. EPISODIC_INDEX",
+    "desc": "Busqueda BM25 retorna resultados",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "5.2.2",
+    "case": "5. EPISODIC_INDEX",
+    "desc": "Busqueda sin resultados lista vacia",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "5.2.3",
+    "case": "5. EPISODIC_INDEX",
+    "desc": "Busqueda con caracteres especiales no crashea",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "5.2.4",
+    "case": "5. EPISODIC_INDEX",
+    "desc": "Limit respetado en busqueda",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "5.3.1",
+    "case": "5. EPISODIC_INDEX",
+    "desc": "rebuild_from_history reconstruye desde JSON",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "5.3.2",
+    "case": "5. EPISODIC_INDEX",
+    "desc": "rebuild_from_history vacio retorna 0",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "5.4.1",
+    "case": "5. EPISODIC_INDEX",
+    "desc": "get_stats retorna metricas",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "6.1.1",
+    "case": "6. SAP_PLAYBOOK",
+    "desc": "learn patron nuevo - confidence > 0, uses >= 1",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "6.1.2",
+    "case": "6. SAP_PLAYBOOK",
+    "desc": "learn patron existente - incrementa uses",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "6.1.3",
+    "case": "6. SAP_PLAYBOOK",
+    "desc": "learn con todos los campos",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "6.2.1",
+    "case": "6. SAP_PLAYBOOK",
+    "desc": "lookup por key exacto",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "6.2.2",
+    "case": "6. SAP_PLAYBOOK",
+    "desc": "lookup por screen+action+field",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "6.2.3",
+    "case": "6. SAP_PLAYBOOK",
+    "desc": "lookup fuzzy",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "6.2.4",
+    "case": "6. SAP_PLAYBOOK",
+    "desc": "lookup no encontrado - found=False",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "6.2.5",
+    "case": "6. SAP_PLAYBOOK",
+    "desc": "confidence decay no crashea",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "6.3.1",
+    "case": "6. SAP_PLAYBOOK",
+    "desc": "fail sin blacklist - incrementa failures",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "6.3.2",
+    "case": "6. SAP_PLAYBOOK",
+    "desc": "fail con blacklist=True - agrega a blacklist",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "6.3.3",
+    "case": "6. SAP_PLAYBOOK",
+    "desc": "fail patron inexistente no crashea",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "6.4.1",
+    "case": "6. SAP_PLAYBOOK",
+    "desc": "get_blacklist con filtros",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "6.4.2",
+    "case": "6. SAP_PLAYBOOK",
+    "desc": "get_blacklist vacia retorna lista",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "6.5.1",
+    "case": "6. SAP_PLAYBOOK",
+    "desc": "save_helper + get_helper",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "6.5.2",
+    "case": "6. SAP_PLAYBOOK",
+    "desc": "get_helpers sap_only=True",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "6.5.3",
+    "case": "6. SAP_PLAYBOOK",
+    "desc": "get_helpers todos",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "6.6.1",
+    "case": "6. SAP_PLAYBOOK",
+    "desc": "save_frame_path + get_frame_path",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "6.6.2",
+    "case": "6. SAP_PLAYBOOK",
+    "desc": "get_frame_path inexistente retorna None",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "6.7.1",
+    "case": "6. SAP_PLAYBOOK",
+    "desc": "get_stats completo",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "6.7.2",
+    "case": "6. SAP_PLAYBOOK",
+    "desc": "export_for_context",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "6.8.1",
+    "case": "6. SAP_PLAYBOOK",
+    "desc": "seed_base_knowledge desde cero",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "6.8.2",
+    "case": "6. SAP_PLAYBOOK",
+    "desc": "seed_base_knowledge idempotente",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "7.1.1",
+    "case": "7. DOMAIN_DETECTOR",
+    "desc": "detect match claro (>= 2 keywords)",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "7.1.2",
+    "case": "7. DOMAIN_DETECTOR",
+    "desc": "detect texto generico retorna 'general'",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "7.1.3",
+    "case": "7. DOMAIN_DETECTOR",
+    "desc": "detect texto vacio retorna 'general'",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "7.1.4",
+    "case": "7. DOMAIN_DETECTOR",
+    "desc": "detect solo stop words retorna 'general'",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "7.2.1",
+    "case": "7. DOMAIN_DETECTOR",
+    "desc": "suggest retorna candidatos multiples",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "7.2.2",
+    "case": "7. DOMAIN_DETECTOR",
+    "desc": "suggest sin candidatos retorna lista",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "7.3.1",
+    "case": "7. DOMAIN_DETECTOR",
+    "desc": "detect_multi texto multi-dominio",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "7.3.2",
+    "case": "7. DOMAIN_DETECTOR",
+    "desc": "detect_multi max_domains respetado",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "7.3.3",
+    "case": "7. DOMAIN_DETECTOR",
+    "desc": "detect_multi threshold 50% del max",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "7.4.1",
+    "case": "7. DOMAIN_DETECTOR",
+    "desc": "learn_domain_keywords dominio existente",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "7.4.2",
+    "case": "7. DOMAIN_DETECTOR",
+    "desc": "learn_domain_keywords dominio nuevo",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "7.4.3",
+    "case": "7. DOMAIN_DETECTOR",
+    "desc": "learn_domain_keywords filtra stop words",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "7.4.4",
+    "case": "7. DOMAIN_DETECTOR",
+    "desc": "learn_domain_keywords filtra palabras cortas (<3)",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "7.5.1",
+    "case": "7. DOMAIN_DETECTOR",
+    "desc": "auto_learn_from_session con domain valido",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "7.5.2",
+    "case": "7. DOMAIN_DETECTOR",
+    "desc": "auto_learn_from_session domain 'general' no aprende",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "7.5.3",
+    "case": "7. DOMAIN_DETECTOR",
+    "desc": "auto_learn_from_session texto vacio no crashea",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "7.6.1",
+    "case": "7. DOMAIN_DETECTOR",
+    "desc": "detect_from_session record con domain pre-set",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "7.6.2",
+    "case": "7. DOMAIN_DETECTOR",
+    "desc": "detect_from_session record sin domain - detecta",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "7.6.3",
+    "case": "7. DOMAIN_DETECTOR",
+    "desc": "detect_from_session record vacio retorna 'general'",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "8.1.1",
+    "case": "8. DOMAIN_PRESETS",
+    "desc": "list_presets retorna >= 4 presets",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "8.1.2",
+    "case": "8. DOMAIN_PRESETS",
+    "desc": "GBM preset tiene domain_count correcto",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "8.2.1",
+    "case": "8. DOMAIN_PRESETS",
+    "desc": "get_preset existente retorna dict",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "8.2.2",
+    "case": "8. DOMAIN_PRESETS",
+    "desc": "get_preset inexistente retorna None",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "8.3.1",
+    "case": "8. DOMAIN_PRESETS",
+    "desc": "apply_preset GBM crea dominios",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "8.3.2",
+    "case": "8. DOMAIN_PRESETS",
+    "desc": "apply_preset Developer",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "8.3.3",
+    "case": "8. DOMAIN_PRESETS",
+    "desc": "apply_preset inexistente retorna 0",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "8.4.1",
+    "case": "8. DOMAIN_PRESETS",
+    "desc": "apply_multiple_presets dos sin overlap",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "8.4.2",
+    "case": "8. DOMAIN_PRESETS",
+    "desc": "apply_multiple_presets con overlap - fusion",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "8.4.3",
+    "case": "8. DOMAIN_PRESETS",
+    "desc": "apply_multiple_presets lista vacia retorna 0",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "9.1.1",
+    "case": "9. AGENT_MEMORY",
+    "desc": "remember preferencia basica",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "9.1.2",
+    "case": "9. AGENT_MEMORY",
+    "desc": "remember project fact",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "9.1.3",
+    "case": "9. AGENT_MEMORY",
+    "desc": "remember feedback",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "9.1.4",
+    "case": "9. AGENT_MEMORY",
+    "desc": "remember note",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "9.1.5",
+    "case": "9. AGENT_MEMORY",
+    "desc": "tipo invalido - fallback note",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "9.1.6",
+    "case": "9. AGENT_MEMORY",
+    "desc": "scope invalido - fallback personal",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "9.1.7",
+    "case": "9. AGENT_MEMORY",
+    "desc": "deduplicacion mismo texto",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "9.1.8",
+    "case": "9. AGENT_MEMORY",
+    "desc": "remember con tags guardados",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "9.2.1",
+    "case": "9. AGENT_MEMORY",
+    "desc": "forget existente - deleted=True",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "9.2.2",
+    "case": "9. AGENT_MEMORY",
+    "desc": "forget inexistente retorna False",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "9.2.3",
+    "case": "9. AGENT_MEMORY",
+    "desc": "forget ya borrado no crashea",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "9.3.1",
+    "case": "9. AGENT_MEMORY",
+    "desc": "recall por query exacto",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "9.3.2",
+    "case": "9. AGENT_MEMORY",
+    "desc": "recall por keywords",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "9.3.3",
+    "case": "9. AGENT_MEMORY",
+    "desc": "recall por tags",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "9.3.4",
+    "case": "9. AGENT_MEMORY",
+    "desc": "recall sin query retorna todos activos",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "9.3.5",
+    "case": "9. AGENT_MEMORY",
+    "desc": "recall filtrado por tipo",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "9.3.6",
+    "case": "9. AGENT_MEMORY",
+    "desc": "recall filtrado por scope",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "9.3.7",
+    "case": "9. AGENT_MEMORY",
+    "desc": "recall respeta limit",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "9.3.8",
+    "case": "9. AGENT_MEMORY",
+    "desc": "recall no retorna soft-deleted",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "9.3.9",
+    "case": "9. AGENT_MEMORY",
+    "desc": "recall incrementa recall_count",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "9.4.1",
+    "case": "9. AGENT_MEMORY",
+    "desc": "recall_all sin filtro",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "9.4.2",
+    "case": "9. AGENT_MEMORY",
+    "desc": "recall_all filtrado por tipo",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "9.4.3",
+    "case": "9. AGENT_MEMORY",
+    "desc": "recall_all filtrado por scope",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "9.5.1",
+    "case": "9. AGENT_MEMORY",
+    "desc": "export_for_context con datos",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "9.5.2",
+    "case": "9. AGENT_MEMORY",
+    "desc": "export_for_context vacio retorna string",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "9.5.3",
+    "case": "9. AGENT_MEMORY",
+    "desc": "export_for_context respeta limit",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "9.5.4",
+    "case": "9. AGENT_MEMORY",
+    "desc": "export_for_context orden por recall_count",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "9.6.1",
+    "case": "9. AGENT_MEMORY",
+    "desc": "detect_preference - prefiero snake_case",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "9.6.2",
+    "case": "9. AGENT_MEMORY",
+    "desc": "detect_preference - proyecto usa PostgreSQL",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "9.6.3",
+    "case": "9. AGENT_MEMORY",
+    "desc": "detect_preference - nunca uses mocks",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "9.6.4",
+    "case": "9. AGENT_MEMORY",
+    "desc": "detect_preference - recuerda deploy AWS",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "9.6.5",
+    "case": "9. AGENT_MEMORY",
+    "desc": "detect_preference english - I prefer tabs",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "9.6.6",
+    "case": "9. AGENT_MEMORY",
+    "desc": "detect_preference english - project uses React",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "9.6.7",
+    "case": "9. AGENT_MEMORY",
+    "desc": "detect_preference english - don't use mocks",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "9.6.8",
+    "case": "9. AGENT_MEMORY",
+    "desc": "detect_preference texto no-preferencia retorna None",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "9.6.9",
+    "case": "9. AGENT_MEMORY",
+    "desc": "detect_preference texto < 10 chars retorna None",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "9.6.10",
+    "case": "9. AGENT_MEMORY",
+    "desc": "detect_preference texto > 500 chars retorna None",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "9.7.1",
+    "case": "9. AGENT_MEMORY",
+    "desc": "get_stats con datos - total correcto",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "9.7.2",
+    "case": "9. AGENT_MEMORY",
+    "desc": "get_stats vacio - total=0",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "10.1.1",
+    "case": "10. FILE_EXTRACTOR",
+    "desc": "supported_extensions retorna >= 40 extensiones",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "10.1.2",
+    "case": "10. FILE_EXTRACTOR",
+    "desc": "Incluye TEXT + OFFICE + PDF",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "10.2.1",
+    "case": "10. FILE_EXTRACTOR",
+    "desc": "can_extract archivo valido True",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "10.2.2",
+    "case": "10. FILE_EXTRACTOR",
+    "desc": "can_extract .exe retorna False",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "10.2.3",
+    "case": "10. FILE_EXTRACTOR",
+    "desc": "can_extract archivo inexistente False",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "10.2.4",
+    "case": "10. FILE_EXTRACTOR",
+    "desc": "can_extract archivo > 10MB False",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "10.3.1",
+    "case": "10. FILE_EXTRACTOR",
+    "desc": "extract_text .txt simple",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "10.3.2",
+    "case": "10. FILE_EXTRACTOR",
+    "desc": "extract_text .py codigo Python",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "10.3.3",
+    "case": "10. FILE_EXTRACTOR",
+    "desc": "extract_text .json estructura",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "10.3.4",
+    "case": "10. FILE_EXTRACTOR",
+    "desc": "extract_text .md markdown",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "10.3.5",
+    "case": "10. FILE_EXTRACTOR",
+    "desc": "extract_text .csv datos",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "10.3.6",
+    "case": "10. FILE_EXTRACTOR",
+    "desc": "extract_text max_chars respetado",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "10.3.7",
+    "case": "10. FILE_EXTRACTOR",
+    "desc": "extract_text encoding raro no crashea",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "10.4.7",
+    "case": "10. FILE_EXTRACTOR",
+    "desc": "extract_text Office corrupto retorna string",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "10.5.3",
+    "case": "10. FILE_EXTRACTOR",
+    "desc": "extract_text PDF corrupto retorna string",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "10.6.1",
+    "case": "10. FILE_EXTRACTOR",
+    "desc": "chunk_text texto < chunk_size retorna [texto]",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "10.6.2",
+    "case": "10. FILE_EXTRACTOR",
+    "desc": "chunk_text texto exacto chunk_size",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "10.6.3",
+    "case": "10. FILE_EXTRACTOR",
+    "desc": "chunk_text texto 2x chunk_size retorna 2+ chunks",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "10.6.4",
+    "case": "10. FILE_EXTRACTOR",
+    "desc": "chunk_text corte en sentence boundary",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "10.6.5",
+    "case": "10. FILE_EXTRACTOR",
+    "desc": "chunk_text overlap correcto",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "10.6.6",
+    "case": "10. FILE_EXTRACTOR",
+    "desc": "chunk_text texto vacio retorna lista",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "11.1.1",
+    "case": "11. DISK_SCANNER",
+    "desc": "get_default_scan_paths retorna solo paths existentes",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "11.1.2",
+    "case": "11. DISK_SCANNER",
+    "desc": "get_default_scan_paths no crashea en Windows",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "11.2.1",
+    "case": "11. DISK_SCANNER",
+    "desc": "estimate_scan_time carpeta con archivos",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "11.2.2",
+    "case": "11. DISK_SCANNER",
+    "desc": "estimate_scan_time carpeta vacia (0,0)",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "11.2.3",
+    "case": "11. DISK_SCANNER",
+    "desc": "estimate_scan_time carpeta inexistente (0,0)",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "11.3.1",
+    "case": "11. DISK_SCANNER",
+    "desc": "scan descubre dominios correctamente",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "11.3.2",
+    "case": "11. DISK_SCANNER",
+    "desc": "scan min_files filtra carpetas",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "11.3.3",
+    "case": "11. DISK_SCANNER",
+    "desc": "scan depth respetado",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "11.3.4",
+    "case": "11. DISK_SCANNER",
+    "desc": "scan SKIP_DIRS respetado (node_modules)",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "11.3.5",
+    "case": "11. DISK_SCANNER",
+    "desc": "scan BINARY_EXTENSIONS ignorados (.exe)",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "11.3.6",
+    "case": "11. DISK_SCANNER",
+    "desc": "scan progress_callback no crashea",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "11.3.7",
+    "case": "11. DISK_SCANNER",
+    "desc": "scan carpeta vacia retorna {}",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "11.4.1",
+    "case": "11. DISK_SCANNER",
+    "desc": "confidence valida (0-1)",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "11.4.2",
+    "case": "11. DISK_SCANNER",
+    "desc": "confidence 30 archivos",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "11.4.3",
+    "case": "11. DISK_SCANNER",
+    "desc": "confidence 100+ mono-extension alta",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "11.4.4",
+    "case": "11. DISK_SCANNER",
+    "desc": "confidence mixta no crashea",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "11.5.1",
+    "case": "11. DISK_SCANNER",
+    "desc": "scan_and_apply guarda dominios",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "11.5.2",
+    "case": "11. DISK_SCANNER",
+    "desc": "scan_and_apply min_files alto no guarda",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "11.5.3",
+    "case": "11. DISK_SCANNER",
+    "desc": "scan_and_apply actualiza domains.json",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "11.6.1",
+    "case": "11. DISK_SCANNER",
+    "desc": "scan_and_ingest crea dominios y KB",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "11.6.2",
+    "case": "11. DISK_SCANNER",
+    "desc": "scan_and_ingest max_files_per_domain respetado",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "11.6.3",
+    "case": "11. DISK_SCANNER",
+    "desc": "scan_and_ingest archivos no extraibles omitidos",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "11.7.1",
+    "case": "11. DISK_SCANNER",
+    "desc": "keyword extraction CamelCase split",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "11.7.2",
+    "case": "11. DISK_SCANNER",
+    "desc": "keyword extraction snake_case split",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "11.7.3",
+    "case": "11. DISK_SCANNER",
+    "desc": "keyword extraction stop words filtradas",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "11.7.4",
+    "case": "11. DISK_SCANNER",
+    "desc": "keyword extraction palabras cortas filtradas",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "12.1.1",
+    "case": "12. ADAPTERS",
+    "desc": "normalize_event completa campos",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "12.1.2",
+    "case": "12. ADAPTERS",
+    "desc": "is_valid_event True con event+session_id",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "12.1.3",
+    "case": "12. ADAPTERS",
+    "desc": "is_valid_event False sin event o session_id",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "12.2.1",
+    "case": "12. ADAPTERS",
+    "desc": "ClaudeCodeAdapter.get_cli_name() = 'claude_code'",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "12.2.2",
+    "case": "12. ADAPTERS",
+    "desc": "Parse UserPromptSubmit JSON",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "12.2.3",
+    "case": "12. ADAPTERS",
+    "desc": "Parse hook event UserPromptSubmit",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "12.2.4",
+    "case": "12. ADAPTERS",
+    "desc": "Parse Stop/result event",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "12.2.5",
+    "case": "12. ADAPTERS",
+    "desc": "JSON invalido no crashea",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "12.3.1",
+    "case": "12. ADAPTERS",
+    "desc": "GeminiAdapter.get_cli_name() = 'gemini'",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "12.3.2",
+    "case": "12. ADAPTERS",
+    "desc": "GeminiAdapter parsea formato flexible",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "12.4.1",
+    "case": "12. ADAPTERS",
+    "desc": "OllamaAdapter get_cli_name tiene 'ollama'",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "12.4.2",
+    "case": "12. ADAPTERS",
+    "desc": "OllamaAdapter build_system_prompt inyecta KB",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "12.4.3",
+    "case": "12. ADAPTERS",
+    "desc": "OllamaAdapter recommended_ctx segun RAM",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "13.1.1",
+    "case": "13. HOOKS",
+    "desc": "session_start.py ejecuta sin crash",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "13.1.3",
+    "case": "13. HOOKS",
+    "desc": "session_start.py produce output",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "13.1.6",
+    "case": "13. HOOKS",
+    "desc": "session_start.py sin historia no crashea",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "13.2.1",
+    "case": "13. HOOKS",
+    "desc": "user_prompt_submit detecta preferencia",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "13.2.4",
+    "case": "13. HOOKS",
+    "desc": "user_prompt_submit prompt corto exit silencioso",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "13.3.1",
+    "case": "13. HOOKS",
+    "desc": "post_tool_use captura herramienta",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "13.4.1",
+    "case": "13. HOOKS",
+    "desc": "session_end guarda sesion en history",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "14.1.1",
+    "case": "14. DOMAIN_CONFIG",
+    "desc": "13 dominios definidos en DOMAINS dict",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "14.1.2",
+    "case": "14. DOMAIN_CONFIG",
+    "desc": "Cada dominio tiene description no vacio",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "14.1.3",
+    "case": "14. DOMAIN_CONFIG",
+    "desc": "Cada dominio tiene tasks (lista)",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "14.2.1",
+    "case": "14. DOMAIN_CONFIG",
+    "desc": "is_preset_loaded retorna bool",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "14.3.1",
+    "case": "14. DOMAIN_CONFIG",
+    "desc": "get_domains_for_task task conocida",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "14.3.2",
+    "case": "14. DOMAIN_CONFIG",
+    "desc": "get_domains_for_task task desconocida retorna todos",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "14.4.1",
+    "case": "14. DOMAIN_CONFIG",
+    "desc": "describe_task task conocida retorna descripcion",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "14.4.2",
+    "case": "14. DOMAIN_CONFIG",
+    "desc": "describe_task task desconocida retorna task_id",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "15.1.2",
+    "case": "15. INTEGRACIONES",
+    "desc": "Patron LM persiste: register -> search",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "15.2.1",
+    "case": "15. INTEGRACIONES",
+    "desc": "scan->ingest->search end-to-end",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "15.2.2",
+    "case": "15. INTEGRACIONES",
+    "desc": "Dominio creado -> detect dominio correcto",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "15.3.1",
+    "case": "15. INTEGRACIONES",
+    "desc": "remember->export_for_context incluye preferencia",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "15.4.1",
+    "case": "15. INTEGRACIONES",
+    "desc": "Importar todos los modulos sin circular imports",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "16.1.1",
+    "case": "16. EDGE_CASES",
+    "desc": "JSON malformado - self-healing o error graceful",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "16.1.2",
+    "case": "16. EDGE_CASES",
+    "desc": "SQLite DB corrupta - no crashea",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "16.3.1",
+    "case": "16. EDGE_CASES",
+    "desc": "Dos escrituras simultaneas con file_lock",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "16.4.1",
+    "case": "16. EDGE_CASES",
+    "desc": "Unicode/acentos en patrones",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "16.4.2",
+    "case": "16. EDGE_CASES",
+    "desc": "Paths con acentos funcionan",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "16.5.1",
+    "case": "16. EDGE_CASES",
+    "desc": "Directorio vacio inicializa correctamente",
+    "pass": true,
+    "detail": "OK"
+  },
+  {
+    "id": "16.5.2",
+    "case": "16. EDGE_CASES",
+    "desc": "Inputs vacios en funciones clave no crashean",
+    "pass": true,
+    "detail": "OK"
+  }
+]

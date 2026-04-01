@@ -1,0 +1,926 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Motor Fusion IA — Manual de Usuario</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --sidebar-bg: #1a237e;
+    --sidebar-w: 280px;
+    --accent: #1976d2;
+    --accent-light: #e3f2fd;
+    --text: #212121;
+    --text-light: #546e7a;
+    --bg: #ffffff;
+    --code-bg: #f5f5f5;
+    --border: #e0e0e0;
+    --success: #2e7d32;
+    --warning: #f57f17;
+    --error: #c62828;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    color: var(--text);
+    background: #f4f6f9;
+    line-height: 1.7;
+    font-size: 15px;
+  }
+
+  /* ── Sidebar ── */
+  .sidebar {
+    position: fixed;
+    top: 0; left: 0;
+    width: var(--sidebar-w);
+    height: 100vh;
+    background: var(--sidebar-bg);
+    color: #fff;
+    overflow-y: auto;
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    transition: transform .3s;
+  }
+
+  .sidebar-header {
+    padding: 28px 22px 18px;
+    border-bottom: 1px solid rgba(255,255,255,.12);
+  }
+
+  .sidebar-header h1 {
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: -.3px;
+    line-height: 1.3;
+  }
+
+  .sidebar-header .version {
+    display: inline-block;
+    margin-top: 6px;
+    padding: 2px 10px;
+    background: rgba(255,255,255,.15);
+    border-radius: 12px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: .5px;
+  }
+
+  .sidebar nav { flex: 1; padding: 12px 0; }
+
+  .sidebar nav a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 22px;
+    color: rgba(255,255,255,.78);
+    text-decoration: none;
+    font-size: 13.5px;
+    font-weight: 500;
+    transition: background .15s, color .15s;
+    border-left: 3px solid transparent;
+  }
+
+  .sidebar nav a:hover,
+  .sidebar nav a.active {
+    background: rgba(255,255,255,.08);
+    color: #fff;
+    border-left-color: #64b5f6;
+  }
+
+  .sidebar nav a .num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 22px; height: 22px;
+    background: rgba(255,255,255,.12);
+    border-radius: 6px;
+    font-size: 11px;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  .sidebar-footer {
+    padding: 16px 22px;
+    border-top: 1px solid rgba(255,255,255,.12);
+    font-size: 11px;
+    color: rgba(255,255,255,.45);
+    text-align: center;
+  }
+
+  /* ── Mobile toggle ── */
+  .menu-toggle {
+    display: none;
+    position: fixed;
+    top: 14px; left: 14px;
+    z-index: 200;
+    width: 42px; height: 42px;
+    background: var(--sidebar-bg);
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    font-size: 22px;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,.25);
+  }
+
+  /* ── Main content ── */
+  .main {
+    margin-left: var(--sidebar-w);
+    padding: 40px 48px 80px;
+    max-width: 920px;
+  }
+
+  .main section { margin-bottom: 56px; }
+
+  .main h2 {
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--sidebar-bg);
+    margin-bottom: 18px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--accent-light);
+    scroll-margin-top: 24px;
+  }
+
+  .main h3 {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--accent);
+    margin: 28px 0 10px;
+  }
+
+  .main p { margin-bottom: 14px; }
+
+  .main ul, .main ol {
+    margin: 10px 0 18px 24px;
+  }
+
+  .main li { margin-bottom: 6px; }
+
+  /* ── Code blocks ── */
+  code {
+    font-family: "Cascadia Code", "Fira Code", Consolas, monospace;
+    font-size: 13.5px;
+  }
+
+  code:not(pre code) {
+    background: var(--code-bg);
+    padding: 2px 7px;
+    border-radius: 5px;
+    color: #c62828;
+  }
+
+  pre {
+    background: #263238;
+    color: #eceff1;
+    padding: 18px 22px;
+    border-radius: 10px;
+    overflow-x: auto;
+    margin: 12px 0 20px;
+    line-height: 1.55;
+  }
+
+  pre code { color: inherit; background: none; padding: 0; }
+
+  /* ── Info boxes ── */
+  .box {
+    padding: 16px 20px;
+    border-radius: 10px;
+    margin: 16px 0 20px;
+    border-left: 4px solid;
+  }
+
+  .box-info  { background: #e3f2fd; border-color: var(--accent); }
+  .box-tip   { background: #e8f5e9; border-color: var(--success); }
+  .box-warn  { background: #fff8e1; border-color: var(--warning); }
+  .box-error { background: #ffebee; border-color: var(--error); }
+
+  .box strong { display: block; margin-bottom: 4px; font-size: 13px; text-transform: uppercase; letter-spacing: .5px; }
+  .box-info  strong { color: var(--accent); }
+  .box-tip   strong { color: var(--success); }
+  .box-warn  strong { color: var(--warning); }
+  .box-error strong { color: var(--error); }
+
+  /* ── Table ── */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 14px 0 22px;
+    font-size: 14px;
+  }
+
+  th, td {
+    padding: 10px 14px;
+    text-align: left;
+    border-bottom: 1px solid var(--border);
+  }
+
+  th {
+    background: var(--accent-light);
+    font-weight: 600;
+    color: var(--sidebar-bg);
+    font-size: 12.5px;
+    text-transform: uppercase;
+    letter-spacing: .4px;
+  }
+
+  tr:hover td { background: #fafafa; }
+
+  /* ── Diagram ── */
+  .diagram {
+    background: var(--code-bg);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 28px 20px;
+    text-align: center;
+    margin: 20px 0;
+    font-family: "Cascadia Code", Consolas, monospace;
+    font-size: 13px;
+    line-height: 1.8;
+    overflow-x: auto;
+    white-space: pre;
+    color: var(--sidebar-bg);
+  }
+
+  /* ── Step cards ── */
+  .step {
+    display: flex;
+    gap: 18px;
+    margin: 18px 0;
+    padding: 18px 20px;
+    background: #fff;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+  }
+
+  .step-num {
+    flex-shrink: 0;
+    width: 36px; height: 36px;
+    background: var(--accent);
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 15px;
+  }
+
+  .step-body h4 {
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: var(--text);
+  }
+
+  .step-body p { margin-bottom: 6px; font-size: 14px; }
+
+  /* ── Glossary ── */
+  .glossary-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .glossary-item {
+    padding: 14px 18px;
+    background: #fff;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+  }
+
+  .glossary-item dt {
+    font-weight: 700;
+    color: var(--accent);
+    font-size: 14px;
+    margin-bottom: 4px;
+  }
+
+  .glossary-item dd {
+    font-size: 13.5px;
+    color: var(--text-light);
+  }
+
+  /* ── FAQ ── */
+  .faq-item {
+    margin-bottom: 18px;
+    padding: 16px 20px;
+    background: #fff;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+  }
+
+  .faq-item .q {
+    font-weight: 700;
+    color: var(--error);
+    margin-bottom: 8px;
+    font-size: 14.5px;
+  }
+
+  .faq-item .a {
+    font-size: 14px;
+    color: var(--text);
+  }
+
+  .faq-item .a code { font-size: 12.5px; }
+
+  /* ── Responsive ── */
+  @media (max-width: 860px) {
+    .sidebar { transform: translateX(-100%); }
+    .sidebar.open { transform: translateX(0); }
+    .menu-toggle { display: flex; }
+    .main { margin-left: 0; padding: 24px 20px 60px; }
+    .main h2 { font-size: 22px; scroll-margin-top: 70px; }
+  }
+
+  /* scrollbar */
+  .sidebar::-webkit-scrollbar { width: 5px; }
+  .sidebar::-webkit-scrollbar-thumb { background: rgba(255,255,255,.2); border-radius: 4px; }
+</style>
+</head>
+<body>
+
+<!-- Mobile menu button -->
+<button class="menu-toggle" onclick="document.querySelector('.sidebar').classList.toggle('open')" aria-label="Menu">&#9776;</button>
+
+<!-- ── SIDEBAR ── -->
+<aside class="sidebar">
+  <div class="sidebar-header">
+    <h1>Motor Fusion IA</h1>
+    <span class="version">v1.0 &mdash; Manual de Usuario</span>
+  </div>
+  <nav>
+    <a href="#introduccion"><span class="num">1</span> Introduccion</a>
+    <a href="#requisitos"><span class="num">2</span> Requisitos del Sistema</a>
+    <a href="#instalacion"><span class="num">3</span> Instalacion</a>
+    <a href="#como-funciona"><span class="num">4</span> Como Funciona</a>
+    <a href="#uso-diario"><span class="num">5</span> Uso Diario</a>
+    <a href="#respaldo"><span class="num">6</span> Respaldo y Sincronizacion</a>
+    <a href="#adaptadores"><span class="num">7</span> Adaptadores CLI</a>
+    <a href="#desinstalacion"><span class="num">8</span> Desinstalacion</a>
+    <a href="#faq"><span class="num">9</span> Solucion de Problemas</a>
+    <a href="#glosario"><span class="num">10</span> Glosario</a>
+  </nav>
+  <div class="sidebar-footer">
+    &copy; 2026 Motor Fusion IA<br>Todos los derechos reservados
+  </div>
+</aside>
+
+<!-- ── MAIN CONTENT ── -->
+<div class="main">
+
+  <!-- 1. INTRODUCCION -->
+  <section id="introduccion">
+    <h2>1. Introduccion</h2>
+    <p>
+      <strong>Motor Fusion IA</strong> es un sistema de inteligencia artificial adaptativa que aprende
+      automaticamente de cada sesion de trabajo del usuario. A diferencia de herramientas convencionales,
+      Motor Fusion no requiere configuracion manual de reglas ni entrenamiento explicito: observa como
+      trabajas, detecta patrones, registra soluciones a problemas y construye una base de conocimiento
+      personalizada que mejora con el tiempo.
+    </p>
+    <p>
+      El motor fue disenado para profesionales que trabajan con multiples sistemas (SAP CRM, Monday.com,
+      herramientas de propuestas, BoM, SOW, entre otros) y necesitan que su asistente de IA recuerde
+      contexto entre sesiones, evite repetir errores y sugiera soluciones basadas en experiencia previa.
+    </p>
+
+    <h3>Que aprende Motor Fusion IA</h3>
+    <ul>
+      <li><strong>Patrones de trabajo:</strong> secuencias de acciones que el usuario repite frecuentemente.</li>
+      <li><strong>Errores y soluciones:</strong> cuando un problema se resuelve, el motor registra la causa y la correccion para evitar repetirlo.</li>
+      <li><strong>Hechos del dominio:</strong> datos especificos de cada sistema (codigos SAP, estructuras de BoM, reglas de negocio).</li>
+      <li><strong>Preferencias del usuario:</strong> formato de salida, idioma, nivel de detalle preferido.</li>
+    </ul>
+
+    <div class="box box-info">
+      <strong>Nota</strong>
+      Motor Fusion IA funciona de forma completamente local. Tus datos nunca salen de tu computadora
+      a menos que configures explicitamente la sincronizacion con GitHub.
+    </div>
+  </section>
+
+  <!-- 2. REQUISITOS -->
+  <section id="requisitos">
+    <h2>2. Requisitos del Sistema</h2>
+
+    <table>
+      <thead>
+        <tr><th>Componente</th><th>Requisito Minimo</th><th>Recomendado</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Sistema Operativo</td><td>Windows 10, macOS 12+, Ubuntu 20.04+</td><td>Windows 11, macOS 14+</td></tr>
+        <tr><td>Python</td><td>3.10+</td><td>3.11 o 3.12</td></tr>
+        <tr><td>Espacio en disco</td><td>200 MB</td><td>500 MB (incluye Knowledge Base)</td></tr>
+        <tr><td>Memoria RAM</td><td>2 GB libres</td><td>4 GB o mas</td></tr>
+        <tr><td>Conexion a internet</td><td>No requerida</td><td>Para sincronizacion GitHub</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Componentes opcionales</h3>
+    <ul>
+      <li><strong>Claude Code CLI</strong> &mdash; Para integracion con Claude de Anthropic. Se configura automaticamente via hooks.</li>
+      <li><strong>Gemini CLI</strong> &mdash; Adaptador preparado para integracion futura con Google Gemini.</li>
+      <li><strong>Ollama</strong> &mdash; Para usar modelos LLM locales con inyeccion de Knowledge Base.</li>
+    </ul>
+
+    <div class="box box-tip">
+      <strong>Consejo</strong>
+      En Windows, el instalador incluye Python embebido, por lo que no necesitas instalarlo por separado
+      si no lo tienes.
+    </div>
+  </section>
+
+  <!-- 3. INSTALACION -->
+  <section id="instalacion">
+    <h2>3. Instalacion</h2>
+
+    <h3>Windows</h3>
+
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-body">
+        <h4>Descargar el instalador</h4>
+        <p>Descarga la carpeta <code>installer/</code> completa o el archivo <code>install.bat</code> en tu computadora.</p>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-body">
+        <h4>Ejecutar install.bat</h4>
+        <p>Haz doble clic en <code>install.bat</code>. Se abrira una ventana de terminal con el asistente de instalacion.</p>
+        <pre><code>============================================
+   Motor Fusion IA - Instalador v1.0
+============================================
+Verificando Python... OK (3.11.7)
+Verificando dependencias... Instalando...
+Configurando hooks... OK
+Instalacion completada exitosamente.</code></pre>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-body">
+        <h4>Verificar la instalacion</h4>
+        <p>Abre una terminal y ejecuta:</p>
+        <pre><code>python -c "from knowledge_base import KnowledgeBase; print('OK')"</code></pre>
+        <p>Si imprime <code>OK</code>, la instalacion fue exitosa.</p>
+      </div>
+    </div>
+
+    <h3>macOS / Linux</h3>
+
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-body">
+        <h4>Dar permisos de ejecucion</h4>
+        <pre><code>chmod +x install.sh</code></pre>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-body">
+        <h4>Ejecutar el instalador</h4>
+        <pre><code>./install.sh</code></pre>
+        <p>El script detectara automaticamente tu sistema operativo, verificara dependencias y
+        configurara el motor en <code>~/.adaptive_cli/</code>.</p>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-body">
+        <h4>Verificar</h4>
+        <pre><code>python3 knowledge_base.py stats</code></pre>
+        <p>Deberia mostrar las estadisticas iniciales de la Knowledge Base (vacia al inicio).</p>
+      </div>
+    </div>
+
+    <div class="box box-warn">
+      <strong>Importante</strong>
+      En macOS, si aparece un aviso de seguridad de Gatekeeper, ve a
+      <em>Preferencias del Sistema &gt; Privacidad y Seguridad</em> y autoriza la ejecucion.
+    </div>
+  </section>
+
+  <!-- 4. COMO FUNCIONA -->
+  <section id="como-funciona">
+    <h2>4. Como Funciona</h2>
+
+    <p>
+      Motor Fusion IA opera como una capa inteligente entre el usuario y sus herramientas CLI.
+      Su arquitectura se compone de cinco modulos principales que trabajan en conjunto:
+    </p>
+
+    <h3>Arquitectura General</h3>
+    <div class="diagram">
++----------+      +-----------+      +----------+      +------------------+
+|          |      |           |      |          |      |                  |
+|  Usuario | ---> |  CLI Tool | ---> |  Hooks   | ---> |  Motor Fusion IA |
+|          |      | (Claude,  |      | (pre/    |      |                  |
+|          |      |  Gemini,  |      |  post    |      +--------+---------+
+|          |      |  Ollama)  |      |  session)|               |
++----------+      +-----------+      +----------+        +------+------+
+                                                         |             |
+                                                    +----+----+  +----+----+
+                                                    |Knowledge|  |Learning |
+                                                    |  Base   |  | Memory  |
+                                                    |(dominios)|  |(sesion) |
+                                                    +---------+  +---------+</div>
+
+    <h3>Aprendizaje Automatico</h3>
+    <p>
+      El motor aprende de cada sesion sin intervencion del usuario. Cuando inicias una sesion
+      con cualquier CLI soportado, los <strong>hooks</strong> se activan automaticamente:
+    </p>
+    <ul>
+      <li><strong>Hook pre-sesion:</strong> carga contexto relevante de la Knowledge Base y lo inyecta como contexto al LLM.</li>
+      <li><strong>Hook post-sesion:</strong> analiza la sesion completada, extrae patrones, errores resueltos y hechos nuevos, y los almacena.</li>
+    </ul>
+
+    <h3>Knowledge Base (Base de Conocimiento)</h3>
+    <p>
+      La KB organiza todo el conocimiento en <strong>dominios</strong> tematicos:
+    </p>
+    <table>
+      <thead>
+        <tr><th>Dominio</th><th>Contenido tipico</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><code>sap_tierra</code></td><td>Patrones de SAP CRM, codigos de transaccion, estructuras de oportunidad</td></tr>
+        <tr><td><code>sow</code></td><td>Estructura de Statements of Work, clausulas, formatos</td></tr>
+        <tr><td><code>bom</code></td><td>Bills of Materials, referencias de productos, precios</td></tr>
+        <tr><td><code>monday</code></td><td>Flujos de Monday.com, automatizaciones, campos personalizados</td></tr>
+        <tr><td><code>business_rules</code></td><td>Reglas de negocio, politicas internas, validaciones</td></tr>
+        <tr><td><code>catalog</code></td><td>Catalogo de productos y servicios</td></tr>
+        <tr><td><code>general</code></td><td>Todo lo que no encaja en otro dominio</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Tipos de Conocimiento</h3>
+    <ul>
+      <li><strong>Patrones:</strong> secuencias de acciones que se repiten y funcionan.</li>
+      <li><strong>Hechos (Facts):</strong> datos concretos validados (ej: "El codigo de producto X es 12345").</li>
+      <li><strong>Errores resueltos:</strong> un error, su causa raiz y la solucion aplicada.</li>
+      <li><strong>Preferencias:</strong> como el usuario prefiere que se presenten los resultados.</li>
+    </ul>
+  </section>
+
+  <!-- 5. USO DIARIO -->
+  <section id="uso-diario">
+    <h2>5. Uso Diario</h2>
+
+    <div class="box box-tip">
+      <strong>Lo mas importante</strong>
+      No necesitas hacer nada especial. El motor aprende solo con cada sesion de trabajo.
+      Simplemente usa tu CLI habitual (Claude Code, Gemini, Ollama) y Motor Fusion IA hara
+      el resto en segundo plano.
+    </div>
+
+    <h3>Ver que ha aprendido el motor</h3>
+    <p>Para exportar un resumen de todo lo aprendido:</p>
+    <pre><code>python learning_memory.py export</code></pre>
+    <p>Esto genera un archivo con todos los patrones, hechos y errores resueltos organizados por dominio.</p>
+
+    <h3>Buscar en la Knowledge Base</h3>
+    <p>Para buscar conocimiento especifico por dominio y palabra clave:</p>
+    <pre><code># Buscar en el dominio SAP
+python knowledge_base.py search --domain sap --query "agregar items"
+
+# Buscar en todos los dominios
+python knowledge_base.py search --query "precio"
+
+# Buscar errores resueltos
+python knowledge_base.py search --domain general --query "unicode"</code></pre>
+
+    <h3>Ver estadisticas</h3>
+    <p>Para ver cuantos patrones, hechos y errores tiene registrados:</p>
+    <pre><code>python knowledge_base.py stats</code></pre>
+    <p>Ejemplo de salida:</p>
+    <pre><code>Knowledge Base - Estadisticas
+=============================
+Dominio          Patrones  Hechos  Errores
+sap_tierra            12       8        5
+sow                    4       3        1
+bom                    6      11        2
+monday                 3       2        0
+general                8       5        4
+-----------------------------
+TOTAL                 33      29       12</code></pre>
+
+    <h3>Flujo de trabajo tipico</h3>
+    <ol>
+      <li>Abres Claude Code (o tu CLI preferido) y trabajas normalmente.</li>
+      <li>El hook pre-sesion carga contexto relevante automaticamente.</li>
+      <li>Durante la sesion, si se resuelve un error o se descubre un patron, el motor lo registra.</li>
+      <li>Al cerrar la sesion, el hook post-sesion extrae y almacena aprendizajes.</li>
+      <li>En la siguiente sesion, el motor ya tiene ese conocimiento disponible.</li>
+    </ol>
+  </section>
+
+  <!-- 6. RESPALDO -->
+  <section id="respaldo">
+    <h2>6. Respaldo y Sincronizacion (GitHub Sync)</h2>
+
+    <p>
+      Motor Fusion IA puede sincronizar tu Knowledge Base con un repositorio privado de GitHub,
+      permitiendote hacer respaldo y restaurar en otra computadora.
+    </p>
+
+    <h3>Sincronizar a GitHub</h3>
+    <pre><code>python sync_to_github.py</code></pre>
+    <p>
+      La primera vez te pedira el URL de tu repositorio privado y configurara las credenciales.
+      Las sincronizaciones siguientes son automaticas.
+    </p>
+
+    <h3>Restaurar en una nueva computadora</h3>
+    <pre><code>python restore_from_github.py --repo https://github.com/tu-usuario/tu-repo-privado.git</code></pre>
+    <p>Esto descargara toda tu Knowledge Base y la instalara en la nueva maquina.</p>
+
+    <h3>Que se sincroniza y que no</h3>
+    <table>
+      <thead>
+        <tr><th>Se sincroniza</th><th>NO se sincroniza</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Knowledge Base (patrones, hechos, errores)</td><td>Credenciales y tokens</td></tr>
+        <tr><td>Learning Memory (historial de aprendizaje)</td><td>Archivos temporales de sesion</td></tr>
+        <tr><td>Configuracion de dominios</td><td>Cache local</td></tr>
+        <tr><td>Preferencias de usuario</td><td>Logs de depuracion</td></tr>
+      </tbody>
+    </table>
+
+    <div class="box box-warn">
+      <strong>Seguridad</strong>
+      Usa siempre un repositorio <strong>privado</strong> de GitHub. Nunca sincronices tu Knowledge Base
+      en un repositorio publico, ya que puede contener datos sensibles de tus clientes y proyectos.
+    </div>
+  </section>
+
+  <!-- 7. ADAPTADORES -->
+  <section id="adaptadores">
+    <h2>7. Adaptadores CLI</h2>
+    <p>
+      Motor Fusion IA se conecta a diferentes herramientas CLI mediante <strong>adaptadores</strong>.
+      Cada adaptador sabe como inyectar contexto y extraer aprendizajes del CLI correspondiente.
+    </p>
+
+    <h3>Claude Code CLI</h3>
+    <p>
+      Es el adaptador principal y el mas completo. Se configura automaticamente durante la instalacion
+      mediante hooks en <code>settings.json</code>:
+    </p>
+    <pre><code>// ~/.claude/settings.json (configurado automaticamente)
+{
+  "hooks": {
+    "PreToolUse": [...],
+    "PostToolUse": [...],
+    "PreSession": [...],
+    "PostSession": [...]
+  }
+}</code></pre>
+    <ul>
+      <li>Inyeccion de contexto de KB al inicio de cada sesion.</li>
+      <li>Captura automatica de patrones y errores.</li>
+      <li>Soporte completo para todos los dominios.</li>
+    </ul>
+
+    <h3>Gemini CLI</h3>
+    <p>
+      Adaptador preparado como <em>stub</em> para integracion futura con Google Gemini CLI.
+      La estructura esta lista; solo falta que Gemini CLI soporte un sistema de hooks similar.
+    </p>
+    <ul>
+      <li>Estructura de adaptador lista.</li>
+      <li>Interfaz de inyeccion definida.</li>
+      <li>Pendiente: implementar cuando Gemini CLI soporte hooks.</li>
+    </ul>
+
+    <h3>Ollama (LLM local)</h3>
+    <p>
+      Permite usar modelos de lenguaje locales (Llama, Mistral, Phi, etc.) con inyeccion de
+      Knowledge Base. Ideal para trabajo sin conexion a internet.
+    </p>
+    <pre><code># Iniciar chat con Ollama e inyeccion de KB
+python ollama_adapter.py chat --model llama3 --domain sap</code></pre>
+    <ul>
+      <li>Inyecta contexto relevante de la KB en cada prompt.</li>
+      <li>Funciona completamente offline.</li>
+      <li>Soporta cualquier modelo disponible en Ollama.</li>
+    </ul>
+  </section>
+
+  <!-- 8. DESINSTALACION -->
+  <section id="desinstalacion">
+    <h2>8. Desinstalacion</h2>
+    <p>Para desinstalar Motor Fusion IA, ejecuta:</p>
+    <pre><code>python uninstall.py</code></pre>
+
+    <h3>Que se elimina</h3>
+    <ul>
+      <li>Hooks configurados en <code>settings.json</code></li>
+      <li>Scripts del motor en el directorio de instalacion</li>
+      <li>Archivos temporales y cache</li>
+    </ul>
+
+    <h3>Que se preserva</h3>
+    <ul>
+      <li>Tu Knowledge Base completa (<code>~/.adaptive_cli/</code>)</li>
+      <li>Learning Memory con todo el historial de aprendizaje</li>
+      <li>Respaldos en GitHub (si configuraste sincronizacion)</li>
+    </ul>
+
+    <div class="box box-info">
+      <strong>Nota</strong>
+      La desinstalacion preserva tus datos por defecto. Si deseas eliminar tambien la Knowledge Base,
+      agrega la bandera <code>--purge</code>:
+      <br><br>
+      <code>python uninstall.py --purge</code>
+    </div>
+  </section>
+
+  <!-- 9. FAQ -->
+  <section id="faq">
+    <h2>9. Solucion de Problemas (FAQ)</h2>
+
+    <div class="faq-item">
+      <div class="q">"Los hooks no disparan"</div>
+      <div class="a">
+        Verifica que el archivo <code>settings.json</code> de tu CLI contenga la configuracion de hooks.
+        <br><br>
+        <strong>Para Claude Code:</strong>
+        <pre><code># Verifica que exista la configuracion
+cat ~/.claude/settings.json | python -m json.tool</code></pre>
+        Si no hay seccion <code>"hooks"</code>, vuelve a ejecutar el instalador o agrega la configuracion manualmente.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="q">"Error de permisos al ejecutar scripts"</div>
+      <div class="a">
+        <strong>Windows:</strong> Ejecuta la terminal como Administrador (clic derecho &gt; "Ejecutar como administrador").
+        <br><br>
+        <strong>macOS/Linux:</strong> Verifica los permisos del directorio:
+        <pre><code>chmod -R 755 ~/.adaptive_cli/
+chmod +x *.py *.sh</code></pre>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="q">"No encuentra patrones en la Knowledge Base"</div>
+      <div class="a">
+        Verifica que el directorio de datos existe y contiene archivos:
+        <pre><code># Verificar que el directorio existe
+ls -la ~/.adaptive_cli/
+
+# Verificar la KB
+python knowledge_base.py stats</code></pre>
+        Si el directorio no existe, la instalacion puede haber fallado. Ejecuta el instalador nuevamente.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="q">"Errores de Unicode en Windows"</div>
+      <div class="a">
+        Motor Fusion IA incluye un fix automatico para la consola de Windows (<code>_fix_windows_stdout</code>)
+        que maneja la codificacion <code>cp1252</code>. Si aun asi ves caracteres raros:
+        <pre><code># Forzar UTF-8 en la terminal
+chcp 65001
+
+# O configurar la variable de entorno
+set PYTHONIOENCODING=utf-8</code></pre>
+        Este problema es comun en terminales de Windows con codepage 1252 y no afecta el funcionamiento del motor.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="q">"El instalador falla al detectar Python"</div>
+      <div class="a">
+        Asegurate de que Python 3.10+ este en el PATH del sistema:
+        <pre><code>python --version
+# o
+python3 --version</code></pre>
+        En Windows, el instalador puede usar su Python embebido. Si falla, instala Python desde
+        <code>python.org</code> y marca la opcion "Add to PATH" durante la instalacion.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="q">"La sincronizacion con GitHub falla"</div>
+      <div class="a">
+        Verifica que:
+        <ol>
+          <li>Tienes <code>git</code> instalado y configurado.</li>
+          <li>El repositorio remoto existe y es accesible.</li>
+          <li>Tus credenciales de GitHub estan configuradas (token o SSH key).</li>
+        </ol>
+        <pre><code>git config --global user.name
+git config --global user.email
+git ls-remote https://github.com/tu-usuario/tu-repo.git</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <!-- 10. GLOSARIO -->
+  <section id="glosario">
+    <h2>10. Glosario</h2>
+
+    <div class="glossary-grid">
+      <div class="glossary-item">
+        <dt>Motor IA</dt>
+        <dd>El nucleo del sistema. Coordina el aprendizaje automatico, la gestion de conocimiento y la inyeccion de contexto en cada sesion CLI.</dd>
+      </div>
+      <div class="glossary-item">
+        <dt>Knowledge Base (KB)</dt>
+        <dd>Base de conocimiento persistente organizada por dominios tematicos. Almacena patrones, hechos y errores resueltos en formato estructurado.</dd>
+      </div>
+      <div class="glossary-item">
+        <dt>Learning Memory</dt>
+        <dd>Componente que registra el historial de aprendizaje sesion por sesion, incluyendo que se aprendio, cuando y en que contexto.</dd>
+      </div>
+      <div class="glossary-item">
+        <dt>Hook</dt>
+        <dd>Fragmento de codigo que se ejecuta automaticamente antes o despues de una accion del CLI (inicio de sesion, uso de herramienta, fin de sesion).</dd>
+      </div>
+      <div class="glossary-item">
+        <dt>Adaptador (Adapter)</dt>
+        <dd>Modulo que conecta Motor Fusion IA con un CLI especifico (Claude Code, Gemini, Ollama), traduciendo formatos y protocolos.</dd>
+      </div>
+      <div class="glossary-item">
+        <dt>Patron (Pattern)</dt>
+        <dd>Secuencia de acciones que el motor identifica como recurrente y exitosa. Se almacena para reutilizacion en sesiones futuras.</dd>
+      </div>
+      <div class="glossary-item">
+        <dt>Hecho (Fact)</dt>
+        <dd>Dato concreto y verificado extraido de una sesion de trabajo. Ejemplos: codigos de producto, nombres de campos, URLs de sistemas.</dd>
+      </div>
+      <div class="glossary-item">
+        <dt>Dominio (Domain)</dt>
+        <dd>Categoria tematica que organiza el conocimiento en la KB. Ejemplos: <code>sap_tierra</code>, <code>sow</code>, <code>bom</code>, <code>monday</code>, <code>general</code>.</dd>
+      </div>
+      <div class="glossary-item">
+        <dt>Sesion (Session)</dt>
+        <dd>Una interaccion completa del usuario con un CLI, desde el inicio hasta el cierre. El motor extrae aprendizajes al finalizar cada sesion.</dd>
+      </div>
+      <div class="glossary-item">
+        <dt>Inyeccion de Contexto</dt>
+        <dd>Proceso mediante el cual el motor agrega conocimiento relevante de la KB al prompt del LLM antes de que este genere una respuesta.</dd>
+      </div>
+      <div class="glossary-item">
+        <dt>Sincronizacion (Sync)</dt>
+        <dd>Proceso de respaldo de la Knowledge Base a un repositorio privado de GitHub para persistencia y portabilidad entre computadoras.</dd>
+      </div>
+      <div class="glossary-item">
+        <dt>Error Resuelto</dt>
+        <dd>Registro que contiene un error encontrado, su causa raiz y la solucion aplicada. Permite al motor evitar repetir el mismo error.</dd>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<!-- ── Sidebar active state ── -->
+<script>
+(function() {
+  var links = document.querySelectorAll('.sidebar nav a');
+  var sections = [];
+  links.forEach(function(a) {
+    var id = a.getAttribute('href').slice(1);
+    var el = document.getElementById(id);
+    if (el) sections.push({ link: a, top: 0, el: el });
+  });
+
+  function update() {
+    sections.forEach(function(s) { s.top = s.el.getBoundingClientRect().top; });
+    var current = sections[0];
+    for (var i = sections.length - 1; i >= 0; i--) {
+      if (sections[i].top <= 120) { current = sections[i]; break; }
+    }
+    links.forEach(function(a) { a.classList.remove('active'); });
+    current.link.classList.add('active');
+  }
+
+  window.addEventListener('scroll', update, { passive: true });
+  update();
+
+  // Close sidebar on mobile when a link is clicked
+  links.forEach(function(a) {
+    a.addEventListener('click', function() {
+      document.querySelector('.sidebar').classList.remove('open');
+    });
+  });
+})();
+</script>
+</body>
+</html>
