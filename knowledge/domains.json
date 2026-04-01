@@ -1,20 +1,46 @@
 {
-  "test_domain": {
-    "description": "Dominio auto-creado: test_domain",
-    "file": "patterns.json",
-    "entry_type": "pattern",
-    "auto_created": true
-  },
-  "sow": {
-    "description": "Dominio auto-creado: sow",
-    "file": "patterns.json",
-    "entry_type": "pattern",
-    "auto_created": true
-  },
-  "general": {
-    "description": "Dominio auto-creado: general",
-    "file": "patterns.json",
-    "entry_type": "pattern",
-    "auto_created": true
-  }
+  "domains": [
+    {
+      "name": "claude_code",
+      "description": "Claude Code CLI patterns and integrations",
+      "num_entries": 0
+    },
+    {
+      "name": "mcp_servers",
+      "description": "MCP Server configurations and tools",
+      "num_entries": 0
+    },
+    {
+      "name": "hooks",
+      "description": "Claude Code hooks (sessionStart, postToolUse, userPromptSubmit)",
+      "num_entries": 0
+    },
+    {
+      "name": "knowledge_base",
+      "description": "Knowledge base operations and queries",
+      "num_entries": 0
+    },
+    {
+      "name": "environment",
+      "description": "Environment variables and configuration",
+      "num_entries": 0
+    },
+    {
+      "name": "testing",
+      "description": "Testing patterns and procedures",
+      "num_entries": 0
+    },
+    {
+      "name": "documentation",
+      "description": "Documentation and guides",
+      "num_entries": 0
+    },
+    {
+      "name": "deployment",
+      "description": "Deployment and installation procedures",
+      "num_entries": 0
+    }
+  ],
+  "initialized_at": "2026-04-01T00:00:00Z",
+  "version": "1.0.1-fusion"
 }
