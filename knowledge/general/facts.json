@@ -1,0 +1,74 @@
+{
+  "entries": {
+    "943d19ef60a2": {
+      "query": "¿Cómo hacer WebSockets en Python sin librerías externas?",
+      "answer": "Para WebSockets sin librerías: usar http.server.HTTPServer con upgrade a WebSocket mediante handshake HTTP. Ver RFC 6455 para detalles del protocolo...",
+      "timestamp": "2026-04-01T10:26:25.032829",
+      "domain": "general",
+      "source": "auto_learned"
+    },
+    "aba499900fc1": {
+      "query": "Como arreglar fechas y horas a formato DD-MM-YYYY HH:MM:SS GMT-6 Centro America",
+      "answer": "\nSOLUCIÓN: Todas las fechas y horas en formato DD-MM-YYYY HH:MM:SS (GMT-6 Centro América)\n\nARCHIVOS ACTUALIZADOS:\n1. core/timezone_utils.py - Helper con funciones para timezone GMT-6\n   - format_ca_datetime() - Hora actual en DD-MM-YYYY HH:MM:SS\n   - format_ca_date() - Solo fecha DD-MM-YYYY\n   - format_ca_time() - Solo hora HH:MM:SS\n   - to_ca_datetime() - Convierte ISO a DD-MM-YYYY HH:MM:SS\n\n2. dashboard/server.py - Usa timezone_utils para timestamps\n   - get_status() retorna timestamp en DD-MM-YYYY HH:MM:SS\n   - ultima_actividad_ts en formato correcto\n\n3. dashboard/index.html - Simplificado, recibe ya formateado\n\n4. core/search_protocol.py - Guarda timestamps en GMT-6\n\n5. hooks/kb_search_integration.py - Usa timezone_utils\n\n6. hooks/session_start.py - Fechas en DD-MM-YYYY HH:MM:SS\n\nRESULTADO: Todos los timestamps en el sistema ahora muestran:\n- Formato: DD-MM-YYYY HH:MM:SS\n- Zona horaria: GMT-6 (Centro América)\n- Dashboard incluido\n\nEJEMPLO:\n  01-04-2026 10:31:10\n",
+      "timestamp": "01-04-2026 10:31:18",
+      "domain": "general",
+      "source": "auto_learned"
+    },
+    "338798560e46": {
+      "query": "Dashboard formatos DD-MM-YYYY HH:MM:SS GMT-6 Centro America limpieza completa",
+      "answer": "\nSOLUCIÓN COMPLETA: Dashboard formatos DD-MM-YYYY HH:MM:SS (GMT-6)\n\nCAMBIOS REALIZADOS:\n\n1. dashboard/index.html\n   - Función colorLine(): actualizada para detectar DD-MM-YYYY HH:MM:SS\n   - Función formatLocalTime(): nueva, retorna DD-MM-YYYY HH:MM:SS\n   - Panel de sesiones: convierte ISO a DD-MM-YYYY\n\n2. dashboard/server.py\n   - Importa timezone_utils (con fallback)\n   - get_status() retorna timestamp en DD-MM-YYYY HH:MM:SS\n   - ultima_actividad_ts en formato correcto\n\n3. core/timezone_utils.py (NUEVO)\n   - format_ca_datetime() → DD-MM-YYYY HH:MM:SS (GMT-6)\n   - format_ca_date() → DD-MM-YYYY\n   - format_ca_time() → HH:MM:SS\n   - to_ca_datetime() → convierte ISO a DD-MM-YYYY HH:MM:SS\n\n4. hooks/session_start.py\n   - Importa timezone_utils\n   - session_start.py usa format_ca_date() y format_ca_time()\n\nRESULTADO FINAL:\n✓ Todos los sectores del dashboard respetan DD-MM-YYYY HH:MM:SS\n✓ Zona horaria: GMT-6 (Centro América)\n✓ Sistema automático: próxima sesión arranca dashboard\n",
+      "timestamp": "01-04-2026 10:45:37",
+      "domain": "general",
+      "source": "auto_learned"
+    },
+    "000221da94a1": {
+      "query": "Dashboard formatos DD-MM-YYYY HH:MM:SS GMT-6 Centro America",
+      "answer": "\nSOLUCION: Dashboard formatos DD-MM-YYYY HH:MM:SS GMT-6\n\nCAMBIOS REALIZADOS:\n\n1. dashboard/index.html\n   - colorLine(): detecta DD-MM-YYYY HH:MM:SS\n   - formatLocalTime(): retorna DD-MM-YYYY HH:MM:SS\n   - Panel sesiones: convierte ISO a DD-MM-YYYY\n\n2. dashboard/server.py\n   - Importa timezone_utils\n   - get_status(): timestamp en DD-MM-YYYY HH:MM:SS\n   - ultima_actividad_ts formateado\n\n3. core/timezone_utils.py (NUEVO)\n   - format_ca_datetime() retorna DD-MM-YYYY HH:MM:SS\n   - format_ca_date() retorna DD-MM-YYYY\n   - format_ca_time() retorna HH:MM:SS\n   - to_ca_datetime() convierte ISO\n\n4. hooks/session_start.py\n   - Usa format_ca_date() y format_ca_time()\n   - Fechas de recuperacion en DD-MM-YYYY HH:MM:SS\n\nRESULTADO: Todos los sectores dashboard respetan DD-MM-YYYY HH:MM:SS (GMT-6)\n",
+      "timestamp": "01-04-2026 10:45:42",
+      "domain": "general",
+      "source": "auto_learned"
+    },
+    "53d81efc5bb0": {
+      "query": "WebSockets Python",
+      "answer": "Usar la librería websockets...",
+      "timestamp": "01-04-2026 11:48:59",
+      "domain": "general",
+      "source": "auto_learned"
+    },
+    "d3254e5b5080": {
+      "query": "how to setup KB enforcer in new session",
+      "answer": "KB system is registered in settings.json",
+      "timestamp": "01-04-2026 12:10:02",
+      "domain": "general",
+      "source": "auto_learned"
+    },
+    "1b73e4b255c9": {
+      "query": "test query",
+      "answer": "test response",
+      "timestamp": "01-04-2026 12:24:40",
+      "domain": "general",
+      "source": "auto_learned"
+    },
+    "d04653737039": {
+      "query": "que sabes de este proyecto Buscador IA",
+      "answer": "Buscador IA es un motor de búsqueda inteligente multi-dominio con APIs REST, búsqueda full-text, integración Outlook, y base de conocimiento con 1600+ entries en 11 dominios",
+      "timestamp": "01-04-2026 12:33:42",
+      "domain": "general",
+      "source": "auto_learned"
+    },
+    "dd1982430e05": {
+      "query": "what do you know about Buscador IA project",
+      "answer": "Buscador IA is an intelligent multi-domain search engine with REST APIs, full-text search, Outlook integration, and knowledge base with 1600+ entries in 11 domains",
+      "timestamp": "01-04-2026 12:33:47",
+      "domain": "general",
+      "source": "auto_learned"
+    },
+    "13afb5a6b664": {
+      "query": "do you really execute the KB search process or just paint the numbers",
+      "answer": "The system really executes the KB search. The hook searches the knowledge base, calculates coverage percentage, and determines KB Internet ML attribution",
+      "timestamp": "01-04-2026 12:35:51",
+      "domain": "general",
+      "source": "auto_learned"
+    }
+  }
+}

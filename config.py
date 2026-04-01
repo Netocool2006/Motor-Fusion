@@ -1,226 +1,92 @@
+#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 """
-config.py - Configuracion centralizada del Motor_IA unificado
-=============================================================
-Todos los paths, constantes y parametros globales del proyecto.
-Resolucion de directorio de datos: env MOTOR_IA_DATA > HOME/.adaptive_cli
-> LOCALAPPDATA/ClaudeCode/.adaptive_cli > Path.home()/.adaptive_cli
-
-Todos los directorios se crean automaticamente al importar este modulo.
+config.py - Centralized configuration for Hooks_IA
+All paths use environment variables for portability
+No hardcoded paths - everything is portable
 """
 
 import os
-import sys
 from pathlib import Path
 
-# Load environment variables from .env file (optional, dependency-free)
-try:
-    from core.env_loader import load_env_file
-    load_env_file()
-except ImportError:
-    # If env_loader not available, try manual load
-    _env_file = Path(__file__).parent / ".env"
-    if _env_file.exists():
-        for line in _env_file.read_text(encoding="utf-8").splitlines():
-            line = line.strip()
-            if line and not line.startswith("#") and "=" in line:
-                key, _, value = line.partition("=")
-                key = key.strip()
-                value = value.strip().strip('"\'')
-                if key and key not in os.environ:
-                    os.environ[key] = value
+# Base directories - find actual user profile (robust approach)
+HOME = os.path.expanduser('~')
+if 'AppData' in HOME:
+    # In Claude Code, expanduser might return incorrect path
+    # Search for actual user directory
+    USERPROFILE = Path(HOME).parents[2]  # Go up to actual user folder
+else:
+    USERPROFILE = Path(HOME)
 
-# ---------------------------------------------------------------------------
-# Version
-# ---------------------------------------------------------------------------
-VERSION = "1.0.0-fusion"
+APPDATA_LOCAL = USERPROFILE / 'AppData' / 'Local'
 
-# ---------------------------------------------------------------------------
-# Resolucion del directorio de datos
-# ---------------------------------------------------------------------------
+# Project paths
+PROJECT_ROOT = Path(__file__).parent.absolute()
+HOOKS_DIR = PROJECT_ROOT / 'hooks'
+CORE_DIR = PROJECT_ROOT / 'core'
+KNOWLEDGE_DIR = PROJECT_ROOT / 'knowledge'
+DASHBOARD_DIR = PROJECT_ROOT / 'dashboard'
 
-def get_data_dir() -> Path:
-    """
-    Resuelve el directorio raiz de datos con la siguiente precedencia:
-      1. Variable de entorno MOTOR_IA_DATA (si existe y es valida)
-      2. HOME/.adaptive_cli
-      3. LOCALAPPDATA/ClaudeCode/.adaptive_cli  (solo Windows)
-      4. Path.home()/.adaptive_cli  (fallback absoluto)
-    """
-    # 1. Variable de entorno explicita
-    env_val = os.environ.get("MOTOR_IA_DATA")
-    if env_val:
-        p = Path(env_val)
-        if p.is_absolute():
-            return p
+# Claude Code paths - use environment variable if available
+CLAUDE_PROJECTS_ENV = os.environ.get('CLAUDE_PROJECTS_DIR')
+if CLAUDE_PROJECTS_ENV:
+    PROJECTS_DIR = Path(CLAUDE_PROJECTS_ENV)
+else:
+    CLAUDE_CODE_DIR = APPDATA_LOCAL / 'ClaudeCode' / '.claude'
+    PROJECTS_DIR = CLAUDE_CODE_DIR / 'projects'
 
-    # 2. HOME/.adaptive_cli
-    home = Path.home()
-    candidate = home / ".adaptive_cli"
-    if home != Path("/") and home != Path("."):
-        return candidate
+# Find the C--chance1 project directory (case-insensitive)
+CHANCE_PROJECT_DIR = None
+if PROJECTS_DIR.exists():
+    for project_dir in PROJECTS_DIR.iterdir():
+        if project_dir.is_dir() and project_dir.name.lower() == 'c--chance1':
+            CHANCE_PROJECT_DIR = project_dir
+            break
 
-    # 3. LOCALAPPDATA (Windows)
-    if sys.platform == "win32":
-        local_app = os.environ.get("LOCALAPPDATA")
-        if local_app:
-            return Path(local_app) / "ClaudeCode" / ".adaptive_cli"
+if not CHANCE_PROJECT_DIR:
+    CHANCE_PROJECT_DIR = PROJECTS_DIR / 'C--chance1'
 
-    # 4. Fallback absoluto
-    return Path.home() / ".adaptive_cli"
+# Log files
+LOG_DIR = CORE_DIR
+KB_ENFORCER_LOG = LOG_DIR / 'kb_enforcer.log'
+KB_RESPONSES_LOG = LOG_DIR / 'kb_responses.log'
+RESPONSE_VALIDATION_LOG = LOG_DIR / 'response_validation.log'
 
+# Reports
+MANDATORY_SOURCES_REPORT = CORE_DIR / 'MANDATORY_SOURCES_REPORT.txt'
+RESPONSE_VALIDATION_ERROR = CORE_DIR / 'RESPONSE_VALIDATION_ERROR.txt'
 
-# ---------------------------------------------------------------------------
-# Directorio raiz de datos
-# ---------------------------------------------------------------------------
-DATA_DIR: Path = get_data_dir()
+# Mandatory protocol
+MANDATORY_PROTOCOL = PROJECT_ROOT / 'MANDATORY_PROTOCOL.txt'
 
-# ---------------------------------------------------------------------------
-# Subdirectorios
-# ---------------------------------------------------------------------------
-KNOWLEDGE_DIR: Path = DATA_DIR / "knowledge"
-LOCK_DIR: Path      = DATA_DIR / "locks"
-HOOK_STATE_DIR: Path = DATA_DIR / "hook_state"
+# Settings
+SETTINGS_JSON = CLAUDE_CODE_DIR / 'settings.json'
 
-# ---------------------------------------------------------------------------
-# Archivos principales
-# ---------------------------------------------------------------------------
-LOG_FILE: Path              = DATA_DIR / "execution_log.jsonl"
-EXECUTION_LOG: Path         = DATA_DIR / "execution_log.jsonl"   # alias
-SESSION_HISTORY_FILE: Path  = DATA_DIR / "session_history.json"
-EPISODIC_DB: Path           = DATA_DIR / "episodic_index.db"
+# Session history and learning data
+DATA_DIR = CORE_DIR / 'data'
+SESSION_HISTORY_FILE = DATA_DIR / 'session_history.json'
+CO_OCCUR_FILE = DATA_DIR / 'domain_cooccurrence.json'
+MARKOV_FILE = DATA_DIR / 'domain_markov.json'
+INJECTION_FILE = DATA_DIR / 'injection_patterns.json'
+HINT_EFFECT_FILE = DATA_DIR / 'hint_effects.json'
+DEBUG_LOG = CORE_DIR / 'debug.log'
+ACTIONS_LOG = CORE_DIR / 'actions.log'
+LAST_MSG_FILE = CORE_DIR / 'last_message.txt'
 
-# Dominios y conocimiento
-DOMAINS_FILE: Path          = KNOWLEDGE_DIR / "domains.json"
+# Helper function to ensure directories exist
+def ensure_dirs():
+    """Create necessary directories if they don't exist"""
+    for directory in [LOG_DIR, KNOWLEDGE_DIR, CORE_DIR, HOOKS_DIR, DASHBOARD_DIR, DATA_DIR]:
+        directory.mkdir(parents=True, exist_ok=True)
 
-# Memoria y aprendizaje
-MEMORY_FILE: Path           = DATA_DIR / "learned_patterns.json"
-ATTEMPTS_FILE: Path         = DATA_DIR / "task_attempts.json"
-
-# Estado de iteracion
-STATE_FILE: Path            = DATA_DIR / "iteration_state.json"
-ACTIONS_LOG: Path           = DATA_DIR / "iteration_actions.jsonl"
-
-# Clasificacion de mensaje actual (para post_tool_use)
-MSG_TYPE_FILE: Path         = HOOK_STATE_DIR / "msg_type.json"
-
-# Errores pendientes (para post_tool_use)
-PENDING_ERRORS_FILE: Path   = HOOK_STATE_DIR / "pending_errors.json"
-
-# SAP playbook
-SAP_PLAYBOOK_DB: Path       = DATA_DIR / "sap_playbook.db"
-
-# ---------------------------------------------------------------------------
-# Archivos heredados de Motor 2 (hooks avanzados)
-# ---------------------------------------------------------------------------
-CO_OCCUR_FILE: Path         = DATA_DIR / "domain_cooccurrence.json"
-MARKOV_FILE: Path           = DATA_DIR / "domain_markov.json"
-CLASSIFY_CACHE: Path        = DATA_DIR / "classify_cache.json"
-LAST_MSG_FILE: Path         = DATA_DIR / "last_user_message.txt"
-NOTIFY_FILE: Path           = DATA_DIR / "last_learning.txt"
-PROMPT_HIST_FILE: Path      = DATA_DIR / "prompt_history.jsonl"
-INJECTION_FILE: Path        = DATA_DIR / "last_injection.json"
-HINT_EFFECT_FILE: Path      = DATA_DIR / "hint_effectiveness.json"
-FINGERPRINTS_FILE: Path     = DATA_DIR / "iter_fingerprints.json"
-FAILURES_FILE: Path         = DATA_DIR / "pattern_failures.json"
-DEBUG_LOG: Path             = DATA_DIR / "hook_debug.log"
-ADAPTER_FILE: Path          = DATA_DIR / "adapter.json"
-
-# ---------------------------------------------------------------------------
-# Constantes de negocio
-# ---------------------------------------------------------------------------
-DEDUP_WINDOW_SECS: int       = 900    # 15 min - ventana de deduplicacion
-ITERATION_GAP_SECS: int      = 15     # pausa minima entre iteraciones
-ERROR_CORRELATION_WINDOW: int = 600   # 10 min - ventana correlacion errores
-CONFIDENCE_DECAY_DAYS: int   = 30     # dias para decay de confianza
-
-# ---------------------------------------------------------------------------
-# Ollama adapter
-# ---------------------------------------------------------------------------
-OLLAMA_BASE_URL: str          = os.environ.get("OLLAMA_BASE_URL", "http://localhost:11434")
-OLLAMA_DEFAULT_MODEL: str     = os.environ.get("OLLAMA_DEFAULT_MODEL", "qwen3:4b")
-OLLAMA_TIMEOUT_SECS: int      = 300   # 5 min - timeout HTTP para respuestas largas
-OLLAMA_RAM_HIGH_GB: float     = 4.0   # RAM minima para contexto alto
-OLLAMA_RAM_MID_GB: float      = 3.0   # RAM minima para contexto medio
-OLLAMA_CTX_HIGH: int          = 4096  # num_ctx con RAM alta
-OLLAMA_CTX_MID: int           = 2048  # num_ctx con RAM media
-OLLAMA_CTX_LOW: int           = 512   # num_ctx con RAM baja
-
-# ---------------------------------------------------------------------------
-# Hooks - clasificacion y cache
-# ---------------------------------------------------------------------------
-CACHE_TTL_SECS: int           = 7200  # 2 h - TTL de clasificacion de mensajes
-CACHE_OVERLAP_THRESHOLD: float = 0.55 # 55% keywords en comun = cache hit
-RECENT_HOURS: int             = 1     # ventana de contexto en session_start
-
-# ---------------------------------------------------------------------------
-# Learning memory
-# ---------------------------------------------------------------------------
-CONFIDENCE_THRESHOLD: float   = 0.6   # umbral de confianza para reutilizar patron
-MAX_PENDING_ERRORS: int       = 15    # maximo de errores pendientes en buffer
-
-# ---------------------------------------------------------------------------
-# Domain detector
-# ---------------------------------------------------------------------------
-AUTO_ASSIGN_THRESHOLD: int    = 2     # >= 2 keywords -> asignar dominio automaticamente
-SUGGEST_THRESHOLD: int        = 1     # >= 1 keyword -> sugerir dominio (sin auto-asignar)
-
-# ---------------------------------------------------------------------------
-# SAP Playbook
-# ---------------------------------------------------------------------------
-CONFIDENCE_DECAY_RATE: float  = 0.1   # 10% de decay por periodo sin uso
-
-# ---------------------------------------------------------------------------
-# Iteration learn
-# ---------------------------------------------------------------------------
-EXPLORE_THRESHOLD: int        = 3     # explores consecutivos sin accion -> busqueda proactiva
-
-# ---------------------------------------------------------------------------
-# Ollama chat (KB context)
-# ---------------------------------------------------------------------------
-MAX_KB_CHARS: int             = 3000  # ~750 tokens de contexto KB inyectado
-
-# ---------------------------------------------------------------------------
-# Auto-pruning (memory_pruner)
-# ---------------------------------------------------------------------------
-AUTO_PRUNE_ENABLED: bool           = True
-AUTO_PRUNE_MIN_SUCCESS_RATE: float = 0.2   # < 20% exito = candidato a poda
-AUTO_PRUNE_DAYS_UNUSED: int        = 90    # sin uso en 90 dias
-AUTO_PRUNE_MIN_REUSES: int         = 0     # 0 reusos = sin valor demostrado
-
-# ---------------------------------------------------------------------------
-# Hint effectiveness feedback loop (hint_tracker)
-# ---------------------------------------------------------------------------
-HINT_EFFECTIVENESS_DECAY: float    = 0.7   # EMA: 70% peso historico, 30% nuevo dato
-
-# ---------------------------------------------------------------------------
-# Memory consolidation (memory_consolidator)
-# ---------------------------------------------------------------------------
-CONSOLIDATION_ENABLED: bool             = True
-CONSOLIDATION_MIN_PATTERNS: int         = 5     # min patrones en tipo para consolidar
-CONSOLIDATION_SIMILARITY_THRESHOLD: float = 0.7 # Jaccard >= 0.7 para fusionar
-
-# ---------------------------------------------------------------------------
-# Working memory (working_memory)
-# ---------------------------------------------------------------------------
-WORKING_MEMORY_MAX_ITEMS: int      = 50    # max items en sesion actual
-WORKING_MEMORY_TTL_HOURS: int      = 24    # TTL antes de expirar automaticamente
-
-# ---------------------------------------------------------------------------
-# Auto-domain promotion (crear dominios dinamicamente por uso)
-# ---------------------------------------------------------------------------
-AUTO_DOMAIN_MIN_SESSIONS: int      = int(os.environ.get("AUTO_DOMAIN_MIN_SESSIONS", "3"))
-# Minimo de mensajes de usuario en la sesion para que cuente como actividad significativa
-AUTO_DOMAIN_MIN_MSGS: int          = int(os.environ.get("AUTO_DOMAIN_MIN_MSGS", "3"))
-# Archivo donde se cuenta cuantas sesiones ha tenido cada dominio candidato
-DOMAIN_SESSIONS_COUNTER_FILE: Path = DATA_DIR / "domain_sessions_counter.json"
-
-# ---------------------------------------------------------------------------
-# Crear directorios al importar
-# ---------------------------------------------------------------------------
-def _ensure_dirs() -> None:
-    """Crea todos los directorios necesarios si no existen."""
-    for d in (DATA_DIR, KNOWLEDGE_DIR, LOCK_DIR, HOOK_STATE_DIR):
-        d.mkdir(parents=True, exist_ok=True)
-
-_ensure_dirs()
+# Print configuration (for debugging)
+if __name__ == '__main__':
+    ensure_dirs()
+    print("=" * 70)
+    print("HOOKS_IA CONFIGURATION")
+    print("=" * 70)
+    print(f"Project Root: {PROJECT_ROOT}")
+    print(f"Knowledge Dir: {KNOWLEDGE_DIR}")
+    print(f"Claude Project: {CHANCE_PROJECT_DIR}")
+    print(f"Settings: {SETTINGS_JSON}")
+    print("=" * 70)

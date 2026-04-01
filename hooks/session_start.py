@@ -21,8 +21,14 @@ import sys
 import json
 import re
 import time
+import subprocess
+import socket
 from pathlib import Path
 from datetime import datetime, timedelta
+
+# Importar timezone utils
+sys.path.insert(0, str(Path(__file__).parent.parent))
+from core.timezone_utils import format_ca_date, format_ca_time, get_ca_time
 
 # -- path setup: parent = Motor_IA root
 _MOTOR_DIR = Path(__file__).resolve().parent.parent
@@ -369,8 +375,8 @@ def recover_crashed_session() -> list:
 
         # Guardar como sesion recuperada en session_history para no perder el trabajo
         recovery_entry = {
-            "date": datetime.now().strftime("%Y-%m-%d"),
-            "time": datetime.now().strftime("%H:%M:%S"),
+            "date": format_ca_date(),
+            "time": format_ca_time(),
             "summary": f"[RECUPERADA] {len(recovered)} acciones de sesion que termino sin guardar",
             "user_messages": [],
             "files_edited": [a.get("file", "") for a in recovered if a.get("tool") == "Edit" and a.get("file")],
@@ -413,8 +419,39 @@ def recover_crashed_session() -> list:
 #  MAIN
 # ======================================================================
 
+def ensure_dashboard_running():
+    """
+    Verifica que el dashboard esté corriendo.
+    Si no, lo inicia automáticamente.
+    """
+    # Verificar si puerto 8080 está escuchando
+    try:
+        sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        result = sock.connect_ex(('127.0.0.1', 8080))
+        sock.close()
+        if result == 0:
+            return  # Dashboard ya está corriendo
+    except Exception:
+        pass
+
+    # Intentar arrancar el dashboard
+    try:
+        dashboard_dir = Path(__file__).parent.parent / "dashboard"
+        subprocess.Popen(
+            [sys.executable, str(dashboard_dir / "server.py"), "8080"],
+            stdout=subprocess.DEVNULL,
+            stderr=subprocess.DEVNULL,
+            start_new_session=True,
+        )
+    except Exception:
+        pass  # Silenciosamente, si no puede arrancar
+
+
 def main():
     lines = []
+
+    # ---- ENSEGURAR DASHBOARD ----
+    ensure_dashboard_running()
 
     # ---- HEADER ----
     lines.append("=" * 60)

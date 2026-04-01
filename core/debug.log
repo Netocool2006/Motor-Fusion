@@ -1,0 +1,399 @@
+[2026-04-01T12:41:32.499747] Hook session_end fired. Fields: ['session_id', 'transcript_path', 'cwd', 'permission_mode', 'hook_event_name', 'stop_hook_active', 'last_assistant_message']
+[2026-04-01T12:41:32.499747] session_id=a469a7ed-31a8-4085-a8dd-ae35b95c6d7f
+[2026-04-01T12:41:32.503021] transcript_path=C:\Users\ntoledo\AppData\Local\ClaudeCode\.claude\projects\C--Chance1\a469a7ed-31a8-4085-a8dd-ae35b95c6d7f.jsonl
+[2026-04-01T12:41:32.545508] Transcript: 1892 messages loaded
+[2026-04-01T12:41:32.559643] Extracted: 51 user msgs, 10 errors
+[2026-04-01T12:41:32.559643] Tools (final): 25 reads, 15 edits, 246 commands
+[2026-04-01T12:41:32.569858] New session added. History: 1 sessions
+[2026-04-01T12:41:32.571938] Co-occurrence updated for domains: ['files', 'sap_tierra']
+[2026-04-01T12:41:32.571938] Markov sequence: files -> sap_tierra
+[2026-04-01T12:41:32.571938] KB: DOMAINS not available, skipping auto-extract
+[2026-04-01T12:41:32.578347] KB: flush attempt: cannot import name 'STATE_FILE' from 'config' (C:\Hooks_IA\config.py)
+[2026-04-01T12:41:32.578347] Episodic FTS5 index failed: cannot import name 'EPISODIC_DB' from 'config' (C:\Hooks_IA\config.py)
+[2026-04-01T12:41:32.578347] HintTracker: cannot import name 'HINT_EFFECTIVENESS_DECAY' from 'config' (C:\Hooks_IA\config.py)
+[2026-04-01T12:41:32.578347] MemoryPruner: cannot import name 'MEMORY_FILE' from 'config' (C:\Hooks_IA\config.py)
+[2026-04-01T12:41:32.578347] WorkingMemory clear: cannot import name 'WORKING_MEMORY_MAX_ITEMS' from 'config' (C:\Hooks_IA\config.py)
+[2026-04-01T12:41:32.578347] DomainPromoter: cannot import name 'DOMAINS_FILE' from 'config' (C:\Hooks_IA\config.py)
+[2026-04-01T12:41:32.578347] Hook session_end completed successfully
+[2026-04-01T12:44:23.266149] Hook session_end fired. Fields: ['session_id', 'transcript_path', 'cwd', 'permission_mode', 'hook_event_name', 'stop_hook_active', 'last_assistant_message']
+[2026-04-01T12:44:23.266149] session_id=a469a7ed-31a8-4085-a8dd-ae35b95c6d7f
+[2026-04-01T12:44:23.266149] transcript_path=C:\Users\ntoledo\AppData\Local\ClaudeCode\.claude\projects\C--Chance1\a469a7ed-31a8-4085-a8dd-ae35b95c6d7f.jsonl
+[2026-04-01T12:44:23.318187] Transcript: 1927 messages loaded
+[2026-04-01T12:44:23.330338] Extracted: 52 user msgs, 10 errors
+[2026-04-01T12:44:23.330338] Tools (final): 26 reads, 15 edits, 253 commands
+[2026-04-01T12:44:23.330338] Session merged at index 0
+[2026-04-01T12:44:23.330338] Co-occurrence updated for domains: ['files', 'sap_tierra']
+[2026-04-01T12:44:23.330338] Markov sequence: files -> sap_tierra
+[2026-04-01T12:44:23.330338] KB: DOMAINS not available, skipping auto-extract
+[2026-04-01T12:44:23.344606] KB: flush attempt: cannot import name 'STATE_FILE' from 'config' (C:\Hooks_IA\config.py)
+[2026-04-01T12:44:23.346409] Episodic FTS5 index failed: cannot import name 'EPISODIC_DB' from 'config' (C:\Hooks_IA\config.py)
+[2026-04-01T12:44:23.346409] HintTracker: cannot import name 'HINT_EFFECTIVENESS_DECAY' from 'config' (C:\Hooks_IA\config.py)
+[2026-04-01T12:44:23.346409] MemoryPruner: cannot import name 'MEMORY_FILE' from 'config' (C:\Hooks_IA\config.py)
+[2026-04-01T12:44:23.346409] WorkingMemory clear: cannot import name 'WORKING_MEMORY_MAX_ITEMS' from 'config' (C:\Hooks_IA\config.py)
+[2026-04-01T12:44:23.346409] DomainPromoter: cannot import name 'DOMAINS_FILE' from 'config' (C:\Hooks_IA\config.py)
+[2026-04-01T12:44:23.346409] Hook session_end completed successfully
+[2026-04-01T12:45:09.020046] Hook session_end fired. Fields: ['session_id', 'transcript_path', 'cwd', 'permission_mode', 'hook_event_name', 'stop_hook_active', 'last_assistant_message']
+[2026-04-01T12:45:09.020046] session_id=114c476f-3c06-46e5-8544-da9f5faf7911
+[2026-04-01T12:45:09.020046] transcript_path=C:\Users\ntoledo\AppData\Local\ClaudeCode\.claude\projects\C--Chance1-IA-Buscador-IA\114c476f-3c06-46e5-8544-da9f5faf7911.jsonl
+[2026-04-01T12:45:09.020046] Transcript: 3 messages loaded
+[2026-04-01T12:45:09.023631] Extracted: 1 user msgs, 0 errors
+[2026-04-01T12:45:09.023631] Tools (final): 0 reads, 0 edits, 0 commands
+[2026-04-01T12:45:09.025637] New session added. History: 2 sessions
+[2026-04-01T12:45:09.027641] KB: DOMAINS not available, skipping auto-extract
+[2026-04-01T12:45:09.029647] KB: flush attempt: cannot import name 'STATE_FILE' from 'config' (C:\Hooks_IA\config.py)
+[2026-04-01T12:45:09.031653] Episodic FTS5 index failed: cannot import name 'EPISODIC_DB' from 'config' (C:\Hooks_IA\config.py)
+[2026-04-01T12:45:09.031653] HintTracker: cannot import name 'HINT_EFFECTIVENESS_DECAY' from 'config' (C:\Hooks_IA\config.py)
+[2026-04-01T12:45:09.031653] MemoryPruner: cannot import name 'MEMORY_FILE' from 'config' (C:\Hooks_IA\config.py)
+[2026-04-01T12:45:09.035232] WorkingMemory clear: cannot import name 'WORKING_MEMORY_MAX_ITEMS' from 'config' (C:\Hooks_IA\config.py)
+[2026-04-01T12:45:09.035232] DomainPromoter: cannot import name 'DOMAINS_FILE' from 'config' (C:\Hooks_IA\config.py)
+[2026-04-01T12:45:09.035232] Hook session_end completed successfully
+[2026-04-01T12:46:41.279493] Hook session_end fired. Fields: ['session_id', 'transcript_path', 'cwd', 'permission_mode', 'hook_event_name', 'stop_hook_active', 'last_assistant_message']
+[2026-04-01T12:46:41.279493] session_id=a469a7ed-31a8-4085-a8dd-ae35b95c6d7f
+[2026-04-01T12:46:41.279493] transcript_path=C:\Users\ntoledo\AppData\Local\ClaudeCode\.claude\projects\C--Chance1\a469a7ed-31a8-4085-a8dd-ae35b95c6d7f.jsonl
+[2026-04-01T12:46:41.331845] Transcript: 1956 messages loaded
+[2026-04-01T12:46:41.343826] Extracted: 54 user msgs, 10 errors
+[2026-04-01T12:46:41.343826] Tools (final): 26 reads, 15 edits, 256 commands
+[2026-04-01T12:46:41.348055] Session merged at index 0
+[2026-04-01T12:46:41.348055] Co-occurrence updated for domains: ['files', 'sap_tierra']
+[2026-04-01T12:46:41.348055] Markov sequence: files -> sap_tierra
+[2026-04-01T12:46:41.348055] KB: DOMAINS not available, skipping auto-extract
+[2026-04-01T12:46:41.348055] KB: flush attempt: cannot import name 'STATE_FILE' from 'config' (C:\Hooks_IA\config.py)
+[2026-04-01T12:46:41.348055] Episodic FTS5 index failed: cannot import name 'EPISODIC_DB' from 'config' (C:\Hooks_IA\config.py)
+[2026-04-01T12:46:41.348055] HintTracker: cannot import name 'HINT_EFFECTIVENESS_DECAY' from 'config' (C:\Hooks_IA\config.py)
+[2026-04-01T12:46:41.348055] MemoryPruner: cannot import name 'MEMORY_FILE' from 'config' (C:\Hooks_IA\config.py)
+[2026-04-01T12:46:41.348055] WorkingMemory clear: cannot import name 'WORKING_MEMORY_MAX_ITEMS' from 'config' (C:\Hooks_IA\config.py)
+[2026-04-01T12:46:41.364271] DomainPromoter: cannot import name 'DOMAINS_FILE' from 'config' (C:\Hooks_IA\config.py)
+[2026-04-01T12:46:41.364271] Hook session_end completed successfully
+[2026-04-01T12:47:14.151195] Hook session_end fired. Fields: ['session_id', 'transcript_path', 'cwd', 'permission_mode', 'hook_event_name', 'stop_hook_active', 'last_assistant_message']
+[2026-04-01T12:47:14.152264] session_id=1173d4a8-68b5-4249-acf5-11336da24a44
+[2026-04-01T12:47:14.152264] transcript_path=C:\Users\ntoledo\AppData\Local\ClaudeCode\.claude\projects\C--Chance1-IA-Buscador-IA\1173d4a8-68b5-4249-acf5-11336da24a44.jsonl
+[2026-04-01T12:47:14.152264] Transcript: 3 messages loaded
+[2026-04-01T12:47:14.154255] Extracted: 1 user msgs, 0 errors
+[2026-04-01T12:47:14.154255] Tools (final): 0 reads, 0 edits, 0 commands
+[2026-04-01T12:47:14.157256] New session added. History: 3 sessions
+[2026-04-01T12:47:14.159202] KB: DOMAINS not available, skipping auto-extract
+[2026-04-01T12:47:14.159202] KB: flush attempt: cannot import name 'STATE_FILE' from 'config' (C:\Hooks_IA\config.py)
+[2026-04-01T12:47:14.159202] Episodic FTS5 index failed: cannot import name 'EPISODIC_DB' from 'config' (C:\Hooks_IA\config.py)
+[2026-04-01T12:47:14.159202] HintTracker: cannot import name 'HINT_EFFECTIVENESS_DECAY' from 'config' (C:\Hooks_IA\config.py)
+[2026-04-01T12:47:14.159202] MemoryPruner: cannot import name 'MEMORY_FILE' from 'config' (C:\Hooks_IA\config.py)
+[2026-04-01T12:47:14.166374] WorkingMemory clear: cannot import name 'WORKING_MEMORY_MAX_ITEMS' from 'config' (C:\Hooks_IA\config.py)
+[2026-04-01T12:47:14.166374] DomainPromoter: cannot import name 'DOMAINS_FILE' from 'config' (C:\Hooks_IA\config.py)
+[2026-04-01T12:47:14.166374] Hook session_end completed successfully
+[2026-04-01T12:48:57.356410] Hook session_end fired. Fields: ['session_id', 'transcript_path', 'cwd', 'permission_mode', 'hook_event_name', 'stop_hook_active', 'last_assistant_message']
+[2026-04-01T12:48:57.356410] session_id=a469a7ed-31a8-4085-a8dd-ae35b95c6d7f
+[2026-04-01T12:48:57.356410] transcript_path=C:\Users\ntoledo\AppData\Local\ClaudeCode\.claude\projects\C--Chance1\a469a7ed-31a8-4085-a8dd-ae35b95c6d7f.jsonl
+[2026-04-01T12:48:57.413740] Transcript: 1975 messages loaded
+[2026-04-01T12:48:57.433554] Extracted: 55 user msgs, 10 errors
+[2026-04-01T12:48:57.433554] Tools (final): 27 reads, 15 edits, 257 commands
+[2026-04-01T12:48:57.437566] Session merged at index 0
+[2026-04-01T12:48:57.441310] Co-occurrence updated for domains: ['files', 'sap_tierra']
+[2026-04-01T12:48:57.441310] Markov sequence: files -> sap_tierra
+[2026-04-01T12:48:57.441310] KB: DOMAINS not available, skipping auto-extract
+[2026-04-01T12:48:57.441310] KB: flush attempt: cannot import name 'STATE_FILE' from 'config' (C:\Hooks_IA\config.py)
+[2026-04-01T12:48:57.445147] Episodic FTS5 index failed: cannot import name 'EPISODIC_DB' from 'config' (C:\Hooks_IA\config.py)
+[2026-04-01T12:48:57.447155] HintTracker: cannot import name 'HINT_EFFECTIVENESS_DECAY' from 'config' (C:\Hooks_IA\config.py)
+[2026-04-01T12:48:57.447155] MemoryPruner: cannot import name 'MEMORY_FILE' from 'config' (C:\Hooks_IA\config.py)
+[2026-04-01T12:48:57.447155] WorkingMemory clear: cannot import name 'WORKING_MEMORY_MAX_ITEMS' from 'config' (C:\Hooks_IA\config.py)
+[2026-04-01T12:48:57.447155] DomainPromoter: cannot import name 'DOMAINS_FILE' from 'config' (C:\Hooks_IA\config.py)
+[2026-04-01T12:48:57.447155] Hook session_end completed successfully
+[2026-04-01T12:49:24.531577] Hook session_end fired. Fields: ['session_id', 'transcript_path', 'cwd', 'permission_mode', 'hook_event_name', 'stop_hook_active', 'last_assistant_message']
+[2026-04-01T12:49:24.532428] session_id=736bdd52-a88f-4cc8-8f65-088cac3f51a8
+[2026-04-01T12:49:24.532428] transcript_path=C:\Users\ntoledo\AppData\Local\ClaudeCode\.claude\projects\C--Chance1-IA-Buscador-IA\736bdd52-a88f-4cc8-8f65-088cac3f51a8.jsonl
+[2026-04-01T12:49:24.532428] Transcript: 3 messages loaded
+[2026-04-01T12:49:24.532428] Extracted: 1 user msgs, 0 errors
+[2026-04-01T12:49:24.532428] Tools (final): 0 reads, 0 edits, 0 commands
+[2026-04-01T12:49:24.532428] Session merged at index 2
+[2026-04-01T12:49:24.532428] KB: DOMAINS not available, skipping auto-extract
+[2026-04-01T12:49:24.532428] KB: flush attempt: cannot import name 'STATE_FILE' from 'config' (C:\Hooks_IA\config.py)
+[2026-04-01T12:49:24.541124] Episodic FTS5 index failed: cannot import name 'EPISODIC_DB' from 'config' (C:\Hooks_IA\config.py)
+[2026-04-01T12:49:24.543130] HintTracker: cannot import name 'HINT_EFFECTIVENESS_DECAY' from 'config' (C:\Hooks_IA\config.py)
+[2026-04-01T12:49:24.543130] MemoryPruner: cannot import name 'MEMORY_FILE' from 'config' (C:\Hooks_IA\config.py)
+[2026-04-01T12:49:24.545135] WorkingMemory clear: cannot import name 'WORKING_MEMORY_MAX_ITEMS' from 'config' (C:\Hooks_IA\config.py)
+[2026-04-01T12:49:24.546142] DomainPromoter: cannot import name 'DOMAINS_FILE' from 'config' (C:\Hooks_IA\config.py)
+[2026-04-01T12:49:24.546142] Hook session_end completed successfully
+[2026-04-01T12:50:27.114392] Hook session_end fired. Fields: ['session_id', 'transcript_path', 'cwd', 'permission_mode', 'hook_event_name', 'stop_hook_active', 'last_assistant_message']
+[2026-04-01T12:50:27.114392] session_id=a469a7ed-31a8-4085-a8dd-ae35b95c6d7f
+[2026-04-01T12:50:27.114392] transcript_path=C:\Users\ntoledo\AppData\Local\ClaudeCode\.claude\projects\C--Chance1\a469a7ed-31a8-4085-a8dd-ae35b95c6d7f.jsonl
+[2026-04-01T12:50:27.170747] Transcript: 1995 messages loaded
+[2026-04-01T12:50:27.184642] Extracted: 56 user msgs, 10 errors
+[2026-04-01T12:50:27.184642] Tools (final): 27 reads, 15 edits, 258 commands
+[2026-04-01T12:50:27.188643] Session merged at index 0
+[2026-04-01T12:50:27.195938] Co-occurrence updated for domains: ['files', 'sap_tierra']
+[2026-04-01T12:50:27.197935] Markov sequence: files -> sap_tierra
+[2026-04-01T12:50:27.197935] KB: DOMAINS not available, skipping auto-extract
+[2026-04-01T12:50:27.198941] KB: flush attempt: cannot import name 'STATE_FILE' from 'config' (C:\Hooks_IA\config.py)
+[2026-04-01T12:50:27.202939] Episodic FTS5 index failed: cannot import name 'EPISODIC_DB' from 'config' (C:\Hooks_IA\config.py)
+[2026-04-01T12:50:27.203939] HintTracker: cannot import name 'HINT_EFFECTIVENESS_DECAY' from 'config' (C:\Hooks_IA\config.py)
+[2026-04-01T12:50:27.203939] MemoryPruner: cannot import name 'MEMORY_FILE' from 'config' (C:\Hooks_IA\config.py)
+[2026-04-01T12:50:27.212153] Consolidator: cannot import name 'MEMORY_FILE' from 'config' (C:\Hooks_IA\config.py)
+[2026-04-01T12:50:27.213206] WorkingMemory clear: cannot import name 'WORKING_MEMORY_MAX_ITEMS' from 'config' (C:\Hooks_IA\config.py)
+[2026-04-01T12:50:27.213206] DomainPromoter: cannot import name 'DOMAINS_FILE' from 'config' (C:\Hooks_IA\config.py)
+[2026-04-01T12:50:27.214205] Hook session_end completed successfully
+[2026-04-01T12:51:00.848020] Hook session_end fired. Fields: ['session_id', 'transcript_path', 'cwd', 'permission_mode', 'hook_event_name', 'stop_hook_active', 'last_assistant_message']
+[2026-04-01T12:51:00.848020] session_id=335caba2-892b-448f-afb8-1dc4dd923806
+[2026-04-01T12:51:00.848020] transcript_path=C:\Users\ntoledo\AppData\Local\ClaudeCode\.claude\projects\C--Chance1-IA-Buscador-IA\335caba2-892b-448f-afb8-1dc4dd923806.jsonl
+[2026-04-01T12:51:00.848020] Transcript: 3 messages loaded
+[2026-04-01T12:51:00.861498] Extracted: 1 user msgs, 0 errors
+[2026-04-01T12:51:00.861498] Tools (final): 0 reads, 0 edits, 0 commands
+[2026-04-01T12:51:00.863647] Session merged at index 2
+[2026-04-01T12:51:00.863647] KB: DOMAINS not available, skipping auto-extract
+[2026-04-01T12:51:00.863647] KB: flush attempt: cannot import name 'STATE_FILE' from 'config' (C:\Hooks_IA\config.py)
+[2026-04-01T12:51:00.863647] Episodic FTS5 index failed: cannot import name 'EPISODIC_DB' from 'config' (C:\Hooks_IA\config.py)
+[2026-04-01T12:51:00.863647] HintTracker: cannot import name 'HINT_EFFECTIVENESS_DECAY' from 'config' (C:\Hooks_IA\config.py)
+[2026-04-01T12:51:00.863647] MemoryPruner: cannot import name 'MEMORY_FILE' from 'config' (C:\Hooks_IA\config.py)
+[2026-04-01T12:51:00.863647] WorkingMemory clear: cannot import name 'WORKING_MEMORY_MAX_ITEMS' from 'config' (C:\Hooks_IA\config.py)
+[2026-04-01T12:51:00.863647] DomainPromoter: cannot import name 'DOMAINS_FILE' from 'config' (C:\Hooks_IA\config.py)
+[2026-04-01T12:51:00.863647] Hook session_end completed successfully
+[2026-04-01T12:52:15.612790] Hook session_end fired. Fields: ['session_id', 'transcript_path', 'cwd', 'permission_mode', 'hook_event_name', 'stop_hook_active', 'last_assistant_message']
+[2026-04-01T12:52:15.612790] session_id=a469a7ed-31a8-4085-a8dd-ae35b95c6d7f
+[2026-04-01T12:52:15.612790] transcript_path=C:\Users\ntoledo\AppData\Local\ClaudeCode\.claude\projects\C--Chance1\a469a7ed-31a8-4085-a8dd-ae35b95c6d7f.jsonl
+[2026-04-01T12:52:15.679772] Transcript: 2009 messages loaded
+[2026-04-01T12:52:15.695515] Extracted: 60 user msgs, 10 errors
+[2026-04-01T12:52:15.695515] Tools (final): 28 reads, 15 edits, 259 commands
+[2026-04-01T12:52:15.698041] Session merged at index 0
+[2026-04-01T12:52:15.700054] Co-occurrence updated for domains: ['files', 'sap_tierra']
+[2026-04-01T12:52:15.700054] Markov sequence: files -> sap_tierra
+[2026-04-01T12:52:15.700054] KB: DOMAINS not available, skipping auto-extract
+[2026-04-01T12:52:15.700054] KB: flush attempt: cannot import name 'STATE_FILE' from 'config' (C:\Hooks_IA\config.py)
+[2026-04-01T12:52:15.711420] Episodic FTS5 index failed: cannot import name 'EPISODIC_DB' from 'config' (C:\Hooks_IA\config.py)
+[2026-04-01T12:52:15.712436] HintTracker: cannot import name 'HINT_EFFECTIVENESS_DECAY' from 'config' (C:\Hooks_IA\config.py)
+[2026-04-01T12:52:15.712436] MemoryPruner: cannot import name 'MEMORY_FILE' from 'config' (C:\Hooks_IA\config.py)
+[2026-04-01T12:52:15.712436] WorkingMemory clear: cannot import name 'WORKING_MEMORY_MAX_ITEMS' from 'config' (C:\Hooks_IA\config.py)
+[2026-04-01T12:52:15.712436] DomainPromoter: cannot import name 'DOMAINS_FILE' from 'config' (C:\Hooks_IA\config.py)
+[2026-04-01T12:52:15.712436] Hook session_end completed successfully
+[2026-04-01T12:53:13.651031] Hook session_end fired. Fields: ['session_id', 'transcript_path', 'cwd', 'permission_mode', 'hook_event_name', 'stop_hook_active', 'last_assistant_message']
+[2026-04-01T12:53:13.651031] session_id=97e16a3e-cf16-42ee-990b-a28e43d23342
+[2026-04-01T12:53:13.651031] transcript_path=C:\Users\ntoledo\AppData\Local\ClaudeCode\.claude\projects\C--Chance1-IA-Buscador-IA\97e16a3e-cf16-42ee-990b-a28e43d23342.jsonl
+[2026-04-01T12:53:13.653037] Transcript: 3 messages loaded
+[2026-04-01T12:53:13.653037] Extracted: 1 user msgs, 0 errors
+[2026-04-01T12:53:13.653037] Tools (final): 0 reads, 0 edits, 0 commands
+[2026-04-01T12:53:13.655044] New session added. History: 4 sessions
+[2026-04-01T12:53:13.660022] KB: DOMAINS not available, skipping auto-extract
+[2026-04-01T12:53:13.661895] KB: flush attempt: cannot import name 'STATE_FILE' from 'config' (C:\Hooks_IA\config.py)
+[2026-04-01T12:53:13.665179] Episodic FTS5 index failed: cannot import name 'EPISODIC_DB' from 'config' (C:\Hooks_IA\config.py)
+[2026-04-01T12:53:13.665179] HintTracker: cannot import name 'HINT_EFFECTIVENESS_DECAY' from 'config' (C:\Hooks_IA\config.py)
+[2026-04-01T12:53:13.665179] MemoryPruner: cannot import name 'MEMORY_FILE' from 'config' (C:\Hooks_IA\config.py)
+[2026-04-01T12:53:13.667186] WorkingMemory clear: cannot import name 'WORKING_MEMORY_MAX_ITEMS' from 'config' (C:\Hooks_IA\config.py)
+[2026-04-01T12:53:13.667186] DomainPromoter: cannot import name 'DOMAINS_FILE' from 'config' (C:\Hooks_IA\config.py)
+[2026-04-01T12:53:13.667186] Hook session_end completed successfully
+[2026-04-01T12:53:58.978632] Hook session_end fired. Fields: ['session_id', 'transcript_path', 'cwd', 'permission_mode', 'hook_event_name', 'stop_hook_active', 'last_assistant_message']
+[2026-04-01T12:53:58.978632] session_id=a469a7ed-31a8-4085-a8dd-ae35b95c6d7f
+[2026-04-01T12:53:58.978632] transcript_path=C:\Users\ntoledo\AppData\Local\ClaudeCode\.claude\projects\C--Chance1\a469a7ed-31a8-4085-a8dd-ae35b95c6d7f.jsonl
+[2026-04-01T12:53:59.028779] Transcript: 2016 messages loaded
+[2026-04-01T12:53:59.044104] Extracted: 61 user msgs, 10 errors
+[2026-04-01T12:53:59.044104] Tools (final): 28 reads, 15 edits, 260 commands
+[2026-04-01T12:53:59.044104] Session merged at index 0
+[2026-04-01T12:53:59.059971] Co-occurrence updated for domains: ['files', 'sap_tierra']
+[2026-04-01T12:53:59.063164] Markov sequence: files -> sap_tierra
+[2026-04-01T12:53:59.063164] KB: DOMAINS not available, skipping auto-extract
+[2026-04-01T12:53:59.064214] KB: flush attempt: cannot import name 'STATE_FILE' from 'config' (C:\Hooks_IA\config.py)
+[2026-04-01T12:53:59.066520] Episodic FTS5 index failed: cannot import name 'EPISODIC_DB' from 'config' (C:\Hooks_IA\config.py)
+[2026-04-01T12:53:59.067536] HintTracker: cannot import name 'HINT_EFFECTIVENESS_DECAY' from 'config' (C:\Hooks_IA\config.py)
+[2026-04-01T12:53:59.067536] MemoryPruner: cannot import name 'MEMORY_FILE' from 'config' (C:\Hooks_IA\config.py)
+[2026-04-01T12:53:59.069553] WorkingMemory clear: cannot import name 'WORKING_MEMORY_MAX_ITEMS' from 'config' (C:\Hooks_IA\config.py)
+[2026-04-01T12:53:59.069553] DomainPromoter: cannot import name 'DOMAINS_FILE' from 'config' (C:\Hooks_IA\config.py)
+[2026-04-01T12:53:59.069553] Hook session_end completed successfully
+[2026-04-01T12:54:49.982580] Hook session_end fired. Fields: ['session_id', 'transcript_path', 'cwd', 'permission_mode', 'hook_event_name', 'stop_hook_active', 'last_assistant_message']
+[2026-04-01T12:54:49.982580] session_id=4923f0b5-eebf-419b-809a-f227c738c10e
+[2026-04-01T12:54:49.982580] transcript_path=C:\Users\ntoledo\AppData\Local\ClaudeCode\.claude\projects\C--Chance1-IA-Buscador-IA\4923f0b5-eebf-419b-809a-f227c738c10e.jsonl
+[2026-04-01T12:54:49.982580] Transcript: 3 messages loaded
+[2026-04-01T12:54:49.982580] Extracted: 1 user msgs, 0 errors
+[2026-04-01T12:54:49.982580] Tools (final): 0 reads, 0 edits, 0 commands
+[2026-04-01T12:54:49.982580] Session merged at index 3
+[2026-04-01T12:54:49.992505] KB: DOMAINS not available, skipping auto-extract
+[2026-04-01T12:54:49.993444] KB: flush attempt: cannot import name 'STATE_FILE' from 'config' (C:\Hooks_IA\config.py)
+[2026-04-01T12:54:49.993444] Episodic FTS5 index failed: cannot import name 'EPISODIC_DB' from 'config' (C:\Hooks_IA\config.py)
+[2026-04-01T12:54:49.993444] HintTracker: cannot import name 'HINT_EFFECTIVENESS_DECAY' from 'config' (C:\Hooks_IA\config.py)
+[2026-04-01T12:54:49.993444] MemoryPruner: cannot import name 'MEMORY_FILE' from 'config' (C:\Hooks_IA\config.py)
+[2026-04-01T12:54:49.993444] WorkingMemory clear: cannot import name 'WORKING_MEMORY_MAX_ITEMS' from 'config' (C:\Hooks_IA\config.py)
+[2026-04-01T12:54:49.993444] DomainPromoter: cannot import name 'DOMAINS_FILE' from 'config' (C:\Hooks_IA\config.py)
+[2026-04-01T12:54:49.993444] Hook session_end completed successfully
+[2026-04-01T12:55:28.070137] Hook session_end fired. Fields: ['session_id', 'transcript_path', 'cwd', 'permission_mode', 'hook_event_name', 'stop_hook_active', 'last_assistant_message']
+[2026-04-01T12:55:28.071142] session_id=a469a7ed-31a8-4085-a8dd-ae35b95c6d7f
+[2026-04-01T12:55:28.071142] transcript_path=C:\Users\ntoledo\AppData\Local\ClaudeCode\.claude\projects\C--Chance1\a469a7ed-31a8-4085-a8dd-ae35b95c6d7f.jsonl
+[2026-04-01T12:55:28.126225] Transcript: 2023 messages loaded
+[2026-04-01T12:55:28.126225] Extracted: 62 user msgs, 10 errors
+[2026-04-01T12:55:28.126225] Tools (final): 28 reads, 15 edits, 261 commands
+[2026-04-01T12:55:28.142962] Session merged at index 0
+[2026-04-01T12:55:28.146477] Co-occurrence updated for domains: ['files', 'sap_tierra']
+[2026-04-01T12:55:28.146477] Markov sequence: files -> sap_tierra
+[2026-04-01T12:55:28.146477] KB: DOMAINS not available, skipping auto-extract
+[2026-04-01T12:55:28.146477] KB: flush attempt: cannot import name 'STATE_FILE' from 'config' (C:\Hooks_IA\config.py)
+[2026-04-01T12:55:28.146477] Episodic FTS5 index failed: cannot import name 'EPISODIC_DB' from 'config' (C:\Hooks_IA\config.py)
+[2026-04-01T12:55:28.146477] HintTracker: cannot import name 'HINT_EFFECTIVENESS_DECAY' from 'config' (C:\Hooks_IA\config.py)
+[2026-04-01T12:55:28.146477] MemoryPruner: cannot import name 'MEMORY_FILE' from 'config' (C:\Hooks_IA\config.py)
+[2026-04-01T12:55:28.155127] WorkingMemory clear: cannot import name 'WORKING_MEMORY_MAX_ITEMS' from 'config' (C:\Hooks_IA\config.py)
+[2026-04-01T12:55:28.155127] DomainPromoter: cannot import name 'DOMAINS_FILE' from 'config' (C:\Hooks_IA\config.py)
+[2026-04-01T12:55:28.155127] Hook session_end completed successfully
+[2026-04-01T12:56:26.784326] Hook session_end fired. Fields: ['session_id', 'transcript_path', 'cwd', 'permission_mode', 'hook_event_name', 'stop_hook_active', 'last_assistant_message']
+[2026-04-01T12:56:26.784326] session_id=a469a7ed-31a8-4085-a8dd-ae35b95c6d7f
+[2026-04-01T12:56:26.784326] transcript_path=C:\Users\ntoledo\AppData\Local\ClaudeCode\.claude\projects\C--Chance1\a469a7ed-31a8-4085-a8dd-ae35b95c6d7f.jsonl
+[2026-04-01T12:56:26.842616] Transcript: 2026 messages loaded
+[2026-04-01T12:56:26.858924] Extracted: 63 user msgs, 10 errors
+[2026-04-01T12:56:26.858924] Tools (final): 28 reads, 15 edits, 261 commands
+[2026-04-01T12:56:26.858924] Session merged at index 0
+[2026-04-01T12:56:26.858924] Co-occurrence updated for domains: ['files', 'sap_tierra']
+[2026-04-01T12:56:26.873274] Markov sequence: files -> sap_tierra
+[2026-04-01T12:56:26.873274] KB: DOMAINS not available, skipping auto-extract
+[2026-04-01T12:56:26.874336] KB: flush attempt: cannot import name 'STATE_FILE' from 'config' (C:\Hooks_IA\config.py)
+[2026-04-01T12:56:26.877289] Episodic FTS5 index failed: cannot import name 'EPISODIC_DB' from 'config' (C:\Hooks_IA\config.py)
+[2026-04-01T12:56:26.878291] HintTracker: cannot import name 'HINT_EFFECTIVENESS_DECAY' from 'config' (C:\Hooks_IA\config.py)
+[2026-04-01T12:56:26.878291] MemoryPruner: cannot import name 'MEMORY_FILE' from 'config' (C:\Hooks_IA\config.py)
+[2026-04-01T12:56:26.880523] WorkingMemory clear: cannot import name 'WORKING_MEMORY_MAX_ITEMS' from 'config' (C:\Hooks_IA\config.py)
+[2026-04-01T12:56:26.880523] DomainPromoter: cannot import name 'DOMAINS_FILE' from 'config' (C:\Hooks_IA\config.py)
+[2026-04-01T12:56:26.880523] Hook session_end completed successfully
+[2026-04-01T12:58:37.005452] Hook session_end fired. Fields: ['session_id', 'transcript_path', 'cwd', 'permission_mode', 'hook_event_name', 'stop_hook_active', 'last_assistant_message']
+[2026-04-01T12:58:37.006523] session_id=a469a7ed-31a8-4085-a8dd-ae35b95c6d7f
+[2026-04-01T12:58:37.006523] transcript_path=C:\Users\ntoledo\AppData\Local\ClaudeCode\.claude\projects\C--Chance1\a469a7ed-31a8-4085-a8dd-ae35b95c6d7f.jsonl
+[2026-04-01T12:58:37.060925] Transcript: 2040 messages loaded
+[2026-04-01T12:58:37.074303] Extracted: 64 user msgs, 10 errors
+[2026-04-01T12:58:37.074303] Tools (final): 28 reads, 15 edits, 263 commands
+[2026-04-01T12:58:37.074303] Session merged at index 0
+[2026-04-01T12:58:37.074303] Co-occurrence updated for domains: ['files', 'sap_tierra']
+[2026-04-01T12:58:37.086353] Markov sequence: files -> sap_tierra
+[2026-04-01T12:58:37.086353] KB: DOMAINS not available, skipping auto-extract
+[2026-04-01T12:58:37.086353] KB: flush attempt: cannot import name 'STATE_FILE' from 'config' (C:\Hooks_IA\config.py)
+[2026-04-01T12:58:37.091716] Episodic FTS5 index failed: cannot import name 'EPISODIC_DB' from 'config' (C:\Hooks_IA\config.py)
+[2026-04-01T12:58:37.091716] HintTracker: cannot import name 'HINT_EFFECTIVENESS_DECAY' from 'config' (C:\Hooks_IA\config.py)
+[2026-04-01T12:58:37.092730] MemoryPruner: cannot import name 'MEMORY_FILE' from 'config' (C:\Hooks_IA\config.py)
+[2026-04-01T12:58:37.093855] WorkingMemory clear: cannot import name 'WORKING_MEMORY_MAX_ITEMS' from 'config' (C:\Hooks_IA\config.py)
+[2026-04-01T12:58:37.094789] DomainPromoter: cannot import name 'DOMAINS_FILE' from 'config' (C:\Hooks_IA\config.py)
+[2026-04-01T12:58:37.094789] Hook session_end completed successfully
+[2026-04-01T12:59:33.455695] Hook session_end fired. Fields: ['session_id', 'transcript_path', 'cwd', 'permission_mode', 'hook_event_name', 'stop_hook_active', 'last_assistant_message']
+[2026-04-01T12:59:33.455695] session_id=a469a7ed-31a8-4085-a8dd-ae35b95c6d7f
+[2026-04-01T12:59:33.455695] transcript_path=C:\Users\ntoledo\AppData\Local\ClaudeCode\.claude\projects\C--Chance1\a469a7ed-31a8-4085-a8dd-ae35b95c6d7f.jsonl
+[2026-04-01T12:59:33.514529] Transcript: 2043 messages loaded
+[2026-04-01T12:59:33.522436] Extracted: 65 user msgs, 10 errors
+[2026-04-01T12:59:33.522436] Tools (final): 28 reads, 15 edits, 263 commands
+[2026-04-01T12:59:33.522436] Session merged at index 0
+[2026-04-01T12:59:33.539073] Co-occurrence updated for domains: ['files', 'sap_tierra']
+[2026-04-01T12:59:33.539073] Markov sequence: files -> sap_tierra
+[2026-04-01T12:59:33.539073] KB: DOMAINS not available, skipping auto-extract
+[2026-04-01T12:59:33.539073] KB: flush attempt: cannot import name 'STATE_FILE' from 'config' (C:\Hooks_IA\config.py)
+[2026-04-01T12:59:33.539073] Episodic FTS5 index failed: cannot import name 'EPISODIC_DB' from 'config' (C:\Hooks_IA\config.py)
+[2026-04-01T12:59:33.539073] HintTracker: cannot import name 'HINT_EFFECTIVENESS_DECAY' from 'config' (C:\Hooks_IA\config.py)
+[2026-04-01T12:59:33.539073] MemoryPruner: cannot import name 'MEMORY_FILE' from 'config' (C:\Hooks_IA\config.py)
+[2026-04-01T12:59:33.539073] WorkingMemory clear: cannot import name 'WORKING_MEMORY_MAX_ITEMS' from 'config' (C:\Hooks_IA\config.py)
+[2026-04-01T12:59:33.539073] DomainPromoter: cannot import name 'DOMAINS_FILE' from 'config' (C:\Hooks_IA\config.py)
+[2026-04-01T12:59:33.539073] Hook session_end completed successfully
+[2026-04-01T13:00:24.941185] Hook session_end fired. Fields: ['session_id', 'transcript_path', 'cwd', 'permission_mode', 'hook_event_name', 'stop_hook_active', 'last_assistant_message']
+[2026-04-01T13:00:24.941185] session_id=a469a7ed-31a8-4085-a8dd-ae35b95c6d7f
+[2026-04-01T13:00:24.941185] transcript_path=C:\Users\ntoledo\AppData\Local\ClaudeCode\.claude\projects\C--Chance1\a469a7ed-31a8-4085-a8dd-ae35b95c6d7f.jsonl
+[2026-04-01T13:00:25.009774] Transcript: 2055 messages loaded
+[2026-04-01T13:00:25.021911] Extracted: 66 user msgs, 10 errors
+[2026-04-01T13:00:25.021911] Tools (final): 28 reads, 16 edits, 265 commands
+[2026-04-01T13:00:25.021911] Session merged at index 0
+[2026-04-01T13:00:25.043539] Co-occurrence updated for domains: ['files', 'sap_tierra']
+[2026-04-01T13:00:25.045539] Markov sequence: files -> sap_tierra
+[2026-04-01T13:00:25.046164] KB: DOMAINS not available, skipping auto-extract
+[2026-04-01T13:00:25.046164] KB: flush attempt: cannot import name 'STATE_FILE' from 'config' (C:\Hooks_IA\config.py)
+[2026-04-01T13:00:25.049184] Episodic FTS5 index failed: cannot import name 'EPISODIC_DB' from 'config' (C:\Hooks_IA\config.py)
+[2026-04-01T13:00:25.050191] HintTracker: cannot import name 'HINT_EFFECTIVENESS_DECAY' from 'config' (C:\Hooks_IA\config.py)
+[2026-04-01T13:00:25.050191] MemoryPruner: cannot import name 'MEMORY_FILE' from 'config' (C:\Hooks_IA\config.py)
+[2026-04-01T13:00:25.053094] WorkingMemory clear: cannot import name 'WORKING_MEMORY_MAX_ITEMS' from 'config' (C:\Hooks_IA\config.py)
+[2026-04-01T13:00:25.054103] DomainPromoter: cannot import name 'DOMAINS_FILE' from 'config' (C:\Hooks_IA\config.py)
+[2026-04-01T13:00:25.055101] Hook session_end completed successfully
+[2026-04-01T13:01:20.148936] Hook session_end fired. Fields: ['session_id', 'transcript_path', 'cwd', 'permission_mode', 'hook_event_name', 'stop_hook_active', 'last_assistant_message']
+[2026-04-01T13:01:20.148936] session_id=a469a7ed-31a8-4085-a8dd-ae35b95c6d7f
+[2026-04-01T13:01:20.148936] transcript_path=C:\Users\ntoledo\AppData\Local\ClaudeCode\.claude\projects\C--Chance1\a469a7ed-31a8-4085-a8dd-ae35b95c6d7f.jsonl
+[2026-04-01T13:01:20.204688] Transcript: 2061 messages loaded
+[2026-04-01T13:01:20.204688] Extracted: 67 user msgs, 10 errors
+[2026-04-01T13:01:20.204688] Tools (final): 28 reads, 16 edits, 266 commands
+[2026-04-01T13:01:20.220994] Session merged at index 0
+[2026-04-01T13:01:20.226901] Co-occurrence updated for domains: ['files', 'sap_tierra']
+[2026-04-01T13:01:20.227899] Markov sequence: files -> sap_tierra
+[2026-04-01T13:01:20.227899] KB: DOMAINS not available, skipping auto-extract
+[2026-04-01T13:01:20.228900] KB: flush attempt: cannot import name 'STATE_FILE' from 'config' (C:\Hooks_IA\config.py)
+[2026-04-01T13:01:20.230901] Episodic FTS5 index failed: cannot import name 'EPISODIC_DB' from 'config' (C:\Hooks_IA\config.py)
+[2026-04-01T13:01:20.231898] HintTracker: cannot import name 'HINT_EFFECTIVENESS_DECAY' from 'config' (C:\Hooks_IA\config.py)
+[2026-04-01T13:01:20.231898] MemoryPruner: cannot import name 'MEMORY_FILE' from 'config' (C:\Hooks_IA\config.py)
+[2026-04-01T13:01:20.233896] WorkingMemory clear: cannot import name 'WORKING_MEMORY_MAX_ITEMS' from 'config' (C:\Hooks_IA\config.py)
+[2026-04-01T13:01:20.234903] DomainPromoter: cannot import name 'DOMAINS_FILE' from 'config' (C:\Hooks_IA\config.py)
+[2026-04-01T13:01:20.234903] Hook session_end completed successfully
+[2026-04-01T13:02:31.203473] Hook session_end fired. Fields: ['session_id', 'transcript_path', 'cwd', 'permission_mode', 'hook_event_name', 'stop_hook_active', 'last_assistant_message']
+[2026-04-01T13:02:31.203473] session_id=a469a7ed-31a8-4085-a8dd-ae35b95c6d7f
+[2026-04-01T13:02:31.203473] transcript_path=C:\Users\ntoledo\AppData\Local\ClaudeCode\.claude\projects\C--Chance1\a469a7ed-31a8-4085-a8dd-ae35b95c6d7f.jsonl
+[2026-04-01T13:02:31.267011] Transcript: 2064 messages loaded
+[2026-04-01T13:02:31.283203] Extracted: 68 user msgs, 10 errors
+[2026-04-01T13:02:31.283203] Tools (final): 28 reads, 16 edits, 266 commands
+[2026-04-01T13:02:31.286743] Session merged at index 0
+[2026-04-01T13:02:31.286743] Co-occurrence updated for domains: ['files', 'sap_tierra']
+[2026-04-01T13:02:31.293651] Markov sequence: files -> sap_tierra
+[2026-04-01T13:02:31.293651] KB: DOMAINS not available, skipping auto-extract
+[2026-04-01T13:02:31.295666] KB: flush attempt: cannot import name 'STATE_FILE' from 'config' (C:\Hooks_IA\config.py)
+[2026-04-01T13:02:31.297678] Episodic FTS5 index failed: cannot import name 'EPISODIC_DB' from 'config' (C:\Hooks_IA\config.py)
+[2026-04-01T13:02:31.297678] HintTracker: cannot import name 'HINT_EFFECTIVENESS_DECAY' from 'config' (C:\Hooks_IA\config.py)
+[2026-04-01T13:02:31.299191] MemoryPruner: cannot import name 'MEMORY_FILE' from 'config' (C:\Hooks_IA\config.py)
+[2026-04-01T13:02:31.301209] WorkingMemory clear: cannot import name 'WORKING_MEMORY_MAX_ITEMS' from 'config' (C:\Hooks_IA\config.py)
+[2026-04-01T13:02:31.301209] DomainPromoter: cannot import name 'DOMAINS_FILE' from 'config' (C:\Hooks_IA\config.py)
+[2026-04-01T13:02:31.301209] Hook session_end completed successfully
+[2026-04-01T13:05:10.506657] Hook session_end fired. Fields: ['session_id', 'transcript_path', 'cwd', 'permission_mode', 'hook_event_name', 'stop_hook_active', 'last_assistant_message']
+[2026-04-01T13:05:10.506657] session_id=a469a7ed-31a8-4085-a8dd-ae35b95c6d7f
+[2026-04-01T13:05:10.511620] transcript_path=C:\Users\ntoledo\AppData\Local\ClaudeCode\.claude\projects\C--Chance1\a469a7ed-31a8-4085-a8dd-ae35b95c6d7f.jsonl
+[2026-04-01T13:05:10.571195] Transcript: 2067 messages loaded
+[2026-04-01T13:05:10.587443] Extracted: 69 user msgs, 10 errors
+[2026-04-01T13:05:10.587443] Tools (final): 28 reads, 16 edits, 266 commands
+[2026-04-01T13:05:10.587443] Session merged at index 0
+[2026-04-01T13:05:10.601133] Co-occurrence updated for domains: ['files', 'sap_tierra']
+[2026-04-01T13:05:10.601133] Markov sequence: files -> sap_tierra
+[2026-04-01T13:05:10.601133] KB: DOMAINS not available, skipping auto-extract
+[2026-04-01T13:05:10.601133] KB: flush attempt: cannot import name 'STATE_FILE' from 'config' (C:\Hooks_IA\config.py)
+[2026-04-01T13:05:10.607537] Episodic FTS5 index failed: cannot import name 'EPISODIC_DB' from 'config' (C:\Hooks_IA\config.py)
+[2026-04-01T13:05:10.609555] HintTracker: cannot import name 'HINT_EFFECTIVENESS_DECAY' from 'config' (C:\Hooks_IA\config.py)
+[2026-04-01T13:05:10.609555] MemoryPruner: cannot import name 'MEMORY_FILE' from 'config' (C:\Hooks_IA\config.py)
+[2026-04-01T13:05:10.609555] WorkingMemory clear: cannot import name 'WORKING_MEMORY_MAX_ITEMS' from 'config' (C:\Hooks_IA\config.py)
+[2026-04-01T13:05:10.609555] DomainPromoter: cannot import name 'DOMAINS_FILE' from 'config' (C:\Hooks_IA\config.py)
+[2026-04-01T13:05:10.609555] Hook session_end completed successfully
+[2026-04-01T13:07:01.933574] Hook session_end fired. Fields: ['session_id', 'transcript_path', 'cwd', 'permission_mode', 'hook_event_name', 'stop_hook_active', 'last_assistant_message']
+[2026-04-01T13:07:01.933574] session_id=a469a7ed-31a8-4085-a8dd-ae35b95c6d7f
+[2026-04-01T13:07:01.933574] transcript_path=C:\Users\ntoledo\AppData\Local\ClaudeCode\.claude\projects\C--Chance1\a469a7ed-31a8-4085-a8dd-ae35b95c6d7f.jsonl
+[2026-04-01T13:07:02.003482] Transcript: 2070 messages loaded
+[2026-04-01T13:07:02.017527] Extracted: 70 user msgs, 10 errors
+[2026-04-01T13:07:02.018534] Tools (final): 28 reads, 16 edits, 266 commands
+[2026-04-01T13:07:02.021892] Session merged at index 0
+[2026-04-01T13:07:02.026315] Co-occurrence updated for domains: ['files', 'sap_tierra']
+[2026-04-01T13:07:02.027324] Markov sequence: files -> sap_tierra
+[2026-04-01T13:07:02.028374] KB: DOMAINS not available, skipping auto-extract
+[2026-04-01T13:07:02.028374] KB: flush attempt: cannot import name 'STATE_FILE' from 'config' (C:\Hooks_IA\config.py)
+[2026-04-01T13:07:02.033330] Episodic FTS5 index failed: cannot import name 'EPISODIC_DB' from 'config' (C:\Hooks_IA\config.py)
+[2026-04-01T13:07:02.034329] HintTracker: cannot import name 'HINT_EFFECTIVENESS_DECAY' from 'config' (C:\Hooks_IA\config.py)
+[2026-04-01T13:07:02.034329] MemoryPruner: cannot import name 'MEMORY_FILE' from 'config' (C:\Hooks_IA\config.py)
+[2026-04-01T13:07:02.036479] Consolidator: cannot import name 'MEMORY_FILE' from 'config' (C:\Hooks_IA\config.py)
+[2026-04-01T13:07:02.036479] WorkingMemory clear: cannot import name 'WORKING_MEMORY_MAX_ITEMS' from 'config' (C:\Hooks_IA\config.py)
+[2026-04-01T13:07:02.036479] DomainPromoter: cannot import name 'DOMAINS_FILE' from 'config' (C:\Hooks_IA\config.py)
+[2026-04-01T13:07:02.036479] Hook session_end completed successfully
+[2026-04-01T13:08:44.981329] Hook session_end fired. Fields: ['session_id', 'transcript_path', 'cwd', 'permission_mode', 'hook_event_name', 'stop_hook_active', 'last_assistant_message']
+[2026-04-01T13:08:44.981329] session_id=a469a7ed-31a8-4085-a8dd-ae35b95c6d7f
+[2026-04-01T13:08:44.981329] transcript_path=C:\Users\ntoledo\AppData\Local\ClaudeCode\.claude\projects\C--Chance1\a469a7ed-31a8-4085-a8dd-ae35b95c6d7f.jsonl
+[2026-04-01T13:08:45.031875] Transcript: 2085 messages loaded
+[2026-04-01T13:08:45.053935] Extracted: 71 user msgs, 10 errors
+[2026-04-01T13:08:45.053935] Tools (final): 28 reads, 16 edits, 266 commands
+[2026-04-01T13:08:45.064730] Session merged at index 0
+[2026-04-01T13:08:45.064730] Co-occurrence updated for domains: ['files', 'sap_tierra']
+[2026-04-01T13:08:45.064730] Markov sequence: files -> sap_tierra
+[2026-04-01T13:08:45.064730] KB: DOMAINS not available, skipping auto-extract
+[2026-04-01T13:08:45.064730] KB: flush attempt: cannot import name 'STATE_FILE' from 'config' (C:\Hooks_IA\config.py)
+[2026-04-01T13:08:45.064730] Episodic FTS5 index failed: cannot import name 'EPISODIC_DB' from 'config' (C:\Hooks_IA\config.py)
+[2026-04-01T13:08:45.064730] HintTracker: cannot import name 'HINT_EFFECTIVENESS_DECAY' from 'config' (C:\Hooks_IA\config.py)
+[2026-04-01T13:08:45.064730] MemoryPruner: cannot import name 'MEMORY_FILE' from 'config' (C:\Hooks_IA\config.py)
+[2026-04-01T13:08:45.064730] WorkingMemory clear: cannot import name 'WORKING_MEMORY_MAX_ITEMS' from 'config' (C:\Hooks_IA\config.py)
+[2026-04-01T13:08:45.064730] DomainPromoter: cannot import name 'DOMAINS_FILE' from 'config' (C:\Hooks_IA\config.py)
+[2026-04-01T13:08:45.064730] Hook session_end completed successfully
+[2026-04-01T13:10:56.113817] Hook session_end fired. Fields: ['session_id', 'transcript_path', 'cwd', 'permission_mode', 'hook_event_name', 'stop_hook_active', 'last_assistant_message']
+[2026-04-01T13:10:56.113817] session_id=a469a7ed-31a8-4085-a8dd-ae35b95c6d7f
+[2026-04-01T13:10:56.113817] transcript_path=C:\Users\ntoledo\AppData\Local\ClaudeCode\.claude\projects\C--Chance1\a469a7ed-31a8-4085-a8dd-ae35b95c6d7f.jsonl
+[2026-04-01T13:10:56.170059] Transcript: 2088 messages loaded
+[2026-04-01T13:10:56.179521] Extracted: 72 user msgs, 10 errors
+[2026-04-01T13:10:56.179521] Tools (final): 28 reads, 16 edits, 266 commands
+[2026-04-01T13:10:56.179521] Session merged at index 0
+[2026-04-01T13:10:56.193995] Co-occurrence updated for domains: ['files', 'sap_tierra']
+[2026-04-01T13:10:56.196010] Markov sequence: files -> sap_tierra
+[2026-04-01T13:10:56.196010] KB: DOMAINS not available, skipping auto-extract
+[2026-04-01T13:10:56.196010] KB: flush attempt: cannot import name 'STATE_FILE' from 'config' (C:\Hooks_IA\config.py)
+[2026-04-01T13:10:56.196010] Episodic FTS5 index failed: cannot import name 'EPISODIC_DB' from 'config' (C:\Hooks_IA\config.py)
+[2026-04-01T13:10:56.196010] HintTracker: cannot import name 'HINT_EFFECTIVENESS_DECAY' from 'config' (C:\Hooks_IA\config.py)
+[2026-04-01T13:10:56.196010] MemoryPruner: cannot import name 'MEMORY_FILE' from 'config' (C:\Hooks_IA\config.py)
+[2026-04-01T13:10:56.196010] Consolidator: cannot import name 'MEMORY_FILE' from 'config' (C:\Hooks_IA\config.py)
+[2026-04-01T13:10:56.196010] WorkingMemory clear: cannot import name 'WORKING_MEMORY_MAX_ITEMS' from 'config' (C:\Hooks_IA\config.py)
+[2026-04-01T13:10:56.196010] DomainPromoter: cannot import name 'DOMAINS_FILE' from 'config' (C:\Hooks_IA\config.py)
+[2026-04-01T13:10:56.196010] Hook session_end completed successfully
