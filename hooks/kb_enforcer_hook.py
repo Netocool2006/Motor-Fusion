@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 """
-kb_enforcer_hook.py - Hook que ejecuta búsqueda en KB e inyecta contexto
-Se ejecuta ANTES de cada respuesta - retorna JSON con additionalContext
+kb_enforcer_hook.py - Hook que ejecuta búsqueda en KB
+Se ejecuta ANTES de cada respuesta - escribe resultado a archivo
 """
 
 import sys
@@ -75,32 +75,30 @@ def safe_kb_search():
 
 def main():
     """
-    Hook principal - retorna JSON con additionalContext
+    Hook principal - escribe resultado a archivo compartido
     """
     try:
         result = safe_kb_search()
 
         if result:
-            # CONSTRUCCION DEL CONTEXTO A INYECTAR EN CLAUDE
-            kb_context = f"""[KB_SEARCH_EXECUTED]
-Query: {result['query']}
-Domain: {result['domain']}
-KB Entries Found: {result['kb_found']}
-KB Coverage: {result['kb_pct']}%
-Internet Coverage: {result['internet_pct']}%
-ML Coverage: {result['ml_pct']}%
-Required Footer: {result['sources_footer']}
-[/KB_SEARCH_EXECUTED]"""
+            # GUARDAR RESULTADO EN ARCHIVO PARA QUE CLAUDE LEA
+            result_file = Path(r"C:\Hooks_IA\core\kb_search_result.json")
+            result_file.parent.mkdir(parents=True, exist_ok=True)
 
-            # RETORNAR JSON CON additionalContext PARA QUE CLAUDE CODE LO INYECTE
-            hook_output = {
-                "hookSpecificOutput": {
-                    "additionalContext": kb_context
-                }
+            result_data = {
+                "timestamp": datetime.now().isoformat(),
+                "query": result['query'],
+                "domain": result['domain'],
+                "kb_pct": result['kb_pct'],
+                "internet_pct": result['internet_pct'],
+                "ml_pct": result['ml_pct'],
+                "kb_found": result['kb_found'],
+                "sources_footer": result['sources_footer'],
+                "should_save": result['should_save']
             }
 
-            # IMPRIMIR JSON (Claude Code lo procesa)
-            print(json.dumps(hook_output, ensure_ascii=False))
+            with open(result_file, "w", encoding="utf-8") as f:
+                json.dump(result_data, f, ensure_ascii=False, indent=2)
 
             # GUARDAR LOGS PARA VERIFICACION
             try:
@@ -118,15 +116,6 @@ Required Footer: {result['sources_footer']}
                 }
                 with open(log_file, "a", encoding="utf-8") as f:
                     f.write(json.dumps(log_entry, ensure_ascii=False) + "\n")
-            except:
-                pass
-
-            # GUARDAR RESULTADO EN ARCHIVO PARA VERIFICACION
-            try:
-                result_file = Path(r"C:\Hooks_IA\core\kb_search_result.json")
-                result_file.parent.mkdir(parents=True, exist_ok=True)
-                with open(result_file, "w", encoding="utf-8") as f:
-                    f.write(json.dumps(hook_output, ensure_ascii=False, indent=2))
             except:
                 pass
 

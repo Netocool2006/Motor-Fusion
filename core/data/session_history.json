@@ -241,19 +241,19 @@
     "learning_json": null,
     "reasoning_traces": [],
     "metrics": {
+      "commands_count": 272,
       "decisions_count": 15,
-      "user_messages": 73,
-      "commands_count": 269,
-      "errors_count": 10,
-      "files_touched": 83,
-      "total_messages": 2107
+      "user_messages": 84,
+      "files_touched": 84,
+      "total_messages": 2209,
+      "errors_count": 10
     },
     "domains": [
       "files",
       "sap_tierra"
     ],
     "merged": true,
-    "merge_count": 19
+    "merge_count": 30
   },
   {
     "session_id": "114c476f-3c06-46e5-8544-da9f5faf7911",
@@ -345,6 +345,39 @@
       "errors_count": 0,
       "decisions_count": 0,
       "files_touched": 0
+    },
+    "domains": [
+      "general"
+    ],
+    "merged": true,
+    "merge_count": 2
+  },
+  {
+    "session_id": "93c82e84-a6de-435f-bf33-8467d3091452",
+    "date": "2026-04-01",
+    "time": "20:35:23 UTC",
+    "timestamp": "2026-04-01 20:35:23",
+    "cwd": "C:\\Chance1\\IA\\Buscador_IA",
+    "summary": "¿Qué es un catálogo de productos?",
+    "user_messages": [
+      "¿Qué es un catálogo de productos?"
+    ],
+    "files_read": [],
+    "files_edited": [],
+    "files_created": [],
+    "commands_run": [],
+    "searches": [],
+    "errors": [],
+    "decisions": [],
+    "learning_json": null,
+    "reasoning_traces": [],
+    "metrics": {
+      "user_messages": 1,
+      "files_touched": 0,
+      "decisions_count": 0,
+      "total_messages": 3,
+      "errors_count": 0,
+      "commands_count": 0
     },
     "domains": [
       "general"
