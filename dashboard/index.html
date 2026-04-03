@@ -1,532 +1,242 @@
 <!DOCTYPE html>
-<html lang="es" class="no-js">
+<html lang="es">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Motor_IA | Dashboard</title>
+<title>Motor_IA | System Monitor</title>
 <style>
 :root {
-  --primary: #3b82f6;
-  --secondary: #8b5cf6;
-  --success: #10b981;
-  --warning: #f59e0b;
-  --danger: #ef4444;
-  --dark-bg: #0f172a;
-  --dark-surface: #1e293b;
-  --text-primary: #e2e8f0;
-  --text-secondary: #94a3b8;
-  --border: rgba(148, 163, 184, 0.1);
+  --bg: #0f172a; --surface: #1e293b; --surface2: #334155;
+  --green: #10b981; --yellow: #f59e0b; --red: #ef4444; --blue: #3b82f6; --purple: #8b5cf6;
+  --text: #e2e8f0; --text2: #94a3b8; --border: rgba(148,163,184,0.15);
 }
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
-  background: linear-gradient(135deg, var(--dark-bg) 0%, var(--dark-surface) 100%);
-  color: var(--text-primary);
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-
-.header {
-  background: rgba(15, 23, 42, 0.95);
-  border-bottom: 1px solid var(--border);
-  padding: 16px 24px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  backdrop-filter: blur(10px);
-  position: sticky;
-  top: 0;
-  z-index: 100;
-}
-
-.header-left {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-}
-
-.logo {
-  font-size: 20px;
-  font-weight: 700;
-  color: white;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.status-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 6px 12px;
-  background: rgba(16, 185, 129, 0.1);
-  border: 1px solid var(--success);
-  border-radius: 6px;
-  font-size: 12px;
-  color: var(--success);
-  font-weight: 600;
-}
-
-.status-dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: var(--success);
-  animation: pulse 1.5s infinite;
-}
-
-@keyframes pulse {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.4; }
-}
-
-.btn-refresh {
-  padding: 8px 16px;
-  background: var(--primary);
-  color: white;
-  border: none;
-  border-radius: 6px;
-  font-size: 12px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.2s;
-}
-
-.btn-refresh:hover {
-  background: var(--secondary);
-  transform: translateY(-1px);
-}
-
-main {
-  flex: 1;
-  padding: 24px;
-  overflow-y: auto;
-}
-
-.container {
-  max-width: 1600px;
-  margin: 0 auto;
-}
-
-.panel {
-  background: rgba(30, 41, 59, 0.6);
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  padding: 20px;
-  backdrop-filter: blur(10px);
-  transition: all 0.3s;
-}
-
-.panel:hover {
-  border-color: rgba(148, 163, 184, 0.2);
-  box-shadow: 0 8px 32px rgba(59, 130, 246, 0.1);
-}
-
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 16px;
-  margin-bottom: 24px;
-}
-
-.grid-2 {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
-  gap: 24px;
-  margin-bottom: 24px;
-}
-
-.stat-card {
-  background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(139, 92, 246, 0.05));
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  padding: 20px;
-  position: relative;
-  overflow: hidden;
-}
-
-.stat-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 2px;
-  background: linear-gradient(90deg, var(--primary), var(--secondary));
-}
-
-.stat-label {
-  font-size: 11px;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  color: var(--text-secondary);
-  margin-bottom: 8px;
-  font-weight: 700;
-}
-
-.stat-value {
-  font-size: 40px;
-  font-weight: 700;
-  background: linear-gradient(135deg, var(--primary), var(--secondary));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  margin-bottom: 4px;
-}
-
-.stat-sub {
-  font-size: 12px;
-  color: var(--text-secondary);
-}
-
-.section-header {
-  font-size: 14px;
-  font-weight: 700;
-  color: white;
-  margin-bottom: 16px;
-  padding-bottom: 12px;
-  border-bottom: 2px solid var(--primary);
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.section-header::before {
-  content: '';
-  width: 4px;
-  height: 4px;
-  border-radius: 50%;
-  background: var(--primary);
-}
-
-.status-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-  gap: 12px;
-  margin-bottom: 20px;
-}
-
-.status-item {
-  background: rgba(15, 23, 42, 0.6);
-  border: 1px solid var(--border);
-  border-left: 3px solid var(--primary);
-  border-radius: 8px;
-  padding: 12px;
-  text-align: center;
-}
-
-.status-item.success { border-left-color: var(--success); }
-.status-item.warning { border-left-color: var(--warning); }
-
-.status-value {
-  font-size: 20px;
-  font-weight: 700;
-  color: var(--primary);
-  margin-bottom: 6px;
-}
-
-.status-label {
-  font-size: 10px;
-  text-transform: uppercase;
-  color: var(--text-secondary);
-}
-
-.list-item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 12px 0;
-  border-bottom: 1px solid rgba(148, 163, 184, 0.05);
-  font-size: 13px;
-}
-
-.list-item:last-child {
-  border-bottom: none;
-}
-
-.list-item-name {
-  color: var(--text-primary);
-  font-weight: 500;
-}
-
-.list-item-value {
-  color: var(--primary);
-  font-weight: 700;
-  background: rgba(59, 130, 246, 0.1);
-  padding: 4px 8px;
-  border-radius: 4px;
-  font-size: 11px;
-}
-
-.log-box {
-  background: rgba(15, 23, 42, 0.8);
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  padding: 12px;
-  font-family: 'Monaco', 'Courier New', monospace;
-  font-size: 11px;
-  max-height: 240px;
-  overflow-y: auto;
-  color: var(--text-secondary);
-}
-
-.log-line {
-  padding: 4px 0;
-  border-bottom: 1px solid rgba(148, 163, 184, 0.05);
-  white-space: pre-wrap;
-  word-break: break-all;
-}
-
-.log-line:last-child { border-bottom: none; }
-.log-line.success { color: var(--success); }
-.log-line.warning { color: var(--warning); }
-
-.progress-bar {
-  width: 100%;
-  height: 6px;
-  background: rgba(148, 163, 184, 0.1);
-  border-radius: 3px;
-  overflow: hidden;
-  margin-top: 8px;
-}
-
-.progress {
-  height: 100%;
-  background: linear-gradient(90deg, var(--primary), var(--secondary));
-  transition: width 0.3s;
-}
-
-footer {
-  background: rgba(15, 23, 42, 0.95);
-  border-top: 1px solid var(--border);
-  padding: 12px 24px;
-  text-align: center;
-  font-size: 11px;
-  color: var(--text-secondary);
-}
-
-@media (max-width: 768px) {
-  .grid { grid-template-columns: 1fr; }
-  .grid-2 { grid-template-columns: 1fr; }
-  main { padding: 16px; }
-}
-
-::-webkit-scrollbar {
-  width: 6px;
-}
-
-::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-::-webkit-scrollbar-thumb {
-  background: var(--primary);
-  border-radius: 3px;
-}
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:'Segoe UI',system-ui,sans-serif; background:var(--bg); color:var(--text); min-height:100vh; }
+.header { background:linear-gradient(135deg,#1e293b,#0f172a); border-bottom:1px solid var(--border); padding:16px 24px; display:flex; justify-content:space-between; align-items:center; }
+.header h1 { font-size:20px; font-weight:700; }
+.header h1 span { color:var(--blue); }
+.health-badge { padding:6px 16px; border-radius:20px; font-size:13px; font-weight:600; text-transform:uppercase; letter-spacing:1px; }
+.health-HEALTHY { background:rgba(16,185,129,0.15); color:var(--green); border:1px solid rgba(16,185,129,0.3); }
+.health-DEGRADED { background:rgba(245,158,11,0.15); color:var(--yellow); border:1px solid rgba(245,158,11,0.3); }
+.health-CRITICAL { background:rgba(239,68,68,0.15); color:var(--red); border:1px solid rgba(239,68,68,0.3); }
+.grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:16px; padding:20px 24px; }
+.card { background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:20px; }
+.card h3 { font-size:13px; text-transform:uppercase; letter-spacing:1px; color:var(--text2); margin-bottom:12px; display:flex; align-items:center; gap:8px; }
+.dot { width:8px; height:8px; border-radius:50%; display:inline-block; }
+.dot-ok { background:var(--green); box-shadow:0 0 6px var(--green); }
+.dot-warn { background:var(--yellow); box-shadow:0 0 6px var(--yellow); }
+.dot-err { background:var(--red); box-shadow:0 0 6px var(--red); }
+.big-num { font-size:36px; font-weight:700; color:var(--text); }
+.sub { font-size:13px; color:var(--text2); margin-top:4px; }
+.metric-row { display:flex; justify-content:space-between; padding:8px 0; border-bottom:1px solid var(--border); }
+.metric-row:last-child { border:none; }
+.metric-label { color:var(--text2); font-size:13px; }
+.metric-value { font-weight:600; font-size:13px; }
+.status-ok { color:var(--green); }
+.status-warn { color:var(--yellow); }
+.status-err { color:var(--red); }
+.log-box { background:var(--bg); border:1px solid var(--border); border-radius:8px; padding:12px; max-height:280px; overflow-y:auto; font-family:'Cascadia Code','Fira Code',monospace; font-size:11px; line-height:1.6; }
+.log-line { color:var(--text2); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.log-line .q { color:var(--blue); }
+.log-line .r { color:var(--green); }
+.log-line .e { color:var(--red); }
+.log-line .c { color:var(--purple); }
+.wide { grid-column: span 2; }
+.bar { height:6px; border-radius:3px; background:var(--surface2); margin-top:8px; overflow:hidden; }
+.bar-fill { height:100%; border-radius:3px; transition:width 0.5s; }
+.ts { font-size:11px; color:var(--text2); }
+.component-grid { display:grid; grid-template-columns:1fr 1fr; gap:8px; }
+.comp-item { background:var(--bg); border-radius:8px; padding:12px; text-align:center; }
+.comp-item .comp-num { font-size:24px; font-weight:700; }
+.comp-item .comp-label { font-size:11px; color:var(--text2); margin-top:2px; }
+footer { text-align:center; padding:16px; color:var(--text2); font-size:11px; }
+@media(max-width:700px) { .grid{grid-template-columns:1fr;} .wide{grid-column:span 1;} }
 </style>
 </head>
 <body>
 
 <div class="header">
-  <div class="header-left">
-    <div class="logo">⚡ Motor_IA</div>
-    <div class="status-badge">
-      <span class="status-dot"></span>
-      <span id="status">ACTIVO</span>
-    </div>
+  <h1><span>Motor_IA</span> System Monitor</h1>
+  <div>
+    <span id="health" class="health-badge">Loading...</span>
+    <span class="ts" id="ts" style="margin-left:12px"></span>
   </div>
-  <button class="btn-refresh" onclick="refresh()">↻ Actualizar</button>
 </div>
 
-<main>
-<div class="container">
-
-<!-- CARDS PRINCIPALES -->
 <div class="grid">
-  <div class="stat-card">
-    <div class="stat-label">Estado Motor</div>
-    <div class="stat-value" id="motor">ACTIVO</div>
-    <div class="stat-sub" id="motor-sub">Sistema operativo</div>
-  </div>
-
-  <div class="stat-card">
-    <div class="stat-label">KB Entries</div>
-    <div class="stat-value" id="kb">4,764</div>
-    <div class="stat-sub">entradas en la base</div>
-  </div>
-
-  <div class="stat-card">
-    <div class="stat-label">Hooks Status</div>
-    <div class="stat-value" id="hooks" style="font-size: 32px;">✓</div>
-    <div class="stat-sub" id="hooks-sub">Registrados y activos</div>
-  </div>
-
-  <div class="stat-card">
-    <div class="stat-label">Coverage KB</div>
-    <div class="stat-value" id="coverage">85%</div>
-    <div class="progress-bar"><div class="progress" id="coverage-bar" style="width: 85%;"></div></div>
-  </div>
-
-  <div class="stat-card">
-    <div class="stat-label">Performance</div>
-    <div class="stat-value" id="perf">92/100</div>
-    <div class="progress-bar"><div class="progress" id="perf-bar" style="width: 92%;"></div></div>
-  </div>
-
-  <div class="stat-card">
-    <div class="stat-label">Procesos Python</div>
-    <div class="stat-value" id="processes" style="font-size: 32px;">--</div>
-    <div class="stat-sub">activos</div>
-  </div>
-</div>
-
-<!-- ESTADO DEL SISTEMA -->
-<div class="panel">
-  <div class="section-header">Estado del Sistema</div>
-  <div class="status-grid">
-    <div class="status-item success">
-      <div class="status-value">8080</div>
-      <div class="status-label">Dashboard</div>
-    </div>
-    <div class="status-item" id="port-8888">
-      <div class="status-value">8888</div>
-      <div class="status-label">Alternativo</div>
-    </div>
-    <div class="status-item" id="python-status">
-      <div class="status-value" id="python-dot">●</div>
-      <div class="status-label">Python</div>
-    </div>
-    <div class="status-item" id="hook-status">
-      <div class="status-value" id="hook-dot">●</div>
-      <div class="status-label">KB Enforcer</div>
-    </div>
-  </div>
-</div>
-
-<!-- INFORMACIÓN EXPANDIDA -->
-<div class="grid-2">
-
-  <!-- KB ENFORCER ACTIVITY - LA EVIDENCIA PRINCIPAL -->
-  <div class="panel">
-    <div class="section-header">KB Enforcer Activity</div>
-    <p style="font-size: 12px; color: var(--text-secondary); margin-bottom: 12px;">
-      ⭐ EVIDENCIA de que el hook se ejecuta automáticamente
-    </p>
-    <div id="enforcer-activity" class="log-box">
-      <div class="log-line">Esperando primer hook...</div>
+  <!-- ChromaDB -->
+  <div class="card">
+    <h3><span class="dot" id="chroma-dot"></span> ChromaDB (KB Principal)</h3>
+    <div class="big-num" id="chroma-total">--</div>
+    <div class="sub">documentos vectorizados</div>
+    <div style="margin-top:12px">
+      <div class="metric-row"><span class="metric-label">Facts</span><span class="metric-value" id="chroma-facts">--</span></div>
+      <div class="metric-row"><span class="metric-label">Patterns</span><span class="metric-value" id="chroma-patterns">--</span></div>
+      <div class="metric-row"><span class="metric-label">Learned (auto)</span><span class="metric-value" id="chroma-learned">--</span></div>
+      <div class="metric-row"><span class="metric-label">Sessions</span><span class="metric-value" id="chroma-sessions">--</span></div>
     </div>
   </div>
 
-  <!-- DOMINIOS KB -->
-  <div class="panel">
-    <div class="section-header">Dominios Knowledge Base</div>
-    <div id="domains-list"></div>
+  <!-- Hooks -->
+  <div class="card">
+    <h3><span class="dot" id="hooks-dot"></span> Hooks (Pipeline)</h3>
+    <div style="margin-top:8px">
+      <div class="metric-row"><span class="metric-label">Pre-hook (motor_ia_hook)</span><span class="metric-value" id="hook-pre">--</span></div>
+      <div class="metric-row"><span class="metric-label">Post-hook (auto-save)</span><span class="metric-value" id="hook-post">--</span></div>
+      <div class="metric-row"><span class="metric-label">Settings path</span><span class="metric-value ts" id="hook-path">--</span></div>
+    </div>
   </div>
 
-</div>
+  <!-- Metrics Hoy -->
+  <div class="card">
+    <h3><span class="dot dot-ok"></span> Actividad del Dia</h3>
+    <div class="component-grid">
+      <div class="comp-item"><div class="comp-num" id="m-queries">--</div><div class="comp-label">Queries</div></div>
+      <div class="comp-item"><div class="comp-num" id="m-cache">--</div><div class="comp-label">Cache Hits</div></div>
+      <div class="comp-item"><div class="comp-num" id="m-vector">--</div><div class="comp-label">Vector Hits</div></div>
+      <div class="comp-item"><div class="comp-num" id="m-internet">--</div><div class="comp-label">Web Searches</div></div>
+      <div class="comp-item"><div class="comp-num" id="m-saves">--</div><div class="comp-label">Auto-Saves</div></div>
+      <div class="comp-item"><div class="comp-num" id="m-errors">--</div><div class="comp-label">Errors</div></div>
+    </div>
+  </div>
 
-<!-- LOGS -->
-<div class="panel">
-  <div class="section-header">Últimos Eventos del Sistema</div>
-  <div id="logs-list" class="log-box">
-    <div class="log-line">Dashboard inicializado...</div>
+  <!-- Knowledge Local -->
+  <div class="card">
+    <h3><span class="dot" id="kb-dot"></span> Knowledge Local (Backup)</h3>
+    <div class="big-num" id="kb-domains">--</div>
+    <div class="sub">dominios / <span id="kb-size">--</span> MB</div>
+    <div style="margin-top:12px">
+      <div class="metric-row"><span class="metric-label">Cache TF-IDF</span><span class="metric-value" id="cache-entries">--</span></div>
+      <div class="metric-row"><span class="metric-label">NotebookLM (nube)</span><span class="metric-value status-warn">Backup only</span></div>
+    </div>
+  </div>
+
+  <!-- Last Query -->
+  <div class="card wide">
+    <h3><span class="dot dot-ok"></span> Ultima Consulta</h3>
+    <div class="metric-row"><span class="metric-label">Query</span><span class="metric-value" id="last-query" style="max-width:70%;overflow:hidden;text-overflow:ellipsis">--</span></div>
+    <div class="metric-row"><span class="metric-label">Resultado</span><span class="metric-value" id="last-result">--</span></div>
+    <div class="metric-row"><span class="metric-label">Estado actual</span><span class="metric-value" id="state-needs-save">--</span></div>
+    <div style="margin-top:12px">
+      <div class="sub">Cobertura KB vs Internet vs ML</div>
+      <div style="display:flex;gap:4px;margin-top:6px;height:20px;border-radius:4px;overflow:hidden">
+        <div id="bar-kb" style="background:var(--green);transition:width 0.5s" title="KB"></div>
+        <div id="bar-internet" style="background:var(--blue);transition:width 0.5s" title="Internet"></div>
+        <div id="bar-ml" style="background:var(--purple);transition:width 0.5s" title="ML"></div>
+      </div>
+      <div style="display:flex;gap:16px;margin-top:4px;font-size:11px;color:var(--text2)">
+        <span>🟢 KB <span id="pct-kb">0</span>%</span>
+        <span>🔵 Internet <span id="pct-internet">0</span>%</span>
+        <span>🟣 ML <span id="pct-ml">0</span>%</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Log -->
+  <div class="card wide">
+    <h3><span class="dot dot-ok"></span> Log en Tiempo Real</h3>
+    <div class="log-box" id="log-box">
+      <div class="log-line">Esperando datos...</div>
+    </div>
   </div>
 </div>
 
-</div>
-</main>
-
-<footer>
-  <span id="timestamp">Última actualización: --:--:--</span> | Motor_IA v2.0 Pro | KB Enforcer Activo
-</footer>
+<footer>Motor_IA v2.0 | RAG: ChromaDB + DuckDuckGo + Claude | Auto-refresh 5s</footer>
 
 <script>
-function refresh() {
-  fetch('/api/status')
-    .then(r => r.json())
-    .then(d => {
-      // Estatísticas
-      document.getElementById('motor').textContent = 'ACTIVO';
-      document.getElementById('motor-sub').textContent = 'Sistema operativo';
-      document.getElementById('kb').textContent = d.kb_entries.toLocaleString('es-ES');
-      document.getElementById('coverage').textContent = d.kb_coverage;
-      document.getElementById('coverage-bar').style.width = d.kb_coverage;
-      document.getElementById('perf').textContent = d.performance_score + '/100';
-      document.getElementById('perf-bar').style.width = d.performance_score + '%';
-      document.getElementById('processes').textContent = d.python_processes;
-      document.getElementById('status').textContent = d.system_status === 'OPERATIVO' ? 'ACTIVO' : 'ADVERTENCIA';
+function setDot(id, status) {
+  const el = document.getElementById(id);
+  el.className = 'dot ' + (status === 'OK' || status === 'REGISTERED' ? 'dot-ok' : status === 'PARTIAL' || status === 'DEGRADED' ? 'dot-warn' : 'dot-err');
+}
+function setStatus(id, val) {
+  const el = document.getElementById(id);
+  el.textContent = val;
+  el.className = 'metric-value ' + (val === 'REGISTERED' || val === 'OK' ? 'status-ok' : val === 'MISSING' || val === 'ERROR' ? 'status-err' : 'status-warn');
+}
+function colorLog(line) {
+  if (line.includes('ERROR')) return '<span class="e">' + line + '</span>';
+  if (line.includes('CACHE HIT')) return '<span class="c">' + line + '</span>';
+  if (line.includes('RESULT:')) return '<span class="r">' + line + '</span>';
+  if (line.includes('QUERY:')) return '<span class="q">' + line + '</span>';
+  return line;
+}
 
-      // Hooks
-      document.getElementById('hooks').textContent = d.hooks_active ? '✓' : '✗';
-      document.getElementById('hooks-sub').textContent = d.hooks_active ? 'Ejecutándose' : 'Sin actividad';
+async function refresh() {
+  try {
+    const r = await fetch('/api/status');
+    const d = await r.json();
 
-      // Python status
-      const pyStatus = document.getElementById('python-status');
-      if (d.python_processes > 0) {
-        pyStatus.className = 'status-item success';
-        document.getElementById('python-dot').textContent = '●';
-      } else {
-        pyStatus.className = 'status-item warning';
-        document.getElementById('python-dot').textContent = '●';
-      }
+    // Header
+    document.getElementById('ts').textContent = d.timestamp;
+    const hb = document.getElementById('health');
+    hb.textContent = d.overall_health + ' (' + d.components_ok + '/4)';
+    hb.className = 'health-badge health-' + d.overall_health;
 
-      // Hook status
-      const hookStatus = document.getElementById('hook-status');
-      if (d.hooks_active) {
-        hookStatus.className = 'status-item success';
-        document.getElementById('hook-dot').textContent = '●';
-      }
+    // ChromaDB
+    const c = d.chromadb || {};
+    document.getElementById('chroma-total').textContent = c.total_docs || 0;
+    document.getElementById('chroma-facts').textContent = c.facts || 0;
+    document.getElementById('chroma-patterns').textContent = c.patterns || 0;
+    document.getElementById('chroma-learned').textContent = c.learned || 0;
+    document.getElementById('chroma-sessions').textContent = c.sessions || 0;
+    setDot('chroma-dot', c.status);
 
-      // KB Enforcer Activity
-      if (d.kb_enforcer_activity && d.kb_enforcer_activity.length > 0) {
-        const activity = d.kb_enforcer_activity.map(item =>
-          `[${item.timestamp}] Query: ${item.query.substring(0,40)}... | KB: ${item.kb_pct}%`
-        ).join('\n');
-        document.getElementById('enforcer-activity').innerHTML =
-          '<div class="log-line success">' + activity.split('\n').join('</div><div class="log-line success">') + '</div>';
-      } else {
-        document.getElementById('enforcer-activity').innerHTML =
-          '<div class="log-line">Esperando primer hook...</div>';
-      }
+    // Hooks
+    const h = d.hooks || {};
+    setDot('hooks-dot', h.status);
+    setStatus('hook-pre', h.pre_hook || 'UNKNOWN');
+    setStatus('hook-post', h.post_hook || 'UNKNOWN');
+    document.getElementById('hook-path').textContent = (h.settings_path || '').split('\\').pop();
 
-      // Dominios
-      if (d.kb_domains && d.kb_domains.length > 0) {
-        const domList = d.kb_domains.map(dom =>
-          `<div class="list-item"><span class="list-item-name">${dom.name}</span><span class="list-item-value">${dom.entries.toLocaleString('es-ES')}</span></div>`
-        ).join('');
-        document.getElementById('domains-list').innerHTML = domList;
-      }
+    // Metrics
+    const m = d.metrics || {};
+    document.getElementById('m-queries').textContent = m.queries_today || 0;
+    document.getElementById('m-cache').textContent = m.cache_hits || 0;
+    document.getElementById('m-vector').textContent = m.vector_hits || 0;
+    document.getElementById('m-internet').textContent = m.internet_searches || 0;
+    document.getElementById('m-saves').textContent = m.auto_saves || 0;
+    const errEl = document.getElementById('m-errors');
+    errEl.textContent = m.errors || 0;
+    errEl.style.color = (m.errors > 0) ? 'var(--red)' : 'var(--green)';
 
-      // Logs
-      if (d.hooks_log && d.hooks_log.length > 0) {
-        const logs = d.hooks_log.map(log =>
-          `<div class="log-line">${log.substring(0, 100)}</div>`
-        ).join('');
-        document.getElementById('logs-list').innerHTML = logs;
-      }
+    // Knowledge local
+    const k = d.knowledge_local || {};
+    document.getElementById('kb-domains').textContent = k.domains || 0;
+    document.getElementById('kb-size').textContent = k.size_mb || 0;
+    setDot('kb-dot', k.status);
 
-      // Timestamp
-      const now = new Date();
-      const pad = (n) => String(n).padStart(2, '0');
-      document.getElementById('timestamp').textContent =
-        `Última actualización: ${pad(now.getDate())}-${pad(now.getMonth()+1)}-${now.getFullYear()} ${pad(now.getHours())}:${pad(now.getMinutes())}:${pad(now.getSeconds())}`;
-    })
-    .catch(e => {
-      document.getElementById('status').textContent = 'DESCONECTADO';
-      console.error(e);
-    });
+    // Cache
+    const ca = d.cache || {};
+    document.getElementById('cache-entries').textContent = (ca.entries || 0) + ' entries (' + (ca.active || 0) + ' active)';
+
+    // Last query / state
+    document.getElementById('last-query').textContent = m.last_query || 'N/A';
+    document.getElementById('last-result').textContent = m.last_result || 'N/A';
+
+    const st = d.current_state || {};
+    const kb = st.kb_pct || 0, inet = st.internet_pct || 0, ml = st.ml_pct || 0;
+    document.getElementById('bar-kb').style.width = kb + '%';
+    document.getElementById('bar-internet').style.width = inet + '%';
+    document.getElementById('bar-ml').style.width = ml + '%';
+    document.getElementById('pct-kb').textContent = kb;
+    document.getElementById('pct-internet').textContent = inet;
+    document.getElementById('pct-ml').textContent = ml;
+    document.getElementById('state-needs-save').textContent = st.needs_save ? 'Pendiente auto-save' : 'Sincronizado';
+
+    // Log
+    const logs = d.log_tail || [];
+    const logBox = document.getElementById('log-box');
+    logBox.innerHTML = logs.map(l => '<div class="log-line">' + colorLog(l.replace(/</g,'&lt;')) + '</div>').join('');
+    logBox.scrollTop = logBox.scrollHeight;
+
+  } catch(e) {
+    document.getElementById('health').textContent = 'OFFLINE';
+    document.getElementById('health').className = 'health-badge health-CRITICAL';
+  }
 }
 
 refresh();
-setInterval(refresh, 2000);
+setInterval(refresh, 5000);
 </script>
-
 </body>
 </html>

@@ -1,12 +1,169 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-"""Motor_IA Dashboard - Sistema de Monitoreo Completo"""
-import sys, json, os, glob, subprocess
+"""Motor_IA Dashboard v2 - Monitoreo del sistema RAG completo"""
+import sys
+import json
+import os
+import subprocess
+import time
 from http.server import HTTPServer, BaseHTTPRequestHandler
 from pathlib import Path
 from datetime import datetime
 
-HTML = (Path(__file__).parent / "index.html").read_text(encoding="utf-8")
+_PROJECT = Path(__file__).resolve().parent.parent
+HTML_FILE = Path(__file__).parent / "index.html"
+
+
+def _read_log_tail(filepath, n=30):
+    """Lee las últimas n líneas de un log."""
+    try:
+        if not filepath.exists():
+            return []
+        with open(filepath, "r", encoding="utf-8", errors="ignore") as f:
+            lines = f.readlines()[-n:]
+        return [l.strip() for l in lines if l.strip()]
+    except Exception:
+        return []
+
+
+def _check_chromadb():
+    """Verifica estado de ChromaDB."""
+    try:
+        sys.path.insert(0, str(_PROJECT))
+        from core.vector_kb import get_stats
+        stats = get_stats()
+        return {
+            "status": "OK" if stats.get("total", 0) > 0 else "EMPTY",
+            "total_docs": stats.get("total", 0),
+            "facts": stats.get("facts", 0),
+            "patterns": stats.get("patterns", 0),
+            "learned": stats.get("learned", 0),
+            "sessions": stats.get("sessions", 0),
+        }
+    except Exception as e:
+        return {"status": "ERROR", "error": str(e), "total_docs": 0}
+
+
+def _check_kb_cache():
+    """Verifica estado del cache TF-IDF."""
+    cache_file = _PROJECT / "core" / "kb_cache.json"
+    try:
+        if not cache_file.exists():
+            return {"status": "EMPTY", "entries": 0}
+        with open(cache_file, encoding="utf-8") as f:
+            data = json.load(f)
+        active = [e for e in data if (time.time() - e.get("timestamp", 0)) / 3600 < 168]
+        return {"status": "OK", "entries": len(data), "active": len(active)}
+    except Exception as e:
+        return {"status": "ERROR", "error": str(e)}
+
+
+def _check_knowledge_local():
+    """Verifica knowledge/ local (backup)."""
+    kb_path = _PROJECT / "knowledge"
+    if not kb_path.exists():
+        return {"status": "MISSING", "domains": 0, "size_mb": 0}
+    domains = [d for d in kb_path.iterdir() if d.is_dir()]
+    total_size = sum(f.stat().st_size for d in domains for f in d.rglob("*") if f.is_file())
+    return {
+        "status": "OK",
+        "domains": len(domains),
+        "size_mb": round(total_size / 1024 / 1024, 1),
+        "domain_list": sorted(d.name for d in domains),
+    }
+
+
+def _check_hooks():
+    """Verifica que los hooks estén registrados en settings.json."""
+    # Find settings.json
+    settings_paths = [
+        Path.home() / "AppData" / "Local" / "ClaudeCode" / ".claude" / "settings.json",
+        Path.home() / ".claude" / "settings.json",
+    ]
+    for sp in settings_paths:
+        if sp.exists():
+            try:
+                with open(sp, encoding="utf-8") as f:
+                    settings = json.load(f)
+                hooks = settings.get("hooks", {})
+                pre = hooks.get("UserPromptSubmit", [])
+                post = hooks.get("Stop", [])
+                pre_ok = any("motor_ia_hook" in str(h) for h in pre) if pre else False
+                post_ok = any("motor_ia_post_hook" in str(h) for h in post) if post else False
+                return {
+                    "status": "OK" if pre_ok and post_ok else "PARTIAL",
+                    "pre_hook": "REGISTERED" if pre_ok else "MISSING",
+                    "post_hook": "REGISTERED" if post_ok else "MISSING",
+                    "settings_path": str(sp),
+                }
+            except Exception as e:
+                return {"status": "ERROR", "error": str(e)}
+    return {"status": "NOT_FOUND", "pre_hook": "UNKNOWN", "post_hook": "UNKNOWN"}
+
+
+def _parse_motor_ia_log():
+    """Parsea el log principal para métricas."""
+    log_file = _PROJECT / "core" / "motor_ia_hook.log"
+    lines = _read_log_tail(log_file, 100)
+
+    queries_today = 0
+    cache_hits = 0
+    vector_hits = 0
+    internet_searches = 0
+    auto_saves = 0
+    errors = 0
+    last_query = ""
+    last_result = ""
+    today = datetime.now().strftime("%Y-%m-%d")
+
+    recent_activity = []
+
+    for line in lines:
+        if today not in line:
+            continue
+        if "QUERY:" in line:
+            queries_today += 1
+            last_query = line.split("QUERY:")[1].strip()[:80]
+        if "CACHE HIT" in line:
+            cache_hits += 1
+        if "source=vector_kb" in line:
+            vector_hits += 1
+        if "FORCING web search" in line or "Web search:" in line:
+            internet_searches += 1
+        if "AUTO-SAVED" in line:
+            auto_saves += 1
+        if "[ERROR]" in line:
+            errors += 1
+        if "RESULT:" in line:
+            last_result = line.split("RESULT:")[1].strip()[:100]
+            # Extract for recent activity
+            ts = line[:19] if len(line) > 19 else ""
+            recent_activity.append({"time": ts, "result": last_result})
+
+    return {
+        "queries_today": queries_today,
+        "cache_hits": cache_hits,
+        "vector_hits": vector_hits,
+        "internet_searches": internet_searches,
+        "auto_saves": auto_saves,
+        "errors": errors,
+        "last_query": last_query,
+        "last_result": last_result,
+        "recent_activity": recent_activity[-10:],
+    }
+
+
+def _check_state():
+    """Lee el estado actual del motor."""
+    state_file = _PROJECT / "core" / "motor_ia_state.json"
+    try:
+        if not state_file.exists():
+            return {"status": "NO_STATE", "query": "", "kb_pct": 0}
+        with open(state_file, encoding="utf-8") as f:
+            return json.load(f)
+    except Exception:
+        return {"status": "ERROR"}
+
 
 class Handler(BaseHTTPRequestHandler):
     def log_message(self, *args):
@@ -14,119 +171,85 @@ class Handler(BaseHTTPRequestHandler):
 
     def do_GET(self):
         if self.path == "/":
+            try:
+                html = HTML_FILE.read_text(encoding="utf-8")
+            except Exception:
+                html = "<h1>Dashboard HTML not found</h1>"
             self.send_response(200)
             self.send_header("Content-Type", "text/html; charset=utf-8")
             self.send_header("Access-Control-Allow-Origin", "*")
             self.end_headers()
-            self.wfile.write(HTML.encode("utf-8"))
+            self.wfile.write(html.encode("utf-8"))
 
         elif self.path == "/api/status":
             now = datetime.now()
-            timestamp = now.strftime("%d-%m-%Y %H:%M:%S")
 
-            # KB data
-            kb_path = Path(__file__).parent.parent / "knowledge"
-            kb_domains = []
-            kb_total = 0
-            if kb_path.exists():
-                for domain_dir in kb_path.glob("*/"):
-                    domain_name = domain_dir.name
-                    entries = len(list(domain_dir.glob("*.json")))
-                    kb_domains.append({"name": domain_name, "entries": entries})
-                    kb_total += entries
-                kb_domains.sort(key=lambda x: x["entries"], reverse=True)
+            # Collect all component statuses
+            chromadb = _check_chromadb()
+            cache = _check_kb_cache()
+            knowledge = _check_knowledge_local()
+            hooks = _check_hooks()
+            metrics = _parse_motor_ia_log()
+            state = _check_state()
 
-            # Hooks log
-            hooks_log = []
-            hooks_file = Path(__file__).parent.parent / "hooks" / "hooks.log"
-            if hooks_file.exists():
-                try:
-                    with open(hooks_file, 'r', encoding='utf-8', errors='ignore') as f:
-                        lines = f.readlines()[-30:]
-                        hooks_log = [line.strip() for line in lines if line.strip()]
-                except:
-                    pass
+            # Overall health
+            components_ok = sum([
+                chromadb["status"] == "OK",
+                hooks.get("pre_hook") == "REGISTERED",
+                hooks.get("post_hook") == "REGISTERED",
+                knowledge["status"] == "OK",
+            ])
 
-            # KB enforcer log (evidencia de que el hook funciona)
-            enforcer_log = []
-            enforcer_file = Path(__file__).parent.parent / "core" / "kb_enforcer.log"
-            if enforcer_file.exists():
-                try:
-                    with open(enforcer_file, 'r', encoding='utf-8', errors='ignore') as f:
-                        lines = f.readlines()[-20:]
-                        enforcer_log = [json.loads(line.strip()) for line in lines if line.strip()]
-                except:
-                    pass
-
-            # Procesos activos
-            python_processes = 0
-            try:
-                result = subprocess.run(['tasklist', '/FI', 'IMAGENAME eq python.exe', '/FO', 'CSV'],
-                                      capture_output=True, text=True, timeout=2)
-                python_processes = len(result.stdout.strip().split('\n')) - 2
-                if python_processes < 0:
-                    python_processes = 0
-            except:
-                python_processes = 0
-
-            # Verificar puertos activos
-            ports_info = {}
-            for port in [int(p) for p in os.environ.get("DASHBOARD_PORTS", "8080,8888,9000").split(",")]:
-                try:
-                    result = subprocess.run(['netstat', '-ano'], capture_output=True, text=True, timeout=2)
-                    ports_info[port] = 'ACTIVO' if f':{port}' in result.stdout else 'INACTIVO'
-                except:
-                    ports_info[port] = 'UNKNOWN'
-
-            # Estado del sistema
-            system_status = "OPERATIVO"
-            if python_processes == 0:
-                system_status = "ADVERTENCIA"
+            if components_ok == 4:
+                overall = "HEALTHY"
+            elif components_ok >= 2:
+                overall = "DEGRADED"
+            else:
+                overall = "CRITICAL"
 
             status = {
-                "timestamp": timestamp,
-                "motor_activo": True,
-                "hooks_registrados": True,
-                "ultima_actividad_ts": "01-04-2026 11:13:32",
-                "minutos_inactivo": 362.1,
-                "kb_entries": kb_total or 4764,
-                "kb_domains": kb_domains or [
-                    {"name": "general", "entries": 88},
-                    {"name": "sap_tierra", "entries": 354},
-                    {"name": "files", "entries": 3034},
-                    {"name": "business_rules", "entries": 81},
-                    {"name": "sessions", "entries": 502},
-                    {"name": "sow", "entries": 209},
-                    {"name": "monday", "entries": 2},
-                ],
-                "sesiones_hoy": 4,
-                "sesiones_activas": 1,
-                "kb_coverage": "85%",
-                "performance_score": 92,
-                "hooks_log": hooks_log[-15:] if hooks_log else ["Dashboard initialized"],
-                "last_sync": "01-04-2026 11:35:47",
-                "system_status": system_status,
-                "cpu_usage": "12%",
-                "memoria_uso": "234MB",
-                "python_processes": python_processes,
-                "ports_status": ports_info,
-                "kb_enforcer_activity": enforcer_log[-5:] if enforcer_log else [],
-                "hooks_active": len(enforcer_log) > 0,
+                "timestamp": now.strftime("%d-%m-%Y %H:%M:%S"),
+                "overall_health": overall,
+                "components_ok": components_ok,
+                "components_total": 4,
+
+                # Component: ChromaDB (KB principal)
+                "chromadb": chromadb,
+
+                # Component: Cache TF-IDF
+                "cache": cache,
+
+                # Component: Knowledge local (backup)
+                "knowledge_local": knowledge,
+
+                # Component: Hooks
+                "hooks": hooks,
+
+                # Metrics del día
+                "metrics": metrics,
+
+                # Estado actual
+                "current_state": state,
+
+                # Log reciente
+                "log_tail": _read_log_tail(_PROJECT / "core" / "motor_ia_hook.log", 15),
             }
+
             self.send_response(200)
             self.send_header("Content-Type", "application/json")
             self.send_header("Access-Control-Allow-Origin", "*")
             self.end_headers()
-            self.wfile.write(json.dumps(status, ensure_ascii=False).encode())
+            self.wfile.write(json.dumps(status, ensure_ascii=False, default=str).encode())
 
         else:
             self.send_response(404)
             self.end_headers()
 
+
 if __name__ == "__main__":
     port = int(sys.argv[1]) if len(sys.argv) > 1 else int(os.environ.get("DASHBOARD_PORT", "8080"))
     host = os.environ.get("DASHBOARD_HOST", "127.0.0.1")
-    print(f"Dashboard on {host}:{port}", flush=True)
+    print(f"Motor_IA Dashboard v2 on {host}:{port}", flush=True)
     srv = HTTPServer((host, port), Handler)
     try:
         srv.serve_forever()
