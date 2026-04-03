@@ -148,27 +148,16 @@ _SESSION_FILE = _PROJECT / "core" / "session_summary.json"
 
 def _check_session_continuity(query):
     """
-    Detecta si el usuario quiere continuar la sesión anterior.
-    Busca frases como "sigue", "continua", "donde quedamos", etc.
-    Retorna el resumen de la sesión anterior o None.
+    SIEMPRE carga el contexto de la sesión anterior.
+    Solo se limpia si el usuario escribe /clean.
+    Así Claude siempre sabe qué se estaba haciendo.
     """
-    continue_phrases = [
-        "sigue", "continua", "continúa", "donde quedamos", "que estabas haciendo",
-        "sesion anterior", "sesión anterior", "lo que dejaste", "retoma",
-        "en que ibamos", "en qué íbamos", "que falta", "qué falta",
-        "pendiente", "ultimo que hiciste", "último que hiciste",
-    ]
-
-    query_lower = query.lower()
-    is_continue = any(phrase in query_lower for phrase in continue_phrases)
-
-    if not is_continue:
-        return None
-
-    # Cargar resumen de sesión anterior
+    # Cargar resumen de sesión anterior (SIEMPRE)
+    # Se inyecta como contexto para que Claude sepa qué se estaba haciendo
+    # Si el usuario usa /clear de Claude CLI, limpia la conversación
+    # pero el session_summary persiste como referencia
     try:
         if not _SESSION_FILE.exists():
-            log.info("Session continuity: no previous session found")
             return None
 
         with open(_SESSION_FILE, "r", encoding="utf-8") as f:
@@ -183,13 +172,13 @@ def _check_session_continuity(query):
         count = summary.get("interaction_count", len(interactions))
 
         lines = [f"Sesion anterior ({session_start[:10]}, {count} interacciones):"]
-        for i in interactions[-10:]:  # Últimas 10
+        for i in interactions[-10:]:
             lines.append(f"  [{i.get('time','')}] Q: {i.get('query','')}")
             if i.get("answer_preview"):
                 lines.append(f"         A: {i['answer_preview']}")
 
         session_text = "\n".join(lines)
-        log.info(f"Session continuity: loaded {count} interactions from previous session")
+        log.info(f"Session context loaded: {count} interactions")
         return session_text
 
     except Exception as e:
