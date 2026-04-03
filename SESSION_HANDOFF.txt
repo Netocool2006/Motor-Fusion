@@ -1,0 +1,276 @@
+================================================================
+SESSION HANDOFF - Motor_IA + NotebookLM Integration
+Fecha: 2026-04-03 (Sesion 3 - Busqueda web FORZADA)
+================================================================
+
+OBJETIVO DEL PROYECTO:
+Conectar Motor_IA hooks de Claude Code con NotebookLM REAL
+usando la libreria notebooklm-py. Flujo completo:
+
+  1. Usuario pregunta en CLI
+  2. Sistema busca en KB (NotebookLM) via notebooklm-py
+  3. Si KB tiene respuesta -> ML la usa (KB X%)
+  4. Si KB < 80% -> FORZAR busqueda web (DuckDuckGo) por codigo
+  5. Si Internet no tiene -> ML usa su inteligencia (ML Z%)
+  6. Todo puede ser % mezclado (KB + Internet + ML = 100%)
+  7. Lo que vino de Internet o ML sube al KB para futuras consultas
+
+================================================================
+QUE SE HIZO EN SESION 1 (completado)
+================================================================
+
+1. INSTALACION notebooklm-py v0.3.4
+   pip install "notebooklm-py[browser]"
+   playwright install chromium
+
+2. AUTENTICACION (storage_state.json)
+   - Script custom C:/Hooks_IA/do_login.py
+   - Archivo: ~/.notebooklm/storage_state.json (54 cookies OK)
+   - Browser profile: ~/.notebooklm/browser_profile/
+
+3. ARCHIVO CREADO: C:/Hooks_IA/core/notebooklm_kb.py
+   Motor KB. Funciones:
+   - ask_kb(query) -> Pregunta a NotebookLM IA (semantica)
+   - save_to_kb(query, answer, source) -> Sube conocimiento como source
+   - Notebook ID desde .env: cdf2b0c6-6fd2-42d2-ba72-b7c275fcf815
+
+4. ARCHIVO CREADO: C:/Hooks_IA/hooks/motor_ia_hook.py
+   Pre-hook (user-prompt-submit)
+
+5. ARCHIVO CREADO: C:/Hooks_IA/hooks/motor_ia_post_hook.py
+   Post-hook (stop)
+
+================================================================
+QUE SE HIZO EN SESION 2 (correcciones criticas)
+================================================================
+
+PROBLEMA: settings.json apuntaba a 5 hooks INEXISTENTES
+CORRECCION 1: settings.json actualizado (solo 2 hooks reales)
+CORRECCION 2: motor_ia_hook.py - formato output corregido
+CORRECCION 3: motor_ia_post_hook.py - campo last_assistant_message
+VERIFICACION: Pre-hook funciono OK, NotebookLM respondio con kb=65%
+
+================================================================
+QUE SE HIZO EN SESION 3 (busqueda web FORZADA) <<<< ACTUAL
+================================================================
+
+PROBLEMA PRINCIPAL: La busqueda en Internet era solo una SUGERENCIA
+  - El hook le decia a Claude "usa WebSearch" en texto
+  - Claude a veces lo ignoraba y usaba solo ML
+  - No habia enforcement real, solo una instruccion en additionalContext
+
+SOLUCION: Busqueda web FORZADA por codigo Python
+
+1. ARCHIVO NUEVO: C:/Hooks_IA/core/web_search.py
+   Motor de busqueda web via DuckDuckGo (ddgs library)
+   - search_web(query, max_results=5)
+   - Retorna: found, results[], summary, internet_pct
+   - No necesita API key
+   - Calcula cobertura por cantidad/calidad de texto encontrado
+   - Import: usa ddgs (nuevo) con fallback a duckduckgo_search (viejo)
+
+2. PAQUETE INSTALADO: ddgs v9.12.1
+   pip install ddgs
+   (reemplazo de duckduckgo_search que fue renombrado)
+
+3. ARCHIVO REESCRITO: C:/Hooks_IA/hooks/motor_ia_hook.py
+   Cambios principales:
+
+   a) NUEVA FUNCION search_internet(query):
+      - Importa web_search.search_web()
+      - Se ejecuta AUTOMATICAMENTE cuando KB < 80%
+      - Log dice "FORCING web search..." (no "suggesting")
+      - Retorna internet_content e internet_pct reales
+
+   b) NUEVO FLUJO en main():
+      ANTES:
+        1. search_kb() -> si KB < 80%, texto dice "usa WebSearch"
+      AHORA:
+        1. search_kb() -> obtiene kb_content, kb_pct
+        2. if kb_pct < 80: search_internet() -> EJECUTA busqueda
+        3. build_context() recibe AMBOS resultados reales
+        4. Claude recibe datos de KB + Internet ya resueltos
+
+   c) NUEVO TAG en additionalContext: <internet_knowledge>
+      - Contiene resultados reales de DuckDuckGo
+      - Titulo, snippet y URL de cada resultado
+      - Claude los ve como datos, no como instruccion
+
+   d) FIX #2 - FILTRO DE QUERIES BASURA:
+      - Nueva funcion is_valid_query()
+      - Rechaza: <task-notification>, XML del sistema, queries < 5 chars
+      - Antes estos queries iban a NotebookLM y causaban errores HTTP 400
+
+   e) FIX #3 - MANEJO DE UNICODE:
+      - Nueva funcion sanitize_text()
+      - Elimina surrogate characters (\udc8f etc) que crasheaban
+      - Se aplica a input Y a query antes de procesar
+      - Antes: UnicodeEncodeError crasheaba todo el hook
+
+4. build_context() ACTUALIZADO:
+   - Recibe 5 params: query, kb_content, kb_pct, internet_content, internet_pct
+   - ML se calcula como: max(0, 100 - kb_pct - internet_pct)
+   - 4 escenarios de instrucciones:
+     * KB >= 80%: "usa KB como base"
+     * KB > 0 + Internet > 0: "KB parcial, complementado con Internet"
+     * KB = 0 + Internet > 0: "sin KB, usa Internet como base"
+     * Nada: "usa ML"
+
+5. save_state() ACTUALIZADO:
+   - Ahora guarda internet_pct ademas de kb_pct
+   - needs_save basado en (kb_pct + internet_pct) < 100
+
+================================================================
+PRUEBA REALIZADA EN SESION 3
+================================================================
+
+Test: echo '{"prompt":"que es un webhook"}' | python hooks/motor_ia_hook.py
+
+Log resultado:
+  QUERY: que es un webhook y como se usa en python
+  NotebookLM: found=True, len=403, kb_pct=65%
+  KB=65% < 80% -> FORCING web search...
+  Web search: 5 results, ~1071 chars, internet_pct=70%
+  RESULT: KB=65%, Internet=70%, ML=0%, context_len=3109
+
+CONFIRMACION: Busqueda web SE EJECUTA por codigo, no por sugerencia.
+
+================================================================
+ESTADO ACTUAL (post sesion 3)
+================================================================
+
+[OK] settings.json apunta a hooks correctos
+[OK] motor_ia_hook.py con busqueda web FORZADA
+[OK] motor_ia_post_hook.py lee last_assistant_message y auto-save
+[OK] NotebookLM auth activa (storage_state.json)
+[OK] Pre-hook ejecutandose (verificado multiples veces)
+[OK] Post-hook auto-save funcionando (verificado en log)
+[OK] web_search.py con ddgs v9.12.1 funcionando
+[OK] Filtro de queries basura (task-notifications, XML)
+[OK] Manejo de Unicode (sanitize_text)
+
+================================================================
+QUE VERIFICAR EN PROXIMA SESION
+================================================================
+
+1. VERIFICAR QUE EL NUEVO HOOK CORRE:
+   - Hacer una pregunta cualquiera
+   - Revisar C:/Hooks_IA/core/motor_ia_hook.log
+   - DEBE mostrar "FORCING web search..." si KB < 80%
+   - DEBE mostrar resultados de Internet en el log
+
+2. VERIFICAR QUE <internet_knowledge> LLEGA A CLAUDE:
+   - En la respuesta de Claude, verificar que menciona datos
+     que solo podrian venir de Internet
+   - El additionalContext debe tener el tag <internet_knowledge>
+
+3. VERIFICAR AUTO-SAVE POST-HOOK:
+   - Despues de responder, buscar "AUTO-SAVED" en el log
+   - Ir a NotebookLM web y ver si aparecio source nuevo
+
+4. POSIBLES PROBLEMAS:
+   - Cookie expiration NotebookLM: ejecutar python C:/Hooks_IA/do_login.py
+   - DuckDuckGo rate limit: si da error, esperar 1 min
+   - Hook timeout: si la busqueda tarda mucho, Claude puede no esperar
+     (NotebookLM ~5-15s + DuckDuckGo ~1-3s = ~20s total)
+
+================================================================
+ARCHIVOS CLAVE (actualizados)
+================================================================
+
+C:/Hooks_IA/core/notebooklm_kb.py      - Motor KB (NotebookLM) [sin cambios]
+C:/Hooks_IA/core/web_search.py         - Motor busqueda web (DuckDuckGo) [NUEVO]
+C:/Hooks_IA/hooks/motor_ia_hook.py      - Pre-hook con web FORZADA [REESCRITO]
+C:/Hooks_IA/hooks/motor_ia_post_hook.py - Post-hook auto-save [sin cambios]
+C:/Hooks_IA/do_login.py                 - Script login NotebookLM [sin cambios]
+C:/Hooks_IA/.env                        - Notebook ID [sin cambios]
+C:/Hooks_IA/core/motor_ia_hook.log      - Log de todos los hooks
+
+~/.claude/settings.json                 - Hooks config
+~/.notebooklm/storage_state.json        - Cookies auth NotebookLM
+
+================================================================
+FLUJO COMPLETO (como funciona AHORA)
+================================================================
+
+Tu pregunta en CLI
+       |
+  motor_ia_hook.py (user-prompt-submit)
+       |
+  is_valid_query()? -> NO: salir sin hacer nada
+       |              -> SI: continuar
+  sanitize_text(query)
+       |
+  PASO 1: search_kb(query)
+       |
+  notebooklm_kb.py -> ask_kb(query)
+       |
+  NotebookLMClient.chat.ask(notebook_id, query)
+       |
+  kb_pct >= 80%? -> SI: solo KB, no buscar Internet
+       |          -> NO: continuar a PASO 2
+       |
+  PASO 2: search_internet(query)  <<<< FORZADO POR CODIGO
+       |
+  web_search.py -> search_web(query)
+       |
+  DuckDuckGo DDGS.text(query) -> resultados reales
+       |
+  build_context(kb_content, internet_content)
+       |
+  additionalContext con <kb_knowledge> + <internet_knowledge>
+       |
+  CLAUDE RESPONDE (con ambas fuentes de datos reales)
+  **Fuentes:** KB X% + Internet Y% + ML Z%
+       |
+  motor_ia_post_hook.py (stop)
+       |
+  Lee last_assistant_message
+       |
+  extract_source_percentages() -> KB%, Internet%, ML%
+       |
+  needs_save? (kb_pct < 100) -> save_to_kb()
+       |
+  NotebookLMClient.sources.add_text()
+       |
+  Proxima vez NotebookLM YA lo sabe
+
+================================================================
+QUE SE HIZO EN SESION 4 (correcciones criticas)
+================================================================
+
+BUG CRITICO ENCONTRADO: El Auto-Save NO guardaba nada.
+  - needs_save usaba (kb_pct + internet_pct) < 100
+  - Con KB=65% + Internet=70% = 135%, needs_save = FALSE (INCORRECTO)
+  - El KB nunca crecía porque nunca se guardaba nada nuevo
+
+CORRECCION 1: needs_save ahora = (internet_pct > 0) or (ml_pct > 0)
+  - Si Internet o ML contribuyeron ALGO, debe subir al KB
+  - Archivo: motor_ia_hook.py save_state()
+
+CORRECCION 2: Normalización de porcentajes (KB + Internet + ML = 100%)
+  - Antes: KB=65 + Internet=70 + ML=0 = 135% (incoherente)
+  - Ahora: KB=48 + Internet=51 + ML=1 = 100% (proporcional)
+  - Se normaliza UNA vez en main() antes de build_context y save_state
+
+CORRECCION 3: Log mejorado en post-hook
+  - Antes: "KB cubrio 100%" (engañoso cuando KB era 65%)
+  - Ahora: muestra kb%, internet%, ml% reales
+
+VERIFICACION: Test con query "nginx SSL"
+  - KB=48%, Internet=51%, ML=1% (suman 100%)
+  - needs_save=true (Internet contribuyo 51%)
+  - State file coherente con log y contexto
+
+================================================================
+MEJORAS PENDIENTES (futuras sesiones)
+================================================================
+
+1. IDIOMA: Configurar NotebookLM para responder en espanol
+2. PERFORMANCE: Singleton del client async NotebookLM
+3. FILTRADO: NotebookLM responde con "thinking steps", filtrar
+4. LIMPIEZA: Borrar archivos obsoletos (drive_kb.py, extract_cookies)
+5. TIMEOUT: Manejar si hook tarda > 30s (NotebookLM + DuckDuckGo)
+6. RELEVANCIA: La busqueda web a veces trae resultados irrelevantes
+   (ej: preguntar por "escribir txt" trajo editores online)
+   Considerar: refinar query antes de buscar, o usar mas contexto

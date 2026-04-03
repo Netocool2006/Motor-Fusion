@@ -1,0 +1,55 @@
+# Secrets & credentials
+.env
+.credentials/
+*.pickle
+storage_state.json
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+
+# Logs
+*.log
+core/debug.log
+core/motor_ia_hook.log
+core/kb_migration.log
+core/kb_responses.log
+
+# State files (regenerated at runtime)
+core/motor_ia_state.json
+core/kb_search_result.json
+core/last_kb_result.json
+
+# Cache (regenerated at runtime)
+core/kb_cache.json
+
+# Temporary scripts
+*.bat
+*.cmd
+OPEN_*.txt
+START_HERE.txt
+
+# Auto-import attempts (obsolete)
+auto_import*.py
+auto_import*.js
+auto_import*.html
+auto_upload*.py
+
+# Backups
+*.backup
+*.bak
+
+# Editor
+~$*
+
+# NotebookLM browser profile
+browser_profile/
+
+# Dashboard generated
+dashboard/index.html.backup
+dashboard/index_pro.html
+
+# Migration reports
+core/migration_report.json
+core/markdown_exports/
