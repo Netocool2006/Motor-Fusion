@@ -241,19 +241,19 @@
     "learning_json": null,
     "reasoning_traces": [],
     "metrics": {
-      "commands_count": 272,
+      "user_messages": 89,
+      "commands_count": 275,
+      "errors_count": 10,
+      "total_messages": 2279,
       "decisions_count": 15,
-      "user_messages": 84,
-      "files_touched": 84,
-      "total_messages": 2209,
-      "errors_count": 10
+      "files_touched": 88
     },
     "domains": [
       "files",
       "sap_tierra"
     ],
     "merged": true,
-    "merge_count": 30
+    "merge_count": 35
   },
   {
     "session_id": "114c476f-3c06-46e5-8544-da9f5faf7911",
