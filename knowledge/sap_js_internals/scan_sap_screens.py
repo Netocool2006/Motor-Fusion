@@ -19,10 +19,10 @@ CDP_PORT = 9222
 OUTPUT_DIR = Path(__file__).parent / "playbooks"
 OUTPUT_DIR.mkdir(exist_ok=True)
 
-# SAP credentials for HTTP auth
-SAP_USER = "ntoledo"
-HTTP_USER = "ntoledo"
-HTTP_PASS = "Gbmcr2026"
+# SAP credentials from environment variables
+SAP_USER = os.environ.get("SAP_USER", "")
+HTTP_USER = os.environ.get("SAP_HTTP_USER", SAP_USER)
+HTTP_PASS = os.environ.get("SAP_HTTP_PASS", "")
 
 def log(msg):
     print(f"[{time.strftime('%H:%M:%S')}] {msg}", flush=True)

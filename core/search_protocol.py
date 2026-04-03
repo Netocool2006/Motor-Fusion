@@ -30,7 +30,7 @@ def search_kb(query: str, domain: str = None, limit: int = 5) -> list:
     Busca en la knowledge base local.
     Retorna lista de resultados con score.
     """
-    kb_dir = Path(r"C:\Hooks_IA\knowledge")
+    kb_dir = Path(__file__).resolve().parent.parent / "knowledge"
     if not kb_dir.exists():
         return []
 
@@ -188,7 +188,7 @@ def save_to_kb(query: str, answer: str, domain: str = None) -> dict:
     if not domain:
         domain = detect_domain(query)
 
-    kb_dir = Path(r"C:\Hooks_IA\knowledge")
+    kb_dir = Path(__file__).resolve().parent.parent / "knowledge"
     domain_dir = kb_dir / domain
     domain_dir.mkdir(parents=True, exist_ok=True)
 

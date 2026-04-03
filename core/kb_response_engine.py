@@ -212,7 +212,7 @@ class KBResponseEngine:
         """
         Guarda el resultado en KB_responses.log para auditoría.
         """
-        log_file = Path(r"C:\Hooks_IA\core") / "kb_responses.log"
+        log_file = Path(__file__).resolve().parent / "kb_responses.log"
 
         log_entry = {
             "timestamp": datetime.now().isoformat(),

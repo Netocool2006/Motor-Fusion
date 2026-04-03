@@ -71,7 +71,7 @@ class Handler(BaseHTTPRequestHandler):
 
             # Verificar puertos activos
             ports_info = {}
-            for port in [8080, 8888, 9000]:
+            for port in [int(p) for p in os.environ.get("DASHBOARD_PORTS", "8080,8888,9000").split(",")]:
                 try:
                     result = subprocess.run(['netstat', '-ano'], capture_output=True, text=True, timeout=2)
                     ports_info[port] = 'ACTIVO' if f':{port}' in result.stdout else 'INACTIVO'
@@ -124,9 +124,10 @@ class Handler(BaseHTTPRequestHandler):
             self.end_headers()
 
 if __name__ == "__main__":
-    port = int(sys.argv[1]) if len(sys.argv) > 1 else 8080
-    print(f"Dashboard on port {port}", flush=True)
-    srv = HTTPServer(("127.0.0.1", port), Handler)
+    port = int(sys.argv[1]) if len(sys.argv) > 1 else int(os.environ.get("DASHBOARD_PORT", "8080"))
+    host = os.environ.get("DASHBOARD_HOST", "127.0.0.1")
+    print(f"Dashboard on {host}:{port}", flush=True)
+    srv = HTTPServer((host, port), Handler)
     try:
         srv.serve_forever()
     except KeyboardInterrupt:

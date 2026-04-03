@@ -13,8 +13,9 @@ if sys.platform == "win32":
 
 from playwright.sync_api import sync_playwright
 
-STORAGE_PATH = Path(r"C:\Users\ntoledo\AppData\Local\ClaudeCode\.notebooklm\storage_state.json")
-BROWSER_PROFILE = Path(r"C:\Users\ntoledo\AppData\Local\ClaudeCode\.notebooklm\browser_profile")
+_NOTEBOOKLM_DIR = Path.home() / ".notebooklm"
+STORAGE_PATH = _NOTEBOOKLM_DIR / "storage_state.json"
+BROWSER_PROFILE = _NOTEBOOKLM_DIR / "browser_profile"
 BROWSER_PROFILE.mkdir(parents=True, exist_ok=True)
 
 print("=== NotebookLM Login ===")
