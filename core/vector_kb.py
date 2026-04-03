@@ -113,15 +113,27 @@ def ask_kb(query):
         if not results["documents"] or not results["documents"][0]:
             return {"answer": "", "raw": None, "found": False, "source": "vector_kb"}
 
-        # Filtrar por similitud mínima
+        # Filtrar por similitud + coherencia entre resultados
         docs = results["documents"][0]
         distances = results["distances"][0]
         metadatas = results["metadatas"][0]
 
+        # Calcular similitud del mejor resultado
+        best_sim = 1 - distances[0] if distances else 0
+
+        # Si el mejor resultado tiene baja similitud Y los top-3 son de
+        # dominios diferentes, probablemente no es relevante (ruido)
+        if best_sim < 0.50 and len(distances) >= 3:
+            top3_domains = set(m.get("domain", "") for m in metadatas[:3])
+            if len(top3_domains) >= 3:
+                # Resultados dispersos = no hay conocimiento real
+                log.info(f"Vector KB: low confidence (sim={best_sim:.3f}, scattered domains={top3_domains})")
+                return {"answer": "", "raw": None, "found": False, "source": "vector_kb"}
+
         relevant = []
         for doc, dist, meta in zip(docs, distances, metadatas):
-            similarity = 1 - dist  # cosine distance → similarity
-            if similarity > 0.40:  # Umbral: resultados relevantes
+            similarity = 1 - dist
+            if similarity > 0.40:
                 relevant.append({
                     "text": doc,
                     "similarity": similarity,
