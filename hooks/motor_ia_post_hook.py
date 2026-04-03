@@ -105,14 +105,14 @@ def main():
             r"\*\*Fuentes:\*\*.*$", "", clean_response, flags=re.MULTILINE
         ).strip()
 
-        # Guardar en KB (NotebookLM)
-        from core.notebooklm_kb import save_to_kb
+        # Guardar en KB (ChromaDB local)
+        from core.vector_kb import save_to_kb
         source_id = save_to_kb(query, clean_response, source=source)
 
         if source_id:
-            log.info(f"AUTO-SAVED to NotebookLM: query='{query[:60]}' source={source} id={source_id}")
+            log.info(f"AUTO-SAVED to ChromaDB: query='{query[:60]}' source={source} id={source_id}")
         else:
-            log.warning(f"Failed to save to NotebookLM: query='{query[:60]}'")
+            log.warning(f"Failed to save to ChromaDB: query='{query[:60]}'")
 
         # Limpiar state
         _STATE_FILE.unlink(missing_ok=True)

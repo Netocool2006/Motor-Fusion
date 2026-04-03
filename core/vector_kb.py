@@ -121,7 +121,7 @@ def ask_kb(query):
         relevant = []
         for doc, dist, meta in zip(docs, distances, metadatas):
             similarity = 1 - dist  # cosine distance → similarity
-            if similarity > 0.45:  # Umbral: solo resultados realmente relevantes
+            if similarity > 0.40:  # Umbral: resultados relevantes
                 relevant.append({
                     "text": doc,
                     "similarity": similarity,
