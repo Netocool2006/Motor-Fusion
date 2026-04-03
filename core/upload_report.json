@@ -1,0 +1,40 @@
+{
+  "start_time": "2026-04-02T20:39:59.812547",
+  "files_uploaded": 0,
+  "total_size": 0,
+  "errors": [
+    {
+      "file": "business_rules_knowledge.md",
+      "error": "<HttpError 403 when requesting https://www.googleapis.com/upload/drive/v3/files?fields=id%2C+webViewLink&alt=json&uploadType=resumable returned \"The user's Drive storage quota has been exceeded.\". Details: \"[{'message': \"The user's Drive storage quota has been exceeded.\", 'domain': 'usageLimits', 'reason': 'storageQuotaExceeded'}]\">"
+    },
+    {
+      "file": "catalog_knowledge.md",
+      "error": "<HttpError 403 when requesting https://www.googleapis.com/upload/drive/v3/files?fields=id%2C+webViewLink&alt=json&uploadType=resumable returned \"The user's Drive storage quota has been exceeded.\". Details: \"[{'message': \"The user's Drive storage quota has been exceeded.\", 'domain': 'usageLimits', 'reason': 'storageQuotaExceeded'}]\">"
+    },
+    {
+      "file": "clients_knowledge.md",
+      "error": "<HttpError 403 when requesting https://www.googleapis.com/upload/drive/v3/files?fields=id%2C+webViewLink&alt=json&uploadType=resumable returned \"The user's Drive storage quota has been exceeded.\". Details: \"[{'message': \"The user's Drive storage quota has been exceeded.\", 'domain': 'usageLimits', 'reason': 'storageQuotaExceeded'}]\">"
+    },
+    {
+      "file": "files_knowledge.md",
+      "error": "<HttpError 403 when requesting https://www.googleapis.com/upload/drive/v3/files?fields=id%2C+webViewLink&alt=json&uploadType=resumable returned \"The user's Drive storage quota has been exceeded.\". Details: \"[{'message': \"The user's Drive storage quota has been exceeded.\", 'domain': 'usageLimits', 'reason': 'storageQuotaExceeded'}]\">"
+    },
+    {
+      "file": "general_knowledge.md",
+      "error": "<HttpError 403 when requesting https://www.googleapis.com/upload/drive/v3/files?fields=id%2C+webViewLink&alt=json&uploadType=resumable returned \"The user's Drive storage quota has been exceeded.\". Details: \"[{'message': \"The user's Drive storage quota has been exceeded.\", 'domain': 'usageLimits', 'reason': 'storageQuotaExceeded'}]\">"
+    },
+    {
+      "file": "monday_automation_knowledge.md",
+      "error": "<HttpError 403 when requesting https://www.googleapis.com/upload/drive/v3/files?fields=id%2C+webViewLink&alt=json&uploadType=resumable returned \"The user's Drive storage quota has been exceeded.\". Details: \"[{'message': \"The user's Drive storage quota has been exceeded.\", 'domain': 'usageLimits', 'reason': 'storageQuotaExceeded'}]\">"
+    },
+    {
+      "file": "sap_tierra_knowledge.md",
+      "error": "<HttpError 403 when requesting https://www.googleapis.com/upload/drive/v3/files?fields=id%2C+webViewLink&alt=json&uploadType=resumable returned \"The user's Drive storage quota has been exceeded.\". Details: \"[{'message': \"The user's Drive storage quota has been exceeded.\", 'domain': 'usageLimits', 'reason': 'storageQuotaExceeded'}]\">"
+    },
+    {
+      "file": "sessions_knowledge.md",
+      "error": "<HttpError 403 when requesting https://www.googleapis.com/upload/drive/v3/files?fields=id%2C+webViewLink&alt=json&uploadType=resumable returned \"The user's Drive storage quota has been exceeded.\". Details: \"[{'message': \"The user's Drive storage quota has been exceeded.\", 'domain': 'usageLimits', 'reason': 'storageQuotaExceeded'}]\">"
+    }
+  ],
+  "end_time": "2026-04-02T20:40:11.528868"
+}

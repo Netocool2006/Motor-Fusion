@@ -1,0 +1,32 @@
+{
+  "timestamp": "2026-04-02T22:29:05.699277",
+  "tests": [
+    {
+      "query": "¿Cuál es el sufijo para códigos de contrato?",
+      "kb_pct": 85,
+      "internet_pct": 5,
+      "ml_pct": 10,
+      "source": "KB",
+      "auto_learn": false,
+      "found_in_kb": true
+    },
+    {
+      "query": "¿Cuál es la tarifa de soporte 24x7?",
+      "kb_pct": 85,
+      "internet_pct": 5,
+      "ml_pct": 10,
+      "source": "KB",
+      "auto_learn": false,
+      "found_in_kb": true
+    },
+    {
+      "query": "¿Qué cláusulas estándar usa GBM en SOWs?",
+      "kb_pct": 0,
+      "internet_pct": 0,
+      "ml_pct": 100,
+      "source": "ML",
+      "auto_learn": true,
+      "found_in_kb": false
+    }
+  ]
+}
