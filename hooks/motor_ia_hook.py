@@ -84,15 +84,26 @@ def get_user_query():
 
 def search_kb(query):
     """
-    PASO 1: Pregunta a NotebookLM (IA semántica).
+    PASO 1: Busca en KB (Vector DB primero, NotebookLM como fallback).
     Returns: (kb_content_str, kb_pct)
     """
     try:
-        from core.notebooklm_kb import ask_kb
-        result = ask_kb(query)
+        # Intentar Vector KB primero (sin límites, instantáneo)
+        try:
+            from core.vector_kb import ask_kb
+            result = ask_kb(query)
+            if result["found"]:
+                log.info(f"Using Vector KB (source={result['source']})")
+            else:
+                # Fallback a NotebookLM + cache
+                from core.notebooklm_kb import ask_kb as ask_notebooklm
+                result = ask_notebooklm(query)
+        except ImportError:
+            from core.notebooklm_kb import ask_kb
+            result = ask_kb(query)
 
         if not result["found"]:
-            log.info("NotebookLM: no relevant knowledge found")
+            log.info("KB: no relevant knowledge found")
             return "", 0
 
         answer = result["answer"]

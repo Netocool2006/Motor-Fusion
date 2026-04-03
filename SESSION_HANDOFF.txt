@@ -267,10 +267,63 @@ MEJORAS PENDIENTES (futuras sesiones)
 ================================================================
 
 1. IDIOMA: Configurar NotebookLM para responder en espanol
-2. PERFORMANCE: Singleton del client async NotebookLM
-3. FILTRADO: NotebookLM responde con "thinking steps", filtrar
-4. LIMPIEZA: Borrar archivos obsoletos (drive_kb.py, extract_cookies)
-5. TIMEOUT: Manejar si hook tarda > 30s (NotebookLM + DuckDuckGo)
-6. RELEVANCIA: La busqueda web a veces trae resultados irrelevantes
-   (ej: preguntar por "escribir txt" trajo editores online)
-   Considerar: refinar query antes de buscar, o usar mas contexto
+2. LIMPIEZA: Borrar archivos obsoletos (drive_kb.py, extract_cookies)
+3. RELEVANCIA: La busqueda web a veces trae resultados irrelevantes
+
+================================================================
+QUE SE HIZO EN SESION 5 (RAG propio - ChromaDB)
+================================================================
+
+PROBLEMA: NotebookLM tiene limite de 50 chats/dia. Se agoto en
+la sesion 4 durante las pruebas y todo el KB quedo muerto.
+
+SOLUCION: RAG propio con embeddings + vector DB
+
+1. INSTALADO: chromadb 1.5.5 + sentence-transformers
+2. MODELO: all-MiniLM-L6-v2 (embeddings, 80MB, corre local)
+3. ARCHIVO NUEVO: core/vector_kb.py
+   - ask_kb(query) → busca en ChromaDB (misma interfaz que notebooklm_kb)
+   - save_to_kb(query, answer, source) → guarda en ChromaDB
+   - save_session_summary() → guarda resumen de sesion
+   - get_last_session() → recupera ultima sesion
+   - index_knowledge_base() → indexa knowledge/ completo
+4. INDEXADO: 254 documentos (116 facts + 138 patterns) de 26 dominios
+5. HOOK ACTUALIZADO: motor_ia_hook.py ahora busca:
+   1ro: Vector KB (ChromaDB) → instantaneo, sin limite
+   2do: NotebookLM (fallback) → si vector KB no encuentra
+   3ro: Internet (DuckDuckGo) → si KB < 80%
+   4to: ML (Claude) → lo que falte
+
+TAMBIEN EN SESION 4-5:
+- Cache TF-IDF implementado (core/kb_cache.py)
+- NotebookLM consolidado: 44→26 sources (limpieza de duplicados)
+- 20 dominios locales migrados a NotebookLM
+- 52 pruebas reales ejecutadas, 100% pass
+- Push a GitHub: Motor-Fusion/feat/notebooklm-integration
+
+RESULTADO: KB=85% en pruebas con ChromaDB, 0 chats de NotebookLM gastados
+
+================================================================
+ARQUITECTURA FINAL
+================================================================
+
+  Tu pregunta en CLI
+        |
+   motor_ia_hook.py
+        |
+   PASO 1: Vector KB (ChromaDB local, 254 docs)
+        |          ↓ si no encuentra
+   PASO 1b: Cache TF-IDF (kb_cache.json)
+        |          ↓ si no encuentra
+   PASO 1c: NotebookLM (fallback, 26 sources)
+        |
+   KB >= 80%? → Solo KB + ML
+   KB < 80%?  → PASO 2: Internet (DuckDuckGo)
+        |
+   build_context(KB + Internet + ML = 100%)
+        |
+   CLAUDE RESPONDE
+        |
+   PASO 3: Post-hook auto-save
+        → Guarda en ChromaDB (vector_kb)
+        → Guarda en NotebookLM (si disponible)
