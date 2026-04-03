@@ -143,7 +143,61 @@ def search_internet(query):
         return "", 0
 
 
-def build_context(query, kb_content, kb_pct, internet_content, internet_pct):
+_SESSION_FILE = _PROJECT / "core" / "session_summary.json"
+
+
+def _check_session_continuity(query):
+    """
+    Detecta si el usuario quiere continuar la sesión anterior.
+    Busca frases como "sigue", "continua", "donde quedamos", etc.
+    Retorna el resumen de la sesión anterior o None.
+    """
+    continue_phrases = [
+        "sigue", "continua", "continúa", "donde quedamos", "que estabas haciendo",
+        "sesion anterior", "sesión anterior", "lo que dejaste", "retoma",
+        "en que ibamos", "en qué íbamos", "que falta", "qué falta",
+        "pendiente", "ultimo que hiciste", "último que hiciste",
+    ]
+
+    query_lower = query.lower()
+    is_continue = any(phrase in query_lower for phrase in continue_phrases)
+
+    if not is_continue:
+        return None
+
+    # Cargar resumen de sesión anterior
+    try:
+        if not _SESSION_FILE.exists():
+            log.info("Session continuity: no previous session found")
+            return None
+
+        with open(_SESSION_FILE, "r", encoding="utf-8") as f:
+            summary = json.load(f)
+
+        interactions = summary.get("interactions", [])
+        if not interactions:
+            return None
+
+        # Construir resumen legible
+        session_start = summary.get("session_start", "desconocido")
+        count = summary.get("interaction_count", len(interactions))
+
+        lines = [f"Sesion anterior ({session_start[:10]}, {count} interacciones):"]
+        for i in interactions[-10:]:  # Últimas 10
+            lines.append(f"  [{i.get('time','')}] Q: {i.get('query','')}")
+            if i.get("answer_preview"):
+                lines.append(f"         A: {i['answer_preview']}")
+
+        session_text = "\n".join(lines)
+        log.info(f"Session continuity: loaded {count} interactions from previous session")
+        return session_text
+
+    except Exception as e:
+        log.error(f"Session continuity error: {e}")
+        return None
+
+
+def build_context(query, kb_content, kb_pct, internet_content, internet_pct, session_context=None):
     """
     Construye el additionalContext con datos REALES de KB + Internet.
     Claude solo complementa con ML lo que falte.
@@ -159,9 +213,15 @@ def build_context(query, kb_content, kb_pct, internet_content, internet_pct):
         f'<fuentes_estimadas kb="{kb_pct}%" internet="{internet_pct}%" ml="{ml_pct}%" />',
     ]
 
+    if session_context:
+        context_parts.append("<session_anterior>")
+        context_parts.append("El usuario quiere continuar. Aqui esta lo que se hizo en la sesion anterior:")
+        context_parts.append(session_context)
+        context_parts.append("</session_anterior>")
+
     if kb_content:
         context_parts.append("<kb_knowledge>")
-        context_parts.append("Se encontro conocimiento previo en NotebookLM:")
+        context_parts.append("Se encontro conocimiento previo en el KB:")
         context_parts.append(kb_content)
         context_parts.append("</kb_knowledge>")
 
@@ -253,7 +313,10 @@ def main():
         log.info(f"{'='*60}")
         log.info(f"QUERY: {query[:120]}")
 
-        # PASO 1: Buscar en KB (NotebookLM)
+        # PASO 0: Detectar si pide continuar sesión anterior
+        session_context = _check_session_continuity(query)
+
+        # PASO 1: Buscar en KB (ChromaDB)
         kb_content, kb_pct = search_kb(query)
 
         # PASO 2: Si KB < 80%, FORZAR búsqueda web (no sugerencia, EJECUCIÓN)
@@ -272,7 +335,7 @@ def main():
         ml_pct = max(0, 100 - kb_pct - internet_pct)
 
         # Construir contexto con datos REALES (ya normalizados)
-        context = build_context(query, kb_content, kb_pct, internet_content, internet_pct)
+        context = build_context(query, kb_content, kb_pct, internet_content, internet_pct, session_context)
 
         # Guardar estado para post-hook
         save_state(query, kb_pct, internet_pct)

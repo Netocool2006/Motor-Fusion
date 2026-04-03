@@ -117,8 +117,52 @@ def main():
         # Limpiar state
         _STATE_FILE.unlink(missing_ok=True)
 
+        # Actualizar resumen de sesión (para continuidad entre sesiones)
+        _update_session_summary(query, clean_response[:200])
+
     except Exception as e:
         log.error(f"Post-hook error: {e}")
+
+
+_SESSION_FILE = _PROJECT / "core" / "session_summary.json"
+
+
+def _update_session_summary(query, answer_preview):
+    """
+    Mantiene un resumen corriente de la sesión actual.
+    Se acumula con cada interacción y sirve para que la próxima
+    sesión sepa qué se estaba haciendo.
+    """
+    try:
+        # Leer resumen existente
+        if _SESSION_FILE.exists():
+            with open(_SESSION_FILE, "r", encoding="utf-8") as f:
+                summary = json.load(f)
+        else:
+            summary = {
+                "session_start": datetime.now().isoformat(),
+                "interactions": [],
+                "topics": [],
+            }
+
+        # Agregar interacción (máximo últimas 20)
+        summary["interactions"].append({
+            "time": datetime.now().strftime("%H:%M"),
+            "query": query[:100],
+            "answer_preview": answer_preview[:100],
+        })
+        summary["interactions"] = summary["interactions"][-20:]
+
+        # Actualizar timestamp
+        summary["last_update"] = datetime.now().isoformat()
+        summary["interaction_count"] = len(summary["interactions"])
+
+        # Guardar
+        with open(_SESSION_FILE, "w", encoding="utf-8") as f:
+            json.dump(summary, f, ensure_ascii=False, indent=2)
+
+    except Exception as e:
+        log.error(f"Session summary error: {e}")
 
 
 if __name__ == "__main__":
