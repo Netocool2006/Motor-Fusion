@@ -65,11 +65,28 @@ def _load_all_domains() -> dict:
     """
     Devuelve todos los dominios conocidos desde disco (domains.json).
     No hay dominios hardcodeados -- todos se crean dinamicamente.
+    Soporta dos formatos:
+      - Legacy: {domain_name: {description: ..., file: ...}, ...}
+      - Fusion: {domains: [{name: "x", ...}], version: ..., ...}
     """
     KNOWLEDGE_DIR.mkdir(parents=True, exist_ok=True)
     if DOMAINS_FILE.exists():
         try:
-            return json.loads(DOMAINS_FILE.read_text(encoding="utf-8"))
+            data = json.loads(DOMAINS_FILE.read_text(encoding="utf-8"))
+            # Formato Fusion: {domains: [{name: ..., ...}], ...}
+            if isinstance(data.get("domains"), list):
+                result = {}
+                for entry in data["domains"]:
+                    if isinstance(entry, dict) and "name" in entry:
+                        result[entry["name"]] = {
+                            "description": entry.get("description", f"Dominio: {entry['name']}"),
+                            "file": "patterns.json",
+                            "entry_type": "pattern",
+                            "num_entries": entry.get("num_entries", 0),
+                        }
+                return result
+            # Formato Legacy: filtrar solo entradas dict (ignorar metadata)
+            return {k: v for k, v in data.items() if isinstance(v, dict)}
         except Exception:
             pass
     return {}

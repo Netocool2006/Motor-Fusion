@@ -1,0 +1,104 @@
+{
+  "session_start": "2026-04-03T17:21:33.500344",
+  "last_update": "2026-04-03T20:22:27.022851",
+  "interaction_count": 20,
+  "interactions": [
+    {
+      "time": "20:00",
+      "query": "unicode",
+      "answer_preview": "acentos"
+    },
+    {
+      "time": "20:00",
+      "query": "q\nnewline",
+      "answer_preview": "a\nnewline"
+    },
+    {
+      "time": "20:00",
+      "query": "{\"json\"}",
+      "answer_preview": "{\"json\"}"
+    },
+    {
+      "time": "20:00",
+      "query": "<xml>tag</xml>",
+      "answer_preview": "resp"
+    },
+    {
+      "time": "20:00",
+      "query": "   spaces   ",
+      "answer_preview": "   spaced   "
+    },
+    {
+      "time": "20:00",
+      "query": "CAPS",
+      "answer_preview": "caps"
+    },
+    {
+      "time": "20:00",
+      "query": "12345",
+      "answer_preview": "67890"
+    },
+    {
+      "time": "20:00",
+      "query": "last test",
+      "answer_preview": "last answer"
+    },
+    {
+      "time": "20:01",
+      "query": "integration test 16",
+      "answer_preview": "answer 16"
+    },
+    {
+      "time": "20:01",
+      "query": "integration test 17",
+      "answer_preview": "answer 17"
+    },
+    {
+      "time": "20:01",
+      "query": "integration test 18",
+      "answer_preview": "answer 18"
+    },
+    {
+      "time": "20:01",
+      "query": "integration test 19",
+      "answer_preview": "answer 19"
+    },
+    {
+      "time": "20:01",
+      "query": "integration test 20",
+      "answer_preview": "answer 20"
+    },
+    {
+      "time": "20:03",
+      "query": "servidor web configuracion",
+      "answer_preview": "**1076/1076 -- 100% PASS**\n\n---\n\n## TABLA DETALLADA -- 1076/1076 TESTS (100% PASS)\n\n### TC1: sanitiz"
+    },
+    {
+      "time": "20:06",
+      "query": "ok borra todos los datos de prueba",
+      "answer_preview": "Limpieza completada. Resumen:\n\n| Componente | Antes | Eliminado | Despues |\n|---|---|---|---|\n| **Ch"
+    },
+    {
+      "time": "20:07",
+      "query": "como esta guardada la informacion de experiencia ahora en kb o en tablas en la db o como?",
+      "answer_preview": "Ahora tengo el panorama completo. AsÃ­ estÃ¡ almacenada tu informaciÃ³n:\n\n## Arquitectura de Almacen"
+    },
+    {
+      "time": "20:09",
+      "query": "pero lo que antes era la info de los dominios donde esta ahora ?",
+      "answer_preview": "AhÃ­ estÃ¡ todo. Los dominios estÃ¡n en `knowledge/` como archivos JSON. Pero hay basura mezclada. D"
+    },
+    {
+      "time": "20:12",
+      "query": "los que dicen basura se pueden borrar o quitar?",
+      "answer_preview": "Limpio. Resumen de lo que se hizo:\n\n| AcciÃ³n | Cantidad |\n|---|---|\n| Directorios basura eliminados"
+    },
+    {
+      "time": "20:14",
+      "query": "si viene informacion que nuevo que no entra en ningun dominio se auto crea el dominio?",
+      "answer_preview": "Perfecto. La respuesta es **sÃ­, pero no instantÃ¡neamente**. Hay dos mecanismos:\n\n---\n\n### Mecanism"
+    },
+    {
+      "time": "20:22",
+      "query": "y si solo sale 1 vez en una sesion que pasa con esa informacion?",
+      "answer_preview": 

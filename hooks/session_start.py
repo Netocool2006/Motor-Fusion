@@ -24,7 +24,7 @@ import time
 import subprocess
 import socket
 from pathlib import Path
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
 
 # Importar timezone utils
 sys.path.insert(0, str(Path(__file__).parent.parent))
@@ -328,8 +328,8 @@ def recover_crashed_session() -> list:
             last_saved = history[-1]
             try:
                 raw_dt = f"{last_saved.get('date', '')} {last_saved.get('time', '')}".replace(" UTC", "").strip()
-                saved_dt = datetime.strptime(raw_dt, "%Y-%m-%d %H:%M:%S")
-                state_dt = datetime.fromtimestamp(last_ts)
+                saved_dt = datetime.strptime(raw_dt, "%Y-%m-%d %H:%M:%S").replace(tzinfo=timezone.utc)
+                state_dt = datetime.fromtimestamp(last_ts, tz=timezone.utc)
                 if saved_dt >= state_dt:
                     return []  # Se guardo correctamente
             except Exception:

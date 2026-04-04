@@ -1,239 +1,134 @@
 {
-  "domains": [
-    {
-      "name": "bom",
-      "description": "Knowledge domain: bom",
-      "num_entries": 10,
-      "num_patterns": 10,
-      "num_facts": 0
-    },
-    {
-      "name": "bpm_bau",
-      "description": "Knowledge domain: bpm_bau",
-      "num_entries": 0,
-      "num_patterns": 0,
-      "num_facts": 0
-    },
-    {
-      "name": "business_rules",
-      "description": "Knowledge domain: business_rules",
-      "num_entries": 157,
-      "num_patterns": 81,
-      "num_facts": 76
-    },
-    {
-      "name": "catalog",
-      "description": "Knowledge domain: catalog",
-      "num_entries": 8,
-      "num_patterns": 5,
-      "num_facts": 3
-    },
-    {
-      "name": "claude_chrome",
-      "description": "Knowledge domain: claude_chrome",
-      "num_entries": 29,
-      "num_patterns": 29,
-      "num_facts": 0
-    },
-    {
-      "name": "clients",
-      "description": "Knowledge domain: clients",
-      "num_entries": 0,
-      "num_patterns": 0,
-      "num_facts": 0
-    },
-    {
-      "name": "contabilidad",
-      "description": "Knowledge domain: contabilidad",
-      "num_entries": 0,
-      "num_patterns": 0,
-      "num_facts": 0
-    },
-    {
-      "name": "dominio_que_no_existe_xyz",
-      "description": "Knowledge domain: dominio_que_no_existe_xyz",
-      "num_entries": 0,
-      "num_patterns": 0,
-      "num_facts": 0
-    },
-    {
-      "name": "Edit",
-      "description": "Knowledge domain: Edit",
-      "num_entries": 0,
-      "num_patterns": 0,
-      "num_facts": 0
-    },
-    {
-      "name": "files",
-      "description": "Knowledge domain: files",
-      "num_entries": 3034,
-      "num_patterns": 3034,
-      "num_facts": 0
-    },
-    {
-      "name": "final_test",
-      "description": "Knowledge domain: final_test",
-      "num_entries": 1,
-      "num_patterns": 1,
-      "num_facts": 0
-    },
-    {
-      "name": "finanzas",
-      "description": "Knowledge domain: finanzas",
-      "num_entries": 0,
-      "num_patterns": 0,
-      "num_facts": 0
-    },
-    {
-      "name": "general",
-      "description": "Knowledge domain: general",
-      "num_entries": 45,
-      "num_patterns": 45,
-      "num_facts": 0
-    },
-    {
-      "name": "monday",
-      "description": "Knowledge domain: monday",
-      "num_entries": 2,
-      "num_patterns": 2,
-      "num_facts": 0
-    },
-    {
-      "name": "monday_automation",
-      "description": "Knowledge domain: monday_automation",
-      "num_entries": 29,
-      "num_patterns": 29,
-      "num_facts": 0
-    },
-    {
-      "name": "Motor",
-      "description": "Knowledge domain: Motor",
-      "num_entries": 0,
-      "num_patterns": 0,
-      "num_facts": 0
-    },
-    {
-      "name": "motor_final_test",
-      "description": "Knowledge domain: motor_final_test",
-      "num_entries": 1,
-      "num_patterns": 1,
-      "num_facts": 0
-    },
-    {
-      "name": "motor_test",
-      "description": "Knowledge domain: motor_test",
-      "num_entries": 1,
-      "num_patterns": 1,
-      "num_facts": 0
-    },
-    {
-      "name": "outlook",
-      "description": "Knowledge domain: outlook",
-      "num_entries": 141,
-      "num_patterns": 141,
-      "num_facts": 0
-    },
-    {
-      "name": "pptx",
-      "description": "Knowledge domain: pptx",
-      "num_entries": 0,
-      "num_patterns": 0,
-      "num_facts": 0
-    },
-    {
-      "name": "sap_automation",
-      "description": "Knowledge domain: sap_automation",
-      "num_entries": 76,
-      "num_patterns": 76,
-      "num_facts": 0
-    },
-    {
-      "name": "sap_cloud",
-      "description": "Knowledge domain: sap_cloud",
-      "num_entries": 40,
-      "num_patterns": 40,
-      "num_facts": 0
-    },
-    {
-      "name": "sap_js_internals",
-      "description": "Knowledge domain: sap_js_internals",
-      "num_entries": 16,
-      "num_patterns": 16,
-      "num_facts": 0
-    },
-    {
-      "name": "sap_nube",
-      "description": "Knowledge domain: sap_nube",
-      "num_entries": 0,
-      "num_patterns": 0,
-      "num_facts": 0
-    },
-    {
-      "name": "sap_tierra",
-      "description": "Knowledge domain: sap_tierra",
-      "num_entries": 354,
-      "num_patterns": 354,
-      "num_facts": 0
-    },
-    {
-      "name": "sessions",
-      "description": "Knowledge domain: sessions",
-      "num_entries": 519,
-      "num_patterns": 501,
-      "num_facts": 18
-    },
-    {
-      "name": "sow",
-      "description": "Knowledge domain: sow",
-      "num_entries": 209,
-      "num_patterns": 209,
-      "num_facts": 0
-    },
-    {
-      "name": "test",
-      "description": "Knowledge domain: test",
-      "num_entries": 0,
-      "num_patterns": 0,
-      "num_facts": 0
-    },
-    {
-      "name": "test_complete",
-      "description": "Knowledge domain: test_complete",
-      "num_entries": 1,
-      "num_patterns": 1,
-      "num_facts": 0
-    },
-    {
-      "name": "test_fix",
-      "description": "Knowledge domain: test_fix",
-      "num_entries": 1,
-      "num_patterns": 1,
-      "num_facts": 0
-    },
-    {
-      "name": "test_phase2",
-      "description": "Knowledge domain: test_phase2",
-      "num_entries": 1,
-      "num_patterns": 1,
-      "num_facts": 0
-    },
-    {
-      "name": "web_forms",
-      "description": "Knowledge domain: web_forms",
-      "num_entries": 30,
-      "num_patterns": 30,
-      "num_facts": 0
-    },
-    {
-      "name": "workflow_test",
-      "description": "Knowledge domain: workflow_test",
-      "num_entries": 1,
-      "num_patterns": 1,
-      "num_facts": 0
-    }
-  ],
-  "initialized_at": "2026-04-01T15:59:44.418121+00:00",
-  "version": "1.0.1-fusion",
-  "total_domains": 33,
-  "total_entries": 4706
+  "bom": {
+    "description": "Knowledge domain: bom",
+    "file": "patterns.json",
+    "entry_type": "pattern",
+    "num_entries": 10
+  },
+  "bpm_bau": {
+    "description": "Knowledge domain: bpm_bau",
+    "file": "patterns.json",
+    "entry_type": "pattern",
+    "num_entries": 0
+  },
+  "business_rules": {
+    "description": "Knowledge domain: business_rules",
+    "file": "patterns.json",
+    "entry_type": "pattern",
+    "num_entries": 81
+  },
+  "catalog": {
+    "description": "Knowledge domain: catalog",
+    "file": "patterns.json",
+    "entry_type": "pattern",
+    "num_entries": 5
+  },
+  "claude_chrome": {
+    "description": "Knowledge domain: claude_chrome",
+    "file": "patterns.json",
+    "entry_type": "pattern",
+    "num_entries": 29
+  },
+  "clients": {
+    "description": "Knowledge domain: clients",
+    "file": "patterns.json",
+    "entry_type": "pattern",
+    "num_entries": 0
+  },
+  "contabilidad": {
+    "description": "Knowledge domain: contabilidad",
+    "file": "patterns.json",
+    "entry_type": "pattern",
+    "num_entries": 0
+  },
+  "files": {
+    "description": "Knowledge domain: files",
+    "file": "patterns.json",
+    "entry_type": "pattern",
+    "num_entries": 3034
+  },
+  "finanzas": {
+    "description": "Knowledge domain: finanzas",
+    "file": "patterns.json",
+    "entry_type": "pattern",
+    "num_entries": 0
+  },
+  "general": {
+    "description": "Knowledge domain: general",
+    "file": "patterns.json",
+    "entry_type": "pattern",
+    "num_entries": 45
+  },
+  "monday": {
+    "description": "Knowledge domain: monday",
+    "file": "patterns.json",
+    "entry_type": "pattern",
+    "num_entries": 2
+  },
+  "monday_automation": {
+    "description": "Knowledge domain: monday_automation",
+    "file": "patterns.json",
+    "entry_type": "pattern",
+    "num_entries": 29
+  },
+  "outlook": {
+    "description": "Knowledge domain: outlook",
+    "file": "patterns.json",
+    "entry_type": "pattern",
+    "num_entries": 141
+  },
+  "pptx": {
+    "description": "Knowledge domain: pptx",
+    "file": "patterns.json",
+    "entry_type": "pattern",
+    "num_entries": 0
+  },
+  "sap_automation": {
+    "description": "Knowledge domain: sap_automation",
+    "file": "patterns.json",
+    "entry_type": "pattern",
+    "num_entries": 76
+  },
+  "sap_cloud": {
+    "description": "Knowledge domain: sap_cloud",
+    "file": "patterns.json",
+    "entry_type": "pattern",
+    "num_entries": 40
+  },
+  "sap_js_internals": {
+    "description": "Knowledge domain: sap_js_internals",
+    "file": "patterns.json",
+    "entry_type": "pattern",
+    "num_entries": 16
+  },
+  "sap_nube": {
+    "description": "Knowledge domain: sap_nube",
+    "file": "patterns.json",
+    "entry_type": "pattern",
+    "num_entries": 0
+  },
+  "sap_tierra": {
+    "description": "Knowledge domain: sap_tierra",
+    "file": "patterns.json",
+    "entry_type": "pattern",
+    "num_entries": 354
+  },
+  "sessions": {
+    "description": "Knowledge domain: sessions",
+    "file": "patterns.json",
+    "entry_type": "pattern",
+    "num_entries": 501
+  },
+  "sow": {
+    "description": "Knowledge domain: sow",
+    "file": "patterns.json",
+    "entry_type": "pattern",
+    "num_entries": 209
+  },
+  "web_forms": {
+    "description": "Knowledge domain: web_forms",
+    "file": "patterns.json",
+    "entry_type": "pattern",
+    "num_entries": 30
+  }
 }

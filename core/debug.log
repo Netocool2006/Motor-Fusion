@@ -1485,3 +1485,80 @@
 [2026-04-02T23:47:51.185901] WorkingMemory clear: cannot import name 'WORKING_MEMORY_MAX_ITEMS' from 'config' (C:\Hooks_IA\config.py)
 [2026-04-02T23:47:51.185901] DomainPromoter: cannot import name 'DOMAINS_FILE' from 'config' (C:\Hooks_IA\config.py)
 [2026-04-02T23:47:51.185901] Hook session_end completed successfully
+[2026-04-03T17:53:32.408294] Hook session_end fired. Fields: ['session_id', 'transcript_path', 'last_assistant_message', 'cwd']
+[2026-04-03T17:53:32.408294] session_id=test
+[2026-04-03T17:53:32.408294] transcript_path=
+[2026-04-03T17:53:32.408294] Extracted: 0 user msgs, 0 errors
+[2026-04-03T17:53:32.424417] Tools (final): 0 reads, 0 edits, 0 commands
+[2026-04-03T17:53:32.431838] New session added. History: 9 sessions
+[2026-04-03T17:53:32.435866] KB auto: no files edited/created, skipping
+[2026-04-03T17:53:32.534719] Episodic FTS5: session indexed
+[2026-04-03T17:53:32.552650] HintTracker: injection effectiveness scored
+[2026-04-03T17:53:32.580543] WorkingMemory: cleared for next session
+[2026-04-03T17:53:32.582560] Hook session_end completed successfully
+[2026-04-03T18:00:49.630629] Hook session_end fired. Fields: ['session_id', 'transcript_path', 'last_assistant_message', 'cwd']
+[2026-04-03T18:00:49.630629] session_id=test-123
+[2026-04-03T18:00:49.630629] transcript_path=
+[2026-04-03T18:00:49.630629] Extracted: 0 user msgs, 0 errors
+[2026-04-03T18:00:49.630629] Tools (final): 0 reads, 0 edits, 0 commands
+[2026-04-03T18:00:49.630629] New session added. History: 10 sessions
+[2026-04-03T18:00:49.648506] KB auto: no files edited/created, skipping
+[2026-04-03T18:00:49.679912] Episodic FTS5: session indexed
+[2026-04-03T18:00:49.679912] HintTracker: injection effectiveness scored
+[2026-04-03T18:00:49.697841] WorkingMemory: cleared for next session
+[2026-04-03T18:00:49.697841] Hook session_end completed successfully
+[2026-04-03T18:00:52.127079] Hook session_end fired. Fields: ['session_id', 'transcript_path', 'last_assistant_message', 'cwd']
+[2026-04-03T18:00:52.127079] session_id=test-456
+[2026-04-03T18:00:52.134811] transcript_path=
+[2026-04-03T18:00:52.134811] Extracted: 0 user msgs, 0 errors
+[2026-04-03T18:00:52.134811] Tools (final): 0 reads, 0 edits, 0 commands
+[2026-04-03T18:00:52.134811] New session added. History: 11 sessions
+[2026-04-03T18:00:52.142320] KB auto: no files edited/created, skipping
+[2026-04-03T18:00:52.156199] Episodic FTS5: session indexed
+[2026-04-03T18:00:52.158220] HintTracker: injection effectiveness scored
+[2026-04-03T18:00:52.158220] WorkingMemory: cleared for next session
+[2026-04-03T18:00:52.158220] Hook session_end completed successfully
+[2026-04-03T18:17:35.534057] Hook session_end fired. Fields: ['session_id', 'transcript_path', 'last_assistant_message', 'cwd']
+[2026-04-03T18:17:35.534057] session_id=test-regression
+[2026-04-03T18:17:35.535198] transcript_path=
+[2026-04-03T18:17:35.536216] Extracted: 0 user msgs, 0 errors
+[2026-04-03T18:17:35.537275] Tools (final): 0 reads, 0 edits, 0 commands
+[2026-04-03T18:17:35.538468] New session added. History: 14 sessions
+[2026-04-03T18:17:35.539592] KB auto: no files edited/created, skipping
+[2026-04-03T18:17:35.553034] Episodic FTS5: session indexed
+[2026-04-03T18:17:35.553034] HintTracker: injection effectiveness scored
+[2026-04-03T18:17:35.553034] WorkingMemory: cleared for next session
+[2026-04-03T18:17:35.553034] Hook session_end completed successfully
+[2026-04-03T18:36:12.672199] Hook session_end fired. Fields: ['session_id', 'transcript_path', 'last_assistant_message', 'cwd']
+[2026-04-03T18:36:12.672199] session_id=test-regression
+[2026-04-03T18:36:12.672199] transcript_path=
+[2026-04-03T18:36:12.672199] Extracted: 0 user msgs, 0 errors
+[2026-04-03T18:36:12.672199] Tools (final): 0 reads, 0 edits, 0 commands
+[2026-04-03T18:36:12.672199] Session merged at index 13
+[2026-04-03T18:36:12.687073] KB auto: no files edited/created, skipping
+[2026-04-03T18:36:12.689897] Episodic FTS5: session indexed
+[2026-04-03T18:36:12.689897] HintTracker: injection effectiveness scored
+[2026-04-03T18:36:12.689897] WorkingMemory: cleared for next session
+[2026-04-03T18:36:12.703121] Hook session_end completed successfully
+[2026-04-03T18:45:40.429684] Hook session_end fired. Fields: ['session_id', 'transcript_path', 'last_assistant_message', 'cwd']
+[2026-04-03T18:45:40.429684] session_id=test-regression
+[2026-04-03T18:45:40.429684] transcript_path=
+[2026-04-03T18:45:40.429684] Extracted: 0 user msgs, 0 errors
+[2026-04-03T18:45:40.429684] Tools (final): 0 reads, 0 edits, 0 commands
+[2026-04-03T18:45:40.429684] Session merged at index 13
+[2026-04-03T18:45:40.439737] KB auto: no files edited/created, skipping
+[2026-04-03T18:45:40.455222] Episodic FTS5: session indexed
+[2026-04-03T18:45:40.455222] HintTracker: injection effectiveness scored
+[2026-04-03T18:45:40.465265] WorkingMemory: cleared for next session
+[2026-04-03T18:45:40.465265] Hook session_end completed successfully
+[2026-04-03T18:52:18.538399] Hook session_end fired. Fields: ['session_id', 'transcript_path', 'last_assistant_message', 'cwd']
+[2026-04-03T18:52:18.538399] session_id=test-regression
+[2026-04-03T18:52:18.538399] transcript_path=
+[2026-04-03T18:52:18.538399] Extracted: 0 user msgs, 0 errors
+[2026-04-03T18:52:18.538399] Tools (final): 0 reads, 0 edits, 0 commands
+[2026-04-03T18:52:18.554200] Session merged at index 13
+[2026-04-03T18:52:18.554200] KB auto: no files edited/created, skipping
+[2026-04-03T18:52:18.554200] Episodic FTS5: session indexed
+[2026-04-03T18:52:18.554200] HintTracker: injection effectiveness scored
+[2026-04-03T18:52:18.569987] WorkingMemory: cleared for next session
+[2026-04-03T18:52:18.569987] Hook session_end completed successfully

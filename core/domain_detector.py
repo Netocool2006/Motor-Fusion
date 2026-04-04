@@ -36,12 +36,27 @@ def _load_domain_keywords() -> dict:
     """
     Carga los dominios y sus keywords desde domains.json.
     Retorna {domain_name: {keywords: [...], description: ...}}.
+    Soporta dos formatos:
+      - Legacy: {domain_name: {keywords: [...]}, ...}
+      - Fusion: {domains: [{name: "x", keywords: [...]}], ...}
     """
     if not DOMAINS_FILE.exists():
         return {}
     try:
         data = json.loads(DOMAINS_FILE.read_text(encoding="utf-8"))
-        return data
+        # Formato Fusion: {domains: [{name: ..., keywords: [...]}, ...], ...}
+        if isinstance(data.get("domains"), list):
+            result = {}
+            for entry in data["domains"]:
+                if isinstance(entry, dict) and "name" in entry:
+                    result[entry["name"]] = {
+                        "keywords": entry.get("keywords", []),
+                        "description": entry.get("description", ""),
+                    }
+            return result
+        # Formato Legacy: {domain_name: {keywords: [...]}, ...}
+        # Filtrar solo entradas que son dicts (ignorar metadata como version, initialized_at)
+        return {k: v for k, v in data.items() if isinstance(v, dict)}
     except Exception:
         return {}
 

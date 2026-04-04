@@ -547,5 +547,253 @@
     ],
     "merged": true,
     "merge_count": 4
+  },
+  {
+    "session_id": "test",
+    "date": "2026-04-03",
+    "time": "23:53:32 UTC",
+    "timestamp": "2026-04-03 23:53:32",
+    "cwd": "C:\\Chance1",
+    "summary": "Sesion sin mensajes del usuario",
+    "user_messages": [],
+    "files_read": [],
+    "files_edited": [],
+    "files_created": [],
+    "commands_run": [],
+    "searches": [],
+    "errors": [],
+    "decisions": [],
+    "learning_json": null,
+    "reasoning_traces": [],
+    "metrics": {
+      "total_messages": 1,
+      "user_messages": 0,
+      "errors_count": 0,
+      "files_touched": 0,
+      "commands_count": 0,
+      "decisions_count": 0
+    },
+    "domains": [
+      "general"
+    ]
+  },
+  {
+    "session_id": "test-123",
+    "date": "2026-04-04",
+    "time": "00:00:49 UTC",
+    "timestamp": "2026-04-04 00:00:49",
+    "cwd": "C:\\Chance1",
+    "summary": "Sesion sin mensajes del usuario",
+    "user_messages": [],
+    "files_read": [],
+    "files_edited": [],
+    "files_created": [],
+    "commands_run": [],
+    "searches": [],
+    "errors": [],
+    "decisions": [],
+    "learning_json": null,
+    "reasoning_traces": [],
+    "metrics": {
+      "total_messages": 1,
+      "user_messages": 0,
+      "errors_count": 0,
+      "files_touched": 0,
+      "commands_count": 0,
+      "decisions_count": 0
+    },
+    "domains": [
+      "general"
+    ]
+  },
+  {
+    "session_id": "test-456",
+    "date": "2026-04-04",
+    "time": "00:00:52 UTC",
+    "timestamp": "2026-04-04 00:00:52",
+    "cwd": "C:\\Chance1",
+    "summary": "Sesion sin mensajes del usuario",
+    "user_messages": [],
+    "files_read": [],
+    "files_edited": [],
+    "files_created": [],
+    "commands_run": [],
+    "searches": [],
+    "errors": [],
+    "decisions": [],
+    "learning_json": null,
+    "reasoning_traces": [],
+    "metrics": {
+      "total_messages": 1,
+      "user_messages": 0,
+      "errors_count": 0,
+      "files_touched": 0,
+      "commands_count": 0,
+      "decisions_count": 0
+    },
+    "domains": [
+      "general"
+    ]
+  },
+  {
+    "date": "03-04-2026",
+    "time": "18:06:53",
+    "summary": "[RECUPERADA] 2 acciones de sesion que termino sin guardar",
+    "user_messages": [],
+    "files_edited": [
+      "server.py"
+    ],
+    "files_created": [
+      "new_file.py"
+    ],
+    "errors": [],
+    "decisions": [],
+    "metrics": {
+      "total_messages": 2,
+      "user_messages": 0,
+      "files_touched": 2,
+      "commands_count": 0,
+      "errors_count": 0
+    },
+    "_recovered": true,
+    "_original_sid": "crash-tz-fix"
+  },
+  {
+    "date": "03-04-2026",
+    "time": "18:06:53",
+    "summary": "[RECUPERADA] 2 acciones de sesion que termino sin guardar",
+    "user_messages": [],
+    "files_edited": [
+      "server.py"
+    ],
+    "files_created": [
+      "new_file.py"
+    ],
+    "errors": [],
+    "decisions": [],
+    "metrics": {
+      "total_messages": 2,
+      "user_messages": 0,
+      "files_touched": 2,
+      "commands_count": 0,
+      "errors_count": 0
+    },
+    "_recovered": true,
+    "_original_sid": "crash-tz-fix"
+  },
+  {
+    "session_id": "test-regression",
+    "date": "2026-04-04",
+    "time": "00:17:35 UTC",
+    "timestamp": "2026-04-04 00:17:35",
+    "cwd": "C:\\Chance1",
+    "summary": "Sesion sin mensajes del usuario",
+    "user_messages": [],
+    "files_read": [],
+    "files_edited": [],
+    "files_created": [],
+    "commands_run": [],
+    "searches": [],
+    "errors": [],
+    "decisions": [],
+    "learning_json": null,
+    "reasoning_traces": [],
+    "metrics": {
+      "total_messages": 1,
+      "user_messages": 0,
+      "decisions_count": 0,
+      "files_touched": 0,
+      "commands_count": 0,
+      "errors_count": 0
+    },
+    "domains": [
+      "general"
+    ],
+    "merged": true,
+    "merge_count": 4
+  },
+  {
+    "date": "03-04-2026",
+    "time": "18:17:35",
+    "summary": "[RECUPERADA] 1 acciones de sesion que termino sin guardar",
+    "user_messages": [],
+    "files_edited": [
+      "server.py"
+    ],
+    "files_created": [],
+    "errors": [],
+    "decisions": [],
+    "metrics": {
+      "total_messages": 1,
+      "user_messages": 0,
+      "files_touched": 1,
+      "commands_count": 0,
+      "errors_count": 0
+    },
+    "_recovered": true,
+    "_original_sid": "crash-regression"
+  },
+  {
+    "date": "03-04-2026",
+    "time": "18:36:12",
+    "summary": "[RECUPERADA] 1 acciones de sesion que termino sin guardar",
+    "user_messages": [],
+    "files_edited": [
+      "server.py"
+    ],
+    "files_created": [],
+    "errors": [],
+    "decisions": [],
+    "metrics": {
+      "total_messages": 1,
+      "user_messages": 0,
+      "files_touched": 1,
+      "commands_count": 0,
+      "errors_count": 0
+    },
+    "_recovered": true,
+    "_original_sid": "crash-regression"
+  },
+  {
+    "date": "03-04-2026",
+    "time": "18:45:40",
+    "summary": "[RECUPERADA] 1 acciones de sesion que termino sin guardar",
+    "user_messages": [],
+    "files_edited": [
+      "server.py"
+    ],
+    "files_created": [],
+    "errors": [],
+    "decisions": [],
+    "metrics": {
+      "total_messages": 1,
+      "user_messages": 0,
+      "files_touched": 1,
+      "commands_count": 0,
+      "errors_count": 0
+    },
+    "_recovered": true,
+    "_original_sid": "crash-regression"
+  },
+  {
+    "date": "03-04-2026",
+    "time": "18:52:18",
+    "summary": "[RECUPERADA] 1 acciones de sesion que termino sin guardar",
+    "user_messages": [],
+    "files_edited": [
+      "server.py"
+    ],
+    "files_created": [],
+    "errors": [],
+    "decisions": [],
+    "metrics": {
+      "total_messages": 1,
+      "user_messages": 0,
+      "files_touched": 1,
+      "commands_count": 0,
+      "errors_count": 0
+    },
+    "_recovered": true,
+    "_original_sid": "crash-regression"
   }
 ]

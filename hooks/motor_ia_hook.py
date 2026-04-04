@@ -204,7 +204,15 @@ def build_context(query, kb_content, kb_pct, internet_content, internet_pct, ses
 
     if session_context:
         context_parts.append("<session_anterior>")
-        context_parts.append("El usuario quiere continuar. Aqui esta lo que se hizo en la sesion anterior:")
+        context_parts.append(
+            "INSTRUCCION PROACTIVA: Al inicio de tu respuesta, SIEMPRE resume brevemente "
+            "lo que se estuvo haciendo en la sesion anterior y pregunta si el usuario quiere "
+            "continuar con eso o trabajar en algo nuevo. NO esperes a que el usuario pregunte. "
+            "Tu DEBES tomar la iniciativa y decir algo como: "
+            "'En la sesion anterior estuvimos trabajando en [X, Y, Z]. Quieres continuar con eso "
+            "o prefieres trabajar en algo diferente?'"
+        )
+        context_parts.append("Aqui esta lo que se hizo en la sesion anterior:")
         context_parts.append(session_context)
         context_parts.append("</session_anterior>")
 

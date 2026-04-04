@@ -121,19 +121,30 @@ def ask_kb(query):
         # Calcular similitud del mejor resultado
         best_sim = 1 - distances[0] if distances else 0
 
-        # Si el mejor resultado tiene baja similitud Y los top-3 son de
-        # dominios diferentes, probablemente no es relevante (ruido)
-        if best_sim < 0.50 and len(distances) >= 3:
+        # Filtro de dispersión: baja similitud + dominios dispersos = ruido
+        if best_sim < 0.55 and len(distances) >= 3:
             top3_domains = set(m.get("domain", "") for m in metadatas[:3])
-            if len(top3_domains) >= 3:
-                # Resultados dispersos = no hay conocimiento real
-                log.info(f"Vector KB: low confidence (sim={best_sim:.3f}, scattered domains={top3_domains})")
+            non_auto = top3_domains - {"auto_learned", "", "unknown"}
+            # Verificar si algún dominio coincide con palabras del query (fuzzy: startswith)
+            query_words = set(query.lower().split())
+            domain_match = any(
+                any(w.startswith(d.lower()[:3]) or d.lower().startswith(w[:3])
+                    for w in query_words if len(w) > 2)
+                for d in non_auto
+            )
+            # Rechazar si: (3+ dominios dispersos) O (pocos dominios específicos + baja sim)
+            if len(top3_domains) >= 3 and not domain_match:
+                log.info(f"Vector KB: scattered (sim={best_sim:.3f}, domains={top3_domains})")
+                return {"answer": "", "raw": None, "found": False, "source": "vector_kb"}
+            # Si hay dominios NO-auto que no coinciden con el query y sim muy baja
+            if non_auto and not domain_match and best_sim < 0.45:
+                log.info(f"Vector KB: unrelated domain (sim={best_sim:.3f}, non_auto={non_auto})")
                 return {"answer": "", "raw": None, "found": False, "source": "vector_kb"}
 
         relevant = []
         for doc, dist, meta in zip(docs, distances, metadatas):
             similarity = 1 - dist
-            if similarity > 0.40:
+            if similarity > 0.48:
                 relevant.append({
                     "text": doc,
                     "similarity": similarity,
