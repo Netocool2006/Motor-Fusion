@@ -47,6 +47,86 @@
       "properties": {},
       "created_at": "2026-04-04T19:27:15.704414+00:00",
       "updated_at": "2026-04-04T19:27:15.704414+00:00"
+    },
+    "semantic_search.py": {
+      "id": "semantic_search.py",
+      "type": "file",
+      "name": "semantic_search.py",
+      "properties": {},
+      "created_at": "2026-04-04T19:28:12.599666+00:00",
+      "updated_at": "2026-04-04T19:28:12.599666+00:00"
+    },
+    "core/semantic_search.py": {
+      "id": "core/semantic_search.py",
+      "type": "file",
+      "name": "core/semantic_search.py",
+      "properties": {},
+      "created_at": "2026-04-04T19:28:12.599666+00:00",
+      "updated_at": "2026-04-04T19:28:12.599666+00:00"
+    },
+    "memory_tiers.py": {
+      "id": "memory_tiers.py",
+      "type": "file",
+      "name": "memory_tiers.py",
+      "properties": {},
+      "created_at": "2026-04-04T19:28:12.603420+00:00",
+      "updated_at": "2026-04-04T19:28:12.603420+00:00"
+    },
+    "core/memory_tiers.py": {
+      "id": "core/memory_tiers.py",
+      "type": "file",
+      "name": "core/memory_tiers.py",
+      "properties": {},
+      "created_at": "2026-04-04T19:28:12.607443+00:00",
+      "updated_at": "2026-04-04T19:28:12.609450+00:00"
+    },
+    "session_harvest.py": {
+      "id": "session_harvest.py",
+      "type": "file",
+      "name": "session_harvest.py",
+      "properties": {},
+      "created_at": "2026-04-04T19:28:12.613468+00:00",
+      "updated_at": "2026-04-04T19:28:12.613468+00:00"
+    },
+    "core/session_harvest.py": {
+      "id": "core/session_harvest.py",
+      "type": "file",
+      "name": "core/session_harvest.py",
+      "properties": {},
+      "created_at": "2026-04-04T19:28:12.620214+00:00",
+      "updated_at": "2026-04-04T19:28:12.620214+00:00"
+    },
+    "kb_api.py": {
+      "id": "kb_api.py",
+      "type": "file",
+      "name": "kb_api.py",
+      "properties": {},
+      "created_at": "2026-04-04T19:28:12.624340+00:00",
+      "updated_at": "2026-04-04T19:28:12.624340+00:00"
+    },
+    "core/kb_api.py": {
+      "id": "core/kb_api.py",
+      "type": "file",
+      "name": "core/kb_api.py",
+      "properties": {},
+      "created_at": "2026-04-04T19:28:12.628629+00:00",
+      "updated_at": "2026-04-04T19:28:12.628629+00:00"
+    },
+    "typed_graph.py": {
+      "id": "typed_graph.py",
+      "type": "file",
+      "name": "typed_graph.py",
+      "properties": {},
+      "created_at": "2026-04-04T19:28:12.635830+00:00",
+      "updated_at": "2026-04-04T19:28:12.635830+00:00"
+    },
+    "core/typed_graph.py": {
+      "id": "core/typed_graph.py",
+      "type": "file",
+      "name": "core/typed_graph.py",
+      "properties": {},
+      "created_at": "2026-04-04T19:28:12.641215+00:00",
+      "updated_at": "2026-04-04T19:28:12.641215+00:00"
     }
   },
   "relations": [
@@ -121,11 +201,182 @@
       "context": "test",
       "created_at": "2026-04-04T19:27:15.706169+00:00",
       "updated_at": "2026-04-04T19:27:15.706169+00:00"
+    },
+    {
+      "source": "semantic_search.py",
+      "target": "core/semantic_search.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "realiza commit y luego procedes con los 5 mencionados",
+      "created_at": "2026-04-04T19:28:12.601414+00:00",
+      "updated_at": "2026-04-04T19:28:12.601414+00:00"
+    },
+    {
+      "source": "semantic_search.py",
+      "target": "memory_tiers.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "realiza commit y luego procedes con los 5 mencionados",
+      "created_at": "2026-04-04T19:28:12.605431+00:00",
+      "updated_at": "2026-04-04T19:28:12.605431+00:00"
+    },
+    {
+      "source": "core/semantic_search.py",
+      "target": "memory_tiers.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "realiza commit y luego procedes con los 5 mencionados",
+      "created_at": "2026-04-04T19:28:12.607443+00:00",
+      "updated_at": "2026-04-04T19:28:12.607443+00:00"
+    },
+    {
+      "source": "core/semantic_search.py",
+      "target": "core/memory_tiers.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "realiza commit y luego procedes con los 5 mencionados",
+      "created_at": "2026-04-04T19:28:12.609450+00:00",
+      "updated_at": "2026-04-04T19:28:12.609450+00:00"
+    },
+    {
+      "source": "memory_tiers.py",
+      "target": "core/memory_tiers.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "realiza commit y luego procedes con los 5 mencionados",
+      "created_at": "2026-04-04T19:28:12.611457+00:00",
+      "updated_at": "2026-04-04T19:28:12.611457+00:00"
+    },
+    {
+      "source": "memory_tiers.py",
+      "target": "session_harvest.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "realiza commit y luego procedes con los 5 mencionados",
+      "created_at": "2026-04-04T19:28:12.615476+00:00",
+      "updated_at": "2026-04-04T19:28:12.615476+00:00"
+    },
+    {
+      "source": "core/memory_tiers.py",
+      "target": "session_harvest.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "realiza commit y luego procedes con los 5 mencionados",
+      "created_at": "2026-04-04T19:28:12.617227+00:00",
+      "updated_at": "2026-04-04T19:28:12.617227+00:00"
+    },
+    {
+      "source": "core/memory_tiers.py",
+      "target": "core/session_harvest.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "realiza commit y luego procedes con los 5 mencionados",
+      "created_at": "2026-04-04T19:28:12.622221+00:00",
+      "updated_at": "2026-04-04T19:28:12.622221+00:00"
+    },
+    {
+      "source": "session_harvest.py",
+      "target": "core/session_harvest.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "realiza commit y luego procedes con los 5 mencionados",
+      "created_at": "2026-04-04T19:28:12.623593+00:00",
+      "updated_at": "2026-04-04T19:28:12.623593+00:00"
+    },
+    {
+      "source": "session_harvest.py",
+      "target": "kb_api.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "realiza commit y luego procedes con los 5 mencionados",
+      "created_at": "2026-04-04T19:28:12.627132+00:00",
+      "updated_at": "2026-04-04T19:28:12.627132+00:00"
+    },
+    {
+      "source": "core/session_harvest.py",
+      "target": "kb_api.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "realiza commit y luego procedes con los 5 mencionados",
+      "created_at": "2026-04-04T19:28:12.628629+00:00",
+      "updated_at": "2026-04-04T19:28:12.628629+00:00"
+    },
+    {
+      "source": "core/session_harvest.py",
+      "target": "core/kb_api.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "realiza commit y luego procedes con los 5 mencionados",
+      "created_at": "2026-04-04T19:28:12.630636+00:00",
+      "updated_at": "2026-04-04T19:28:12.630636+00:00"
+    },
+    {
+      "source": "kb_api.py",
+      "target": "core/kb_api.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "realiza commit y luego procedes con los 5 mencionados",
+      "created_at": "2026-04-04T19:28:12.632642+00:00",
+      "updated_at": "2026-04-04T19:28:12.632642+00:00"
+    },
+    {
+      "source": "kb_api.py",
+      "target": "typed_graph.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "realiza commit y luego procedes con los 5 mencionados",
+      "created_at": "2026-04-04T19:28:12.636839+00:00",
+      "updated_at": "2026-04-04T19:28:12.636839+00:00"
+    },
+    {
+      "source": "core/kb_api.py",
+      "target": "typed_graph.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "realiza commit y luego procedes con los 5 mencionados",
+      "created_at": "2026-04-04T19:28:12.639216+00:00",
+      "updated_at": "2026-04-04T19:28:12.639216+00:00"
+    },
+    {
+      "source": "core/kb_api.py",
+      "target": "core/typed_graph.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "realiza commit y luego procedes con los 5 mencionados",
+      "created_at": "2026-04-04T19:28:12.642215+00:00",
+      "updated_at": "2026-04-04T19:28:12.642215+00:00"
+    },
+    {
+      "source": "typed_graph.py",
+      "target": "core/typed_graph.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "realiza commit y luego procedes con los 5 mencionados",
+      "created_at": "2026-04-04T19:28:12.644214+00:00",
+      "updated_at": "2026-04-04T19:28:12.644214+00:00"
+    },
+    {
+      "source": "typed_graph.py",
+      "target": "config.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "realiza commit y luego procedes con los 5 mencionados",
+      "created_at": "2026-04-04T19:28:12.646213+00:00",
+      "updated_at": "2026-04-04T19:28:12.646213+00:00"
+    },
+    {
+      "source": "core/typed_graph.py",
+      "target": "config.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "realiza commit y luego procedes con los 5 mencionados",
+      "created_at": "2026-04-04T19:28:12.647215+00:00",
+      "updated_at": "2026-04-04T19:28:12.647215+00:00"
     }
   ],
-  "updated_at": "2026-04-04T19:27:15.706169+00:00",
+  "updated_at": "2026-04-04T19:28:12.647215+00:00",
   "stats": {
-    "entities": 6,
-    "relations": 8
+    "entities": 16,
+    "relations": 27
   }
 }
