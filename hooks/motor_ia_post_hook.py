@@ -127,6 +127,13 @@ def main():
 _SESSION_FILE = _PROJECT / "core" / "session_summary.json"
 
 
+def _sanitize(text):
+    """Remove surrogates and control chars that break JSON serialization."""
+    if not text:
+        return ""
+    return text.encode("utf-8", errors="replace").decode("utf-8")
+
+
 def _update_session_summary(query, answer_preview):
     """
     Mantiene un resumen corriente de la sesión actual.
@@ -145,11 +152,15 @@ def _update_session_summary(query, answer_preview):
                 "topics": [],
             }
 
+        # Sanitizar texto para evitar surrogates que crashean json.dump
+        safe_query = _sanitize(query)[:100]
+        safe_preview = _sanitize(answer_preview)[:100]
+
         # Agregar interacción (máximo últimas 20)
         summary["interactions"].append({
             "time": datetime.now().strftime("%H:%M"),
-            "query": query[:100],
-            "answer_preview": answer_preview[:100],
+            "query": safe_query,
+            "answer_preview": safe_preview,
         })
         summary["interactions"] = summary["interactions"][-20:]
 
@@ -157,7 +168,7 @@ def _update_session_summary(query, answer_preview):
         summary["last_update"] = datetime.now().isoformat()
         summary["interaction_count"] = len(summary["interactions"])
 
-        # Guardar
+        # Guardar con ensure_ascii=True como fallback seguro
         with open(_SESSION_FILE, "w", encoding="utf-8") as f:
             json.dump(summary, f, ensure_ascii=False, indent=2)
 
