@@ -86,6 +86,26 @@ async def list_tools() -> list[types.Tool]:
             }
         ),
         types.Tool(
+            name="buscar_internet",
+            description=(
+                "Busca una solucion en internet via DuckDuckGo. "
+                "USAR cuando buscar_kb no encontro la respuesta o "
+                "cuando el usuario necesita informacion actualizada "
+                "que no esta en el KB local. "
+                "La query se optimiza automaticamente para mejores resultados."
+            ),
+            inputSchema={
+                "type": "object",
+                "properties": {
+                    "query": {
+                        "type": "string",
+                        "description": "Que buscar en internet (ej: 'SAP GUI connection refused fix', 'nginx websocket proxy config')"
+                    }
+                },
+                "required": ["query"]
+            }
+        ),
+        types.Tool(
             name="guardar_aprendizaje",
             description=(
                 "Guarda automaticamente un aprendizaje nuevo en el KB. "
@@ -223,6 +243,29 @@ async def call_tool(name: str, arguments: dict) -> list[types.TextContent]:
 
         result = "\n".join(lines) if lines else f"Sin resultados para '{query}' en el KB."
         return [types.TextContent(type="text", text=result)]
+
+    elif name == "buscar_internet":
+        query = arguments["query"]
+        try:
+            from core.web_search import search_web
+            result = search_web(query)
+            if result["found"]:
+                lines = [
+                    f"Busqueda: '{result['optimized_query']}'",
+                    f"Relevancia promedio: {result['relevance_score']}",
+                    f"Resultados: {len(result['results'])}",
+                    "",
+                ]
+                for r in result["results"]:
+                    lines.append(f"**{r['title']}** (relevancia: {r.get('relevance', 0):.2f})")
+                    lines.append(f"  {r['snippet']}")
+                    lines.append(f"  Fuente: {r['url']}")
+                    lines.append("")
+                return [types.TextContent(type="text", text="\n".join(lines))]
+            else:
+                return [types.TextContent(type="text", text=f"Sin resultados relevantes para '{query}'.")]
+        except Exception as e:
+            return [types.TextContent(type="text", text=f"Error buscando en internet: {e}")]
 
     elif name == "guardar_aprendizaje":
         titulo    = arguments["titulo"]
