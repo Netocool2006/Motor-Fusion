@@ -1,0 +1,1495 @@
+{
+  "domain": "tmp",
+  "description": "Dominio auto-creado: tmp",
+  "entries": {
+    "72994384805a": {
+      "id": "72994384805a",
+      "type": "fact",
+      "key": "PUSH_TO_GITHUB_0",
+      "fact": {
+        "rule": "@echo off\nREM ============================================================================\nREM SCRIPT: Ejecutar PUSH_TO_GITHUB.ps1\nREM Uso: Doble-click o ejecutar desde cmd\nREM ============================================================================\n\nsetlocal enabledelayedexpansion\n\nREM Cambiar a la carpeta del script\ncd /d \"%~dp0\"\n\nREM Verificar que PowerShell esté disponible\nwhere powershell >nul 2>&1\nif %errorlevel% neq 0 (\n    echo ERROR: PowerShell no encontrado\n    echo Asegúrate de tener PowerShell instalado\n    pause\n    exit /b 1\n)\n\nREM Ejecutar el script PowerShell\necho ============================================================================\necho Ejecutando PUSH_TO_GITHUB.ps1\necho ============================================================================\necho.\n\n",
+        "applies_to": "tmp",
+        "source": "C:\\tmp\\Motor-Fusion\\PUSH_TO_GITHUB.bat",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "batch",
+        "bat"
+      ],
+      "created_at": "2026-04-04T03:48:23.320681+00:00",
+      "updated_at": "2026-04-04T03:48:23.320681+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T03:48:23.320681+00:00",
+        "access_count": 0
+      }
+    },
+    "b1cb6c604a5c": {
+      "id": "b1cb6c604a5c",
+      "type": "fact",
+      "key": "PUSH_TO_GITHUB_1",
+      "fact": {
+        "rule": "GITHUB.ps1\necho ============================================================================\necho.\n\nREM Ejecutar PowerShell con el script\npowershell -NoProfile -ExecutionPolicy Bypass -File \"%~dp0PUSH_TO_GITHUB.ps1\"\n\nif %errorlevel% neq 0 (\n    echo.\n    echo ERROR: El script falló\n    pause\n    exit /b 1\n) else (\n    echo.\n    echo Presiona cualquier tecla para cerrar...\n    pause\n)",
+        "applies_to": "tmp",
+        "source": "C:\\tmp\\Motor-Fusion\\PUSH_TO_GITHUB.bat",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "batch",
+        "bat"
+      ],
+      "created_at": "2026-04-04T03:48:23.377566+00:00",
+      "updated_at": "2026-04-04T03:48:23.377566+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T03:48:23.377566+00:00",
+        "access_count": 0
+      }
+    },
+    "ff12af35b9da": {
+      "id": "ff12af35b9da",
+      "type": "fact",
+      "key": "PUSH_TO_GITHUB_2",
+      "fact": {
+        "rule": "ing-Custom {\n    param([string]$Text)\n    Write-Host \"⚠ WARNING: $Text\" -ForegroundColor $Yellow\n}\n\n# ============================================================================\n# INICIO\n# ============================================================================\n\nWrite-Header \"PUSH KB A MOTOR-FUSION\"\n\n# Verificar que estamos en /tmp/Motor-Fusion\nWrite-Step 1 \"Verificar ubicación...\"\n$CurrentDir = Get-Location\nif (-not (Test-Path \".git\")) {\n    Write-Error-Custom \"No se encuentra .git en el directorio actual\"\n    Write-Host \"Debes estar en: /tmp/Motor-Fusion\"\n    exit 1\n}\nWrite-Success \"Estamos en /tmp/Motor-Fusion\"\n\n# Verificar ramas\nWrite-Step 2 \"Verificar ramas...\"\n$CurrentBranch = git branch --show-current\nif ($CurrentBranch -ne \"feat/add-hooks-ia-knowledge\") {\n",
+        "applies_to": "tmp",
+        "source": "C:\\tmp\\Motor-Fusion\\PUSH_TO_GITHUB.ps1",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "powershell",
+        "ps1"
+      ],
+      "created_at": "2026-04-04T03:48:20.446824+00:00",
+      "updated_at": "2026-04-04T03:48:20.446824+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T03:48:20.446824+00:00",
+        "access_count": 0
+      }
+    },
+    "db9c6be5da59": {
+      "id": "db9c6be5da59",
+      "type": "fact",
+      "key": "PUSH_TO_GITHUB_3",
+      "fact": {
+        "rule": "\n$CurrentBranch = git branch --show-current\nif ($CurrentBranch -ne \"feat/add-hooks-ia-knowledge\") {\n    Write-Error-Custom \"Rama incorrecta: $CurrentBranch\"\n    Write-Host \"Debes estar en: feat/add-hooks-ia-knowledge\"\n    exit 1\n}\nWrite-Success \"Rama correcta: $CurrentBranch\"\n\n# Mostrar commit pendiente\nWrite-Step 3 \"Verificar commit pendiente...\"\n$Commits = git log origin/main..feat/add-hooks-ia-knowledge --oneline | Measure-Object | Select-Object -ExpandProperty Count\nif ($Commits -eq 0) {\n    Write-Error-Custom \"No hay commits para pushear\"\n    exit 1\n}\nWrite-Success \"Commits pendientes: $Commits\"\ngit log origin/main..feat/add-hooks-ia-knowledge --oneline | ForEach-Object { Write-Host \"  $_\" }\n\n# ============================================================================\n",
+        "applies_to": "tmp",
+        "source": "C:\\tmp\\Motor-Fusion\\PUSH_TO_GITHUB.ps1",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "powershell",
+        "ps1"
+      ],
+      "created_at": "2026-04-04T03:48:20.493542+00:00",
+      "updated_at": "2026-04-04T03:48:20.493542+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T03:48:20.493542+00:00",
+        "access_count": 0
+      }
+    },
+    "c3e75f6f9208": {
+      "id": "c3e75f6f9208",
+      "type": "fact",
+      "key": "PUSH_TO_GITHUB_4",
+      "fact": {
+        "rule": "Write-Host \"  $_\" }\n\n# ============================================================================\n# SOLICITAR INFORMACIÓN DEL USUARIO\n# ============================================================================\n\nWrite-Host \"\"\nWrite-Host \"╔════════════════════════════════════════════════════════════════════╗\" -ForegroundColor $Yellow\nWrite-Host \"║ INFORMACIÓN NECESARIA                                              ║\" -ForegroundColor $Yellow\nWrite-Host \"╚════════════════════════════════════════════════════════════════════╝\" -ForegroundColor $Yellow\nWrite-Host \"\"\n\n# Solicitar usuario de GitHub\nWrite-Host \"¿Tienes tu fork de Motor-Fusion creado?\" -ForegroundColor $Yellow\nWrite-Host \"Si NO, ve a: https://github.com/Netocool2006/Motor-Fusion\"\n",
+        "applies_to": "tmp",
+        "source": "C:\\tmp\\Motor-Fusion\\PUSH_TO_GITHUB.ps1",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "powershell",
+        "ps1"
+      ],
+      "created_at": "2026-04-04T03:48:20.547032+00:00",
+      "updated_at": "2026-04-04T03:48:20.547032+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T03:48:20.547032+00:00",
+        "access_count": 0
+      }
+    },
+    "a3a1fc81a8d7": {
+      "id": "a3a1fc81a8d7",
+      "type": "fact",
+      "key": "PUSH_TO_GITHUB_5",
+      "fact": {
+        "rule": "o?\" -ForegroundColor $Yellow\nWrite-Host \"Si NO, ve a: https://github.com/Netocool2006/Motor-Fusion\"\nWrite-Host \"Y haz click en el botón 'Fork' (arriba a la derecha)\"\nWrite-Host \"\"\n\n$GitHubUser = Read-Host \"Ingresa tu usuario de GitHub\"\nif ([string]::IsNullOrWhiteSpace($GitHubUser)) {\n    Write-Error-Custom \"Usuario de GitHub requerido\"\n    exit 1\n}\nWrite-Success \"Usuario: $GitHubUser\"\n\n# Solicitar token\nWrite-Host \"\"\nWrite-Host \"Necesitas un GitHub Token para hacer push\" -ForegroundColor $Yellow\nWrite-Host \"Si no lo tienes:\" -ForegroundColor $Yellow\nWrite-Host \"  1. Ve a: https://github.com/settings/tokens\"\nWrite-Host \"  2. Click 'Generate new token (classic)'\"\nWrite-Host \"  3. Permisos: repo + workflow\"\nWrite-Host \"  4. COPIA el token (no se vuelve a mostrar)\"\nWrite-Host \"\"\n\n",
+        "applies_to": "tmp",
+        "source": "C:\\tmp\\Motor-Fusion\\PUSH_TO_GITHUB.ps1",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "powershell",
+        "ps1"
+      ],
+      "created_at": "2026-04-04T03:48:20.607824+00:00",
+      "updated_at": "2026-04-04T03:48:20.607824+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T03:48:20.607824+00:00",
+        "access_count": 0
+      }
+    },
+    "52f30ded9b4d": {
+      "id": "52f30ded9b4d",
+      "type": "fact",
+      "key": "PUSH_TO_GITHUB_6",
+      "fact": {
+        "rule": "Permisos: repo + workflow\"\nWrite-Host \"  4. COPIA el token (no se vuelve a mostrar)\"\nWrite-Host \"\"\n\n$GitHubToken = Read-Host \"Ingresa tu GitHub Token\" -AsSecureString\nif ($null -eq $GitHubToken) {\n    Write-Error-Custom \"Token requerido\"\n    exit 1\n}\n\n# Convertir token a plaintext para git\n$Token = [System.Runtime.InteropServices.Marshal]::PtrToStringAuto(\n    [System.Runtime.InteropServices.Marshal]::SecureStringToCoTaskMemUnicode($GitHubToken)\n)\n\nWrite-Success \"Token ingresado\"\n\n# ============================================================================\n# PASO 1: AGREGAR REMOTE\n# ============================================================================\n\nWrite-Host \"\"\nWrite-Step 4 \"Agregar remote origin-fork...\"\n\n$ForkURL = \"https://github.com/$GitHubUser/Motor-Fusion.git\"\n",
+        "applies_to": "tmp",
+        "source": "C:\\tmp\\Motor-Fusion\\PUSH_TO_GITHUB.ps1",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "powershell",
+        "ps1"
+      ],
+      "created_at": "2026-04-04T03:48:20.674198+00:00",
+      "updated_at": "2026-04-04T03:48:20.674198+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T03:48:20.674198+00:00",
+        "access_count": 0
+      }
+    },
+    "4bdaec5979fe": {
+      "id": "4bdaec5979fe",
+      "type": "fact",
+      "key": "PUSH_TO_GITHUB_7",
+      "fact": {
+        "rule": "tep 4 \"Agregar remote origin-fork...\"\n\n$ForkURL = \"https://github.com/$GitHubUser/Motor-Fusion.git\"\nWrite-Host \"URL: $ForkURL\"\n\n# Verificar si ya existe\n$ExistingRemote = git remote | Select-String \"origin-fork\"\nif ($ExistingRemote) {\n    Write-Warning-Custom \"Remote origin-fork ya",
+        "applies_to": "tmp",
+        "source": "C:\\tmp\\Motor-Fusion\\PUSH_TO_GITHUB.ps1",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "powershell",
+        "ps1"
+      ],
+      "created_at": "2026-04-04T03:48:20.724027+00:00",
+      "updated_at": "2026-04-04T03:48:20.724027+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T03:48:20.724027+00:00",
+        "access_count": 0
+      }
+    },
+    "97a19f4eb324": {
+      "id": "97a19f4eb324",
+      "type": "fact",
+      "key": "aprendizajes_raw_0",
+      "fact": {
+        "rule": "[\n  {\n    \"titulo\": \"Formula BOM a Propuesta Economica SOW Bantrab Remesas\",\n    \"dominio\": \"bom\",\n    \"contenido\": \"Fórmula verificada para SOW v1.0 Bantrab Portal Remesas (Opp 241849): 1) Sumar horas*tarifa por recurso del BOM (Precio Venta = $47,109.50). 2) Aplicar Incremento 10% por recurso individual ($52,343.89). 3) Aplicar IVA 12% ($58,625.16). 4) Multiplicar por TC 7.90 = Q463,138.76. El Comercial v3.0 usa Q535,820.56 pero el BOM adjunto NO llega a ese número — indica que existe un BOM actualizado v3.0 no proporcionado, o se ajustó TC/markup. INCONSISTENCIA detectada en Comercial v3.0: la tabla de Propuesta Económica dice Q535,820.56 pero la sección Precio en T&C dice Q599,148.20. ",
+        "applies_to": "tmp",
+        "source": "C:\\tmp\\aprendizajes_raw.json",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "json",
+        "json"
+      ],
+      "created_at": "2026-04-04T03:48:20.781353+00:00",
+      "updated_at": "2026-04-04T03:48:20.781353+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T03:48:20.781353+00:00",
+        "access_count": 0
+      }
+    },
+    "a0d414a5e46d": {
+      "id": "a0d414a5e46d",
+      "type": "fact",
+      "key": "aprendizajes_raw_1",
+      "fact": {
+        "rule": "0: la tabla de Propuesta Económica dice Q535,820.56 pero la sección Precio en T&C dice Q599,148.20. Nota: la hoja Gastos de Viaje del BOM es de OTRO proyecto (Banco Industrial, Opp 221563), no de Bantrab Remesas.\",\n    \"tags\": [\n      \"bantrab\",\n      \"remesas\",\n      \"propuesta_economica\",\n      \"formula\",\n      \"bom\",\n      \"tc\",\n      \"inconsistencia\"\n    ],\n    \"fecha\": \"2026-03-23 10:47\"\n  },\n  {\n    \"titulo\": \"Formula BOM v2.0 a Propuesta Economica Bantrab Remesas Q535820\",\n    \"dominio\": \"bom\",\n    \"contenido\": \"BOM v2.0 Bantrab Remesas (Opp 241849): Duración 3.5 meses (vs 2.5 en v1.0). Recursos: 1600hrs L2A, 112hrs L3A, 140hrs L3B, 80hrs DEV_L1 (UX/UI nuevo), 3.91hrs ADVISOR_L4. Total Venta USD = $60,944.10. ",
+        "applies_to": "tmp",
+        "source": "C:\\tmp\\aprendizajes_raw.json",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "json",
+        "json"
+      ],
+      "created_at": "2026-04-04T03:48:20.830933+00:00",
+      "updated_at": "2026-04-04T03:48:20.830933+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T03:48:20.830933+00:00",
+        "access_count": 0
+      }
+    },
+    "5d2c886cf514": {
+      "id": "5d2c886cf514",
+      "type": "fact",
+      "key": "aprendizajes_raw_2",
+      "fact": {
+        "rule": "2hrs L3A, 140hrs L3B, 80hrs DEV_L1 (UX/UI nuevo), 3.91hrs ADVISOR_L4. Total Venta USD = $60,944.10. El monto Q535,820.56 del Comercial v3.0 se calcula: $60,944.10 × TC 7.85 × IVA 1.12 = Q535,820.56 (Precio Venta SIN incremento 10%, TC 7.85 en vez del 7.90 del BOM). El monto Q599,148.20 en T&C del mismo comercial sale de: Incremento 10% + IVA [Q] del BOM v2.0 con TC 7.90. INCONSISTENCIA: el mismo documento comercial v3.0 tiene dos montos diferentes — Q535,820.56 en la tabla y Q599,148.20 en Precio de T&C — que usan criterios distintos (TC y markup).\",\n    \"tags\": [\n      \"bantrab\",\n      \"remesas\",\n      \"bom_v2\",\n      \"propuesta_economica\",\n      \"tc\",\n      \"inconsistencia\",\n      \"formula\"\n    ],\n    \"fecha\": \"2026-03-23 11:04\"\n  },\n  {\n",
+        "applies_to": "tmp",
+        "source": "C:\\tmp\\aprendizajes_raw.json",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "json",
+        "json"
+      ],
+      "created_at": "2026-04-04T03:48:20.900534+00:00",
+      "updated_at": "2026-04-04T03:48:20.900534+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T03:48:20.900534+00:00",
+        "access_count": 0
+      }
+    },
+    "d4f570a8d07b": {
+      "id": "d4f570a8d07b",
+      "type": "fact",
+      "key": "aprendizajes_raw_3",
+      "fact": {
+        "rule": "      \"tc\",\n      \"inconsistencia\",\n      \"formula\"\n    ],\n    \"fecha\": \"2026-03-23 11:04\"\n  },\n  {\n    \"titulo\": \"Formula BOM Modernizacion Web Core TC Bantrab Q1120811\",\n    \"dominio\": \"bom\",\n    \"contenido\": \"BOM Modernización Web Core TC (Bantrab, Opp 243425): Duración 6 meses, TC en BOM = 7.82. Total Venta USD = $114,732.75, Incr 10%+IVA USD = $142,778.53. La Propuesta Económica Q1,120,811.50 se calcula: $142,778.53 (Incremento 10% + IVA en USD) × TC 7.85 = Q1,120,811.50 (diferencia de centavos por redondeo). En este caso SÍ se aplicó el incremento 10% (a diferencia de Remesas que NO lo aplicó). El comercial Web Core TC es CONSISTENTE internamente: tanto la tabla como la sección Precio dicen Q1,120,811.50. ",
+        "applies_to": "tmp",
+        "source": "C:\\tmp\\aprendizajes_raw.json",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "json",
+        "json"
+      ],
+      "created_at": "2026-04-04T03:48:20.961534+00:00",
+      "updated_at": "2026-04-04T03:48:20.961534+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T03:48:20.961534+00:00",
+        "access_count": 0
+      }
+    },
+    "cee0121e9ff0": {
+      "id": "cee0121e9ff0",
+      "type": "fact",
+      "key": "aprendizajes_raw_4",
+      "fact": {
+        "rule": "Web Core TC es CONSISTENTE internamente: tanto la tabla como la sección Precio dicen Q1,120,811.50. PATRÓN CLAVE: ambas propuestas Bantrab usan TC 7.85 para la conversión final a quetzales, independientemente del TC parametrizado en el BOM (7.90 en Remesas, 7.82 en Web Core).\",\n    \"tags\": [\n      \"bantrab\",\n      \"web_core_tc\",\n      \"propuesta_economica\",\n      \"formula\",\n      \"tc\",\n      \"patron\"\n    ],\n    \"fecha\": \"2026-03-23 11:20\"\n  },\n  {\n    \"titulo\": \"APIs LLM gratuitas en la nube 2026\",\n    \"dominio\": \"general\",\n    \"contenido\": \"Para usar modelos LLM en la nube sin pago, las mejores opciones gratuitas son: 1) Google AI Studio (Gemini 2.5 Pro/Flash) - el más inteligente gratis, 1M tokens contexto, API key con cuenta Google. ",
+        "applies_to": "tmp",
+        "source": "C:\\tmp\\aprendizajes_raw.json",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "json",
+        "json"
+      ],
+      "created_at": "2026-04-04T03:48:21.016231+00:00",
+      "updated_at": "2026-04-04T03:48:21.016231+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T03:48:21.016231+00:00",
+        "access_count": 0
+      }
+    },
+    "9c8010f1933c": {
+      "id": "9c8010f1933c",
+      "type": "fact",
+      "key": "aprendizajes_raw_5",
+      "fact": {
+        "rule": " (Gemini 2.5 Pro/Flash) - el más inteligente gratis, 1M tokens contexto, API key con cuenta Google. 2) Cerebras (Qwen3 235B, Llama 3.3 70B) - 30 RPM, 1M tokens/día, sin tarjeta. 3) Groq - inferencia ultra-rápida, Llama 3.3 70B, 14400 req/día. 4) SambaNova - Llama hasta 405B, free tier persistente. 5) OpenRouter - agregador multi-modelo. 6) Cohere - Command R+ gratis para RAG. Todos son compatibles con formato OpenAI API, se pueden conectar a Open WebUI cambiando base_url y API key.\",\n    \"tags\": [\n      \"llm\",\n      \"api\",\n      \"gratis\",\n      \"nube\",\n      \"inferencia\",\n      \"gemini\",\n      \"groq\",\n      \"cerebras\"\n    ],\n    \"fecha\": \"2026-03-23 15:26\"\n  },\n  {\n    \"titulo\": \"PROHIBIDO matar python.exe global al reiniciar dashboard\",\n    \"dominio\": \"business_rules\",\n",
+        "applies_to": "tmp",
+        "source": "C:\\tmp\\aprendizajes_raw.json",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "json",
+        "json"
+      ],
+      "created_at": "2026-04-04T03:48:21.074097+00:00",
+      "updated_at": "2026-04-04T03:48:21.074097+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T03:48:21.074097+00:00",
+        "access_count": 0
+      }
+    },
+    "e0c553cffd2a": {
+      "id": "e0c553cffd2a",
+      "type": "fact",
+      "key": "aprendizajes_raw_6",
+      "fact": {
+        "rule": "tulo\": \"PROHIBIDO matar python.exe global al reiniciar dashboard\",\n    \"dominio\": \"business_rules\",\n    \"contenido\": \"REGLA DE ORO — NUNCA violar en este hilo:\\n\\nAl reiniciar el servidor dashboard.py (Flask), está TOTALMENTE PROHIBIDO usar:\\n  taskkill /F /IM python.exe /T\\n\\nRazón: este comando mata TODOS los procesos Python del sistema, incluyendo instancias críticas que deben seguir corriendo (ej: gbm-kb MCP server, otros servicios activos).\\n\\nMÉTODO CORRECTO para reiniciar dashboard.py:\\n1. Identificar el PID específico de dashboard.py:\\n   wmic process where \\\"commandline like '%dashboard.py%'\\\" get processid\\n2. Matar SOLO ese PID:\\n   taskkill /F /PID <pid_de_dashboard>\\n3. ",
+        "applies_to": "tmp",
+        "source": "C:\\tmp\\aprendizajes_raw.json",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "json",
+        "json"
+      ],
+      "created_at": "2026-04-04T03:48:21.135199+00:00",
+      "updated_at": "2026-04-04T03:48:21.135199+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T03:48:21.135199+00:00",
+        "access_count": 0
+      }
+    },
+    "1dabde8d6f6a": {
+      "id": "1dabde8d6f6a",
+      "type": "fact",
+      "key": "aprendizajes_raw_7",
+      "fact": {
+        "rule": "%dashboard.py%'\\\" get processid\\n2. Matar SOLO ese PID:\\n   taskkill /F /PID <pid_de_dashboard>\\n3. Luego iniciar el nuevo proceso.\\n\\nPIDs que estuvieron activos y NO debían matarse (referencia histórica):\\n  - PID 18916\\n  - PID 18056 (dos instancias que el usuario tenía corriendo)\\n\\nALTERNATIVA SEGURA — script de restart dedicado:\\n  python C:\\\\Chance1\\\\Buscador_IA\\\\restart_dashboard.py\\n  (si existe — mata solo dashboard.py, no otros python.exe)\",\n    \"tags\": [\n      \"regla_oro\",\n      \"dashboard\",\n      \"restart\",\n      \"python\",\n      \"taskkill\",\n      \"prohibido\",\n      \"",
+        "applies_to": "tmp",
+        "source": "C:\\tmp\\aprendizajes_raw.json",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "json",
+        "json"
+      ],
+      "created_at": "2026-04-04T03:48:21.197582+00:00",
+      "updated_at": "2026-04-04T03:48:21.197582+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T03:48:21.197582+00:00",
+        "access_count": 0
+      }
+    },
+    "b0e489fabff3": {
+      "id": "b0e489fabff3",
+      "type": "fact",
+      "key": "QUICK_PUSH_0",
+      "fact": {
+        "rule": "# ============================================================================\n# QUICK PUSH - Versión rápida si ya tienes fork + token\n# ============================================================================\n# Uso: powershell -ExecutionPolicy Bypass -File QUICK_PUSH.ps1\n#\n# Requisitos previos:\n#   • Fork creado en GitHub: https://github.com/TU_USUARIO/Motor-Fusion\n#   • Token generado: https://github.com/settings/tokens\n# ============================================================================\n\nparam(\n    [string]$GitHubUser = \"\",\n    [string]$GitHubToken = \"\"\n)\n\n$ErrorActionPreference = \"Stop\"\n\n# ============================================================================\n# VALIDACIÓN\n# ============================================================================\n\n",
+        "applies_to": "tmp",
+        "source": "C:\\tmp\\Motor-Fusion\\QUICK_PUSH.ps1",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "powershell",
+        "ps1"
+      ],
+      "created_at": "2026-04-04T03:48:21.257164+00:00",
+      "updated_at": "2026-04-04T03:48:21.257164+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T03:48:21.257164+00:00",
+        "access_count": 0
+      }
+    },
+    "a0eca31b7ce4": {
+      "id": "a0eca31b7ce4",
+      "type": "fact",
+      "key": "QUICK_PUSH_1",
+      "fact": {
+        "rule": "======\n# VALIDACIÓN\n# ============================================================================\n\nWrite-Host \"╔════════════════════════════════════════════════════════════════════╗\" -ForegroundColor Cyan\nWrite-Host \"║ QUICK PUSH - Motor-Fusion Knowledge Base Upload                   ║\" -ForegroundColor Cyan\nWrite-Host \"╚════════════════════════════════════════════════════════════════════╝\" -ForegroundColor Cyan\nWrite-Host \"\"\n\nif (-not (Test-Path \".git\")) {\n    Write-Host \"ERROR: No estás en /tmp/Motor-Fusion\" -ForegroundColor Red\n    exit 1\n}\n\n# Si no se proporcionan parámetros, solicitar\nif ([string]::IsNullOrWhiteSpace($GitHubUser)) {\n    $GitHubUser = Read-Host \"Ingresa tu usuario de GitHub\"\n}\n\nif ([string]::IsNullOrWhiteSpace($GitHubToken)) {\n",
+        "applies_to": "tmp",
+        "source": "C:\\tmp\\Motor-Fusion\\QUICK_PUSH.ps1",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "powershell",
+        "ps1"
+      ],
+      "created_at": "2026-04-04T03:48:21.312105+00:00",
+      "updated_at": "2026-04-04T03:48:21.312105+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T03:48:21.312105+00:00",
+        "access_count": 0
+      }
+    },
+    "b92a905d44ef": {
+      "id": "b92a905d44ef",
+      "type": "fact",
+      "key": "QUICK_PUSH_2",
+      "fact": {
+        "rule": "ser = Read-Host \"Ingresa tu usuario de GitHub\"\n}\n\nif ([string]::IsNullOrWhiteSpace($GitHubToken)) {\n    Write-Host \"Ingresa tu GitHub Token (se ocultará mientras escribes):\"\n    $SecureToken = Read-Host -AsSecureString\n    $GitHubToken = [System.Runtime.InteropServices.Marshal]::PtrToStringAuto(\n        [System.Runtime.InteropServices.Marshal]::SecureStringToCoTaskMemUnicode($SecureToken)\n    )\n}\n\nWrite-Host \"\"\nWrite-Host \"Usuario: $GitHubUser\" -ForegroundColor Green\nWrite-Host \"Token: ****\" -ForegroundColor Green\nWrite-Host \"\"\n\n# ============================================================================\n# PUSH\n# ============================================================================\n\nWrite-Host \"Pasos:\" -ForegroundColor Cyan\nWrite-Host \"  1. Agregar remote origin-fork\"\n",
+        "applies_to": "tmp",
+        "source": "C:\\tmp\\Motor-Fusion\\QUICK_PUSH.ps1",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "powershell",
+        "ps1"
+      ],
+      "created_at": "2026-04-04T03:48:21.366717+00:00",
+      "updated_at": "2026-04-04T03:48:21.366717+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T03:48:21.366717+00:00",
+        "access_count": 0
+      }
+    },
+    "cfb577d05967": {
+      "id": "cfb577d05967",
+      "type": "fact",
+      "key": "QUICK_PUSH_3",
+      "fact": {
+        "rule": "===========\n\nWrite-Host \"Pasos:\" -ForegroundColor Cyan\nWrite-Host \"  1. Agregar remote origin-fork\"\nWrite-Host \"  2. Hacer push a origin-fork\"\nWrite-Host \"  3. Mostrar instrucciones para PR\"\nWrite-Host \"\"\n\n# Remover remote si existe\ngit remote remove origin-fork 2>$null\n\n# Agregar remote\nWrite-Host \"1. Agregando remote...\" -ForegroundColor Yellow\n$ForkURL = \"https://github.com/$GitHubUser/Motor-Fusion.git\"\ngit remote add origin-fork $ForkURL\nif ($LASTEXITCODE -ne 0) {\n    Write-Host \"ERROR: Fallo al agregar remote\" -ForegroundColor Red\n    exit 1\n}\nWrite-Host \"   ✓ Remote agregado: $ForkURL\" -ForegroundColor Green\n\n# Hacer push\nWrite-Host \"\"\nWrite-Host \"2. Haciendo push (esto puede tomar 1-2 minutos)...\" -ForegroundColor Yellow\n\n$Env:GIT_ASKPASS = \"powershell.exe\"\n",
+        "applies_to": "tmp",
+        "source": "C:\\tmp\\Motor-Fusion\\QUICK_PUSH.ps1",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "powershell",
+        "ps1"
+      ],
+      "created_at": "2026-04-04T03:48:21.420722+00:00",
+      "updated_at": "2026-04-04T03:48:21.420722+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T03:48:21.420722+00:00",
+        "access_count": 0
+      }
+    },
+    "d3636c0299cf": {
+      "id": "d3636c0299cf",
+      "type": "fact",
+      "key": "QUICK_PUSH_4",
+      "fact": {
+        "rule": "ush (esto puede tomar 1-2 minutos)...\" -ForegroundColor Yellow\n\n$Env:GIT_ASKPASS = \"powershell.exe\"\n$Env:GIT_ASKPASS_RESULT = $GitHubToken\n\ntry {\n    git push origin-fork feat/add-hooks-ia-knowledge 2>&1 | ForEach-Object {\n        Write-Host $_\n    }\n\n    if ($LASTEXITCODE -eq 0) {\n        Write-Host \"   ✓ Push completado\" -ForegroundColor Green\n    } else {\n        Write-Host \"   ✗ Error en push\" -ForegroundColor Red\n        exit 1\n    }\n} finally {\n    Remove-Item Env:GIT_ASKPASS -ErrorAction SilentlyContinue\n    Remove-Item Env:GIT_ASKPASS_RESULT -ErrorAction SilentlyContinue\n}\n\n# ============================================================================\n# INSTRUCCIONES PARA PR\n# ============================================================================\n\nWrite-Host \"\"\n",
+        "applies_to": "tmp",
+        "source": "C:\\tmp\\Motor-Fusion\\QUICK_PUSH.ps1",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "powershell",
+        "ps1"
+      ],
+      "created_at": "2026-04-04T03:48:21.477912+00:00",
+      "updated_at": "2026-04-04T03:48:21.477912+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T03:48:21.477912+00:00",
+        "access_count": 0
+      }
+    },
+    "47ba06b576ca": {
+      "id": "47ba06b576ca",
+      "type": "fact",
+      "key": "QUICK_PUSH_5",
+      "fact": {
+        "rule": "RA PR\n# ============================================================================\n\nWrite-Host \"\"\nWrite-Host \"╔════════════════════════════════════════════════════════════════════╗\" -ForegroundColor Green\nWrite-Host \"║ CREAR PULL REQUEST                                                 ║\" -ForegroundColor Green\nWrite-Host \"╚════════════════════════════════════════════════════════════════════╝\" -ForegroundColor Green\nWrite-Host \"\"\n\nWrite-Host \"3. Abre tu navegador y ve a:\" -ForegroundColor Cyan\nWrite-Host \"   https://github.com/$GitHubUser/Motor-Fusion\"\nWrite-Host \"\"\n\nWrite-Host \"4. GitHub mostrará un banner: 'Compare & pull request'\" -ForegroundColor Cyan\nWrite-Host \"   Click en ese botón\"\nWrite-Host \"\"\n\nWrite-Host \"5. Rellena el PR:\" -ForegroundColor Cyan\nWrite-Host \"\"\n",
+        "applies_to": "tmp",
+        "source": "C:\\tmp\\Motor-Fusion\\QUICK_PUSH.ps1",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "powershell",
+        "ps1"
+      ],
+      "created_at": "2026-04-04T03:48:21.524201+00:00",
+      "updated_at": "2026-04-04T03:48:21.524201+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T03:48:21.524201+00:00",
+        "access_count": 0
+      }
+    },
+    "66fb4e595540": {
+      "id": "66fb4e595540",
+      "type": "fact",
+      "key": "QUICK_PUSH_6",
+      "fact": {
+        "rule": "ick en ese botón\"\nWrite-Host \"\"\n\nWrite-Host \"5. Rellena el PR:\" -ForegroundColor Cyan\nWrite-Host \"\"\nWrite-Host \"   Título:\"\nWrite-Host \"   feat: add accumulated knowledge base from Hooks_IA\"\nWrite-Host \"\"\nWrite-Host \"   Descripción (copia-pega):\"\nWrite-Host \"\"\n\n$Desc = @\"\n## Descripción\nAgregando base de conocimiento acumulada de producción local (Hooks_IA).\n\n## Contenido\n- 24 dominios de conocimiento\n- 8.5 MB de patrones y facts\n- 209,357 líneas de datos validados\n\n## Dominios principales\n- sap_tierra: SAP CRM automation (938 KB)\n- outlook: Email integration (270 KB)\n- files: File operations (5.1 MB)\n- sessions: Session memory (657 KB)\n- Y 20 dominios más\n\n## Status\n- ✓ Incremental (no sobrescribe)\n- ✓ 100% compatible\n- ✓ JSON validado\n\"@\n\nWrite-Host $Desc -ForegroundColor Cyan\n",
+        "applies_to": "tmp",
+        "source": "C:\\tmp\\Motor-Fusion\\QUICK_PUSH.ps1",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "powershell",
+        "ps1"
+      ],
+      "created_at": "2026-04-04T03:48:21.573930+00:00",
+      "updated_at": "2026-04-04T03:48:21.573930+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T03:48:21.573930+00:00",
+        "access_count": 0
+      }
+    },
+    "8bf3c209172e": {
+      "id": "8bf3c209172e",
+      "type": "fact",
+      "key": "QUICK_PUSH_7",
+      "fact": {
+        "rule": "l (no sobrescribe)\n- ✓ 100% compatible\n- ✓ JSON validado\n\"@\n\nWrite-Host $Desc -ForegroundColor Cyan\nWrite-Host \"\"\n\nWrite-Host \"6. Click: 'Create pull request'\" -ForegroundColor Cyan\nWrite-Host \"\"\n\n# ====================================",
+        "applies_to": "tmp",
+        "source": "C:\\tmp\\Motor-Fusion\\QUICK_PUSH.ps1",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "powershell",
+        "ps1"
+      ],
+      "created_at": "2026-04-04T03:48:21.623182+00:00",
+      "updated_at": "2026-04-04T03:48:21.623182+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T03:48:21.623182+00:00",
+        "access_count": 0
+      }
+    },
+    "e1064f36dcb2": {
+      "id": "e1064f36dcb2",
+      "type": "fact",
+      "key": "README_OPERACION_0",
+      "fact": {
+        "rule": "# 📦 Operación: Upload KB Hooks_IA a Motor-Fusion\n\n## ✅ Estado Actual\n\n```\nRepositorio: /tmp/Motor-Fusion\nRama actual: feat/add-hooks-ia-knowledge\nStatus: GIT READY (sin cambios pendientes)\nBackup: ✓ backup_master_preupload\n```\n\n---\n\n## 📋 Lo que se hizo (Automático - YA COMPLETADO)\n\n```\n✓ PASO 1: Clonado https://github.com/Netocool2006/Motor-Fusion\n✓ PASO 2: Creado backup de master → backup_master_preupload\n✓ PASO 3: Creada rama → feat/add-hooks-ia-knowledge\n✓ PASO 4: Copiados 24 dominios KB desde /c/Hooks_IA/knowledge/\n✓ PASO 5: Agregados 62 archivos (209,357 líneas)\n✓ PASO 6: Commit realizado con mensaje descriptivo\n✓ PASO 7: Working tree CLEAN (listo para push)\n```\n\n---\n\n## 🚀 Próximos Pasos (MANUAL - Requieren tu GitHub)\n\n### PASO A: Crear Fork en GitHub (2 minutos)\n\n1. ",
+        "applies_to": "tmp",
+        "source": "C:\\tmp\\Motor-Fusion\\README_OPERACION.md",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "md"
+      ],
+      "created_at": "2026-04-04T03:48:21.678763+00:00",
+      "updated_at": "2026-04-04T03:48:21.678763+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T03:48:21.678763+00:00",
+        "access_count": 0
+      }
+    },
+    "37c8fcdc8a16": {
+      "id": "37c8fcdc8a16",
+      "type": "fact",
+      "key": "README_OPERACION_1",
+      "fact": {
+        "rule": "# 🚀 Próximos Pasos (MANUAL - Requieren tu GitHub)\n\n### PASO A: Crear Fork en GitHub (2 minutos)\n\n1. Ve a: https://github.com/Netocool2006/Motor-Fusion\n2. Click **Fork** (arriba a la derecha)\n3. GitHub crea tu copia: `https://github.com/TU_USUARIO/Motor-Fusion`\n\n---\n\n### PASO B: Preparar credenciales GitHub (2 minutos)\n\n**Opción 1: Si tienes token** (recomendado)\n- Salta al PASO C\n\n**Opción 2: Si no tienes token**\n1. Ve a: https://github.com/settings/tokens\n2. Click **Generate new token** → **Generate new token (classic)**\n3. Name: `Motor-Fusion-Upload`\n4. Expiration: 30 days\n5. Select scopes: `repo` + `workflow`\n6. Click **Generate token**\n7. **COPIA EL TOKEN** (no se vuelve a mostrar)\n\n---\n\n### PASO C: Hacer Push a tu Fork (2 minutos)\n\n```bash\n# 1. Navega a la carpeta\n",
+        "applies_to": "tmp",
+        "source": "C:\\tmp\\Motor-Fusion\\README_OPERACION.md",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "md"
+      ],
+      "created_at": "2026-04-04T03:48:21.733821+00:00",
+      "updated_at": "2026-04-04T03:48:21.733821+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T03:48:21.733821+00:00",
+        "access_count": 0
+      }
+    },
+    "6fdfba59e07b": {
+      "id": "6fdfba59e07b",
+      "type": "fact",
+      "key": "README_OPERACION_2",
+      "fact": {
+        "rule": "lve a mostrar)\n\n---\n\n### PASO C: Hacer Push a tu Fork (2 minutos)\n\n```bash\n# 1. Navega a la carpeta\ncd /tmp/Motor-Fusion\n\n# 2. Agrega tu fork como remote (reemplaza TU_USUARIO)\ngit remote add origin-fork https://github.com/TU_USUARIO/Motor-Fusion.git\n\n# 3. Haz push de la rama feature\ngit push origin-fork feat/add-hooks-ia-knowledge\n\n# 4. Ingresa credenciales cuando te pida:\n#    Username: TU_USUARIO\n#    Password: Tu TOKEN (del PASO B)\n```\n\n**Resultado esperado:**\n```\nEnumerating objects: ...\nCounting objects: ...\nCompressing objects: ...\nWriting objects: ...\nremote: Create a pull request for 'feat/add-hooks-ia-knowledge'\n```\n\n---\n\n### PASO D: Crear Pull Request (3 minutos)\n\n1. Ve a tu fork: `https://github.com/TU_USUARIO/Motor-Fusion`\n2. ",
+        "applies_to": "tmp",
+        "source": "C:\\tmp\\Motor-Fusion\\README_OPERACION.md",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "md"
+      ],
+      "created_at": "2026-04-04T03:48:21.794089+00:00",
+      "updated_at": "2026-04-04T03:48:21.794089+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T03:48:21.794089+00:00",
+        "access_count": 0
+      }
+    },
+    "0b29f74d7ea2": {
+      "id": "0b29f74d7ea2",
+      "type": "fact",
+      "key": "README_OPERACION_3",
+      "fact": {
+        "rule": "D: Crear Pull Request (3 minutos)\n\n1. Ve a tu fork: `https://github.com/TU_USUARIO/Motor-Fusion`\n2. GitHub mostrará un banner dorado con **\"Compare & pull request\"** → **Click**\n3. Rellena la información:\n\n```\nTítulo:\nfeat: add accumulated knowledge base from Hooks_IA\n\nDescripción:\n## Descripción\nAgregando base de conocimiento acumulada de producción local (Hooks_IA).\n\n## Contenido\n- 24 dominios de conocimiento\n- 8.5 MB de patrones y facts\n- 209,357 líneas de datos validados\n\n## Dominios principales\n- sap_tierra: SAP CRM automation (938 KB)\n- outlook: Email integration (270 KB)\n- files: File operations (5.1 MB)\n- sessions: Session memory (657 KB)\n- Y 20 dominios más\n\n## Status\n- ✓ Incremental (no sobrescribe datos)\n- ✓ 100% compatible con Motor-Fusion\n- ✓ JSON validado\n",
+        "applies_to": "tmp",
+        "source": "C:\\tmp\\Motor-Fusion\\README_OPERACION.md",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "md"
+      ],
+      "created_at": "2026-04-04T03:48:21.845339+00:00",
+      "updated_at": "2026-04-04T03:48:21.845339+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T03:48:21.845339+00:00",
+        "access_count": 0
+      }
+    },
+    "deff39227fed": {
+      "id": "deff39227fed",
+      "type": "fact",
+      "key": "README_OPERACION_4",
+      "fact": {
+        "rule": "tatus\n- ✓ Incremental (no sobrescribe datos)\n- ✓ 100% compatible con Motor-Fusion\n- ✓ JSON validado\n- ✓ Listo para multi-CLI\n```\n\n4. Click **Create pull request**\n\n---\n\n### PASO E: Limpiar Backup (1 minuto)\n\nUna vez que el PR esté creado y se vea correcto:\n\n```bash\n# Desde /tmp/Motor-Fusion\ngit branch -d backup_master_preupload\n\n# Verifica que se eliminó\ngit branch -a | grep backup\n# Resultado: (vacío, sin coincidencias)\n```\n\n---\n\n## 🆘 Si hay PROBLEMAS\n\n### Problema: Push rechazado\n\n**Causa:** Credenciales incorrectas\n\n**Solución:**\n```bash\n# Intenta de nuevo\ngit push origin-fork feat/add-hooks-ia-knowledge\n\n# Si aún falla, reintenta con:\ngit config --global credential.helper store\ngit push origin-fork feat/add-hooks-ia-knowledge\n```\n\n---\n\n### Problema: \"Permission denied\"\n\n",
+        "applies_to": "tmp",
+        "source": "C:\\tmp\\Motor-Fusion\\README_OPERACION.md",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "md"
+      ],
+      "created_at": "2026-04-04T03:48:21.897841+00:00",
+      "updated_at": "2026-04-04T03:48:21.897841+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T03:48:21.897841+00:00",
+        "access_count": 0
+      }
+    },
+    "603a2fd59567": {
+      "id": "603a2fd59567",
+      "type": "fact",
+      "key": "README_OPERACION_5",
+      "fact": {
+        "rule": "store\ngit push origin-fork feat/add-hooks-ia-knowledge\n```\n\n---\n\n### Problema: \"Permission denied\"\n\n**Causa:** El fork no existe o no tienes acceso\n\n**Solución:**\n1. Verifica que creaste el fork en GitHub\n2. Verifica que la URL es correcta: `https://github.com/TU_USUARIO/Motor-Fusion`\n3. Re-agrega el remote:\n```bash\ngit remote remove origin-fork\ngit remote add origin-fork https://github.com/TU_USUARIO/Motor-Fusion.git\n```\n\n---\n\n### Problema: Necesito revertir\n\nSi algo sale mal ANTES de hacer push:\n\n```bash\n# Volver a master\ngit checkout backup_master_preupload\n\n# Verifica que estás en backup\ngit branch\n# Output: * backup_master_preupload\n```\n\nSi algo sale mal DESPUÉS de hacer push pero ANTES del PR:\n\n```bash\n# Desde /tmp/Motor-Fusion\ngit push origin-fork backup_master_preupload:main -f\n",
+        "applies_to": "tmp",
+        "source": "C:\\tmp\\Motor-Fusion\\README_OPERACION.md",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "md"
+      ],
+      "created_at": "2026-04-04T03:48:21.960373+00:00",
+      "updated_at": "2026-04-04T03:48:21.960373+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T03:48:21.960373+00:00",
+        "access_count": 0
+      }
+    },
+    "0cc37863ee64": {
+      "id": "0cc37863ee64",
+      "type": "fact",
+      "key": "README_OPERACION_6",
+      "fact": {
+        "rule": "TES del PR:\n\n```bash\n# Desde /tmp/Motor-Fusion\ngit push origin-fork backup_master_preupload:main -f\n# Esto reestablece tu fork al estado original\n```\n\nSi el PR ya está creado:\n\n```bash\n# Simplemente no hagas merge\n# Cierra el PR en GitHub (Close pull request)\n# Los datos originales están a salvo en backup_master_preupload\n```\n\n---\n\n## 📊 Verificación Rápida\n\nAntes de cada paso, verifica:\n\n```bash\n# Ver ramas\ngit branch -a\n\n# Ver remotes\ngit remote -v\n\n# Ver commits pendientes\ngit log origin/main..feat/add-hooks-ia-knowledge --oneline\n# Debe mostrar: 1 commit\n\n# Ver cambios\ngit diff origin/main...feat/add-hooks-ia-knowledge --stat | tail -3\n# Debe mostrar: 62 files changed, 209357 insertions(+)\n```\n\n---\n\n## 🎯 Checklist Final\n\n- [ ] Fork creado en GitHub\n",
+        "applies_to": "tmp",
+        "source": "C:\\tmp\\Motor-Fusion\\README_OPERACION.md",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "md"
+      ],
+      "created_at": "2026-04-04T03:48:22.017728+00:00",
+      "updated_at": "2026-04-04T03:48:22.017728+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T03:48:22.017728+00:00",
+        "access_count": 0
+      }
+    },
+    "2272b4b2c95b": {
+      "id": "2272b4b2c95b",
+      "type": "fact",
+      "key": "README_OPERACION_7",
+      "fact": {
+        "rule": " 62 files changed, 209357 insertions(+)\n```\n\n---\n\n## 🎯 Checklist Final\n\n- [ ] Fork creado en GitHub\n- [ ] Token de GitHub generado (si es necesario)\n- [ ] Remote origin-fork agregado: `git remote add origin-fork ...`\n- [ ] Push realizado: `git push origin-fork fea",
+        "applies_to": "tmp",
+        "source": "C:\\tmp\\Motor-Fusion\\README_OPERACION.md",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "md"
+      ],
+      "created_at": "2026-04-04T03:48:22.058940+00:00",
+      "updated_at": "2026-04-04T03:48:22.058940+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T03:48:22.058940+00:00",
+        "access_count": 0
+      }
+    },
+    "4f3d2f81a166": {
+      "id": "4f3d2f81a166",
+      "type": "fact",
+      "key": "SCRIPTS_README_0",
+      "fact": {
+        "rule": "# 🚀 Scripts PowerShell para Push a Motor-Fusion\n\nTres opciones para subir tu KB a Motor-Fusion:\n\n---\n\n## ✅ Opción 1: PUSH_TO_GITHUB.bat (RECOMENDADO - Más fácil)\n\n**Para Windows - Doble-click y sigue las instrucciones**\n\n```batch\nPUSH_TO_GITHUB.bat\n```\n\n### Qué hace:\n1. Solicita tu usuario de GitHub\n2. Solicita tu GitHub Token (se oculta mientras escribes)\n3. Agrega remote a tu fork\n4. Hace push automático\n5. Muestra instrucciones para crear el PR en GitHub\n6. Opcionalmente elimina el backup\n\n### Requisitos previos:\n- [ ] Fork creado: https://github.com/TU_USUARIO/Motor-Fusion\n- [ ] Token generado: https://github.com/settings/tokens\n\n---\n\n## 🚀 Opción 2: PUSH_TO_GITHUB.ps1 (Interactivo - Completo)\n\n**Para PowerShell - Más control y mensajes detallados**\n\n```powershell\n",
+        "applies_to": "tmp",
+        "source": "C:\\tmp\\Motor-Fusion\\SCRIPTS_README.md",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "md"
+      ],
+      "created_at": "2026-04-04T03:48:22.112844+00:00",
+      "updated_at": "2026-04-04T03:48:22.112844+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T03:48:22.112844+00:00",
+        "access_count": 0
+      }
+    },
+    "4adae1ba83b6": {
+      "id": "4adae1ba83b6",
+      "type": "fact",
+      "key": "SCRIPTS_README_1",
+      "fact": {
+        "rule": "s1 (Interactivo - Completo)\n\n**Para PowerShell - Más control y mensajes detallados**\n\n```powershell\n# Opción A: Doble-click desde el Explorador de archivos\n# (requiere ejecución de scripts habilitada)\n\n# Opción B: Desde PowerShell\nSet-ExecutionPolicy -ExecutionPolicy Bypass -Scope Process\n.\\PUSH_TO_GITHUB.ps1\n\n# Opción C: Desde cmd\npowershell -ExecutionPolicy Bypass -File PUSH_TO_GITHUB.ps1\n```\n\n### Qué hace (idéntico a .bat):\n1. ✓ Validaciones\n2. ✓ Solicita usuario y token\n3. ✓ Agrega remote\n4. ✓ Push automático\n5. ✓ Instrucciones para PR\n6. ✓ Limpiar backup\n\n### Ventajas:\n- Más control sobre el proceso\n- Mensajes detallados\n- Mejor para debugging\n\n---\n\n## ⚡ Opción 3: QUICK_PUSH.ps1 (Rápido - Si ya tienes todo)\n\n**Para PowerShell - Cuando ya tienes fork + token listos**\n\n```powershell\n",
+        "applies_to": "tmp",
+        "source": "C:\\tmp\\Motor-Fusion\\SCRIPTS_README.md",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "md"
+      ],
+      "created_at": "2026-04-04T03:48:22.172679+00:00",
+      "updated_at": "2026-04-04T03:48:22.172679+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T03:48:22.172679+00:00",
+        "access_count": 0
+      }
+    },
+    "d2d75fee8fca": {
+      "id": "d2d75fee8fca",
+      "type": "fact",
+      "key": "SCRIPTS_README_2",
+      "fact": {
+        "rule": "ido - Si ya tienes todo)\n\n**Para PowerShell - Cuando ya tienes fork + token listos**\n\n```powershell\n# Sin parámetros (solicita usuario y token)\n.\\QUICK_PUSH.ps1\n\n# Con parámetros (silencioso)\n.\\QUICK_PUSH.ps1 -GitHubUser \"tu_usuario\" -GitHubToken \"tu_token\"\n\n# Desde cmd\npowershell -ExecutionPolicy Bypass -File QUICK_PUSH.ps1\n```\n\n### Tiempo:\n- ~5 minutos total\n- Más rápido que las otras opciones\n\n---\n\n## 📋 Preparación Previa\n\nAntes de ejecutar cualquier script:\n\n### Paso 1: Crear Fork (1 minuto)\n```\n1. Ve a: https://github.com/Netocool2006/Motor-Fusion\n2. Click \"Fork\" (arriba a la derecha)\n3. Copia tu URL: https://github.com/TU_USUARIO/Motor-Fusion\n```\n\n### Paso 2: Generar Token (2 minutos)\n```\n1. Ve a: https://github.com/settings/tokens\n2. Click \"Generate new token (classic)\"\n3. ",
+        "applies_to": "tmp",
+        "source": "C:\\tmp\\Motor-Fusion\\SCRIPTS_README.md",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "md"
+      ],
+      "created_at": "2026-04-04T03:48:22.233735+00:00",
+      "updated_at": "2026-04-04T03:48:22.233735+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T03:48:22.233735+00:00",
+        "access_count": 0
+      }
+    },
+    "1c54c61c8005": {
+      "id": "1c54c61c8005",
+      "type": "fact",
+      "key": "SCRIPTS_README_3",
+      "fact": {
+        "rule": "minutos)\n```\n1. Ve a: https://github.com/settings/tokens\n2. Click \"Generate new token (classic)\"\n3. Name: Motor-Fusion-Upload\n4. Expiration: 30 days\n5. Scopes: repo + workflow\n6. Click \"Generate\"\n7. COPIA el token (no se vuelve a mostrar)\n```\n\n---\n\n## 🎯 Flujo Rápido\n\n```\n┌─────────────────────────────────────┐\n│ 1. PREPARACIÓN (3-5 minutos)        │\n│    • Fork creado                    │\n│    • Token generado y copiado       │\n└────────────┬────────────────────────┘\n             │\n             ▼\n┌─────────────────────────────────────┐\n│ 2. EJECUTAR SCRIPT (5 minutos)      │\n│    • Doble-click PUSH_TO_GITHUB.bat │\n│    • Ingresa usuario                │\n│    • Ingresa token                  │\n│    • Espera push                    │\n└────────────┬────────────────────────┘\n             │\n",
+        "applies_to": "tmp",
+        "source": "C:\\tmp\\Motor-Fusion\\SCRIPTS_README.md",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "md"
+      ],
+      "created_at": "2026-04-04T03:48:22.283702+00:00",
+      "updated_at": "2026-04-04T03:48:22.283702+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T03:48:22.283702+00:00",
+        "access_count": 0
+      }
+    },
+    "a910359de06d": {
+      "id": "a910359de06d",
+      "type": "fact",
+      "key": "SCRIPTS_README_4",
+      "fact": {
+        "rule": "   │\n│    • Espera push                    │\n└────────────┬────────────────────────┘\n             │\n             ▼\n┌─────────────────────────────────────┐\n│ 3. CREAR PR EN GITHUB (3 minutos)   │\n│    • Abre tu fork en navegador      │\n│    • Busca \"Compare & pull request\" │\n│    • Rellena título y descripción   │\n│    • Click \"Create\"                 │\n└────────────┬────────────────────────┘\n             │\n             ▼\n┌─────────────────────────────────────┐\n│ 4. LIMPIAR (1 minuto)               │\n│    • Script elimina backup          │\n│    • O manually: git branch -d...   │\n└─────────────────────────────────────┘\n\nTOTAL: ~15 minutos\n```\n\n---\n\n## ⚠️ Solución de Problemas\n\n### Script no se ejecuta\n\n**Error:** \"cannot be loaded because running scripts is disabled\"\n\n```powershell\n",
+        "applies_to": "tmp",
+        "source": "C:\\tmp\\Motor-Fusion\\SCRIPTS_README.md",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "md"
+      ],
+      "created_at": "2026-04-04T03:48:22.321789+00:00",
+      "updated_at": "2026-04-04T03:48:22.321789+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T03:48:22.321789+00:00",
+        "access_count": 0
+      }
+    },
+    "1b678a8da2a9": {
+      "id": "1b678a8da2a9",
+      "type": "fact",
+      "key": "SCRIPTS_README_5",
+      "fact": {
+        "rule": "ipt no se ejecuta\n\n**Error:** \"cannot be loaded because running scripts is disabled\"\n\n```powershell\n# Solución:\nSet-ExecutionPolicy -ExecutionPolicy Bypass -Scope Process\n# Luego ejecuta el script\n```\n\n### Push rechazado\n\n**Causa:** Token inválido\n\n```\nSoluciones:\n1. Regenera token: https://github.com/settings/tokens\n2. Verifica que tengas permisos \"repo + workflow\"\n3. Intenta manualmente: git push origin-fork feat/add-hooks-ia-knowledge\n```\n\n### No veo \"Compare & pull request\"\n\n```\nSoluciones:\n1. Actualiza tu navegador (F5)\n2. Ve a: https://github.com/TU_USUARIO/Motor-Fusion/pulls\n3. Click \"New pull request\"\n4. Select: feat/add-hooks-ia-knowledge → main\n```\n\n---\n\n## 📖 Archivos Generados\n\n| Script | Uso | Tiempo |\n|--------|-----|--------|\n",
+        "applies_to": "tmp",
+        "source": "C:\\tmp\\Motor-Fusion\\SCRIPTS_README.md",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "md"
+      ],
+      "created_at": "2026-04-04T03:48:22.376919+00:00",
+      "updated_at": "2026-04-04T03:48:22.376919+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T03:48:22.376919+00:00",
+        "access_count": 0
+      }
+    },
+    "254642fd0da4": {
+      "id": "254642fd0da4",
+      "type": "fact",
+      "key": "SCRIPTS_README_6",
+      "fact": {
+        "rule": "ledge → main\n```\n\n---\n\n## 📖 Archivos Generados\n\n| Script | Uso | Tiempo |\n|--------|-----|--------|\n| PUSH_TO_GITHUB.bat | ⭐ Más fácil (Windows) | 10 min |\n| PUSH_TO_GITHUB.ps1 | PowerShell completo | 10 min |\n| QUICK_PUSH.ps1 | PowerShell rápido | 5 min |\n\n---\n\n## ✅ Verificación Post-Script\n\nSi todo salió bien, deberías ver:\n\n```\n✓ Remote agregado: https://github.com/TU_USUARIO/Motor-Fusion.git\n✓ Push completado\n✓ Rama pusheada a origin-fork\n```\n\nLuego ve a tu fork para crear el PR.\n\n---\n\n## 🔐 Seguridad\n\n### Tokens\n- ✓ Se solicitan en tiempo de ejecución (no se guardan en scripts)\n- ✓ Se limpian después de usar\n- ✓ Usa HTTPS + token (no SSH)\n\n### Datos\n- ✓ C:\\Hooks_IA permanece intacto\n- ✓ Backup local en backup_master_preupload\n- ✓ Reversible en cualquier momento\n\n---\n\n",
+        "applies_to": "tmp",
+        "source": "C:\\tmp\\Motor-Fusion\\SCRIPTS_README.md",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "md"
+      ],
+      "created_at": "2026-04-04T03:48:22.437793+00:00",
+      "updated_at": "2026-04-04T03:48:22.437793+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T03:48:22.437793+00:00",
+        "access_count": 0
+      }
+    },
+    "6898415428b9": {
+      "id": "6898415428b9",
+      "type": "fact",
+      "key": "SCRIPTS_README_7",
+      "fact": {
+        "rule": "anece intacto\n- ✓ Backup local en backup_master_preupload\n- ✓ Reversible en cualquier momento\n\n---\n\n## 📞 Soporte Rápido\n\n| Problema | Solución |\n|----------|----------|\n| \"No se ejecuta\" | Doble-click PUSH_TO_GITHU",
+        "applies_to": "tmp",
+        "source": "C:\\tmp\\Motor-Fusion\\SCRIPTS_README.md",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "md"
+      ],
+      "created_at": "2026-04-04T03:48:22.483547+00:00",
+      "updated_at": "2026-04-04T03:48:22.483547+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T03:48:22.483547+00:00",
+        "access_count": 0
+      }
+    },
+    "ba906f01b5aa": {
+      "id": "ba906f01b5aa",
+      "type": "fact",
+      "key": "NEXT_STEPS_PUSH_PR_0",
+      "fact": {
+        "rule": "# 📤 Pasos Finales: Push a GitHub y Crear Pull Request\n\n## Estado Actual ✅\n\n```\n✓ Repositorio clonado: /tmp/Motor-Fusion\n✓ Backup de master: backup_master_preupload\n✓ Rama feature: feat/add-hooks-ia-knowledge\n✓ Commit realizado: 62 files, 209,357 líneas\n✓ Working tree: CLEAN (listo para push)\n```\n\n---\n\n## Próximos Pasos (REQUIERE GITHUB)\n\n### PASO 1: Crear Fork en tu cuenta GitHub\n\n1. Ve a: https://github.com/Netocool2006/Motor-Fusion\n2. Click en **Fork** (arriba a la derecha)\n3. Esto crea tu propia copia del repo\n\n**Tu fork será:**\n```\nhttps://github.com/TU_USUARIO/Motor-Fusion\n```\n\n---\n\n### PASO 2: Agregar tu fork como remote\n\n```bash\ncd /tmp/Motor-Fusion\n\n# Reemplaza TU_USUARIO con tu usuario de GitHub\ngit remote add origin-fork https://github.com/TU_USUARIO/Motor-Fusion.git\n\n",
+        "applies_to": "tmp",
+        "source": "C:\\tmp\\Motor-Fusion\\NEXT_STEPS_PUSH_PR.md",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "md"
+      ],
+      "created_at": "2026-04-04T03:48:22.544970+00:00",
+      "updated_at": "2026-04-04T03:48:22.544970+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T03:48:22.544970+00:00",
+        "access_count": 0
+      }
+    },
+    "214f2f043925": {
+      "id": "214f2f043925",
+      "type": "fact",
+      "key": "NEXT_STEPS_PUSH_PR_1",
+      "fact": {
+        "rule": "con tu usuario de GitHub\ngit remote add origin-fork https://github.com/TU_USUARIO/Motor-Fusion.git\n\n# Verificar\ngit remote -v\n```\n\nResultado esperado:\n```\norigin          https://github.com/Netocool2006/Motor-Fusion.git (fetch)\norigin          https://github.com/Netocool2006/Motor-Fusion.git (push)\norigin-fork     https://github.com/TU_USUARIO/Motor-Fusion.git (fetch)\norigin-fork     https://github.com/TU_USUARIO/Motor-Fusion.git (push)\n```\n\n---\n\n### PASO 3: Hacer Push a tu fork\n\n```bash\n# Desde /tmp/Motor-Fusion\ngit push origin-fork feat/add-hooks-ia-knowledge\n\n# Te pedirá credenciales GitHub:\n# Username: TU_USUARIO\n# Password: Tu token de GitHub (no contraseña)\n```\n\n**Nota:** Si no tienes token:\n1. Ve a: https://github.com/settings/tokens\n2. Click **Generate new token**\n3. ",
+        "applies_to": "tmp",
+        "source": "C:\\tmp\\Motor-Fusion\\NEXT_STEPS_PUSH_PR.md",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "md"
+      ],
+      "created_at": "2026-04-04T03:48:22.612393+00:00",
+      "updated_at": "2026-04-04T03:48:22.612393+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T03:48:22.612393+00:00",
+        "access_count": 0
+      }
+    },
+    "0825cd4820a8": {
+      "id": "0825cd4820a8",
+      "type": "fact",
+      "key": "NEXT_STEPS_PUSH_PR_2",
+      "fact": {
+        "rule": " Si no tienes token:\n1. Ve a: https://github.com/settings/tokens\n2. Click **Generate new token**\n3. Dale permisos: `repo` + `workflow`\n4. Copia el token y úsalo como password\n\n---\n\n### PASO 4: Crear Pull Request en GitHub\n\n1. Va a tu fork: `https://github.com/TU_USUARIO/Motor-Fusion`\n2. GitHub mostrará un banner: **\"This branch is 1 commit ahead of Netocool2006:main\"**\n3. Click en **Compare & pull request**\n4. Rellena el título y descripción:\n\n**Título:**\n```\nfeat: add accumulated knowledge base from Hooks_IA\n```\n\n**Descripción:**\n```\n## Descripción\nAgregando base de conocimiento acumulada de Hooks_IA (producción local).\n\n## Contenido\n- 24 dominios de conocimiento\n- 8.5 MB de patrones + facts\n- 209K+ líneas de datos validados\n\n## Dominios principales\n",
+        "applies_to": "tmp",
+        "source": "C:\\tmp\\Motor-Fusion\\NEXT_STEPS_PUSH_PR.md",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "md"
+      ],
+      "created_at": "2026-04-04T03:48:22.672979+00:00",
+      "updated_at": "2026-04-04T03:48:22.672979+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T03:48:22.672979+00:00",
+        "access_count": 0
+      }
+    },
+    "b4ef7ba54bcf": {
+      "id": "b4ef7ba54bcf",
+      "type": "fact",
+      "key": "NEXT_STEPS_PUSH_PR_3",
+      "fact": {
+        "rule": "onocimiento\n- 8.5 MB de patrones + facts\n- 209K+ líneas de datos validados\n\n## Dominios principales\n- sap_tierra (938 KB): SAP CRM automation patterns\n- outlook (270 KB): Email integration patterns\n- files (5.1 MB): File system operations\n- sessions (657 KB): Cross-session memory index\n- sap_automation + 19 dominios más\n\n## Compatibilidad\n- ✓ 100% compatible con Motor-Fusion\n- ✓ Incremental (no sobrescribe datos existentes)\n- ✓ JSON validado\n- ✓ Listo para multi-CLI ingestion\n\n## Estado de PR\n- [ ] Cambios probados localmente\n- [ ] No rompe funcionalidad existente\n- [ ] Ready for merge\n```\n\n5. Click **Create pull request**\n\n---\n\n## Si TODO sale bien: Limpiar backup\n\nUna vez que el PR esté creado y funcionando bien:\n\n```bash\n# Eliminar rama backup LOCAL\n",
+        "applies_to": "tmp",
+        "source": "C:\\tmp\\Motor-Fusion\\NEXT_STEPS_PUSH_PR.md",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "md"
+      ],
+      "created_at": "2026-04-04T03:48:22.721074+00:00",
+      "updated_at": "2026-04-04T03:48:22.721074+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T03:48:22.721074+00:00",
+        "access_count": 0
+      }
+    },
+    "eceea39f0051": {
+      "id": "eceea39f0051",
+      "type": "fact",
+      "key": "NEXT_STEPS_PUSH_PR_4",
+      "fact": {
+        "rule": "iar backup\n\nUna vez que el PR esté creado y funcionando bien:\n\n```bash\n# Eliminar rama backup LOCAL\ngit branch -d backup_master_preupload\n\n# Verificar que se eliminó\ngit branch -a | grep backup\n# Resultado: (vacío, sin coincidencias)\n```\n\n---\n\n## En caso de PROBLEMAS: Revertir\n\nSi algo falla y necesitas revertir:\n\n```bash\ncd /tmp/Motor-Fusion\n\n# Volver a master (desde backup)\ngit checkout backup_master_preupload\n\n# Restaurar en tu fork\ngit push origin-fork backup_master_preupload:main -f\n\n# Cierra el PR en GitHub (sin merge)\n```\n\n---\n\n## Verificación antes de Push\n\n```bash\ncd /tmp/Motor-Fusion\n\n# Mostrar lo que se va a enviar\ngit log origin/main..feat/add-hooks-ia-knowledge --oneline\n# Output: 51e2dea feat: add accumulated knowledge base from Hooks_IA\n\n# Mostrar files a cambiar\n",
+        "applies_to": "tmp",
+        "source": "C:\\tmp\\Motor-Fusion\\NEXT_STEPS_PUSH_PR.md",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "md"
+      ],
+      "created_at": "2026-04-04T03:48:22.769638+00:00",
+      "updated_at": "2026-04-04T03:48:22.769638+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T03:48:22.769638+00:00",
+        "access_count": 0
+      }
+    },
+    "f586b30fb623": {
+      "id": "f586b30fb623",
+      "type": "fact",
+      "key": "NEXT_STEPS_PUSH_PR_5",
+      "fact": {
+        "rule": "ine\n# Output: 51e2dea feat: add accumulated knowledge base from Hooks_IA\n\n# Mostrar files a cambiar\ngit diff origin/main...feat/add-hooks-ia-knowledge --stat | tail -5\n# Output: 62 files changed, 209357 insertions(+)\n\n# Mostrar branches\ngit branch -a\n# Output: debe haber: main, origin/main, backup_master_preupload, feat/add-hooks-ia-knowledge\n```\n\n---\n\n## Resumen de Comandos\n\n```bash\n# 1. Agregar fork como remote\ngit remote add origin-fork https://github.com/TU_USUARIO/Motor-Fusion.git\n\n# 2. Push a tu fork\ngit push origin-fork feat/add-hooks-ia-knowledge\n\n# 3. Crear PR desde GitHub UI\n# (Click en \"Compare & pull request\" en GitHub)\n\n# 4. Después de PR creado: limpiar backup\ngit branch -d backup_master_preupload\n```\n\n---\n\n## Checklist Final\n\n- [ ] Token de GitHub generado (si es necesario)\n",
+        "applies_to": "tmp",
+        "source": "C:\\tmp\\Motor-Fusion\\NEXT_STEPS_PUSH_PR.md",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "md"
+      ],
+      "created_at": "2026-04-04T03:48:22.832058+00:00",
+      "updated_at": "2026-04-04T03:48:22.832058+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T03:48:22.832058+00:00",
+        "access_count": 0
+      }
+    },
+    "73f260cc2d51": {
+      "id": "73f260cc2d51",
+      "type": "fact",
+      "key": "NEXT_STEPS_PUSH_PR_6",
+      "fact": {
+        "rule": "kup_master_preupload\n```\n\n---\n\n## Checklist Final\n\n- [ ] Token de GitHub generado (si es necesario)\n- [ ] Fork creado en tu cuenta\n- [ ] Remote origin-fork agregado\n- [ ] Push realizado: `git push origin-fork feat/add-hooks-ia-knowledge`\n- [ ] PR creado en GitHub\n- [ ] PR description completa y clara\n- [ ] Rama backup eliminada: `git branch -d backup_master_preupload`\n\n---\n\n## URLs importantes\n\n- **Tu fork:** https://github.com/TU_USUARIO/Motor-Fusion\n- **Original:** https://github.com/Netocool2006/Motor-Fusion\n- **GitHub Tokens:** https://github.com/settings/tokens\n\n---\n\n## Soporte\n\nSi hay problemas:\n1. Verifica que el fork existe\n2. Verifica que tienes permisos push\n3. Verifica que el token es válido\n4. Revisa los mensajes de error de git\n\nEl PR es reversible en cualquier momento.\n\n---\n\n",
+        "applies_to": "tmp",
+        "source": "C:\\tmp\\Motor-Fusion\\NEXT_STEPS_PUSH_PR.md",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "md"
+      ],
+      "created_at": "2026-04-04T03:48:22.888640+00:00",
+      "updated_at": "2026-04-04T03:48:22.888640+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T03:48:22.888640+00:00",
+        "access_count": 0
+      }
+    },
+    "2fb64055f7ab": {
+      "id": "2fb64055f7ab",
+      "type": "fact",
+      "key": "NEXT_STEPS_PUSH_PR_7",
+      "fact": {
+        "rule": "n es válido\n4. Revisa los mensajes de error de git\n\nEl PR es reversible en cualquier momento.\n\n---\n\n**Estado:** Repositorio listo en `/tmp/Motor-Fusion`\n**Siguientes pasos:** Fork → Push → PR\n**Tiempo estimado:**",
+        "applies_to": "tmp",
+        "source": "C:\\tmp\\Motor-Fusion\\NEXT_STEPS_PUSH_PR.md",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "md"
+      ],
+      "created_at": "2026-04-04T03:48:22.925089+00:00",
+      "updated_at": "2026-04-04T03:48:22.925089+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T03:48:22.925089+00:00",
+        "access_count": 0
+      }
+    },
+    "d1cc2f39fd28": {
+      "id": "d1cc2f39fd28",
+      "type": "fact",
+      "key": "push_to_github_0",
+      "fact": {
+        "rule": "#!/usr/bin/env python3\n\"\"\"\nPush KB a Motor-Fusion GitHub\nAutomatiza el proceso de push del conocimiento acumulado\n\"\"\"\n\nimport subprocess\nimport sys\nimport os\nfrom getpass import getpass\n\ndef run_cmd(cmd, check=True):\n    \"\"\"Ejecuta un comando y retorna el resultado\"\"\"\n    result = subprocess.run(cmd, shell=True, capture_output=True, text=True)\n    if check and result.returncode != 0:\n        print(f\"ERROR: {result.stderr}\")\n        sys.exit(1)\n    return result\n\ndef main():\n    print()\n    print(\"=\" * 50)\n    print(\"PUSH KB A MOTOR-FUSION\")\n    print(\"=\" * 50)\n    print()\n\n    # Validar que estamos en el repo\n    if not os.path.exists(\".git\"):\n        print(\"ERROR: No estamos en Motor-Fusion\")\n        print(\"Debes estar en: /tmp/Motor-Fusion\")\n        sys.exit(1)\n\n    # Solicitar datos\n",
+        "applies_to": "tmp",
+        "source": "C:\\tmp\\Motor-Fusion\\push_to_github.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-04T03:48:22.989147+00:00",
+      "updated_at": "2026-04-04T03:48:22.989147+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T03:48:22.989147+00:00",
+        "access_count": 0
+      }
+    },
+    "a8b16d45fbea": {
+      "id": "a8b16d45fbea",
+      "type": "fact",
+      "key": "push_to_github_1",
+      "fact": {
+        "rule": "ion\")\n        print(\"Debes estar en: /tmp/Motor-Fusion\")\n        sys.exit(1)\n\n    # Solicitar datos\n    github_user = input(\"Tu usuario de GitHub: \").strip()\n    if not github_user:\n        print(\"Usuario requerido\")\n        sys.exit(1)\n\n    github_token = getpass(\"Tu GitHub Token (se ocultara): \").strip()\n    if not github_token:\n        print(\"Token requerido\")\n        sys.exit(1)\n\n    print()\n    print(f\"Usuario: {github_user}\")\n    print(f\"Token: ****\")\n    print()\n\n    # PASO 1: Agregar remote\n    print(\"PASO 1: Agregar remote...\")\n    fork_url = f\"https://github.com/{github_user}/Motor-Fusion.git\"\n\n    run_cmd(\"git remote remove origin-fork\", check=False)\n    run_cmd(f'git remote add origin-fork \"{fork_url}\"')\n    print(\"✓ Remote agregado\")\n    print()\n\n    # PASO 2: Hacer push\n",
+        "applies_to": "tmp",
+        "source": "C:\\tmp\\Motor-Fusion\\push_to_github.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-04T03:48:23.048779+00:00",
+      "updated_at": "2026-04-04T03:48:23.048779+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T03:48:23.048779+00:00",
+        "access_count": 0
+      }
+    },
+    "08c34332b735": {
+      "id": "08c34332b735",
+      "type": "fact",
+      "key": "push_to_github_2",
+      "fact": {
+        "rule": "add origin-fork \"{fork_url}\"')\n    print(\"✓ Remote agregado\")\n    print()\n\n    # PASO 2: Hacer push\n    print(\"PASO 2: Haciendo push...\")\n    print(f\"Rama: feat/add-hooks-ia-knowledge\")\n    print()\n\n    os.environ[\"GIT_ASKPASS\"] = \"cat\"\n    os.environ[\"GIT_ASKPASS_RESULT\"] = github_token\n\n    result = run_cmd(\n        \"git push origin-fork feat/add-hooks-ia-knowledge\",\n        check=False\n    )\n\n    # Limpiar variables\n    if \"GIT_ASKPASS\" in os.environ:\n        del os.environ[\"GIT_ASKPASS\"]\n    if \"GIT_ASKPASS_RESULT\" in os.environ:\n        del os.environ[\"GIT_ASKPASS_RESULT\"]\n\n    if result.returncode == 0:\n        print(\"✓ Push completado!\")\n    else:\n        print(\"ERROR en push\")\n        print(\"Verifica: fork existe, token valido\")\n        print(result.stderr)\n        sys.exit(1)\n\n",
+        "applies_to": "tmp",
+        "source": "C:\\tmp\\Motor-Fusion\\push_to_github.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-04T03:48:23.103738+00:00",
+      "updated_at": "2026-04-04T03:48:23.103738+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T03:48:23.103738+00:00",
+        "access_count": 0
+      }
+    },
+    "508ce7a5be44": {
+      "id": "508ce7a5be44",
+      "type": "fact",
+      "key": "push_to_github_3",
+      "fact": {
+        "rule": "     print(\"Verifica: fork existe, token valido\")\n        print(result.stderr)\n        sys.exit(1)\n\n    # PASO 3: Instrucciones para PR\n    print()\n    print(\"=\" * 50)\n    print(\"CREAR PULL REQUEST EN GITHUB\")\n    print(\"=\" * 50)\n    print()\n    print(\"Abre tu navegador:\")\n    print(f\"https://github.com/{github_user}/Motor-Fusion\")\n    print()\n    print(\"GitHub mostrara: 'Compare and pull request'\")\n    print()\n    print(\"Titulo del PR:\")\n    print(\"feat: add accumulated knowledge base from Hooks_IA\")\n    print()\n    print(\"Descripcion (copiar-pegar):\")\n    print()\n    print(\"\"\"## Descripcion\nAgregando base de conocimiento acumulada de Hooks_IA.\n\n## Contenido\n- 24 dominios de conocimiento\n- 8.5 MB de patrones y facts\n- 209,357 lineas de datos validados\n\n## Dominios principales\n",
+        "applies_to": "tmp",
+        "source": "C:\\tmp\\Motor-Fusion\\push_to_github.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-04T03:48:23.162139+00:00",
+      "updated_at": "2026-04-04T03:48:23.162139+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T03:48:23.162139+00:00",
+        "access_count": 0
+      }
+    },
+    "8022f7ad0215": {
+      "id": "8022f7ad0215",
+      "type": "fact",
+      "key": "push_to_github_4",
+      "fact": {
+        "rule": "ocimiento\n- 8.5 MB de patrones y facts\n- 209,357 lineas de datos validados\n\n## Dominios principales\n- sap_tierra: SAP CRM automation (938 KB)\n- outlook: Email integration (270 KB)\n- files: File operations (5.1 MB)\n- sessions: Session memory (657 KB)\n- Y 20 dominios mas\n\n## Status\n- Incremental (no sobrescribe datos)\n- 100% compatible\n- JSON validado\n\"\"\")\n    print()\n\n    # PASO 4: Limpiar backup\n    print(\"=\" * 50)\n    print(\"LIMPIAR\")\n    print(\"=\" * 50)\n    print()\n\n    clean = input(\"Eliminar rama backup (s/n) [s]: \").strip().lower()\n    if not clean or clean == \"s\":\n        result = run_cmd(\"git branch -d backup_master_preupload\", check=False)\n        if result.returncode == 0:\n            print(\"✓ Rama backup eliminada\")\n\n    print()\n    print(\"=\" * 50)\n    print(\"COMPLETADO!\")\n",
+        "applies_to": "tmp",
+        "source": "C:\\tmp\\Motor-Fusion\\push_to_github.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-04T03:48:23.214024+00:00",
+      "updated_at": "2026-04-04T03:48:23.214024+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T03:48:23.214024+00:00",
+        "access_count": 0
+      }
+    },
+    "b95750db258a": {
+      "id": "b95750db258a",
+      "type": "fact",
+      "key": "push_to_github_5",
+      "fact": {
+        "rule": "         print(\"✓ Rama backup eliminada\")\n\n    print()\n    print(\"=\" * 50)\n    print(\"COMPLETADO!\")\n    print(\"=\" * 50)\n    print()\n    print(\"Proximo paso: Crea el PR en GitHub\")\n    print()\n\nif __name__ == \"__main__\":\n    main()",
+        "applies_to": "tmp",
+        "source": "C:\\tmp\\Motor-Fusion\\push_to_github.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-04T03:48:23.250918+00:00",
+      "updated_at": "2026-04-04T03:48:23.250918+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T03:48:23.250918+00:00",
+        "access_count": 0
+      }
+    },
+    "4bb37622630c": {
+      "id": "4bb37622630c",
+      "type": "fact",
+      "key": "f (1)_0",
+      "fact": {
+        "rule": ")]}'\n22;[\"yg_GaZPXOMyeptQP7ruKoQY\",\"2410\"]c;[2,null,\"0\"]1b;<div jsname=\"Nll0ne\"></div>c;[9,null,\"0\"]0;",
+        "applies_to": "tmp",
+        "source": "C:\\tmp\\browser-use-downloads-6326c8f3\\f (1).txt",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "txt"
+      ],
+      "created_at": "2026-04-04T03:48:23.418807+00:00",
+      "updated_at": "2026-04-04T03:48:23.418807+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T03:48:23.418807+00:00",
+        "access_count": 0
+      }
+    },
+    "e0c6773a5f0e": {
+      "id": "e0c6773a5f0e",
+      "type": "fact",
+      "key": "f_0",
+      "fact": {
+        "rule": ")]}'\n22;[\"yg_GacrLHeWfptQPneW54AU\",\"2410\"]c;[2,null,\"0\"]1b;<div jsname=\"Nll0ne\"></div>c;[9,null,\"0\"]0;",
+        "applies_to": "tmp",
+        "source": "C:\\tmp\\browser-use-downloads-6326c8f3\\f.txt",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "txt"
+      ],
+      "created_at": "2026-04-04T03:48:23.461748+00:00",
+      "updated_at": "2026-04-04T03:48:23.461748+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T03:48:23.461748+00:00",
+        "access_count": 0
+      }
+    }
+  },
+  "tag_index": {
+    "powershell": [
+      "72994384805a",
+      "b1cb6c604a5c",
+      "ff12af35b9da",
+      "db9c6be5da59",
+      "c3e75f6f9208",
+      "a3a1fc81a8d7",
+      "52f30ded9b4d",
+      "4bdaec5979fe",
+      "b0e489fabff3",
+      "a0eca31b7ce4",
+      "b92a905d44ef",
+      "cfb577d05967",
+      "d3636c0299cf",
+      "47ba06b576ca",
+      "66fb4e595540",
+      "8bf3c209172e"
+    ],
+    "ps1": [
+      "72994384805a",
+      "b1cb6c604a5c",
+      "ff12af35b9da",
+      "db9c6be5da59",
+      "c3e75f6f9208",
+      "a3a1fc81a8d7",
+      "52f30ded9b4d",
+      "4bdaec5979fe",
+      "b0e489fabff3",
+      "a0eca31b7ce4",
+      "b92a905d44ef",
+      "cfb577d05967",
+      "d3636c0299cf",
+      "47ba06b576ca",
+      "66fb4e595540",
+      "8bf3c209172e"
+    ],
+    "json": [
+      "97a19f4eb324",
+      "97a19f4eb324",
+      "a0d414a5e46d",
+      "a0d414a5e46d",
+      "5d2c886cf514",
+      "5d2c886cf514",
+      "d4f570a8d07b",
+      "d4f570a8d07b",
+      "cee0121e9ff0",
+      "cee0121e9ff0",
+      "9c8010f1933c",
+      "9c8010f1933c",
+      "e0c553cffd2a",
+      "e0c553cffd2a",
+      "1dabde8d6f6a",
+      "1dabde8d6f6a"
+    ],
+    "md": [
+      "e1064f36dcb2",
+      "37c8fcdc8a16",
+      "6fdfba59e07b",
+      "0b29f74d7ea2",
+      "deff39227fed",
+      "603a2fd59567",
+      "0cc37863ee64",
+      "2272b4b2c95b",
+      "4f3d2f81a166",
+      "4adae1ba83b6",
+      "d2d75fee8fca",
+      "1c54c61c8005",
+      "a910359de06d",
+      "1b678a8da2a9",
+      "254642fd0da4",
+      "6898415428b9",
+      "ba906f01b5aa",
+      "214f2f043925",
+      "0825cd4820a8",
+      "b4ef7ba54bcf",
+      "eceea39f0051",
+      "f586b30fb623",
+      "73f260cc2d51",
+      "2fb64055f7ab"
+    ],
+    "python": [
+      "d1cc2f39fd28",
+      "a8b16d45fbea",
+      "08c34332b735",
+      "508ce7a5be44",
+      "8022f7ad0215",
+      "b95750db258a"
+    ],
+    "py": [
+      "d1cc2f39fd28",
+      "a8b16d45fbea",
+      "08c34332b735",
+      "508ce7a5be44",
+      "8022f7ad0215",
+      "b95750db258a"
+    ],
+    "batch": [
+      "72994384805a",
+      "b1cb6c604a5c"
+    ],
+    "bat": [
+      "72994384805a",
+      "b1cb6c604a5c"
+    ],
+    "txt": [
+      "4bb37622630c",
+      "e0c6773a5f0e"
+    ]
+  },
+  "stats": {
+    "total_entries": 58,
+    "total_lookups": 0,
+    "total_hits": 0
+  }
+}

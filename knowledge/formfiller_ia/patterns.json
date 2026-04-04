@@ -1,0 +1,1575 @@
+{
+  "domain": "formfiller_ia",
+  "description": "Dominio auto-creado: formfiller_ia",
+  "entries": {
+    "409f87f86255": {
+      "id": "409f87f86255",
+      "type": "fact",
+      "key": "sap_forensics_result_0",
+      "fact": {
+        "rule": "{\n  \"frame_0\": {\n    \"url\": \"https://wdp-sap.gbm.net:8105/sap(bD1lbiZjPTUwMCZkPW1pbg==)/c\",\n    \"data\": {\n      \"htmlbFunctions\": {\n        \"count\": 23,\n        \"items\": [\n          {\n            \"name\": \"htmlbEF\",\n            \"params\": [\n              \"event_string\"\n            ],\n            \"body\": \"function htmlbEF(event_string)\\r\\n{\\r\\n    htmlbEventFunction = new Function('htmlbevent', event_string);\\r\\n}\"\n          },\n          {\n            \"name\": \"htmlbEnterKey\",\n            \"params\": [\n              \"event\"\n            ],\n            \"body\": \"function htmlbEnterKey(event){\\r\\nif (event) {\\r\\nth_lastRecordedKeyCode = event.keyCode;\\r\\n}\\r\\nif(th_lastRecordedKeyCode==13){\\r\\nreturn true;\\r\\n}else{\\r\\nreturn false;\\r\\n}\\r\\n}\"\n          },\n          {\n",
+        "applies_to": "formfiller_ia",
+        "source": "C:\\Chance1\\IA\\FormFiller_IA\\sap_forensics_result.json",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "json",
+        "json"
+      ],
+      "created_at": "2026-04-04T03:53:50.197783+00:00",
+      "updated_at": "2026-04-04T03:53:50.197783+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T03:53:50.197783+00:00",
+        "access_count": 0
+      }
+    },
+    "8b7a01a771cd": {
+      "id": "8b7a01a771cd",
+      "type": "fact",
+      "key": "sap_forensics_result_1",
+      "fact": {
+        "rule": "ecordedKeyCode==13){\\r\\nreturn true;\\r\\n}else{\\r\\nreturn false;\\r\\n}\\r\\n}\"\n          },\n          {\n            \"name\": \"htmlbSubmitPre\",\n            \"params\": [],\n            \"body\": \"function htmlbSubmitPre()\\r\\n{\\r\\n\\r\\nif (ajax_submit == true || attemptIntercept == false || isAjaxEnabled == false || submissionInProgress == true)\\r\\n{\\r\\nreturn;\\r\\n}\\r\\nvar form_name=document.getElementById(\\\"h...[TRUNCATED]\"\n          },\n          {\n            \"name\": \"htmlbSubmitPost\",\n            \"params\": [],\n            \"body\": \"function htmlbSubmitPost() {\\r\\nif(thtmlbCSDH.disableInputs){\\r\\nfor (var i=thtmlbCSDH.disableInputs.length-1;i>=0;i--){\\r\\nthtmlbCSDH.disableInputs[i].disabled = false;\\r\\n}\\r\\n}\\r\\n}\"\n          },\n          {\n            \"name\": \"htmlbSubmitForm\",\n",
+        "applies_to": "formfiller_ia",
+        "source": "C:\\Chance1\\IA\\FormFiller_IA\\sap_forensics_result.json",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "json",
+        "json"
+      ],
+      "created_at": "2026-04-04T03:53:50.244385+00:00",
+      "updated_at": "2026-04-04T03:53:50.244385+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T03:53:50.244385+00:00",
+        "access_count": 0
+      }
+    },
+    "a58757eac196": {
+      "id": "a58757eac196",
+      "type": "fact",
+      "key": "sap_forensics_result_2",
+      "fact": {
+        "rule": "].disabled = false;\\r\\n}\\r\\n}\\r\\n}\"\n          },\n          {\n            \"name\": \"htmlbSubmitForm\",\n            \"params\": [\n              \"form\"\n            ],\n            \"body\": \"function htmlbSubmitForm(form) {\\r\\nif (processDataLossDialog() == false ) {\\r\\nreturn;\\r\\n}\\r\\nif (submissionInProgress == true) {\\r\\nreturn;\\r\\n}\\r\\nsubmissionInProgress = true;\\r\\n\\r\\n\\r\\n\\r\\n\\r\\nif(document.all) {\\r\\ndocHe...[TRUNCATED]\"\n          },\n          {\n            \"name\": \"htmlbDisableFields\",\n            \"params\": [],\n            \"body\": \"function htmlbDisableFields()\\r\\n{\\r\\n\\r\\n  try{\\r\\n    frm_name=document.getElementById(\\\"htmlbevt_frm\\\").value;\\r\\n    frm_obj=document.getElementById(frm_name);\\r\\n    if(frm_obj.htmlbScrollX.value==0 && frm_obj...[TRUNCATED]\"\n          },\n          {\n",
+        "applies_to": "formfiller_ia",
+        "source": "C:\\Chance1\\IA\\FormFiller_IA\\sap_forensics_result.json",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "json",
+        "json"
+      ],
+      "created_at": "2026-04-04T03:53:50.290988+00:00",
+      "updated_at": "2026-04-04T03:53:50.290988+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T03:53:50.290988+00:00",
+        "access_count": 0
+      }
+    },
+    "5830a7fbe5b7": {
+      "id": "5830a7fbe5b7",
+      "type": "fact",
+      "key": "sap_forensics_result_3",
+      "fact": {
+        "rule": "m_name);\\r\\n    if(frm_obj.htmlbScrollX.value==0 && frm_obj...[TRUNCATED]\"\n          },\n          {\n            \"name\": \"htmlbEnableFields\",\n            \"params\": [],\n            \"body\": \"function htmlbEnableFields()\\r\\n{\\r\\n  try{\\r\\n    frm_name=document.getElementById(\\\"htmlbevt_frm\\\").value;\\r\\n    frm_obj=document.getElementById(frm_name);\\r\\n    frm_obj.htmlbScrollX.disabled=false;\\r\\n    frm_...[TRUNCATED]\"\n          },\n          {\n            \"name\": \"htmlbSubmit\",\n            \"params\": [\n              \"elem\",\n              \"eventType\",\n              \"formID\",\n              \"objectID\",\n              \"eventName\",\n              \"paramCount\",\n              \"param1\",\n              \"param2\",\n              \"param3\",\n              \"param4\",\n              \"param5\",\n              \"param6\",\n",
+        "applies_to": "formfiller_ia",
+        "source": "C:\\Chance1\\IA\\FormFiller_IA\\sap_forensics_result.json",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "json",
+        "json"
+      ],
+      "created_at": "2026-04-04T03:53:50.334652+00:00",
+      "updated_at": "2026-04-04T03:53:50.334652+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T03:53:50.334652+00:00",
+        "access_count": 0
+      }
+    },
+    "44ec44351562": {
+      "id": "44ec44351562",
+      "type": "fact",
+      "key": "sap_forensics_result_4",
+      "fact": {
+        "rule": "2\",\n              \"param3\",\n              \"param4\",\n              \"param5\",\n              \"param6\",\n              \"param7\",\n              \"param8\",\n              \"param9\"\n            ],\n            \"body\": \"function htmlbSubmit(elem,\\r\\n                     eventType,\\r\\n                     formID,\\r\\n                     objectID,\\r\\n                     eventName,\\r\\n                     paramCount,\\r\\n          ...[TRUNCATED]\"\n          },\n          {\n            \"name\": \"htmlbEvent\",\n            \"params\": [\n              \"elem\",\n              \"eventClass\",\n              \"eventType\",\n              \"formID\",\n              \"objectID\",\n              \"eventName\",\n              \"paramCount\",\n              \"param1\",\n              \"param2\",\n              \"param3\",\n              \"param4\",\n",
+        "applies_to": "formfiller_ia",
+        "source": "C:\\Chance1\\IA\\FormFiller_IA\\sap_forensics_result.json",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "json",
+        "json"
+      ],
+      "created_at": "2026-04-04T03:53:50.370694+00:00",
+      "updated_at": "2026-04-04T03:53:50.370694+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T03:53:50.370694+00:00",
+        "access_count": 0
+      }
+    },
+    "22351950b646": {
+      "id": "22351950b646",
+      "type": "fact",
+      "key": "sap_forensics_result_5",
+      "fact": {
+        "rule": "t\",\n              \"param1\",\n              \"param2\",\n              \"param3\",\n              \"param4\",\n              \"param5\",\n              \"param6\",\n              \"param7\",\n              \"param8\",\n              \"param9\"\n            ],\n            \"body\": \"function htmlbEvent(elem,\\r\\n                    eventClass,\\r\\n                    eventType,\\r\\n                    formID,\\r\\n                    objectID,\\r\\n                    eventName,\\r\\n                ...[TRUNCATED]\"\n          },\n          {\n            \"name\": \"htmlbEventCO\",\n            \"params\": [\n              \"elem\",\n              \"eventClass\",\n              \"eventType\",\n              \"formID\",\n              \"objectID\",\n              \"eventName\",\n              \"paramCount\",\n              \"param1\",\n              \"param2\",\n",
+        "applies_to": "formfiller_ia",
+        "source": "C:\\Chance1\\IA\\FormFiller_IA\\sap_forensics_result.json",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "json",
+        "json"
+      ],
+      "created_at": "2026-04-04T03:53:50.404668+00:00",
+      "updated_at": "2026-04-04T03:53:50.404668+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T03:53:50.404668+00:00",
+        "access_count": 0
+      }
+    },
+    "2ec82f7a7ad3": {
+      "id": "2ec82f7a7ad3",
+      "type": "fact",
+      "key": "sap_forensics_result_6",
+      "fact": {
+        "rule": "           \"eventName\",\n              \"paramCount\",\n              \"param1\",\n              \"param2\",\n              \"param3\",\n              \"param4\",\n              \"param5\",\n              \"param6\",\n              \"param7\",\n              \"param8\",\n              \"param9\"\n            ],\n            \"body\": \"function htmlbEventCO(elem,\\r\\n                      eventClass,\\r\\n                      eventType,\\r\\n                      formID,\\r\\n                      objectID,\\r\\n                      eventName,\\r\\n    ...[TRUNCATED]\"\n          },\n          {\n            \"name\": \"htmlbCreateEvent\",\n            \"params\": [\n              \"elem\",\n              \"objectID\",\n              \"eventName\"\n            ],\n",
+        "applies_to": "formfiller_ia",
+        "source": "C:\\Chance1\\IA\\FormFiller_IA\\sap_forensics_result.json",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "json",
+        "json"
+      ],
+      "created_at": "2026-04-04T03:53:50.440081+00:00",
+      "updated_at": "2026-04-04T03:53:50.440081+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T03:53:50.440081+00:00",
+        "access_count": 0
+      }
+    },
+    "595231346cb6": {
+      "id": "595231346cb6",
+      "type": "fact",
+      "key": "sap_forensics_result_7",
+      "fact": {
+        "rule": "params\": [\n              \"elem\",\n              \"objectID\",\n              \"eventName\"\n            ],\n            \"body\": \"function htmlbCreateEvent(elem,objectID,eventName)\\r\\n{\\r\\n  var htmlbevent = new Object;\\r\\n  if(document.all)\\r\\n   htmlbevent.htmlEvent",
+        "applies_to": "formfiller_ia",
+        "source": "C:\\Chance1\\IA\\FormFiller_IA\\sap_forensics_result.json",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "json",
+        "json"
+      ],
+      "created_at": "2026-04-04T03:53:50.470780+00:00",
+      "updated_at": "2026-04-04T03:53:50.470780+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T03:53:50.470780+00:00",
+        "access_count": 0
+      }
+    },
+    "d47bdf2e585e": {
+      "id": "d47bdf2e585e",
+      "type": "fact",
+      "key": "sap_buscar_0",
+      "fact": {
+        "rule": "\"\"\"\nsap_buscar.py — Buscar oportunidad en SAP CRM usando FormFiller_IA Motor\n=========================================================================\nUso:\n  python sap_buscar.py\n\nTe pregunta el numero de oportunidad, abre Chrome visible,\nentra a SAP CRM, navega a Opportunities y busca la oportunidad.\n\nUSA EL MOTOR: Scan -> Decide -> Act -> Re-Scan en cada paso.\n\"\"\"\nimport sys, os, time, json\nfrom pathlib import Path\n\nif hasattr(sys.stdout, \"reconfigure\"):\n    sys.stdout.reconfigure(encoding=\"utf-8\", errors=\"replace\")\nif hasattr(sys.stderr, \"reconfigure\"):\n    sys.stderr.reconfigure(encoding=\"utf-8\", errors=\"replace\")\n\nsys.path.insert(0, str(Path(__file__).parent))\n\n# -- Credenciales SAP --\nSAP_URL   = \"https://wdp-sap.gbm.net:8105/sap/crm_logon?sap-client=500\"\nSAP_USER  = \"ntoledo\"\n",
+        "applies_to": "formfiller_ia",
+        "source": "C:\\Chance1\\IA\\FormFiller_IA\\sap_buscar.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-04T03:53:50.519160+00:00",
+      "updated_at": "2026-04-04T03:53:50.519160+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T03:53:50.519160+00:00",
+        "access_count": 0
+      }
+    },
+    "69020ebfe340": {
+      "id": "69020ebfe340",
+      "type": "fact",
+      "key": "sap_buscar_1",
+      "fact": {
+        "rule": "AP --\nSAP_URL   = \"https://wdp-sap.gbm.net:8105/sap/crm_logon?sap-client=500\"\nSAP_USER  = \"ntoledo\"\nSAP_PASS  = \"nB$1240906\"\nHTTP_USER = \"ntoledo\"\nHTTP_PASS = \"Gbmcr2026\"\n\ndef log(msg, level=\"INFO\"):\n    ts = time.strftime(\"%H:%M:%S\")\n    icons = {\"INFO\":\"   \",\"OK\":\"[OK]\",\"FAIL\":\"[!!]\",\"STEP\":\">>>\",\"WAIT\":\"...\",\"SCAN\":\"[S]\"}\n    print(f\"  {ts}  {icons.get(level,'   ')}  {msg}\", flush=True)\n\n# -----------------------------------------------------------------------\n# SAP Frame Scanner — escanea TODOS los frames buscando elementos\n# -----------------------------------------------------------------------\ndef scan_all_frames(page, query_js):\n    \"\"\"Ejecuta JS en cada frame y retorna el primer resultado no-null.\"\"\"\n    for i, fr in enumerate(page.frames):\n        try:\n",
+        "applies_to": "formfiller_ia",
+        "source": "C:\\Chance1\\IA\\FormFiller_IA\\sap_buscar.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-04T03:53:50.574221+00:00",
+      "updated_at": "2026-04-04T03:53:50.574221+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T03:53:50.574221+00:00",
+        "access_count": 0
+      }
+    },
+    "1b02c6489230": {
+      "id": "1b02c6489230",
+      "type": "fact",
+      "key": "sap_buscar_2",
+      "fact": {
+        "rule": "ame y retorna el primer resultado no-null.\"\"\"\n    for i, fr in enumerate(page.frames):\n        try:\n            r = fr.evaluate(query_js)\n            if r:\n                return r, fr, i\n        except:\n            continue\n    return None, None, -1\n\ndef scan_links(page, text_starts_with=None, text_exact=None):\n    \"\"\"Escanea TODOS los frames buscando links por texto.\"\"\"\n    js = f\"\"\"(params) => {{\n        var results = [];\n        for (const a of document.querySelectorAll('a')) {{\n            if (a.offsetWidth < 1) continue;\n            var t = (a.textContent || '').trim().replace(/\\\\s+/g, ' ');\n            var match = false;\n            if (params.startsWith && t.startsWith(params.startsWith)) match = true;\n            if (params.exact && t === params.exact) match = true;\n",
+        "applies_to": "formfiller_ia",
+        "source": "C:\\Chance1\\IA\\FormFiller_IA\\sap_buscar.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-04T03:53:50.611220+00:00",
+      "updated_at": "2026-04-04T03:53:50.611220+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T03:53:50.611220+00:00",
+        "access_count": 0
+      }
+    },
+    "775dc07f13e9": {
+      "id": "775dc07f13e9",
+      "type": "fact",
+      "key": "sap_buscar_3",
+      "fact": {
+        "rule": "params.startsWith)) match = true;\n            if (params.exact && t === params.exact) match = true;\n            if (match) results.push({{id: a.id, text: t.substring(0,50)}});\n        }}\n        return results.length > 0 ? results : null;\n    }}\"\"\"\n    params = {}\n    if text_starts_with:\n        params[\"startsWith\"] = text_starts_with\n    if text_exact:\n        params[\"exact\"] = text_exact\n\n    for i, fr in enumerate(page.frames):\n        try:\n            r = fr.evaluate(js, params)\n            if r:\n                return r, fr, i\n        except:\n            continue\n    return None, None, -1\n\ndef scan_inputs(page, label_contains=None):\n    \"\"\"Escanea TODOS los frames buscando inputs con sus labels.\"\"\"\n    js = \"\"\"() => {\n        var result = [];\n",
+        "applies_to": "formfiller_ia",
+        "source": "C:\\Chance1\\IA\\FormFiller_IA\\sap_buscar.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-04T03:53:50.647079+00:00",
+      "updated_at": "2026-04-04T03:53:50.647079+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T03:53:50.647079+00:00",
+        "access_count": 0
+      }
+    },
+    "5fcb350ac097": {
+      "id": "5fcb350ac097",
+      "type": "fact",
+      "key": "sap_buscar_4",
+      "fact": {
+        "rule": "ea TODOS los frames buscando inputs con sus labels.\"\"\"\n    js = \"\"\"() => {\n        var result = [];\n        var inputs = document.querySelectorAll('input, select, textarea');\n        for (var i = 0; i < inputs.length; i++) {\n            var inp = inputs[i];\n            if (inp.getBoundingClientRect().width < 5) continue;\n            if (inp.type === 'hidden') continue;\n            var label = '';\n            // Buscar label por for=\n            if (inp.id) {\n                var lbl = document.querySelector('label[for=\"'+inp.id+'\"]');\n                if (lbl) label = lbl.textContent.trim();\n            }\n            // Buscar label en TD anterior (SAP pattern)\n            if (!label) {\n                var td = inp.closest('td');\n                if (td && td.previousElementSibling)\n",
+        "applies_to": "formfiller_ia",
+        "source": "C:\\Chance1\\IA\\FormFiller_IA\\sap_buscar.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-04T03:53:50.683927+00:00",
+      "updated_at": "2026-04-04T03:53:50.683927+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T03:53:50.683927+00:00",
+        "access_count": 0
+      }
+    },
+    "52ae7252bf86": {
+      "id": "52ae7252bf86",
+      "type": "fact",
+      "key": "sap_buscar_5",
+      "fact": {
+        "rule": " {\n                var td = inp.closest('td');\n                if (td && td.previousElementSibling)\n                    label = td.previousElementSibling.innerText.trim();\n            }\n            // Buscar label en parent text\n            if (!label && inp.parentElement)\n                label = (inp.parentElement.textContent || '').trim().substring(0, 30);\n\n            result.push({\n                id: inp.id.substring(0,60),\n                name: (inp.name||'').substring(0,30),\n                type: inp.type || inp.tagName.toLowerCase(),\n                value: (inp.value||'').substring(0,30),\n                label: label.substring(0, 40),\n                visible: inp.offsetWidth > 0,\n                placeholder: (inp.placeholder||'').substring(0,30)\n            });\n        }\n",
+        "applies_to": "formfiller_ia",
+        "source": "C:\\Chance1\\IA\\FormFiller_IA\\sap_buscar.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-04T03:53:50.723254+00:00",
+      "updated_at": "2026-04-04T03:53:50.723254+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T03:53:50.723254+00:00",
+        "access_count": 0
+      }
+    },
+    "cfac046c862e": {
+      "id": "cfac046c862e",
+      "type": "fact",
+      "key": "sap_buscar_6",
+      "fact": {
+        "rule": "h > 0,\n                placeholder: (inp.placeholder||'').substring(0,30)\n            });\n        }\n        return result.length > 0 ? result : null;\n    }\"\"\"\n    for i, fr in enumerate(page.frames):\n        try:\n            r = fr.evaluate(js)\n            if r:\n                if label_contains:\n                    lc = label_contains.lower()\n                    filtered = [f for f in r if lc in f.get('label','').lower()]\n                    if filtered:\n                        return filtered, fr, i\n                else:\n                    return r, fr, i\n        except:\n            continue\n    return None, None, -1\n\ndef scan_errors(page):\n    \"\"\"Escanea mensajes de error/warning en SAP (barra superior derecha).\"\"\"\n    js = \"\"\"() => {\n        var errors = [];\n        var selectors = [\n",
+        "applies_to": "formfiller_ia",
+        "source": "C:\\Chance1\\IA\\FormFiller_IA\\sap_buscar.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-04T03:53:50.759264+00:00",
+      "updated_at": "2026-04-04T03:53:50.759264+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T03:53:50.759264+00:00",
+        "access_count": 0
+      }
+    },
+    "db467dd0d9d9": {
+      "id": "db467dd0d9d9",
+      "type": "fact",
+      "key": "sap_buscar_7",
+      "fact": {
+        "rule": "(barra superior derecha).\"\"\"\n    js = \"\"\"() => {\n        var errors = [];\n        var selectors = [\n            '.urMessageBar', '[class*=\"msgError\"]', '[class*=\"msgWarning\"]',\n            '[class*=\"erro",
+        "applies_to": "formfiller_ia",
+        "source": "C:\\Chance1\\IA\\FormFiller_IA\\sap_buscar.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-04T03:53:50.793009+00:00",
+      "updated_at": "2026-04-04T03:53:50.793009+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T03:53:50.793009+00:00",
+        "access_count": 0
+      }
+    },
+    "80cff2d818b5": {
+      "id": "80cff2d818b5",
+      "type": "fact",
+      "key": "sap_forensics_0",
+      "fact": {
+        "rule": "(function() {\n  \"use strict\";\n\n  var report = {};\n\n  function trunc(str, max) {\n    if (typeof str !== \"string\") str = String(str);\n    return str.length > max ? str.substring(0, max) + \"...[TRUNCATED]\" : str;\n  }\n\n  function safeToString(fn, max) {\n    try { return trunc(fn.toString(), max || 200); }\n    catch(e) { return \"[toString failed: \" + e.message + \"]\"; }\n  }\n\n  function getFnParams(fn) {\n    try {\n      var s = fn.toString();\n      var m = s.match(/^function[^(]*\\(([^)]*)\\)/);\n      if (m) return m[1].split(\",\").map(function(p){ return p.trim(); }).filter(Boolean);\n      return [];\n    } catch(e) { return [\"[error]\"]; }\n  }\n\n  // =========================================================================\n  // 1. HTMLB Framework Functions\n",
+        "applies_to": "formfiller_ia",
+        "source": "C:\\Chance1\\IA\\FormFiller_IA\\sap_forensics.js",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "javascript",
+        "js"
+      ],
+      "created_at": "2026-04-04T03:53:50.842514+00:00",
+      "updated_at": "2026-04-04T03:53:50.842514+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T03:53:50.842514+00:00",
+        "access_count": 0
+      }
+    },
+    "181920963535": {
+      "id": "181920963535",
+      "type": "fact",
+      "key": "sap_forensics_1",
+      "fact": {
+        "rule": "=================================================================\n  // 1. HTMLB Framework Functions\n  // =========================================================================\n  try {\n    var htmlbFns = [];\n    for (var key in window) {\n      if (key.indexOf(\"htmlb\") === 0 && typeof window[key] === \"function\") {\n        htmlbFns.push({\n          name: key,\n          params: getFnParams(window[key]),\n          body: safeToString(window[key], 200)\n        });\n      }\n    }\n    report.htmlbFunctions = { count: htmlbFns.length, items: htmlbFns };\n  } catch(e) {\n    report.htmlbFunctions = { error: e.message };\n  }\n\n  // =========================================================================\n  // 2. TH Framework Functions/Objects\n",
+        "applies_to": "formfiller_ia",
+        "source": "C:\\Chance1\\IA\\FormFiller_IA\\sap_forensics.js",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "javascript",
+        "js"
+      ],
+      "created_at": "2026-04-04T03:53:50.895913+00:00",
+      "updated_at": "2026-04-04T03:53:50.895913+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T03:53:50.895913+00:00",
+        "access_count": 0
+      }
+    },
+    "6102bb9bc715": {
+      "id": "6102bb9bc715",
+      "type": "fact",
+      "key": "sap_forensics_2",
+      "fact": {
+        "rule": "============================================================\n  // 2. TH Framework Functions/Objects\n  // =========================================================================\n  try {\n    var thItems = [];\n    for (var key in window) {\n      if (key.indexOf(\"th\") === 0 || key.indexOf(\"TH\") === 0) {\n        var t = typeof window[key];\n        var entry = { name: key, type: t };\n        if (t === \"function\") {\n          entry.body = safeToString(window[key], 200);\n        } else if (t === \"object\" && window[key] !== null) {\n          try {\n            entry.keys = Object.keys(window[key]).slice(0, 30);\n            entry.ownProps = Object.getOwnPropertyNames(window[key]).slice(0, 30);\n          } catch(e2) { entry.keysError = e2.message; }\n        }\n        thItems.push(entry);\n      }\n",
+        "applies_to": "formfiller_ia",
+        "source": "C:\\Chance1\\IA\\FormFiller_IA\\sap_forensics.js",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "javascript",
+        "js"
+      ],
+      "created_at": "2026-04-04T03:53:50.947142+00:00",
+      "updated_at": "2026-04-04T03:53:50.947142+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T03:53:50.947142+00:00",
+        "access_count": 0
+      }
+    },
+    "96f963bf93e5": {
+      "id": "96f963bf93e5",
+      "type": "fact",
+      "key": "sap_forensics_3",
+      "fact": {
+        "rule": "       } catch(e2) { entry.keysError = e2.message; }\n        }\n        thItems.push(entry);\n      }\n    }\n    report.thFramework = { count: thItems.length, items: thItems };\n  } catch(e) {\n    report.thFramework = { error: e.message };\n  }\n\n  // =========================================================================\n  // 3. htmlbSL deep analysis\n  // =========================================================================\n  try {\n    if (typeof window.htmlbSL === \"function\") {\n      report.htmlbSL = {\n        exists: true,\n        params: getFnParams(window.htmlbSL),\n        fullBody: safeToString(window.htmlbSL, 1000),\n        length: window.htmlbSL.toString().length\n      };\n    } else {\n      report.htmlbSL = { exists: false, typeFound: typeof window.htmlbSL };\n    }\n  } catch(e) {\n",
+        "applies_to": "formfiller_ia",
+        "source": "C:\\Chance1\\IA\\FormFiller_IA\\sap_forensics.js",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "javascript",
+        "js"
+      ],
+      "created_at": "2026-04-04T03:53:51.002106+00:00",
+      "updated_at": "2026-04-04T03:53:51.002106+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T03:53:51.002106+00:00",
+        "access_count": 0
+      }
+    },
+    "bdd956ebda48": {
+      "id": "bdd956ebda48",
+      "type": "fact",
+      "key": "sap_forensics_4",
+      "fact": {
+        "rule": " {\n      report.htmlbSL = { exists: false, typeFound: typeof window.htmlbSL };\n    }\n  } catch(e) {\n    report.htmlbSL = { error: e.message };\n  }\n\n  // =========================================================================\n  // 4. htmlbSubmitForm analysis\n  // =========================================================================\n  try {\n    if (typeof window.htmlbSubmitForm === \"function\") {\n      report.htmlbSubmitForm = {\n        exists: true,\n        params: getFnParams(window.htmlbSubmitForm),\n        fullBody: safeToString(window.htmlbSubmitForm, 1000),\n        length: window.htmlbSubmitForm.toString().length\n      };\n    } else {\n      report.htmlbSubmitForm = { exists: false, typeFound: typeof window.htmlbSubmitForm };\n    }\n  } catch(e) {\n",
+        "applies_to": "formfiller_ia",
+        "source": "C:\\Chance1\\IA\\FormFiller_IA\\sap_forensics.js",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "javascript",
+        "js"
+      ],
+      "created_at": "2026-04-04T03:53:51.052469+00:00",
+      "updated_at": "2026-04-04T03:53:51.052469+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T03:53:51.052469+00:00",
+        "access_count": 0
+      }
+    },
+    "83e713b98b54": {
+      "id": "83e713b98b54",
+      "type": "fact",
+      "key": "sap_forensics_5",
+      "fact": {
+        "rule": "htmlbSubmitForm = { exists: false, typeFound: typeof window.htmlbSubmitForm };\n    }\n  } catch(e) {\n    report.htmlbSubmitForm = { error: e.message };\n  }\n\n  // =========================================================================\n  // 5. Form analysis\n  // =========================================================================\n  try {\n    var forms = document.forms;\n    var formList = [];\n    for (var i = 0; i < forms.length; i++) {\n      var f = forms[i];\n      formList.push({\n        index: i,\n        id: f.id || \"(none)\",\n        name: f.name || \"(none)\",\n        action: trunc(f.action || \"\", 200),\n        method: f.method,\n        target: f.target || \"(none)\",\n        encoding: f.encoding,\n        inputCount: f.elements.length,\n        hasOnSubmit: !!f.onsubmit,\n",
+        "applies_to": "formfiller_ia",
+        "source": "C:\\Chance1\\IA\\FormFiller_IA\\sap_forensics.js",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "javascript",
+        "js"
+      ],
+      "created_at": "2026-04-04T03:53:51.105946+00:00",
+      "updated_at": "2026-04-04T03:53:51.105946+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T03:53:51.105946+00:00",
+        "access_count": 0
+      }
+    },
+    "ceeaf585a4bc": {
+      "id": "ceeaf585a4bc",
+      "type": "fact",
+      "key": "sap_forensics_6",
+      "fact": {
+        "rule": "    encoding: f.encoding,\n        inputCount: f.elements.length,\n        hasOnSubmit: !!f.onsubmit,\n        onSubmitStr: f.onsubmit ? safeToString(f.onsubmit, 300) : null\n      });\n    }\n    report.forms = { count: formList.length, items: formList };\n  } catch(e) {\n    report.forms = { error: e.message };\n  }\n\n  // =========================================================================\n  // 6. Hidden inputs\n  // =========================================================================\n  try {\n    var hiddens = document.querySelectorAll(\"input[type='hidden']\");\n    var hiddenList = [];\n    for (var i = 0; i < hiddens.length && i < 100; i++) {\n      var h = hiddens[i];\n      hiddenList.push({\n        name: h.name || \"(none)\",\n        id: h.id || \"(none)\",\n",
+        "applies_to": "formfiller_ia",
+        "source": "C:\\Chance1\\IA\\FormFiller_IA\\sap_forensics.js",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "javascript",
+        "js"
+      ],
+      "created_at": "2026-04-04T03:53:51.162197+00:00",
+      "updated_at": "2026-04-04T03:53:51.162197+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T03:53:51.162197+00:00",
+        "access_count": 0
+      }
+    },
+    "190d8b92161d": {
+      "id": "190d8b92161d",
+      "type": "fact",
+      "key": "sap_forensics_7",
+      "fact": {
+        "rule": "hiddens[i];\n      hiddenList.push({\n        name: h.name || \"(none)\",\n        id: h.id || \"(none)\",\n        value: trunc(h.value || \"\", 30),\n        form: h.form ? (h.form.id || h.form.name || \"(unnamed form)\") : \"(no form)\"\n      });\n    }\n    report.hiddenInputs = { count: hiddens.length, s",
+        "applies_to": "formfiller_ia",
+        "source": "C:\\Chance1\\IA\\FormFiller_IA\\sap_forensics.js",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "javascript",
+        "js"
+      ],
+      "created_at": "2026-04-04T03:53:51.202010+00:00",
+      "updated_at": "2026-04-04T03:53:51.202010+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T03:53:51.202010+00:00",
+        "access_count": 0
+      }
+    },
+    "03a60eee25b1": {
+      "id": "03a60eee25b1",
+      "type": "fact",
+      "key": "sap_forensics_prompt_0",
+      "fact": {
+        "rule": "I need you to execute a JavaScript forensics script inside the SAP CRM WebUI to understand how SAP's HTMLB framework works internally.\n\nIMPORTANT: The script must run inside SAP's WorkAreaFrame1, NOT the top-level page. Please use the javascript_tool on the correct tab/frame where SAP CRM content is loaded.\n\nExecute the following JavaScript code and return the full result. The script is self-contained and returns a JSON string. Do not modify or truncate the output — I need the complete JSON report.\n\n```javascript\n(function() {\n  \"use strict\";\n\n  var report = {};\n\n  function trunc(str, max) {\n    if (typeof str !== \"string\") str = String(str);\n    return str.length > max ? str.substring(0, max) + \"...[TRUNCATED]\" : str;\n  }\n\n  function safeToString(fn, max) {\n",
+        "applies_to": "formfiller_ia",
+        "source": "C:\\Chance1\\IA\\FormFiller_IA\\sap_forensics_prompt.txt",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "txt"
+      ],
+      "created_at": "2026-04-04T03:53:51.238294+00:00",
+      "updated_at": "2026-04-04T03:53:51.238294+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T03:53:51.238294+00:00",
+        "access_count": 0
+      }
+    },
+    "9aeeeda0ea76": {
+      "id": "9aeeeda0ea76",
+      "type": "fact",
+      "key": "sap_forensics_prompt_1",
+      "fact": {
+        "rule": "gth > max ? str.substring(0, max) + \"...[TRUNCATED]\" : str;\n  }\n\n  function safeToString(fn, max) {\n    try { return trunc(fn.toString(), max || 200); }\n    catch(e) { return \"[toString failed: \" + e.message + \"]\"; }\n  }\n\n  function getFnParams(fn) {\n    try {\n      var s = fn.toString();\n      var m = s.match(/^function[^(]*\\(([^)]*)\\)/);\n      if (m) return m[1].split(\",\").map(function(p){ return p.trim(); }).filter(Boolean);\n      return [];\n    } catch(e) { return [\"[error]\"]; }\n  }\n\n  // 1. HTMLB Framework Functions\n  try {\n    var htmlbFns = [];\n    for (var key in window) {\n      if (key.indexOf(\"htmlb\") === 0 && typeof window[key] === \"function\") {\n        htmlbFns.push({\n          name: key,\n          params: getFnParams(window[key]),\n",
+        "applies_to": "formfiller_ia",
+        "source": "C:\\Chance1\\IA\\FormFiller_IA\\sap_forensics_prompt.txt",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "txt"
+      ],
+      "created_at": "2026-04-04T03:53:51.291956+00:00",
+      "updated_at": "2026-04-04T03:53:51.291956+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T03:53:51.291956+00:00",
+        "access_count": 0
+      }
+    },
+    "829f56577865": {
+      "id": "829f56577865",
+      "type": "fact",
+      "key": "sap_forensics_prompt_2",
+      "fact": {
+        "rule": "nction\") {\n        htmlbFns.push({\n          name: key,\n          params: getFnParams(window[key]),\n          body: safeToString(window[key], 200)\n        });\n      }\n    }\n    report.htmlbFunctions = { count: htmlbFns.length, items: htmlbFns };\n  } catch(e) {\n    report.htmlbFunctions = { error: e.message };\n  }\n\n  // 2. TH Framework Functions/Objects\n  try {\n    var thItems = [];\n    for (var key in window) {\n      if (key.indexOf(\"th\") === 0 || key.indexOf(\"TH\") === 0) {\n        var t = typeof window[key];\n        var entry = { name: key, type: t };\n        if (t === \"function\") {\n          entry.body = safeToString(window[key], 200);\n        } else if (t === \"object\" && window[key] !== null) {\n          try {\n            entry.keys = Object.keys(window[key]).slice(0, 30);\n",
+        "applies_to": "formfiller_ia",
+        "source": "C:\\Chance1\\IA\\FormFiller_IA\\sap_forensics_prompt.txt",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "txt"
+      ],
+      "created_at": "2026-04-04T03:53:51.338356+00:00",
+      "updated_at": "2026-04-04T03:53:51.338356+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T03:53:51.338356+00:00",
+        "access_count": 0
+      }
+    },
+    "16686e95a6df": {
+      "id": "16686e95a6df",
+      "type": "fact",
+      "key": "sap_forensics_prompt_3",
+      "fact": {
+        "rule": "ow[key] !== null) {\n          try {\n            entry.keys = Object.keys(window[key]).slice(0, 30);\n            entry.ownProps = Object.getOwnPropertyNames(window[key]).slice(0, 30);\n          } catch(e2) { entry.keysError = e2.message; }\n        }\n        thItems.push(entry);\n      }\n    }\n    report.thFramework = { count: thItems.length, items: thItems };\n  } catch(e) {\n    report.thFramework = { error: e.message };\n  }\n\n  // 3. htmlbSL deep analysis\n  try {\n    if (typeof window.htmlbSL === \"function\") {\n      report.htmlbSL = {\n        exists: true,\n        params: getFnParams(window.htmlbSL),\n        fullBody: safeToString(window.htmlbSL, 1000),\n        length: window.htmlbSL.toString().length\n      };\n    } else {\n",
+        "applies_to": "formfiller_ia",
+        "source": "C:\\Chance1\\IA\\FormFiller_IA\\sap_forensics_prompt.txt",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "txt"
+      ],
+      "created_at": "2026-04-04T03:53:51.387126+00:00",
+      "updated_at": "2026-04-04T03:53:51.387126+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T03:53:51.387126+00:00",
+        "access_count": 0
+      }
+    },
+    "00cbd7e30b5b": {
+      "id": "00cbd7e30b5b",
+      "type": "fact",
+      "key": "sap_forensics_prompt_4",
+      "fact": {
+        "rule": "tring(window.htmlbSL, 1000),\n        length: window.htmlbSL.toString().length\n      };\n    } else {\n      report.htmlbSL = { exists: false, typeFound: typeof window.htmlbSL };\n    }\n  } catch(e) {\n    report.htmlbSL = { error: e.message };\n  }\n\n  // 4. htmlbSubmitForm analysis\n  try {\n    if (typeof window.htmlbSubmitForm === \"function\") {\n      report.htmlbSubmitForm = {\n        exists: true,\n        params: getFnParams(window.htmlbSubmitForm),\n        fullBody: safeToString(window.htmlbSubmitForm, 1000),\n        length: window.htmlbSubmitForm.toString().length\n      };\n    } else {\n      report.htmlbSubmitForm = { exists: false, typeFound: typeof window.htmlbSubmitForm };\n    }\n  } catch(e) {\n    report.htmlbSubmitForm = { error: e.message };\n  }\n\n  // 5. Form analysis\n  try {\n",
+        "applies_to": "formfiller_ia",
+        "source": "C:\\Chance1\\IA\\FormFiller_IA\\sap_forensics_prompt.txt",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "txt"
+      ],
+      "created_at": "2026-04-04T03:53:51.428307+00:00",
+      "updated_at": "2026-04-04T03:53:51.428307+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T03:53:51.428307+00:00",
+        "access_count": 0
+      }
+    },
+    "a23c7591b272": {
+      "id": "a23c7591b272",
+      "type": "fact",
+      "key": "sap_forensics_prompt_5",
+      "fact": {
+        "rule": " } catch(e) {\n    report.htmlbSubmitForm = { error: e.message };\n  }\n\n  // 5. Form analysis\n  try {\n    var forms = document.forms;\n    var formList = [];\n    for (var i = 0; i < forms.length; i++) {\n      var f = forms[i];\n      formList.push({\n        index: i,\n        id: f.id || \"(none)\",\n        name: f.name || \"(none)\",\n        action: trunc(f.action || \"\", 200),\n        method: f.method,\n        target: f.target || \"(none)\",\n        encoding: f.encoding,\n        inputCount: f.elements.length,\n        hasOnSubmit: !!f.onsubmit,\n        onSubmitStr: f.onsubmit ? safeToString(f.onsubmit, 300) : null\n      });\n    }\n    report.forms = { count: formList.length, items: formList };\n  } catch(e) {\n    report.forms = { error: e.message };\n  }\n\n  // 6. Hidden inputs\n  try {\n",
+        "applies_to": "formfiller_ia",
+        "source": "C:\\Chance1\\IA\\FormFiller_IA\\sap_forensics_prompt.txt",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "txt"
+      ],
+      "created_at": "2026-04-04T03:53:51.467522+00:00",
+      "updated_at": "2026-04-04T03:53:51.467522+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T03:53:51.467522+00:00",
+        "access_count": 0
+      }
+    },
+    "eda0c730c184": {
+      "id": "eda0c730c184",
+      "type": "fact",
+      "key": "sap_forensics_prompt_6",
+      "fact": {
+        "rule": "mList };\n  } catch(e) {\n    report.forms = { error: e.message };\n  }\n\n  // 6. Hidden inputs\n  try {\n    var hiddens = document.querySelectorAll(\"input[type='hidden']\");\n    var hiddenList = [];\n    for (var i = 0; i < hiddens.length && i < 100; i++) {\n      var h = hiddens[i];\n      hiddenList.push({\n        name: h.name || \"(none)\",\n        id: h.id || \"(none)\",\n        value: trunc(h.value || \"\", 30),\n        form: h.form ? (h.form.id || h.form.name || \"(unnamed form)\") : \"(no form)\"\n      });\n    }\n    report.hiddenInputs = { count: hiddens.length, shown: hiddenList.length, items: hiddenList };\n  } catch(e) {\n    report.hiddenInputs = { error: e.message };\n  }\n\n  // 7. Event patterns on visible text inputs (first 3)\n  try {\n",
+        "applies_to": "formfiller_ia",
+        "source": "C:\\Chance1\\IA\\FormFiller_IA\\sap_forensics_prompt.txt",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "txt"
+      ],
+      "created_at": "2026-04-04T03:53:51.513019+00:00",
+      "updated_at": "2026-04-04T03:53:51.513019+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T03:53:51.513019+00:00",
+        "access_count": 0
+      }
+    },
+    "a7b5ff865a2e": {
+      "id": "a7b5ff865a2e",
+      "type": "fact",
+      "key": "sap_forensics_prompt_7",
+      "fact": {
+        "rule": "Inputs = { error: e.message };\n  }\n\n  // 7. Event patterns on visible text inputs (first 3)\n  try {\n    var textInputs = document.querySelectorAll(\"input[type='text'], input:not([type])\");\n    var inputPatterns = [];\n    var count = 0;\n    for (var i = 0; i < textInputs.length && count < 3; i++) {\n      var inp = textInputs[i];\n      if (inp.offsetW",
+        "applies_to": "formfiller_ia",
+        "source": "C:\\Chance1\\IA\\FormFiller_IA\\sap_forensics_prompt.txt",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "txt"
+      ],
+      "created_at": "2026-04-04T03:53:51.557617+00:00",
+      "updated_at": "2026-04-04T03:53:51.557617+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T03:53:51.557617+00:00",
+        "access_count": 0
+      }
+    },
+    "8044352cb351": {
+      "id": "8044352cb351",
+      "type": "fact",
+      "key": "test_caso_final_0",
+      "fact": {
+        "rule": "\"\"\"\ntest_caso_final.py — Caso de uso final para validar motor\n==========================================================\n0. Estado: sin items\n1. Insertar 4 items + Save\n2. Home → re-entrar\n3. Insertar 2 items más (debe ver que hay 4 e insertar en fila 5 y 6) + Save\n4. Home → re-entrar\n5. Borrar los primeros 2 items de la tabla + Save\n6. Verificar: deben quedar 4 items\n\nTODO con motor. Sin ML.\n\"\"\"\nimport sys, time, re\nfrom pathlib import Path\nsys.path.insert(0, str(Path(__file__).parent))\n\nif hasattr(sys.stdout, \"reconfigure\"):\n    sys.stdout.reconfigure(encoding=\"utf-8\", errors=\"replace\")\n\nSAP_URL = \"https://wdp-sap.gbm.net:8105/sap/crm_logon?sap-client=500\"\nSAP_USER = \"ntoledo\"\nSAP_PASS = \"nB$1240906\"\nHTTP_USER = \"ntoledo\"\nHTTP_PASS = \"Gbmcr2026\"\nOPP_ID = \"245451\"\n\n",
+        "applies_to": "formfiller_ia",
+        "source": "C:\\Chance1\\IA\\FormFiller_IA\\test_caso_final.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-04T03:53:51.609666+00:00",
+      "updated_at": "2026-04-04T03:53:51.609666+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T03:53:51.609666+00:00",
+        "access_count": 0
+      }
+    },
+    "8e04659a4923": {
+      "id": "8e04659a4923",
+      "type": "fact",
+      "key": "test_caso_final_1",
+      "fact": {
+        "rule": " \"ntoledo\"\nSAP_PASS = \"nB$1240906\"\nHTTP_USER = \"ntoledo\"\nHTTP_PASS = \"Gbmcr2026\"\nOPP_ID = \"245451\"\n\ndef log(msg, level=\"INFO\"):\n    ts = time.strftime(\"%H:%M:%S\")\n    icons = {\"INFO\":\"   \",\"OK\":\"[OK]\",\"FAIL\":\"[!!]\",\"STEP\":\">>>\",\"SCAN\":\"[S]\",\"WAIT\":\"...\"}\n    print(f\"  {ts}  {icons.get(level,'   ')}  {msg}\", flush=True)\n\ndef navigate_to_opp(page, scanner):\n    \"\"\"Login + Nav + abrir oportunidad.\"\"\"\n    scanner.scan_and_click(\"Sales Cycle\", max_retries=15, match_mode=\"startswith\")\n    time.sleep(1)\n    scanner.scan_and_click(\"Opportunities\", max_retries=15, match_mode=\"exact\")\n    time.sleep(3)\n    scanner.scan_framework()\n    for fr in page.frames:\n        try:\n            loc = fr.locator(\"input[id*='search_parameters'][id*='VALUE']\").first\n            if loc.count() > 0:\n",
+        "applies_to": "formfiller_ia",
+        "source": "C:\\Chance1\\IA\\FormFiller_IA\\test_caso_final.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-04T03:53:51.664146+00:00",
+      "updated_at": "2026-04-04T03:53:51.664146+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T03:53:51.664146+00:00",
+        "access_count": 0
+      }
+    },
+    "5f95be18cffc": {
+      "id": "5f95be18cffc",
+      "type": "fact",
+      "key": "test_caso_final_2",
+      "fact": {
+        "rule": "c = fr.locator(\"input[id*='search_parameters'][id*='VALUE']\").first\n            if loc.count() > 0:\n                loc.click(); loc.fill(OPP_ID)\n                fr.evaluate(\"\"\"() => { for(var el of document.querySelectorAll('a,input')){var t=(el.textContent||el.value||'').trim();if(t==='Search'){el.click();return}} }\"\"\")\n                break\n        except: pass\n    time.sleep(5)\n    for fr in page.frames:\n        try:\n            loc = fr.locator(f\"a:has-text('{OPP_ID}')\").first\n            if loc.count() > 0: loc.click(); break\n        except: pass\n    time.sleep(5)\n\ndef go_home(page, scanner):\n    \"\"\"Click Home.\"\"\"\n    scanner.scan_and_click(\"Home\", max_retries=10, match_mode=\"exact\")\n    time.sleep(3)\n\ndef insert_items(page, scanner, items):\n",
+        "applies_to": "formfiller_ia",
+        "source": "C:\\Chance1\\IA\\FormFiller_IA\\test_caso_final.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-04T03:53:51.715463+00:00",
+      "updated_at": "2026-04-04T03:53:51.715463+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T03:53:51.715463+00:00",
+        "access_count": 0
+      }
+    },
+    "766cb5c4ceb3": {
+      "id": "766cb5c4ceb3",
+      "type": "fact",
+      "key": "test_caso_final_3",
+      "fact": {
+        "rule": "me\", max_retries=10, match_mode=\"exact\")\n    time.sleep(3)\n\ndef insert_items(page, scanner, items):\n    \"\"\"Insertar N items usando Playwright locator (técnica probada).\"\"\"\n    # Edit List\n    scanner.click_in_section(\"Items\", \"Edit List\")\n    time.sleep(2)\n\n    for idx, (part, qty) in enumerate(items):\n        log(f\"  Item {idx+1}/{len(items)}: {part} qty={qty}\", \"STEP\")\n\n        # Buscar input orderedprod vacío\n        prod_id = None\n        prod_frame = None\n        for wait_i in range(15):\n            for fr in page.frames:\n                try:\n                    pid = fr.evaluate(\"\"\"() => {\n                        var inputs = document.querySelectorAll(\"input[id*='orderedprod']\");\n                        for (var inp of inputs) {\n",
+        "applies_to": "formfiller_ia",
+        "source": "C:\\Chance1\\IA\\FormFiller_IA\\test_caso_final.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-04T03:53:51.762959+00:00",
+      "updated_at": "2026-04-04T03:53:51.762959+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T03:53:51.762959+00:00",
+        "access_count": 0
+      }
+    },
+    "7ad6ed093767": {
+      "id": "7ad6ed093767",
+      "type": "fact",
+      "key": "test_caso_final_4",
+      "fact": {
+        "rule": "ent.querySelectorAll(\"input[id*='orderedprod']\");\n                        for (var inp of inputs) {\n                            if (inp.getBoundingClientRect().width > 5 && !inp.disabled\n                                && (inp.value || '').trim() === '')\n                                return inp.id;\n                        }\n                        return null;\n                    }\"\"\")\n                    if pid:\n                        prod_id = pid\n                        prod_frame = fr\n                        break\n                except: pass\n            if prod_id: break\n            if wait_i == 0:\n                scanner.click_in_section(\"Items\", \"Insert\")\n                time.sleep(2)\n            elif wait_i == 3:\n                scanner.click_in_section(\"Items\", \"New\")\n",
+        "applies_to": "formfiller_ia",
+        "source": "C:\\Chance1\\IA\\FormFiller_IA\\test_caso_final.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-04T03:53:51.800326+00:00",
+      "updated_at": "2026-04-04T03:53:51.800326+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T03:53:51.800326+00:00",
+        "access_count": 0
+      }
+    },
+    "601fe15d6677": {
+      "id": "601fe15d6677",
+      "type": "fact",
+      "key": "test_caso_final_5",
+      "fact": {
+        "rule": "ime.sleep(2)\n            elif wait_i == 3:\n                scanner.click_in_section(\"Items\", \"New\")\n                time.sleep(2)\n            else:\n                time.sleep(1)\n\n        if not prod_id:\n            log(f\"    No hay input para item {idx+1}\", \"FAIL\")\n            continue\n\n        log(f\"    Input: ...{prod_id[-35:]}\", \"SCAN\")\n\n        # Llenar producto\n        prod_loc = prod_frame.locator(f\"input[id='{prod_id}']\").first\n        prod_loc.click(timeout=5000)\n        page.wait_for_timeout(100)\n        prod_loc.type(part, delay=15, timeout=5000)\n        prod_loc.press(\"Enter\", timeout=3000)\n        log(f\"    Producto {part} + Enter\", \"OK\")\n        time.sleep(2)\n\n        # Quantity por mismo row index\n        row_match = re.search(r'btadmini_table\\[(\\d+)\\]', prod_id)\n",
+        "applies_to": "formfiller_ia",
+        "source": "C:\\Chance1\\IA\\FormFiller_IA\\test_caso_final.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-04T03:53:51.848374+00:00",
+      "updated_at": "2026-04-04T03:53:51.848374+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T03:53:51.848374+00:00",
+        "access_count": 0
+      }
+    },
+    "18edcefcf94b": {
+      "id": "18edcefcf94b",
+      "type": "fact",
+      "key": "test_caso_final_6",
+      "fact": {
+        "rule": "  # Quantity por mismo row index\n        row_match = re.search(r'btadmini_table\\[(\\d+)\\]', prod_id)\n        if row_match:\n            row_idx = row_match.group(1)\n            qty_id = prod_frame.evaluate(f\"\"\"() => {{\n                var q = document.querySelector(\"input[id$='btadmini_table[{row_idx}].quantity']\");\n                if (q && q.offsetWidth > 0) return q.id;\n                return null;\n            }}\"\"\")\n            if qty_id:\n                qty_loc = prod_frame.locator(f\"input[id='{qty_id}']\").first\n                qty_loc.click(timeout=5000)\n                page.wait_for_timeout(100)\n                qty_loc.fill(\"\", timeout=3000)\n                qty_loc.type(qty, timeout=3000)\n                qty_loc.press(\"Enter\", timeout=3000)\n                page.wait_for_timeout(500)\n",
+        "applies_to": "formfiller_ia",
+        "source": "C:\\Chance1\\IA\\FormFiller_IA\\test_caso_final.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-04T03:53:51.895305+00:00",
+      "updated_at": "2026-04-04T03:53:51.895305+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T03:53:51.895305+00:00",
+        "access_count": 0
+      }
+    },
+    "0384c0bd3bb8": {
+      "id": "0384c0bd3bb8",
+      "type": "fact",
+      "key": "test_caso_final_7",
+      "fact": {
+        "rule": "00)\n                qty_loc.press(\"Enter\", timeout=3000)\n                page.wait_for_timeout(500)\n                qty_loc.press(\"Enter\", timeout=3000)\n                log(f\"    Quantity {qty} + doble Enter\", \"OK\")\n            else:\n                log(f\"",
+        "applies_to": "formfiller_ia",
+        "source": "C:\\Chance1\\IA\\FormFiller_IA\\test_caso_final.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-04T03:53:51.925367+00:00",
+      "updated_at": "2026-04-04T03:53:51.925367+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T03:53:51.925367+00:00",
+        "access_count": 0
+      }
+    },
+    "eb1922e65ce1": {
+      "id": "eb1922e65ce1",
+      "type": "fact",
+      "key": "main_0",
+      "fact": {
+        "rule": "\"\"\"\nmain.py -- CLI entry point for FormFiller_IA\n==============================================\nUsage:\n    python main.py fill --url URL --data data.json --form form_name [--cdp PORT]\n    python main.py record --url URL --form form_name [--cdp PORT]\n    python main.py scan --url URL [--level full|frame] [--cdp PORT]\n    python main.py maps [list|show <name>|delete <name>]\n    python main.py stats\n    python main.py test  # runs the mock server + integration test\n\"\"\"\nimport argparse\nimport json\nimport sys\nimport os\n\n# Ensure UTF-8 output on Windows\nif sys.platform == \"win32\":\n    try:\n        sys.stdout.reconfigure(encoding=\"utf-8\", errors=\"replace\")\n    except Exception:\n        pass\n\n# Ensure project root is on sys.path\nsys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))\n\n",
+        "applies_to": "formfiller_ia",
+        "source": "C:\\Chance1\\IA\\FormFiller_IA\\main.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-04T03:53:51.972572+00:00",
+      "updated_at": "2026-04-04T03:53:51.972572+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T03:53:51.972572+00:00",
+        "access_count": 0
+      }
+    },
+    "1afd9d70eb8e": {
+      "id": "1afd9d70eb8e",
+      "type": "fact",
+      "key": "main_1",
+      "fact": {
+        "rule": " Ensure project root is on sys.path\nsys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))\n\nfrom config import CDP_PORT, FORM_MAPS_DIR, SESSIONS_DIR\n\nBANNER = (\n    \"\\n\"\n    \"\\u2554\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2557\\n\"\n    \"\\u2551  FormFiller_IA v1.0                  \\u2551\\n\"\n    \"\\u2551  Universal Web Form Automation       \\u2551\\n\"\n    \"\\u255a\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u255d\\n\"\n)\n\n",
+        "applies_to": "formfiller_ia",
+        "source": "C:\\Chance1\\IA\\FormFiller_IA\\main.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-04T03:53:52.025369+00:00",
+      "updated_at": "2026-04-04T03:53:52.025369+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T03:53:52.025369+00:00",
+        "access_count": 0
+      }
+    },
+    "2ffb22bfc9c7": {
+      "id": "2ffb22bfc9c7",
+      "type": "fact",
+      "key": "main_2",
+      "fact": {
+        "rule": "550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u2550\\u255d\\n\"\n)\n\ndef _build_orchestrator(cdp_port=None, launch_headless=False):\n    \"\"\"Build and return an Orchestrator connected to a browser.\"\"\"\n    from core.orchestrator import Orchestrator\n    orch = Orchestrator()\n    if cdp_port:\n        orch.connect_to_browser(cdp_port)\n    else:\n        orch.launch_browser(headless=launch_headless)\n    return orch\n\n# ---------------------------------------------------------------------------\n# fill\n# ---------------------------------------------------------------------------\ndef cmd_fill(args):\n    \"\"\"Fill a form with data from a JSON file.\"\"\"\n    # Load data\n    try:\n        with open(args.data, \"r\", encoding=\"utf-8\") as f:\n            data = json.load(f)\n",
+        "applies_to": "formfiller_ia",
+        "source": "C:\\Chance1\\IA\\FormFiller_IA\\main.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-04T03:53:52.076488+00:00",
+      "updated_at": "2026-04-04T03:53:52.076488+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T03:53:52.076488+00:00",
+        "access_count": 0
+      }
+    },
+    "90675e8a9399": {
+      "id": "90675e8a9399",
+      "type": "fact",
+      "key": "main_3",
+      "fact": {
+        "rule": "\n    try:\n        with open(args.data, \"r\", encoding=\"utf-8\") as f:\n            data = json.load(f)\n    except FileNotFoundError:\n        print(f\"Error: data file not found: {args.data}\")\n        sys.exit(1)\n    except json.JSONDecodeError as e:\n        print(f\"Error: invalid JSON in {args.data}: {e}\")\n        sys.exit(1)\n\n    cdp = args.cdp if args.cdp else None\n    orch = _build_orchestrator(cdp_port=cdp)\n\n    print(f\"Filling form '{args.form}' at {args.url}\")\n    print(f\"Data fields: {list(data.keys())}\")\n\n    result = orch.fill_form(\n        form_name=args.form,\n        data=data,\n        url=args.url,\n    )\n\n    print(f\"\\nResult: {result}\")\n    if result.errors:\n        print(f\"Errors: {result.errors}\")\n    return result\n\n",
+        "applies_to": "formfiller_ia",
+        "source": "C:\\Chance1\\IA\\FormFiller_IA\\main.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-04T03:53:52.120935+00:00",
+      "updated_at": "2026-04-04T03:53:52.120935+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T03:53:52.120935+00:00",
+        "access_count": 0
+      }
+    },
+    "22eae89086c7": {
+      "id": "22eae89086c7",
+      "type": "fact",
+      "key": "main_4",
+      "fact": {
+        "rule": "sult: {result}\")\n    if result.errors:\n        print(f\"Errors: {result.errors}\")\n    return result\n\n# ---------------------------------------------------------------------------\n# record\n# ---------------------------------------------------------------------------\ndef cmd_record(args):\n    \"\"\"Record user interactions to build a form map.\"\"\"\n    cdp = args.cdp if args.cdp else None\n    orch = _build_orchestrator(cdp_port=cdp)\n\n    page = orch.page\n    if args.url:\n        page.goto(args.url, wait_until=\"domcontentloaded\", timeout=30000)\n\n    print(f\"Recording form '{args.form}'...\")\n    print(\"Interact with the form in the browser. Press Ctrl+C when done.\\n\")\n\n    orch.recorder.start_recording(page, args.form)\n    try:\n        while True:\n            page.wait_for_timeout(1000)\n",
+        "applies_to": "formfiller_ia",
+        "source": "C:\\Chance1\\IA\\FormFiller_IA\\main.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-04T03:53:52.177761+00:00",
+      "updated_at": "2026-04-04T03:53:52.177761+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T03:53:52.177761+00:00",
+        "access_count": 0
+      }
+    },
+    "e1efa77fa04a": {
+      "id": "e1efa77fa04a",
+      "type": "fact",
+      "key": "main_5",
+      "fact": {
+        "rule": "art_recording(page, args.form)\n    try:\n        while True:\n            page.wait_for_timeout(1000)\n    except KeyboardInterrupt:\n        print(\"\\nStopping recording...\")\n\n    form_map = orch.recorder.stop_recording()\n    if form_map:\n        orch.recorder.save_map(args.form, form_map)\n        print(f\"Form map saved as '{args.form}'\")\n    else:\n        print(\"No interactions recorded.\")\n\n# ---------------------------------------------------------------------------\n# scan\n# ---------------------------------------------------------------------------\ndef cmd_scan(args):\n    \"\"\"Scan a page and print discovered fields.\"\"\"\n    from core.scanner import ScanLevel\n\n    cdp = args.cdp if args.cdp else None\n    orch = _build_orchestrator(cdp_port=cdp)\n\n    page = orch.page\n",
+        "applies_to": "formfiller_ia",
+        "source": "C:\\Chance1\\IA\\FormFiller_IA\\main.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-04T03:53:52.229088+00:00",
+      "updated_at": "2026-04-04T03:53:52.229088+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T03:53:52.229088+00:00",
+        "access_count": 0
+      }
+    },
+    "0d9752d29437": {
+      "id": "0d9752d29437",
+      "type": "fact",
+      "key": "main_6",
+      "fact": {
+        "rule": "= args.cdp if args.cdp else None\n    orch = _build_orchestrator(cdp_port=cdp)\n\n    page = orch.page\n    page.goto(args.url, wait_until=\"domcontentloaded\", timeout=30000)\n\n    level_map = {\"full\": ScanLevel.FULL, \"frame\": ScanLevel.FRAME}\n    level = level_map.get(args.level, ScanLevel.FULL)\n\n    print(f\"Scanning {args.url} at level {level.name}...\")\n    result = orch.scanner.scan(level)\n\n    print(f\"\\nScan result: {result}\")\n    print(f\"Fields found: {len(result.fields)}\")\n    print(f\"Iframes: {len(result.iframes)}\")\n    print(f\"DOM hash: {result.dom_hash}\")\n\n    if result.fields:\n        print(\"\\nFields:\")\n        for i, f in enumerate(result.fields, 1):\n            name = f.get(\"name\") or f.get(\"id\") or \"(unnamed)\"\n            ftype = f.get(\"type\", \"?\")\n",
+        "applies_to": "formfiller_ia",
+        "source": "C:\\Chance1\\IA\\FormFiller_IA\\main.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-04T03:53:52.277709+00:00",
+      "updated_at": "2026-04-04T03:53:52.277709+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T03:53:52.277709+00:00",
+        "access_count": 0
+      }
+    },
+    "55375cfb0a1c": {
+      "id": "55375cfb0a1c",
+      "type": "fact",
+      "key": "main_7",
+      "fact": {
+        "rule": "          name = f.get(\"name\") or f.get(\"id\") or \"(unnamed)\"\n            ftype = f.get(\"type\", \"?\")\n            tag = f.get(\"tag\", \"?\")\n            print(f\"  {i:3d}. [{tag}:{ftype}] {name}\")\n\n# ------------------------------------------------------",
+        "applies_to": "formfiller_ia",
+        "source": "C:\\Chance1\\IA\\FormFiller_IA\\main.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-04T03:53:52.318483+00:00",
+      "updated_at": "2026-04-04T03:53:52.318483+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T03:53:52.318483+00:00",
+        "access_count": 0
+      }
+    },
+    "d3d3532549f6": {
+      "id": "d3d3532549f6",
+      "type": "fact",
+      "key": "run_forensics_0",
+      "fact": {
+        "rule": "\"\"\"\nrun_forensics.py — Ejecuta sap_forensics.js via Playwright en SAP CRM\nNo necesita extensión de Chrome. Playwright tiene acceso a todo.\n\"\"\"\nimport sys, time, json\nfrom pathlib import Path\nsys.path.insert(0, str(Path(__file__).parent))\n\nSAP_URL   = \"https://wdp-sap.gbm.net:8105/sap/crm_logon?sap-client=500\"\nSAP_USER  = \"ntoledo\"\nSAP_PASS  = \"nB$1240906\"\nHTTP_USER = \"ntoledo\"\nHTTP_PASS = \"Gbmcr2026\"\n\ndef log(msg):\n    print(f\"  {time.strftime('%H:%M:%S')}  {msg}\", flush=True)\n\ndef main():\n    from playwright.sync_api import sync_playwright\n\n    # Leer el script forensics\n    js_code = Path(\"sap_forensics.js\").read_text(encoding=\"utf-8\")\n    log(f\"Forensics JS: {len(js_code)} chars\")\n\n    pw = sync_playwright().start()\n    browser = pw.chromium.launch(headless=True)\n",
+        "applies_to": "formfiller_ia",
+        "source": "C:\\Chance1\\IA\\FormFiller_IA\\run_forensics.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-04T03:53:52.368817+00:00",
+      "updated_at": "2026-04-04T03:53:52.368817+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T03:53:52.368817+00:00",
+        "access_count": 0
+      }
+    },
+    "bdfc434d4d35": {
+      "id": "bdfc434d4d35",
+      "type": "fact",
+      "key": "run_forensics_1",
+      "fact": {
+        "rule": "_code)} chars\")\n\n    pw = sync_playwright().start()\n    browser = pw.chromium.launch(headless=True)\n    context = browser.new_context(\n        ignore_https_errors=True,\n        http_credentials={\"username\": HTTP_USER, \"password\": HTTP_PASS},\n    )\n    page = context.new_page()\n    page.set_default_timeout(30000)\n\n    try:\n        # Login\n        log(\"Login...\")\n        page.goto(SAP_URL, wait_until=\"domcontentloaded\")\n        time.sleep(2)\n        page.fill(\"#sap-user\", SAP_USER)\n        page.fill(\"#sap-password\", SAP_PASS)\n        page.keyboard.press(\"Enter\")\n        time.sleep(4)\n\n        # Existing Logon\n        deadline = time.time() + 30\n        crm_ready = False\n        while time.time() < deadline:\n            for fr in page.frames:\n                try:\n",
+        "applies_to": "formfiller_ia",
+        "source": "C:\\Chance1\\IA\\FormFiller_IA\\run_forensics.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-04T03:53:52.413136+00:00",
+      "updated_at": "2026-04-04T03:53:52.413136+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T03:53:52.413136+00:00",
+        "access_count": 0
+      }
+    },
+    "a7b5a6f5c6a9": {
+      "id": "a7b5a6f5c6a9",
+      "type": "fact",
+      "key": "run_forensics_2",
+      "fact": {
+        "rule": "False\n        while time.time() < deadline:\n            for fr in page.frames:\n                try:\n                    r = fr.evaluate(\"\"\"() => {\n                        var b = document.getElementById('SESSION_QUERY_CONTINUE_BUTTON');\n                        if (b) { b.click(); return 'cont'; }\n                        return null;\n                    }\"\"\")\n                except: pass\n            for fr in page.frames:\n                try:\n                    if \"crm_ui\" in fr.url or \"bsp\" in fr.url:\n                        crm_ready = True; break\n                except: pass\n            if crm_ready: break\n            if len(page.frames) > 3: crm_ready = True; break\n            time.sleep(0.5)\n        time.sleep(3)\n        log(f\"CRM OK - {len(page.frames)} frames\")\n\n",
+        "applies_to": "formfiller_ia",
+        "source": "C:\\Chance1\\IA\\FormFiller_IA\\run_forensics.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-04T03:53:52.448494+00:00",
+      "updated_at": "2026-04-04T03:53:52.448494+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T03:53:52.448494+00:00",
+        "access_count": 0
+      }
+    },
+    "3b8faa10438c": {
+      "id": "3b8faa10438c",
+      "type": "fact",
+      "key": "run_forensics_3",
+      "fact": {
+        "rule": "          time.sleep(0.5)\n        time.sleep(3)\n        log(f\"CRM OK - {len(page.frames)} frames\")\n\n        # Ejecutar forensics en CADA frame\n        log(\"Ejecutando forensics en todos los frames...\")\n        results = {}\n        for i, fr in enumerate(page.frames):\n            try:\n                url = fr.url[:60]\n                r = fr.evaluate(js_code)\n                if r and len(str(r)) > 100:\n                    # Parse si es string JSON\n                    if isinstance(r, str):\n                        try:\n                            r = json.loads(r)\n                        except:\n                            pass\n                    results[f\"frame_{i}\"] = {\n                        \"url\": url,\n                        \"data\": r,\n                        \"data_size\": len(str(r))\n",
+        "applies_to": "formfiller_ia",
+        "source": "C:\\Chance1\\IA\\FormFiller_IA\\run_forensics.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-04T03:53:52.488445+00:00",
+      "updated_at": "2026-04-04T03:53:52.488445+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T03:53:52.488445+00:00",
+        "access_count": 0
+      }
+    },
+    "42a68680d9f8": {
+      "id": "42a68680d9f8",
+      "type": "fact",
+      "key": "run_forensics_4",
+      "fact": {
+        "rule": "    \"url\": url,\n                        \"data\": r,\n                        \"data_size\": len(str(r))\n                    }\n                    log(f\"  Frame {i}: {len(str(r))} chars ({url})\")\n                else:\n                    log(f\"  Frame {i}: sin datos ({url})\")\n            except Exception as e:\n                log(f\"  Frame {i}: error ({type(e).__name__})\")\n\n        # Guardar resultado\n        out_file = Path(\"sap_forensics_result.json\")\n        out_file.write_text(json.dumps(results, indent=2, default=str, ensure_ascii=False), encoding=\"utf-8\")\n        log(f\"Resultado guardado: {out_file} ({out_file.stat().st_size} bytes)\")\n\n        # Resumen rapido\n        for fname, fdata in results.items():\n            data = fdata.get(\"data\", {})\n            if isinstance(data, dict):\n",
+        "applies_to": "formfiller_ia",
+        "source": "C:\\Chance1\\IA\\FormFiller_IA\\run_forensics.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-04T03:53:52.530192+00:00",
+      "updated_at": "2026-04-04T03:53:52.530192+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T03:53:52.530192+00:00",
+        "access_count": 0
+      }
+    },
+    "b39c195f9b99": {
+      "id": "b39c195f9b99",
+      "type": "fact",
+      "key": "run_forensics_5",
+      "fact": {
+        "rule": "in results.items():\n            data = fdata.get(\"data\", {})\n            if isinstance(data, dict):\n                sections = [k for k in data.keys() if not k.startswith(\"_\")]\n                log(f\"  {fname}: {len(sections)} secciones: {', '.join(sections[:8])}\")\n\n    except Exception as e:\n        log(f\"ERROR: {e}\")\n        import traceback; traceback.print_exc()\n    finally:\n        try: context.close(); browser.close(); pw.stop()\n        except: pass\n\nif __name__ == \"__main__\":\n    main()",
+        "applies_to": "formfiller_ia",
+        "source": "C:\\Chance1\\IA\\FormFiller_IA\\run_forensics.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-04T03:53:52.578294+00:00",
+      "updated_at": "2026-04-04T03:53:52.578294+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T03:53:52.578294+00:00",
+        "access_count": 0
+      }
+    },
+    "273ca4c86727": {
+      "id": "273ca4c86727",
+      "type": "fact",
+      "key": "config_0",
+      "fact": {
+        "rule": "\"\"\"\nconfig.py — Configuracion central de FormFiller_IA\n===================================================\nTodos los paths, constantes y parametros globales del proyecto.\n\"\"\"\nfrom pathlib import Path\n\n# ── Directorio base de datos ──────────────────────────────────\nDATA_DIR              = Path.home() / \".formfiller_ia\"\n\n# ── Sub-directorios ───────────────────────────────────────────\nKNOWLEDGE_DIR         = DATA_DIR / \"knowledge\"\nLOCK_DIR              = DATA_DIR / \"locks\"\nFORM_MAPS_DIR         = DATA_DIR / \"form_maps\"\nSELECTORS_DIR         = DATA_DIR / \"selectors\"\nSESSIONS_DIR          = DATA_DIR / \"sessions\"\nSCREENSHOTS_DIR       = DATA_DIR / \"screenshots\"\nPROJECT_DIR           = Path(__file__).parent\nJS_DIR                = PROJECT_DIR / \"js\"\n\n",
+        "applies_to": "formfiller_ia",
+        "source": "C:\\Chance1\\IA\\FormFiller_IA\\config.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-04T03:53:52.634497+00:00",
+      "updated_at": "2026-04-04T03:53:52.634497+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T03:53:52.634497+00:00",
+        "access_count": 0
+      }
+    },
+    "962b5a791995": {
+      "id": "962b5a791995",
+      "type": "fact",
+      "key": "config_1",
+      "fact": {
+        "rule": "eenshots\"\nPROJECT_DIR           = Path(__file__).parent\nJS_DIR                = PROJECT_DIR / \"js\"\n\n# ── Archivos principales ─────────────────────────────────────\nLOG_FILE              = DATA_DIR / \"execution_log.jsonl\"\nMEMORY_FILE           = DATA_DIR / \"learned_patterns.json\"\nATTEMPTS_FILE         = DATA_DIR / \"task_attempts.json\"\nDOMAINS_FILE          = KNOWLEDGE_DIR / \"domains.json\"\n\n# ── Scanner timing targets ────────────────────────────────────\nSCANNER_INTERVAL_MS   = 500      # Intervalo base de escaneo\nSCANNER_FAST_MS       = 200      # Escaneo rapido (cambios detectados)\nSCANNER_SLOW_MS       = 2000     # Escaneo lento (idle)\nSCANNER_MAX_FIELDS    = 200      # Max campos por escaneo\n\n# ── Waiter defaults ───────────────────────────────────────────\n",
+        "applies_to": "formfiller_ia",
+        "source": "C:\\Chance1\\IA\\FormFiller_IA\\config.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-04T03:53:52.681227+00:00",
+      "updated_at": "2026-04-04T03:53:52.681227+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T03:53:52.681227+00:00",
+        "access_count": 0
+      }
+    },
+    "0d7c4e19c4fa": {
+      "id": "0d7c4e19c4fa",
+      "type": "fact",
+      "key": "config_2",
+      "fact": {
+        "rule": "200      # Max campos por escaneo\n\n# ── Waiter defaults ───────────────────────────────────────────\nPOLL_BASE_MS          = 50       # Intervalo base de polling\nPOLL_MAX_MS           = 2000     # Intervalo maximo de polling\nPOLL_BACKOFF_FACTOR   = 1.5      # Factor de backoff exponencial\nWAIT_TIMEOUT_S        = 30       # Timeout por defecto en segundos\n\n# ── Filler strategies ────────────────────────────────────────\nFILLER_STRATEGIES     = [\n    \"direct_value\",              # Asignar valor directamente\n    \"type_simulation\",           # Simular tecleo caracter por caracter\n    \"clipboard_paste\",           # Copiar al clipboard y pegar\n    \"js_dispatch\",               # Disparar eventos JS (input, change, blur)\n    \"react_setter\",              # Usar setter nativo de React\n",
+        "applies_to": "formfiller_ia",
+        "source": "C:\\Chance1\\IA\\FormFiller_IA\\config.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-04T03:53:52.726619+00:00",
+      "updated_at": "2026-04-04T03:53:52.726619+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T03:53:52.726619+00:00",
+        "access_count": 0
+      }
+    },
+    "bfc240ea3d38": {
+      "id": "bfc240ea3d38",
+      "type": "fact",
+      "key": "config_3",
+      "fact": {
+        "rule": "rar eventos JS (input, change, blur)\n    \"react_setter\",              # Usar setter nativo de React\n    \"angular_ngmodel\",           # Usar ng-model de Angular\n    \"select_option\",             # Seleccionar opcion en <select>\n    \"checkbox_toggle\",           # Toggle de checkbox/radio\n    \"file_input\",                # Input de archivo\n    \"contenteditable\",           # Elementos contenteditable\n]\n\n# ── Ollama config ─────────────────────────────────────────────\nOLLAMA_BASE_URL       = \"http://localhost:11434\"\nOLLAMA_MODEL          = \"qwen3:4b\"\nOLLAMA_TIMEOUT        = 300      # 5 min\nOLLAMA_TEMPERATURE    = 0.3      # Bajo para respuestas precisas\n\n# ── CDP (Chrome DevTools Protocol) ────────────────────────────\nCDP_PORT              = 9222\nCDP_HOST              = \"127.0.0.1\"",
+        "applies_to": "formfiller_ia",
+        "source": "C:\\Chance1\\IA\\FormFiller_IA\\config.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-04T03:53:52.770535+00:00",
+      "updated_at": "2026-04-04T03:53:52.770535+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T03:53:52.770535+00:00",
+        "access_count": 0
+      }
+    }
+  },
+  "tag_index": {
+    "json": [
+      "409f87f86255",
+      "409f87f86255",
+      "8b7a01a771cd",
+      "8b7a01a771cd",
+      "a58757eac196",
+      "a58757eac196",
+      "5830a7fbe5b7",
+      "5830a7fbe5b7",
+      "44ec44351562",
+      "44ec44351562",
+      "22351950b646",
+      "22351950b646",
+      "2ec82f7a7ad3",
+      "2ec82f7a7ad3",
+      "595231346cb6",
+      "595231346cb6"
+    ],
+    "python": [
+      "d47bdf2e585e",
+      "69020ebfe340",
+      "1b02c6489230",
+      "775dc07f13e9",
+      "5fcb350ac097",
+      "52ae7252bf86",
+      "cfac046c862e",
+      "db467dd0d9d9",
+      "8044352cb351",
+      "8e04659a4923",
+      "5f95be18cffc",
+      "766cb5c4ceb3",
+      "7ad6ed093767",
+      "601fe15d6677",
+      "18edcefcf94b",
+      "0384c0bd3bb8",
+      "eb1922e65ce1",
+      "1afd9d70eb8e",
+      "2ffb22bfc9c7",
+      "90675e8a9399",
+      "22eae89086c7",
+      "e1efa77fa04a",
+      "0d9752d29437",
+      "55375cfb0a1c",
+      "d3d3532549f6",
+      "bdfc434d4d35",
+      "a7b5a6f5c6a9",
+      "3b8faa10438c",
+      "42a68680d9f8",
+      "b39c195f9b99",
+      "273ca4c86727",
+      "962b5a791995",
+      "0d7c4e19c4fa",
+      "bfc240ea3d38"
+    ],
+    "py": [
+      "d47bdf2e585e",
+      "69020ebfe340",
+      "1b02c6489230",
+      "775dc07f13e9",
+      "5fcb350ac097",
+      "52ae7252bf86",
+      "cfac046c862e",
+      "db467dd0d9d9",
+      "8044352cb351",
+      "8e04659a4923",
+      "5f95be18cffc",
+      "766cb5c4ceb3",
+      "7ad6ed093767",
+      "601fe15d6677",
+      "18edcefcf94b",
+      "0384c0bd3bb8",
+      "eb1922e65ce1",
+      "1afd9d70eb8e",
+      "2ffb22bfc9c7",
+      "90675e8a9399",
+      "22eae89086c7",
+      "e1efa77fa04a",
+      "0d9752d29437",
+      "55375cfb0a1c",
+      "d3d3532549f6",
+      "bdfc434d4d35",
+      "a7b5a6f5c6a9",
+      "3b8faa10438c",
+      "42a68680d9f8",
+      "b39c195f9b99",
+      "273ca4c86727",
+      "962b5a791995",
+      "0d7c4e19c4fa",
+      "bfc240ea3d38"
+    ],
+    "javascript": [
+      "80cff2d818b5",
+      "181920963535",
+      "6102bb9bc715",
+      "96f963bf93e5",
+      "bdd956ebda48",
+      "83e713b98b54",
+      "ceeaf585a4bc",
+      "190d8b92161d"
+    ],
+    "js": [
+      "80cff2d818b5",
+      "181920963535",
+      "6102bb9bc715",
+      "96f963bf93e5",
+      "bdd956ebda48",
+      "83e713b98b54",
+      "ceeaf585a4bc",
+      "190d8b92161d"
+    ],
+    "txt": [
+      "03a60eee25b1",
+      "9aeeeda0ea76",
+      "829f56577865",
+      "16686e95a6df",
+      "00cbd7e30b5b",
+      "a23c7591b272",
+      "eda0c730c184",
+      "a7b5ff865a2e"
+    ]
+  },
+  "stats": {
+    "total_entries": 58,
+    "total_lookups": 0,
+    "total_hits": 0
+  }
+}
