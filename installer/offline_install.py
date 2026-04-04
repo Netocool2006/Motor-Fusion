@@ -58,7 +58,7 @@ MOTOR_FILES = [
     "ENV_SETUP.md",
     "TEST_PLAN.md",
 ]
-MOTOR_DIRS = ["core", "adapters", "hooks", "dashboard", "knowledge"]
+MOTOR_DIRS = ["core", "adapters", "hooks", "dashboard", "knowledge", "docs"]
 HOOK_EVENTS = ["PreToolUse", "UserPromptSubmit", "PostToolUse", "Stop"]
 HOOK_SCRIPTS = {
     "PreToolUse":       "session_start.py",

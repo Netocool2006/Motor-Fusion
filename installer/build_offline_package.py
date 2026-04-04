@@ -75,7 +75,7 @@ REQUIRED_PACKAGES = [
 # Archivos y directorios del proyecto a incluir
 PROJECT_DIRS = [
     "core", "hooks", "knowledge", "dashboard", "adapters",
-    "installer",
+    "installer", "docs",
 ]
 PROJECT_FILES = [
     "config.py", "__init__.py", "requirements.txt",

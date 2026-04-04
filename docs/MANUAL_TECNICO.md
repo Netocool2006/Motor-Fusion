@@ -1,6 +1,6 @@
 # Motor Fusion IA - Manual Tecnico
 
-**Version:** 1.0.2-fusion  
+**Version:** 1.0.3-fusion  
 **Fecha:** Abril 2026  
 **Arquitectura:** RAG Hibrido (ChromaDB + DuckDuckGo + ML)
 
@@ -213,6 +213,17 @@ def save_session_summary(summary: str) -> str | None:
 def get_last_session() -> str | None:
     """Recupera ultimo resumen de sesion por timestamp."""
 ```
+
+#### Deduplicacion en Tiempo Real (Ingesta Masiva)
+
+Durante la ingesta masiva, cada chunk se indexa inmediatamente en ChromaDB despues de guardarse via `add_fact()`. Esto permite que la deduplicacion funcione dentro de la misma sesion de ingesta:
+
+1. Antes de guardar, se calcula el embedding del chunk
+2. Se buscan los 3 documentos mas similares en ChromaDB
+3. Si la distancia coseno minima es < 0.08 (similitud > 92%), se descarta como duplicado
+4. Si no es duplicado, se guarda via `add_fact()` y se indexa en ChromaDB con ID `ingest_{domain}_{key}`
+
+> **Nota:** `index_knowledge_base()` re-indexa desde JSON y comprime facts en chunks mas grandes (~5% del total). La indexacion en tiempo real durante ingesta es independiente y complementaria.
 
 #### Algoritmo de Busqueda
 
@@ -740,8 +751,10 @@ CONSOLIDATION_SIMILARITY_THRESHOLD = 0.8  # Similitud minima para considerar fus
 ### Servidor
 
 **Archivo:** `dashboard/server.py`  
-**Framework:** Python stdlib `http.server.HTTPServer`  
+**Framework:** Python stdlib `http.server.HTTPServer` con `ThreadingMixIn` (ThreadedHTTPServer)  
 **Puerto default:** 8080
+
+> **Nota:** El servidor usa `ThreadedHTTPServer` (combinacion de `socketserver.ThreadingMixIn` + `HTTPServer`) para manejar multiples requests concurrentes. Esto es necesario para que el endpoint `/api/browse-folder` pueda abrir el dialogo nativo de Windows sin bloquear el resto del dashboard.
 
 ### Endpoints
 
@@ -752,6 +765,8 @@ CONSOLIDATION_SIMILARITY_THRESHOLD = 0.8  # Similitud minima para considerar fus
 | `GET` | `/api/ingest/status` | Progreso de ingesta en curso (JSON) |
 | `POST` | `/api/ingest/start` | Iniciar ingesta masiva |
 | `POST` | `/api/ingest/stop` | Detener ingesta en curso |
+| `GET` | `/api/ingest/log` | Ultimas 50 lineas del log de ingesta (JSON) |
+| `GET` | `/api/browse-folder` | Abre dialogo nativo de Windows para seleccionar carpeta |
 
 ### POST /api/ingest/start
 
@@ -812,8 +827,8 @@ CONSOLIDATION_SIMILARITY_THRESHOLD = 0.8  # Similitud minima para considerar fus
   },
   "knowledge_local": {
     "status": "OK",
-    "domains": 22,
-    "size_mb": 8.5
+    "domains": 90,
+    "size_mb": 25.0
   },
   "metrics": {
     "queries_today": 15,
@@ -825,6 +840,29 @@ CONSOLIDATION_SIMILARITY_THRESHOLD = 0.8  # Similitud minima para considerar fus
   }
 }
 ```
+
+### GET /api/ingest/log
+
+**Response:**
+```json
+{
+  "lines": [
+    "2026-04-03 22:00:00 [INFO] === INGEST START === path=D:\\ depth=3",
+    "2026-04-03 22:00:05 [INFO] DOMAIN CREATED: sap_automation (conf=72%)",
+    "..."
+  ]
+}
+```
+
+### GET /api/browse-folder
+
+Abre un dialogo nativo de Windows (`BrowseForFolder`) via VBScript (`dashboard/browse_folder.vbs`). Timeout: 120 segundos.
+
+**Response:**
+```json
+{"path": "D:\\MisDocumentos"}
+```
+Si el usuario cancela: `{"path": ""}`.
 
 ### Health Scoring
 
@@ -995,6 +1033,8 @@ C:\Hooks_IA/
 |   |   |-- chroma.sqlite3
 |   |   |-- <uuid>/data_level0.bin, header.bin, ...
 |   |
+|   |-- ingest.log               # Log de ingesta masiva
+|   |
 |   |-- data/                    # Datos de runtime
 |       |-- session_history.json
 |       |-- episodic_index.db
@@ -1014,11 +1054,12 @@ C:\Hooks_IA/
 |   |-- sap_tierra/patterns.json
 |   |-- outlook/patterns.json
 |   |-- business_rules/patterns.json
-|   |-- ... (22 dominios)
+|   |-- ... (90+ dominios, crece con ingesta masiva)
 |
 |-- dashboard/                   # Dashboard web
-|   |-- server.py                # HTTP server + API
-|   |-- index.html               # Frontend (HTML/CSS/JS)
+|   |-- server.py                # HTTP server + API (ThreadedHTTPServer)
+|   |-- index.html               # Frontend (HTML/CSS/JS) v2.2
+|   |-- browse_folder.vbs        # Dialogo nativo Windows para seleccionar carpeta
 |
 |-- adapters/                    # Adaptadores multi-CLI
 |   |-- base_adapter.py
@@ -1035,6 +1076,10 @@ C:\Hooks_IA/
 |   |-- bundle/
 |       |-- python_win/          # Python embebido
 |       |-- get-pip.py           # Bootstrap de pip
+|
+|-- docs/                        # Documentacion
+|   |-- MANUAL_INSTALACION.md    # Manual de instalacion
+|   |-- MANUAL_TECNICO.md        # Manual tecnico
 |
 |-- tests/                       # Tests
 |   |-- regression_test.py

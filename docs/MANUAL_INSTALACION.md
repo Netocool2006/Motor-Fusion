@@ -1,6 +1,6 @@
 # Motor Fusion IA - Manual de Instalacion
 
-**Version:** 1.0.2-offline  
+**Version:** 1.0.3-offline  
 **Fecha:** Abril 2026  
 **Plataforma:** Windows 10/11 (64-bit)
 
@@ -223,7 +223,7 @@ Resultado esperado:
 | Python | `python --version` | Python 3.12.x |
 | ChromaDB | `python -c "import chromadb; print('OK')"` | OK |
 | Embeddings | `python -c "from sentence_transformers import SentenceTransformer; print('OK')"` | OK |
-| Knowledge Base | `python -c "from core.knowledge_base import list_domains; print(len(list_domains()))"` | 22 (o similar) |
+| Knowledge Base | `python -c "from core.knowledge_base import list_domains; print(len(list_domains()))"` | 90+ (depende de ingesta) |
 | Vector KB | `python -c "from core.vector_kb import get_stats; print(get_stats()['total'])"` | >0 |
 | Dashboard | `python dashboard/server.py` | Abre en http://127.0.0.1:8080 |
 
@@ -323,9 +323,11 @@ python C:\Hooks_IA\dashboard\server.py
 | Ultima Consulta | Query, resultado, barra KB/Internet/ML | -- |
 | Log | Ultimas 15 lineas coloreadas | ERROR en rojo |
 | Health Badge | HEALTHY / DEGRADED / CRITICAL | Segun componentes |
+| Log de Ingesta | Ultimas 50 lineas del log de ingesta masiva | Coloreado por nivel |
 
 ### Auto-refresh
 El dashboard se actualiza automaticamente cada 5 segundos.
+El log de ingesta se actualiza cada 10 segundos.
 
 ---
 
@@ -333,7 +335,7 @@ El dashboard se actualiza automaticamente cada 5 segundos.
 
 ### Desde el Dashboard
 1. Click en el boton **"+ Ingesta Masiva"** en la esquina superior derecha
-2. Ingresar la ruta a escanear (ej: `D:\` o `C:\Users\MiUsuario\Documents`)
+2. Ingresar la ruta a escanear manualmente o usar el boton **"Explorar..."** para abrir el explorador de Windows y seleccionar la carpeta
 3. Configurar opciones:
    - **Profundidad:** Niveles de carpetas a escanear (default: 3)
    - **Min. archivos por dominio:** Minimo de archivos para crear un dominio (default: 3)
@@ -347,11 +349,19 @@ El dashboard se actualiza automaticamente cada 5 segundos.
 python C:\Hooks_IA\core\disk_scanner.py ingest D:\MisDocumentos
 ```
 
-### Deduplicacion
+### Deduplicacion en Tiempo Real
 El sistema verifica automaticamente antes de guardar cada pieza de informacion:
 - Calcula la similitud coseno contra la base de datos existente en ChromaDB
-- Si la similitud es > 92%, el contenido se descarta como duplicado
-- Esto evita llenar el KB con informacion repetida
+- Si la similitud es > 92% (distancia coseno < 0.08), el contenido se descarta como duplicado
+- Cada chunk ingestado se indexa inmediatamente en ChromaDB, permitiendo deteccion de duplicados dentro de la misma sesion de ingesta
+- Esto evita llenar el KB con informacion repetida, incluso entre dominios diferentes
+
+### Log de Ingesta
+Cada sesion de ingesta genera un log detallado en `core/ingest.log` con:
+- Inicio y parametros de la ingesta (ruta, profundidad, limites)
+- Dominios creados, omitidos (por baja confianza) y fallidos
+- Duplicados detectados por dominio
+- Resumen final (dominios, facts, duplicados, tiempo)
 
 ### Formatos soportados para ingesta
 
