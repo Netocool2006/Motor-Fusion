@@ -8,6 +8,7 @@ import subprocess
 import time
 import threading
 from http.server import HTTPServer, BaseHTTPRequestHandler
+from socketserver import ThreadingMixIn
 from pathlib import Path
 from datetime import datetime
 
@@ -542,6 +543,27 @@ class Handler(BaseHTTPRequestHandler):
             self.end_headers()
             self.wfile.write(html.encode("utf-8"))
 
+        elif self.path == "/api/browse-folder":
+            # Open native Windows folder picker via VBScript (gets foreground focus)
+            try:
+                import tempfile
+                tmp = Path(tempfile.mktemp(suffix=".txt"))
+                vbs = Path(__file__).parent / "browse_folder.vbs"
+                # wscript runs as interactive process -> gets foreground focus
+                result = subprocess.run(
+                    ["wscript", str(vbs), str(tmp)],
+                    timeout=120,
+                )
+                folder = ""
+                if tmp.exists():
+                    folder = tmp.read_text(encoding="utf-8", errors="ignore").strip()
+                    tmp.unlink(missing_ok=True)
+                self._send_json({"path": folder if folder else ""})
+            except subprocess.TimeoutExpired:
+                self._send_json({"path": "", "error": "Tiempo de espera agotado"})
+            except Exception as e:
+                self._send_json({"path": "", "error": str(e)})
+
         elif self.path == "/api/ingest/status":
             self._send_json(_get_ingest_state())
 
@@ -610,11 +632,15 @@ class Handler(BaseHTTPRequestHandler):
             self.end_headers()
 
 
+class ThreadedHTTPServer(ThreadingMixIn, HTTPServer):
+    daemon_threads = True
+
+
 if __name__ == "__main__":
     port = int(sys.argv[1]) if len(sys.argv) > 1 else int(os.environ.get("DASHBOARD_PORT", "8080"))
     host = os.environ.get("DASHBOARD_HOST", "127.0.0.1")
     print(f"Motor_IA Dashboard v2 on {host}:{port}", flush=True)
-    srv = HTTPServer((host, port), Handler)
+    srv = ThreadedHTTPServer((host, port), Handler)
     try:
         srv.serve_forever()
     except KeyboardInterrupt:

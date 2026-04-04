@@ -207,7 +207,10 @@ footer { text-align:center; padding:16px; color:var(--text2); font-size:11px; }
 
     <div class="input-group">
       <label>Ruta a escanear</label>
-      <input type="text" id="ingest-path" placeholder="Ej: D:\ o C:\Users\mi_usuario\Documents" />
+      <div style="display:flex;gap:8px">
+        <input type="text" id="ingest-path" placeholder="Ej: D:\ o C:\Users\mi_usuario\Documents" style="flex:1" />
+        <button class="btn-ingest" id="btn-browse" onclick="browseFolder()" style="padding:8px 14px;white-space:nowrap">Explorar...</button>
+      </div>
     </div>
 
     <div class="input-row">
@@ -381,6 +384,24 @@ setInterval(refreshIngestLog, 10000);
 
 // ---- Mass Ingest Modal ----
 let ingestPolling = null;
+
+async function browseFolder() {
+  const btn = document.getElementById('btn-browse');
+  btn.disabled = true;
+  btn.textContent = 'Abriendo...';
+  try {
+    const r = await fetch('/api/browse-folder');
+    const d = await r.json();
+    if (d.path) {
+      document.getElementById('ingest-path').value = d.path;
+    }
+  } catch(e) {
+    // fallback: just focus the text input
+    document.getElementById('ingest-path').focus();
+  }
+  btn.disabled = false;
+  btn.textContent = 'Explorar...';
+}
 
 function openIngestModal() {
   document.getElementById('ingest-modal').classList.add('active');
