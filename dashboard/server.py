@@ -15,6 +15,15 @@ _PROJECT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(_PROJECT))
 HTML_FILE = Path(__file__).parent / "index.html"
 
+# -- Ingest Logger (dedicated file) ----------------------------------------
+import logging
+_INGEST_LOG_FILE = _PROJECT / "core" / "ingest.log"
+_ingest_logger = logging.getLogger("mass_ingest")
+_ingest_logger.setLevel(logging.INFO)
+_ingest_fh = logging.FileHandler(str(_INGEST_LOG_FILE), encoding="utf-8")
+_ingest_fh.setFormatter(logging.Formatter("%(asctime)s [%(levelname)s] %(message)s"))
+_ingest_logger.addHandler(_ingest_fh)
+
 # -- Mass Ingest State (shared between thread and handler) --------------------
 _ingest_state = {
     "running": False,
@@ -46,6 +55,10 @@ def _get_ingest_state():
 def _run_mass_ingest(scan_path, depth=3, min_files=3, max_files_per_domain=50):
     """Runs mass ingest in a background thread with deduplication."""
     try:
+        ilog = _ingest_logger
+        ilog.info("=" * 60)
+        ilog.info(f"INGEST START: path={scan_path} depth={depth} min_files={min_files} max_per_domain={max_files_per_domain}")
+
         _update_ingest_state(
             running=True, progress=0, message="Iniciando escaneo...",
             phase="scan", domains_found=0, files_processed=0,
@@ -68,22 +81,27 @@ def _run_mass_ingest(scan_path, depth=3, min_files=3, max_files_per_domain=50):
             from core.vector_kb import _get_collection, _get_embedder
             dedup_collection = _get_collection()
             dedup_embedder = _get_embedder()
-        except Exception:
-            pass  # If ChromaDB unavailable, skip dedup
+            ilog.info("ChromaDB dedup: ENABLED")
+        except Exception as e:
+            ilog.warning(f"ChromaDB dedup: DISABLED ({e})")
 
         scan_paths = [scan_path]
 
         # Phase 1: Scan
         _update_ingest_state(progress=5, message=f"Escaneando {scan_path}...", phase="scan")
+        ilog.info(f"PHASE 1: Scanning {scan_path}...")
 
         results = scan(scan_paths, depth=depth, min_files=min_files)
         if not results:
+            ilog.warning("SCAN: No domains found. Aborting.")
             _update_ingest_state(
                 running=False, progress=100,
                 message="No se encontraron dominios en la ruta indicada.",
                 phase="done", finished_at=datetime.now().isoformat(),
             )
             return
+
+        ilog.info(f"SCAN: {len(results)} domains discovered: {', '.join(results.keys())}")
 
         _update_ingest_state(
             progress=15, domains_found=len(results),
@@ -92,6 +110,7 @@ def _run_mass_ingest(scan_path, depth=3, min_files=3, max_files_per_domain=50):
         )
 
         # Phase 2: Create domains
+        ilog.info(f"PHASE 2: Creating domains (confidence >= 0.4)...")
         valid_domains = {}
         for domain_name, info in results.items():
             if info["confidence"] >= 0.4 and info["keywords"]:
@@ -99,9 +118,15 @@ def _run_mass_ingest(scan_path, depth=3, min_files=3, max_files_per_domain=50):
                     learn_domain_keywords(domain_name, info["keywords"])
                     info["saved"] = True
                     valid_domains[domain_name] = info
+                    ilog.info(f"  DOMAIN CREATED: {domain_name} (conf={info['confidence']:.2f}, keywords={info['keywords'][:5]})")
                 except Exception as e:
                     info["saved"] = False
                     _ingest_state["errors"].append(f"Domain {domain_name}: {e}")
+                    ilog.error(f"  DOMAIN FAILED: {domain_name}: {e}")
+            else:
+                ilog.info(f"  DOMAIN SKIPPED: {domain_name} (conf={info.get('confidence',0):.2f}, too low)")
+
+        ilog.info(f"DOMAINS: {len(valid_domains)} created, {len(results) - len(valid_domains)} skipped")
 
         _update_ingest_state(
             progress=20,
@@ -110,6 +135,7 @@ def _run_mass_ingest(scan_path, depth=3, min_files=3, max_files_per_domain=50):
         )
 
         # Phase 3: Ingest files with dedup
+        ilog.info(f"PHASE 3: Ingesting files with dedup...")
         # Re-scan to get file lists (scan() doesn't return files, need clusters)
         clusters = _cluster_by_folder(scan_paths, depth)
 
@@ -136,6 +162,7 @@ def _run_mass_ingest(scan_path, depth=3, min_files=3, max_files_per_domain=50):
                     break
 
             if not cluster_files:
+                ilog.info(f"  [{domain_idx}/{total_domains}] {domain_name}: no matching cluster found, skipping")
                 continue
 
             # Filter extractable files
@@ -148,6 +175,7 @@ def _run_mass_ingest(scan_path, depth=3, min_files=3, max_files_per_domain=50):
 
             domain_facts = 0
             domain_dupes = 0
+            ilog.info(f"  [{domain_idx}/{total_domains}] {domain_name}: {len(extractable)} files to process")
 
             for fpath in extractable:
                 try:
@@ -181,6 +209,7 @@ def _run_mass_ingest(scan_path, depth=3, min_files=3, max_files_per_domain=50):
                                 pass
 
                         if is_duplicate:
+                            ilog.info(f"    DUPLICATE: {fpath.name} chunk#{c_idx} (similarity > 92%)")
                             continue
 
                         # Save to KB
@@ -217,6 +246,8 @@ def _run_mass_ingest(scan_path, depth=3, min_files=3, max_files_per_domain=50):
             info["facts_ingested"] = domain_facts
             info["duplicates_skipped"] = domain_dupes
 
+            ilog.info(f"  DOMAIN DONE: {domain_name} -> {domain_facts} facts saved, {domain_dupes} duplicates skipped")
+
             _update_ingest_state(
                 files_processed=total_files,
                 facts_ingested=total_facts,
@@ -224,6 +255,7 @@ def _run_mass_ingest(scan_path, depth=3, min_files=3, max_files_per_domain=50):
             )
 
         # Phase 4: Index new content into ChromaDB
+        ilog.info(f"PHASE 4: Indexing into ChromaDB...")
         _update_ingest_state(
             progress=96,
             message="Indexando en ChromaDB...",
@@ -233,22 +265,29 @@ def _run_mass_ingest(scan_path, depth=3, min_files=3, max_files_per_domain=50):
             from core.vector_kb import index_knowledge_base
             idx_result = index_knowledge_base()
             indexed = idx_result.get("indexed", 0)
-        except Exception:
+            ilog.info(f"INDEX: {indexed} documents indexed in ChromaDB")
+        except Exception as e:
             indexed = 0
+            ilog.error(f"INDEX ERROR: {e}")
+
+        final_msg = (
+            f"Completo: {len(valid_domains)} dominios, "
+            f"{total_files} archivos, {total_facts} facts, "
+            f"{total_dupes} duplicados omitidos, "
+            f"{indexed} indexados en ChromaDB"
+        )
+        ilog.info(f"INGEST COMPLETE: {final_msg}")
+        ilog.info("=" * 60)
 
         _update_ingest_state(
             running=False, progress=100,
-            message=(
-                f"Completo: {len(valid_domains)} dominios, "
-                f"{total_files} archivos, {total_facts} facts, "
-                f"{total_dupes} duplicados omitidos, "
-                f"{indexed} indexados en ChromaDB"
-            ),
+            message=final_msg,
             phase="done", results=_serialize_results(results),
             finished_at=datetime.now().isoformat(),
         )
 
     except Exception as e:
+        ilog.error(f"FATAL ERROR: {e}")
         _update_ingest_state(
             running=False, progress=100,
             message=f"Error fatal: {e}",
@@ -505,6 +544,10 @@ class Handler(BaseHTTPRequestHandler):
 
         elif self.path == "/api/ingest/status":
             self._send_json(_get_ingest_state())
+
+        elif self.path == "/api/ingest/log":
+            lines = _read_log_tail(_INGEST_LOG_FILE, 50)
+            self._send_json({"lines": lines})
 
         elif self.path == "/api/status":
             now = datetime.now()

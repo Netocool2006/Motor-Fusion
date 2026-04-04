@@ -177,9 +177,21 @@ footer { text-align:center; padding:16px; color:var(--text2); font-size:11px; }
       <div class="log-line">Esperando datos...</div>
     </div>
   </div>
+
+  <!-- Ingest Log -->
+  <div class="card wide">
+    <h3><span class="dot" id="ingest-log-dot"></span> Log de Ingesta Masiva</h3>
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
+      <span class="sub" id="ingest-log-summary">Sin actividad de ingesta</span>
+      <button class="btn-ingest" onclick="refreshIngestLog()" style="padding:4px 12px;font-size:11px">Actualizar</button>
+    </div>
+    <div class="log-box" id="ingest-log-box" style="max-height:220px">
+      <div class="log-line">Sin registros de ingesta...</div>
+    </div>
+  </div>
 </div>
 
-<footer>Motor_IA v2.1 | RAG: ChromaDB + DuckDuckGo + Claude | Auto-refresh 5s</footer>
+<footer>Motor_IA v2.2 | RAG: ChromaDB + DuckDuckGo + Claude | Auto-refresh 5s | Ingest log 10s</footer>
 
 <!-- Mass Ingest Modal -->
 <div class="modal-overlay" id="ingest-modal">
@@ -247,6 +259,13 @@ footer { text-align:center; padding:16px; color:var(--text2); font-size:11px; }
 
       <div id="ingest-results" style="margin-top:16px"></div>
 
+      <div style="margin-top:16px">
+        <h3 style="font-size:12px;text-transform:uppercase;letter-spacing:1px;color:var(--text2);margin-bottom:8px">Log de Ingesta (tiempo real)</h3>
+        <div class="log-box" id="ingest-modal-log" style="max-height:180px;font-size:10px">
+          <div class="log-line">Esperando inicio...</div>
+        </div>
+      </div>
+
       <button class="btn-ingest" id="btn-stop-ingest" onclick="stopIngest()"
               style="width:100%;padding:10px;margin-top:12px;background:linear-gradient(135deg,var(--red),#b91c1c);display:none">
         Detener
@@ -270,6 +289,14 @@ function colorLog(line) {
   if (line.includes('CACHE HIT')) return '<span class="c">' + line + '</span>';
   if (line.includes('RESULT:')) return '<span class="r">' + line + '</span>';
   if (line.includes('QUERY:')) return '<span class="q">' + line + '</span>';
+  return line;
+}
+function colorIngestLog(line) {
+  if (line.includes('[ERROR]') || line.includes('FATAL')) return '<span class="e">' + line + '</span>';
+  if (line.includes('DUPLICATE')) return '<span class="c">' + line + '</span>';
+  if (line.includes('DOMAIN CREATED') || line.includes('DOMAIN DONE') || line.includes('COMPLETE')) return '<span class="r">' + line + '</span>';
+  if (line.includes('PHASE') || line.includes('INGEST START')) return '<span class="q">' + line + '</span>';
+  if (line.includes('SKIPPED') || line.includes('WARNING')) return '<span style="color:var(--yellow)">' + line + '</span>';
   return line;
 }
 
@@ -348,7 +375,9 @@ async function refresh() {
 }
 
 refresh();
+refreshIngestLog();
 setInterval(refresh, 5000);
+setInterval(refreshIngestLog, 10000);
 
 // ---- Mass Ingest Modal ----
 let ingestPolling = null;
@@ -413,6 +442,43 @@ function startIngestPolling() {
   ingestPolling = setInterval(checkIngestStatus, 2000);
 }
 
+async function refreshIngestLog() {
+  try {
+    const r = await fetch('/api/ingest/log');
+    const d = await r.json();
+    const lines = d.lines || [];
+
+    // Update modal log
+    const modalLog = document.getElementById('ingest-modal-log');
+    if (lines.length > 0) {
+      modalLog.innerHTML = lines.map(l => '<div class="log-line">' + colorIngestLog(l.replace(/</g,'&lt;')) + '</div>').join('');
+      modalLog.scrollTop = modalLog.scrollHeight;
+    }
+
+    // Update main dashboard log panel
+    const dashLog = document.getElementById('ingest-log-box');
+    const dotEl = document.getElementById('ingest-log-dot');
+    const summaryEl = document.getElementById('ingest-log-summary');
+
+    if (lines.length > 0) {
+      dashLog.innerHTML = lines.map(l => '<div class="log-line">' + colorIngestLog(l.replace(/</g,'&lt;')) + '</div>').join('');
+      dashLog.scrollTop = dashLog.scrollHeight;
+
+      // Count stats from log
+      const totalComplete = lines.filter(l => l.includes('INGEST COMPLETE')).length;
+      const totalErrors = lines.filter(l => l.includes('[ERROR]')).length;
+      const lastLine = lines[lines.length - 1];
+      const hasRunning = lines.some(l => l.includes('INGEST START')) && !lines.some(l => l.includes('INGEST COMPLETE'));
+
+      dotEl.className = 'dot ' + (totalErrors > 0 ? 'dot-err' : hasRunning ? 'dot-warn' : totalComplete > 0 ? 'dot-ok' : 'dot-warn');
+      summaryEl.textContent = totalComplete + ' ingestas completadas' + (totalErrors > 0 ? ', ' + totalErrors + ' errores' : '');
+    } else {
+      dotEl.className = 'dot dot-warn';
+      summaryEl.textContent = 'Sin actividad de ingesta';
+    }
+  } catch(e) {}
+}
+
 async function checkIngestStatus() {
   try {
     const r = await fetch('/api/ingest/status');
@@ -432,6 +498,8 @@ async function checkIngestStatus() {
       document.getElementById('btn-start-ingest').disabled = true;
       document.getElementById('btn-stop-ingest').style.display = 'block';
       if (!ingestPolling) startIngestPolling();
+      // Refresh log while running
+      refreshIngestLog();
     }
 
     if (!s.running && s.phase && s.phase !== '' && s.progress >= 100) {
@@ -446,6 +514,9 @@ async function checkIngestStatus() {
       } else if (s.phase === 'error') {
         document.getElementById('ingest-bar').style.background = 'var(--red)';
       }
+
+      // Final log refresh
+      refreshIngestLog();
 
       // Show results table
       if (s.results && Object.keys(s.results).length > 0) {
