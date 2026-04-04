@@ -109,6 +109,54 @@ SAP_PLAYBOOK_DB = DATA_DIR / 'sap_playbook.db'
 CONFIDENCE_DECAY_DAYS = 30
 CONFIDENCE_DECAY_RATE = 0.1
 
+# Feature flags (new features)
+GRAPH_DB_ENABLED = True
+CLOUD_SYNC_ENABLED = True
+KB_BENCHMARK_ENABLED = True
+TOKEN_BUDGET_ENABLED = True
+TOKEN_BUDGET_MAX = 2000  # max tokens to inject
+DASHBOARD_METRICS_ENABLED = True
+PASSIVE_CAPTURE_ENABLED = True
+SMART_FILE_ROUTING_ENABLED = True
+KB_VERSIONING_ENABLED = True
+MULTI_AGENT_ENABLED = True
+ASYNC_MEMORY_ENABLED = True
+
+# Graph DB
+GRAPH_FILE = DATA_DIR / 'domain_graph.json'
+
+# Cloud sync
+SYNC_STATE_FILE = DATA_DIR / 'cloud_sync_state.json'
+SYNC_QUEUE_FILE = DATA_DIR / 'cloud_sync_queue.json'
+AUTO_SYNC_INTERVAL = 300  # seconds between auto-syncs
+
+# Benchmark
+BENCHMARK_FILE = DATA_DIR / 'kb_benchmark_results.json'
+
+# Token budget metrics
+TOKEN_METRICS_FILE = DATA_DIR / 'token_budget_metrics.json'
+
+# Dashboard metrics cache
+DASHBOARD_METRICS_CACHE = DATA_DIR / 'dashboard_metrics_cache.json'
+
+# Passive capture
+PASSIVE_DB_FILE = DATA_DIR / 'passive_captures.json'
+FILE_COOCCURRENCE_FILE = DATA_DIR / 'file_cooccurrence.json'
+
+# Smart file routing
+ROUTING_DB_FILE = DATA_DIR / 'file_routing.json'
+
+# KB versioning
+VERSION_LOG_FILE = DATA_DIR / 'kb_version_log.json'
+
+# Multi-agent
+AGENT_STATE_FILE = DATA_DIR / 'agent_state.json'
+AGENT_LOG_FILE = DATA_DIR / 'agent_log.json'
+
+# Async memory
+ASYNC_QUEUE_FILE = DATA_DIR / 'async_memory_queue.json'
+ASYNC_METRICS_FILE = DATA_DIR / 'async_memory_metrics.json'
+
 # Memory pruner
 AUTO_PRUNE_ENABLED = True
 AUTO_PRUNE_MIN_SUCCESS_RATE = 0.3

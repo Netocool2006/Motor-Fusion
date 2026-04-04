@@ -365,8 +365,52 @@ def main():
         # Construir contexto con los 3 pasos
         context = build_context(query, kb_content, kb_pct, internet_content, internet_pct, session_context)
 
+        # -- Feature 4: Token Budget (comprimir si excede presupuesto) --
+        try:
+            from core.token_budget import truncate_to_budget, record_metrics
+            context, token_metrics = truncate_to_budget(context)
+            record_metrics(token_metrics["original_tokens"], token_metrics["final_tokens"])
+            if token_metrics.get("truncated"):
+                log.info(f"TOKEN_BUDGET: compressed {token_metrics['original_tokens']} -> {token_metrics['final_tokens']} tokens")
+        except Exception as e:
+            log.debug(f"Token budget skip: {e}")
+
         # Guardar estado para post-hook
         save_state(query, kb_pct, internet_pct)
+
+        # -- Feature 10: Async Memory (encolar aprendizaje sin bloquear) --
+        try:
+            from core.async_memory import process_pending
+            processed = process_pending()
+            if processed > 0:
+                log.info(f"ASYNC_MEMORY: processed {processed} pending operations")
+        except Exception as e:
+            log.debug(f"Async memory skip: {e}")
+
+        # -- Feature 7: Smart File Routing (sugerir archivos) --
+        try:
+            from core.smart_file_routing import suggest_files
+            suggested = suggest_files(query, top_n=3)
+            if suggested:
+                files_hint = ", ".join(s["file"] for s in suggested)
+                log.info(f"FILE_ROUTING: suggested {files_hint}")
+        except Exception as e:
+            log.debug(f"File routing skip: {e}")
+
+        # -- Feature 1: Graph DB (fortalecer edges por uso) --
+        try:
+            from core.domain_graph import strengthen_edge
+            # Si el KB encontró algo, fortalecer relación query-domain
+            if kb_pct > 20:
+                from core.domain_detector import detect_domain
+                detected = detect_domain(query)
+                if detected and isinstance(detected, list) and len(detected) >= 2:
+                    d1 = detected[0] if isinstance(detected[0], str) else detected[0].get("name", "")
+                    d2 = detected[1] if isinstance(detected[1], str) else detected[1].get("name", "")
+                    if d1 and d2:
+                        strengthen_edge(d1, d2)
+        except Exception as e:
+            log.debug(f"Graph edge skip: {e}")
 
         # Output para Claude Code
         output = {

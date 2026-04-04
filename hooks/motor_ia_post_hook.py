@@ -120,6 +120,37 @@ def main():
         # Actualizar resumen de sesión (para continuidad entre sesiones)
         _update_session_summary(query, clean_response[:200])
 
+        # -- Feature 6: Captura Pasiva (registrar convenciones detectadas) --
+        try:
+            from core.passive_capture import record_file_edit
+            # Registrar archivos mencionados en la respuesta para co-ocurrencia
+            import re as _re
+            file_refs = _re.findall(r'[\w/\\]+\.\w{2,4}', clean_response[:500])
+            for fr in file_refs[:10]:
+                record_file_edit(fr)
+        except Exception:
+            pass
+
+        # -- Feature 8: KB Versioning (registrar cambio) --
+        try:
+            from core.kb_versioning import record_change
+            record_change(
+                domain="auto_save",
+                change_type="fact_added",
+                key=query[:80],
+                details=f"From {source}",
+            )
+        except Exception:
+            pass
+
+        # -- Feature 2: Cloud Sync (encolar cambio) --
+        try:
+            from core.cloud_sync import enqueue_change, auto_sync_if_needed
+            enqueue_change("auto_save", "fact_added", query[:60])
+            auto_sync_if_needed()
+        except Exception:
+            pass
+
     except Exception as e:
         log.error(f"Post-hook error: {e}")
 
