@@ -397,6 +397,28 @@ def main():
         except Exception as e:
             log.debug(f"File routing skip: {e}")
 
+        # -- Feature 12: Memory Tiers (degradar items viejos + buscar) --
+        try:
+            from core.memory_tiers import run_degradation, search_memory
+            degraded = run_degradation()
+            if degraded > 0:
+                log.info(f"MEMORY_TIERS: degraded {degraded} items")
+            tier_results = search_memory(query, top_n=3)
+            if tier_results:
+                tier_hint = "; ".join(r["item"].get("key", "")[:50] for r in tier_results)
+                log.info(f"MEMORY_TIERS: found {len(tier_results)} in tiers: {tier_hint}")
+        except Exception as e:
+            log.debug(f"Memory tiers skip: {e}")
+
+        # -- Feature 15: Typed Graph (inferir relaciones del query) --
+        try:
+            from core.typed_graph import infer_and_store
+            inferred = infer_and_store(query, context="pre-hook query")
+            if inferred > 0:
+                log.info(f"TYPED_GRAPH: inferred {inferred} relations from query")
+        except Exception as e:
+            log.debug(f"Typed graph skip: {e}")
+
         # -- Feature 1: Graph DB (fortalecer edges por uso) --
         try:
             from core.domain_graph import strengthen_edge

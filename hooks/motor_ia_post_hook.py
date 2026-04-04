@@ -143,6 +143,29 @@ def main():
         except Exception:
             pass
 
+        # -- Feature 12: Memory Tiers (guardar en HOT) --
+        try:
+            from core.memory_tiers import store_memory
+            store_memory(
+                key=query[:200],
+                value=clean_response[:1000],
+                domain=source,
+                source="auto_save",
+                tier="hot",
+            )
+            log.info(f"MEMORY_TIERS: stored in HOT tier")
+        except Exception:
+            pass
+
+        # -- Feature 15: Typed Graph (inferir relaciones de la respuesta) --
+        try:
+            from core.typed_graph import infer_and_store
+            n = infer_and_store(clean_response[:1000], context=query[:100])
+            if n > 0:
+                log.info(f"TYPED_GRAPH: inferred {n} relations from response")
+        except Exception:
+            pass
+
         # -- Feature 2: Cloud Sync (encolar cambio) --
         try:
             from core.cloud_sync import enqueue_change, auto_sync_if_needed

@@ -1,0 +1,131 @@
+{
+  "entities": {
+    "bom": {
+      "id": "bom",
+      "type": "domain",
+      "name": "bom",
+      "properties": {},
+      "created_at": "2026-04-04T19:27:15.678499+00:00",
+      "updated_at": "2026-04-04T19:27:15.686542+00:00"
+    },
+    "files": {
+      "id": "files",
+      "type": "domain",
+      "name": "files",
+      "properties": {},
+      "created_at": "2026-04-04T19:27:15.680510+00:00",
+      "updated_at": "2026-04-04T19:27:15.694345+00:00"
+    },
+    "sap_tierra": {
+      "id": "sap_tierra",
+      "type": "domain",
+      "name": "sap_tierra",
+      "properties": {},
+      "created_at": "2026-04-04T19:27:15.684530+00:00",
+      "updated_at": "2026-04-04T19:27:15.698379+00:00"
+    },
+    "sow": {
+      "id": "sow",
+      "type": "domain",
+      "name": "sow",
+      "properties": {},
+      "created_at": "2026-04-04T19:27:15.688567+00:00",
+      "updated_at": "2026-04-04T19:27:15.698379+00:00"
+    },
+    "config.py": {
+      "id": "config.py",
+      "type": "file",
+      "name": "config.py",
+      "properties": {},
+      "created_at": "2026-04-04T19:27:15.702401+00:00",
+      "updated_at": "2026-04-04T19:27:15.702401+00:00"
+    },
+    "knowledge_base.py": {
+      "id": "knowledge_base.py",
+      "type": "file",
+      "name": "knowledge_base.py",
+      "properties": {},
+      "created_at": "2026-04-04T19:27:15.704414+00:00",
+      "updated_at": "2026-04-04T19:27:15.704414+00:00"
+    }
+  },
+  "relations": [
+    {
+      "source": "bom",
+      "target": "files",
+      "type": "used_with",
+      "weight": 104,
+      "context": "",
+      "created_at": "2026-04-04T19:27:15.680510+00:00",
+      "updated_at": "2026-04-04T19:27:15.680510+00:00"
+    },
+    {
+      "source": "bom",
+      "target": "sap_tierra",
+      "type": "used_with",
+      "weight": 104,
+      "context": "",
+      "created_at": "2026-04-04T19:27:15.686542+00:00",
+      "updated_at": "2026-04-04T19:27:15.686542+00:00"
+    },
+    {
+      "source": "bom",
+      "target": "sow",
+      "type": "used_with",
+      "weight": 22,
+      "context": "",
+      "created_at": "2026-04-04T19:27:15.688567+00:00",
+      "updated_at": "2026-04-04T19:27:15.688567+00:00"
+    },
+    {
+      "source": "files",
+      "target": "sap_tierra",
+      "type": "used_with",
+      "weight": 147,
+      "context": "",
+      "created_at": "2026-04-04T19:27:15.692332+00:00",
+      "updated_at": "2026-04-04T19:27:15.692332+00:00"
+    },
+    {
+      "source": "files",
+      "target": "sow",
+      "type": "used_with",
+      "weight": 22,
+      "context": "",
+      "created_at": "2026-04-04T19:27:15.696356+00:00",
+      "updated_at": "2026-04-04T19:27:15.696356+00:00"
+    },
+    {
+      "source": "sap_tierra",
+      "target": "sow",
+      "type": "used_with",
+      "weight": 23,
+      "context": "",
+      "created_at": "2026-04-04T19:27:15.700390+00:00",
+      "updated_at": "2026-04-04T19:27:15.700390+00:00"
+    },
+    {
+      "source": "config.py",
+      "target": "knowledge_base.py",
+      "type": "imports",
+      "weight": 0.7,
+      "context": "test",
+      "created_at": "2026-04-04T19:27:15.704414+00:00",
+      "updated_at": "2026-04-04T19:27:15.704414+00:00"
+    },
+    {
+      "source": "config.py",
+      "target": "knowledge_base.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "test",
+      "created_at": "2026-04-04T19:27:15.706169+00:00",
+      "updated_at": "2026-04-04T19:27:15.706169+00:00"
+    }
+  ],
+  "updated_at": "2026-04-04T19:27:15.706169+00:00",
+  "stats": {
+    "entities": 6,
+    "relations": 8
+  }
+}

@@ -157,6 +157,32 @@ AGENT_LOG_FILE = DATA_DIR / 'agent_log.json'
 ASYNC_QUEUE_FILE = DATA_DIR / 'async_memory_queue.json'
 ASYNC_METRICS_FILE = DATA_DIR / 'async_memory_metrics.json'
 
+# Semantic search (Feature 11)
+SEMANTIC_SEARCH_ENABLED = True
+EMBEDDINGS_CACHE_FILE = DATA_DIR / 'embeddings_cache.json'
+SEMANTIC_METRICS_FILE = DATA_DIR / 'semantic_metrics.json'
+SEMANTIC_MODEL = 'all-MiniLM-L6-v2'
+
+# Memory tiers (Feature 12)
+MEMORY_TIERS_ENABLED = True
+TIERS_FILE = DATA_DIR / 'memory_tiers.json'
+TIER_METRICS_FILE = DATA_DIR / 'memory_tier_metrics.json'
+
+# Session harvest (Feature 13)
+SESSION_HARVEST_ENABLED = True
+HARVEST_FILE = DATA_DIR / 'session_harvest_results.json'
+HARVEST_METRICS_FILE = DATA_DIR / 'session_harvest_metrics.json'
+
+# KB REST API (Feature 14)
+KB_API_ENABLED = True
+KB_API_PORT = int(os.environ.get('HOOKS_IA_API_PORT', '7071'))
+KB_API_HOST = os.environ.get('HOOKS_IA_API_HOST', '127.0.0.1')
+
+# Typed graph (Feature 15)
+TYPED_GRAPH_ENABLED = True
+TYPED_GRAPH_FILE = DATA_DIR / 'typed_graph.json'
+TYPED_GRAPH_METRICS = DATA_DIR / 'typed_graph_metrics.json'
+
 # Memory pruner
 AUTO_PRUNE_ENABLED = True
 AUTO_PRUNE_MIN_SUCCESS_RATE = 0.3
