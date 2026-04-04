@@ -9,7 +9,7 @@
       "fact": {
         "rule": "(() => {\n  /**\n   * form_detector.js - Fast form field detection with label association\n   * Designed for MICRO/ZONA scans. Returns array of field descriptors.\n   */\n\n  function cssSelector(el) {\n    if (!el || el.nodeType !== 1) return '';\n    const parts = [];\n    let current = el;\n    while (current && current.nodeType === 1) {\n      let sel = current.tagName.toLowerCase();\n      if (current.id) {\n        sel += '#' + CSS.escape(current.id);\n        parts.unshift(sel);\n        break;\n      }\n      const parent = current.parentElement;\n      if (parent) {\n        const siblings = Array.from(parent.children).filter(c => c.tagName === current.tagName);\n        if (siblings.length > 1) {\n          sel += ':nth-of-type(' + (siblings.indexOf(current) + 1) + ')';\n        }\n      }\n",
         "applies_to": "js",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\js\\form_detector.js",
+        "source": "FormFiller_IA\\js\\form_detector.js",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -34,7 +34,7 @@
       "fact": {
         "rule": " > 1) {\n          sel += ':nth-of-type(' + (siblings.indexOf(current) + 1) + ')';\n        }\n      }\n      parts.unshift(sel);\n      current = parent;\n    }\n    return parts.join(' > ');\n  }\n\n  function isVisible(el) {\n    try {\n      const style = window.getComputedStyle(el);\n      if (style.display === 'none' || style.visibility === 'hidden' || style.opacity === '0') return false;\n      const rect = el.getBoundingClientRect();\n      return rect.width > 0 && rect.height > 0;\n    } catch (e) {\n      return false;\n    }\n  }\n\n  function findLabelText(el) {\n    // 1. Explicit label via for=\n    if (el.id) {\n      const label = document.querySelector('label[for=\"' + CSS.escape(el.id) + '\"]');\n      if (label) return label.textContent.trim();\n    }\n\n    // 2. aria-labelledby\n",
         "applies_to": "js",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\js\\form_detector.js",
+        "source": "FormFiller_IA\\js\\form_detector.js",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -59,7 +59,7 @@
       "fact": {
         "rule": "(el.id) + '\"]');\n      if (label) return label.textContent.trim();\n    }\n\n    // 2. aria-labelledby\n    const labelledBy = el.getAttribute('aria-labelledby');\n    if (labelledBy) {\n      const parts = labelledBy.split(/\\s+/).map(id => {\n        const ref = document.getElementById(id);\n        return ref ? ref.textContent.trim() : '';\n      }).filter(Boolean);\n      if (parts.length) return parts.join(' ');\n    }\n\n    // 3. aria-label\n    const ariaLabel = el.getAttribute('aria-label');\n    if (ariaLabel) return ariaLabel;\n\n    // 4. Parent <label>\n    const parentLabel = el.closest('label');\n    if (parentLabel) {\n      const clone = parentLabel.cloneNode(true);\n      // Remove the input itself from clone to get label text\n",
         "applies_to": "js",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\js\\form_detector.js",
+        "source": "FormFiller_IA\\js\\form_detector.js",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -84,7 +84,7 @@
       "fact": {
         "rule": " clone = parentLabel.cloneNode(true);\n      // Remove the input itself from clone to get label text\n      const inputs = clone.querySelectorAll('input, select, textarea');\n      inputs.forEach(i => i.remove());\n      const text = clone.textContent.trim();\n      if (text) return text;\n    }\n\n    // 5. Adjacent text - previous sibling or previous element\n    const prev = el.previousElementSibling;\n    if (prev && (prev.tagName === 'LABEL' || prev.tagName === 'SPAN' || prev.tagName === 'DIV')) {\n      const text = prev.textContent.trim();\n      if (text && text.length < 100) return text;\n    }\n\n    // 6. title attribute\n    if (el.title) return el.title;\n\n    return '';\n  }\n\n  function getLogicalName(el, labelText) {\n    // Priority: id > name > label > placeholder > aria-label\n",
         "applies_to": "js",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\js\\form_detector.js",
+        "source": "FormFiller_IA\\js\\form_detector.js",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -109,7 +109,7 @@
       "fact": {
         "rule": "ction getLogicalName(el, labelText) {\n    // Priority: id > name > label > placeholder > aria-label\n    if (el.id) return el.id;\n    if (el.name) return el.name;\n    if (labelText) return labelText.substring(0, 80).replace(/[^a-zA-Z0-9_\\- ]/g, '').trim();\n    if (el.placeholder) return el.placeholder;\n    const aria = el.getAttribute('aria-label');\n    if (aria) return aria;\n    return el.tagName.toLowerCase() + '_' + Math.random().toString(36).substring(2, 8);\n  }\n\n  function detectFieldType(el) {\n    const tag = el.tagName.toLowerCase();\n    if (tag === 'select') return 'select';\n    if (tag === 'textarea') return 'textarea';\n    if (tag === 'input') {\n      const t = (el.type || 'text').toLowerCase();\n",
         "applies_to": "js",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\js\\form_detector.js",
+        "source": "FormFiller_IA\\js\\form_detector.js",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -134,7 +134,7 @@
       "fact": {
         "rule": "') return 'textarea';\n    if (tag === 'input') {\n      const t = (el.type || 'text').toLowerCase();\n      if (['text', 'email', 'tel', 'number', 'url', 'search', 'password'].includes(t)) return t;\n      if (t === 'date' || t === 'datetime-local' || t === 'month' || t === 'week' || t === 'time') return 'date';\n      if (t === 'checkbox') return 'checkbox';\n      if (t === 'radio') return 'radio';\n      if (t === 'hidden') return 'hidden';\n      if (t === 'file') return 'file';\n      return t;\n    }\n    // Check for custom dropdown roles\n    const role = el.getAttribute('role');\n    if (role === 'combobox' || role === 'listbox') return 'custom-dropdown';\n    if (el.getAttribute('contenteditable') === 'true') return 'textarea';\n    return 'unknown';\n  }\n\n  function getOptions(el) {\n",
         "applies_to": "js",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\js\\form_detector.js",
+        "source": "FormFiller_IA\\js\\form_detector.js",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -159,7 +159,7 @@
       "fact": {
         "rule": "enteditable') === 'true') return 'textarea';\n    return 'unknown';\n  }\n\n  function getOptions(el) {\n    const tag = el.tagName.toLowerCase();\n    if (tag === 'select') {\n      return Array.from(el.options).map(o => ({ value: o.value, text: o.text, selected: o.selected }));\n    }\n    // For radio buttons, find siblings with same name\n    if (tag === 'input' && el.type === 'radio' && el.name) {\n      return Array.from(document.querySelectorAll('input[type=\"radio\"][name=\"' + CSS.escape(el.name) + '\"]')).map(r => {\n        const rLabel = findLabelText(r);\n        return { value: r.value, text: rLabel || r.value, selected: r.checked };\n      });\n    }\n    return null;\n  }\n\n  function findContainer(el) {\n",
         "applies_to": "js",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\js\\form_detector.js",
+        "source": "FormFiller_IA\\js\\form_detector.js",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -184,7 +184,7 @@
       "fact": {
         "rule": ".value, selected: r.checked };\n      });\n    }\n    return null;\n  }\n\n  function findContainer(el) {\n    const containerSelectors = ['fieldset', '.form-group', '.form-field', '.field-group', '.input-group',\n      '[class*=\"form-row\"]', '[class*=\"formRow\"]', '[class*=\"field-wrapper\"]', '[class*=\"fieldWrapper\"]'];\n    for (const sel of containerSelectors) {\n      const container = el.closest(sel);",
         "applies_to": "js",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\js\\form_detector.js",
+        "source": "FormFiller_IA\\js\\form_detector.js",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -209,7 +209,7 @@
       "fact": {
         "rule": "((selector, value, fieldType) => {\n  /**\n   * fill_field.js - Fill a form field with React/Angular framework bypass\n   * Params: selector (CSS), value (string|boolean), fieldType (string)\n   * Returns: {success, previous_value, new_value, events_dispatched}\n   */\n\n  const eventsDispatched = [];\n\n  function dispatch(el, eventName, EventConstructor, opts) {\n    const defaults = { bubbles: true, cancelable: true };\n    const event = new EventConstructor(eventName, Object.assign(defaults, opts || {}));\n    el.dispatchEvent(event);\n    eventsDispatched.push(eventName);\n  }\n\n  function setNativeValue(el, val) {\n    // React/Angular bypass: use native setter to bypass framework value guards\n    const proto = Object.getPrototypeOf(el);\n    const protoName = el.tagName === 'TEXTAREA' ? ",
         "applies_to": "js",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\js\\fill_field.js",
+        "source": "FormFiller_IA\\js\\fill_field.js",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -234,7 +234,7 @@
       "fact": {
         "rule": "ards\n    const proto = Object.getPrototypeOf(el);\n    const protoName = el.tagName === 'TEXTAREA' ? 'HTMLTextAreaElement' : 'HTMLInputElement';\n    const nativeSetter = Object.getOwnPropertyDescriptor(\n      window[protoName] ? window[protoName].prototype : proto,\n      'value'\n    );\n    if (nativeSetter && nativeSetter.set) {\n      nativeSetter.set.call(el, val);\n    } else {\n      el.value = val;\n    }\n  }\n\n  const el = document.querySelector(selector);\n  if (!el) {\n    return { success: false, error: 'Element not found: ' + selector, previous_value: null, new_value: null, events_dispatched: [] };\n  }\n\n  const previousValue = el.value != null ? String(el.value) : (el.checked != null ? String(el.checked) : el.innerHTML || '');\n  let newValue = '';\n\n  try {\n",
         "applies_to": "js",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\js\\fill_field.js",
+        "source": "FormFiller_IA\\js\\fill_field.js",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -259,7 +259,7 @@
       "fact": {
         "rule": "ue) : (el.checked != null ? String(el.checked) : el.innerHTML || '');\n  let newValue = '';\n\n  try {\n    const tag = el.tagName.toLowerCase();\n    const type = fieldType || (el.type ? el.type.toLowerCase() : tag);\n\n    switch (type) {\n      case 'text':\n      case 'email':\n      case 'tel':\n      case 'number':\n      case 'url':\n      case 'search':\n      case 'password': {\n        el.focus();\n        dispatch(el, 'focus', FocusEvent);\n        setNativeValue(el, value);\n        dispatch(el, 'input', InputEvent, { inputType: 'insertText', data: value });\n        dispatch(el, 'change', Event);\n        dispatch(el, 'blur', FocusEvent);\n        newValue = el.value;\n        break;\n      }\n\n      case 'date':\n      case 'datetime-local':\n      case 'month':\n      case 'week':\n",
         "applies_to": "js",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\js\\fill_field.js",
+        "source": "FormFiller_IA\\js\\fill_field.js",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -284,7 +284,7 @@
       "fact": {
         "rule": "ak;\n      }\n\n      case 'date':\n      case 'datetime-local':\n      case 'month':\n      case 'week':\n      case 'time': {\n        el.focus();\n        dispatch(el, 'focus', FocusEvent);\n        // Try valueAsDate for date type\n        if (type === 'date' && value) {\n          try {\n            el.valueAsDate = new Date(value + 'T00:00:00');\n          } catch (e) {\n            el.value = value; // Fallback: expects YYYY-MM-DD\n          }\n        } else {\n          el.value = value;\n        }\n        dispatch(el, 'input', InputEvent);\n        dispatch(el, 'change', Event);\n        dispatch(el, 'blur', FocusEvent);\n        newValue = el.value;\n        break;\n      }\n\n      case 'select':\n      case 'select-one':\n      case 'select-multiple': {\n        el.focus();\n",
         "applies_to": "js",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\js\\fill_field.js",
+        "source": "FormFiller_IA\\js\\fill_field.js",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -309,7 +309,7 @@
       "fact": {
         "rule": "\n\n      case 'select':\n      case 'select-one':\n      case 'select-multiple': {\n        el.focus();\n        dispatch(el, 'focus', FocusEvent);\n        let matched = false;\n        // Try matching by value first, then by text\n        for (let i = 0; i < el.options.length; i++) {\n          if (el.options[i].value === value || el.options[i].text === value ||\n              el.options[i].value.toLowerCase() === String(value).toLowerCase() ||\n              el.options[i].text.toLowerCase() === String(value).toLowerCase()) {\n            el.selectedIndex = i;\n            el.options[i].selected = true;\n            matched = true;\n            break;\n          }\n        }\n        // Partial match fallback\n        if (!matched) {\n          const lowerVal = String(value).toLowerCase();\n",
         "applies_to": "js",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\js\\fill_field.js",
+        "source": "FormFiller_IA\\js\\fill_field.js",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -334,7 +334,7 @@
       "fact": {
         "rule": "tial match fallback\n        if (!matched) {\n          const lowerVal = String(value).toLowerCase();\n          for (let i = 0; i < el.options.length; i++) {\n            if (el.options[i].text.toLowerCase().includes(lowerVal) ||\n                el.options[i].value.toLowerCase().includes(lowerVal)) {\n              el.selectedIndex = i;\n              el.options[i].selected = true;\n              matched = true;\n              break;\n            }\n          }\n        }\n        dispatch(el, 'change', Event);\n        dispatch(el, 'blur', FocusEvent);\n        newValue = el.value;\n        if (!matched) {\n          return { success: false, error: 'No matching option for: ' + value, previous_value: previousValue, new_value: el.value, events_dispatched: eventsDispatched };\n        }\n        break;\n",
         "applies_to": "js",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\js\\fill_field.js",
+        "source": "FormFiller_IA\\js\\fill_field.js",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -359,7 +359,7 @@
       "fact": {
         "rule": "previousValue, new_value: el.value, events_dispatched: eventsDispatched };\n        }\n        break;\n      }\n\n      case 'checkbox': {\n        const shouldCheck = value === true || value === 'true' || value === '1' || value === 'on' || value === 'yes';\n        if (el.checked !== shouldCheck) {\n          el.checked = shouldCheck;\n          dispatch(el, 'click', MouseEvent);\n          dispatch(el, 'change', Event);\n        }\n        newValue = String(el.checked);\n        break;\n      }\n\n      case 'radio': {\n        el.checked = true;\n        dispatch(el, 'click', MouseEvent);\n        dispatch(el, 'change', Event);\n        newValue = String(el.checked);\n        break;\n      }\n\n      case 'textarea': {\n        el.focus();\n        dispatch(el, 'focus', FocusEvent);\n",
         "applies_to": "js",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\js\\fill_field.js",
+        "source": "FormFiller_IA\\js\\fill_field.js",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -384,7 +384,7 @@
       "fact": {
         "rule": "k;\n      }\n\n      case 'textarea': {\n        el.focus();\n        dispatch(el, 'focus', FocusEvent);\n        setNativeValue(el, value);\n        dispatch(el, 'input', InputEvent, { inputType: 'insertText', data: value });\n        dispatch(el, 'cha",
         "applies_to": "js",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\js\\fill_field.js",
+        "source": "FormFiller_IA\\js\\fill_field.js",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -409,7 +409,7 @@
       "fact": {
         "rule": "(() => {\n  /**\n   * error_detector.js - Detect error/warning messages in the DOM\n   * Covers SAP WebUI, SAP Fiori, Bootstrap, generic patterns, and toast libraries.\n   * Returns: {hasErrors, hasWarnings, messages}\n   */\n\n  function cssSelector(el) {\n    if (!el || el.nodeType !== 1) return '';\n    const parts = [];\n    let current = el;\n    while (current && current.nodeType === 1) {\n      let sel = current.tagName.toLowerCase();\n      if (current.id) {\n        sel += '#' + CSS.escape(current.id);\n        parts.unshift(sel);\n        break;\n      }\n      const parent = current.parentElement;\n      if (parent) {\n        const siblings = Array.from(parent.children).filter(c => c.tagName === current.tagName);\n        if (siblings.length > 1) {\n",
         "applies_to": "js",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\js\\error_detector.js",
+        "source": "FormFiller_IA\\js\\error_detector.js",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -434,7 +434,7 @@
       "fact": {
         "rule": "rom(parent.children).filter(c => c.tagName === current.tagName);\n        if (siblings.length > 1) {\n          sel += ':nth-of-type(' + (siblings.indexOf(current) + 1) + ')';\n        }\n      }\n      parts.unshift(sel);\n      current = parent;\n    }\n    return parts.join(' > ');\n  }\n\n  function isVisible(el) {\n    try {\n      const style = window.getComputedStyle(el);\n      if (style.display === 'none' || style.visibility === 'hidden' || style.opacity === '0') return false;\n      const rect = el.getBoundingClientRect();\n      return rect.width > 0 && rect.height > 0;\n    } catch (e) {\n      return false;\n    }\n  }\n\n  const messages = [];\n  const seen = new Set();\n\n  function addMessage(el, type) {\n    if (seen.has(el)) return;\n    seen.add(el);\n",
         "applies_to": "js",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\js\\error_detector.js",
+        "source": "FormFiller_IA\\js\\error_detector.js",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -459,7 +459,7 @@
       "fact": {
         "rule": "een = new Set();\n\n  function addMessage(el, type) {\n    if (seen.has(el)) return;\n    seen.add(el);\n    const text = (el.textContent || '').trim().substring(0, 500);\n    if (!text) return;\n    messages.push({\n      type: type,\n      text: text,\n      selector: cssSelector(el),\n      visible: isVisible(el),\n      timestamp: Date.now()\n    });\n  }\n\n  // Error selectors\n  const errorSelectors = [\n    // SAP WebUI\n    '.urMessageBar[class*=\"Error\"]', '[class*=\"msgError\"]',\n    '.sapMMsgStripError', '.sapMMsgStrip.sapMMsgStripError',\n    // SAP Fiori\n    '.sapMMsgStrip[class*=\"Error\"]', '.sapMMessagePage[class*=\"Error\"]',\n    '.sapMMsgBoxError',\n    // Generic\n    '.alert-danger', '[role=\"alert\"][class*=\"error\" i]', '[role=\"alert\"][class*=\"danger\" i]',\n",
         "applies_to": "js",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\js\\error_detector.js",
+        "source": "FormFiller_IA\\js\\error_detector.js",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -484,7 +484,7 @@
       "fact": {
         "rule": "neric\n    '.alert-danger', '[role=\"alert\"][class*=\"error\" i]', '[role=\"alert\"][class*=\"danger\" i]',\n    '.error-message', '.error-msg', '.form-error',\n    '.toast-error', '.notification-error',\n    // Toast libraries\n    '.Toastify__toast--error', '.noty_type__error', '.swal2-error',\n    // Validation\n    '.invalid-feedback:not(:empty)', '.field-error', '.has-error .help-block',\n    '.is-invalid ~ .invalid-feedback',\n    // Material UI\n    '.MuiAlert-standardError', '.Mui-error',\n    // Ant Design\n    '.ant-alert-error', '.ant-message-error', '.ant-form-item-explain-error'\n  ];\n\n  // Warning selectors\n  const warningSelectors = [\n    // SAP WebUI\n    '[class*=\"msgWarning\"]', '.sapMMsgStripWarning',\n    // SAP Fiori\n    '.sapMMsgStrip[class*=\"Warning\"]', '.sapMMsgBoxWarning',\n",
         "applies_to": "js",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\js\\error_detector.js",
+        "source": "FormFiller_IA\\js\\error_detector.js",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -509,7 +509,7 @@
       "fact": {
         "rule": "sapMMsgStripWarning',\n    // SAP Fiori\n    '.sapMMsgStrip[class*=\"Warning\"]', '.sapMMsgBoxWarning',\n    // Generic\n    '.alert-warning', '[role=\"alert\"][class*=\"warning\" i]',\n    '.warning-message', '.warning-msg',\n    '.toast-warning', '.notification-warning',\n    // Toast libraries\n    '.Toastify__toast--warning', '.noty_type__warning', '.swal2-warning',\n    // Material UI\n    '.MuiAlert-standardWarning',\n    // Ant Design\n    '.ant-alert-warning', '.ant-message-warning'\n  ];\n\n  // Info selectors\n  const infoSelectors = [\n    '.sapMMsgStripInformation', '.sapMMsgStrip[class*=\"Information\"]',\n    '.alert-info', '[role=\"alert\"][class*=\"info\" i]',\n    '.info-message', '.info-msg',\n    '.Toastify__toast--info',\n    '.MuiAlert-standardInfo',\n    '.ant-alert-info', '.ant-message-info'\n  ];\n\n",
         "applies_to": "js",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\js\\error_detector.js",
+        "source": "FormFiller_IA\\js\\error_detector.js",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -534,7 +534,7 @@
       "fact": {
         "rule": "stify__toast--info',\n    '.MuiAlert-standardInfo',\n    '.ant-alert-info', '.ant-message-info'\n  ];\n\n  function queryAll(selectors, type) {\n    try {\n      const query = selectors.join(',');\n      const els = document.querySelectorAll(query);\n      for (const el of els) addMessage(el, type);\n    } catch (e) {\n      // If combined selector fails, try individually\n      for (const sel of selectors) {\n        try {\n          const els = document.querySelectorAll(sel);\n          for (const el of els) addMessage(el, type);\n        } catch (e2) {\n          // skip invalid selector\n        }\n      }\n    }\n  }\n\n  queryAll(errorSelectors, 'error');\n  queryAll(warningSelectors, 'warning');\n  queryAll(infoSelectors, 'info');\n\n  // Also check generic [role=\"alert\"] that wasn't caught above\n  try {\n",
         "applies_to": "js",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\js\\error_detector.js",
+        "source": "FormFiller_IA\\js\\error_detector.js",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -559,7 +559,7 @@
       "fact": {
         "rule": "ll(infoSelectors, 'info');\n\n  // Also check generic [role=\"alert\"] that wasn't caught above\n  try {\n    const alerts = document.querySelectorAll('[role=\"alert\"]');\n    for (const el of alerts) {\n      if (seen.has(el)) continue;\n      const cls = (el.className || '').toString().toLowerCase();\n      let type = 'error'; // Default alerts to error\n      if (cls.includes('warning') || cls.includes('warn')) type = 'warning';\n      else if (cls.includes('info') || cls.includes('success')) type = 'info';\n      addMessage(el, type);\n    }\n  } catch (e) {\n    // skip\n  }\n\n  // Check SAP message bar generically\n  try {\n    const msgBars = document.querySelectorAll('.urMessageBar, .sapMMsgStrip, .sapMMessagePage');\n    for (const el of msgBars) {\n      if (seen.has(el)) continue;\n",
         "applies_to": "js",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\js\\error_detector.js",
+        "source": "FormFiller_IA\\js\\error_detector.js",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -584,7 +584,7 @@
       "fact": {
         "rule": "sapMMsgStrip, .sapMMessagePage');\n    for (const el of msgBars) {\n      if (seen.has(el)) continue;\n      const cls = (el.className || '').toString().toLowerCase();\n      let type = 'info';\n      if (cls.includes('error')) type = 'error';\n      else if (cls.includes('warning'))",
         "applies_to": "js",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\js\\error_detector.js",
+        "source": "FormFiller_IA\\js\\error_detector.js",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -609,7 +609,7 @@
       "fact": {
         "rule": "(() => {\n  /**\n   * collector.js - Comprehensive DOM snapshot collector\n   * Generic for any web page. Returns full interactive element inventory.\n   */\n\n  function cssPath(el) {\n    if (!el || el.nodeType !== 1) return '';\n    const parts = [];\n    let current = el;\n    while (current && current.nodeType === 1) {\n      let selector = current.tagName.toLowerCase();\n      if (current.id) {\n        selector += '#' + CSS.escape(current.id);\n        parts.unshift(selector);\n        break;\n      }\n      const parent = current.parentElement;\n      if (parent) {\n        const siblings = Array.from(parent.children).filter(\n          c => c.tagName === current.tagName\n        );\n        if (siblings.length > 1) {\n          const idx = siblings.indexOf(current) + 1;\n",
         "applies_to": "js",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\js\\collector.js",
+        "source": "FormFiller_IA\\js\\collector.js",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -634,7 +634,7 @@
       "fact": {
         "rule": "\n        );\n        if (siblings.length > 1) {\n          const idx = siblings.indexOf(current) + 1;\n          selector += ':nth-of-type(' + idx + ')';\n        }\n      }\n      parts.unshift(selector);\n      current = parent;\n    }\n    return parts.join(' > ');\n  }\n\n  function xpath(el) {\n    if (!el || el.nodeType !== 1) return '';\n    if (el.id) return '//*[@id=\"' + el.id + '\"]';\n    const parts = [];\n    let current = el;\n    while (current && current.nodeType === 1) {\n      let idx = 1;\n      let sibling = current.previousElementSibling;\n      while (sibling) {\n        if (sibling.tagName === current.tagName) idx++;\n        sibling = sibling.previousElementSibling;\n      }\n      const tag = current.tagName.toLowerCase();\n      parts.unshift(tag + '[' + idx + ']');\n",
         "applies_to": "js",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\js\\collector.js",
+        "source": "FormFiller_IA\\js\\collector.js",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -659,7 +659,7 @@
       "fact": {
         "rule": "     }\n      const tag = current.tagName.toLowerCase();\n      parts.unshift(tag + '[' + idx + ']');\n      current = current.parentElement;\n    }\n    return '/' + parts.join('/');\n  }\n\n  function isVisible(el) {\n    if (!el) return false;\n    try {\n      const style = window.getComputedStyle(el);\n      if (style.display === 'none' || style.visibility === 'hidden' || style.opacity === '0') return false;\n      const rect = el.getBoundingClientRect();\n      return rect.width > 0 && rect.height > 0;\n    } catch (e) {\n      return false;\n    }\n  }\n\n  function getRect(el) {\n    try {\n      const r = el.getBoundingClientRect();\n      return { x: Math.round(r.x), y: Math.round(r.y), width: Math.round(r.width), height: Math.round(r.height) };\n    } catch (e) {\n      return null;\n    }\n  }\n\n",
         "applies_to": "js",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\js\\collector.js",
+        "source": "FormFiller_IA\\js\\collector.js",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -684,7 +684,7 @@
       "fact": {
         "rule": "ath.round(r.width), height: Math.round(r.height) };\n    } catch (e) {\n      return null;\n    }\n  }\n\n  // Collect iframes\n  const iframeEls = Array.from(document.querySelectorAll('iframe'));\n  const iframes = iframeEls.map((f, i) => {\n    const attrs = {};\n    for (const a of f.attributes) attrs[a.name] = a.value;\n    return { index: i, id: f.id || '', name: f.name || '', src: f.src || '', attributes: attrs };\n  });\n\n  // Interactive element selectors\n  const selectors = [\n    'input', 'button', 'a', 'select', 'textarea', 'label',\n    '[role=\"button\"]', '[role=\"combobox\"]', '[role=\"listbox\"]', '[role=\"option\"]',\n    '[onclick]', '[tabindex]', '[contenteditable]'\n  ].join(',');\n\n  const seen = new Set();\n  const rawEls = document.querySelectorAll(selectors);\n  const elements = [];\n\n",
         "applies_to": "js",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\js\\collector.js",
+        "source": "FormFiller_IA\\js\\collector.js",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -709,7 +709,7 @@
       "fact": {
         "rule": "st seen = new Set();\n  const rawEls = document.querySelectorAll(selectors);\n  const elements = [];\n\n  for (const el of rawEls) {\n    if (seen.has(el)) continue;\n    seen.add(el);\n    elements.push({\n      tag: el.tagName.toLowerCase(),\n      id: el.id || '',\n      name: el.name || '',\n      type: el.type || '',\n      value: (el.value != null && el.value !== undefined) ? String(el.value).substring(0, 500) : '',\n      placeholder: el.placeholder || '',\n      classes: el.className ? String(el.className).substring(0, 300) : '',\n      cssPath: cssPath(el),\n      xpath: xpath(el),\n      visible: isVisible(el),\n      disabled: el.disabled || el.getAttribute('aria-disabled') === 'true',\n      required: el.required || el.getAttribute('aria-required') === 'true',\n",
         "applies_to": "js",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\js\\collector.js",
+        "source": "FormFiller_IA\\js\\collector.js",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -734,7 +734,7 @@
       "fact": {
         "rule": "-disabled') === 'true',\n      required: el.required || el.getAttribute('aria-required') === 'true',\n      ariaLabel: el.getAttribute('aria-label') || '',\n      ariaDescribedby: el.getAttribute('aria-describedby') || '',\n      boundingRect: getRect(el),\n      frameIndex: -1\n    });\n  }\n\n  // Collect forms\n  const formEls = document.querySelectorAll('form');\n  const forms = Array.from(formEls).map((form, fi) => {\n    const fields = Array.from(form.querySelectorAll('input, select, textarea, button')).map(f => ({\n      tag: f.tagName.toLowerCase(),\n      id: f.id || '',\n      name: f.name || '',\n      type: f.type || '',\n      value: f.value ? String(f.value).substring(0, 200) : ''\n    }));\n    return {\n      index: fi,\n      id: form.id || '',\n      name: form.name || '',\n",
         "applies_to": "js",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\js\\collector.js",
+        "source": "FormFiller_IA\\js\\collector.js",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -759,7 +759,7 @@
       "fact": {
         "rule": ") : ''\n    }));\n    return {\n      index: fi,\n      id: form.id || '',\n      name: form.name || '',\n      action: form.action || '',\n      method: form.method || '',\n      cssPath: cssPath(form),\n      fieldCount: fields.length,\n      fields: fields\n    };\n  });\n\n  // domHash for stability detection\n  function simpleDomHash() {\n    const text = (document.body && document.body.innerText) ? document.body.innerText : '';\n    let hash = 0;\n    const sample = text.substring(0, 10000);\n    for (let i = 0; i < sample.length; i++) {\n      hash = ((hash << 5) - hash + sample.charCodeAt(i)) | 0;\n    }\n    return hash.toString(16);\n  }\n\n  return {\n    url: window.location.href,\n    title: document.title,\n    readyState: document.readyState,\n    bodyTextLength: document.body ? ",
         "applies_to": "js",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\js\\collector.js",
+        "source": "FormFiller_IA\\js\\collector.js",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -784,7 +784,7 @@
       "fact": {
         "rule": "    title: document.title,\n    readyState: document.readyState,\n    bodyTextLength: document.body ? document.body.innerText.length : 0,\n    htmlLength: document.documentElement.outerHTML.length,\n    iframes: iframes,\n    elements: elements,\n    forms: fo",
         "applies_to": "js",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\js\\collector.js",
+        "source": "FormFiller_IA\\js\\collector.js",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -809,7 +809,7 @@
       "fact": {
         "rule": "(() => {\n  /**\n   * dropdown_detector.js - Detect custom (non-<select>) dropdowns\n   * Covers ARIA roles, SAP, Material UI, Ant Design, React-Select, and generic patterns.\n   * Returns array of dropdown descriptors.\n   */\n\n  function cssSelector(el) {\n    if (!el || el.nodeType !== 1) return '';\n    const parts = [];\n    let current = el;\n    while (current && current.nodeType === 1) {\n      let sel = current.tagName.toLowerCase();\n      if (current.id) {\n        sel += '#' + CSS.escape(current.id);\n        parts.unshift(sel);\n        break;\n      }\n      const parent = current.parentElement;\n      if (parent) {\n        const siblings = Array.from(parent.children).filter(c => c.tagName === current.tagName);\n        if (siblings.length > 1) {\n",
         "applies_to": "js",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\js\\dropdown_detector.js",
+        "source": "FormFiller_IA\\js\\dropdown_detector.js",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -834,7 +834,7 @@
       "fact": {
         "rule": "rom(parent.children).filter(c => c.tagName === current.tagName);\n        if (siblings.length > 1) {\n          sel += ':nth-of-type(' + (siblings.indexOf(current) + 1) + ')';\n        }\n      }\n      parts.unshift(sel);\n      current = parent;\n    }\n    return parts.join(' > ');\n  }\n\n  function countOptions(trigger) {\n    // Try to find associated listbox\n    const controlsId = trigger.getAttribute('aria-controls') || trigger.getAttribute('aria-owns');\n    if (controlsId) {\n      const listbox = document.getElementById(controlsId);\n      if (listbox) {\n        const opts = listbox.querySelectorAll('[role=\"option\"], li, [class*=\"option\"]');\n        return opts.length;\n      }\n    }\n    // Look for sibling/child listbox\n    const parent = trigger.parentElement;\n    if (parent) {\n",
         "applies_to": "js",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\js\\dropdown_detector.js",
+        "source": "FormFiller_IA\\js\\dropdown_detector.js",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -859,7 +859,7 @@
       "fact": {
         "rule": "}\n    // Look for sibling/child listbox\n    const parent = trigger.parentElement;\n    if (parent) {\n      const listbox = parent.querySelector('[role=\"listbox\"], [role=\"menu\"], ul, [class*=\"dropdown-menu\"], [class*=\"options\"], [class*=\"list\"]');\n      if (listbox && listbox !== trigger) {\n        return listbox.children.length;\n      }\n    }\n    return 0;\n  }\n\n  function findListSelector(trigger) {\n    const controlsId = trigger.getAttribute('aria-controls') || trigger.getAttribute('aria-owns');\n    if (controlsId) {\n      const listbox = document.getElementById(controlsId);\n      if (listbox) return cssSelector(listbox);\n    }\n    const parent = trigger.parentElement;\n    if (parent) {\n",
         "applies_to": "js",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\js\\dropdown_detector.js",
+        "source": "FormFiller_IA\\js\\dropdown_detector.js",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -884,7 +884,7 @@
       "fact": {
         "rule": "box) return cssSelector(listbox);\n    }\n    const parent = trigger.parentElement;\n    if (parent) {\n      const listbox = parent.querySelector('[role=\"listbox\"], [role=\"menu\"], ul, [class*=\"dropdown-menu\"], [class*=\"options-list\"], [class*=\"select-menu\"]');\n      if (listbox && listbox !== trigger) return cssSelector(listbox);\n    }\n    return '';\n  }\n\n  function detectType(el) {\n    const role = el.getAttribute('role');\n    if (role === 'combobox') return 'combobox';\n    if (role === 'listbox') return 'listbox';\n    return 'custom';\n  }\n\n  const seen = new Set();\n  const dropdowns = [];\n\n  // Query patterns for custom dropdowns\n  const patterns = [\n    '[role=\"combobox\"]',\n    '[role=\"listbox\"]',\n    '[aria-expanded]',\n    '[aria-haspopup=\"listbox\"]',\n    '[aria-haspopup=\"true\"]',\n",
         "applies_to": "js",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\js\\dropdown_detector.js",
+        "source": "FormFiller_IA\\js\\dropdown_detector.js",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -909,7 +909,7 @@
       "fact": {
         "rule": "=\"listbox\"]',\n    '[aria-expanded]',\n    '[aria-haspopup=\"listbox\"]',\n    '[aria-haspopup=\"true\"]',\n    // SAP Classic\n    '[class*=\"urDrDwn\"]',\n    '[class*=\"sapMCb\"]',\n    '[class*=\"sapUiTf\"]',\n    '[class*=\"sapMSlt\"]',\n    '[class*=\"sapMComboBox\"]',\n    '[class*=\"sapUiDrDwn\"]',\n    // SAP Fiori\n    '[class*=\"sapMInputBase\"]',\n    // Material UI\n    '.MuiSelect-root',\n    '.MuiSelect-select',\n    '[class*=\"MuiAutocomplete\"]',\n    // Ant Design\n    '.ant-select',\n    '.ant-select-selector',\n    '.ant-cascader-picker',\n    // React-Select\n    '[class*=\"-control\"]',\n    '[class*=\"react-select\"]',\n    // Generic class patterns\n    '[class*=\"dropdown\"]',\n    '[class*=\"select-wrapper\"]',\n    '[class*=\"combo\"]',\n    '[class*=\"picker\"]',\n    '[class*=\"autocomplete\"]',\n    '[class*=\"combobox\"]',\n",
         "applies_to": "js",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\js\\dropdown_detector.js",
+        "source": "FormFiller_IA\\js\\dropdown_detector.js",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -934,7 +934,7 @@
       "fact": {
         "rule": "lass*=\"combo\"]',\n    '[class*=\"picker\"]',\n    '[class*=\"autocomplete\"]',\n    '[class*=\"combobox\"]',\n    '[class*=\"custom-select\"]'\n  ];\n\n  const query = patterns.join(',');\n  let candidates;\n  try {\n    candidates = document.querySelectorAll(query);\n  } catch (e) {\n    // Fallback if any selector is invalid\n    candidates = document.querySelectorAll('[role=\"combobox\"], [role=\"listbox\"], [aria-expanded]');\n  }\n\n  for (const el of candidates) {\n    // Skip native selects\n    if (el.tagName.toLowerCase() === 'select') continue;\n    // Skip if already seen\n    if (seen.has(el)) continue;\n    seen.add(el);\n\n    const isOpen = el.getAttribute('aria-expanded') === 'true';\n    const listSel = findListSelector(el);\n    const optCount = countOptions(el);\n\n    dropdowns.push({\n",
         "applies_to": "js",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\js\\dropdown_detector.js",
+        "source": "FormFiller_IA\\js\\dropdown_detector.js",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -959,7 +959,7 @@
       "fact": {
         "rule": " const listSel = findListSelector(el);\n    const optCount = countOptions(el);\n\n    dropdowns.push({\n      trigger_selector: cssSelector(el),\n      list_selector: listSel,\n      type: detectType(el),\n      options_count: optCount,\n      is_open: isOpen\n    });\n  }\n\n  return dropdowns;\n})()",
         "applies_to": "js",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\js\\dropdown_detector.js",
+        "source": "FormFiller_IA\\js\\dropdown_detector.js",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -984,7 +984,7 @@
       "fact": {
         "rule": "(() => {\n  /**\n   * loading_detector.js - Detect if page is still loading/busy\n   * Checks spinners, skeletons, overlays, readyState, and generates domHash.\n   * Returns: {loading, indicators, domHash}\n   */\n\n  const indicators = [];\n\n  // 1. Check document.readyState\n  if (document.readyState !== 'complete') {\n    indicators.push('readyState:' + document.readyState);\n  }\n\n  // 2. Loading class patterns\n  const loadingPatterns = [\n    'spinner', 'loading', 'skeleton', 'shimmer', 'progress', 'busy',\n    'loader', 'wait', 'pending', 'fetching', 'refreshing'\n  ];\n\n  const classQuery = loadingPatterns.map(p => '[class*=\"' + p + '\"]').join(',');\n  try {\n    const loadingEls = document.querySelectorAll(classQuery);\n    for (const el of loadingEls) {\n      // Only count visible elements\n",
         "applies_to": "js",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\js\\loading_detector.js",
+        "source": "FormFiller_IA\\js\\loading_detector.js",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -1009,7 +1009,7 @@
       "fact": {
         "rule": "erySelectorAll(classQuery);\n    for (const el of loadingEls) {\n      // Only count visible elements\n      try {\n        const style = window.getComputedStyle(el);\n        if (style.display === 'none' || style.visibility === 'hidden') continue;\n        const rect = el.getBoundingClientRect();\n        if (rect.width === 0 && rect.height === 0) continue;\n        indicators.push('class:' + el.className.toString().substring(0, 80));\n      } catch (e) {\n        // skip\n      }\n    }\n  } catch (e) {\n    // skip invalid selector\n  }\n\n  // 3. aria-busy=\"true\"\n  const busyEls = document.querySelectorAll('[aria-busy=\"true\"]');\n  for (const el of busyEls) {\n    indicators.push('aria-busy:' + (el.id || el.tagName.toLowerCase()));\n  }\n\n  // 4. Overlay/modal blocking elements\n",
         "applies_to": "js",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\js\\loading_detector.js",
+        "source": "FormFiller_IA\\js\\loading_detector.js",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -1034,7 +1034,7 @@
       "fact": {
         "rule": "h('aria-busy:' + (el.id || el.tagName.toLowerCase()));\n  }\n\n  // 4. Overlay/modal blocking elements\n  const overlaySelectors = [\n    '.overlay', '.modal-backdrop', '.blocking', '[class*=\"overlay\"]',\n    '[class*=\"backdrop\"]', '[class*=\"blocker\"]', '.sapUiBlockLayer',\n    '[class*=\"sapUiBusy\"]', '.sapUiLocalBusy'\n  ];\n  try {\n    const overlays = document.querySelectorAll(overlaySelectors.join(','));\n    for (const el of overlays) {\n      try {\n        const style = window.getComputedStyle(el);\n        if (style.display === 'none' || style.visibility === 'hidden') continue;\n        const rect = el.getBoundingClientRect();\n        if (rect.width > 100 && rect.height > 100) {\n          indicators.push('overlay:' + (el.className ? el.className.toString().substring(0, 60) : el.tagName));\n",
         "applies_to": "js",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\js\\loading_detector.js",
+        "source": "FormFiller_IA\\js\\loading_detector.js",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -1059,7 +1059,7 @@
       "fact": {
         "rule": "dicators.push('overlay:' + (el.className ? el.className.toString().substring(0, 60) : el.tagName));\n        }\n      } catch (e) {\n        // skip\n      }\n    }\n  } catch (e) {\n    // skip\n  }\n\n  // 5. Active XMLHttpRequests or fetch (check for pending indicator classes)\n  const progressBars = document.querySelectorAll('progress, [role=\"progressbar\"]');\n  for (const el of progressBars) {\n    try {\n      const style = window.getComputedStyle(el);\n      if (style.display !== 'none' && style.visibility !== 'hidden') {\n        const rect = el.getBoundingClientRect();\n        if (rect.width > 0 && rect.height > 0) {\n          indicators.push('progressbar:' + (el.id || el.className.toString().substring(0, 40)));\n        }\n      }\n    } catch (e) {\n      // skip\n    }\n  }\n\n",
         "applies_to": "js",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\js\\loading_detector.js",
+        "source": "FormFiller_IA\\js\\loading_detector.js",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -1084,7 +1084,7 @@
       "fact": {
         "rule": "assName.toString().substring(0, 40)));\n        }\n      }\n    } catch (e) {\n      // skip\n    }\n  }\n\n  // Generate domHash for stability detection\n  function domHash() {\n    const bodyText = document.body ? document.body.innerText : '';\n    const inputs = document.querySelectorAll('input, select, textarea');\n    const inputValues = Array.from(inputs).map(i => i.value || '').join('|');\n    const raw = bodyText.length + ':' + inputs.length + ':' + inputValues;\n    let hash = 0;\n    const sample = raw.substring(0, 5000);\n    for (let i = 0; i < sample.length; i++) {\n      hash = ((hash << 5) - hash + sample.charCodeAt(i)) | 0;\n    }\n    return hash.toString(16);\n  }\n\n  return {\n    loading: indicators.length > 0,\n    indicators: indicators,\n    domHash: domHash()\n  };\n})()",
         "applies_to": "js",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\js\\loading_detector.js",
+        "source": "FormFiller_IA\\js\\loading_detector.js",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""

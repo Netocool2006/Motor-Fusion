@@ -2,7 +2,7 @@
 
 Motor de aprendizaje adaptativo que se conecta a cualquier CLI de IA (Claude Code, Gemini CLI, Ollama, etc.) y acumula conocimiento cross-sesion.
 
-Resultado de fusionar Motor 1 (Asistente IA - features, KB, 160+ patrones) con Motor 2 (Motor Inteligente - arquitectura limpia, file_lock, atomic_replace).
+Resultado de fusionar Motor 1 (Hooks_IA - features, KB, 160+ patrones) con Motor 2 (Motor Inteligente - arquitectura limpia, file_lock, atomic_replace).
 
 ## Arquitectura
 

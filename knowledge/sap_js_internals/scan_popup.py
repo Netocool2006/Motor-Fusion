@@ -327,8 +327,8 @@ def main():
             name = f"popup_{i}"
         elif "SAP" in title:
             name = "sap_main"
-        elif "Asistente" in title:
-            name = "asistente_ia"
+        elif "Hooks_IA" in title:
+            name = "hooks_ia"
         else:
             name = f"page_{i}"
 

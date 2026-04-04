@@ -2304,7 +2304,7 @@
       "key": "regla_oro_2_backups",
       "fact": {
         "rule": "Backups incrementales post-cambios",
-        "script": "C:/Chance1/Buscador_IA/backup_checkpoint.py",
+        "script": "Buscador_IA/backup_checkpoint.py",
         "commands": {
           "manual": "python backup_checkpoint.py [label]",
           "list": "python backup_checkpoint.py --list",

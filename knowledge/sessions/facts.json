@@ -82,7 +82,7 @@
       "key": "session_20260317_visual_testing_v2",
       "solution": {
         "strategy": "systematic_visual_testing_with_fixes",
-        "note": "Sesion 2026-03-17 (continuacion tras compactacion).\nTRABAJO REALIZADO:\n- Testing visual sistematico de 17 casos de uso del dashboard\n- 10 casos OK, 3 parciales (bugs identificados), 1 bloqueado (IT), 3 pendientes\n- Guardado completo de conocimiento en KB (8 entries nuevas)\n\nBUGS IDENTIFICADOS (3):\n1. Overlays no auto-load: Stats/Agentes/Skills muestran Cargando... permanente\n2. Boton Limpiar chat tapado por timestamp auto-save\n3. KB interna visible en chat (viola kb_internal_only)\n\nCONFIRMADO:\n- Outlook COM bloqueado por IT security (no es regresion de codigo)\n- Dashboard Flask funcional en puerto 5000\n- 14 agentes en C:/Chance1/Prompts IA/ (8 nuevos creados esta sesion)\n- RAG Nivel 1 extrae tablas DOCX correctamente\n\nPENDIENTE:\n- Completar testing casos 4-6, 17\n- Fix auto-load overlays\n- Fix Limpiar chat overlap\n- Fix KB leaking en chat"
+        "note": "Sesion 2026-03-17 (continuacion tras compactacion).\nTRABAJO REALIZADO:\n- Testing visual sistematico de 17 casos de uso del dashboard\n- 10 casos OK, 3 parciales (bugs identificados), 1 bloqueado (IT), 3 pendientes\n- Guardado completo de conocimiento en KB (8 entries nuevas)\n\nBUGS IDENTIFICADOS (3):\n1. Overlays no auto-load: Stats/Agentes/Skills muestran Cargando... permanente\n2. Boton Limpiar chat tapado por timestamp auto-save\n3. KB interna visible en chat (viola kb_internal_only)\n\nCONFIRMADO:\n- Outlook COM bloqueado por IT security (no es regresion de codigo)\n- Dashboard Flask funcional en puerto 5000\n- 14 agentes en Prompts IA/ (8 nuevos creados esta sesion)\n- RAG Nivel 1 extrae tablas DOCX correctamente\n\nPENDIENTE:\n- Completar testing casos 4-6, 17\n- Fix auto-load overlays\n- Fix Limpiar chat overlap\n- Fix KB leaking en chat"
       },
       "tags": [
         "session",
@@ -210,7 +210,7 @@
         "auto_learned": true,
         "source": "post_tool_hook",
         "files_touched": [
-          "C:/Chance1/Asistente IA/.claude/hooks/auto_learn_hook.py"
+          ".claude/hooks/auto_learn_hook.py"
         ],
         "activity": {
           "reads": 2,
@@ -245,12 +245,12 @@
       "key": "iter_20260320_104302_i12",
       "solution": {
         "strategy": "auto_iteration_capture",
-        "notes": "Iteracion 12:\n  Creo episodic_index.py\n  Edito post_action_learn.py > cambio:     if not action_info.get(\"success\") or not action_info.get ->     # Edit/Write\n  Ejecuto: cd \"C:/Chance1/Asistente IA\" && PYTHONIOENCODING=utf-8 python episodic_index.py rebuild 2>&1",
+        "notes": "Iteracion 12:\n  Creo episodic_index.py\n  Edito post_action_learn.py > cambio:     if not action_info.get(\"success\") or not action_info.get ->     # Edit/Write\n  Ejecuto: cd \"\" && PYTHONIOENCODING=utf-8 python episodic_index.py rebuild 2>&1",
         "auto_learned": true,
         "source": "post_tool_hook",
         "files_touched": [
-          "C:/Chance1/Asistente IA/episodic_index.py",
-          "C:/Chance1/Asistente IA/.claude/hooks/post_action_learn.py"
+          "episodic_index.py",
+          ".claude/hooks/post_action_learn.py"
         ],
         "activity": {
           "reads": 0,
@@ -285,11 +285,11 @@
       "key": "iter_20260320_104426_i14",
       "solution": {
         "strategy": "auto_iteration_capture",
-        "notes": "Iteracion 14:\n  Creo episodic_index.py\n  Ejecuto: cd \"C:/Chance1/Asistente IA\" && PYTHONIOENCODING=utf-8 python episodic_index.py rebuild 2>&1 && echo \"---\" && PYTHONIOEN",
+        "notes": "Iteracion 14:\n  Creo episodic_index.py\n  Ejecuto: cd \"\" && PYTHONIOENCODING=utf-8 python episodic_index.py rebuild 2>&1 && echo \"---\" && PYTHONIOEN",
         "auto_learned": true,
         "source": "post_tool_hook",
         "files_touched": [
-          "C:/Chance1/Asistente IA/episodic_index.py"
+          "episodic_index.py"
         ],
         "activity": {
           "reads": 0,
@@ -324,11 +324,11 @@
       "key": "iter_20260320_104522_i16",
       "solution": {
         "strategy": "auto_iteration_capture",
-        "notes": "Iteracion 16:\n  Busco 'has_success_indicator' en post_action_learn.py\n  Leyo post_action_learn.py\n  Edito post_action_learn.py > cambio:     # Si fue exitoso, verificar si resuelve un error pendien ->     # Si fue exi\n  Ejecuto: cd \"C:/Chance1/Asistente IA\" && PYTHONIOENCODING=utf-8 python -c \"\nimport sys; sys.path.insert(0, '.')\nfrom episodic_ind",
+        "notes": "Iteracion 16:\n  Busco 'has_success_indicator' en post_action_learn.py\n  Leyo post_action_learn.py\n  Edito post_action_learn.py > cambio:     # Si fue exitoso, verificar si resuelve un error pendien ->     # Si fue exi\n  Ejecuto: cd \"\" && PYTHONIOENCODING=utf-8 python -c \"\nimport sys; sys.path.insert(0, '.')\nfrom episodic_ind",
         "auto_learned": true,
         "source": "post_tool_hook",
         "files_touched": [
-          "C:/Chance1/Asistente IA/.claude/hooks/post_action_learn.py"
+          ".claude/hooks/post_action_learn.py"
         ],
         "activity": {
           "reads": 1,
@@ -363,11 +363,11 @@
       "key": "iter_20260320_104558_i17",
       "solution": {
         "strategy": "auto_iteration_capture",
-        "notes": "Iteracion 17:\n  Ejecuto: cd \"C:/Chance1/Asistente IA\" && PYTHONIOENCODING=utf-8 python -c \"\nimport sys; sys.path.insert(0, '.')\nfrom episodic_ind\n  Edito episodic_index.py > cambio:         tokens = re.findall(r'[a-zA-Z0-9áéíóúñüÁÉÍÓÚÑÜ_]{2,} ->         tokens =",
+        "notes": "Iteracion 17:\n  Ejecuto: cd \"\" && PYTHONIOENCODING=utf-8 python -c \"\nimport sys; sys.path.insert(0, '.')\nfrom episodic_ind\n  Edito episodic_index.py > cambio:         tokens = re.findall(r'[a-zA-Z0-9áéíóúñüÁÉÍÓÚÑÜ_]{2,} ->         tokens =",
         "auto_learned": true,
         "source": "post_tool_hook",
         "files_touched": [
-          "C:/Chance1/Asistente IA/episodic_index.py"
+          "episodic_index.py"
         ],
         "activity": {
           "reads": 0,
@@ -406,15 +406,15 @@
         "auto_learned": true,
         "source": "post_tool_hook",
         "files_touched": [
-          "C:\\Chance1\\Asistente IA\\.claude\\hooks\\on_user_message.py",
-          "C:\\Chance1\\Motor_Inteligente_IA\\core\\__init__.py",
-          "C:\\Chance1\\Motor_Inteligente_IA\\core\\file_lock.py",
-          "C:\\Chance1\\Asistente IA\\.claude\\hooks\\iteration_learn.py",
-          "C:\\Chance1\\Asistente IA\\.claude\\hooks\\session_start_kb.py",
-          "C:\\Chance1\\Motor_Inteligente_IA\\config.py",
-          "C:\\Chance1\\Asistente IA\\episodic_index.py",
-          "C:\\Chance1\\Asistente IA\\.claude\\hooks\\post_action_learn.py",
-          "C:\\Chance1\\Asistente IA\\.claude\\hooks\\auto_learn_hook.py"
+          ".claude\\hooks\\on_user_message.py",
+          "Motor_Inteligente_IA\\core\\__init__.py",
+          "Motor_Inteligente_IA\\core\\file_lock.py",
+          ".claude\\hooks\\iteration_learn.py",
+          ".claude\\hooks\\session_start_kb.py",
+          "Motor_Inteligente_IA\\config.py",
+          "episodic_index.py",
+          ".claude\\hooks\\post_action_learn.py",
+          ".claude\\hooks\\auto_learn_hook.py"
         ],
         "activity": {
           "reads": 16,
@@ -453,7 +453,7 @@
         "auto_learned": true,
         "source": "post_tool_hook",
         "files_touched": [
-          "C:\\Chance1\\Motor_Inteligente_IA\\core\\episodic_index.py"
+          "Motor_Inteligente_IA\\core\\episodic_index.py"
         ],
         "activity": {
           "reads": 0,
@@ -492,7 +492,7 @@
         "auto_learned": true,
         "source": "post_tool_hook",
         "files_touched": [
-          "C:\\Chance1\\Asistente IA\\.claude\\hooks\\auto_learn_hook.py"
+          ".claude\\hooks\\auto_learn_hook.py"
         ],
         "activity": {
           "reads": 2,
@@ -531,8 +531,8 @@
         "auto_learned": true,
         "source": "post_tool_hook",
         "files_touched": [
-          "C:\\Chance1\\Motor_Inteligente_IA\\hooks\\session_start.py",
-          "C:\\Chance1\\Asistente IA\\.claude\\hooks\\on_user_message.py"
+          "Motor_Inteligente_IA\\hooks\\session_start.py",
+          ".claude\\hooks\\on_user_message.py"
         ],
         "activity": {
           "reads": 2,
@@ -571,8 +571,8 @@
         "auto_learned": true,
         "source": "post_tool_hook",
         "files_touched": [
-          "C:\\Chance1\\Asistente IA\\test_motor_exhaustivo.py",
-          "C:\\Chance1\\Motor_Inteligente_IA\\test_exhaustivo.py"
+          "test_motor_exhaustivo.py",
+          "Motor_Inteligente_IA\\test_exhaustivo.py"
         ],
         "activity": {
           "reads": 2,
@@ -611,9 +611,9 @@
         "auto_learned": true,
         "source": "post_tool_hook",
         "files_touched": [
-          "C:\\Chance1\\Motor_Inteligente_IA\\test_exhaustivo.py",
-          "C:\\Chance1\\Motor_Inteligente_IA\\hooks\\session_start.py",
-          "C:\\Chance1\\Asistente IA\\.claude\\hooks\\session_start_kb.py"
+          "Motor_Inteligente_IA\\test_exhaustivo.py",
+          "Motor_Inteligente_IA\\hooks\\session_start.py",
+          ".claude\\hooks\\session_start_kb.py"
         ],
         "activity": {
           "reads": 3,

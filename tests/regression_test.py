@@ -212,7 +212,7 @@ def tc4_1():
             "session_id": "test-regression",
             "transcript_path": "",
             "last_assistant_message": "test",
-            "cwd": "C:\\Chance1"
+            "cwd": str(Path(__file__).parent.parent)
         }).encode(),
         capture_output=True, timeout=30
     )

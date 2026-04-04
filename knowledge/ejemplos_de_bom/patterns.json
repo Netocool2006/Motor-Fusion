@@ -9,7 +9,7 @@
       "fact": {
         "rule": "Prioridad\tResponsable\tPRÓXIMAS CAMBIOS\n1\tFer\tNuevos PN/costos. ESA actual ya no se debe utilizar. Se debe esperar liberación de nuevo contrato SPA-K\n2\tTodos\tAgregar costos Analistas Obs(PowerUser) (previo habrá que definirlo), probable un check ya que es opcional, revisar los casos para los que aplica (Instana FullStack, SevOne?)\n3\tTodos\tAgregar/revisar observabilidad de aplicaciones. LISTO para COE, pero se debe si los números hacen sentido o hay que ajustar\n4\tChris\tSetup de Obs de Apps. LISTO pero se debe si los números hacen sentido o hay que ajustar\n5\tChris/Saury/Angie\tAgregar supuestos/alcance Analista Obs (PowerUser). AJUSTAR EN EL SOW\n6\tFer\tAgregar check de SevOne client device (similar a como está Instana IQM/APM)\n7\tFer\tEliminar costos de HW de Grafana Central en Instana\n",
         "applies_to": "ejemplos_de_bom",
-        "source": "C:\\Chance1\\Ejemplos de BoM\\BOM-BAC_BB Monitoreo_ACH AWS_v1.0.xlsx",
+        "source": "Ejemplos de BoM\\BOM-BAC_BB Monitoreo_ACH AWS_v1.0.xlsx",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -34,7 +34,7 @@
       "fact": {
         "rule": "ice (similar a como está Instana IQM/APM)\n7\tFer\tEliminar costos de HW de Grafana Central en Instana\n8\tFer\tActualizar costos del HW Central de Eventos, y ajustar las lineas base para diluir los costos: Base de 8 mil para Eventos y 3300 mi para Nagios\n9\tFer\tAjustar spec de HW de GW de Nagios\n10\tFer\tAgregar imagen comparación sevone vs nagios\n11\tFer\tEn Cloud, agregar pestaña para poner costos de calcu de nube de Azure Mon/Cloudwatch\n12\tJess\tCrear plantillas de como estimar en la calcu de Azure /AWS\n13\tSaury\tAgregar supuestos SevOne\n14\tFer\tRenombrar SDM a Pos (se podría eliminar eventualmente ya que POs son Non Billable)\n15\tTodos (POs)\tRevisar rol de OSM - si rol se va dejar en OC, o incluir a Outsourcing en las opps que sean solo de OC (Angi/Molly iban a revisar cálculos)\n",
         "applies_to": "ejemplos_de_bom",
-        "source": "C:\\Chance1\\Ejemplos de BoM\\BOM-BAC_BB Monitoreo_ACH AWS_v1.0.xlsx",
+        "source": "Ejemplos de BoM\\BOM-BAC_BB Monitoreo_ACH AWS_v1.0.xlsx",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -59,7 +59,7 @@
       "fact": {
         "rule": "en OC, o incluir a Outsourcing en las opps que sean solo de OC (Angi/Molly iban a revisar cálculos)\n16\tChris/Fer\tRevisar si en SDM (ahora POs) se van a realizar ajustes de tarifa/horas. Ajustar en el excel. LISTO ajustes en tarifa\n17\tAngie/Saury/Chris/Dani/Reatiga\tAnexos/SoW actualizados (Eventos, Infra/Redes, Aplicaciones, etc), agregando capa gobierno (SLAs, metodología, procesos, etc)\n18\tChris/Reatiga\tRevisar dimensionamiento NOC. Se ajustan tarifas de Field Manager y Operadores y se ajustan cantidad de equipos que pueden gestionar\n19\tSaury\tInvestigar estimado de consumos de datos para los agentes (APM da 350GB mensuales por equipo, IQM dar 50 GB)\n20\tFer\tRevisar hasta que cantidad de equipos ya hay que hacer ajustes manuales a estimado de COE/NOC/SDM (por ej, más de 200 equipos). ",
         "applies_to": "ejemplos_de_bom",
-        "source": "C:\\Chance1\\Ejemplos de BoM\\BOM-BAC_BB Monitoreo_ACH AWS_v1.0.xlsx",
+        "source": "Ejemplos de BoM\\BOM-BAC_BB Monitoreo_ACH AWS_v1.0.xlsx",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -84,7 +84,7 @@
       "fact": {
         "rule": "e equipos ya hay que hacer ajustes manuales a estimado de COE/NOC/SDM (por ej, más de 200 equipos). Poner un NOTA que se revise con Pos\n21\tChris/Saury/Fer\tCosto de lics para monitoreo de infra interno, no se diluiría. Sería costo hundido\n22\tFer\tCostos de OC para Automatización/Remediación (recursos, licencias, HW). Actualmente 2 recursos L1. Costos irían en Eventos o como nuevo Servicio\n23\tTBD\tAgregar comparación cloud vs nagios vs instana\n24\tFer\tCambiar PNs de servicios por lo nuevos (No afecta cálculos de momento)\n25\tFer/Saury\tParemetrizar Robot (Points of Presense), requiere revisar ajuste en plan\n26\tFer/Chris/Angie\tRevisar si separar costos de Observabilidad  para poder dar precios por App\n\t\n\tObservabilidad Aplicaciones\tSig Pasos\n",
         "applies_to": "ejemplos_de_bom",
-        "source": "C:\\Chance1\\Ejemplos de BoM\\BOM-BAC_BB Monitoreo_ACH AWS_v1.0.xlsx",
+        "source": "Ejemplos de BoM\\BOM-BAC_BB Monitoreo_ACH AWS_v1.0.xlsx",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -109,7 +109,7 @@
       "fact": {
         "rule": "r costos de Observabilidad  para poder dar precios por App\n\t\n\tObservabilidad Aplicaciones\tSig Pasos\n\tParámetro de # de apps\tLiberar primera versión sin Power User, Outsourcing, Remediación (automatización)\n\t25% por cada app\tAjustar con los precios tentativos\n\tSolo aplica con Instana APM\t\n\tSetup\n\t\n\tPowerUser\nAdicional a Eventos, siempre va si va Obs de apps\nPendiente revisar con Chris ajustes en el NOC para agregar los PowerUser\nSetup Obs Aplicaciones\nPendiente sesión para ajustar setup en el BB\nFuturo\nBB FinOps\nMonitoreo Datos\nAnalista de Observabilidad\nCosto Nagios\nLos servicios de Obs App\nRevisar el licenciamiento de Logs\nRevisar el setup de evento para cuando son menos de 10 con Instana y SevOne\nAgregar los supuestos de Observabilidad de aplicaciones y basarnos en el flujo\n",
         "applies_to": "ejemplos_de_bom",
-        "source": "C:\\Chance1\\Ejemplos de BoM\\BOM-BAC_BB Monitoreo_ACH AWS_v1.0.xlsx",
+        "source": "Ejemplos de BoM\\BOM-BAC_BB Monitoreo_ACH AWS_v1.0.xlsx",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -134,7 +134,7 @@
       "fact": {
         "rule": "con Instana y SevOne\nAgregar los supuestos de Observabilidad de aplicaciones y basarnos en el flujo\nRevisar en los supuestos las actividades de gestión y dejarlas homologadas a las trabajadas en el SOW\nagregar el boton de condición para excepción de Agente de observabilidad",
         "applies_to": "ejemplos_de_bom",
-        "source": "C:\\Chance1\\Ejemplos de BoM\\BOM-BAC_BB Monitoreo_ACH AWS_v1.0.xlsx",
+        "source": "Ejemplos de BoM\\BOM-BAC_BB Monitoreo_ACH AWS_v1.0.xlsx",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -159,7 +159,7 @@
       "fact": {
         "rule": "Supuestos\nLa implementación se realizará en horario de lunes a viernes de 8 a.m a 5 p.m. Actividades que el cliente requiera que se realicen fuera de este horario tendrán costos adicionales.\nEn caso de requerirse un ajuste de estas capacidades, el cliente será responsable de cubrir el consumo adicional correspondiente\nSi alguno de los supuestos y restricciones descritos no se cumple, el proyecto deberá detenerse para su evaluación y revisión.\nEl cliente indica que cuenta con una suscripción activa en AWS y que cuenta con la administración de la misma\nSi alguno de los supuestos y restricciones descritos no se cumple, el proyecto deberá detenerse para su evaluación y revisión.\n\nExclusiones\nNo se incluye el diseño ni creación de microservicios por parte de GBM. ",
         "applies_to": "ejemplos_de_bom",
-        "source": "C:\\Chance1\\Ejemplos de BoM\\BOM-BAC_ACH_AWS_Landing_Zone_LDRv1.1.xlsx",
+        "source": "Ejemplos de BoM\\BOM-BAC_ACH_AWS_Landing_Zone_LDRv1.1.xlsx",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -184,7 +184,7 @@
       "fact": {
         "rule": "ón y revisión.\n\nExclusiones\nNo se incluye el diseño ni creación de microservicios por parte de GBM. En caso de requerirse el cliente debe adquirir servicios adicionales para dicho alcance\nNo se incluye análisis ni migración de aplicaciones existentes que posea el cliente para migrarlas a contenedores/microservicios. En caso de requerirse el cliente debe adquirir servicios adicionales para dicho alcance.\nNo se incluye ningún cambio, ajuste y/o revisión de aplicaciones o código propios del cliente.\nNo se considera transferencia de conocimiento\nComo parte de la implementación inicial no se incluyen servicios de desarrollo de ningún tipo por parte de GBM. ",
         "applies_to": "ejemplos_de_bom",
-        "source": "C:\\Chance1\\Ejemplos de BoM\\BOM-BAC_ACH_AWS_Landing_Zone_LDRv1.1.xlsx",
+        "source": "Ejemplos de BoM\\BOM-BAC_ACH_AWS_Landing_Zone_LDRv1.1.xlsx",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -209,7 +209,7 @@
       "fact": {
         "rule": "e la implementación inicial no se incluyen servicios de desarrollo de ningún tipo por parte de GBM. Ejemplos de servicios de desarrollo son los siguientes (pero no limitados a estos): diseño/creación/desarrollo/ajustes de APIs, aplicaciones, código, microservicios, pipelines de CI/CD entre otros. \nNo se incluye soporte, mantenimiento ni realizar configuraciones a las aplicaciones propias del Cliente.\nNo se incluye soporte a desarrollos/código del cliente o de terceros.\nEstán excluidos cualquier alcance, tarea o funcionalidad que no esté explícitamente indicada en esta propuesta.\n\nNotas internas\nSi el total de horas disponibles del contrato de Servicios CoE se agotan durante un incidente, GBM facturará el excedente bajo las mismas condiciones de la propuesta.  \n",
         "applies_to": "ejemplos_de_bom",
-        "source": "C:\\Chance1\\Ejemplos de BoM\\BOM-BAC_ACH_AWS_Landing_Zone_LDRv1.1.xlsx",
+        "source": "Ejemplos de BoM\\BOM-BAC_ACH_AWS_Landing_Zone_LDRv1.1.xlsx",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -234,7 +234,7 @@
       "fact": {
         "rule": "tan durante un incidente, GBM facturará el excedente bajo las mismas condiciones de la propuesta.  \nEl Cliente debe enviar una autorización escrita de la(s) persona(s) autorizadas(s) al correo electrónico a support@gbm.net previo a la activación del servicio.\nLos servicios de Soporte que requieran horario extraordinario (feriados, fines de semana o después de las 5:00pm) serán facturados a un costo de 1.5 horas por cada hora utilizada\nSegún el proceso interno, no se libera BOM y documentación necesaria si el AM y SA no siguen el debido proceso.",
         "applies_to": "ejemplos_de_bom",
-        "source": "C:\\Chance1\\Ejemplos de BoM\\BOM-BAC_ACH_AWS_Landing_Zone_LDRv1.1.xlsx",
+        "source": "Ejemplos de BoM\\BOM-BAC_ACH_AWS_Landing_Zone_LDRv1.1.xlsx",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -259,7 +259,7 @@
       "fact": {
         "rule": "Nombre del Proyecto:\tBAC ACH DATA\t\t\t\t\t\t\t\t\t\t\t\t\nCliente:\tBAC Guatemala\t\t\t\t\t\t\t\t\t\t\t\t\nNúmero de Oportunidad:\t0\t\t\t\t\t\t\t\t\t\t\t\t\nNúmero de Quote:\t\t\t\t\t\t\t\t\t\t\t\t\t\nPreventa Regional:\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\nResumen de Servicios y Licencias\t\t\t\t\t\t\t\t\t\t\t\t\t\nServicios\tTotal\t\t\t\t\t\t\t\t\t\t\t\t\nServicios de SW - Implementación\t3035\t\t\t\t\t\t\t\t\t\t\t\t\nServicios de SW - Partners\t0\tCosto. País calcular precio venta\t\t\t\t\t\t\t\t\t\t\t\nTransferencia de Conocimiento\t0\t\t\t\t\t\t\t\t\t\t\t\t\nProject Manager\t\t\t\t\t\t\t\t\t\t\t\t\t\nTotal Servicios\t3035\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\nLicencias Perpetuas\tCosto Total\t\t\tLicencias por Suscripción\tCosto Mensual\tCosto Anual\t\tLicencias SaaS Nube\tCosto Mensual\tCosto Anual\t\t\t\nLicencias SW Perpetuas\t0\t\t\tLicencias SW Suscripción\t0\t0\t\tLicencias SaaS \t4854.6053599999996\t58255.264319999995\n",
         "applies_to": "ejemplos_de_bom",
-        "source": "C:\\Chance1\\Ejemplos de BoM\\BOM Data Proyecto BAC ACH.xlsx",
+        "source": "Ejemplos de BoM\\BOM Data Proyecto BAC ACH.xlsx",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -284,7 +284,7 @@
       "fact": {
         "rule": "W Perpetuas\t0\t\t\tLicencias SW Suscripción\t0\t0\t\tLicencias SaaS \t4854.6053599999996\t58255.264319999995\nRenovaciones SW Perpetuas\t0\t\t\tTotal Licencias\t0\t0\t\tTotal Licencias\t4854.6053599999996\t58255.264319999995\nTotal Licencias\t0\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\nGastos de Viaje\tTotal\t\t\t\t\t\t\t\t\t\nViáticos\t0\t\t\t\t\t\t\t\t\t\nTotal Gastos de Viaje\t0\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\nSoporte, Asistencia y Gestión\t\t\t\t\t\t\t\t\t\t\nServicio\tTotal Mensual\tTotal Anual\t\t\t\t\t\t\t\t\nSoporte y Asistencia\t1000\t12000\t\t\t\t\t\t\t\t\nServicios Célula \t0\t0\t\t\t\t\t\t\t\t\nMan Power\t0\t0\t\t\t\t\t\t\t\t\nCOE SW\t0\t0\t\t\t\t\t\t\t\t\nTOTAL Servicios Recurrentes\t1000\t12000",
         "applies_to": "ejemplos_de_bom",
-        "source": "C:\\Chance1\\Ejemplos de BoM\\BOM Data Proyecto BAC ACH.xlsx",
+        "source": "Ejemplos de BoM\\BOM Data Proyecto BAC ACH.xlsx",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -309,7 +309,7 @@
       "fact": {
         "rule": "Nombre del Proyecto:\tConsultoría Gobierno APIC\t\t\t\t\t\t\t\t\t\t\t\t\nCliente:\tBI\t\t\t\t\t\t\t\t\t\t\t\t\nNúmero de Oportunidad:\t\t\t\t\t\t\t\t\t\t\t\t\t\nNúmero de Quote:\t\t\t\t\t\t\t\t\t\t\t\t\t\nPreventa Regional:\tJaisom Quesada / Ricardo Arias\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\nResumen de Servicios y Licencias\t\t\t\t\t\t\t\t\t\t\t\t\t\nServicios\tTotal\t\t\t\t\t\t\t\t\t\t\t\t\nServicios de SW - Implementación\t6673\t\t\t\t\t\t\t\t\t\t\t\t\nServicios de SW - Partners\t0\tCosto. País calcular precio venta\t\t\t\t\t\t\t\t\t\t\t\nTransferencia de Conocimiento\t0\t\t\t\t\t\t\t\t\t\t\t\t\nProject Manager\t\t\t\t\t\t\t\t\t\t\t\t\t\nServicios de SW - Soporte 6 meses\t16752\t\t\t\t\t\t\t\t\t\t\t\t\nTotal Servicios\t23425\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\t\t\nLicencias Perpetuas\tCosto Total\t\t\tLicencias por Suscripción\tCosto Mensual\tCosto Anual\t\tLicencias SaaS\tCosto Mensual\tCosto Anual\t\t\t\n",
         "applies_to": "ejemplos_de_bom",
-        "source": "C:\\Chance1\\Ejemplos de BoM\\BoM_BI_Gobierno APIC_v1.1 con estimación de PM.xlsx",
+        "source": "Ejemplos de BoM\\BoM_BI_Gobierno APIC_v1.1 con estimación de PM.xlsx",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -334,7 +334,7 @@
       "fact": {
         "rule": "\t\t\tLicencias por Suscripción\tCosto Mensual\tCosto Anual\t\tLicencias SaaS\tCosto Mensual\tCosto Anual\t\t\t\nLicencias SW IBM Perpetuas\t0\t\t\tLicencias SW IBM\t0\t0\t\tLicencias SW IBM\t#REF!\t#REF!\nRenovaciones SW IBM\t0\t\t\tLicencias SW RedHat\tN/A\t0\t\tTotal Licencias\t#REF!\t#REF!\nTotal Licencias\t0\t\t\tTotal Licencias\t0\t0\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\nGastos de Viaje\tTotal\t\t\t\t\t\t\t\t\t\nViáticos\t3200\t\t\t\t\t\t\t\t\t\nTotal Gastos de Viaje\t3200\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\nSoporte, Asistencia y Gestión\t\t\t\t\t\t\t\t\t\t\nServicio\tTotal Mensual\tTotal Anual\t\t\t\t\t\t\t\t\nSoporte y Asistencia\t2792\t16752\t\t\t\t\t\t\t\t\nMan Power\t0\t0\t\t\t\t\t\t\t\t\nCOE SW\t0\t0\t\t\t\t\t\t\t\t\nTOTAL Servicios Recurrentes\t2792\t16752",
         "applies_to": "ejemplos_de_bom",
-        "source": "C:\\Chance1\\Ejemplos de BoM\\BoM_BI_Gobierno APIC_v1.1 con estimación de PM.xlsx",
+        "source": "Ejemplos de BoM\\BoM_BI_Gobierno APIC_v1.1 con estimación de PM.xlsx",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -359,7 +359,7 @@
       "fact": {
         "rule": "Supuestos\nSe asume que el Hypervisor tiene Hyperthreading activo en donde 1 core físico = 2 vCPU (solo aplica para Intel), en caso contrario 1 core físico = 1 vCPU\nLa infraestructura seria entregada por el cliente\nSe requiere suscripciones de RHEL para servidores\nSe incluyen horas para la modernizacion de sus aplicaciones\nSe consideran 3 workers de 8 cores para el sitio PRODUCTIVO\nNo Se considera licenciamiento para el sitio ALTERNO ya que este se encontrara apagado (PASIVO) y solo sera utilizado como contigencia de PRD.(ACTIVO)\nSegún lo indicado por Arquitectura de Observability no se requiere almacenamiento permanente en el OpenShift.\nIBM seria el encargado del despliegue de las aplicaciones en el OpenShift\nSe incluye gestion y soporte por COE  (OPCIONAL)\n",
         "applies_to": "ejemplos_de_bom",
-        "source": "C:\\Chance1\\Ejemplos de BoM\\BOM-BI_Openshift_v3_ Final .xlsx",
+        "source": "Ejemplos de BoM\\BOM-BI_Openshift_v3_ Final .xlsx",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -384,7 +384,7 @@
       "fact": {
         "rule": "del despliegue de las aplicaciones en el OpenShift\nSe incluye gestion y soporte por COE  (OPCIONAL)\nSe incluye contrato de horas de asistencia y correctivo\nExclusiones\nNo se incluye taller de capacitacion. Solo se incluyen horas de tranferencia de conocimiento de lo implementado.\n\nNotas internas\nLa suscripcion de RHEL debe ser cotizada por el area de Infra, para todos los servidores excepto master, workers y bootstrap",
         "applies_to": "ejemplos_de_bom",
-        "source": "C:\\Chance1\\Ejemplos de BoM\\BOM-BI_Openshift_v3_ Final .xlsx",
+        "source": "Ejemplos de BoM\\BOM-BI_Openshift_v3_ Final .xlsx",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -409,7 +409,7 @@
       "fact": {
         "rule": "week 1\t\t\t\t\tweek 2\t\t\t\t\tweek 3\t\t\t\t\tweek 4\t\t\t\t\tweek 5\t\t\t\t\tweek 6\t\t\t\t\tweek 7\t\t\t\t\tweek 8\t\t\t\t\tweek 9\t\t\t\t\tweek 10\t\t\t\t\tweek 11\t\t\t\t\tweek 12\t\t\t\t\tweek 13\t\t\t\t\tweek 14\t\t\t\t\tweek 15\t\t\t\t\tweek 16\t\t\t\t\tweek 17\t\t\t\t\tweek 18\t\t\t\t\tweek 19\t\t\t\t\tweek 20\t\t\t\t\tweek 21\t\t\t\t\tweek 22\t\t\t\t\tweek 23\t\t\t\t\n#\tTask\tResource\thours\tM\tT\tW\tTh\tF\tM\tT\tW\tTh\tF\tM\tT\tW\tTh\tF\tM\tT\tW\tTh\tF\tM\tT\tW\tTh\tF\tM\tT\tW\tTh\tF\tM\tT\tW\tTh\tF\tM\tT\tW\tTh\tF\tM\tT\tW\tTh\tF\tM\tT\tW\tTh\tF\tM\tT\tW\tTh\tF\tM\tT\tW\tTh\tF\tM\tT\tW\tTh\tF\tM\tT\tW\tTh\tF\tM\tT\tW\tTh\tF\tM\tT\tW\tTh\tF\tM\tT\tW\tTh\tF\tM\tT\tW\tTh\tF\tM\tT\tW\tTh\tF\tM\tT\tW\tTh\tF\tM\tT\tW\tTh\tF\tM\tT\tW\tTh\tF\tM\tT\tW\tTh\tF\n1\tCore de Cysce\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n",
         "applies_to": "ejemplos_de_bom",
-        "source": "C:\\Chance1\\Ejemplos de BoM\\BoM - Optimización Flujos ACE v6.5.xlsx",
+        "source": "Ejemplos de BoM\\BoM - Optimización Flujos ACE v6.5.xlsx",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -434,7 +434,7 @@
       "fact": {
         "rule": "\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n1.1\tDefinición laboratorio de supresión core de Cysce\tSWS_DF_ADVISOR_L4\t16\t\t\t\t\tA\tA\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\tMANPOWER\t40\t\t\t\t\t\t\tx\tx\tx\tx\tx\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n1.2\tPruebas y ajustes del laboratorio aplicado a un servicio\tSWS_DF_ADVISOR_L4\t8\t\t\t\t\t\t\tA\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\tMANPOWER\t40\t\t\t\t\t\t\t\t\t\t\t\tx\tx\tx\tx\tx\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n",
         "applies_to": "ejemplos_de_bom",
-        "source": "C:\\Chance1\\Ejemplos de BoM\\BoM - Optimización Flujos ACE v6.5.xlsx",
+        "source": "Ejemplos de BoM\\BoM - Optimización Flujos ACE v6.5.xlsx",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -459,7 +459,7 @@
       "fact": {
         "rule": "\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n2\tOptimizaciones a los servicios\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n2.1\tDefinición laboratorio y refactoring sync por async un servicio\tSWS_DF_ADVISOR_L4\t8\t\t\t\t\t\t\t\ta\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\tMANPOWER\t24\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tx\tx\tx\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n2.2\tDefinición laboratorio y refactoring proxy regional\tSWS_DF_ADVISOR_L4\t8\t\t\t\t\t\t\t\t\ta\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n",
         "applies_to": "ejemplos_de_bom",
-        "source": "C:\\Chance1\\Ejemplos de BoM\\BoM - Optimización Flujos ACE v6.5.xlsx",
+        "source": "Ejemplos de BoM\\BoM - Optimización Flujos ACE v6.5.xlsx",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -484,7 +484,7 @@
       "fact": {
         "rule": "\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\tMANPOWER\t16\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tx\tx\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n2.3\tLaboratorio refactoring async request, timeouts, not persistent\tSWS_DF_ADVISOR_L4\t8\t\t\t\t\t\t\t\t\t\ta\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\tMANPOWER\t16\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tx\tx\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n2.4\tPruebas de carga y ajustes\tSWS_DF_ADVISOR_L4\t16\t\t\t\t\t\t\t\t\t\t\ta\ta\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n",
         "applies_to": "ejemplos_de_bom",
-        "source": "C:\\Chance1\\Ejemplos de BoM\\BoM - Optimización Flujos ACE v6.5.xlsx",
+        "source": "Ejemplos de BoM\\BoM - Optimización Flujos ACE v6.5.xlsx",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -509,7 +509,7 @@
       "fact": {
         "rule": "\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\tMANPOWER\t40\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tx\tx\tx\tx\tx\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n6\tImplementación CI-CD ACE en Azure DevOps\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n6.1\tLevantamiento y contexto\tSWS_DF_ADVISOR_L4\t8\ta\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\tSWS_DF_DEV_L2\t8\t\td\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n",
         "applies_to": "ejemplos_de_bom",
-        "source": "C:\\Chance1\\Ejemplos de BoM\\BoM - Optimización Flujos ACE v6.5.xlsx",
+        "source": "Ejemplos de BoM\\BoM - Optimización Flujos ACE v6.5.xlsx",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -534,7 +534,7 @@
       "fact": {
         "rule": "\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n6.2\tAnálisis y diseño\tSWS_DF_ADVISOR_L4\t24\t\ta\ta\ta\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\tSWS_DF_DEV_L2\t88\t\t\t\t\td\td\td\td\td\td\td\td\td\td\td\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n6.3\tContinuos integration\tSWS_DF_ADVISOR_L4\t0\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\tSWS_DF_DEV_L2\t120\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\td\td\td\td\td\td\td\td\td\td\td\td\td\td\td\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n",
         "applies_to": "ejemplos_de_bom",
-        "source": "C:\\Chance1\\Ejemplos de BoM\\BoM - Optimización Flujos ACE v6.5.xlsx",
+        "source": "Ejemplos de BoM\\BoM - Optimización Flujos ACE v6.5.xlsx",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -559,7 +559,7 @@
       "fact": {
         "rule": "\td\td\td\td\td\td\td\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n6.4\tAutomatización de pruebas\tSWS_DF_ADVISOR_L4\t0\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\tSWS_DF_DEV_L2\t128\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\td\td\td\td\td\td\td\td\td\td\td\td\td\td\td\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n6.5\tContinuos delivery\tSWS_DF_ADVISOR_L4\t0\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\tSWS_DF_DEV_L2\t80\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\td\td\td\td\td\td\td\td\td\td\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n",
         "applies_to": "ejemplos_de_bom",
-        "source": "C:\\Chance1\\Ejemplos de BoM\\BoM - Optimización Flujos ACE v6.5.xlsx",
+        "source": "Ejemplos de BoM\\BoM - Optimización Flujos ACE v6.5.xlsx",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -584,7 +584,7 @@
       "fact": {
         "rule": "\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\td\td\td\td\td\td\td\td\td\td\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n6.6\tAzure Arfifacts\tSWS_DF_ADVISOR_L4\t0\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\tSWS_DF_DEV_L2\t32\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\td\td\td\td\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n6.7\tManuales\tSWS_DF_ADVISOR_L4\t0\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\tSWS_DF_DEV_L2\t16\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\td\td",
         "applies_to": "ejemplos_de_bom",
-        "source": "C:\\Chance1\\Ejemplos de BoM\\BoM - Optimización Flujos ACE v6.5.xlsx",
+        "source": "Ejemplos de BoM\\BoM - Optimización Flujos ACE v6.5.xlsx",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -609,7 +609,7 @@
       "fact": {
         "rule": "Supuestos\tRevisar/ajustar los que supuestos/exclusiones que vienen en el SoW de Ejemplo\n\nExclusiones\n\nConsideraciones\n\nAPI Connect Reserved Instance incluye derecho a poder instalar Remote Gateways (Data Power Virtuales) sin costo adicional",
         "applies_to": "ejemplos_de_bom",
-        "source": "C:\\Chance1\\Ejemplos de BoM\\BoM_Banrural_Ejercicio API Connect Perpetual_v1.0.xlsx",
+        "source": "Ejemplos de BoM\\BoM_Banrural_Ejercicio API Connect Perpetual_v1.0.xlsx",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -634,7 +634,7 @@
       "fact": {
         "rule": "Propueta Actualizada\t\t\t\t\t\t\t\t\nDescripción\tTareas Específicas\tRecurso\tCategoría\tHoras\tCosto  Unitario\tPrecio Unitario\tTotal Costos\tTotal Precio Venta\nLeader CLM\tVer cronograma\tSWS_CLM_LEADER\tSW Services\t40\t0\t109\t0\t4360\nLeader ITP\tVer cronograma\tSWS_ITP_LEADER\tSW Services\t9\t0\t85\t0\t765\nTécnico CLM L2\tVer cronograma\tSWS_CLM_IMPL_L2\tSW Services\t270\t0\t55\t0\t14850\nTécnico CLM L2 - Proxy\tVer cronograma\tSWS_CLM_IMPL_L2\tSW Services\t32\t0\t55\t0\t1760\nInstalación OpenShift\t\t\t\t\t\t\tSub_Total\t21735\nLeader ITP\tVer cronograma\tSWS_ITP_LEADER\tSW Services\t27\t0\t85\t0\t2295\nLeader CLM\tVer cronograma\tSWS_CLM_LEADER\tSW Services\t10\t0\t109\t0\t1090\nTécnico CLM L2\tSWS_ITP_MP_L2\tSWS_CLM_IMPL_L2\tSW Services\t42\t0\t55\t0\t2310\nTécnico ITP L2\tVer cronograma\tSWS_ITP_IMPL_L2\tSW Services\t288\t0\t60\t0\t17280\n",
         "applies_to": "ejemplos_de_bom",
-        "source": "C:\\Chance1\\Ejemplos de BoM\\BOM-test.xlsx",
+        "source": "Ejemplos de BoM\\BOM-test.xlsx",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -659,7 +659,7 @@
       "fact": {
         "rule": " Services\t42\t0\t55\t0\t2310\nTécnico ITP L2\tVer cronograma\tSWS_ITP_IMPL_L2\tSW Services\t288\t0\t60\t0\t17280\nInstalación APIC\t\t\t\t\t\t\tSub_Total\t22975\nMigración APIC Ambiente DEV\tVer cronograma\tSWS_DF_DEV_L2\tSW Services\t104\t0\t35.17\t0\t3657.6800000000003\nMigración APIC Ambiente QA\tVer cronograma\tSWS_DF_DEV_L2\tSW Services\t104\t0\t35.17\t0\t3657.6800000000003\nMigración APIC Ambiente PROD\tVer cronograma\tSWS_DF_DEV_L2\tSW Services\t104\t0\t35.17\t0\t3657.6800000000003\nMigración API's\t\t\t\t\t\t\tSub_Total\t10973.04\nPM Horas\tVer cronograma\tPMOPSTLO\tSW Services\t253\t0\t75\t0\t18975\nPM Riesgos\tVer cronograma\tPM\tSW Services\t1\t0\t2750\t0\t2750\nTotal - PM y Riesgos\t\t\t\t\t\t\tSub_Total\t21725\n\t\t\tHoras Lineales\t944\t\t\tTotal\t55683.040000000001\n\t\t\t\t\t\t\tTotal con Viajes\t55683.040000000001",
         "applies_to": "ejemplos_de_bom",
-        "source": "C:\\Chance1\\Ejemplos de BoM\\BOM-test.xlsx",
+        "source": "Ejemplos de BoM\\BOM-test.xlsx",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""

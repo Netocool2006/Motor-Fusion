@@ -9,7 +9,7 @@
       "fact": {
         "rule": "══════════════════════════════════════════════════════════════════════\n  REPORTE #001  |  2026-03-25 19:48:19\n══════════════════════════════════════════════════════════════════════\n\n─────────────────────────────────── CPU ─────────────────────────────\n  Total: [██████░░░░░░░░░░░░░░░░░░░░░░░░]  20.0%\n  Cores: C0:19.0%  C1: 7.3%  C2:13.3%  C3:12.6%  \n         C4:29.6%  C5:24.9%  C6:22.8%  C7:26.0%  \n         C8:29.2%  C9:28.4%  C10:27.7%  C11:25.1%  \n\n─────────────────────────────────── RAM ─────────────────────────────\n  Usada:  [██████████████████████░░░░░░░░]  73.7%  (11.56 GB / 15.68 GB)\n  Libre:  4.12 GB\n  Swap:   [░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░]   2.1%  (85.6 MB / 4.00 GB)\n\n─────────────────────────────────── DISCO C: ────────────────────────\n",
         "applies_to": "scripts_python_varios_so",
-        "source": "C:\\Chance1\\Scripts Python Varios S.O\\monitor_log.txt",
+        "source": "Scripts Python Varios S.O\\monitor_log.txt",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -31,9 +31,9 @@
       "type": "fact",
       "key": "monitor_log_1",
       "fact": {
-        "rule": "   2.1%  (85.6 MB / 4.00 GB)\n\n─────────────────────────────────── DISCO C: ────────────────────────\n  Uso:    [███████████░░░░░░░░░░░░░░░░░░░]  39.3%  (186.84 GB / 476.00 GB)\n\n──────────────────── 🐍 PYTHON (3 procesos | 133 MB | CPU 55.1%) ─────\n  PROYECTO                 PIDs        RAM      CPU\n  ──────────────────────  ──────  ─────────  ───────\n  GBM                          2       91MB     0.0%\n    PIDs: 24224,16780\n  Chance1/otro                 1       42MB    55.1%\n    PIDs: 24640\n\n      PID       RAM     CPU     EDAD  SCRIPT / ARGS\n  ───────  ────────  ──────  ───────  ────────────────────────────────────────\n    24224     59.3M    0.0%    22.3m  mcp_server.py\n    24640     42.0M   55.1%     0.1m  monitor_recursos.py\n    16780     32.0M    0.0%    24.8m  mcp_server.py\n\n",
+        "rule": "   2.1%  (85.6 MB / 4.00 GB)\n\n─────────────────────────────────── DISCO C: ────────────────────────\n  Uso:    [███████████░░░░░░░░░░░░░░░░░░░]  39.3%  (186.84 GB / 476.00 GB)\n\n──────────────────── 🐍 PYTHON (3 procesos | 133 MB | CPU 55.1%) ─────\n  PROYECTO                 PIDs        RAM      CPU\n  ──────────────────────  ──────  ─────────  ───────\n  GBM                          2       91MB     0.0%\n    PIDs: 24224,16780\n  Hooks_IA/otro                 1       42MB    55.1%\n    PIDs: 24640\n\n      PID       RAM     CPU     EDAD  SCRIPT / ARGS\n  ───────  ────────  ──────  ───────  ────────────────────────────────────────\n    24224     59.3M    0.0%    22.3m  mcp_server.py\n    24640     42.0M   55.1%     0.1m  monitor_recursos.py\n    16780     32.0M    0.0%    24.8m  mcp_server.py\n\n",
         "applies_to": "scripts_python_varios_so",
-        "source": "C:\\Chance1\\Scripts Python Varios S.O\\monitor_log.txt",
+        "source": "Scripts Python Varios S.O\\monitor_log.txt",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -57,7 +57,7 @@
       "fact": {
         "rule": "   42.0M   55.1%     0.1m  monitor_recursos.py\n    16780     32.0M    0.0%    24.8m  mcp_server.py\n\n──────────────────── TOP NO-PYTHON (RAM) ─────────────────────────────\n      PID        RAM     CPU  NOMBRE\n  ───────  ─────────  ──────  ──────────────────────────────\n     3944    1.27 GB    0.0%  MemCompression\n     5184    1.18 GB    2.3%  claude.exe\n    24288   555.0 MB    2.6%  claude.exe\n     9128   480.6 MB    0.0%  claude.exe\n     5420   443.7 MB    1.2%  sfc.exe\n     7672   416.2 MB    0.0%  claude.exe\n    18108   303.9 MB    2.0%  CiscoCollabHost.exe\n     2680   291.6 MB    0.0%  OUTLOOK.EXE\n\n══════════════════════════════════════════════════════════════════════\n  Próximo reporte en 3 min  |  Ctrl+C para salir\n══════════════════════════════════════════════════════════════════════\n",
         "applies_to": "scripts_python_varios_so",
-        "source": "C:\\Chance1\\Scripts Python Varios S.O\\monitor_log.txt",
+        "source": "Scripts Python Varios S.O\\monitor_log.txt",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -81,7 +81,7 @@
       "fact": {
         "rule": " 3 min  |  Ctrl+C para salir\n══════════════════════════════════════════════════════════════════════\n\n══════════════════════════════════════════════════════════════════════\n  REPORTE #002  |  2026-03-25 19:51:23\n══════════════════════════════════════════════════════════════════════\n\n─────────────────────────────────── CPU ─────────────────────────────\n  Total: [███░░░░░░░░░░░░░░░░░░░░░░░░░░░]  12.9%\n  Cores: C0:17.1%  C1: 9.4%  C2:16.6%  C3:11.8%  \n         C4:33.5%  C5:33.6%  C6:34.1%  C7:33.8%  \n         C8:35.1%  C9:34.5%  C10:35.0%  C11:35.8%  \n\n─────────────────────────────────── RAM ─────────────────────────────\n  Usada:  [██████████████████████░░░░░░░░]  75.4%  (11.83 GB / 15.68 GB)\n  Libre:  3.85 GB\n  Swap:   [░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░]   2.0%  (83.2 MB / 4.00 GB)\n\n",
         "applies_to": "scripts_python_varios_so",
-        "source": "C:\\Chance1\\Scripts Python Varios S.O\\monitor_log.txt",
+        "source": "Scripts Python Varios S.O\\monitor_log.txt",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -103,9 +103,9 @@
       "type": "fact",
       "key": "monitor_log_4",
       "fact": {
-        "rule": "15.68 GB)\n  Libre:  3.85 GB\n  Swap:   [░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░]   2.0%  (83.2 MB / 4.00 GB)\n\n─────────────────────────────────── DISCO C: ────────────────────────\n  Uso:    [███████████░░░░░░░░░░░░░░░░░░░]  39.3%  (186.88 GB / 476.00 GB)\n\n──────────────────── 🐍 PYTHON (3 procesos | 133 MB | CPU 0.9%) ─────\n  PROYECTO                 PIDs        RAM      CPU\n  ──────────────────────  ──────  ─────────  ───────\n  GBM                          2       91MB     0.0%\n    PIDs: 24224,16780\n  Chance1/otro                 1       42MB     0.9%\n    PIDs: 24640\n\n      PID       RAM     CPU     EDAD  SCRIPT / ARGS\n  ───────  ────────  ──────  ───────  ────────────────────────────────────────\n    24224     59.3M    0.0%    25.4m  mcp_server.py\n",
+        "rule": "15.68 GB)\n  Libre:  3.85 GB\n  Swap:   [░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░]   2.0%  (83.2 MB / 4.00 GB)\n\n─────────────────────────────────── DISCO C: ────────────────────────\n  Uso:    [███████████░░░░░░░░░░░░░░░░░░░]  39.3%  (186.88 GB / 476.00 GB)\n\n──────────────────── 🐍 PYTHON (3 procesos | 133 MB | CPU 0.9%) ─────\n  PROYECTO                 PIDs        RAM      CPU\n  ──────────────────────  ──────  ─────────  ───────\n  GBM                          2       91MB     0.0%\n    PIDs: 24224,16780\n  Hooks_IA/otro                 1       42MB     0.9%\n    PIDs: 24640\n\n      PID       RAM     CPU     EDAD  SCRIPT / ARGS\n  ───────  ────────  ──────  ───────  ────────────────────────────────────────\n    24224     59.3M    0.0%    25.4m  mcp_server.py\n",
         "applies_to": "scripts_python_varios_so",
-        "source": "C:\\Chance1\\Scripts Python Varios S.O\\monitor_log.txt",
+        "source": "Scripts Python Varios S.O\\monitor_log.txt",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -129,7 +129,7 @@
       "fact": {
         "rule": "─────  ────────────────────────────────────────\n    24224     59.3M    0.0%    25.4m  mcp_server.py\n    24640     41.8M    0.9%     3.1m  monitor_recursos.py\n    16780     32.0M    0.0%    27.8m  mcp_server.py\n\n──────────────────── TOP NO-PYTHON (RAM) ─────────────────────────────\n      PID        RAM     CPU  NOMBRE\n  ───────  ─────────  ──────  ──────────────────────────────\n     3944    1.18 GB    0.0%  MemCompression\n     5184    1.17 GB    3.4%  claude.exe\n    24288   599.4 MB    0.0%  claude.exe\n     9128   562.8 MB    2.8%  claude.exe\n     5420   485.0 MB    2.3%  sfc.exe\n     7672   421.6 MB    1.3%  claude.exe\n    18108   303.9 MB    1.9%  CiscoCollabHost.exe\n     2680   293.3 MB    1.0%  OUTLOOK.EXE\n\n──────────────────── TENDENCIA (últimas 2 muestras) ──────────────\n",
         "applies_to": "scripts_python_varios_so",
-        "source": "C:\\Chance1\\Scripts Python Varios S.O\\monitor_log.txt",
+        "source": "Scripts Python Varios S.O\\monitor_log.txt",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -153,7 +153,7 @@
       "fact": {
         "rule": "  293.3 MB    1.0%  OUTLOOK.EXE\n\n──────────────────── TENDENCIA (últimas 2 muestras) ──────────────\n      HORA     CPU     RAM     PY-MEM   PY-PROCS\n  19:48:19   20.0%   73.7%      133MB          3\n  19:51:23   12.9%   75.4%      133MB          3\n\n══════════════════════════════════════════════════════════════════════\n  Próximo reporte en 3 min  |  Ctrl+C para salir\n══════════════════════════════════════════════════════════════════════\n\n══════════════════════════════════════════════════════════════════════\n  REPORTE #003  |  2026-03-25 19:54:27\n══════════════════════════════════════════════════════════════════════\n\n─────────────────────────────────── CPU ─────────────────────────────\n  Total: [██████░░░░░░░░░░░░░░░░░░░░░░░░]  22.0%\n  Cores: C0:11.8%  C1: 8.6%  C2:14.5%  C3: 7.4%  \n",
         "applies_to": "scripts_python_varios_so",
-        "source": "C:\\Chance1\\Scripts Python Varios S.O\\monitor_log.txt",
+        "source": "Scripts Python Varios S.O\\monitor_log.txt",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -177,7 +177,7 @@
       "fact": {
         "rule": "\n  Total: [██████░░░░░░░░░░░░░░░░░░░░░░░░]  22.0%\n  Cores: C0:11.8%  C1: 8.6%  C2:14.5%  C3: 7.4%  \n         C4:27.7%  C5:27.5%  C6:28.3%  C7:27.8%  \n         C8:28.3%  C9:27.8%  C10:28.7%  C11:29.0%  \n\n───────────────────────────────────",
         "applies_to": "scripts_python_varios_so",
-        "source": "C:\\Chance1\\Scripts Python Varios S.O\\monitor_log.txt",
+        "source": "Scripts Python Varios S.O\\monitor_log.txt",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -201,7 +201,7 @@
       "fact": {
         "rule": "#!/usr/bin/env python3\n\"\"\"\n╔══════════════════════════════════════════════════════════════════╗\n║  WEB FRONTEND INSPECTOR — Auditor Visual del Frontend          ║\n║                                                                  ║\n║  Inspecciona y documenta una página web renderizada.            ║\n║  Genera: screenshot, HTML renderizado, reporte JSON completo.   ║\n║                                                                  ║\n║  Uso:                                                            ║\n║    python web_inspector.py <URL> [--output <dir>] [--timeout ms] ║\n║                                                                  ║\n║  Qué hace:                                                       ║\n║    1. Abre la página en Chromium real (Playwright)              ║\n║    2. ",
         "applies_to": "scripts_python_varios_so",
-        "source": "C:\\Chance1\\Scripts Python Varios S.O\\web_inspector.py",
+        "source": "Scripts Python Varios S.O\\web_inspector.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -226,7 +226,7 @@
       "fact": {
         "rule": "                      ║\n║    1. Abre la página en Chromium real (Playwright)              ║\n║    2. Espera networkidle para capturar contenido dinámico       ║\n║    3. Toma screenshot full-page                                  ║\n║    4. Extrae HTML renderizado final (DOM post-JS)               ║\n║    5. Analiza DOM para inventariar assets públicos              ║\n║    6. Intercepta tráfico de red (first/third party)            ║\n║    7. Inspecciona estilos computados de elementos visibles      ║\n║    8. Extrae links y menús de navegación                        ║\n║    9. Guarda todo en archivos locales de referencia             ║\n║                                                                  ║\n║  Qué NO hace:                                                    ║\n",
         "applies_to": "scripts_python_varios_so",
-        "source": "C:\\Chance1\\Scripts Python Varios S.O\\web_inspector.py",
+        "source": "Scripts Python Varios S.O\\web_inspector.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -251,7 +251,7 @@
       "fact": {
         "rule": "                             ║\n║  Qué NO hace:                                                    ║\n║    - No reconstruye componentes React/Vue/Angular               ║\n║    - No replica animaciones, hover/focus, scroll effects        ║\n║    - No genera una copia funcional del sitio                    ║\n║    - No copia backend ni genera código fuente                   ║\n╚══════════════════════════════════════════════════════════════════╝\n\"\"\"\n\nimport argparse\nimport json\nimport os\nimport sys\nimport time\nimport re\nfrom datetime import datetime, timezone\nfrom urllib.parse import urlparse, urljoin\n\nfrom playwright.sync_api import sync_playwright\nfrom bs4 import BeautifulSoup\n\n# ─────────────────────────────────────────────────────────────\n# UTILIDADES\n",
         "applies_to": "scripts_python_varios_so",
-        "source": "C:\\Chance1\\Scripts Python Varios S.O\\web_inspector.py",
+        "source": "Scripts Python Varios S.O\\web_inspector.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -276,7 +276,7 @@
       "fact": {
         "rule": " import BeautifulSoup\n\n# ─────────────────────────────────────────────────────────────\n# UTILIDADES\n# ─────────────────────────────────────────────────────────────\n\ndef normalize_url(url: str) -> str:\n    \"\"\"Asegura que la URL tenga esquema.\"\"\"\n    if not url.startswith((\"http://\", \"https://\")):\n        url = \"https://\" + url\n    return url\n\ndef get_domain(url: str) -> str:\n    \"\"\"Extrae el dominio base (sin www).\"\"\"\n    parsed = urlparse(url)\n    domain = parsed.netloc.lower()\n    if domain.startswith(\"www.\"):\n        domain = domain[4:]\n    return domain\n\ndef classify_resource_url(resource_url: str, page_domain: str) -> str:\n    \"\"\"Clasifica un recurso como first-party o third-party.\"\"\"\n    res_domain = get_domain(resource_url)\n    if not res_domain:\n        return \"first-party\"\n",
         "applies_to": "scripts_python_varios_so",
-        "source": "C:\\Chance1\\Scripts Python Varios S.O\\web_inspector.py",
+        "source": "Scripts Python Varios S.O\\web_inspector.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -301,7 +301,7 @@
       "fact": {
         "rule": "y.\"\"\"\n    res_domain = get_domain(resource_url)\n    if not res_domain:\n        return \"first-party\"\n    # Comparar dominio raíz\n    page_root = \".\".join(page_domain.split(\".\")[-2:])\n    res_root = \".\".join(res_domain.split(\".\")[-2:])\n    return \"first-party\" if res_root == page_root else \"third-party\"\n\ndef safe_filename(url: str) -> str:\n    \"\"\"Genera un nombre seguro para carpeta basado en la URL.\"\"\"\n    parsed = urlparse(url)\n    name = parsed.netloc.replace(\".\", \"_\")\n    path_part = parsed.path.strip(\"/\").replace(\"/\", \"_\")\n    if path_part:\n        name += f\"_{path_part}\"\n    # Limpiar caracteres problemáticos\n    name = re.sub(r'[^\\w\\-]', '_', name)\n    return name[:80]\n\n# ─────────────────────────────────────────────────────────────\n# EXTRACCIÓN DE ASSETS DEL DOM\n",
         "applies_to": "scripts_python_varios_so",
-        "source": "C:\\Chance1\\Scripts Python Varios S.O\\web_inspector.py",
+        "source": "Scripts Python Varios S.O\\web_inspector.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -326,7 +326,7 @@
       "fact": {
         "rule": "80]\n\n# ─────────────────────────────────────────────────────────────\n# EXTRACCIÓN DE ASSETS DEL DOM\n# ─────────────────────────────────────────────────────────────\n\ndef extract_dom_assets(html: str, base_url: str) -> dict:\n    \"\"\"Analiza el DOM renderizado y extrae inventario de assets públicos.\"\"\"\n    soup = BeautifulSoup(html, \"html.parser\")\n    page_domain = get_domain(base_url)\n    assets = {\n        \"stylesheets\": [],\n        \"scripts\": [],\n        \"images\": [],\n        \"fonts\": [],\n        \"links\": [],\n        \"meta_tags\": [],\n        \"favicon\": None,\n    }\n\n    # --- CSS ---\n    for tag in soup.find_all(\"link\", rel=lambda r: r and \"stylesheet\" in r):\n        href = tag.get(\"href\", \"\")\n        if href:\n            full_url = urljoin(base_url, href)\n",
         "applies_to": "scripts_python_varios_so",
-        "source": "C:\\Chance1\\Scripts Python Varios S.O\\web_inspector.py",
+        "source": "Scripts Python Varios S.O\\web_inspector.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -351,7 +351,7 @@
       "fact": {
         "rule": "\n        href = tag.get(\"href\", \"\")\n        if href:\n            full_url = urljoin(base_url, href)\n            assets[\"stylesheets\"].append({\n                \"url\": full_url,\n                \"party\": classify_resource_url(full_url, page_domain),\n                \"media\": tag.get(\"media\", \"all\"),\n            })\n\n    # --- Inline <style> count ---\n    inline_styles = soup.find_all(\"style\")\n    assets[\"inline_style_blocks\"] = len(inline_styles)\n\n    # --- JS ---\n    for tag in soup.find_all(\"script\"):\n        src = tag.get(\"src\", \"\")\n        if src:\n            full_url = urljoin(base_url, src)\n            assets[\"scripts\"].append({\n                \"url\": full_url,\n                \"party\": classify_resource_url(full_url, page_domain),\n                \"async\": tag.has_attr(\"async\"),\n",
         "applies_to": "scripts_python_varios_so",
-        "source": "C:\\Chance1\\Scripts Python Varios S.O\\web_inspector.py",
+        "source": "Scripts Python Varios S.O\\web_inspector.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -376,7 +376,7 @@
       "fact": {
         "rule": "rty\": classify_resource_url(full_url, page_domain),\n                \"async\": tag.has_attr(\"async\"),\n                \"defer\": tag.has_attr(\"defer\"),\n                \"type\": tag.get(\"type\", \"\"),\n            })\n    assets[\"inline_script_blocks\"] = len(",
         "applies_to": "scripts_python_varios_so",
-        "source": "C:\\Chance1\\Scripts Python Varios S.O\\web_inspector.py",
+        "source": "Scripts Python Varios S.O\\web_inspector.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -399,9 +399,9 @@
       "type": "fact",
       "key": "monitor_recursos_0",
       "fact": {
-        "rule": "#!/usr/bin/env python3\n# -*- coding: utf-8 -*-\n\"\"\"\nMonitor de Recursos en Tiempo Real\nCPU / RAM / PIDs - enfasis en Python y proyectos Chance1\nReportes cada 3 minutos + resumen acumulado\n\"\"\"\nimport psutil\nimport os\nimport sys\nimport time\nimport datetime\nimport io\nfrom collections import defaultdict\n\n# Forzar UTF-8 en stdout (Windows terminal puede ser cp1252)\nif hasattr(sys.stdout, 'buffer'):\n    sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8', errors='replace')\n\nINTERVAL_SECONDS = 180  # 3 minutos\nCHANCE1_ROOT = \"C:\\\\Chance1\"\n\n# Proyectos conocidos bajo Chance1\nKNOWN_PROJECTS = [\n    \"FormFiller_IA\",\n    \"Buscador_IA\",\n    \"Asistente IA\",\n    \"backup_Asistente\",\n    \"SAP\",\n    \"CRM\",\n    \"GBM\",\n]\n\n# ──────────────────────────────────────────────\n# Helpers\n",
+        "rule": "#!/usr/bin/env python3\n# -*- coding: utf-8 -*-\n\"\"\"\nMonitor de Recursos en Tiempo Real\nCPU / RAM / PIDs - enfasis en Python y proyectos Hooks_IA\nReportes cada 3 minutos + resumen acumulado\n\"\"\"\nimport psutil\nimport os\nimport sys\nimport time\nimport datetime\nimport io\nfrom collections import defaultdict\n\n# Forzar UTF-8 en stdout (Windows terminal puede ser cp1252)\nif hasattr(sys.stdout, 'buffer'):\n    sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8', errors='replace')\n\nINTERVAL_SECONDS = 180  # 3 minutos\nCHANCE1_ROOT = \"C:\\\\Hooks_IA\"\n\n# Proyectos conocidos bajo Hooks_IA\nKNOWN_PROJECTS = [\n    \"FormFiller_IA\",\n    \"Buscador_IA\",\n    \"\",\n    \"backup_Asistente\",\n    \"SAP\",\n    \"CRM\",\n    \"GBM\",\n]\n\n# ──────────────────────────────────────────────\n# Helpers\n",
         "applies_to": "scripts_python_varios_so",
-        "source": "C:\\Chance1\\Scripts Python Varios S.O\\monitor_recursos.py",
+        "source": "Scripts Python Varios S.O\\monitor_recursos.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -424,9 +424,9 @@
       "type": "fact",
       "key": "monitor_recursos_1",
       "fact": {
-        "rule": "te\",\n    \"SAP\",\n    \"CRM\",\n    \"GBM\",\n]\n\n# ──────────────────────────────────────────────\n# Helpers\n# ──────────────────────────────────────────────\n\ndef detect_project(cmdline: list[str], cwd: str | None) -> str:\n    \"\"\"Infiere a qué proyecto pertenece un proceso.\"\"\"\n    full = \" \".join(cmdline) + \" \" + (cwd or \"\")\n    for proj in KNOWN_PROJECTS:\n        if proj.lower() in full.lower():\n            return proj\n    if CHANCE1_ROOT.lower() in full.lower():\n        return \"Chance1/otro\"\n    return \"Sistema\"\n\ndef bar(pct: float, width: int = 30) -> str:\n    filled = int(pct / 100 * width)\n    return \"[\" + \"█\" * filled + \"░\" * (width - filled) + f\"] {pct:5.1f}%\"\n\ndef fmt_bytes(b: int) -> str:\n    if b >= 1_073_741_824:\n        return f\"{b/1_073_741_824:.2f} GB\"\n    if b >= 1_048_576:\n",
+        "rule": "te\",\n    \"SAP\",\n    \"CRM\",\n    \"GBM\",\n]\n\n# ──────────────────────────────────────────────\n# Helpers\n# ──────────────────────────────────────────────\n\ndef detect_project(cmdline: list[str], cwd: str | None) -> str:\n    \"\"\"Infiere a qué proyecto pertenece un proceso.\"\"\"\n    full = \" \".join(cmdline) + \" \" + (cwd or \"\")\n    for proj in KNOWN_PROJECTS:\n        if proj.lower() in full.lower():\n            return proj\n    if CHANCE1_ROOT.lower() in full.lower():\n        return \"Hooks_IA/otro\"\n    return \"Sistema\"\n\ndef bar(pct: float, width: int = 30) -> str:\n    filled = int(pct / 100 * width)\n    return \"[\" + \"█\" * filled + \"░\" * (width - filled) + f\"] {pct:5.1f}%\"\n\ndef fmt_bytes(b: int) -> str:\n    if b >= 1_073_741_824:\n        return f\"{b/1_073_741_824:.2f} GB\"\n    if b >= 1_048_576:\n",
         "applies_to": "scripts_python_varios_so",
-        "source": "C:\\Chance1\\Scripts Python Varios S.O\\monitor_recursos.py",
+        "source": "Scripts Python Varios S.O\\monitor_recursos.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -451,7 +451,7 @@
       "fact": {
         "rule": "> str:\n    if b >= 1_073_741_824:\n        return f\"{b/1_073_741_824:.2f} GB\"\n    if b >= 1_048_576:\n        return f\"{b/1_048_576:.1f} MB\"\n    return f\"{b/1024:.1f} KB\"\n\ndef get_python_procs():\n    \"\"\"Devuelve todos los procesos Python con detalle.\"\"\"\n    result = []\n    for p in psutil.process_iter(['pid','name','exe','cmdline','memory_info',\n                                   'cpu_percent','status','create_time','cwd']):\n        try:\n            name = (p.info['name'] or \"\").lower()\n            exe  = (p.info['exe']  or \"\").lower()\n            if 'python' not in name and 'python' not in exe:\n                continue\n            cmd = p.info['cmdline'] or []\n            cwd_val = None\n            try:\n                cwd_val = p.info['cwd']\n            except Exception:\n",
         "applies_to": "scripts_python_varios_so",
-        "source": "C:\\Chance1\\Scripts Python Varios S.O\\monitor_recursos.py",
+        "source": "Scripts Python Varios S.O\\monitor_recursos.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -476,7 +476,7 @@
       "fact": {
         "rule": "d_val = None\n            try:\n                cwd_val = p.info['cwd']\n            except Exception:\n                pass\n            project = detect_project(cmd, cwd_val)\n            script = next((c for c in cmd if c.endswith('.py')), None)\n            if script:\n                script = os.path.basename(script)\n            else:\n                script = \" \".join(cmd[1:])[:60] if len(cmd) > 1 else \"(sin args)\"\n            mem_mb = (p.info['memory_info'].rss if p.info['memory_info'] else 0) / 1_048_576\n            cpu    = p.info['cpu_percent'] or 0.0\n            result.append({\n                'pid': p.info['pid'],\n                'name': p.info['name'],\n                'script': script,\n                'project': project,\n                'mem_mb': mem_mb,\n                'cpu': cpu,\n",
         "applies_to": "scripts_python_varios_so",
-        "source": "C:\\Chance1\\Scripts Python Varios S.O\\monitor_recursos.py",
+        "source": "Scripts Python Varios S.O\\monitor_recursos.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -501,7 +501,7 @@
       "fact": {
         "rule": ",\n                'project': project,\n                'mem_mb': mem_mb,\n                'cpu': cpu,\n                'status': p.info['status'],\n                'age_min': (time.time() - p.info['create_time']) / 60 if p.info['create_time'] else 0,\n            })\n        except (psutil.NoSuchProcess, psutil.AccessDenied):\n            continue\n    return sorted(result, key=lambda x: x['mem_mb'], reverse=True)\n\ndef get_top_non_python(n: int = 10):\n    \"\"\"Top N procesos no-python por RAM.\"\"\"\n    result = []\n    for p in psutil.process_iter(['pid','name','memory_info','cpu_percent','exe']):\n        try:\n            name = (p.info['name'] or \"\").lower()\n            exe  = (p.info['exe']  or \"\").lower()\n            if 'python' in name or 'python' in exe:\n                continue\n",
         "applies_to": "scripts_python_varios_so",
-        "source": "C:\\Chance1\\Scripts Python Varios S.O\\monitor_recursos.py",
+        "source": "Scripts Python Varios S.O\\monitor_recursos.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -526,7 +526,7 @@
       "fact": {
         "rule": "'exe']  or \"\").lower()\n            if 'python' in name or 'python' in exe:\n                continue\n            mem = (p.info['memory_info'].rss if p.info['memory_info'] else 0)\n            result.append({'pid': p.info['pid'], 'name': p.info['name'],\n                           'mem': mem, 'cpu': p.info['cpu_percent'] or 0.0})\n        except (psutil.NoSuchProcess, psutil.AccessDenied):\n            continue\n    return sorted(result, key=lambda x: x['mem'], reverse=True)[:n]\n\ndef get_cpu_per_core():\n    return psutil.cpu_percent(percpu=True)\n\n# ──────────────────────────────────────────────\n# Reporte\n# ──────────────────────────────────────────────\n\ndef report(report_num: int, history: list):\n    now = datetime.datetime.now().strftime(\"%Y-%m-%d %H:%M:%S\")\n    sep = \"═\" * 70\n\n",
         "applies_to": "scripts_python_varios_so",
-        "source": "C:\\Chance1\\Scripts Python Varios S.O\\monitor_recursos.py",
+        "source": "Scripts Python Varios S.O\\monitor_recursos.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -551,7 +551,7 @@
       "fact": {
         "rule": "history: list):\n    now = datetime.datetime.now().strftime(\"%Y-%m-%d %H:%M:%S\")\n    sep = \"═\" * 70\n\n    # Muestras CPU con pequeño intervalo para leer real\n    cpu_total = psutil.cpu_percent(interval=1)\n    cpu_cores = get_cpu_per_core()\n    ram       = psutil.virtual_memory()\n    swap      = psutil.swap_memory()\n    disk      = psutil.disk_usage(\"C:\\\\\")\n    py_procs  = get_python_procs()\n    top_other = get_top_non_python(8)\n\n    # Agrupar Python por proyecto\n    by_project: dict = defaultdict(lambda: {'pids': [], 'mem_mb': 0.0, 'cpu': 0.0})\n    for p in py_procs:\n        by_project[p['project']]['pids'].append(p['pid'])\n        by_project[p['project']]['mem_mb'] += p['mem_mb']\n        by_project[p['project']]['cpu']    += p['cpu']\n\n    # Guardar snapshot en history\n    history.append({\n",
         "applies_to": "scripts_python_varios_so",
-        "source": "C:\\Chance1\\Scripts Python Varios S.O\\monitor_recursos.py",
+        "source": "Scripts Python Varios S.O\\monitor_recursos.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -576,7 +576,7 @@
       "fact": {
         "rule": "project[p['project']]['cpu']    += p['cpu']\n\n    # Guardar snapshot en history\n    history.append({\n        'ts': now,\n        'cpu': cpu_total,\n        'ram_pct': ram.percen",
         "applies_to": "scripts_python_varios_so",
-        "source": "C:\\Chance1\\Scripts Python Varios S.O\\monitor_recursos.py",
+        "source": "Scripts Python Varios S.O\\monitor_recursos.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -601,7 +601,7 @@
       "fact": {
         "rule": "Write-Host \"Monitoreando 3 minutos - PS nuevos Y pythonw activos...\" -ForegroundColor Cyan\n\n$knownPS = @(Get-Process -Name powershell -ErrorAction SilentlyContinue | ForEach-Object { $_.Id })\n$knownPY = @(Get-Process -Name pythonw -ErrorAction SilentlyContinue | ForEach-Object { $_.Id })\n\nWrite-Host \"PS existentes: $knownPS\"\nWrite-Host \"pythonw existentes: $knownPY\"\nWrite-Host \"\"\n\n$end = (Get-Date).AddMinutes(3)\nwhile ((Get-Date) -lt $end) {\n\n    # Detectar nuevo PowerShell\n    $curPS = Get-Process -Name powershell -ErrorAction SilentlyContinue\n    foreach ($p in $curPS) {\n        if ($knownPS -notcontains $p.Id) {\n            $wmi = Get-CimInstance Win32_Process -Filter \"ProcessId=$($p.Id)\"\n            $parent = Get-CimInstance Win32_Process -Filter \"ProcessId=$($wmi.ParentProcessId)\"\n",
         "applies_to": "scripts_python_varios_so",
-        "source": "C:\\Chance1\\Scripts Python Varios S.O\\monitor_ps2.ps1",
+        "source": "Scripts Python Varios S.O\\monitor_ps2.ps1",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -626,7 +626,7 @@
       "fact": {
         "rule": "d)\"\n            $parent = Get-CimInstance Win32_Process -Filter \"ProcessId=$($wmi.ParentProcessId)\"\n            $parentCmd = if ($parent) { $parent.CommandLine } else { \"N/A\" }\n            Write-Host \"NUEVO PS!\" -ForegroundColor Red\n            Write-Host \"  PID: $($p.Id)\"\n            Write-Host \"  CMD PS: $($wmi.CommandLine)\"\n            Write-Host \"  Padre: $($parent.Name) PID:$($wmi.ParentProcessId)\"\n            Write-Host \"  Padre CMD: $parentCmd\"\n            Write-Host \"\"\n            $knownPS += $p.Id\n        }\n    }\n\n    # Detectar nuevo pythonw\n    $curPY = Get-Process -Name pythonw -ErrorAction SilentlyContinue\n    foreach ($p in $curPY) {\n        if ($knownPY -notcontains $p.Id) {\n            $wmi = Get-CimInstance Win32_Process -Filter \"ProcessId=$($p.Id)\"\n",
         "applies_to": "scripts_python_varios_so",
-        "source": "C:\\Chance1\\Scripts Python Varios S.O\\monitor_ps2.ps1",
+        "source": "Scripts Python Varios S.O\\monitor_ps2.ps1",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -651,7 +651,7 @@
       "fact": {
         "rule": "-notcontains $p.Id) {\n            $wmi = Get-CimInstance Win32_Process -Filter \"ProcessId=$($p.Id)\"\n            $parent = Get-CimInstance Win32_Process -Filter \"ProcessId=$($wmi.ParentProcessId)\"\n            Write-Host \"NUEVO pythonw!\" -ForegroundColor Yellow\n            Write-Host \"  PID: $($p.Id)\"\n            Write-Host \"  CMD: $($wmi.CommandLine)\"\n            Write-Host \"  Padre: $($parent.Name) PID:$($wmi.ParentProcessId)\"\n            Write-Host \"\"\n            $knownPY += $p.Id\n        }\n    }\n\n    Start-Sleep -Seconds 1\n}\nWrite-Host \"Monitoreo terminado.\"",
         "applies_to": "scripts_python_varios_so",
-        "source": "C:\\Chance1\\Scripts Python Varios S.O\\monitor_ps2.ps1",
+        "source": "Scripts Python Varios S.O\\monitor_ps2.ps1",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -676,7 +676,7 @@
       "fact": {
         "rule": "import requests\nfrom bs4 import BeautifulSoup\nimport re\n\ndef get_gbm_hero_image():\n    url = \"https://www.gbm.net/\"\n    headers = {\n        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'\n    }\n    response = requests.get(url, headers=headers)\n    print(f\"Status Code: {response.status_code}\")\n    if response.status_code == 200:\n        soup = BeautifulSoup(response.text, 'html.parser')\n        # Buscamos todas las imágenes\n        print(\"--- IMAGES ---\")\n        images = soup.find_all('img')\n        for img in images:\n            src = img.get('src')\n            if src:\n                print(f\"IMG: {src}\")\n        \n        # Buscamos en todos los estilos\n        print(\"--- STYLES ---\")\n",
         "applies_to": "scripts_python_varios_so",
-        "source": "C:\\Chance1\\Scripts Python Varios S.O\\find_gbm_img.py",
+        "source": "Scripts Python Varios S.O\\find_gbm_img.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -701,7 +701,7 @@
       "fact": {
         "rule": "int(f\"IMG: {src}\")\n        \n        # Buscamos en todos los estilos\n        print(\"--- STYLES ---\")\n        for tag in soup.find_all(True, style=True):\n            style = tag.get('style', '')\n            match = re.search(r'background-image:\\s*url\\((.*?)\\)', style)\n            if match:\n                img_url = match.group(1).strip(\"'\\\"\")\n                print(f\"BG: {img_url}\")\n        \n        # Buscamos en etiquetas <style>\n        print(\"--- STYLE TAGS ---\")\n        style_tags = soup.find_all('style')\n        for st in style_tags:\n            matches = re.findall(r'url\\((.*?)\\)', st.text)\n            for m in matches:\n                print(\"STYLE_URL: \" + m.strip(\"'\\\"\"))\n            \n    return None\n\nif __name__ == \"__main__\":\n    img_url = get_gbm_hero_image()\n    if img_url:\n",
         "applies_to": "scripts_python_varios_so",
-        "source": "C:\\Chance1\\Scripts Python Varios S.O\\find_gbm_img.py",
+        "source": "Scripts Python Varios S.O\\find_gbm_img.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -726,7 +726,7 @@
       "fact": {
         "rule": "    \n    return None\n\nif __name__ == \"__main__\":\n    img_url = get_gbm_hero_image()\n    if img_url:\n        print(f\"FOUND: {img_url}\")\n    else:\n        print(\"NOT FOUND\")",
         "applies_to": "scripts_python_varios_so",
-        "source": "C:\\Chance1\\Scripts Python Varios S.O\\find_gbm_img.py",
+        "source": "Scripts Python Varios S.O\\find_gbm_img.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -751,7 +751,7 @@
       "fact": {
         "rule": "$sep = \"---\"\n\n# Ver TODOS los powershell.exe activos\nWrite-Host \"PS ACTIVOS:\" -ForegroundColor Cyan\n$psprocs = Get-CimInstance Win32_Process -Filter \"Name='powershell.exe'\"\nforeach ($p in $psprocs) {\n    $parent = Get-CimInstance Win32_Process -Filter \"ProcessId=$($p.ParentProcessId)\"\n    $parentName = if ($parent) { $parent.Name } else { \"N/A\" }\n    Write-Host (\"PID:{0} Padre:{1}({2}) Inicio:{3}\" -f $p.ProcessId, $parentName, $p.ParentProcessId, $p.CreationDate)\n    Write-Host (\"CMD: {0}\" -f $p.CommandLine)\n    Write-Host $sep\n}\n\n# Tareas con repeticion\nWrite-Host \"\"\nWrite-Host \"TAREAS CON REPETICION:\" -ForegroundColor Yellow\n$allTasks = Get-ScheduledTask\nforeach ($t in $allTasks) {\n    $triggers = $t.Triggers\n    foreach ($tr in $triggers) {\n        $interval = $tr.RepetitionInterval\n",
         "applies_to": "scripts_python_varios_so",
-        "source": "C:\\Chance1\\Scripts Python Varios S.O\\deep_ps_hunt.ps1",
+        "source": "Scripts Python Varios S.O\\deep_ps_hunt.ps1",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -776,7 +776,7 @@
       "fact": {
         "rule": "$triggers = $t.Triggers\n    foreach ($tr in $triggers) {\n        $interval = $tr.RepetitionInterval\n        if ($interval) {\n            $actions = ($t.Actions | ForEach-Object { $_.Execute }) -join \"; \"\n            Write-Host (\"[{0}] {1} cada {2}\" -f $t.State, $t.TaskName, $interval)\n            Write-Host (\"  -> {0}\" -f $actions)\n        }\n    }\n}\n\n# Startup folders\nWrite-Host \"\"\nWrite-Host \"STARTUP FOLDERS:\" -ForegroundColor Magenta\n$s1 = Join-Path $env:APPDATA \"Microsoft\\Windows\\Start Menu\\Programs\\Startup\"\n$s2 = \"C:\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs\\Startup\"\nforeach ($s in @($s1, $s2)) {\n    $items = Get-ChildItem $s -ErrorAction SilentlyContinue\n    if ($items) {\n        Write-Host $s\n        foreach ($i in $items) { Write-Host (\"  {0}\" -f $i.Name) }\n    }\n}",
         "applies_to": "scripts_python_varios_so",
-        "source": "C:\\Chance1\\Scripts Python Varios S.O\\deep_ps_hunt.ps1",
+        "source": "Scripts Python Varios S.O\\deep_ps_hunt.ps1",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -801,7 +801,7 @@
       "fact": {
         "rule": "# PowerShell corriendo AHORA con detalle\nWrite-Host \"=== PowerShell activos AHORA ===\" -ForegroundColor Cyan\n$psprocs = Get-CimInstance Win32_Process -Filter \"Name='powershell.exe' OR Name='pwsh.exe'\"\nforeach ($p in $psprocs) {\n    $parent = Get-CimInstance Win32_Process -Filter \"ProcessId=$($p.ParentProcessId)\"\n    Write-Host \"PID: $($p.ProcessId) | Padre: $($parent.Name) (PID $($p.ParentProcessId))\"\n    Write-Host \"CMD: $($p.CommandLine)\"\n    Write-Host \"Inicio: $($p.CreationDate)\"\n    Write-Host \"\"\n}\n\n# Revisar registro Run/RunOnce\nWrite-Host \"=== AUTORUN Registro (HKCU + HKLM) ===\" -ForegroundColor Yellow\n$keys = @(\n    \"HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run\",\n    \"HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\RunOnce\",\n",
         "applies_to": "scripts_python_varios_so",
-        "source": "C:\\Chance1\\Scripts Python Varios S.O\\check_ps2.ps1",
+        "source": "Scripts Python Varios S.O\\check_ps2.ps1",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -826,7 +826,7 @@
       "fact": {
         "rule": "crosoft\\Windows\\CurrentVersion\\Run\",\n    \"HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\RunOnce\",\n    \"HKCU:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run\",\n    \"HKCU:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\RunOnce\"\n)\nforeach ($k in $keys) {\n    $vals = Get-ItemProperty -Path $k -ErrorAction SilentlyContinue\n    if ($vals) {\n        $vals.PSObject.Properties | Where-Object { $_.Name -notmatch '^PS' } | ForEach-Object {\n            if ($_.Value -match 'powershell|optimizer|ram|buscador|chance') {\n                Write-Host \"[MATCH] $k\"\n                Write-Host \"  $($_.Name) = $($_.Value)\"\n            }\n        }\n    }\n}",
         "applies_to": "scripts_python_varios_so",
-        "source": "C:\\Chance1\\Scripts Python Varios S.O\\check_ps2.ps1",
+        "source": "Scripts Python Varios S.O\\check_ps2.ps1",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -851,7 +851,7 @@
       "fact": {
         "rule": "$os = Get-CimInstance Win32_OperatingSystem\n$ramUsedGB = [math]::Round(($os.TotalVisibleMemorySize - $os.FreePhysicalMemory)/1MB, 1)\n$ramTotalGB = [math]::Round($os.TotalVisibleMemorySize/1MB, 1)\n$ramPct = [math]::Round($ramUsedGB/$ramTotalGB*100, 0)\n$cpu = (Get-CimInstance Win32_Processor).LoadPercentage\n\nWrite-Host \"=== SISTEMA ===\" -ForegroundColor Cyan\nWrite-Host \"CPU Total: $cpu%\"\nWrite-Host \"RAM: $ramUsedGB GB / $ramTotalGB GB ($ramPct%)\"\nWrite-Host \"\"\nWrite-Host \"=== TOP 15 por RAM ===\" -ForegroundColor Yellow\nGet-Process | Sort-Object WorkingSet64 -Descending | Select-Object -First 15 | ForEach-Object {\n    $ram = [math]::Round($_.WorkingSet64/1MB, 0)\n    $cpu2 = [math]::Round($_.CPU, 1)\n    \"{0,-35} PID:{1,-6} RAM:{2,6}MB  CPU_total:{3}s\" -f $_.Name, $_.Id, $ram, $cpu2\n}\n",
         "applies_to": "scripts_python_varios_so",
-        "source": "C:\\Chance1\\Scripts Python Varios S.O\\check_slow.ps1",
+        "source": "Scripts Python Varios S.O\\check_slow.ps1",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -876,7 +876,7 @@
       "fact": {
         "rule": "nd($_.CPU, 1)\n    \"{0,-35} PID:{1,-6} RAM:{2,6}MB  CPU_total:{3}s\" -f $_.Name, $_.Id, $ram, $cpu2\n}\nWrite-Host \"\"\nWrite-Host \"=== TOP 10 por CPU acumulado ===\" -ForegroundColor Red\nGet-Process | Sort-Object CPU -Descending | Select-Object -First 10 | ForEach-Object {\n    $ram = [math]::Round($_.WorkingSet64/1MB, 0)\n    $cpu2 = [math]::Round($_.CPU, 1)\n    \"{0,-35} PID:{1,-6} RAM:{2,6}MB  CPU_total:{3}s\" -f $_.Name, $_.Id, $ram, $cpu2\n}",
         "applies_to": "scripts_python_varios_so",
-        "source": "C:\\Chance1\\Scripts Python Varios S.O\\check_slow.ps1",
+        "source": "Scripts Python Varios S.O\\check_slow.ps1",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -901,7 +901,7 @@
       "fact": {
         "rule": "# Buscar todas las tareas que llaman a powershell.exe\nWrite-Host \"=== TAREAS que invocan PowerShell ===\" -ForegroundColor Cyan\n$tasks = Get-ScheduledTask\nforeach ($t in $tasks) {\n    foreach ($a in $t.Actions) {\n        if ($a.Execute -match 'powershell|pwsh') {\n            $trigger = $t.Triggers | ForEach-Object { \"$($_.CimClass.CimClassName) $($_.RepetitionInterval)\" }\n            Write-Host \"[$($t.State)] $($t.TaskName)\"\n            Write-Host \"  CMD: $($a.Execute) $($a.Arguments)\"\n            Write-Host \"  Trigger: $trigger\"\n            Write-Host \"\"\n        }\n    }\n}\n\n# Ver procesos powershell corriendo ahora con su linea de comandos\nWrite-Host \"=== PowerShell corriendo AHORA ===\" -ForegroundColor Yellow\n",
         "applies_to": "scripts_python_varios_so",
-        "source": "C:\\Chance1\\Scripts Python Varios S.O\\check_ps_trigger.ps1",
+        "source": "Scripts Python Varios S.O\\check_ps_trigger.ps1",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -926,7 +926,7 @@
       "fact": {
         "rule": "# Monitorea PowerShell nuevos que aparezcan - corre por 2 minutos\nWrite-Host \"Monitoreando PowerShell nuevos por 2 minutos...\" -ForegroundColor Cyan\n$known = @(Get-Process -Name powershell -ErrorAction SilentlyContinue | ForEach-Object { $_.Id })\nWrite-Host \"PS ya existentes: $known\"\nWrite-Host \"\"\n\n$end = (Get-Date).AddMinutes(2)\nwhile ((Get-Date) -lt $end) {\n    $current = Get-Process -Name powershell -ErrorAction SilentlyContinue\n    foreach ($p in $current) {\n        if ($known -notcontains $p.Id) {\n            $wmi = Get-CimInstance Win32_Process -Filter \"ProcessId=$($p.Id)\"\n            $parent = Get-CimInstance Win32_Process -Filter \"ProcessId=$($wmi.ParentProcessId)\"\n            Write-Host \"NUEVO PS detectado!\" -ForegroundColor Red\n            Write-Host \"  PID: $($p.Id)\"\n",
         "applies_to": "scripts_python_varios_so",
-        "source": "C:\\Chance1\\Scripts Python Varios S.O\\monitor_ps.ps1",
+        "source": "Scripts Python Varios S.O\\monitor_ps.ps1",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -951,7 +951,7 @@
       "fact": {
         "rule": "     Write-Host \"NUEVO PS detectado!\" -ForegroundColor Red\n            Write-Host \"  PID: $($p.Id)\"\n            Write-Host \"  CMD: $($wmi.CommandLine)\"\n            Write-Host \"  Padre: $($parent.Name) (PID $($wmi.ParentProcessId))\"\n            $known += $p.Id\n        }\n    }\n    Start-Sleep -Seconds 1\n}\nWrite-Host \"Monitoreo terminado.\"",
         "applies_to": "scripts_python_varios_so",
-        "source": "C:\\Chance1\\Scripts Python Varios S.O\\monitor_ps.ps1",
+        "source": "Scripts Python Varios S.O\\monitor_ps.ps1",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -976,7 +976,7 @@
       "fact": {
         "rule": "# Buscar tareas programadas no-Microsoft\nWrite-Host \"=== TAREAS PROGRAMADAS (no Microsoft) ===\" -ForegroundColor Cyan\n$tasks = Get-ScheduledTask | Where-Object { $_.TaskPath -notlike '\\Microsoft\\*' }\nforeach ($t in $tasks) {\n    $actions = $t.Actions | ForEach-Object { \"$($_.Execute) $($_.Arguments)\" }\n    Write-Host \"[$($t.State)] $($t.TaskName)\"\n    Write-Host \"  Accion: $actions\"\n    Write-Host \"\"\n}\n\nWrite-Host \"=== BUSCANDO: ram, optimizer, tesseract, buscador ===\" -ForegroundColor Yellow\n$allTasks = Get-ScheduledTask\nforeach ($t in $allTasks) {\n    $actions = $t.Actions | ForEach-Object { \"$($_.Execute) $($_.Arguments)\" }\n    $combined = \"$($t.TaskName) $actions\"\n    if ($combined -match 'ram|optimizer|tesseract|buscador|chance|memory|liber') {\n",
         "applies_to": "scripts_python_varios_so",
-        "source": "C:\\Chance1\\Scripts Python Varios S.O\\check_tasks.ps1",
+        "source": "Scripts Python Varios S.O\\check_tasks.ps1",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -1001,7 +1001,7 @@
       "fact": {
         "rule": "kName) $actions\"\n    if ($combined -match 'ram|optimizer|tesseract|buscador|chance|memory|liber') {\n        Write-Host \"[MATCH] [$($t.State)] $($t.TaskName)\"\n        Write-Host \"  Accion: $actions\"\n        Write-Host \"\"\n    }\n}",
         "applies_to": "scripts_python_varios_so",
-        "source": "C:\\Chance1\\Scripts Python Varios S.O\\check_tasks.ps1",
+        "source": "Scripts Python Varios S.O\\check_tasks.ps1",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -1026,7 +1026,7 @@
       "fact": {
         "rule": "$killed = 0\n\n# Matar todos los tesseract.exe\n$tess = Get-CimInstance Win32_Process -Filter \"Name='tesseract.exe'\"\nforeach ($p in $tess) {\n    Stop-Process -Id $p.ProcessId -Force -ErrorAction SilentlyContinue\n    Write-Host \"Killed tesseract PID $($p.ProcessId)\"\n    $killed++\n}\n\n# Matar el pythonw padre (PID 30840 - Buscador IA colgado)\n$py = Get-Process -Id 30840 -ErrorAction SilentlyContinue\nif ($py) {\n    Stop-Process -Id 30840 -Force\n    Write-Host \"Killed pythonw PID 30840\"\n    $killed++\n} else {\n    Write-Host \"pythonw 30840 ya no existe\"\n}\n\nWrite-Host \"\"\nWrite-Host \"Total eliminados: $killed procesos\"\nWrite-Host \"\"\n\n# Verificar CPU post-kill\nStart-Sleep -Seconds 2\n$cpu = (Get-CimInstance Win32_Processor).LoadPercentage\nWrite-Host \"CPU ahora: $cpu%\"",
         "applies_to": "scripts_python_varios_so",
-        "source": "C:\\Chance1\\Scripts Python Varios S.O\\kill_tess.ps1",
+        "source": "Scripts Python Varios S.O\\kill_tess.ps1",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -1051,7 +1051,7 @@
       "fact": {
         "rule": "$orphans = @(25540, 24064, 28720)\n\nforeach ($pid2 in $orphans) {\n    Write-Host \"=== PID $pid2 ===\" -ForegroundColor Cyan\n    try {\n        $p = Get-Process -Id $pid2 -ErrorAction Stop\n        Write-Host \"  CPU: $([math]::Round($p.CPU,1))s  RAM: $([math]::Round($p.WorkingSet64/1MB,0))MB\"\n        Write-Host \"  Inicio: $($p.StartTime)\"\n    } catch {\n        Write-Host \"  Ya no existe\"\n    }\n\n    $wmi = Get-CimInstance Win32_Process -Filter \"ProcessId=$pid2\" -ErrorAction SilentlyContinue\n    if ($wmi) {\n        Write-Host \"  CMD: $($wmi.CommandLine)\"\n        Write-Host \"  Usuario: $($wmi.GetOwner().User)\"\n    } else {\n        Write-Host \"  No encontrado en WMI\"\n    }\n    Write-Host \"\"\n}",
         "applies_to": "scripts_python_varios_so",
-        "source": "C:\\Chance1\\Scripts Python Varios S.O\\check_ps_orphans.ps1",
+        "source": "Scripts Python Varios S.O\\check_ps_orphans.ps1",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -1076,7 +1076,7 @@
       "fact": {
         "rule": "$pid2 = 13484\n$p = Get-CimInstance Win32_Process -Filter \"ProcessId=$pid2\"\nif ($p) {\n    Write-Host \"PID: $pid2\"\n    Write-Host \"CMD: $($p.CommandLine)\"\n    Write-Host \"EXE: $($p.ExecutablePath)\"\n    Write-Host \"Inicio: $($p.CreationDate)\"\n    $parent = Get-CimInstance Win32_Process -Filter \"ProcessId=$($p.ParentProcessId)\"\n    Write-Host \"Padre: $($parent.Name) (PID $($p.ParentProcessId))\"\n    Write-Host \"Padre CMD: $($parent.CommandLine)\"\n} else {\n    Write-Host \"PID $pid2 ya no existe - buscando pythonw activos...\"\n    Get-CimInstance Win32_Process -Filter \"Name='pythonw.exe'\" | ForEach-Object {\n        Write-Host \"PID:$($_.ProcessId) CMD:$($_.CommandLine)\"\n    }\n}",
         "applies_to": "scripts_python_varios_so",
-        "source": "C:\\Chance1\\Scripts Python Varios S.O\\check_pythonw_13484.ps1",
+        "source": "Scripts Python Varios S.O\\check_pythonw_13484.ps1",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -1101,7 +1101,7 @@
       "fact": {
         "rule": "# Matar el powershell que esta corriendo move_optimizer.ps1\n$procs = Get-CimInstance Win32_Process -Filter \"Name='powershell.exe'\"\nforeach ($p in $procs) {\n    if ($p.CommandLine -match 'move_optimizer') {\n        Stop-Process -Id $p.ProcessId -Force\n        Write-Host \"Killed move_optimizer.ps1 (PID $($p.ProcessId))\"\n    }\n}\n\n# Verificar que no quedo ninguno\nStart-Sleep -Seconds 1\n$check = Get-CimInstance Win32_Process -Filter \"Name='powershell.exe'\"\n$still = $check | Where-Object { $_.CommandLine -match 'move_optimizer' }\nif ($still) {\n    Write-Host \"ADVERTENCIA: aun corre (PID $($still.ProcessId))\"\n} else {\n    Write-Host \"Limpio - move_optimizer ya no corre\"\n}",
         "applies_to": "scripts_python_varios_so",
-        "source": "C:\\Chance1\\Scripts Python Varios S.O\\kill_move_optimizer.ps1",
+        "source": "Scripts Python Varios S.O\\kill_move_optimizer.ps1",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -1126,7 +1126,7 @@
       "fact": {
         "rule": "Stop-Process -Id 25540 -Force -ErrorAction SilentlyContinue\nStop-Process -Id 24064 -Force -ErrorAction SilentlyContinue\nStop-Process -Id 28720 -Force -ErrorAction SilentlyContinue\nStart-Sleep -Seconds 2\n\n$alive = @()\nforeach ($id in @(25540, 24064, 28720)) {\n    $p = Get-Process -Id $id -ErrorAction SilentlyContinue\n    if ($p) { $alive += $id }\n}\n\nif ($alive.Count -gt 0) {\n    Write-Host \"Aun vivos: $alive - intentando taskkill\"\n    foreach ($id in $alive) {\n        taskkill /F /PID $id\n    }\n} else {\n    Write-Host \"Todos eliminados OK\"\n}",
         "applies_to": "scripts_python_varios_so",
-        "source": "C:\\Chance1\\Scripts Python Varios S.O\\kill_orphans_admin.ps1",
+        "source": "Scripts Python Varios S.O\\kill_orphans_admin.ps1",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -1151,7 +1151,7 @@
       "fact": {
         "rule": "$procs = Get-CimInstance Win32_Process -Filter \"Name='tesseract.exe'\"\nforeach ($p in $procs) {\n    Write-Host \"PID: $($p.ProcessId)\"\n    Write-Host \"CMD: $($p.CommandLine)\"\n    Write-Host \"Ejecutable: $($p.ExecutablePath)\"\n    Write-Host \"Iniciado: $($p.CreationDate)\"\n\n    # Buscar proceso padre\n    $parent = Get-CimInstance Win32_Process -Filter \"ProcessId=$($p.ParentProcessId)\"\n    Write-Host \"Padre: $($parent.Name) (PID $($p.ParentProcessId))\"\n    Write-Host \"---\"\n}",
         "applies_to": "scripts_python_varios_so",
-        "source": "C:\\Chance1\\Scripts Python Varios S.O\\check_tesseract.ps1",
+        "source": "Scripts Python Varios S.O\\check_tesseract.ps1",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -1176,7 +1176,7 @@
       "fact": {
         "rule": "Disable-ScheduledTask -TaskName \"RamOptimizer\" -ErrorAction SilentlyContinue\nWrite-Host \"RamOptimizer: DESACTIVADO\"\n\nDisable-ScheduledTask -TaskName \"CpuOptimizer\" -ErrorAction SilentlyContinue\nWrite-Host \"CpuOptimizer: DESACTIVADO\"\n\n# Verificar estado\n$r = Get-ScheduledTask -TaskName \"RamOptimizer\"\n$c = Get-ScheduledTask -TaskName \"CpuOptimizer\"\nWrite-Host \"\"\nWrite-Host \"Estado final:\"\nWrite-Host \"  RamOptimizer: $($r.State)\"\nWrite-Host \"  CpuOptimizer: $($c.State)\"",
         "applies_to": "scripts_python_varios_so",
-        "source": "C:\\Chance1\\Scripts Python Varios S.O\\disable_optimizers.ps1",
+        "source": "Scripts Python Varios S.O\\disable_optimizers.ps1",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -1201,7 +1201,7 @@
       "fact": {
         "rule": "$orphans = @(25540, 24064, 28720)\nforeach ($id in $orphans) {\n    $p = Get-Process -Id $id -ErrorAction SilentlyContinue\n    if ($p) { Write-Host \"VIVO: PID $id\" } else { Write-Host \"MUERTO: PID $id\" }\n}",
         "applies_to": "scripts_python_varios_so",
-        "source": "C:\\Chance1\\Scripts Python Varios S.O\\check_ps3.ps1",
+        "source": "Scripts Python Varios S.O\\check_ps3.ps1",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -1226,7 +1226,7 @@
       "fact": {
         "rule": "$procs = Get-CimInstance Win32_Process -Filter \"Name='python.exe' OR Name='python3.exe'\"\nforeach ($p in $procs) {\n    Write-Host \"PID: $($p.ProcessId) | $($p.CommandLine)\"\n}",
         "applies_to": "scripts_python_varios_so",
-        "source": "C:\\Chance1\\Scripts Python Varios S.O\\check_python.ps1",
+        "source": "Scripts Python Varios S.O\\check_python.ps1",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -1251,7 +1251,7 @@
       "fact": {
         "rule": "$r = Get-ScheduledTask -TaskName \"RamOptimizer\"\n$c = Get-ScheduledTask -TaskName \"CpuOptimizer\"\nWrite-Host \"RamOptimizer: $($r.State)\"\nWrite-Host \"CpuOptimizer: $($c.State)\"",
         "applies_to": "scripts_python_varios_so",
-        "source": "C:\\Chance1\\Scripts Python Varios S.O\\check_tasks2.ps1",
+        "source": "Scripts Python Varios S.O\\check_tasks2.ps1",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""

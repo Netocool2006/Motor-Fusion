@@ -382,7 +382,7 @@
       "type": "fact",
       "key": "aprendizajes_raw_7",
       "fact": {
-        "rule": "%dashboard.py%'\\\" get processid\\n2. Matar SOLO ese PID:\\n   taskkill /F /PID <pid_de_dashboard>\\n3. Luego iniciar el nuevo proceso.\\n\\nPIDs que estuvieron activos y NO debían matarse (referencia histórica):\\n  - PID 18916\\n  - PID 18056 (dos instancias que el usuario tenía corriendo)\\n\\nALTERNATIVA SEGURA — script de restart dedicado:\\n  python C:\\\\Chance1\\\\Buscador_IA\\\\restart_dashboard.py\\n  (si existe — mata solo dashboard.py, no otros python.exe)\",\n    \"tags\": [\n      \"regla_oro\",\n      \"dashboard\",\n      \"restart\",\n      \"python\",\n      \"taskkill\",\n      \"prohibido\",\n      \"",
+        "rule": "%dashboard.py%'\\\" get processid\\n2. Matar SOLO ese PID:\\n   taskkill /F /PID <pid_de_dashboard>\\n3. Luego iniciar el nuevo proceso.\\n\\nPIDs que estuvieron activos y NO debían matarse (referencia histórica):\\n  - PID 18916\\n  - PID 18056 (dos instancias que el usuario tenía corriendo)\\n\\nALTERNATIVA SEGURA — script de restart dedicado:\\n  python Buscador_IA\\\\restart_dashboard.py\\n  (si existe — mata solo dashboard.py, no otros python.exe)\",\n    \"tags\": [\n      \"regla_oro\",\n      \"dashboard\",\n      \"restart\",\n      \"python\",\n      \"taskkill\",\n      \"prohibido\",\n      \"",
         "applies_to": "tmp",
         "source": "C:\\tmp\\aprendizajes_raw.json",
         "confidence": "observed",

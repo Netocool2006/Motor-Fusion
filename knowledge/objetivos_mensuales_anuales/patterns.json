@@ -9,7 +9,7 @@
       "fact": {
         "rule": "Ejemplos de Facturacion que cuentan\t\t\t\t\nVenta\tIndustria\tPais\tMaterial Group\t¿Cuenta?\tSolicitar el archivo de Facturacion Mensualmente con Dario para saber si  se han agregado nuevos Materials Groups dado que si se agrega uno nuevo y no esta en la carta de objetivos NO CUENTA\nServicios Instana\tBanca\tGuatemala\t204010206\t✅ SÍ\nServicios APIC\tBanca\tGuatemala\t2040233\t✅ SÍ\nServicios de Automatización\tBanca\tGuatemala\t204010203\t✅ SÍ\nServicios de Red Hat\tBanca\tGuatemala\t204010229\t✅ SÍ\nVenta de laptops HP\tBanca\tGuatemala\tHardware\t❌ NO\nServicios de software\tRetail\tGuatemala\t204010206\t❌ NO (industria no financiera)\nServicios de software\tBanca\tPanamá\t204010206\t❌ NO (territorio incorrecto)\nServicios de software\tBanca\tGuatemala\tMaterial Group NO definido\t❌ NO (tampoco te lo pagan)\n",
         "applies_to": "objetivos_mensuales_anuales",
-        "source": "C:\\Chance1\\Objetivos Mensuales-Anuales\\Excel guia.xlsx",
+        "source": "Objetivos Mensuales-Anuales\\Excel guia.xlsx",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -34,7 +34,7 @@
       "fact": {
         "rule": "rrecto)\nServicios de software\tBanca\tGuatemala\tMaterial Group NO definido\t❌ NO (tampoco te lo pagan)\nCuenta todo lo que comienza con FS ( Finances Services) en la  columna de industria\tBanca\tGuatemala\t204010230\t✅ SÍ\nPS15 (Public Sector)\tBanco Central\tGuatemala\t204010230\t✅ SÍ\nPS24 (Public Sector)\tBanco Y seguros\tGuatemala\t204010230\t✅ SÍ\nEjemplo de servicios que si cuentan:",
         "applies_to": "objetivos_mensuales_anuales",
-        "source": "C:\\Chance1\\Objetivos Mensuales-Anuales\\Excel guia.xlsx",
+        "source": "Objetivos Mensuales-Anuales\\Excel guia.xlsx",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -59,7 +59,7 @@
       "fact": {
         "rule": "Una meta sin un plan, es simplemente un deseo \n– Antoine de Saint Exupery \nEstimado(a), 20000587 TOLEDO ISCOPAL, NESTOR BERNABE\nUsted ha realizado la aprobación de su carta de objetivos el viernes, 20 de marzo\nde 2026 11:53, aceptando con éxito y de manera satisfactoria los objetivos trazados\npara el año 2026.\nCreación de la solicitud\nNúmero de solicitud 170031182\nElaborada por: MQUESADA\nFecha de Inicio: 1 de enero de 2026\nFecha de Fin: 31 de diciembre de 2026\nFecha de solicitud: 3 de marzo de 2026.\nDatos de la solicitud\nPosición 70010442-DS SOLUTIONS ADVISOR\nUnidad de Negocio: GBGT-GBM de Guatemala, S. A.\nTipo de Solicitud: 01-Carta de Objetivos de acuerdo al plan de compensación.\nGerente: 70009099-QUESADA CHAVES, MARIO ALBERTO\nDepartamento: 70010851-SW CIBER SECURITY.\n",
         "applies_to": "objetivos_mensuales_anuales",
-        "source": "C:\\Chance1\\Objetivos Mensuales-Anuales\\Carta de Objetivos.pdf",
+        "source": "Objetivos Mensuales-Anuales\\Carta de Objetivos.pdf",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -84,7 +84,7 @@
       "fact": {
         "rule": "ensación.\nGerente: 70009099-QUESADA CHAVES, MARIO ALBERTO\nDepartamento: 70010851-SW CIBER SECURITY.\nObjetivos Aceptados\nTipo Peso Cuota\nAnual Skew Descripción\n02-Compras35 81500\n00 No\nCOMPRAS LICENCIAS NUEVAS SW,\nSUSCRIPCIONES Y\nRENOVACIONES (INDUSTRIA\nASIGNADA)\n08-New\nSigning 25 18800\n00 No NEW SIGNINGS + EXPAND (PAIS)\n01-\nFacturación 40 33750\n000 No PUNTOS DE FACTURACIÓN DE SW\nSERVICES (INDUSTRIA ASIGNADA)\nIMPORTANTE: USTED HA ACEPTADO QUE HA LEÍDO Y COMPRENDIDO ESTE DOCUMENTO.\nSE RECUERDA LA IMPORTANCIA DE REVISAR PERIÓDICAMENTE (MENSUAL) LOS DATOS DE\nLAS METAS Y RESULTADOS REALES DE LOS INDICADORES ASIGNADOS. EN CASO DE NO\nREVISAR PERIÓDICAMENTE NO APLICAN MODIFICACIONES RETROACTIVAS.\nNota: Los negocios con GP diferente al plan pueden tener cambio en los puntos\n",
         "applies_to": "objetivos_mensuales_anuales",
-        "source": "C:\\Chance1\\Objetivos Mensuales-Anuales\\Carta de Objetivos.pdf",
+        "source": "Objetivos Mensuales-Anuales\\Carta de Objetivos.pdf",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -109,7 +109,7 @@
       "fact": {
         "rule": "ACIONES RETROACTIVAS.\nNota: Los negocios con GP diferente al plan pueden tener cambio en los puntos\nasignados, consulte a su gerente si tiene alguna duda.",
         "applies_to": "objetivos_mensuales_anuales",
-        "source": "C:\\Chance1\\Objetivos Mensuales-Anuales\\Carta de Objetivos.pdf",
+        "source": "Objetivos Mensuales-Anuales\\Carta de Objetivos.pdf",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -134,7 +134,7 @@
       "fact": {
         "rule": "CARTA DE OBJETIVOS\n1. Estructura general de la carta de objetivos\nTienes 4 objetivos, pero el gerente dice que se enfoquen sobre todo en 3 (los que normalmente les ponen):\nObjetivo 1 – Facturación → 40 % de peso.\nObjetivo 2 – Compras → 35 % de peso.\nObjetivo 3 – New Signing + Expand Banca → 15 % de peso.\nObjetivo 4 – New Signing + Expand País → 10 % de peso.\nLa suma de los pesos es 100 %.\nSalario fijo vs variable\nTu salario está dividido en 70 % fijo y 30 % variable.\nEse 30 % variable está ligado al cumplimiento de los objetivos.\nPrimeros 3 meses:\nTienes el 100 % del salario garantizado (se paga el variable completo independientemente de los resultados).\nDespués de esos 3 meses:\nEl pago del 30 % variable depende de cuánto cumplas los objetivos.\n",
         "applies_to": "objetivos_mensuales_anuales",
-        "source": "C:\\Chance1\\Objetivos Mensuales-Anuales\\CARTA DE OBJETIVOS.docx",
+        "source": "Objetivos Mensuales-Anuales\\CARTA DE OBJETIVOS.docx",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -159,7 +159,7 @@
       "fact": {
         "rule": "tados).\nDespués de esos 3 meses:\nEl pago del 30 % variable depende de cuánto cumplas los objetivos.\nCuotas anual / mensual y “recuperar” meses malos\nExiste una cuota anual y una cuota mensual.\nSi un mes no llegas a la cuota:\nEse mes no recibes la porción correspondiente del salario variable.\nSi en un mes siguiente vendes el doble o el triple:\nPuedes recuperar lo que no te pagaron en el mes anterior, porque al final manda el acumulado contra la cuota anual.\n2. Objetivo 1 – Facturación (40 %)\nQué mide\nEs todo lo que se vende de:\nServicios de software,\nrelacionados con software digital (digital software)\ndentro del alcance que se define en el archivo de parámetros.\nSe mide en puntos de facturación.\nConcepto de “puntos”\nPara el resto de unidades (account managers):\n",
         "applies_to": "objetivos_mensuales_anuales",
-        "source": "C:\\Chance1\\Objetivos Mensuales-Anuales\\CARTA DE OBJETIVOS.docx",
+        "source": "Objetivos Mensuales-Anuales\\CARTA DE OBJETIVOS.docx",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -184,7 +184,7 @@
       "fact": {
         "rule": "e mide en puntos de facturación.\nConcepto de “puntos”\nPara el resto de unidades (account managers):\nNo es lo mismo vender una PC que un servicio.\nEjemplo: una PC vale medio punto.\nTienen una cuota de 1 000 000 de puntos.\nDependiendo del tipo de producto/servicio:\nAlgunos valen 7 puntos, otros 9 puntos, etc.\nEl vendedor debe llegar al total de puntos definidos.\nEjemplo numérico que dieron\nEn el caso de Oliver:\nCuota en puntos: 34 110 000 (aparece en la hoja de objetivos).\nPara banca 2025:\nEsos puntos equivalen a 3 790 000 USD en servicios.\nLa expectativa es que se vendan X puntos por mes (mencionan 2 000 800 puntos por mes como referencia en el audio).\n",
         "applies_to": "objetivos_mensuales_anuales",
-        "source": "C:\\Chance1\\Objetivos Mensuales-Anuales\\CARTA DE OBJETIVOS.docx",
+        "source": "Objetivos Mensuales-Anuales\\CARTA DE OBJETIVOS.docx",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -209,7 +209,7 @@
       "fact": {
         "rule": "es que se vendan X puntos por mes (mencionan 2 000 800 puntos por mes como referencia en el audio).\nLo importante: el objetivo 1 es que, sumando todo lo que facturas en servicios de software dentro del alcance, llegues a la cuota anual de puntos / monto.\n2.1 Parámetros del Objetivo 1 (archivo de facturación / carta de objetivos)\nEl gerente va pestaña por pestaña explicando qué sí cuenta y qué no.\na) Por país (territorio)\nEn la sección de Sales Organization / País:\nSe marcan con “X” los países que te corresponden.\nEjemplo que menciona: podrían marcar El Salvador y Guatemala, pero actualmente está solo Guatemala para tu caso.\nb) Por industria (sector del cliente)\nEn la sección de INDUSTRY:\nLas industrias que sí cuentan son las clasificadas como servicios financieros, que empiezan con FS:\n",
         "applies_to": "objetivos_mensuales_anuales",
-        "source": "C:\\Chance1\\Objetivos Mensuales-Anuales\\CARTA DE OBJETIVOS.docx",
+        "source": "Objetivos Mensuales-Anuales\\CARTA DE OBJETIVOS.docx",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -234,7 +234,7 @@
       "fact": {
         "rule": "Las industrias que sí cuentan son las clasificadas como servicios financieros, que empiezan con FS:\nAgente de remesas\nAlmacenadora\nAsociación de ahorro y préstamo\nBanco comercial del Estado\nBanco comercial privado\n(y en general todo lo que empieza con FS…).\nOtras industrias (las que llama “Meat Martin” en el audio) no cuentan.\nSector público:\nEn general no cuenta, salvo:\nPublic sector Banco Central\nPublic sector banca y seguros estatales\nEsas sí se toman como parte de tu objetivo.\nc) Por cliente\nEn este objetivo no hay restricción de cliente individual:\nCuenta cualquier cliente que:\nesté en los países marcados y\nen las industrias financieras definidas.\n",
         "applies_to": "objetivos_mensuales_anuales",
-        "source": "C:\\Chance1\\Objetivos Mensuales-Anuales\\CARTA DE OBJETIVOS.docx",
+        "source": "Objetivos Mensuales-Anuales\\CARTA DE OBJETIVOS.docx",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -259,7 +259,7 @@
       "fact": {
         "rule": "uenta cualquier cliente que:\nesté en los países marcados y\nen las industrias financieras definidas.\nAun así, si quisieran, el archivo permite filtrar por clientes específicos, pero en tu caso actual “cuenta todo banco” dentro de las reglas anteriores.\nd) Por tipo de producto / material group\nAquí es donde más se filtra qué te paga y qué no.\nHay muchos Material Groups que NO cuentan:\nLenovo (PCs, laptops, etc.).\nLenovo mobile & stocks (high volume).\nMicrosoft Office y “accesorios”.\nServidores y storage.\nNetworking.\nOtros hardware de volumen.\nLo que SÍ cuenta son los servicios de las prácticas de software.La parte que “de verdad importa” es:\nAnalytics – Servicios de software\nAnalytics – Servicios de partner\nBig Data – servicios software\nInteligencia artificial\nDigital Platform – servicios\n",
         "applies_to": "objetivos_mensuales_anuales",
-        "source": "C:\\Chance1\\Objetivos Mensuales-Anuales\\CARTA DE OBJETIVOS.docx",
+        "source": "Objetivos Mensuales-Anuales\\CARTA DE OBJETIVOS.docx",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -284,7 +284,7 @@
       "fact": {
         "rule": "icios de partner\nBig Data – servicios software\nInteligencia artificial\nDigital Platform – servicios\nPlatform\nSecurity\nDigital Factory\nAutomatización\n(otras prácticas que aparecen en la lista)\nEjemplo de Material Group específico mencionado:\n204040401 → Artificial Intelligence – Servicios Software.\nTodo material group de este tipo que esté marcado en la parametrización sí suma a tu objetivo de facturación.\n2.2 Riesgo: material groups nuevos que no estén en tu carta\nPuede pasar que:\nLa organización cree un nuevo material group (ej. 20404049) que no existía.\nEmpieza a facturarse allí software services de banca.\nPero en tu carta de objetivos ese material no está listado.\nResultado:\nLa compañía factura, pero no te paga por esas ventas porque no están dentro del parámetro del objetivo.\n",
         "applies_to": "objetivos_mensuales_anuales",
-        "source": "C:\\Chance1\\Objetivos Mensuales-Anuales\\CARTA DE OBJETIVOS.docx",
+        "source": "Objetivos Mensuales-Anuales\\CARTA DE OBJETIVOS.docx",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -309,7 +309,7 @@
       "fact": {
         "rule": "ompañía factura, pero no te paga por esas ventas porque no están dentro del parámetro del objetivo.\n¿Qué hacer?\nRevisar el archivo de facturación y detectar estos casos.\nSi encuentras un material nuevo que “debería contar”:\nPedir un ajuste de carta de objetivos para agregarlo.\n2.3 Archivo de facturación – cómo usarlo\nEse archivo es propiedad del país (lo tenía Darío, ahora se lo pide a alguien cada mes).\nRecomendación que te dieron:\nNo hace falta verlo todos los",
         "applies_to": "objetivos_mensuales_anuales",
-        "source": "C:\\Chance1\\Objetivos Mensuales-Anuales\\CARTA DE OBJETIVOS.docx",
+        "source": "Objetivos Mensuales-Anuales\\CARTA DE OBJETIVOS.docx",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""

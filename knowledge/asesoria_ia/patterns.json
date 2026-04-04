@@ -9,7 +9,7 @@
       "fact": {
         "rule": "<!DOCTYPE html>\n<html lang=\"es\">\n<head>\n<meta charset=\"UTF-8\">\n<meta name=\"viewport\" content=\"width=device-width,initial-scale=1\">\n<title>Asesoria IA</title>\n<link href=\"https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:wght@400;700&family=JetBrains+Mono:wght@400;600&display=swap\" rel=\"stylesheet\">\n<style>\n:root {\n  --bg:#0F1117;--surface:#1A1D27;--surface-2:#232736;--border:#333849;\n  --text:#E4E6EF;--dim:#8B8FA7;--muted:#5C6078;\n  --accent:#6C9CFF;--accent-dim:rgba(108,156,255,0.12);\n  --green:#4ADE80;--green-dim:rgba(74,222,128,0.1);--green-border:rgba(74,222,128,0.25);\n  --red:#F87171;--red-dim:rgba(248,113,113,0.08);--red-border:rgba(248,113,113,0.2);\n  --yellow:#FBBF24;--yellow-dim:rgba(251,191,36,0.08);\n  --purple:#A78BFA;\n}\n",
         "applies_to": "asesoria_ia",
-        "source": "C:\\Chance1\\IA\\Asesoria_IA\\templates\\index.html",
+        "source": "Asesoria_IA\\templates\\index.html",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -34,7 +34,7 @@
       "fact": {
         "rule": "rgba(248,113,113,0.2);\n  --yellow:#FBBF24;--yellow-dim:rgba(251,191,36,0.08);\n  --purple:#A78BFA;\n}\n*{margin:0;padding:0;box-sizing:border-box}\nbody{background:var(--bg);color:var(--text);font-family:'DM Sans',system-ui,sans-serif;font-size:15px;line-height:1.6}\n.container{max-width:1200px;margin:0 auto;padding:24px}\nh1{font-family:'Fraunces',serif;font-size:28px;margin-bottom:8px}\nh2{font-family:'Fraunces',serif;font-size:20px;margin-bottom:12px}\n.subtitle{color:var(--dim);font-size:14px;margin-bottom:32px}\n\n/* Auth Panel */\n#auth-panel{max-width:400px;margin:80px auto;background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:40px}\n#auth-panel h1{text-align:center;margin-bottom:24px}\n.form-group{margin-bottom:16px}\n",
         "applies_to": "asesoria_ia",
-        "source": "C:\\Chance1\\IA\\Asesoria_IA\\templates\\index.html",
+        "source": "Asesoria_IA\\templates\\index.html",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -59,7 +59,7 @@
       "fact": {
         "rule": ";padding:40px}\n#auth-panel h1{text-align:center;margin-bottom:24px}\n.form-group{margin-bottom:16px}\n.form-group label{display:block;font-size:12px;text-transform:uppercase;letter-spacing:0.08em;color:var(--muted);margin-bottom:4px}\n.form-group input,.form-group select,.form-group textarea{width:100%;padding:10px 14px;background:var(--surface-2);border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:inherit;font-size:14px;outline:none}\n.form-group input:focus,.form-group textarea:focus{border-color:var(--accent)}\n.form-group textarea{resize:vertical;min-height:60px}\n.btn{display:inline-flex;align-items:center;gap:8px;padding:10px 20px;border-radius:8px;border:none;cursor:pointer;font-family:inherit;font-size:14px;font-weight:600;transition:all 0.2s}\n",
         "applies_to": "asesoria_ia",
-        "source": "C:\\Chance1\\IA\\Asesoria_IA\\templates\\index.html",
+        "source": "Asesoria_IA\\templates\\index.html",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -84,7 +84,7 @@
       "fact": {
         "rule": ";border:none;cursor:pointer;font-family:inherit;font-size:14px;font-weight:600;transition:all 0.2s}\n.btn-primary{background:var(--accent);color:#fff}\n.btn-primary:hover{opacity:0.9}\n.btn-green{background:var(--green);color:#000}\n.btn-red{background:var(--red);color:#fff}\n.btn-outline{background:transparent;border:1px solid var(--border);color:var(--text)}\n.btn-outline:hover{border-color:var(--accent);color:var(--accent)}\n.btn-sm{padding:6px 12px;font-size:12px}\n\n/* Main Layout */\n#main-panel{display:none}\n.top-bar{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px}\n.grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}\n@media(max-width:900px){.grid{grid-template-columns:1fr}}\n",
         "applies_to": "asesoria_ia",
-        "source": "C:\\Chance1\\IA\\Asesoria_IA\\templates\\index.html",
+        "source": "Asesoria_IA\\templates\\index.html",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -109,7 +109,7 @@
       "fact": {
         "rule": "d;grid-template-columns:1fr 1fr;gap:20px}\n@media(max-width:900px){.grid{grid-template-columns:1fr}}\n@media(max-width:500px){.top-bar{flex-direction:column;gap:12px;align-items:flex-start}.top-bar>div:last-child{flex-wrap:wrap}}\n\n/* Cards */\n.card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:24px}\n.card-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px}\n\n/* Transcript */\n#transcript{max-height:400px;overflow-y:auto;font-size:14px}\n#transcript .msg{padding:8px 12px;margin-bottom:4px;border-radius:8px;background:var(--surface-2)}\n#transcript .msg .speaker{font-weight:600;color:var(--accent);font-size:12px;text-transform:uppercase}\n#transcript .msg .text{margin-top:2px}\n",
         "applies_to": "asesoria_ia",
-        "source": "C:\\Chance1\\IA\\Asesoria_IA\\templates\\index.html",
+        "source": "Asesoria_IA\\templates\\index.html",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -134,7 +134,7 @@
       "fact": {
         "rule": "color:var(--accent);font-size:12px;text-transform:uppercase}\n#transcript .msg .text{margin-top:2px}\n#transcript .msg.interim{background:transparent;border:1px dashed var(--border);opacity:0.6}\n#transcript .msg.interim .speaker{color:var(--yellow)}\n\n/* Suggestion */\n#suggestion{min-height:120px;font-family:'JetBrains Mono',monospace;font-size:14px;line-height:1.7;white-space:pre-wrap;color:var(--green)}\n#suggestion.loading{color:var(--dim);font-style:italic}\n\n/* Recording indicator */\n.rec-indicator{display:inline-flex;align-items:center;gap:8px;padding:4px 12px;border-radius:20px;font-size:12px;font-weight:600}\n.rec-indicator.active{background:var(--red-dim);color:var(--red);border:1px solid var(--red-border)}\n",
         "applies_to": "asesoria_ia",
-        "source": "C:\\Chance1\\IA\\Asesoria_IA\\templates\\index.html",
+        "source": "Asesoria_IA\\templates\\index.html",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -159,7 +159,7 @@
       "fact": {
         "rule": "rec-indicator.active{background:var(--red-dim);color:var(--red);border:1px solid var(--red-border)}\n.rec-indicator.active::before{content:'';width:8px;height:8px;border-radius:50%;background:var(--red);animation:pulse 1s infinite}\n.rec-indicator.inactive{background:var(--surface-2);color:var(--muted)}\n@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.3}}\n\n/* Side Panels */\n.side-panel{display:none;position:fixed;top:0;right:0;width:420px;height:100vh;background:var(--surface);border-left:1px solid var(--border);padding:24px;overflow-y:auto;z-index:100}\n.side-panel.open{display:block}\n#instructions-panel{display:none;position:fixed;top:0;right:0;width:420px;height:100vh;background:var(--surface);border-left:1px solid var(--border);padding:24px;overflow-y:auto;z-index:100}\n",
         "applies_to": "asesoria_ia",
-        "source": "C:\\Chance1\\IA\\Asesoria_IA\\templates\\index.html",
+        "source": "Asesoria_IA\\templates\\index.html",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -184,7 +184,7 @@
       "fact": {
         "rule": "ground:var(--surface);border-left:1px solid var(--border);padding:24px;overflow-y:auto;z-index:100}\n#instructions-panel.open{display:block}\n/* Provider status */\n.provider-card{background:var(--surface-2);border:1px solid var(--border);border-radius:10px;padding:16px;margin-bottom:12px}\n.provider-card.connected{border-color:var(--green-border)}\n.provider-card .provider-header{display:flex;justify-content:space-b",
         "applies_to": "asesoria_ia",
-        "source": "C:\\Chance1\\IA\\Asesoria_IA\\templates\\index.html",
+        "source": "Asesoria_IA\\templates\\index.html",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -209,7 +209,7 @@
       "fact": {
         "rule": "# -*- coding: utf-8 -*-\n\"\"\"\nPLAN DE PRUEBAS EXHAUSTIVO - Asesoria IA\nTester Senior: Validacion de todos los casos de uso, sub-casos y sub-sub-casos.\n\nEjecutar: python -m pytest tests/test_plan_exhaustivo.py -v --tb=short\n\"\"\"\n\nimport os\nimport sys\nimport json\nimport asyncio\nimport time\n\nsys.path.insert(0, os.path.join(os.path.dirname(__file__), \"..\"))\n\nimport unittest\nfrom unittest.mock import AsyncMock, patch, MagicMock\nfrom fastapi.testclient import TestClient\n\nfrom src.server import app\nfrom src.auth import register, login, verify_token, _load_users, _save_users, _hash_password, _verify_password\nfrom src.config import load_instructions, save_instructions, DEFAULT_INSTRUCTIONS, DATA_DIR\nfrom src.ai_gateway import (\n    AIGateway, ClaudeCLIProvider, DirectAPIProvider,\n",
         "applies_to": "asesoria_ia",
-        "source": "C:\\Chance1\\IA\\Asesoria_IA\\tests\\test_plan_exhaustivo.py",
+        "source": "Asesoria_IA\\tests\\test_plan_exhaustivo.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -234,7 +234,7 @@
       "fact": {
         "rule": "UCTIONS, DATA_DIR\nfrom src.ai_gateway import (\n    AIGateway, ClaudeCLIProvider, DirectAPIProvider,\n    BrowserLoginProvider, CredentialVault,\n)\n\nclient = TestClient(app)\nTEST_USER = \"tester_senior\"\nTEST_PASS = \"T3st!ng_S3cur3\"\nTEST_TOKEN = \"test-mode\"\n\ndef cleanup_test_files():\n    \"\"\"Remove test artifacts.\"\"\"\n    for f in DATA_DIR.glob(\"*tester*\"):\n        f.unlink(missing_ok=True)\n    users_db = DATA_DIR / \"users.json\"\n    if users_db.exists():\n        users = json.loads(users_db.read_text())\n        users.pop(TEST_USER, None)\n        users_db.write_text(json.dumps(users))\n\n# ═══════════════════════════════════════════════════════════\n# UC1: AUTENTICACION\n# ═══════════════════════════════════════════════════════════\n\nclass TestUC1_Auth(unittest.TestCase):\n",
         "applies_to": "asesoria_ia",
-        "source": "C:\\Chance1\\IA\\Asesoria_IA\\tests\\test_plan_exhaustivo.py",
+        "source": "Asesoria_IA\\tests\\test_plan_exhaustivo.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -259,7 +259,7 @@
       "fact": {
         "rule": "═══════════════════════════════════════════════════════════\n\nclass TestUC1_Auth(unittest.TestCase):\n    \"\"\"UC1: Sistema de autenticacion user/password + JWT.\"\"\"\n\n    @classmethod\n    def setUpClass(cls):\n        cleanup_test_files()\n\n    @classmethod\n    def tearDownClass(cls):\n        cleanup_test_files()\n\n    # UC1.1: Registro de usuario nuevo\n    def test_UC1_1_register_new_user(self):\n        # Ensure clean state\n        users_db = DATA_DIR / \"users.json\"\n        if users_db.exists():\n            users = json.loads(users_db.read_text())\n            users.pop(TEST_USER, None)\n            users_db.write_text(json.dumps(users))\n        r = client.post(\"/api/auth/register\", json={\"username\": TEST_USER, \"password\": TEST_PASS})\n        self.assertEqual(r.status_code, 200)\n",
         "applies_to": "asesoria_ia",
-        "source": "C:\\Chance1\\IA\\Asesoria_IA\\tests\\test_plan_exhaustivo.py",
+        "source": "Asesoria_IA\\tests\\test_plan_exhaustivo.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -284,7 +284,7 @@
       "fact": {
         "rule": ", json={\"username\": TEST_USER, \"password\": TEST_PASS})\n        self.assertEqual(r.status_code, 200)\n        data = r.json()\n        self.assertIn(\"access_token\", data)\n        self.assertEqual(data[\"username\"], TEST_USER)\n\n    # UC1.1.1: Registro duplicado debe fallar\n    def test_UC1_1_1_register_duplicate_fails(self):\n        # Ensure user exists first\n        client.post(\"/api/auth/register\", json={\"username\": TEST_USER, \"password\": TEST_PASS})\n        # Second attempt must fail\n        r = client.post(\"/api/auth/register\", json={\"username\": TEST_USER, \"password\": TEST_PASS})\n        self.assertEqual(r.status_code, 400)\n\n    # UC1.2: Login con credenciales correctas\n    def test_UC1_2_login_correct(self):\n",
         "applies_to": "asesoria_ia",
-        "source": "C:\\Chance1\\IA\\Asesoria_IA\\tests\\test_plan_exhaustivo.py",
+        "source": "Asesoria_IA\\tests\\test_plan_exhaustivo.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -309,7 +309,7 @@
       "fact": {
         "rule": "s_code, 400)\n\n    # UC1.2: Login con credenciales correctas\n    def test_UC1_2_login_correct(self):\n        r = client.post(\"/api/auth/login\", json={\"username\": TEST_USER, \"password\": TEST_PASS})\n        self.assertEqual(r.status_code, 200)\n        data = r.json()\n        self.assertIn(\"access_token\", data)\n        self.assertEqual(data[\"token_type\"], \"bearer\")\n\n    # UC1.2.1: Token devuelto es valido\n    def test_UC1_2_1_token_is_valid(self):\n        r = client.post(\"/api/auth/login\", json={\"username\": TEST_USER, \"password\": TEST_PASS})\n        token = r.json()[\"access_token\"]\n        username = verify_token(token)\n        self.assertEqual(username, TEST_USER)\n\n    # UC1.3: Login con password incorrecto\n    def test_UC1_3_login_wrong_password(self):\n",
         "applies_to": "asesoria_ia",
-        "source": "C:\\Chance1\\IA\\Asesoria_IA\\tests\\test_plan_exhaustivo.py",
+        "source": "Asesoria_IA\\tests\\test_plan_exhaustivo.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -334,7 +334,7 @@
       "fact": {
         "rule": "ST_USER)\n\n    # UC1.3: Login con password incorrecto\n    def test_UC1_3_login_wrong_password(self):\n        r = client.post(\"/api/auth/login\", json={\"username\": TEST_USER, \"password\": \"wrongpass\"})\n        self.assertEqual(r.status_code, 401)\n\n    # UC1.3.1: Login con usuario inexistente\n    def test_UC1_3_1_login_nonexistent_user(self):\n        r = client.post(\"/api/auth/login\", json={\"username\": \"fantasma\", \"password\": \"pass\"})\n        self.assertEqual(r.status_code, 401)\n\n    # UC1.4: Endpoint protegido sin token\n    def test_UC1_4_protected_without_token(self):\n        r = client.get(\"/api/instructions\")\n        self.assertEqual(r.status_code, 401)\n\n    # UC1.5: Token invalido\n    def test_UC1_5_invalid_token(self):\n",
         "applies_to": "asesoria_ia",
-        "source": "C:\\Chance1\\IA\\Asesoria_IA\\tests\\test_plan_exhaustivo.py",
+        "source": "Asesoria_IA\\tests\\test_plan_exhaustivo.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -359,7 +359,7 @@
       "fact": {
         "rule": "ssertEqual(r.status_code, 401)\n\n    # UC1.5: Token invalido\n    def test_UC1_5_invalid_token(self):\n        r = client.get(\"/api/instructions\", headers={\"Authorization\": \"Bearer fake-token-123\"})\n        self.assertEqual(r.status_code, 401)\n\n    # UC1.6: Test mode bypass\n    def test_UC1_6_test_mode_bypass(self):\n        r = client.get(\"/api/instructions\", headers={\"Authorization\": f\"Bearer {TEST_TOKEN}\"})\n        self.assertEqual(r.status_code, 200)\n\n    # UC1.7: Password hashing no es reversible\n    def test_UC1_7_password_hash_not_plaintext(self):\n        users = _load_users()\n        if TEST_USER in users:\n            self.assertNotEqual(users[TEST_USER][\"password_hash\"], TEST_PASS)\n            self.assertIn(\"salt\", users[TEST_USER])\n\n",
         "applies_to": "asesoria_ia",
-        "source": "C:\\Chance1\\IA\\Asesoria_IA\\tests\\test_plan_exhaustivo.py",
+        "source": "Asesoria_IA\\tests\\test_plan_exhaustivo.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -384,7 +384,7 @@
       "fact": {
         "rule": "(users[TEST_USER][\"password_hash\"], TEST_PASS)\n            self.assertIn(\"salt\", users[TEST_USER])\n\n    # UC1.7.1: Mismo password genera distinto hash con distinto salt\n    def test_UC1_7_1_different_salt_different_hash(self):\n        h1, s1 = _hash_password(\"mismopass\")\n        h2, s2 = _hash_password(\"mismopass\")\n        self.assertNotEqual(s1, s2)\n        self.assertNotEqual(h1, h2)\n\n    # UC1.7.2: Verifi",
         "applies_to": "asesoria_ia",
-        "source": "C:\\Chance1\\IA\\Asesoria_IA\\tests\\test_plan_exhaustivo.py",
+        "source": "Asesoria_IA\\tests\\test_plan_exhaustivo.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -409,7 +409,7 @@
       "fact": {
         "rule": "{\n  \"role\": \"Asesor de entrevistas en tiempo real\",\n  \"focus\": \"BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB",
         "applies_to": "asesoria_ia",
-        "source": "C:\\Chance1\\IA\\Asesoria_IA\\data\\instructions_test.json",
+        "source": "Asesoria_IA\\data\\instructions_test.json",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -434,7 +434,7 @@
       "fact": {
         "rule": "BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB",
         "applies_to": "asesoria_ia",
-        "source": "C:\\Chance1\\IA\\Asesoria_IA\\data\\instructions_test.json",
+        "source": "Asesoria_IA\\data\\instructions_test.json",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -459,7 +459,7 @@
       "fact": {
         "rule": "BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB",
         "applies_to": "asesoria_ia",
-        "source": "C:\\Chance1\\IA\\Asesoria_IA\\data\\instructions_test.json",
+        "source": "Asesoria_IA\\data\\instructions_test.json",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -484,7 +484,7 @@
       "fact": {
         "rule": "BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB",
         "applies_to": "asesoria_ia",
-        "source": "C:\\Chance1\\IA\\Asesoria_IA\\data\\instructions_test.json",
+        "source": "Asesoria_IA\\data\\instructions_test.json",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -509,7 +509,7 @@
       "fact": {
         "rule": "BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB",
         "applies_to": "asesoria_ia",
-        "source": "C:\\Chance1\\IA\\Asesoria_IA\\data\\instructions_test.json",
+        "source": "Asesoria_IA\\data\\instructions_test.json",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -534,7 +534,7 @@
       "fact": {
         "rule": "BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB",
         "applies_to": "asesoria_ia",
-        "source": "C:\\Chance1\\IA\\Asesoria_IA\\data\\instructions_test.json",
+        "source": "Asesoria_IA\\data\\instructions_test.json",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -559,7 +559,7 @@
       "fact": {
         "rule": "BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB",
         "applies_to": "asesoria_ia",
-        "source": "C:\\Chance1\\IA\\Asesoria_IA\\data\\instructions_test.json",
+        "source": "Asesoria_IA\\data\\instructions_test.json",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -584,7 +584,7 @@
       "fact": {
         "rule": "# -*- coding: utf-8 -*-\n\"\"\"\nAI Gateway - Multi-model support via CLI or browser sessions.\nNO API keys. Uses user's own subscriptions.\n\"\"\"\n\nimport asyncio\nimport subprocess\nimport json\nimport os\nfrom typing import AsyncGenerator, Optional\nfrom abc import ABC, abstractmethod\n\nfrom .config import load_instructions\n\nclass AIProvider(ABC):\n    \"\"\"Base class for AI providers.\"\"\"\n\n    @abstractmethod\n    async def generate(self, conversation: list, instructions: dict,\n                       stream: bool = True) -> AsyncGenerator[str, None]:\n        pass\n\n    def build_system_prompt(self, instructions: dict) -> str:\n        \"\"\"Build system prompt from user instructions.\"\"\"\n        parts = []\n\n        role = instructions.get(\"role\", \"Asesor en tiempo real\")\n        parts.append(f\"Eres un {role}.\")\n",
         "applies_to": "asesoria_ia",
-        "source": "C:\\Chance1\\IA\\Asesoria_IA\\src\\ai_gateway.py",
+        "source": "Asesoria_IA\\src\\ai_gateway.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -609,7 +609,7 @@
       "fact": {
         "rule": "  role = instructions.get(\"role\", \"Asesor en tiempo real\")\n        parts.append(f\"Eres un {role}.\")\n\n        focus = instructions.get(\"focus\", \"\")\n        if focus:\n            parts.append(f\"ENFOQUE: Centra todas tus respuestas en: {focus}\")\n\n        tone = instructions.get(\"tone\", \"profesional\")\n        parts.append(f\"TONO: {tone}\")\n\n        context = instructions.get(\"context\", \"\")\n        if context:\n            parts.append(f\"CONTEXTO: {context}\")\n\n        restrictions = instructions.get(\"restrictions\", [])\n        if restrictions:\n            parts.append(\"RESTRICCIONES:\")\n            for r in restrictions:\n                parts.append(f\"- {r}\")\n\n        style = instructions.get(\"response_style\", \"bullet_points\")\n        if style == \"bullet_points\":\n",
         "applies_to": "asesoria_ia",
-        "source": "C:\\Chance1\\IA\\Asesoria_IA\\src\\ai_gateway.py",
+        "source": "Asesoria_IA\\src\\ai_gateway.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -634,7 +634,7 @@
       "fact": {
         "rule": "   style = instructions.get(\"response_style\", \"bullet_points\")\n        if style == \"bullet_points\":\n            parts.append(\"FORMATO: Responde en puntos cortos y accionables.\")\n        elif style == \"paragraph\":\n            parts.append(\"FORMATO: Responde en parrafos cortos.\")\n        elif style == \"one_liner\":\n            parts.append(\"FORMATO: Responde en una sola linea directa.\")\n\n        max_len = instructions.get(\"max_suggestion_length\", 200)\n        parts.append(f\"LONGITUD: Maximo {max_len} caracteres por sugerencia.\")\n\n        lang = instructions.get(\"language\", \"es\")\n        parts.append(f\"IDIOMA: Responde siempre en {'espanol' if lang == 'es' else lang}.\")\n\n        return \"\\n\".join(parts)\n\nclass ClaudeCLIProvider(AIProvider):\n    \"\"\"Use Claude via CLI (claude executable). ",
         "applies_to": "asesoria_ia",
-        "source": "C:\\Chance1\\IA\\Asesoria_IA\\src\\ai_gateway.py",
+        "source": "Asesoria_IA\\src\\ai_gateway.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -659,7 +659,7 @@
       "fact": {
         "rule": "n\".join(parts)\n\nclass ClaudeCLIProvider(AIProvider):\n    \"\"\"Use Claude via CLI (claude executable). User must be logged in.\"\"\"\n\n    async def generate(self, conversation: list, instructions: dict,\n                       stream: bool = True) -> AsyncGenerator[str, None]:\n        system_prompt = self.build_system_prompt(instructions)\n\n        # Build the conversation as a single prompt\n        conv_text = \"\\n\".join(\n            f\"[{msg['speaker']}]: {msg['text']}\" for msg in conversation[-10:]\n        )\n\n        prompt = (\n            f\"{system_prompt}\\n\\n\"\n            f\"CONVERSACION EN CURSO:\\n{conv_text}\\n\\n\"\n            f\"Da 3-5 sugerencias breves (1 linea cada una) para responder o actuar. Se directo.\"\n        )\n\n        # Use claude CLI via subprocess - haiku for speed\n",
         "applies_to": "asesoria_ia",
-        "source": "C:\\Chance1\\IA\\Asesoria_IA\\src\\ai_gateway.py",
+        "source": "Asesoria_IA\\src\\ai_gateway.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -684,7 +684,7 @@
       "fact": {
         "rule": "sponder o actuar. Se directo.\"\n        )\n\n        # Use claude CLI via subprocess - haiku for speed\n        proc = await asyncio.create_subprocess_exec(\n            \"claude\", \"-p\", prompt, \"--model\", \"haiku\",\n            stdout=asyncio.subprocess.PIPE,\n            stderr=asyncio.subprocess.PIPE,\n        )\n\n        if stream and proc.stdout:\n            buffer = \"\"\n            while True:\n                chunk = await proc.stdout.read(100)\n                if not chunk:\n                    break\n                text = chunk.decode(\"utf-8\", errors=\"ignore\")\n                buffer += text\n                # Yield complete words\n                if \" \" in buffer or \"\\n\" in buffer:\n                    yield buffer\n                    buffer = \"\"\n            if buffer:\n                yield buffer\n",
         "applies_to": "asesoria_ia",
-        "source": "C:\\Chance1\\IA\\Asesoria_IA\\src\\ai_gateway.py",
+        "source": "Asesoria_IA\\src\\ai_gateway.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -709,7 +709,7 @@
       "fact": {
         "rule": "   yield buffer\n                    buffer = \"\"\n            if buffer:\n                yield buffer\n        else:\n            stdout, _ = await proc.communicate()\n            yield stdout.decode(\"utf-8\", errors=\"ignore\")\n\nclass DirectAPIProvider(AIProvider):\n    \"\"\"Fallback: use API keys if user provides them.\"\"\"\n\n    def __init__(self, provider: str, api_key: str):\n        self.provider = provider\n        self.api_key = api_key\n\n    async def generate(self, conversation: list, instructions: dict,\n                       stream: bool = True) -> AsyncGenerator[str, None]:\n        system_prompt = self.build_system_prompt(instructions)\n        conv_text = \"\\n\".join(\n            f\"[{msg['speaker']}]: {msg['text']}\" for msg in conversation[-10:]\n        )\n",
         "applies_to": "asesoria_ia",
-        "source": "C:\\Chance1\\IA\\Asesoria_IA\\src\\ai_gateway.py",
+        "source": "Asesoria_IA\\src\\ai_gateway.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -734,7 +734,7 @@
       "fact": {
         "rule": "\"\\n\".join(\n            f\"[{msg['speaker']}]: {msg['text']}\" for msg in conversation[-10:]\n        )\n        user_msg = f\"CONVERSACION:\\n{conv_text}\\n\\nSugerencia:\"\n\n        if self.provider == \"openai\":\n            import openai\n            client = openai.AsyncOpenAI(api_key=self.api_key)\n            response = await client.chat.completions.create(\n                model=\"gpt-4o\",\n                messages=[\n                    {\"role\": \"system\", \"content\": system_prompt},\n                    {\"role\": \"user\", \"content\": user_msg},\n                ],\n                max_tokens=300,\n                stream=stream,\n            )\n            if stream:\n                async for chunk in response:\n                    delta = chunk.choices[0].delta.content\n                    if delta:\n",
         "applies_to": "asesoria_ia",
-        "source": "C:\\Chance1\\IA\\Asesoria_IA\\src\\ai_gateway.py",
+        "source": "Asesoria_IA\\src\\ai_gateway.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -759,7 +759,7 @@
       "fact": {
         "rule": " response:\n                    delta = chunk.choices[0].delta.content\n                    if delta:\n                        yield delta\n            else:\n                yield response.choices[0].message.co",
         "applies_to": "asesoria_ia",
-        "source": "C:\\Chance1\\IA\\Asesoria_IA\\src\\ai_gateway.py",
+        "source": "Asesoria_IA\\src\\ai_gateway.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -784,7 +784,7 @@
       "fact": {
         "rule": "# -*- coding: utf-8 -*-\n\"\"\"\nFastAPI server with WebSocket for real-time audio streaming and AI suggestions.\n\"\"\"\n\nimport json\nimport asyncio\nfrom typing import Optional\n\nfrom fastapi import FastAPI, WebSocket, WebSocketDisconnect, HTTPException, Depends\nfrom fastapi.staticfiles import StaticFiles\nfrom fastapi.responses import HTMLResponse, FileResponse\nfrom fastapi.security import HTTPBearer, HTTPAuthorizationCredentials\nfrom pydantic import BaseModel\n\nfrom .config import STATIC_DIR, TEMPLATES_DIR, load_instructions, save_instructions\nfrom .auth import register, login, verify_token\nfrom .ai_gateway import AIGateway\n\napp = FastAPI(title=\"Asesoria IA\", version=\"1.0.0\")\napp.mount(\"/static\", StaticFiles(directory=str(STATIC_DIR)), name=\"static\")\n\nsecurity = HTTPBearer(auto_error=False)\n",
         "applies_to": "asesoria_ia",
-        "source": "C:\\Chance1\\IA\\Asesoria_IA\\src\\server.py",
+        "source": "Asesoria_IA\\src\\server.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -809,7 +809,7 @@
       "fact": {
         "rule": "c\", StaticFiles(directory=str(STATIC_DIR)), name=\"static\")\n\nsecurity = HTTPBearer(auto_error=False)\ngateway = AIGateway()\n\n# Active WebSocket sessions\nactive_sessions: dict[str, dict] = {}\n\n# ── Auth dependency ──────────────────────────────────────\n\nasync def get_current_user(\n    credentials: Optional[HTTPAuthorizationCredentials] = Depends(security),\n) -> str:\n    if not credentials:\n        raise HTTPException(status_code=401, detail=\"No autorizado\")\n    # Test mode bypass\n    if credentials.credentials == \"test-mode\":\n        return \"test\"\n    try:\n        return verify_token(credentials.credentials)\n    except ValueError as e:\n        raise HTTPException(status_code=401, detail=str(e))\n\n# ── Models ───────────────────────────────────────────────\n\nclass AuthRequest(BaseModel):\n",
         "applies_to": "asesoria_ia",
-        "source": "C:\\Chance1\\IA\\Asesoria_IA\\src\\server.py",
+        "source": "Asesoria_IA\\src\\server.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -834,7 +834,7 @@
       "fact": {
         "rule": "str(e))\n\n# ── Models ───────────────────────────────────────────────\n\nclass AuthRequest(BaseModel):\n    username: str\n    password: str\n\nclass InstructionsModel(BaseModel):\n    role: str = \"Asesor en tiempo real\"\n    focus: str = \"\"\n    tone: str = \"profesional y conciso\"\n    language: str = \"es\"\n    restrictions: list = []\n    context: str = \"\"\n    response_style: str = \"bullet_points\"\n    max_suggestion_length: int = 200\n\nclass APIKeyModel(BaseModel):\n    name: str\n    provider: str  # openai, anthropic, google\n    api_key: str\n\nclass LoginCredModel(BaseModel):\n    name: str\n    service: str  # chatgpt, gemini, claude_web\n    username: str\n    password: str\n\n# ── HTML Pages ───────────────────────────────────────────\n\n@app.get(\"/\", response_class=HTMLResponse)\nasync def index():\n",
         "applies_to": "asesoria_ia",
-        "source": "C:\\Chance1\\IA\\Asesoria_IA\\src\\server.py",
+        "source": "Asesoria_IA\\src\\server.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -859,7 +859,7 @@
       "fact": {
         "rule": "────────────────────────────────────\n\n@app.get(\"/\", response_class=HTMLResponse)\nasync def index():\n    return FileResponse(str(TEMPLATES_DIR / \"index.html\"))\n\n# ── Auth Endpoints ───────────────────────────────────────\n\n@app.post(\"/api/auth/register\")\nasync def api_register(req: AuthRequest):\n    try:\n        return register(req.username, req.password)\n    except ValueError as e:\n        raise HTTPException(status_code=400, detail=str(e))\n\n@app.post(\"/api/auth/login\")\nasync def api_login(req: AuthRequest):\n    try:\n        return login(req.username, req.password)\n    except ValueError as e:\n        raise HTTPException(status_code=401, detail=str(e))\n\n# ── Instructions Endpoints ───────────────────────────────\n\n@app.get(\"/api/instructions\")\n",
         "applies_to": "asesoria_ia",
-        "source": "C:\\Chance1\\IA\\Asesoria_IA\\src\\server.py",
+        "source": "Asesoria_IA\\src\\server.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -884,7 +884,7 @@
       "fact": {
         "rule": "str(e))\n\n# ── Instructions Endpoints ───────────────────────────────\n\n@app.get(\"/api/instructions\")\nasync def get_instructions(user: str = Depends(get_current_user)):\n    return load_instructions(user)\n\n@app.post(\"/api/instructions\")\nasync def update_instructions(\n    instructions: InstructionsModel,\n    user: str = Depends(get_current_user),\n):\n    save_instructions(instructions.model_dump(), user)\n    return {\"status\": \"saved\", \"user\": user}\n\n# ── AI Provider Management ───────────────────────────────\n\n@app.get(\"/api/providers\")\nasync def list_providers(user: str = Depends(get_current_user)):\n    return {\"providers\": gateway.list_providers()}\n\n@app.post(\"/api/providers\")\nasync def add_provider(\n    key: APIKeyModel,\n    user: str = Depends(get_current_user),\n):\n",
         "applies_to": "asesoria_ia",
-        "source": "C:\\Chance1\\IA\\Asesoria_IA\\src\\server.py",
+        "source": "Asesoria_IA\\src\\server.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -909,7 +909,7 @@
       "fact": {
         "rule": "iders\")\nasync def add_provider(\n    key: APIKeyModel,\n    user: str = Depends(get_current_user),\n):\n    gateway.add_api_provider(key.name, key.provider, key.api_key)\n    return {\"status\": \"added\", \"name\": key.name}\n\n@app.post(\"/api/providers/login\")\nasync def add_login_provider(\n    cred: LoginCredModel,\n    user: str = Depends(get_current_user),\n):\n    \"\"\"Add provider with user/password login. Credentials stored obfuscated in memory only.\"\"\"\n    gateway.add_login_provider(cred.name, cred.service, cred.username, cred.password)\n    return {\"status\": \"added\", \"name\": cred.name, \"service\": cred.service}\n\n@app.get(\"/api/providers/credentials\")\nasync def credential_status(user: str = Depends(get_current_user)):\n",
         "applies_to": "asesoria_ia",
-        "source": "C:\\Chance1\\IA\\Asesoria_IA\\src\\server.py",
+        "source": "Asesoria_IA\\src\\server.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -934,7 +934,7 @@
       "fact": {
         "rule": "t(\"/api/providers/credentials\")\nasync def credential_status(user: str = Depends(get_current_user)):\n    \"\"\"Show which providers have credentials stored (never exposes actual values).\"\"\"\n    return gateway.get_credential_status()\n\n@app.get(\"/api/providers/test/{provider}\")\nasync def test_provider(provider: str, user: str = Depends(get_current_user)):\n    \"\"\"Test if a provider is available.\"\"\"\n    import shutil\n    import subprocess\n\n    if provider == \"claude_cli\":\n        # Check if claude CLI is installed and logged in\n        claude_path = shutil.which(\"claude\")\n        if not claude_path:\n            return {\"available\": False, \"error\": \"Claude CLI no encontrado. Instalar con: npm install -g @anthropic-ai/claude-code\"}\n        try:\n            proc = subprocess.run(\n",
         "applies_to": "asesoria_ia",
-        "source": "C:\\Chance1\\IA\\Asesoria_IA\\src\\server.py",
+        "source": "Asesoria_IA\\src\\server.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -959,7 +959,7 @@
       "fact": {
         "rule": "lar con: npm install -g @anthropic-ai/claude-code\"}\n        try:\n            proc = subprocess.run(\n                [\"claude\", \"-p\", \"responde solo: OK\"],\n                capture_output=True, text=True, timeout=15,\n            )\n            if proc.returncode == 0 and proc.stdout.strip(",
         "applies_to": "asesoria_ia",
-        "source": "C:\\Chance1\\IA\\Asesoria_IA\\src\\server.py",
+        "source": "Asesoria_IA\\src\\server.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -984,7 +984,7 @@
       "fact": {
         "rule": "# -*- coding: utf-8 -*-\n\"\"\"Authentication: user/password + JWT.\"\"\"\n\nimport json\nimport hashlib\nimport hmac\nimport secrets\nfrom datetime import datetime, timedelta\nfrom pathlib import Path\n\nfrom jose import jwt, JWTError\n\nfrom .config import DATA_DIR, JWT_SECRET, JWT_ALGORITHM, JWT_EXPIRATION_MINUTES\n\nUSERS_DB = DATA_DIR / \"users.json\"\n\ndef _hash_password(password: str, salt: str = None) -> tuple:\n    \"\"\"Hash password with SHA-256 + salt.\"\"\"\n    if salt is None:\n        salt = secrets.token_hex(16)\n    hashed = hashlib.sha256(f\"{salt}{password}\".encode()).hexdigest()\n    return hashed, salt\n\ndef _verify_password(password: str, stored_hash: str, salt: str) -> bool:\n    hashed = hashlib.sha256(f\"{salt}{password}\".encode()).hexdigest()\n    return hmac.compare_digest(hashed, stored_hash)\n\n",
         "applies_to": "asesoria_ia",
-        "source": "C:\\Chance1\\IA\\Asesoria_IA\\src\\auth.py",
+        "source": "Asesoria_IA\\src\\auth.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -1009,7 +1009,7 @@
       "fact": {
         "rule": "a256(f\"{salt}{password}\".encode()).hexdigest()\n    return hmac.compare_digest(hashed, stored_hash)\n\ndef _load_users() -> dict:\n    if USERS_DB.exists():\n        with open(USERS_DB, \"r\", encoding=\"utf-8\") as f:\n            return json.load(f)\n    return {}\n\ndef _save_users(users: dict) -> None:\n    DATA_DIR.mkdir(parents=True, exist_ok=True)\n    with open(USERS_DB, \"w\", encoding=\"utf-8\") as f:\n        json.dump(users, f, ensure_ascii=False, indent=2)\n\ndef register(username: str, password: str) -> dict:\n    \"\"\"Register a new user.\"\"\"\n    users = _load_users()\n    if username in users:\n        raise ValueError(\"Usuario ya existe\")\n    hashed, salt = _hash_password(password)\n    users[username] = {\n        \"password_hash\": hashed,\n        \"salt\": salt,\n",
         "applies_to": "asesoria_ia",
-        "source": "C:\\Chance1\\IA\\Asesoria_IA\\src\\auth.py",
+        "source": "Asesoria_IA\\src\\auth.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -1034,7 +1034,7 @@
       "fact": {
         "rule": "h_password(password)\n    users[username] = {\n        \"password_hash\": hashed,\n        \"salt\": salt,\n        \"created\": datetime.now().isoformat(),\n    }\n    _save_users(users)\n    return create_token(username)\n\ndef login(username: str, password: str) -> dict:\n    \"\"\"Login and return JWT token.\"\"\"\n    users = _load_users()\n    if username not in users:\n        raise ValueError(\"Credenciales invalidas\")\n    user = users[username]\n    if not _verify_password(password, user[\"password_hash\"], user[\"salt\"]):\n        raise ValueError(\"Credenciales invalidas\")\n    return create_token(username)\n\ndef create_token(username: str) -> dict:\n    \"\"\"Generate JWT access token.\"\"\"\n    expire = datetime.now(tz=None) + timedelta(minutes=JWT_EXPIRATION_MINUTES)\n    payload = {\"sub\": username, \"exp\": expire}\n",
         "applies_to": "asesoria_ia",
-        "source": "C:\\Chance1\\IA\\Asesoria_IA\\src\\auth.py",
+        "source": "Asesoria_IA\\src\\auth.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -1059,7 +1059,7 @@
       "fact": {
         "rule": "tz=None) + timedelta(minutes=JWT_EXPIRATION_MINUTES)\n    payload = {\"sub\": username, \"exp\": expire}\n    token = jwt.encode(payload, JWT_SECRET, algorithm=JWT_ALGORITHM)\n    return {\"access_token\": token, \"token_type\": \"bearer\", \"username\": username}\n\ndef verify_token(token: str) -> str:\n    \"\"\"Verify JWT and return username.\"\"\"\n    try:\n        payload = jwt.decode(token, JWT_SECRET, algorithms=[JWT_ALGORITHM])\n        username = payload.get(\"sub\")\n        if username is None:\n            raise ValueError(\"Token invalido\")\n        return username\n    except JWTError:\n        raise ValueError(\"Token expirado o invalido\")",
         "applies_to": "asesoria_ia",
-        "source": "C:\\Chance1\\IA\\Asesoria_IA\\src\\auth.py",
+        "source": "Asesoria_IA\\src\\auth.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -1084,7 +1084,7 @@
       "fact": {
         "rule": "# -*- coding: utf-8 -*-\n\"\"\"Configuration and environment settings.\"\"\"\n\nimport os\nimport json\nfrom pathlib import Path\n\nBASE_DIR = Path(__file__).resolve().parent.parent\nDATA_DIR = BASE_DIR / \"data\"\nTEMPLATES_DIR = BASE_DIR / \"templates\"\nSTATIC_DIR = BASE_DIR / \"static\"\n\n# Auth\nJWT_SECRET = os.getenv(\"JWT_SECRET\", \"asesoria-ia-secret-change-in-production\")\nJWT_ALGORITHM = \"HS256\"\nJWT_EXPIRATION_MINUTES = 480  # 8 hours\n\n# Database (SQLite for simplicity)\nDB_PATH = DATA_DIR / \"asesoria.db\"\n\n# Audio\nSAMPLE_RATE = 16000\nCHUNK_SIZE = 4096\n\n# Default instructions template\nDEFAULT_INSTRUCTIONS = {\n    \"role\": \"Asesor de entrevistas en tiempo real\",\n    \"focus\": \"\",\n    \"tone\": \"profesional y conciso\",\n    \"language\": \"es\",\n    \"restrictions\": [],\n    \"context\": \"\",\n",
         "applies_to": "asesoria_ia",
-        "source": "C:\\Chance1\\IA\\Asesoria_IA\\src\\config.py",
+        "source": "Asesoria_IA\\src\\config.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -1109,7 +1109,7 @@
       "fact": {
         "rule": "  \"tone\": \"profesional y conciso\",\n    \"language\": \"es\",\n    \"restrictions\": [],\n    \"context\": \"\",\n    \"response_style\": \"bullet_points\",\n    \"max_suggestion_length\": 200,\n}\n\nINSTRUCTIONS_PATH = DATA_DIR / \"instructions.json\"\n\ndef load_instructions(user_id: str = \"default\") -> dict:\n    \"\"\"Load user-specific instructions.\"\"\"\n    path = DATA_DIR / f\"instructions_{user_id}.json\"\n    if path.exists():\n        with open(path, \"r\", encoding=\"utf-8\") as f:\n            return json.load(f)\n    if INSTRUCTIONS_PATH.exists():\n        with open(INSTRUCTIONS_PATH, \"r\", encoding=\"utf-8\") as f:\n            return json.load(f)\n    return DEFAULT_INSTRUCTIONS.copy()\n\ndef save_instructions(instructions: dict, user_id: str = \"default\") -> None:\n    \"\"\"Save user-specific instructions.\"\"\"\n",
         "applies_to": "asesoria_ia",
-        "source": "C:\\Chance1\\IA\\Asesoria_IA\\src\\config.py",
+        "source": "Asesoria_IA\\src\\config.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -1134,7 +1134,7 @@
       "fact": {
         "rule": "s(instructions: dict, user_id: str = \"default\") -> None:\n    \"\"\"Save user-specific instructions.\"\"\"\n    path = DATA_DIR / f\"instructions_{user_id}.json\"\n    DATA_DIR.mkdir(parents=True, exist_ok=True)\n    with open(path, \"w\", encoding=\"utf-8\") as f:\n        json.dump(instructions, f, ensure_ascii=False, indent=2)",
         "applies_to": "asesoria_ia",
-        "source": "C:\\Chance1\\IA\\Asesoria_IA\\src\\config.py",
+        "source": "Asesoria_IA\\src\\config.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -1159,7 +1159,7 @@
       "fact": {
         "rule": "/**\n * AudioWorklet processor for real-time audio capture.\n * Captures chunks, calculates RMS for VAD, sends to main thread.\n */\nclass AudioChunkProcessor extends AudioWorkletProcessor {\n  constructor() {\n    super();\n    this.bufferSize = 4096;\n    this.buffer = new Float32Array(this.bufferSize);\n    this.bufferIndex = 0;\n  }\n\n  process(inputs) {\n    const input = inputs[0]?.[0];\n    if (!input) return true;\n\n    for (let i = 0; i < input.length; i++) {\n      this.buffer[this.bufferIndex++] = input[i];\n\n      if (this.bufferIndex >= this.bufferSize) {\n        let sum = 0;\n        for (let j = 0; j < this.bufferSize; j++) {\n          sum += this.buffer[j] * this.buffer[j];\n        }\n        const rms = Math.sqrt(sum / this.bufferSize);\n\n        // Float32 to Int16 (50% size reduction)\n",
         "applies_to": "asesoria_ia",
-        "source": "C:\\Chance1\\IA\\Asesoria_IA\\static\\audio-processor.js",
+        "source": "Asesoria_IA\\static\\audio-processor.js",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -1184,7 +1184,7 @@
       "fact": {
         "rule": "    const rms = Math.sqrt(sum / this.bufferSize);\n\n        // Float32 to Int16 (50% size reduction)\n        const int16 = new Int16Array(this.bufferSize);\n        for (let j = 0; j < this.bufferSize; j++) {\n          int16[j] = Math.max(-32768, Math.min(32767,\n            Math.floor(this.buffer[j] * 32768)));\n        }\n\n        this.port.postMessage({ audioData: int16.buffer, rms }, [int16.buffer]);\n        this.buffer = new Float32Array(this.bufferSize);\n        this.bufferIndex = 0;\n      }\n    }\n    return true;\n  }\n}\n\nregisterProcessor('audio-chunk-processor', AudioChunkProcessor);",
         "applies_to": "asesoria_ia",
-        "source": "C:\\Chance1\\IA\\Asesoria_IA\\static\\audio-processor.js",
+        "source": "Asesoria_IA\\static\\audio-processor.js",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -1209,7 +1209,7 @@
       "fact": {
         "rule": "{\"user@test.com\": {\"password_hash\": \"45dcc6bb094a614d9a7d863f2c3c6bc654d5873f8813aa0a87575845c2824da5\", \"salt\": \"cd8b24e70c5f19741de4fd650fa5aa00\", \"created\": \"2026-03-31T11:52:16.130233\"}, \"fronttest\": {\"password_hash\": \"5ebe7d67c061f3ffbc0096a6a727f3c49ae0f801fbdf1ab86f7629568d8f28df\", \"salt\": \"4f6132be78e087f99edd749cb339c0f9\", \"created\": \"2026-03-31T12:27:22.458321\"}}",
         "applies_to": "asesoria_ia",
-        "source": "C:\\Chance1\\IA\\Asesoria_IA\\data\\users.json",
+        "source": "Asesoria_IA\\data\\users.json",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -1234,7 +1234,7 @@
       "fact": {
         "rule": "{\n  \"role\": \"Asesor de entrevistas en tiempo real\",\n  \"focus\": \"\",\n  \"tone\": \"profesional y conciso\",\n  \"language\": \"es\",\n  \"restrictions\": [],\n  \"context\": \"Soy un asesor de ventas de servicios cloud en GBM. El cliente es una empresa financiera.\",\n  \"response_style\": \"bullet_points\",\n  \"max_suggestion_length\": 200\n}",
         "applies_to": "asesoria_ia",
-        "source": "C:\\Chance1\\IA\\Asesoria_IA\\data\\instructions_fronttest.json",
+        "source": "Asesoria_IA\\data\\instructions_fronttest.json",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -1259,7 +1259,7 @@
       "fact": {
         "rule": "# pytest cache directory #\n\nThis directory contains data from the pytest's cache plugin,\nwhich provides the `--lf` and `--ff` options, as well as the `cache` fixture.\n\n**Do not** commit this to version control.\n\nSee [the docs](https://docs.pytest.org/en/stable/how-to/cache.html) for more information.",
         "applies_to": "asesoria_ia",
-        "source": "C:\\Chance1\\IA\\Asesoria_IA\\.pytest_cache\\README.md",
+        "source": "Asesoria_IA\\.pytest_cache\\README.md",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -1283,7 +1283,7 @@
       "fact": {
         "rule": "fastapi>=0.110.0\nuvicorn[standard]>=0.29.0\nwebsockets>=12.0\npython-jose[cryptography]>=3.3.0\npasslib[bcrypt]>=1.7.4\npydantic>=2.0.0\naiofiles>=23.0\ndeepgram-sdk>=3.0.0\nopenai>=1.0.0\nanthropic>=0.25.0\ngoogle-generativeai>=0.5.0",
         "applies_to": "asesoria_ia",
-        "source": "C:\\Chance1\\IA\\Asesoria_IA\\requirements.txt",
+        "source": "Asesoria_IA\\requirements.txt",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -1307,7 +1307,7 @@
       "fact": {
         "rule": "#!/usr/bin/env python3\n\"\"\"Launch the Asesoria IA server.\"\"\"\nimport uvicorn\n\nif __name__ == \"__main__\":\n    uvicorn.run(\"src.server:app\", host=\"0.0.0.0\", port=8080, reload=True)",
         "applies_to": "asesoria_ia",
-        "source": "C:\\Chance1\\IA\\Asesoria_IA\\run.py",
+        "source": "Asesoria_IA\\run.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""

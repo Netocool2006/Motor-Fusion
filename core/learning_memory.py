@@ -1,7 +1,7 @@
 """
 learning_memory.py -- Motor de Memoria Adaptativa Unificado
 ============================================================
-Fusion de Motor 1 (Asistente IA) + Motor 2 (Motor_Inteligente_IA).
+Motor de memoria adaptativa para Hooks_IA.
 
 Sistema de aprendizaje incremental local que registra:
 - Patrones de interaccion exitosos

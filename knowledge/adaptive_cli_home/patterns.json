@@ -9,7 +9,7 @@
       "fact": {
         "rule": "{\n  \"domain\": \"sow\",\n  \"description\": \"Dominio auto-creado: sow\",\n  \"entries\": {},\n  \"tag_index\": {},\n  \"stats\": {\n    \"total_entries\": 0,\n    \"total_lookups\": 2,\n    \"total_hits\": 0\n  }\n}",
         "applies_to": "adaptive_cli_home",
-        "source": "C:\\Chance1\\IA\\Backup_IA\\adaptive_cli_Home\\knowledge\\sow\\patterns.json",
+        "source": "Backup_IA\\adaptive_cli_Home\\knowledge\\sow\\patterns.json",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -34,7 +34,7 @@
       "fact": {
         "rule": "{\n  \"sow\": {\n    \"description\": \"Dominio auto-creado: sow\",\n    \"file\": \"patterns.json\",\n    \"entry_type\": \"pattern\",\n    \"auto_created\": true\n  }\n}",
         "applies_to": "adaptive_cli_home",
-        "source": "C:\\Chance1\\IA\\Backup_IA\\adaptive_cli_Home\\knowledge\\domains.json",
+        "source": "Backup_IA\\adaptive_cli_Home\\knowledge\\domains.json",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""

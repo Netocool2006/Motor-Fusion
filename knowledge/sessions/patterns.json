@@ -8,7 +8,7 @@
       "key": "iter_20260320_182219_i10",
       "solution": {
         "strategy": "new_experience_capture",
-        "notes": "Iteracion 10:\n[NUEVO] Sin conocimiento previo en KB.\n  Ejecuto: cd \"C:/Chance1/Asistente IA\" && python -c \"\nimport json\nfrom pathlib import Path\n\nf = Path.home() / '.adaptive_cli' / 'k\n  Ejecuto: cd \"C:/Chance1/Asistente IA\" && python seed_gbm_knowledge.py 2>&1\n  Ejecuto: ls \"C:/Users/ntoledo/AppData/Local/ClaudeCode/.adaptive_cli/session_history.json\" 2>/dev/null && wc -c \"C:/Users/ntoledo",
+        "notes": "Iteracion 10:\n[NUEVO] Sin conocimiento previo en KB.\n  Ejecuto: cd \"\" && python -c \"\nimport json\nfrom pathlib import Path\n\nf = Path.home() / '.adaptive_cli' / 'k\n  Ejecuto: cd \"\" && python seed_gbm_knowledge.py 2>&1\n  Ejecuto: ls \"C:/Users/ntoledo/AppData/Local/ClaudeCode/.adaptive_cli/session_history.json\" 2>/dev/null && wc -c \"C:/Users/ntoledo",
         "auto_learned": true,
         "source": "post_tool_hook",
         "msg_type": "informational",
@@ -88,14 +88,14 @@
       "key": "iter_20260320_183709_i6",
       "solution": {
         "strategy": "differential_capture",
-        "notes": "Iteracion 6:\n[DIFERENCIAL] Complemento a KB existente.\n  Ejecuto: ls \"C:/Users/ntoledo/.adaptive_cli/knowledge/\" 2>/dev/null || echo \"NO EXISTE\"\n  Ejecuto: ls \"C:/Users/ntoledo/.adaptive_cli/execution_log.jsonl\" 2>/dev/null && wc -l \"C:/Users/ntoledo/.adaptive_cli/execution_l\n  Ejecuto: ls \"C:/Users/ntoledo/.motor_inteligente/\" 2>/dev/null || echo \"NO EXISTE\"\n  Ejecuto: ls -la \"C:/Users/ntoledo/.adaptive_cli/\" 2>/dev/null\n  Ejecuto: ls \"C:/Chance1/Asistente IA/.claude/hooks/\" 2>/dev/null\n  Ejecuto: ls \"C:/Chance1/Motor_Inteligente_IA/hooks/\" 2>/dev/null\n  Ejecuto: python \"C:/Chance1/Asistente IA/.claude/hooks/session_start_kb.py\" 2>&1 | tail -20\n  Ejecuto: python \"C:/Chance1/Motor_Inteligente_IA/hooks/session_start.py\" 2>&1 | tail -20\n  Leyo auto_learn_hook.py\n  Leyo session_end.py\n  Ejecuto: ls \"C:/Users/ntoledo/.adaptive_cli/session_history.json\" 2>/dev/null && echo \"EXISTE\" || echo \"NO EXISTE\"\n  Ejecuto: echo \"=== Node.js ===\" && where node 2>&1 && node --version 2>&1 && echo \"\" && echo \"=== Claude Code ===\" && where claud\n  Ejecuto: echo \"=== Ollama ===\" && where ollama 2>&1 && ollama --version 2>&1 && echo \"\" && echo \"=== Modelo qwen3 ===\" && ls \"$US\n  Ejecuto: ls \"C:/Users/ntoledo/.ollama/models/\" 2>&1 && echo \"---\" && ls -R \"C:/Users/ntoledo/.ollama/models/manifests/\" 2>&1 | he\n  Ejecuto: ollama list 2>&1",
+        "notes": "Iteracion 6:\n[DIFERENCIAL] Complemento a KB existente.\n  Ejecuto: ls \"C:/Users/ntoledo/.adaptive_cli/knowledge/\" 2>/dev/null || echo \"NO EXISTE\"\n  Ejecuto: ls \"C:/Users/ntoledo/.adaptive_cli/execution_log.jsonl\" 2>/dev/null && wc -l \"C:/Users/ntoledo/.adaptive_cli/execution_l\n  Ejecuto: ls \"C:/Users/ntoledo/.motor_inteligente/\" 2>/dev/null || echo \"NO EXISTE\"\n  Ejecuto: ls -la \"C:/Users/ntoledo/.adaptive_cli/\" 2>/dev/null\n  Ejecuto: ls \".claude/hooks/\" 2>/dev/null\n  Ejecuto: ls \"Motor_Inteligente_IA/hooks/\" 2>/dev/null\n  Ejecuto: python \".claude/hooks/session_start_kb.py\" 2>&1 | tail -20\n  Ejecuto: python \"Motor_Inteligente_IA/hooks/session_start.py\" 2>&1 | tail -20\n  Leyo auto_learn_hook.py\n  Leyo session_end.py\n  Ejecuto: ls \"C:/Users/ntoledo/.adaptive_cli/session_history.json\" 2>/dev/null && echo \"EXISTE\" || echo \"NO EXISTE\"\n  Ejecuto: echo \"=== Node.js ===\" && where node 2>&1 && node --version 2>&1 && echo \"\" && echo \"=== Claude Code ===\" && where claud\n  Ejecuto: echo \"=== Ollama ===\" && where ollama 2>&1 && ollama --version 2>&1 && echo \"\" && echo \"=== Modelo qwen3 ===\" && ls \"$US\n  Ejecuto: ls \"C:/Users/ntoledo/.ollama/models/\" 2>&1 && echo \"---\" && ls -R \"C:/Users/ntoledo/.ollama/models/manifests/\" 2>&1 | he\n  Ejecuto: ollama list 2>&1",
         "auto_learned": true,
         "source": "post_tool_hook",
         "msg_type": "informational",
         "had_kb_match": true,
         "files_touched": [
-          "C:\\Chance1\\Motor_Inteligente_IA\\hooks\\session_end.py",
-          "C:\\Chance1\\Asistente IA\\.claude\\hooks\\auto_learn_hook.py"
+          "Motor_Inteligente_IA\\hooks\\session_end.py",
+          ".claude\\hooks\\auto_learn_hook.py"
         ],
         "activity": {
           "reads": 2,
@@ -131,7 +131,7 @@
       "key": "iter_20260320_184221_i1",
       "solution": {
         "strategy": "differential_capture",
-        "notes": "Iteracion 1:\n[DIFERENCIAL] Complemento a KB existente.\n  Glob: **/*.md\n  Ejecuto: echo \"=== 9. HOOK LIVE TEST - PostToolUse ===\" && echo '{\"session_id\":\"test_health\",\"hook_event_name\":\"PostToolUse\",\"too\n  Ejecuto: echo \"=== 11. KB PATTERN COUNTS ===\" && python -c \"\nimport json\nfrom pathlib import Path\nkb = Path.home() / '.adaptive_c\n  Ejecuto: echo \"=== 13b. EPISODIC INDEX - tables ===\" && python -c \"\nimport sqlite3\nfrom pathlib import Path\ndb = Path.home() / '.\n  Ejecuto: echo \"=== 14. MOTOR_INTELIGENTE HOOKS ===\" && echo \"No hooks del Motor registrados en settings.json (fueron limpiados po\n  Ejecuto: powershell -c \"\n\\$s = Get-Content 'C:\\Users\\ntoledo\\.claude\\settings.json' -Raw | ConvertFrom-Json\n\\$hooks = \\$s.hooks\nf\n  Ejecuto: echo '{\"session_id\":\"health\",\"hook_event_name\":\"PostToolUse\",\"tool_name\":\"Bash\",\"tool_input\":{\"command\":\"echo health\"}}'\n  Ejecuto: echo '{\"session_id\":\"health\",\"hook_event_name\":\"PostToolUse\",\"tool_name\":\"Bash\",\"tool_input\":{\"command\":\"echo health\"}}'\n  Ejecuto: echo '{\"session_id\":\"health\",\"user_message\":\"test health\",\"hook_event_name\":\"UserPromptSubmit\"}' | python \"C:/Chance1/As\n  Ejecuto: echo '{\"session_id\":\"health\",\"user_message\":\"test health\",\"hook_event_name\":\"UserPromptSubmit\"}' | python \"C:/Chance1/Mo\n  Ejecuto: echo '{\"session_id\":\"health\",\"transcript_path\":\"\",\"last_assistant_message\":\"test\",\"cwd\":\"C:\\\\Chance1\",\"hook_event_name\":\n  Ejecuto: echo '{\"session_id\":\"health\",\"transcript_path\":\"\",\"last_assistant_message\":\"test\",\"cwd\":\"C:\\\\Chanc",
+        "notes": "Iteracion 1:\n[DIFERENCIAL] Complemento a KB existente.\n  Glob: **/*.md\n  Ejecuto: echo \"=== 9. HOOK LIVE TEST - PostToolUse ===\" && echo '{\"session_id\":\"test_health\",\"hook_event_name\":\"PostToolUse\",\"too\n  Ejecuto: echo \"=== 11. KB PATTERN COUNTS ===\" && python -c \"\nimport json\nfrom pathlib import Path\nkb = Path.home() / '.adaptive_c\n  Ejecuto: echo \"=== 13b. EPISODIC INDEX - tables ===\" && python -c \"\nimport sqlite3\nfrom pathlib import Path\ndb = Path.home() / '.\n  Ejecuto: echo \"=== 14. MOTOR_INTELIGENTE HOOKS ===\" && echo \"No hooks del Motor registrados en settings.json (fueron limpiados po\n  Ejecuto: powershell -c \"\n\\$s = Get-Content 'C:\\Users\\ntoledo\\.claude\\settings.json' -Raw | ConvertFrom-Json\n\\$hooks = \\$s.hooks\nf\n  Ejecuto: echo '{\"session_id\":\"health\",\"hook_event_name\":\"PostToolUse\",\"tool_name\":\"Bash\",\"tool_input\":{\"command\":\"echo health\"}}'\n  Ejecuto: echo '{\"session_id\":\"health\",\"hook_event_name\":\"PostToolUse\",\"tool_name\":\"Bash\",\"tool_input\":{\"command\":\"echo health\"}}'\n  Ejecuto: echo '{\"session_id\":\"health\",\"user_message\":\"test health\",\"hook_event_name\":\"UserPromptSubmit\"}' | python \"As\n  Ejecuto: echo '{\"session_id\":\"health\",\"user_message\":\"test health\",\"hook_event_name\":\"UserPromptSubmit\"}' | python \"Mo\n  Ejecuto: echo '{\"session_id\":\"health\",\"transcript_path\":\"\",\"last_assistant_message\":\"test\",\"cwd\":\"C:\\\\Hooks_IA\",\"hook_event_name\":\n  Ejecuto: echo '{\"session_id\":\"health\",\"transcript_path\":\"\",\"last_assistant_message\":\"test\",\"cwd\":\"C:\\\\Chanc",
         "auto_learned": true,
         "source": "post_tool_hook",
         "msg_type": "informational",
@@ -11451,14 +11451,14 @@
       "key": "iter_20260329_125425_i3",
       "solution": {
         "strategy": "differential_capture",
-        "notes": "Iteracion 3:\n[DIFERENCIAL] Complemento a KB existente.\n  Edito test_live_claude.py > cambio: def call_claude(prompt: str, timeout: int = 120) -> dict:    -> def call_claude(\n  Ejecuto: cd \"C:\\Chance1\\Asistente IA\" && python test_frontend_e2e.py 2>&1\n  Ejecuto: cd \"C:\\Chance1\\Asistente IA\" && python test_live_claude.py 2>&1\n  WebFetch\n  WebFetch\n  WebFetch\n  WebFetch\n  Leyo project_motor_fusion.md\n  Busco 'session_history' en project_motor_fusion.md\n  Edito project_motor_fusion.md > cambio: 4. **`.gitignore`** â€” Bloquea `session_history.json`, `exe -> 4. **`.gitignore\n  Edito project_motor_fusion.md > cambio: - [ ] `.gitignore` bloquea datos sensibles (session_history, -> - [ ] `.gitignor",
+        "notes": "Iteracion 3:\n[DIFERENCIAL] Complemento a KB existente.\n  Edito test_live_claude.py > cambio: def call_claude(prompt: str, timeout: int = 120) -> dict:    -> def call_claude(\n  Ejecuto: cd \"\" && python test_frontend_e2e.py 2>&1\n  Ejecuto: cd \"\" && python test_live_claude.py 2>&1\n  WebFetch\n  WebFetch\n  WebFetch\n  WebFetch\n  Leyo project_motor_fusion.md\n  Busco 'session_history' en project_motor_fusion.md\n  Edito project_motor_fusion.md > cambio: 4. **`.gitignore`** â€” Bloquea `session_history.json`, `exe -> 4. **`.gitignore\n  Edito project_motor_fusion.md > cambio: - [ ] `.gitignore` bloquea datos sensibles (session_history, -> - [ ] `.gitignor",
         "auto_learned": true,
         "source": "post_tool_hook",
         "msg_type": "informational",
         "had_kb_match": true,
         "files_touched": [
-          "C:\\Chance1\\Asistente IA\\test_live_claude.py",
-          "C:\\Users\\ntoledo\\.claude\\projects\\C--Chance1\\memory\\project_motor_fusion.md"
+          "test_live_claude.py",
+          "C:\\Users\\ntoledo\\.claude\\projects\\C--Hooks_IA\\memory\\project_motor_fusion.md"
         ],
         "activity": {
           "reads": 1,
@@ -11518,13 +11518,13 @@
       "key": "iter_20260329_181800_i107",
       "solution": {
         "strategy": "differential_capture",
-        "notes": "Iteracion 107:\n[DIFERENCIAL] Complemento a KB existente.\n  Ejecuto: grep -n \"^def search_pattern\" /c/Chance1/Motor_IA/core/learning_memory.py -A 10 && echo \"---\" && grep -n \"^def \\|^class \n  Ejecuto: grep -n \"GENERIC_TAGS\\|generic_tags\\|2 tags\\|non.generic\" /c/Chance1/Motor_IA/core/learning_memory.py | head -10 && echo\n  Ejecuto: grep -n \"CONFIDENCE_THRESHOLD\" /c/Chance1/Motor_IA/core/learning_memory.py | head -5 && grep -n \"^def rebuild_from_histo\n  Ejecuto: grep -n \"^SESSION_HISTORY_FILE\\|^DB_FILE\\|^DB_PATH\" /c/Chance1/Motor_IA/core/episodic_index.py | head -10\n  Ejecuto: grep -n \"SESSION_HISTORY\\|DB_FILE\\|DATA_DIR\" /c/Chance1/Motor_IA/core/episodic_index.py | head -15\n  Edito test_226.py > cambio: def t_3_3_2():     register_pattern(task_type=\"tag_search\",  -> def t_3_3_2():  ",
+        "notes": "Iteracion 107:\n[DIFERENCIAL] Complemento a KB existente.\n  Ejecuto: grep -n \"^def search_pattern\" /c/Hooks_IA/Motor_IA/core/learning_memory.py -A 10 && echo \"---\" && grep -n \"^def \\|^class \n  Ejecuto: grep -n \"GENERIC_TAGS\\|generic_tags\\|2 tags\\|non.generic\" /c/Hooks_IA/Motor_IA/core/learning_memory.py | head -10 && echo\n  Ejecuto: grep -n \"CONFIDENCE_THRESHOLD\" /c/Hooks_IA/Motor_IA/core/learning_memory.py | head -5 && grep -n \"^def rebuild_from_histo\n  Ejecuto: grep -n \"^SESSION_HISTORY_FILE\\|^DB_FILE\\|^DB_PATH\" /c/Hooks_IA/Motor_IA/core/episodic_index.py | head -10\n  Ejecuto: grep -n \"SESSION_HISTORY\\|DB_FILE\\|DATA_DIR\" /c/Hooks_IA/Motor_IA/core/episodic_index.py | head -15\n  Edito test_226.py > cambio: def t_3_3_2():     register_pattern(task_type=\"tag_search\",  -> def t_3_3_2():  ",
         "auto_learned": true,
         "source": "post_tool_hook",
         "msg_type": "instruction",
         "had_kb_match": true,
         "files_touched": [
-          "C:\\Chance1\\Motor_IA\\tests\\test_226.py"
+          "Motor_IA\\tests\\test_226.py"
         ],
         "activity": {
           "reads": 0,
@@ -11566,8 +11566,8 @@
         "msg_type": "instruction",
         "had_kb_match": true,
         "files_touched": [
-          "C:/Chance1/Motor_IA/core/episodic_index.py",
-          "C:/Chance1/Motor_IA/core/knowledge_base.py"
+          "Motor_IA/core/episodic_index.py",
+          "Motor_IA/core/knowledge_base.py"
         ],
         "activity": {
           "reads": 1,
@@ -11603,14 +11603,14 @@
       "key": "iter_20260329_195919_i157",
       "solution": {
         "strategy": "differential_capture",
-        "notes": "Iteracion 157:\n[DIFERENCIAL] Complemento a KB existente.\n  TodoWrite\n  Ejecuto: grep -n \"def register_pattern\\|def search_pattern\\|\\\"scope\\\"\\|'scope'\" C:/Chance1/Motor_IA/core/learning_memory.py | hea\n  Leyo learning_memory.py\n  Ejecuto: grep -n \"VALID_SCOPES\\|personal\\|project\" C:/Chance1/Motor_IA/core/learning_memory.py | head -15\n  Ejecuto: grep -n \"def timeline\\|def.*timeline\\|before.*after\\|window\" C:/Chance1/Motor_IA/core/episodic_index.py | head -20\n  Ejecuto: grep -n \"^def \" C:/Chance1/Motor_IA/core/episodic_index.py && ls C:/Chance1/Motor_IA/core/ && ls C:/Chance1/Motor_IA/\n  Ejecuto: grep -n \"def \\|chunk\\|compress\" C:/Chance1/Motor_IA/sync_to_github.py | head -30\n  Leyo episodic_index.py\n  Leyo episodic_index.py\n  TodoWrite",
+        "notes": "Iteracion 157:\n[DIFERENCIAL] Complemento a KB existente.\n  TodoWrite\n  Ejecuto: grep -n \"def register_pattern\\|def search_pattern\\|\\\"scope\\\"\\|'scope'\" Motor_IA/core/learning_memory.py | hea\n  Leyo learning_memory.py\n  Ejecuto: grep -n \"VALID_SCOPES\\|personal\\|project\" Motor_IA/core/learning_memory.py | head -15\n  Ejecuto: grep -n \"def timeline\\|def.*timeline\\|before.*after\\|window\" Motor_IA/core/episodic_index.py | head -20\n  Ejecuto: grep -n \"^def \" Motor_IA/core/episodic_index.py && ls Motor_IA/core/ && ls Motor_IA/\n  Ejecuto: grep -n \"def \\|chunk\\|compress\" Motor_IA/sync_to_github.py | head -30\n  Leyo episodic_index.py\n  Leyo episodic_index.py\n  TodoWrite",
         "auto_learned": true,
         "source": "post_tool_hook",
         "msg_type": "instruction",
         "had_kb_match": true,
         "files_touched": [
-          "C:\\Chance1\\Motor_IA\\core\\episodic_index.py",
-          "C:\\Chance1\\Motor_IA\\core\\learning_memory.py"
+          "Motor_IA\\core\\episodic_index.py",
+          "Motor_IA\\core\\learning_memory.py"
         ],
         "activity": {
           "reads": 3,
@@ -11652,7 +11652,7 @@
         "msg_type": "instruction",
         "had_kb_match": true,
         "files_touched": [
-          "C:\\Chance1\\Motor_IA\\core\\episodic_index.py"
+          "Motor_IA\\core\\episodic_index.py"
         ],
         "activity": {
           "reads": 0,
@@ -11688,14 +11688,14 @@
       "key": "iter_20260329_200316_i163",
       "solution": {
         "strategy": "differential_capture",
-        "notes": "Iteracion 163:\n[DIFERENCIAL] Complemento a KB existente.\n  Creo tui.py\n  Ejecuto: cd C:/Chance1/Motor_IA && python -c \"\nfrom core.episodic_index import timeline_search, get_stats\nfrom core.http_api impo\n  Leyo test_exhaustivo_fusion.py",
+        "notes": "Iteracion 163:\n[DIFERENCIAL] Complemento a KB existente.\n  Creo tui.py\n  Ejecuto: cd Motor_IA && python -c \"\nfrom core.episodic_index import timeline_search, get_stats\nfrom core.http_api impo\n  Leyo test_exhaustivo_fusion.py",
         "auto_learned": true,
         "source": "post_tool_hook",
         "msg_type": "instruction",
         "had_kb_match": true,
         "files_touched": [
-          "C:\\Chance1\\Motor_IA\\core\\tui.py",
-          "C:\\Chance1\\Motor_IA\\tests\\test_exhaustivo_fusion.py"
+          "Motor_IA\\core\\tui.py",
+          "Motor_IA\\tests\\test_exhaustivo_fusion.py"
         ],
         "activity": {
           "reads": 1,
@@ -11731,7 +11731,7 @@
       "key": "iter_20260329_200455_i167",
       "solution": {
         "strategy": "differential_capture",
-        "notes": "Iteracion 167:\n[DIFERENCIAL] Complemento a KB existente.\n  Ejecuto: cd C:/Chance1/Motor_IA && python tests/test_engram_gaps.py 2>&1 | tail -3 && python tests/test_226.py 2>&1 | tail -3\n  Ejecuto: cd C:/Chance1/Motor_IA && python tests/test_226.py 2>&1 | grep TOTAL\n  Ejecuto: cd C:/Chance1/Motor_IA && git add core/episodic_index.py core/http_api.py core/tui.py sync_to_github.py tests/test_exhau",
+        "notes": "Iteracion 167:\n[DIFERENCIAL] Complemento a KB existente.\n  Ejecuto: cd Motor_IA && python tests/test_engram_gaps.py 2>&1 | tail -3 && python tests/test_226.py 2>&1 | tail -3\n  Ejecuto: cd Motor_IA && python tests/test_226.py 2>&1 | grep TOTAL\n  Ejecuto: cd Motor_IA && git add core/episodic_index.py core/http_api.py core/tui.py sync_to_github.py tests/test_exhau",
         "auto_learned": true,
         "source": "post_tool_hook",
         "msg_type": "instruction",
@@ -12219,6 +12219,798 @@
         "cited_in_tasks": 0,
         "last_accessed": "2026-04-04T02:00:35.562882+00:00",
         "access_count": 5
+      }
+    },
+    "5b6fbe6a9b93": {
+      "id": "5b6fbe6a9b93",
+      "type": "fact",
+      "key": "episodic_20260401_110814",
+      "fact": {
+        "rule": "que el dashboard que estaba en la pantalla era de una instancia anterior. Déjame iniciar el servidor limpiamente y verificar en el navegador:",
+        "applies_to": "sesion 20260401_110814, dominio general",
+        "confidence": "observed",
+        "source": "auto_episodic_extraction"
+      },
+      "tags": [
+        "episodic",
+        "auto-learned",
+        "general"
+      ],
+      "created_at": "2026-04-01T17:08:14.556440+00:00",
+      "updated_at": "2026-04-01T17:08:14.556440+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-01T17:08:45.707590+00:00",
+        "access_count": 1
+      }
+    },
+    "72dda290b028": {
+      "id": "72dda290b028",
+      "type": "fact",
+      "key": "episodic_20260401_111006",
+      "fact": {
+        "rule": "que el dashboard que estaba en la pantalla era de una instancia anterior. Déjame iniciar el servidor limpiamente y verificar en el navegador:",
+        "applies_to": "sesion 20260401_111006, dominio general",
+        "confidence": "observed",
+        "source": "auto_episodic_extraction"
+      },
+      "tags": [
+        "episodic",
+        "auto-learned",
+        "general"
+      ],
+      "created_at": "2026-04-01T17:10:06.038544+00:00",
+      "updated_at": "2026-04-01T17:10:06.038544+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-01T17:10:06.038544+00:00",
+        "access_count": 0
+      }
+    },
+    "973b3f5f08e8": {
+      "id": "973b3f5f08e8",
+      "type": "fact",
+      "key": "episodic_20260401_111029",
+      "fact": {
+        "rule": "que el dashboard que estaba en la pantalla era de una instancia anterior. Déjame iniciar el servidor limpiamente y verificar en el navegador:",
+        "applies_to": "sesion 20260401_111029, dominio general",
+        "confidence": "observed",
+        "source": "auto_episodic_extraction"
+      },
+      "tags": [
+        "episodic",
+        "auto-learned",
+        "general"
+      ],
+      "created_at": "2026-04-01T17:10:29.573646+00:00",
+      "updated_at": "2026-04-01T17:10:29.573646+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-01T17:10:29.573646+00:00",
+        "access_count": 0
+      }
+    },
+    "d0fdad58f361": {
+      "id": "d0fdad58f361",
+      "type": "fact",
+      "key": "episodic_20260401_111042",
+      "fact": {
+        "rule": "que el dashboard que estaba en la pantalla era de una instancia anterior. Déjame iniciar el servidor limpiamente y verificar en el navegador:",
+        "applies_to": "sesion 20260401_111042, dominio general",
+        "confidence": "observed",
+        "source": "auto_episodic_extraction"
+      },
+      "tags": [
+        "episodic",
+        "auto-learned",
+        "general"
+      ],
+      "created_at": "2026-04-01T17:10:42.057137+00:00",
+      "updated_at": "2026-04-01T17:10:42.057137+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-01T17:10:42.057137+00:00",
+        "access_count": 0
+      }
+    },
+    "985558a1cb1c": {
+      "id": "985558a1cb1c",
+      "type": "fact",
+      "key": "episodic_20260401_111242",
+      "fact": {
+        "rule": "que el dashboard que estaba en la pantalla era de una instancia anterior. Déjame iniciar el servidor limpiamente y verificar en el navegador:",
+        "applies_to": "sesion 20260401_111242, dominio general",
+        "confidence": "observed",
+        "source": "auto_episodic_extraction"
+      },
+      "tags": [
+        "episodic",
+        "auto-learned",
+        "general"
+      ],
+      "created_at": "2026-04-01T17:12:42.086021+00:00",
+      "updated_at": "2026-04-01T17:12:42.086021+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-01T17:12:42.086021+00:00",
+        "access_count": 0
+      }
+    },
+    "8034137db385": {
+      "id": "8034137db385",
+      "type": "fact",
+      "key": "episodic_20260401_111615",
+      "fact": {
+        "rule": "que el dashboard que estaba en la pantalla era de una instancia anterior. Déjame iniciar el servidor limpiamente y verificar en el navegador:",
+        "applies_to": "sesion 20260401_111615, dominio general",
+        "confidence": "observed",
+        "source": "auto_episodic_extraction"
+      },
+      "tags": [
+        "episodic",
+        "auto-learned",
+        "general"
+      ],
+      "created_at": "2026-04-01T17:16:15.949860+00:00",
+      "updated_at": "2026-04-01T17:16:15.949860+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-01T17:16:15.949860+00:00",
+        "access_count": 0
+      }
+    },
+    "4abb823d60a2": {
+      "id": "4abb823d60a2",
+      "type": "fact",
+      "key": "episodic_20260401_112702",
+      "fact": {
+        "rule": "que el dashboard que estaba en la pantalla era de una instancia anterior. Déjame iniciar el servidor limpiamente y verificar en el navegador:",
+        "applies_to": "sesion 20260401_112702, dominio general",
+        "confidence": "observed",
+        "source": "auto_episodic_extraction"
+      },
+      "tags": [
+        "episodic",
+        "auto-learned",
+        "general"
+      ],
+      "created_at": "2026-04-01T17:27:02.997021+00:00",
+      "updated_at": "2026-04-01T17:27:02.997021+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-01T17:27:02.997021+00:00",
+        "access_count": 0
+      }
+    },
+    "3c1612551659": {
+      "id": "3c1612551659",
+      "type": "fact",
+      "key": "episodic_20260401_113100",
+      "fact": {
+        "rule": "que el dashboard que estaba en la pantalla era de una instancia anterior. Déjame iniciar el servidor limpiamente y verificar en el navegador:",
+        "applies_to": "sesion 20260401_113100, dominio general",
+        "confidence": "observed",
+        "source": "auto_episodic_extraction"
+      },
+      "tags": [
+        "episodic",
+        "auto-learned",
+        "general"
+      ],
+      "created_at": "2026-04-01T17:31:00.234049+00:00",
+      "updated_at": "2026-04-01T17:31:00.234049+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-01T17:31:00.234049+00:00",
+        "access_count": 0
+      }
+    },
+    "494067ba36d3": {
+      "id": "494067ba36d3",
+      "type": "fact",
+      "key": "episodic_20260401_113830",
+      "fact": {
+        "rule": "que el dashboard que estaba en la pantalla era de una instancia anterior. Déjame iniciar el servidor limpiamente y verificar en el navegador:; zombie processes on port 9000 running old code. The clean server on port 8888 returns everything correctly.  Let me verify the state and clean up any remaining issues:",
+        "applies_to": "sesion 20260401_113830, dominio general",
+        "confidence": "observed",
+        "source": "auto_episodic_extraction"
+      },
+      "tags": [
+        "episodic",
+        "auto-learned",
+        "general"
+      ],
+      "created_at": "2026-04-01T17:38:30.134146+00:00",
+      "updated_at": "2026-04-01T17:38:30.134146+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-01T17:38:30.134146+00:00",
+        "access_count": 0
+      }
+    },
+    "580e99917047": {
+      "id": "580e99917047",
+      "type": "fact",
+      "key": "episodic_20260401_114340",
+      "fact": {
+        "rule": "que el dashboard que estaba en la pantalla era de una instancia anterior. Déjame iniciar el servidor limpiamente y verificar en el navegador:; zombie processes on port 9000 running old code. The clean server on port 8888 returns everything correctly.  Let me verify the state and clean up any remaining issues:",
+        "applies_to": "sesion 20260401_114340, dominio general",
+        "confidence": "observed",
+        "source": "auto_episodic_extraction"
+      },
+      "tags": [
+        "episodic",
+        "auto-learned",
+        "general"
+      ],
+      "created_at": "2026-04-01T17:43:40.067134+00:00",
+      "updated_at": "2026-04-01T17:43:40.067134+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-01T17:43:40.067134+00:00",
+        "access_count": 0
+      }
+    },
+    "f5bf76a95e34": {
+      "id": "f5bf76a95e34",
+      "type": "fact",
+      "key": "episodic_20260401_114356",
+      "fact": {
+        "rule": "que el dashboard que estaba en la pantalla era de una instancia anterior. Déjame iniciar el servidor limpiamente y verificar en el navegador:; zombie processes on port 9000 running old code. The clean server on port 8888 returns everything correctly.  Let me verify the state and clean up any remaining issues:",
+        "applies_to": "sesion 20260401_114356, dominio general",
+        "confidence": "observed",
+        "source": "auto_episodic_extraction"
+      },
+      "tags": [
+        "episodic",
+        "auto-learned",
+        "general"
+      ],
+      "created_at": "2026-04-01T17:43:56.488601+00:00",
+      "updated_at": "2026-04-01T17:43:56.488601+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-01T17:43:56.488601+00:00",
+        "access_count": 0
+      }
+    },
+    "59ba70547a2d": {
+      "id": "59ba70547a2d",
+      "type": "fact",
+      "key": "episodic_20260401_114522",
+      "fact": {
+        "rule": "que el dashboard que estaba en la pantalla era de una instancia anterior. Déjame iniciar el servidor limpiamente y verificar en el navegador:; zombie processes on port 9000 running old code. The clean server on port 8888 returns everything correctly.  Let me verify the state and clean up any remaining issues:",
+        "applies_to": "sesion 20260401_114522, dominio general",
+        "confidence": "observed",
+        "source": "auto_episodic_extraction"
+      },
+      "tags": [
+        "episodic",
+        "auto-learned",
+        "general"
+      ],
+      "created_at": "2026-04-01T17:45:22.556182+00:00",
+      "updated_at": "2026-04-01T17:45:22.556182+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-01T17:45:22.556182+00:00",
+        "access_count": 0
+      }
+    },
+    "51edec2e4273": {
+      "id": "51edec2e4273",
+      "type": "fact",
+      "key": "episodic_20260401_114606",
+      "fact": {
+        "rule": "que el dashboard que estaba en la pantalla era de una instancia anterior. Déjame iniciar el servidor limpiamente y verificar en el navegador:; zombie processes on port 9000 running old code. The clean server on port 8888 returns everything correctly.  Let me verify the state and clean up any remaining issues:",
+        "applies_to": "sesion 20260401_114606, dominio general",
+        "confidence": "observed",
+        "source": "auto_episodic_extraction"
+      },
+      "tags": [
+        "episodic",
+        "auto-learned",
+        "general"
+      ],
+      "created_at": "2026-04-01T17:46:06.384613+00:00",
+      "updated_at": "2026-04-01T17:46:06.384613+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-01T17:46:06.384613+00:00",
+        "access_count": 0
+      }
+    },
+    "17802ef343c9": {
+      "id": "17802ef343c9",
+      "type": "fact",
+      "key": "episodic_20260401_114907",
+      "fact": {
+        "rule": "que el dashboard que estaba en la pantalla era de una instancia anterior. Déjame iniciar el servidor limpiamente y verificar en el navegador:; zombie processes on port 9000 running old code. The clean server on port 8888 returns everything correctly.  Let me verify the state and clean up any remaining issues:",
+        "applies_to": "sesion 20260401_114907, dominio general",
+        "confidence": "observed",
+        "source": "auto_episodic_extraction"
+      },
+      "tags": [
+        "episodic",
+        "auto-learned",
+        "general"
+      ],
+      "created_at": "2026-04-01T17:49:07.627938+00:00",
+      "updated_at": "2026-04-01T17:49:07.627938+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-01T17:49:07.627938+00:00",
+        "access_count": 0
+      }
+    },
+    "8e1704a7be23": {
+      "id": "8e1704a7be23",
+      "type": "fact",
+      "key": "episodic_20260401_115146",
+      "fact": {
+        "rule": "que el dashboard que estaba en la pantalla era de una instancia anterior. Déjame iniciar el servidor limpiamente y verificar en el navegador:; zombie processes on port 9000 running old code. The clean server on port 8888 returns everything correctly.  Let me verify the state and clean up any remaining issues:",
+        "applies_to": "sesion 20260401_115146, dominio general",
+        "confidence": "observed",
+        "source": "auto_episodic_extraction"
+      },
+      "tags": [
+        "episodic",
+        "auto-learned",
+        "general"
+      ],
+      "created_at": "2026-04-01T17:51:46.416542+00:00",
+      "updated_at": "2026-04-01T17:51:46.416542+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-01T17:51:46.416542+00:00",
+        "access_count": 0
+      }
+    },
+    "9ec27952a3c1": {
+      "id": "9ec27952a3c1",
+      "type": "fact",
+      "key": "episodic_20260401_115220",
+      "fact": {
+        "rule": "que el dashboard que estaba en la pantalla era de una instancia anterior. Déjame iniciar el servidor limpiamente y verificar en el navegador:; zombie processes on port 9000 running old code. The clean server on port 8888 returns everything correctly.  Let me verify the state and clean up any remaining issues:",
+        "applies_to": "sesion 20260401_115220, dominio general",
+        "confidence": "observed",
+        "source": "auto_episodic_extraction"
+      },
+      "tags": [
+        "episodic",
+        "auto-learned",
+        "general"
+      ],
+      "created_at": "2026-04-01T17:52:20.712722+00:00",
+      "updated_at": "2026-04-01T17:52:20.712722+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-01T17:52:20.712722+00:00",
+        "access_count": 0
+      }
+    },
+    "9ea2615b008f": {
+      "id": "9ea2615b008f",
+      "type": "fact",
+      "key": "episodic_20260401_115441",
+      "fact": {
+        "rule": "que el dashboard que estaba en la pantalla era de una instancia anterior. Déjame iniciar el servidor limpiamente y verificar en el navegador:; zombie processes on port 9000 running old code. The clean server on port 8888 returns everything correctly.  Let me verify the state and clean up any remaining issues:",
+        "applies_to": "sesion 20260401_115441, dominio general",
+        "confidence": "observed",
+        "source": "auto_episodic_extraction"
+      },
+      "tags": [
+        "episodic",
+        "auto-learned",
+        "general"
+      ],
+      "created_at": "2026-04-01T17:54:41.377406+00:00",
+      "updated_at": "2026-04-01T17:54:41.377406+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-01T17:54:41.377406+00:00",
+        "access_count": 0
+      }
+    },
+    "c879b412ce3b": {
+      "id": "c879b412ce3b",
+      "type": "fact",
+      "key": "episodic_20260401_115521",
+      "fact": {
+        "rule": "que el dashboard que estaba en la pantalla era de una instancia anterior. Déjame iniciar el servidor limpiamente y verificar en el navegador:; zombie processes on port 9000 running old code. The clean server on port 8888 returns everything correctly.  Let me verify the state and clean up any remaining issues:",
+        "applies_to": "sesion 20260401_115521, dominio general",
+        "confidence": "observed",
+        "source": "auto_episodic_extraction"
+      },
+      "tags": [
+        "episodic",
+        "auto-learned",
+        "general"
+      ],
+      "created_at": "2026-04-01T17:55:21.429223+00:00",
+      "updated_at": "2026-04-01T17:55:21.429223+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-01T17:55:21.429223+00:00",
+        "access_count": 0
+      }
+    },
+    "9f512de96055": {
+      "id": "9f512de96055",
+      "type": "fact",
+      "key": "episodic_20260401_115922",
+      "fact": {
+        "rule": "que el dashboard que estaba en la pantalla era de una instancia anterior. Déjame iniciar el servidor limpiamente y verificar en el navegador:; zombie processes on port 9000 running old code. The clean server on port 8888 returns everything correctly.  Let me verify the state and clean up any remaining issues:",
+        "applies_to": "sesion 20260401_115922, dominio general",
+        "confidence": "observed",
+        "source": "auto_episodic_extraction"
+      },
+      "tags": [
+        "episodic",
+        "auto-learned",
+        "general"
+      ],
+      "created_at": "2026-04-01T17:59:22.841750+00:00",
+      "updated_at": "2026-04-01T17:59:22.841750+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-01T17:59:22.841750+00:00",
+        "access_count": 0
+      }
+    },
+    "4d7ee7496720": {
+      "id": "4d7ee7496720",
+      "type": "fact",
+      "key": "episodic_20260401_120457",
+      "fact": {
+        "rule": "que el dashboard que estaba en la pantalla era de una instancia anterior. Déjame iniciar el servidor limpiamente y verificar en el navegador:; zombie processes on port 9000 running old code. The clean server on port 8888 returns everything correctly.  Let me verify the state and clean up any remaining issues:",
+        "applies_to": "sesion 20260401_120457, dominio general",
+        "confidence": "observed",
+        "source": "auto_episodic_extraction"
+      },
+      "tags": [
+        "episodic",
+        "auto-learned",
+        "general"
+      ],
+      "created_at": "2026-04-01T18:04:57.837684+00:00",
+      "updated_at": "2026-04-01T18:04:57.837684+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-01T18:04:57.837684+00:00",
+        "access_count": 0
+      }
+    },
+    "631c14005558": {
+      "id": "631c14005558",
+      "type": "fact",
+      "key": "episodic_20260401_121014",
+      "fact": {
+        "rule": "que el dashboard que estaba en la pantalla era de una instancia anterior. Déjame iniciar el servidor limpiamente y verificar en el navegador:; zombie processes on port 9000 running old code. The clean server on port 8888 returns everything correctly.  Let me verify the state and clean up any remaining issues:",
+        "applies_to": "sesion 20260401_121014, dominio general",
+        "confidence": "observed",
+        "source": "auto_episodic_extraction"
+      },
+      "tags": [
+        "episodic",
+        "auto-learned",
+        "general"
+      ],
+      "created_at": "2026-04-01T18:10:15.055046+00:00",
+      "updated_at": "2026-04-01T18:10:15.055046+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-01T18:10:15.055046+00:00",
+        "access_count": 0
+      }
+    },
+    "8332c3f2f967": {
+      "id": "8332c3f2f967",
+      "type": "fact",
+      "key": "episodic_20260401_121148",
+      "fact": {
+        "rule": "que el dashboard que estaba en la pantalla era de una instancia anterior. Déjame iniciar el servidor limpiamente y verificar en el navegador:; zombie processes on port 9000 running old code. The clean server on port 8888 returns everything correctly.  Let me verify the state and clean up any remaining issues:",
+        "applies_to": "sesion 20260401_121148, dominio general",
+        "confidence": "observed",
+        "source": "auto_episodic_extraction"
+      },
+      "tags": [
+        "episodic",
+        "auto-learned",
+        "general"
+      ],
+      "created_at": "2026-04-01T18:11:48.118168+00:00",
+      "updated_at": "2026-04-01T18:11:48.118168+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-01T18:11:48.118168+00:00",
+        "access_count": 0
+      }
+    },
+    "ed3f8b447ea8": {
+      "id": "ed3f8b447ea8",
+      "type": "fact",
+      "key": "episodic_20260401_121422",
+      "fact": {
+        "rule": "que el dashboard que estaba en la pantalla era de una instancia anterior. Déjame iniciar el servidor limpiamente y verificar en el navegador:; zombie processes on port 9000 running old code. The clean server on port 8888 returns everything correctly.  Let me verify the state and clean up any remaining issues:",
+        "applies_to": "sesion 20260401_121422, dominio general",
+        "confidence": "observed",
+        "source": "auto_episodic_extraction"
+      },
+      "tags": [
+        "episodic",
+        "auto-learned",
+        "general"
+      ],
+      "created_at": "2026-04-01T18:14:22.389700+00:00",
+      "updated_at": "2026-04-01T18:14:22.389700+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-01T18:14:22.389700+00:00",
+        "access_count": 0
+      }
+    },
+    "9988c054d6bf": {
+      "id": "9988c054d6bf",
+      "type": "fact",
+      "key": "episodic_20260401_121704",
+      "fact": {
+        "rule": "que el dashboard que estaba en la pantalla era de una instancia anterior. Déjame iniciar el servidor limpiamente y verificar en el navegador:; zombie processes on port 9000 running old code. The clean server on port 8888 returns everything correctly.  Let me verify the state and clean up any remaining issues:",
+        "applies_to": "sesion 20260401_121704, dominio general",
+        "confidence": "observed",
+        "source": "auto_episodic_extraction"
+      },
+      "tags": [
+        "episodic",
+        "auto-learned",
+        "general"
+      ],
+      "created_at": "2026-04-01T18:17:04.714688+00:00",
+      "updated_at": "2026-04-01T18:17:04.714688+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-01T18:17:04.714688+00:00",
+        "access_count": 0
+      }
+    },
+    "742bfd86b161": {
+      "id": "742bfd86b161",
+      "type": "fact",
+      "key": "episodic_20260401_121820",
+      "fact": {
+        "rule": "que el dashboard que estaba en la pantalla era de una instancia anterior. Déjame iniciar el servidor limpiamente y verificar en el navegador:; zombie processes on port 9000 running old code. The clean server on port 8888 returns everything correctly.  Let me verify the state and clean up any remaining issues:",
+        "applies_to": "sesion 20260401_121820, dominio general",
+        "confidence": "observed",
+        "source": "auto_episodic_extraction"
+      },
+      "tags": [
+        "episodic",
+        "auto-learned",
+        "general"
+      ],
+      "created_at": "2026-04-01T18:18:20.708675+00:00",
+      "updated_at": "2026-04-01T18:18:20.708675+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-01T18:18:20.708675+00:00",
+        "access_count": 0
+      }
+    },
+    "f946ac19437e": {
+      "id": "f946ac19437e",
+      "type": "fact",
+      "key": "episodic_20260401_122127",
+      "fact": {
+        "rule": "que el dashboard que estaba en la pantalla era de una instancia anterior. Déjame iniciar el servidor limpiamente y verificar en el navegador:; zombie processes on port 9000 running old code. The clean server on port 8888 returns everything correctly.  Let me verify the state and clean up any remaining issues:",
+        "applies_to": "sesion 20260401_122127, dominio general",
+        "confidence": "observed",
+        "source": "auto_episodic_extraction"
+      },
+      "tags": [
+        "episodic",
+        "auto-learned",
+        "general"
+      ],
+      "created_at": "2026-04-01T18:21:27.546174+00:00",
+      "updated_at": "2026-04-01T18:21:27.546174+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-01T18:21:27.546174+00:00",
+        "access_count": 0
+      }
+    },
+    "f346f4dc7d44": {
+      "id": "f346f4dc7d44",
+      "type": "fact",
+      "key": "episodic_20260401_122310",
+      "fact": {
+        "rule": "que el dashboard que estaba en la pantalla era de una instancia anterior. Déjame iniciar el servidor limpiamente y verificar en el navegador:; zombie processes on port 9000 running old code. The clean server on port 8888 returns everything correctly.  Let me verify the state and clean up any remaining issues:",
+        "applies_to": "sesion 20260401_122310, dominio general",
+        "confidence": "observed",
+        "source": "auto_episodic_extraction"
+      },
+      "tags": [
+        "episodic",
+        "auto-learned",
+        "general"
+      ],
+      "created_at": "2026-04-01T18:23:10.821110+00:00",
+      "updated_at": "2026-04-01T18:23:10.821110+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-01T18:23:10.821110+00:00",
+        "access_count": 0
+      }
+    },
+    "99a9c9154b80": {
+      "id": "99a9c9154b80",
+      "type": "fact",
+      "key": "episodic_20260401_122449",
+      "fact": {
+        "rule": "que el dashboard que estaba en la pantalla era de una instancia anterior. Déjame iniciar el servidor limpiamente y verificar en el navegador:; zombie processes on port 9000 running old code. The clean server on port 8888 returns everything correctly.  Let me verify the state and clean up any remaining issues:",
+        "applies_to": "sesion 20260401_122449, dominio general",
+        "confidence": "observed",
+        "source": "auto_episodic_extraction"
+      },
+      "tags": [
+        "episodic",
+        "auto-learned",
+        "general"
+      ],
+      "created_at": "2026-04-01T18:24:49.836415+00:00",
+      "updated_at": "2026-04-01T18:24:49.836415+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-01T18:24:49.836415+00:00",
+        "access_count": 0
+      }
+    },
+    "73bad2acec0d": {
+      "id": "73bad2acec0d",
+      "type": "fact",
+      "key": "episodic_20260401_122925",
+      "fact": {
+        "rule": "que el dashboard que estaba en la pantalla era de una instancia anterior. Déjame iniciar el servidor limpiamente y verificar en el navegador:; zombie processes on port 9000 running old code. The clean server on port 8888 returns everything correctly.  Let me verify the state and clean up any remaining issues:",
+        "applies_to": "sesion 20260401_122925, dominio general",
+        "confidence": "observed",
+        "source": "auto_episodic_extraction"
+      },
+      "tags": [
+        "episodic",
+        "auto-learned",
+        "general"
+      ],
+      "created_at": "2026-04-01T18:29:25.132817+00:00",
+      "updated_at": "2026-04-01T18:29:25.132817+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-01T18:29:25.132817+00:00",
+        "access_count": 0
+      }
+    },
+    "6be221c4ccea": {
+      "id": "6be221c4ccea",
+      "type": "fact",
+      "key": "episodic_20260401_123107",
+      "fact": {
+        "rule": "que el dashboard que estaba en la pantalla era de una instancia anterior. Déjame iniciar el servidor limpiamente y verificar en el navegador:; zombie processes on port 9000 running old code. The clean server on port 8888 returns everything correctly.  Let me verify the state and clean up any remaining issues:",
+        "applies_to": "sesion 20260401_123107, dominio general",
+        "confidence": "observed",
+        "source": "auto_episodic_extraction"
+      },
+      "tags": [
+        "episodic",
+        "auto-learned",
+        "general"
+      ],
+      "created_at": "2026-04-01T18:31:07.781133+00:00",
+      "updated_at": "2026-04-01T18:31:07.781133+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-01T18:31:07.781133+00:00",
+        "access_count": 0
+      }
+    },
+    "97c77d9cb5d1": {
+      "id": "97c77d9cb5d1",
+      "type": "fact",
+      "key": "episodic_20260401_123238",
+      "fact": {
+        "rule": "que el dashboard que estaba en la pantalla era de una instancia anterior. Déjame iniciar el servidor limpiamente y verificar en el navegador:; zombie processes on port 9000 running old code. The clean server on port 8888 returns everything correctly.  Let me verify the state and clean up any remaining issues:",
+        "applies_to": "sesion 20260401_123238, dominio general",
+        "confidence": "observed",
+        "source": "auto_episodic_extraction"
+      },
+      "tags": [
+        "episodic",
+        "auto-learned",
+        "general"
+      ],
+      "created_at": "2026-04-01T18:32:38.674493+00:00",
+      "updated_at": "2026-04-01T18:32:38.674493+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-01T18:32:38.674493+00:00",
+        "access_count": 0
+      }
+    },
+    "461173ee20d5": {
+      "id": "461173ee20d5",
+      "type": "fact",
+      "key": "episodic_20260401_123407",
+      "fact": {
+        "rule": "que el dashboard que estaba en la pantalla era de una instancia anterior. Déjame iniciar el servidor limpiamente y verificar en el navegador:; zombie processes on port 9000 running old code. The clean server on port 8888 returns everything correctly.  Let me verify the state and clean up any remaining issues:",
+        "applies_to": "sesion 20260401_123407, dominio general",
+        "confidence": "observed",
+        "source": "auto_episodic_extraction"
+      },
+      "tags": [
+        "episodic",
+        "auto-learned",
+        "general"
+      ],
+      "created_at": "2026-04-01T18:34:07.155984+00:00",
+      "updated_at": "2026-04-01T18:34:07.155984+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-01T18:34:07.155984+00:00",
+        "access_count": 0
+      }
+    },
+    "ebc8e2ca3f30": {
+      "id": "ebc8e2ca3f30",
+      "type": "fact",
+      "key": "episodic_20260401_123559",
+      "fact": {
+        "rule": "que el dashboard que estaba en la pantalla era de una instancia anterior. Déjame iniciar el servidor limpiamente y verificar en el navegador:; zombie processes on port 9000 running old code. The clean server on port 8888 returns everything correctly.  Let me verify the state and clean up any remaining issues:",
+        "applies_to": "sesion 20260401_123559, dominio general",
+        "confidence": "observed",
+        "source": "auto_episodic_extraction"
+      },
+      "tags": [
+        "episodic",
+        "auto-learned",
+        "general"
+      ],
+      "created_at": "2026-04-01T18:35:59.076065+00:00",
+      "updated_at": "2026-04-01T18:35:59.076065+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-01T18:35:59.076065+00:00",
+        "access_count": 0
       }
     }
   },

@@ -9,7 +9,7 @@
       "fact": {
         "rule": "\"\"\"\nollama_adapter.py — Adapter Ollama para FormFiller_IA\n=====================================================\nConecta FormFiller_IA con modelos locales servidos por Ollama.\nIncluye identify_field_selector() para identificar selectores CSS\nusando el modelo LLM local.\n\nAPI Ollama usada:\n    POST http://localhost:11434/api/chat\n    GET  http://localhost:11434/api/tags\n\nSin dependencias externas — solo stdlib (urllib).\n\"\"\"\n\nimport json\nimport sys\nimport urllib.request\nimport urllib.error\nfrom pathlib import Path\nfrom typing import Optional\n\n# Asegurar que el root del proyecto este en sys.path\n_PROJECT_ROOT = Path(__file__).resolve().parent.parent\nif str(_PROJECT_ROOT) not in sys.path:\n    sys.path.insert(0, str(_PROJECT_ROOT))\n\n",
         "applies_to": "adapters",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\adapters\\ollama_adapter.py",
+        "source": "FormFiller_IA\\adapters\\ollama_adapter.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -34,7 +34,7 @@
       "fact": {
         "rule": "().parent.parent\nif str(_PROJECT_ROOT) not in sys.path:\n    sys.path.insert(0, str(_PROJECT_ROOT))\n\nfrom config import OLLAMA_BASE_URL, OLLAMA_MODEL, OLLAMA_TIMEOUT, OLLAMA_TEMPERATURE\nfrom adapters.base_adapter import BaseAdapter\n\nclass OllamaAdapter(BaseAdapter):\n    \"\"\"\n    Adapter para Ollama — modelos locales (Qwen3, Llama, Mistral, etc.).\n\n    Implementa BaseAdapter para consistencia con FormFiller_IA,\n    y agrega metodos de chat directo y analisis de selectores.\n    \"\"\"\n\n    def __init__(\n        self,\n        model: str = OLLAMA_MODEL,\n        base_url: str = OLLAMA_BASE_URL,\n        timeout: int = OLLAMA_TIMEOUT,\n        temperature: float = OLLAMA_TEMPERATURE,\n    ):\n        self.model = model\n        self.base_url = base_url.rstrip(\"/\")\n        self.timeout = timeout\n",
         "applies_to": "adapters",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\adapters\\ollama_adapter.py",
+        "source": "FormFiller_IA\\adapters\\ollama_adapter.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -59,7 +59,7 @@
       "fact": {
         "rule": "     self.model = model\n        self.base_url = base_url.rstrip(\"/\")\n        self.timeout = timeout\n        self.temperature = temperature\n\n    # ── BaseAdapter interface ──────────────────────────────────\n\n    def get_name(self) -> str:\n        return f\"ollama/{self.model}\"\n\n    def is_available(self) -> bool:\n        \"\"\"Verifica que Ollama este corriendo y el modelo este instalado.\"\"\"\n        try:\n            req = urllib.request.Request(f\"{self.base_url}/api/tags\")\n            with urllib.request.urlopen(req, timeout=3) as resp:\n                data = json.loads(resp.read())\n                models = [m[\"name\"] for m in data.get(\"models\", [])]\n                return any(self.model in m or m in self.model for m in models)\n        except Exception:\n            return False\n\n",
         "applies_to": "adapters",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\adapters\\ollama_adapter.py",
+        "source": "FormFiller_IA\\adapters\\ollama_adapter.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -84,7 +84,7 @@
       "fact": {
         "rule": ".model in m or m in self.model for m in models)\n        except Exception:\n            return False\n\n    def identify_field_selector(\n        self,\n        html_chunk: str,\n        field_description: str,\n    ) -> Optional[str]:\n        \"\"\"\n        Usa el modelo LLM local para identificar el selector CSS de un campo\n        dentro de un fragmento HTML.\n\n        Args:\n            html_chunk:       HTML del formulario (max ~2000 chars recomendado).\n            field_description: Descripcion del campo buscado.\n\n        Returns:\n            Selector CSS como string, o None si no puede determinarlo.\n        \"\"\"\n        # Truncar HTML si es muy largo para no saturar el contexto\n        max_html = 3000\n        if len(html_chunk) > max_html:\n            html_chunk = html_chunk[:max_html] + \"\\n... ",
         "applies_to": "adapters",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\adapters\\ollama_adapter.py",
+        "source": "FormFiller_IA\\adapters\\ollama_adapter.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -109,7 +109,7 @@
       "fact": {
         "rule": "3000\n        if len(html_chunk) > max_html:\n            html_chunk = html_chunk[:max_html] + \"\\n... [truncado]\"\n\n        system_prompt = (\n            \"Eres un experto en automatizacion web. \"\n            \"Tu tarea es identificar el selector CSS mas preciso para un campo \"\n            \"de formulario dentro del HTML proporcionado. \"\n            \"Responde SOLO con el selector CSS, sin explicacion ni formato adicional. \"\n            \"Si no puedes determinarlo, responde exactamente: NONE\"\n        )\n\n        user_prompt = (\n            f\"Encuentra el selector CSS para el siguiente campo:\\n\"\n            f\"Campo buscado: {field_description}\\n\\n\"\n            f\"HTML del formulario:\\n```html\\n{html_chunk}\\n```\\n\\n\"\n            f\"Responde SOLO el selector CSS:\"\n        )\n\n        try:\n",
         "applies_to": "adapters",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\adapters\\ollama_adapter.py",
+        "source": "FormFiller_IA\\adapters\\ollama_adapter.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -134,7 +134,7 @@
       "fact": {
         "rule": "`html\\n{html_chunk}\\n```\\n\\n\"\n            f\"Responde SOLO el selector CSS:\"\n        )\n\n        try:\n            response = self.chat(\n                messages=[\n                    {\"role\": \"system\", \"content\": system_prompt},\n                    {\"role\": \"user\", \"content\": user_prompt},\n                ],\n                stream=False,\n                temperature=0.1,  # Muy bajo para respuestas precisas\n            )\n\n            selector = response.strip().strip(\"`\").strip('\"').strip(\"'\")\n\n            if not selector or selector.upper() == \"NONE\":\n                return None\n\n            # Validacion basica: debe parecer un selector CSS\n            if any(c in selector for c in [\"#\", \".\", \"[\", \"input\", \"select\", \"textarea\",\n",
         "applies_to": "adapters",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\adapters\\ollama_adapter.py",
+        "source": "FormFiller_IA\\adapters\\ollama_adapter.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -159,7 +159,7 @@
       "fact": {
         "rule": "lector CSS\n            if any(c in selector for c in [\"#\", \".\", \"[\", \"input\", \"select\", \"textarea\",\n                                            \"button\", \"a\", \"div\", \"span\", \"label\"]):\n                return selector\n\n            return None\n\n        except (ConnectionError, Exception):\n            return None\n\n    # ── Modelos disponibles ────────────────────────────────────\n\n    def list_models(self) -> list:\n        \"\"\"Retorna lista de modelos instalados en Ollama.\"\"\"\n        try:\n            req = urllib.request.Request(f\"{self.base_url}/api/tags\")\n            with urllib.request.urlopen(req, timeout=3) as resp:\n                data = json.loads(resp.read())\n                return [m[\"name\"] for m in data.get(\"models\", [])]\n        except Exception:\n            return []\n\n",
         "applies_to": "adapters",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\adapters\\ollama_adapter.py",
+        "source": "FormFiller_IA\\adapters\\ollama_adapter.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -184,7 +184,7 @@
       "fact": {
         "rule": "return [m[\"name\"] for m in data.get(\"models\", [])]\n        except Exception:\n            return []\n\n    # ── Chat directo ───────────────────────────────────────────\n\n    def free_ram_gb(self) -> float:\n        \"\"\"Retorna GB de RAM libre (Windows). Retorna 99.0 si no puede medir.\"",
         "applies_to": "adapters",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\adapters\\ollama_adapter.py",
+        "source": "FormFiller_IA\\adapters\\ollama_adapter.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -209,7 +209,7 @@
       "fact": {
         "rule": "\"\"\"\nbase_adapter.py — Interfaz abstracta para adapters ML de FormFiller_IA\n=======================================================================\nCada adapter de ML/LLM implementa esta interfaz para que el motor\npueda usar diferentes modelos de forma intercambiable.\n\nMetodos requeridos:\n    identify_field_selector(html_chunk, field_description) -> Optional[str]\n    is_available() -> bool\n    get_name() -> str\n\"\"\"\n\nimport sys\nfrom abc import ABC, abstractmethod\nfrom pathlib import Path\nfrom typing import Optional\n\n# Asegurar que el root del proyecto este en sys.path\n_PROJECT_ROOT = Path(__file__).resolve().parent.parent\nif str(_PROJECT_ROOT) not in sys.path:\n    sys.path.insert(0, str(_PROJECT_ROOT))\n\nclass BaseAdapter(ABC):\n    \"\"\"\n",
         "applies_to": "adapters",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\adapters\\base_adapter.py",
+        "source": "FormFiller_IA\\adapters\\base_adapter.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -234,7 +234,7 @@
       "fact": {
         "rule": "_ROOT) not in sys.path:\n    sys.path.insert(0, str(_PROJECT_ROOT))\n\nclass BaseAdapter(ABC):\n    \"\"\"\n    Interfaz base para todos los adapters ML/LLM de FormFiller_IA.\n\n    Cada modelo concreto (Ollama/Qwen, Claude, etc.) implementa esta interfaz\n    para que el motor de llenado pueda funcionar de forma agnostica.\n    \"\"\"\n\n    @abstractmethod\n    def identify_field_selector(\n        self,\n        html_chunk: str,\n        field_description: str,\n    ) -> Optional[str]:\n        \"\"\"\n        Dado un fragmento HTML y una descripcion del campo deseado,\n        retorna el selector CSS mas probable para ese campo.\n\n        Args:\n            html_chunk:       Fragmento de HTML del formulario.\n            field_description: Descripcion del campo buscado\n",
         "applies_to": "adapters",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\adapters\\base_adapter.py",
+        "source": "FormFiller_IA\\adapters\\base_adapter.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -259,7 +259,7 @@
       "fact": {
         "rule": "     Fragmento de HTML del formulario.\n            field_description: Descripcion del campo buscado\n                               (ej: \"campo de email\", \"boton de enviar\").\n\n        Returns:\n            Selector CSS como string, o None si no puede determinarlo.\n        \"\"\"\n\n    @abstractmethod\n    def is_available(self) -> bool:\n        \"\"\"\n        Verifica que el modelo/servicio este disponible y listo para usar.\n\n        Returns:\n            True si el adapter esta operativo.\n        \"\"\"\n\n    @abstractmethod\n    def get_name(self) -> str:\n        \"\"\"\n        Retorna el identificador del adapter.\n\n        Returns:\n            Ejemplo: \"ollama/qwen3:4b\", \"claude\", \"local_heuristic\", etc.\n        \"\"\"",
         "applies_to": "adapters",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\adapters\\base_adapter.py",
+        "source": "FormFiller_IA\\adapters\\base_adapter.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""

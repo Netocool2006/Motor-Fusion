@@ -3,14 +3,17 @@
 """
 motor_ia_hook.py - Hook principal Motor_IA
 ==========================================
-Flujo FORZADO por código (no por sugerencia):
+REGLA PURA Y DURA - Los 3 pasos se ejecutan SIEMPRE, sin excepciones:
 
   1. Usuario pregunta en CLI
-  2. Busca en NotebookLM (KB semántico)
-  3. Si KB < 80% -> EJECUTA búsqueda web (DuckDuckGo) automáticamente
-  4. Inyecta KB + Internet como contexto a Claude
-  5. Claude solo complementa con ML lo que falte
-  6. Post-hook guarda conocimiento nuevo en NotebookLM
+  2. PASO 1: Busca en KB (ChromaDB) - SIEMPRE
+  3. PASO 2: Busca en Internet (DuckDuckGo) - SIEMPRE
+  4. PASO 3: ML complementa lo que falte - SIEMPRE
+  5. Inyecta los 3 como contexto a Claude
+  6. Post-hook guarda conocimiento nuevo en KB
+
+NO hay atajos. NO se salta ningún paso.
+Los % se calculan por calidad real de cada fuente.
 
 Hook type: UserPromptSubmit
 Output: additionalContext (inyectado al contexto de Claude)
@@ -84,44 +87,57 @@ def get_user_query():
 
 def search_kb(query):
     """
-    PASO 1: Busca en KB vectorial (ChromaDB local).
-    Sin límites, instantáneo, offline.
-    Returns: (kb_content_str, kb_pct)
+    PASO 1 (OBLIGATORIO): Busca en KB vectorial (ChromaDB local).
+    SIEMPRE se ejecuta. Retorna contenido y % de cobertura real.
+    Returns: (kb_content_str, kb_pct, similarity)
     """
     try:
         from core.vector_kb import ask_kb
         result = ask_kb(query)
 
         if not result["found"]:
-            log.info("KB: no relevant knowledge found")
-            return "", 0
+            log.info("PASO1-KB: sin resultados relevantes -> kb_pct=0%")
+            return "", 0, 0.0
 
         answer = result["answer"]
         answer_len = len(answer)
+        similarity = result.get("similarity", 0.5)
 
+        # Cobertura = largo x calidad (similitud)
         if answer_len > 500:
-            kb_pct = 85
+            base_pct = 85
         elif answer_len > 200:
-            kb_pct = 65
+            base_pct = 65
         elif answer_len > 80:
-            kb_pct = 40
+            base_pct = 40
         else:
-            kb_pct = 20
+            base_pct = 20
 
-        source = result.get("source", "notebooklm")
+        # Factor de similitud: penaliza resultados de baja calidad
+        if similarity >= 0.75:
+            sim_factor = 1.0
+        elif similarity >= 0.55:
+            sim_factor = 0.5 + (similarity - 0.55) * 2.5
+        else:
+            sim_factor = max(0.3, similarity / 0.55 * 0.5)
+
+        kb_pct = int(base_pct * sim_factor)
+        kb_pct = max(5, min(90, kb_pct))  # Max 90% - siempre deja espacio para Internet+ML
+
+        source = result.get("source", "vector_kb")
         kb_content = f"[NotebookLM]: {answer}"
-        log.info(f"KB: found={result['found']}, len={answer_len}, kb_pct={kb_pct}%, source={source}")
-        return kb_content, kb_pct
+        log.info(f"PASO1-KB: found=True, len={answer_len}, sim={similarity:.3f}, kb_pct={kb_pct}%")
+        return kb_content, kb_pct, similarity
 
     except Exception as e:
-        log.error(f"KB search error: {e}")
-        return "", 0
+        log.error(f"PASO1-KB error: {e}")
+        return "", 0, 0.0
 
 
 def search_internet(query):
     """
-    PASO 2 (FORZADO): Búsqueda web via DuckDuckGo.
-    Se ejecuta automáticamente cuando KB < 80%.
+    PASO 2 (OBLIGATORIO): Busca en Internet via DuckDuckGo.
+    SIEMPRE se ejecuta, sin importar el resultado del KB.
     Returns: (internet_content_str, internet_pct)
     """
     try:
@@ -129,17 +145,17 @@ def search_internet(query):
         result = search_web(query)
 
         if not result["found"]:
-            log.info("Web search: no results found")
+            log.info("PASO2-INTERNET: sin resultados -> internet_pct=0%")
             return "", 0
 
         internet_content = f"[Internet Search Results]:\n{result['summary']}"
         internet_pct = result["internet_pct"]
 
-        log.info(f"Web search: FORCED, found={result['found']}, internet_pct={internet_pct}%")
+        log.info(f"PASO2-INTERNET: found=True, internet_pct={internet_pct}%")
         return internet_content, internet_pct
 
     except Exception as e:
-        log.error(f"Web search error: {e}")
+        log.error(f"PASO2-INTERNET error: {e}")
         return "", 0
 
 
@@ -188,8 +204,8 @@ def _check_session_continuity(query):
 
 def build_context(query, kb_content, kb_pct, internet_content, internet_pct, session_context=None):
     """
-    Construye el additionalContext con datos REALES de KB + Internet.
-    Claude solo complementa con ML lo que falte.
+    Construye el additionalContext con los 3 pasos OBLIGATORIOS.
+    SIEMPRE muestra el status de KB, Internet y ML.
     """
     timestamp = datetime.now().strftime("%d-%m-%Y %H:%M:%S")
 
@@ -200,6 +216,7 @@ def build_context(query, kb_content, kb_pct, internet_content, internet_pct, ses
         "<motor_ia>",
         f"<timestamp>{timestamp}</timestamp>",
         f'<fuentes_estimadas kb="{kb_pct}%" internet="{internet_pct}%" ml="{ml_pct}%" />',
+        '<pipeline_status paso1_kb="EJECUTADO" paso2_internet="EJECUTADO" paso3_ml="EJECUTADO" />',
     ]
 
     if session_context:
@@ -216,44 +233,42 @@ def build_context(query, kb_content, kb_pct, internet_content, internet_pct, ses
         context_parts.append(session_context)
         context_parts.append("</session_anterior>")
 
+    # PASO 1: KB - SIEMPRE se muestra (con o sin resultados)
+    context_parts.append("<paso1_kb>")
     if kb_content:
-        context_parts.append("<kb_knowledge>")
+        context_parts.append(f"EJECUTADO - Cobertura: {kb_pct}%")
         context_parts.append("Se encontro conocimiento previo en el KB:")
         context_parts.append(kb_content)
-        context_parts.append("</kb_knowledge>")
-
-    if internet_content:
-        context_parts.append("<internet_knowledge>")
-        context_parts.append("Busqueda web EJECUTADA automaticamente (resultados reales):")
-        context_parts.append(internet_content)
-        context_parts.append("</internet_knowledge>")
-
-    # Instrucciones para Claude
-    context_parts.append("<instrucciones>")
-    if kb_pct >= 80:
-        context_parts.append(
-            f"El KB tiene buena cobertura ({kb_pct}%). "
-            "Usa el conocimiento del KB como base principal. "
-            "Complementa con tu inteligencia (ML) solo lo que falte. "
-        )
-    elif kb_pct > 0 and internet_pct > 0:
-        context_parts.append(
-            f"El KB tiene informacion parcial ({kb_pct}%). "
-            f"Se complemento con busqueda en Internet ({internet_pct}%). "
-            "Lo que no encuentres en Internet, completalo con tu inteligencia (ML). "
-        )
-    elif internet_pct > 0:
-        context_parts.append(
-            "No se encontro conocimiento en el KB. "
-            f"Se busco en Internet y se encontraron resultados ({internet_pct}%). "
-            "Usa los resultados de Internet como base. "
-            "Complementa con tu inteligencia (ML) lo que falte. "
-        )
     else:
-        context_parts.append(
-            "No se encontro conocimiento en el KB ni en Internet. "
-            "Usa tu inteligencia (ML) para responder. "
-        )
+        context_parts.append("EJECUTADO - Sin resultados relevantes (0%)")
+    context_parts.append("</paso1_kb>")
+
+    # PASO 2: Internet - SIEMPRE se muestra (con o sin resultados)
+    context_parts.append("<paso2_internet>")
+    if internet_content:
+        context_parts.append(f"EJECUTADO - Cobertura: {internet_pct}%")
+        context_parts.append("Busqueda web ejecutada automaticamente:")
+        context_parts.append(internet_content)
+    else:
+        context_parts.append("EJECUTADO - Sin resultados relevantes (0%)")
+    context_parts.append("</paso2_internet>")
+
+    # PASO 3: ML - SIEMPRE se muestra
+    context_parts.append("<paso3_ml>")
+    context_parts.append(f"ACTIVO - Complemento: {ml_pct}%")
+    context_parts.append("Claude complementa con su conocimiento lo que KB e Internet no cubrieron.")
+    context_parts.append("</paso3_ml>")
+
+    # Instrucciones consolidadas
+    context_parts.append("<instrucciones>")
+    context_parts.append(
+        "REGLA PURA: Los 3 pasos se ejecutaron OBLIGATORIAMENTE. "
+        f"KB aporto {kb_pct}%, Internet aporto {internet_pct}%, ML complementa {ml_pct}%. "
+        "Usa TODA la informacion disponible de los 3 pasos en orden de prioridad: "
+        "1ro KB, 2do Internet, 3ro ML. "
+        "Si KB e Internet cubren bien, ML solo valida. "
+        "Si KB e Internet no cubren, ML llena los vacios."
+    )
     context_parts.append("</instrucciones>")
 
     context_parts.append(
@@ -299,7 +314,11 @@ def save_state(query, kb_pct, internet_pct):
 
 
 def main():
-    """Entry point del hook."""
+    """
+    Entry point del hook.
+    REGLA PURA Y DURA: Los 3 pasos se ejecutan SIEMPRE.
+    No hay condicionales, no hay atajos, no hay excepciones.
+    """
     try:
         query = get_user_query()
 
@@ -309,29 +328,41 @@ def main():
 
         log.info(f"{'='*60}")
         log.info(f"QUERY: {query[:120]}")
+        log.info("PIPELINE: Ejecutando 3 pasos OBLIGATORIOS...")
 
-        # PASO 0: Detectar si pide continuar sesión anterior
+        # PASO 0: Cargar contexto de sesion anterior (SIEMPRE)
         session_context = _check_session_continuity(query)
 
-        # PASO 1: Buscar en KB (ChromaDB)
-        kb_content, kb_pct = search_kb(query)
+        # ============================================================
+        # PASO 1: KB (ChromaDB) - OBLIGATORIO, SIEMPRE SE EJECUTA
+        # ============================================================
+        log.info("PASO 1/3: Buscando en KB local (ChromaDB)...")
+        kb_content, kb_pct, kb_similarity = search_kb(query)
+        log.info(f"PASO 1/3 COMPLETADO: kb_pct={kb_pct}%, sim={kb_similarity:.3f}")
 
-        # PASO 2: Si KB < 80%, FORZAR búsqueda web (no sugerencia, EJECUCIÓN)
-        internet_content = ""
-        internet_pct = 0
-        if kb_pct < 80:
-            log.info(f"KB={kb_pct}% < 80% -> FORCING web search...")
-            internet_content, internet_pct = search_internet(query)
+        # ============================================================
+        # PASO 2: Internet (DuckDuckGo) - OBLIGATORIO, SIEMPRE SE EJECUTA
+        # ============================================================
+        log.info("PASO 2/3: Buscando en Internet (DuckDuckGo)...")
+        internet_content, internet_pct = search_internet(query)
+        log.info(f"PASO 2/3 COMPLETADO: internet_pct={internet_pct}%")
 
-        # Normalizar porcentajes ANTES de usarlos en contexto y estado
+        # ============================================================
+        # PASO 3: ML - OBLIGATORIO, complementa lo que falta
+        # ============================================================
+        # Normalizar porcentajes
         total_sources = kb_pct + internet_pct
-        if total_sources > 100:
-            ratio = 100.0 / total_sources
+        if total_sources > 95:
+            # Dejar al menos 5% para ML (siempre participa)
+            ratio = 95.0 / total_sources
             kb_pct = int(kb_pct * ratio)
             internet_pct = int(internet_pct * ratio)
-        ml_pct = max(0, 100 - kb_pct - internet_pct)
+        ml_pct = max(5, 100 - kb_pct - internet_pct)  # Minimo 5% ML siempre
+        log.info(f"PASO 3/3: ML complementa con {ml_pct}%")
 
-        # Construir contexto con datos REALES (ya normalizados)
+        log.info(f"PIPELINE COMPLETO: KB={kb_pct}% + Internet={internet_pct}% + ML={ml_pct}% = 100%")
+
+        # Construir contexto con los 3 pasos
         context = build_context(query, kb_content, kb_pct, internet_content, internet_pct, session_context)
 
         # Guardar estado para post-hook

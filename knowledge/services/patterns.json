@@ -9,7 +9,7 @@
       "fact": {
         "rule": "\"\"\"\nsap_crear_followup.py — SAP CRM Create Follow-Up Service\n==========================================================\nCreates a Follow-Up from an opportunity. Handles:\n  1. Click \"Create Follow-Up\" button in opp\n  2. Navigate Follow-Up popup pages to find desired type\n  3. Select the transaction type (e.g. Quotation Standard)\n  4. In Select Items popup: select all eligible items + click Choose\n\nCLI:\n  python services/sap_crear_followup.py --opp 245372 --type \"Quotation Standard\"\n  python services/sap_crear_followup.py --opp 245372 --type \"Opport Standard\"\n\nReturns JSON result to stdout.\n\nProven technique (2026-03-28 CDP test + playbook selectors):\n  - Create Follow-Up button: [id$='thtmlb_button_6'] with onclick\n  - Follow-Up popup: separate window, frame WorkAreaFrame1popup\n",
         "applies_to": "services",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\services\\sap_crear_followup.py",
+        "source": "FormFiller_IA\\services\\sap_crear_followup.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -34,7 +34,7 @@
       "fact": {
         "rule": "id$='thtmlb_button_6'] with onclick\n  - Follow-Up popup: separate window, frame WorkAreaFrame1popup\n  - Type selector: proctype_table[N].proc_type_descr_20, click via rowsel\n  - Pagination: Table_pag_pg-{N} for page navigation\n  - Select Items popup: Table-selectall (<a>, NOT checkbox), thtmlb_button_1 = Choose\n  - Items transfer: followupitems_table[N].mark is <img> (visual only, not clickable)\n  - Row selection: Table_sel_N-rowsel (<a> links)\n\nREGLA DE ORO: Servidor de produccion — no hacer nada masivo sin confirmacion.\n\"\"\"\nimport sys\nimport time\nimport argparse\nfrom pathlib import Path\nfrom datetime import datetime\n\n_PROJECT_ROOT = str(Path(__file__).resolve().parent.parent)\nif _PROJECT_ROOT not in sys.path:\n    sys.path.insert(0, _PROJECT_ROOT)\n\n",
         "applies_to": "services",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\services\\sap_crear_followup.py",
+        "source": "FormFiller_IA\\services\\sap_crear_followup.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -59,7 +59,7 @@
       "fact": {
         "rule": ").resolve().parent.parent)\nif _PROJECT_ROOT not in sys.path:\n    sys.path.insert(0, _PROJECT_ROOT)\n\nfrom services.sap_session import get_session, SAPSession, log\nfrom services.sap_buscar_oportunidad import search_opportunity\n\ndef _find_popup_page(session, title_contains, timeout_s=15):\n    \"\"\"Find a popup page (separate window) by title substring.\"\"\"\n    page = session.page\n    context = page.context\n    start = time.time()\n    while time.time() - start < timeout_s:\n        for p in context.pages:\n            if title_contains in (p.title() or \"\"):\n                return p\n        time.sleep(1)\n    return None\n\ndef _find_popup_frame(popup_page, frame_name=\"WorkAreaFrame1popup\"):\n    \"\"\"Find the work frame inside a popup page.\"\"\"\n    for f in popup_page.frames:\n",
         "applies_to": "services",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\services\\sap_crear_followup.py",
+        "source": "FormFiller_IA\\services\\sap_crear_followup.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -84,7 +84,7 @@
       "fact": {
         "rule": "eaFrame1popup\"):\n    \"\"\"Find the work frame inside a popup page.\"\"\"\n    for f in popup_page.frames:\n        if frame_name in (f.name or \"\"):\n            return f\n    # Fallback: deepest frame\n    if len(popup_page.frames) > 1:\n        return popup_page.frames[-1]\n    return popup_page\n\ndef create_followup(opp_id: str, followup_type: str = \"Quotation Standard\",\n                    select_all_items: bool = True, headless: bool = False) -> dict:\n    \"\"\"\n    Open opportunity and create a Follow-Up of the specified type.\n\n    Args:\n        opp_id: Opportunity ID to open\n        followup_type: Exact text of the transaction type (e.g. \"Quotation Standard\")\n        select_all_items: If True, select all eligible items in the Select Items popup\n        headless: Run browser headless\n\n    Returns:\n",
         "applies_to": "services",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\services\\sap_crear_followup.py",
+        "source": "FormFiller_IA\\services\\sap_crear_followup.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -109,7 +109,7 @@
       "fact": {
         "rule": "t all eligible items in the Select Items popup\n        headless: Run browser headless\n\n    Returns:\n        dict with success status and details\n    \"\"\"\n    log(f\"Creating Follow-Up '{followup_type}' from opportunity {opp_id}\")\n\n    # Step 0: Open the opportunity\n    opp_result = search_opportunity(opp_id, headless=headless)\n    if not opp_result[\"success\"]:\n        return opp_result\n\n    session = opp_result[\"session\"]\n    page = session.page\n    scanner = session.scanner\n\n    try:\n        # ── Step 1: Click \"Create Follow-Up\" ──────────────────────\n        log(\"Step 1: Click Create Follow-Up...\")\n        work_frame = scanner.find_sap_work_frame()\n        if work_frame is None:\n            return _fail(\"Could not find SAP work frame\")\n\n",
         "applies_to": "services",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\services\\sap_crear_followup.py",
+        "source": "FormFiller_IA\\services\\sap_crear_followup.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -134,7 +134,7 @@
       "fact": {
         "rule": "k_frame()\n        if work_frame is None:\n            return _fail(\"Could not find SAP work frame\")\n\n        # Playbook selector: thtmlb_button_6 = Create Follow-Up\n        followup_clicked = False\n        for fr in page.frames:\n            try:\n                result = fr.evaluate(\"\"\"() => {\n                    // Strategy 1: By stable suffix\n                    var el = document.querySelector(\"[id$='thtmlb_button_6']\");\n                    if (el && (el.innerText || '').includes('Follow-Up')) {\n                        return {id: el.id, text: el.innerText.trim()};\n                    }\n                    // Strategy 2: By text\n                    var links = document.querySelectorAll('a[onclick], button, span[onclick]');\n                    for (var l of links) {\n",
         "applies_to": "services",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\services\\sap_crear_followup.py",
+        "source": "FormFiller_IA\\services\\sap_crear_followup.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -159,7 +159,7 @@
       "fact": {
         "rule": "t.querySelectorAll('a[onclick], button, span[onclick]');\n                    for (var l of links) {\n                        if ((l.innerText || '').trim().includes('Follow-Up')) {\n                            return {id: l.id, text: l.innerText.trim()};\n                        }\n                    }\n                    return null;\n                }\"\"\")\n                if result:\n                    loc = fr.locator(f\"[id='{result['id']}']\").first\n                    if loc.count() > 0:\n                        loc.click(timeout=5000)\n                        followup_clicked = True\n                        log(f\"  Clicked: {result['text']} ({result['id'][-30:]})\")\n                        break\n            except Exception:\n                continue\n\n        if not followup_clicked:\n",
         "applies_to": "services",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\services\\sap_crear_followup.py",
+        "source": "FormFiller_IA\\services\\sap_crear_followup.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -184,7 +184,7 @@
       "fact": {
         "rule": "     break\n            except Exception:\n                continue\n\n        if not followup_clicked:\n            return _fail(\"Create Follow-Up button not found\")\n\n        time.sleep(5)\n        session.waiter.wait_ready(page, timeout_s=10)\n\n        # ── Step 2: Find F",
         "applies_to": "services",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\services\\sap_crear_followup.py",
+        "source": "FormFiller_IA\\services\\sap_crear_followup.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -209,7 +209,7 @@
       "fact": {
         "rule": "\"\"\"\nsap_borrar_items.py — SAP CRM Delete Items Service\n====================================================\nDelete items from an opportunity's Items table.\nTwo modes: --all (delete everything) or --positions \"1,2\" (specific positions).\n\nCLI:\n  python services/sap_borrar_items.py --opp 245451 --all\n  python services/sap_borrar_items.py --opp 245451 --positions \"1,2\"\n\nReturns JSON result to stdout.\n\nProven technique:\n  1. scanner.click_in_section(\"Items\", \"Edit List\")\n  2. scanner.delete_table_item(position=1) uses img[src*='delete'] inside\n     a[id*='btadmini_table'] — ONLY items table, not Contacts/Sales Team\n  3. Always delete position=1 and re-scan (SAP re-indexes after each delete)\n  4. scanner.execute_save()\n\n",
         "applies_to": "services",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\services\\sap_borrar_items.py",
+        "source": "FormFiller_IA\\services\\sap_borrar_items.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -234,7 +234,7 @@
       "fact": {
         "rule": "lways delete position=1 and re-scan (SAP re-indexes after each delete)\n  4. scanner.execute_save()\n\nREGLA DE ORO: Servidor de produccion — no hacer nada masivo sin confirmacion.\n\"\"\"\nimport sys\nimport time\nimport argparse\nfrom pathlib import Path\nfrom datetime import datetime\n\n_PROJECT_ROOT = str(Path(__file__).resolve().parent.parent)\nif _PROJECT_ROOT not in sys.path:\n    sys.path.insert(0, _PROJECT_ROOT)\n\nfrom services.sap_session import get_session, SAPSession, log\nfrom services.sap_buscar_oportunidad import search_opportunity\n\ndef count_items_in_table(scanner) -> int:\n    \"\"\"Count current items in the Items table by scanning product inputs.\"\"\"\n    frame = scanner.find_sap_work_frame()\n    if frame is None:\n        return 0\n    try:\n        count = frame.evaluate(\"\"\"() => {\n",
         "applies_to": "services",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\services\\sap_borrar_items.py",
+        "source": "FormFiller_IA\\services\\sap_borrar_items.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -259,7 +259,7 @@
       "fact": {
         "rule": "k_frame()\n    if frame is None:\n        return 0\n    try:\n        count = frame.evaluate(\"\"\"() => {\n            var inputs = document.querySelectorAll('input[id*=\"orderedprod\"]');\n            var filled = 0;\n            for (var inp of inputs) {\n                // Skip omnisearch\n                if (inp.id && inp.id.includes('omni_input')) continue;\n                if (inp.value && inp.value.trim() !== '') filled++;\n            }\n            return filled;\n        }\"\"\")\n        return count\n    except Exception:\n        return 0\n\ndef delete_items(opp_id: str, delete_all: bool = False, positions: list = None,\n                 headless: bool = False) -> dict:\n    \"\"\"\n    Delete items from the opportunity.\n    - delete_all: delete every item in the table\n",
         "applies_to": "services",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\services\\sap_borrar_items.py",
+        "source": "FormFiller_IA\\services\\sap_borrar_items.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -284,7 +284,7 @@
       "fact": {
         "rule": "ct:\n    \"\"\"\n    Delete items from the opportunity.\n    - delete_all: delete every item in the table\n    - positions: list of 1-based positions to delete\n    \"\"\"\n    if not delete_all and not positions:\n        SAPSession.emit_result(False, error=\"Specify --all or --positions.\")\n        return {\"success\": False, \"error\": \"Specify --all or --positions.\"}\n\n    # Open the opportunity\n    opp_result = search_opportunity(opp_id, headless=headless)\n    if not opp_result[\"success\"]:\n        return opp_result\n\n    session = opp_result[\"session\"]\n    page = session.page\n    scanner = session.scanner\n\n    try:\n        # Step 1: Click \"Edit List\" in Items section\n        log(\"Clicking Edit List in Items section...\")\n        scanner.click_in_section(\"Items\", \"Edit List\")\n        time.sleep(3)\n",
         "applies_to": "services",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\services\\sap_borrar_items.py",
+        "source": "FormFiller_IA\\services\\sap_borrar_items.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -309,7 +309,7 @@
       "fact": {
         "rule": " in Items section...\")\n        scanner.click_in_section(\"Items\", \"Edit List\")\n        time.sleep(3)\n        session.waiter.wait_ready(page, timeout_s=10)\n\n        # Count existing items\n        total_items = count_items_in_table(scanner)\n        log(f\"Items in table: {total_items}\")\n\n        if total_items == 0:\n            log(\"No items to delete.\")\n            data = {\"opp_id\": opp_id, \"items_deleted\": 0, \"message\": \"Table already empty.\"}\n            SAPSession.emit_result(True, data=data)\n            return {\"success\": True, \"data\": data}\n\n        deleted_count = 0\n        errors = []\n\n        if delete_all:\n            # Delete all: always delete position 1, SAP re-indexes\n            log(f\"Deleting ALL {total_items} items (position 1 each time)...\")\n",
         "applies_to": "services",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\services\\sap_borrar_items.py",
+        "source": "FormFiller_IA\\services\\sap_borrar_items.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -334,7 +334,7 @@
       "fact": {
         "rule": "on 1, SAP re-indexes\n            log(f\"Deleting ALL {total_items} items (position 1 each time)...\")\n            for i in range(total_items):\n                log(f\"--- Deleting item {i + 1}/{total_items} (always position 1) ---\")\n                try:\n                    ok = scanner.delete_table_item(position=1)\n                    if ok:\n                        deleted_count += 1\n                        log(f\"Deleted position 1 (iteration {i + 1}).\")\n                    else:\n                        log(f\"WARNING: delete_table_item returned False at iteration {i + 1}.\")\n                        errors.append(f\"Failed at iteration {i + 1}\")\n                    time.sleep(3)\n                    session.waiter.wait_ready(page, timeout_s=10)\n                except Exception as e:\n",
         "applies_to": "services",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\services\\sap_borrar_items.py",
+        "source": "FormFiller_IA\\services\\sap_borrar_items.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -359,7 +359,7 @@
       "fact": {
         "rule": "               session.waiter.wait_ready(page, timeout_s=10)\n                except Exception as e:\n                    error_msg = f\"Error deleting at iteration {i + 1}: {e}\"\n                    log(f\"ERROR: {error_msg}\")\n                    errors.append(error_msg)\n                    break\n        else:\n            # Delete specific positions (sorted descending to avoid re-index issues)\n            # But since SAP re-indexes, we must always delete from position 1\n            # for the N-th highest position. Strategy: sort descending, track offset.\n            #\n            # Actually the safest approach: delete position 1 repeatedly for\n            # len(positions) times if positions are sequential from 1.\n            # For arbitrary positions, we need to be smarter.\n            #\n",
         "applies_to": "services",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\services\\sap_borrar_items.py",
+        "source": "FormFiller_IA\\services\\sap_borrar_items.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -384,7 +384,7 @@
       "fact": {
         "rule": " are sequential from 1.\n            # For arbitrary positions, we need to be smarter.\n            #\n            # Simplification: since SAP re-indexes, to delete positions [2, 4]:\n            # - First delete position 2 (items shift: old 3->2, old 4->3)\n            # - Then delete posit",
         "applies_to": "services",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\services\\sap_borrar_items.py",
+        "source": "FormFiller_IA\\services\\sap_borrar_items.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -409,7 +409,7 @@
       "fact": {
         "rule": "\"\"\"\nsap_insertar_items.py — SAP CRM Insert Items Service\n======================================================\nInsert N items (part_number:quantity) into an opportunity's Items section.\n\nCLI: python services/sap_insertar_items.py --opp 245451 --items \"E0256LL:1,E02HKLL:1\"\nReturns JSON result to stdout.\n\nProven technique:\n  1. scanner.click_in_section(\"Items\", \"Edit List\")\n  2. For each item:\n     a. Find empty input[id*='orderedprod'] or click Insert if none\n     b. locator.click() + type(part, delay=15) + press(\"Enter\") + wait 2s\n     c. Find quantity by same row index [N]\n     d. locator.click() + fill(\"\") + type(qty) + press(\"Enter\") + wait + press(\"Enter\") + wait 3s\n  3. scanner.execute_save()\n\nREGLA DE ORO: Servidor de produccion — no hacer nada masivo sin confirmacion.\n\"\"\"\n",
         "applies_to": "services",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\services\\sap_insertar_items.py",
+        "source": "FormFiller_IA\\services\\sap_insertar_items.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -434,7 +434,7 @@
       "fact": {
         "rule": "r.execute_save()\n\nREGLA DE ORO: Servidor de produccion — no hacer nada masivo sin confirmacion.\n\"\"\"\nimport sys\nimport time\nimport argparse\nfrom pathlib import Path\nfrom datetime import datetime\n\n_PROJECT_ROOT = str(Path(__file__).resolve().parent.parent)\nif _PROJECT_ROOT not in sys.path:\n    sys.path.insert(0, _PROJECT_ROOT)\n\nfrom services.sap_session import get_session, SAPSession, log\nfrom services.sap_buscar_oportunidad import search_opportunity\n\ndef parse_items(items_str: str) -> list:\n    \"\"\"Parse 'PART:QTY,PART:QTY' into list of dicts.\"\"\"\n    items = []\n    for pair in items_str.split(\",\"):\n        pair = pair.strip()\n        if \":\" in pair:\n            part, qty = pair.split(\":\", 1)\n            items.append({\"part_number\": part.strip(), \"quantity\": qty.strip()})\n        else:\n",
         "applies_to": "services",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\services\\sap_insertar_items.py",
+        "source": "FormFiller_IA\\services\\sap_insertar_items.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -459,7 +459,7 @@
       "fact": {
         "rule": ", 1)\n            items.append({\"part_number\": part.strip(), \"quantity\": qty.strip()})\n        else:\n            items.append({\"part_number\": pair.strip(), \"quantity\": \"1\"})\n    return items\n\ndef insert_items(opp_id: str, items_str: str, headless: bool = False) -> dict:\n    \"\"\"\n    Open opportunity and insert items into the Items table.\n    \"\"\"\n    items = parse_items(items_str)\n    if not items:\n        SAPSession.emit_result(False, error=\"No items to insert.\")\n        return {\"success\": False, \"error\": \"No items to insert.\"}\n\n    log(f\"Will insert {len(items)} items into opportunity {opp_id}\")\n\n    # Open the opportunity\n    opp_result = search_opportunity(opp_id, headless=headless)\n    if not opp_result[\"success\"]:\n        return opp_result\n\n    session = opp_result[\"session\"]\n",
         "applies_to": "services",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\services\\sap_insertar_items.py",
+        "source": "FormFiller_IA\\services\\sap_insertar_items.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -484,7 +484,7 @@
       "fact": {
         "rule": "s)\n    if not opp_result[\"success\"]:\n        return opp_result\n\n    session = opp_result[\"session\"]\n    page = session.page\n    scanner = session.scanner\n\n    try:\n        # Step 1: Click \"Edit List\" in Items section\n        log(\"Clicking Edit List in Items section...\")\n        scanner.click_in_section(\"Items\", \"Edit List\")\n        time.sleep(3)\n        session.waiter.wait_ready(page, timeout_s=10)\n\n        work_frame = scanner.find_sap_work_frame()\n        if work_frame is None:\n            SAPSession.emit_result(False, error=\"Could not find SAP work frame.\")\n            return {\"success\": False, \"error\": \"Could not find SAP work frame.\"}\n\n        inserted = []\n        errors = []\n\n        for idx, item in enumerate(items):\n            part = item[\"part_number\"]\n",
         "applies_to": "services",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\services\\sap_insertar_items.py",
+        "source": "FormFiller_IA\\services\\sap_insertar_items.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -509,7 +509,7 @@
       "fact": {
         "rule": "     errors = []\n\n        for idx, item in enumerate(items):\n            part = item[\"part_number\"]\n            qty = item[\"quantity\"]\n            log(f\"--- Inserting item {idx + 1}/{len(items)}: {part} x{qty} ---\")\n\n            try:\n                # Find empty product input\n                empty_input = scanner.find_empty_product_input(frame=work_frame)\n\n                if empty_input is None:\n                    # No empty row — click Insert to add one\n                    log(\"No empty product input found, clicking Insert...\")\n                    scanner.click_in_section(\"Items\", \"Insert\")\n                    time.sleep(3)\n                    session.waiter.wait_ready(page, timeout_s=10)\n                    empty_input = scanner.find_empty_product_input(frame=work_frame)\n\n",
         "applies_to": "services",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\services\\sap_insertar_items.py",
+        "source": "FormFiller_IA\\services\\sap_insertar_items.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -534,7 +534,7 @@
       "fact": {
         "rule": "timeout_s=10)\n                    empty_input = scanner.find_empty_product_input(frame=work_frame)\n\n                if empty_input is None:\n                    error_msg = f\"Could not find empty product input for item {part}\"\n                    log(f\"ERROR: {error_msg}\")\n                    errors.append({\"part_number\": part, \"error\": error_msg})\n                    continue\n\n                input_id = empty_input[\"id\"]\n                row_index = empty_input.get(\"row_index\", 0)\n                log(f\"Found empty input: {input_id} (row {row_index})\")\n\n                # Fill product number\n                prod_locator = work_frame.locator(f\"#{input_id}\")\n                prod_locator.click()\n                time.sleep(0.3)\n                prod_locator.type(part, delay=15)\n",
         "applies_to": "services",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\services\\sap_insertar_items.py",
+        "source": "FormFiller_IA\\services\\sap_insertar_items.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -559,7 +559,7 @@
       "fact": {
         "rule": "d_locator.click()\n                time.sleep(0.3)\n                prod_locator.type(part, delay=15)\n                prod_locator.press(\"Enter\")\n                log(f\"Typed product: {part}, pressed Enter. Waiting 2s...\")\n                time.sleep(2)\n\n                # Fill quantity — find by same row index pattern\n                log(f\"Looking for quantity input in row [{row_index}]...\")\n                qty_id = _find_quantity_input(work_frame, row_index)\n\n                if qty_id:\n                    log(f\"Found quantity input: {qty_id}\")\n                    qty_locator = work_frame.locator(f\"#{qty_id}\")\n                    qty_locator.click()\n                    time.sleep(0.3)\n                    qty_locator.fill(\"\")\n                    qty_locator.type(qty)\n",
         "applies_to": "services",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\services\\sap_insertar_items.py",
+        "source": "FormFiller_IA\\services\\sap_insertar_items.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -584,7 +584,7 @@
       "fact": {
         "rule": " time.sleep(0.3)\n                    qty_locator.fill(\"\")\n                    qty_locator.type(qty)\n                    qty_locator.press(\"Enter\")\n                    time.sleep(0.5)\n                    qty_lo",
         "applies_to": "services",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\services\\sap_insertar_items.py",
+        "source": "FormFiller_IA\\services\\sap_insertar_items.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -609,7 +609,7 @@
       "fact": {
         "rule": "\"\"\"\nsap_session.py — Shared SAP CRM Session Manager\n=================================================\nLaunch browser, login, handle existing logon dialog,\nprovide page/scanner/filler/waiter objects to all services.\n\nREGLA DE ORO: Servidor de produccion — no hacer nada masivo sin confirmacion.\n\"\"\"\nimport sys\nimport os\nimport time\nimport json\nfrom datetime import datetime\nfrom pathlib import Path\n\n# --- Path setup so core/ is importable ---\n_PROJECT_ROOT = str(Path(__file__).resolve().parent.parent)\nif _PROJECT_ROOT not in sys.path:\n    sys.path.insert(0, _PROJECT_ROOT)\n\nfrom core.scanner import Scanner\nfrom core.filler import Filler\nfrom core.waiter import AdaptiveWaiter\n\n# ---------------------------------------------------------------------------\n# SAP Credentials & Config\n",
         "applies_to": "services",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\services\\sap_session.py",
+        "source": "FormFiller_IA\\services\\sap_session.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -634,7 +634,7 @@
       "fact": {
         "rule": "------------------------------------------------------------------------\n# SAP Credentials & Config\n# ---------------------------------------------------------------------------\nSAP_URL = \"https://wdp-sap.gbm.net:8105/sap/crm_logon?sap-client=500\"\nSAP_USER = \"ntoledo\"\nSAP_PASS = \"nB$1240906\"\nHTTP_USER = \"ntoledo\"\nHTTP_PASS = \"Gbmcr2026\"\n\nBROWSER_TIMEOUT_MS = 60_000\nCRM_LOAD_TIMEOUT_S = 45\n\ndef log(msg: str):\n    \"\"\"Timestamped log to stderr (stdout reserved for JSON results).\"\"\"\n    ts = datetime.now().strftime(\"%H:%M:%S.%f\")[:-3]\n    print(f\"[{ts}] {msg}\", file=sys.stderr)\n\ndef _build_auth_url(url: str) -> str:\n    \"\"\"Inject HTTP basic-auth credentials into the URL.\"\"\"\n    from urllib.parse import urlparse, urlunparse\n    p = urlparse(url)\n",
         "applies_to": "services",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\services\\sap_session.py",
+        "source": "FormFiller_IA\\services\\sap_session.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -659,7 +659,7 @@
       "fact": {
         "rule": "redentials into the URL.\"\"\"\n    from urllib.parse import urlparse, urlunparse\n    p = urlparse(url)\n    netloc = f\"{HTTP_USER}:{HTTP_PASS}@{p.hostname}\"\n    if p.port:\n        netloc += f\":{p.port}\"\n    return urlunparse((p.scheme, netloc, p.path, p.params, p.query, p.fragment))\n\n# ---------------------------------------------------------------------------\n# Session Manager\n# ---------------------------------------------------------------------------\nclass SAPSession:\n    \"\"\"Manages a single Playwright browser session against SAP CRM.\"\"\"\n\n    def __init__(self):\n        self.playwright = None\n        self.browser = None\n        self.context = None\n        self.page = None\n        self.scanner = None\n        self.filler = None\n        self.waiter = None\n        self._logged_in = False\n\n",
         "applies_to": "services",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\services\\sap_session.py",
+        "source": "FormFiller_IA\\services\\sap_session.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -684,7 +684,7 @@
       "fact": {
         "rule": "anner = None\n        self.filler = None\n        self.waiter = None\n        self._logged_in = False\n\n    # -- lifecycle -----------------------------------------------------------\n\n    def launch_browser(self, headless: bool = False):\n        \"\"\"Start Chromium with HTTP auth and SAP-friendly settings.\"\"\"\n        from playwright.sync_api import sync_playwright\n\n        log(\"Launching browser...\")\n        self.playwright = sync_playwright().start()\n        self.browser = self.playwright.chromium.launch(\n            headless=headless,\n            args=[\"--ignore-certificate-errors\", \"--disable-blink-features=AutomationControlled\"],\n        )\n        self.context = self.browser.new_context(\n            http_credentials={\"username\": HTTP_USER, \"password\": HTTP_PASS},\n",
         "applies_to": "services",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\services\\sap_session.py",
+        "source": "FormFiller_IA\\services\\sap_session.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -709,7 +709,7 @@
       "fact": {
         "rule": "f.browser.new_context(\n            http_credentials={\"username\": HTTP_USER, \"password\": HTTP_PASS},\n            ignore_https_errors=True,\n            viewport={\"width\": 1920, \"height\": 1080},\n        )\n        self.context.set_default_timeout(BROWSER_TIMEOUT_MS)\n        self.page = self.context.new_page()\n        log(\"Browser launched OK.\")\n        return self.page\n\n    def login(self) -> bool:\n        \"\"\"\n        Login to SAP CRM.\n        Handles: fresh login, existing logon dialog, session already open.\n        Returns True if CRM is loaded and ready.\n        \"\"\"\n        page = self.page\n        log(f\"Navigating to SAP CRM: {SAP_URL}\")\n        page.goto(_build_auth_url(SAP_URL), wait_until=\"domcontentloaded\", timeout=BROWSER_TIMEOUT_MS)\n        time.sleep(2)\n\n",
         "applies_to": "services",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\services\\sap_session.py",
+        "source": "FormFiller_IA\\services\\sap_session.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -734,7 +734,7 @@
       "fact": {
         "rule": "uth_url(SAP_URL), wait_until=\"domcontentloaded\", timeout=BROWSER_TIMEOUT_MS)\n        time.sleep(2)\n\n        # Check if already inside CRM (session reuse)\n        if self._is_crm_loaded():\n            log(\"CRM already loaded (session reuse).\")\n            self._init_core_objects()\n            self._logged_in = True\n            return True\n\n        # Fill login form\n        log(\"Filling login form...\")\n        try:\n            page.fill(\"#sap-user\", SAP_USER)\n            page.fill(\"#sap-password\", SAP_PASS)\n            page.keyboard.press(\"Enter\")\n            log(\"Credentials submitted.\")\n        except Exception as e:\n            log(f\"Login form not found or error: {e}\")\n            return False\n\n        time.sleep(3)\n\n        # Handle \"Existing Logon\" dialog\n",
         "applies_to": "services",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\services\\sap_session.py",
+        "source": "FormFiller_IA\\services\\sap_session.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -759,7 +759,7 @@
       "fact": {
         "rule": "or: {e}\")\n            return False\n\n        time.sleep(3)\n\n        # Handle \"Existing Logon\" dialog\n        self._handle_existing_logon()\n\n        # Wait for CRM to fully load\n        if self._wait_for_crm_load():\n            self._init_core_objects()\n            self._logged_in = True\n            log(\"Login successful, CRM loaded.\")\n            return True\n        else:\n            log(\"ERROR: CRM did not load within timeout.\")\n            return False\n\n    def _handle_existing_logon(self):\n        \"\"\"Click Continue if the 'Existing Logon' dialog appears.\"\"\"\n        page = self.page\n        try:\n            result = page.evaluate(\"\"\"() => {\n                var btn = document.getElementById('SESSION_QUERY_CONTINUE_BUTTON');\n                if (btn) { btn.click(); return true; }\n",
         "applies_to": "services",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\services\\sap_session.py",
+        "source": "FormFiller_IA\\services\\sap_session.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -784,7 +784,7 @@
       "fact": {
         "rule": "lementById('SESSION_QUERY_CONTINUE_BUTTON');\n                if (btn) { btn.click(); return true; }\n                return false;\n            }\"\"\")\n            if result:\n                log(\"Existing Logon dialog detected -> clicked Continue.\")",
         "applies_to": "services",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\services\\sap_session.py",
+        "source": "FormFiller_IA\\services\\sap_session.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -809,7 +809,7 @@
       "fact": {
         "rule": "\"\"\"\nsap_buscar_oportunidad.py — SAP CRM Opportunity Search Service\n================================================================\nSearch for an opportunity by ID, open it, and confirm it loaded.\n\nCLI: python services/sap_buscar_oportunidad.py --opp 245451\nReturns JSON result to stdout.\n\nTechnique (proven):\n  1. Locate search input: input[id*='search_parameters'][id*='VALUE']\n  2. Fill opportunity ID\n  3. Click Search button via JS evaluate\n  4. Click result link: a:has-text(opp_id)\n\"\"\"\nimport sys\nimport time\nimport argparse\nfrom pathlib import Path\nfrom datetime import datetime\n\n_PROJECT_ROOT = str(Path(__file__).resolve().parent.parent)\nif _PROJECT_ROOT not in sys.path:\n    sys.path.insert(0, _PROJECT_ROOT)\n\nfrom services.sap_session import get_session, SAPSession, log\n\n",
         "applies_to": "services",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\services\\sap_buscar_oportunidad.py",
+        "source": "FormFiller_IA\\services\\sap_buscar_oportunidad.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -834,7 +834,7 @@
       "fact": {
         "rule": "  sys.path.insert(0, _PROJECT_ROOT)\n\nfrom services.sap_session import get_session, SAPSession, log\n\ndef search_opportunity(opp_id: str, headless: bool = False) -> dict:\n    \"\"\"\n    Search and open an opportunity in SAP CRM.\n    Returns dict with success status and opportunity details.\n    \"\"\"\n    session = get_session(headless=headless)\n    page = session.page\n    scanner = session.scanner\n\n    log(f\"Searching for opportunity: {opp_id}\")\n\n    try:\n        # Step 1: Find and fill the search input\n        work_frame = scanner.find_sap_work_frame()\n        target = work_frame if work_frame else page\n\n        log(\"Looking for search input field...\")\n        search_input = target.locator(\"input[id*='search_parameters'][id*='VALUE']\").first\n        search_input.click()\n        time.sleep(0.5)\n",
         "applies_to": "services",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\services\\sap_buscar_oportunidad.py",
+        "source": "FormFiller_IA\\services\\sap_buscar_oportunidad.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -859,7 +859,7 @@
       "fact": {
         "rule": "[id*='search_parameters'][id*='VALUE']\").first\n        search_input.click()\n        time.sleep(0.5)\n        search_input.fill(\"\")\n        search_input.fill(opp_id)\n        log(f\"Filled search input with: {opp_id}\")\n        time.sleep(1)\n\n        # Step 2: Click Search button via JS\n        log(\"Clicking Search button...\")\n        clicked_search = False\n        for fr in page.frames:\n            try:\n                result = fr.evaluate(\"\"\"() => {\n                    var btns = document.querySelectorAll('button, a, span');\n                    for (var b of btns) {\n                        var txt = (b.textContent || '').trim();\n                        if (txt === 'Search' || txt === 'Buscar') {\n                            b.click();\n                            return true;\n",
         "applies_to": "services",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\services\\sap_buscar_oportunidad.py",
+        "source": "FormFiller_IA\\services\\sap_buscar_oportunidad.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -884,7 +884,7 @@
       "fact": {
         "rule": "txt === 'Buscar') {\n                            b.click();\n                            return true;\n                        }\n                    }\n                    // Fallback: any element with search in id\n                    var el = document.querySelector('[id*=\"search\"][id*=\"BUTTON\"], [id*=\"Search\"][id*=\"btn\"]');\n                    if (el) { el.click(); return true; }\n                    return false;\n                }\"\"\")\n                if result:\n                    clicked_search = True\n                    log(\"Search button clicked.\")\n                    break\n            except Exception:\n                continue\n\n        if not clicked_search:\n            log(\"WARNING: Could not find Search button, trying Enter key...\")\n            search_input.press(\"Enter\")\n\n",
         "applies_to": "services",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\services\\sap_buscar_oportunidad.py",
+        "source": "FormFiller_IA\\services\\sap_buscar_oportunidad.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -909,7 +909,7 @@
       "fact": {
         "rule": "RNING: Could not find Search button, trying Enter key...\")\n            search_input.press(\"Enter\")\n\n        # Step 3: Wait for results\n        time.sleep(4)\n        session.waiter.wait_ready(page, timeout_s=15)\n\n        # Step 4: Click the result link\n        log(f\"Looking for result link with text: {opp_id}\")\n        result_link = None\n        for fr in page.frames:\n            try:\n                link = fr.locator(f\"a:has-text('{opp_id}')\").first\n                if link.is_visible(timeout=3000):\n                    result_link = link\n                    log(f\"Found result link in frame: {fr.name or fr.url[:60]}\")\n                    break\n            except Exception:\n                continue\n\n        if result_link is None:\n",
         "applies_to": "services",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\services\\sap_buscar_oportunidad.py",
+        "source": "FormFiller_IA\\services\\sap_buscar_oportunidad.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -934,7 +934,7 @@
       "fact": {
         "rule": "      break\n            except Exception:\n                continue\n\n        if result_link is None:\n            error_msg = f\"Opportunity {opp_id} not found in search results.\"\n            log(f\"ERROR: {error_msg}\")\n            SAPSession.emit_result(False, error=error_msg)\n            return {\"success\": False, \"error\": error_msg}\n\n        result_link.click()\n        log(f\"Clicked on opportunity {opp_id}, waiting for it to load...\")\n        time.sleep(5)\n        session.waiter.wait_ready(page, timeout_s=20)\n\n        # Step 5: Confirm opportunity loaded\n        frame_count = len(page.frames)\n        log(f\"Opportunity {opp_id} opened. Frames: {frame_count}\")\n\n        data = {\n            \"opp_id\": opp_id,\n            \"status\": \"opened\",\n            \"frame_count\": frame_count,\n",
         "applies_to": "services",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\services\\sap_buscar_oportunidad.py",
+        "source": "FormFiller_IA\\services\\sap_buscar_oportunidad.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -959,7 +959,7 @@
       "fact": {
         "rule": "          \"opp_id\": opp_id,\n            \"status\": \"opened\",\n            \"frame_count\": frame_count,\n            \"page_url\": page.url[:200],\n        }\n        SAPSession.emit_result(True, data=data)\n        return {\"success\": True, \"data\": data, \"session\": session}\n\n    except Exception as e:\n        error_msg = f\"Search error: {e}\"\n        log(f\"ERROR: {error_msg}\")\n        SAPSession.emit_result(False, error=error_msg)\n        return {\"success\": False, \"error\": error_msg}\n\ndef main():\n    parser = argparse.ArgumentParser(description=\"SAP CRM - Search Opportunity\")\n    parser.add_argument(\"--opp\", required=True, help=\"Opportunity ID to search\")\n    parser.add_argument(\"--headless\", action=\"store_true\", help=\"Run headless\")\n    args = parser.parse_args()\n\n",
         "applies_to": "services",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\services\\sap_buscar_oportunidad.py",
+        "source": "FormFiller_IA\\services\\sap_buscar_oportunidad.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -984,7 +984,7 @@
       "fact": {
         "rule": "dd_argument(\"--headless\", action=\"store_true\", help=\"Run headless\")\n    args = parser.parse_args()\n\n    result = search_opportunity(args.opp, headless=args.headless)\n    if not result[\"success\"]:\n        sys.exit(1)\n\nif __name__ == \"__main__\":\n    main()",
         "applies_to": "services",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\services\\sap_buscar_oportunidad.py",
+        "source": "FormFiller_IA\\services\\sap_buscar_oportunidad.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -1009,7 +1009,7 @@
       "fact": {
         "rule": "\"\"\"\nsap_login.py — SAP CRM Login Service\n======================================\nStandalone login microservice. Launches browser, logs in, confirms CRM ready.\nHandles: fresh login, session already open, existing logon dialog.\n\nCLI: python services/sap_login.py [--headless]\nReturns JSON result to stdout.\n\"\"\"\nimport sys\nimport argparse\nfrom pathlib import Path\nfrom datetime import datetime\n\n_PROJECT_ROOT = str(Path(__file__).resolve().parent.parent)\nif _PROJECT_ROOT not in sys.path:\n    sys.path.insert(0, _PROJECT_ROOT)\n\nfrom services.sap_session import SAPSession, log\n\ndef run_login(headless: bool = False) -> dict:\n    \"\"\"Execute the login flow. Returns result dict.\"\"\"\n    session = SAPSession()\n\n    try:\n        # Launch browser\n        session.launch_browser(headless=headless)\n\n",
         "applies_to": "services",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\services\\sap_login.py",
+        "source": "FormFiller_IA\\services\\sap_login.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -1034,7 +1034,7 @@
       "fact": {
         "rule": " SAPSession()\n\n    try:\n        # Launch browser\n        session.launch_browser(headless=headless)\n\n        # Login\n        success = session.login()\n\n        if success:\n            page = session.page\n            frame_count = len(page.frames)\n            crm_frames = []\n            for fr in page.frames:\n                try:\n                    url = fr.url.lower()\n                    if \"crm_ui\" in url or \"bsp\" in url:\n                        crm_frames.append(fr.url[:120])\n                except Exception:\n                    pass\n\n            result = {\n                \"status\": \"crm_ready\",\n                \"frame_count\": frame_count,\n                \"crm_frames\": crm_frames,\n                \"page_url\": page.url[:200],\n            }\n",
         "applies_to": "services",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\services\\sap_login.py",
+        "source": "FormFiller_IA\\services\\sap_login.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -1059,7 +1059,7 @@
       "fact": {
         "rule": "                \"crm_frames\": crm_frames,\n                \"page_url\": page.url[:200],\n            }\n            log(f\"Login OK: {frame_count} frames, {len(crm_frames)} CRM frames.\")\n            session.emit_result(True, data=result)\n            return {\"success\": True, \"session\": session, \"data\": result}\n        else:\n            error_msg = \"CRM did not load after login.\"\n            log(f\"Login FAILED: {error_msg}\")\n            session.emit_result(False, error=error_msg)\n            return {\"success\": False, \"session\": session, \"error\": error_msg}\n\n    except Exception as e:\n        error_msg = f\"Login exception: {e}\"\n        log(error_msg)\n        session.emit_result(False, error=error_msg)\n        return {\"success\": False, \"session\": session, \"error\": error_msg}\n\ndef main():\n",
         "applies_to": "services",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\services\\sap_login.py",
+        "source": "FormFiller_IA\\services\\sap_login.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -1084,7 +1084,7 @@
       "fact": {
         "rule": "r=error_msg)\n        return {\"success\": False, \"session\": session, \"error\": error_msg}\n\ndef main():\n    parser = argparse.ArgumentParser(description=\"SAP CRM Login Service\")\n    parser.add_argument(\"--headless\", action=\"store_true\", help=\"Run browser in headless mode\")\n    args = parser.parse_args()\n\n    result = run_login(headless=args.headless)\n\n    if not result[\"success\"]:\n        sys.exit(1)\n\n    # Keep browser alive for manual inspection if not headless\n    if not args.headless:\n        log(\"Browser open. Press Ctrl+C to close.\")\n        try:\n            while True:\n                import time\n                time.sleep(1)\n        except KeyboardInterrupt:\n            pass\n        finally:\n            result[\"session\"].close()\n\nif __name__ == \"__main__\":\n    main()",
         "applies_to": "services",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\services\\sap_login.py",
+        "source": "FormFiller_IA\\services\\sap_login.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""

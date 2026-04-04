@@ -9,7 +9,7 @@
       "fact": {
         "rule": "[     582ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:8080/favicon.ico:0\n[  232690ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:8080/api/status:0\n[  232690ms] [ERROR] Error fetching status: TypeError: Failed to fetch\n    at refresh (http://localhost:8080/:428:3) @ http://localhost:8080/:497\n[  235690ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:8080/api/status:0\n[  235690ms] [ERROR] Error fetching status: TypeError: Failed to fetch\n    at refresh (http://localhost:8080/:428:3) @ http://localhost:8080/:497\n[  238689ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:8080/api/status:0\n",
         "applies_to": "playwright_mcp",
-        "source": "C:\\Chance1\\.playwright-mcp\\console-2026-04-01T18-00-32-816Z.log",
+        "source": ".playwright-mcp\\console-2026-04-01T18-00-32-816Z.log",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -33,7 +33,7 @@
       "fact": {
         "rule": "] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:8080/api/status:0\n[  238689ms] [ERROR] Error fetching status: TypeError: Failed to fetch\n    at refresh (http://localhost:8080/:428:3) @ http://localhost:8080/:497\n[  241709ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:8080/api/status:0\n[  241709ms] [ERROR] Error fetching status: TypeError: Failed to fetch\n    at refresh (http://localhost:8080/:428:3) @ http://localhost:8080/:497\n[  244690ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://localhost:8080/api/status:0\n[  244690ms] [ERROR] Error fetching status: TypeError: Failed to fetch\n    at refresh (http://localhost:8080/:428:3) @ http://localhost:8080/:497\n",
         "applies_to": "playwright_mcp",
-        "source": "C:\\Chance1\\.playwright-mcp\\console-2026-04-01T18-00-32-816Z.log",
+        "source": ".playwright-mcp\\console-2026-04-01T18-00-32-816Z.log",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -57,7 +57,7 @@
       "fact": {
         "rule": "- generic [ref=e2]:\n  - region\n  - generic [ref=e3]:\n    - link \"Skip to content\" [ref=e4] [cursor=pointer]:\n      - /url: \"#start-of-content\"\n    - banner [ref=e6]:\n      - heading \"Navigation Menu\" [level=2] [ref=e7]\n      - generic [ref=e8]:\n        - link \"Homepage\" [ref=e10] [cursor=pointer]:\n          - /url: /\n          - img [ref=e11]\n        - generic [ref=e13]:\n          - navigation \"Global\" [ref=e16]:\n            - list [ref=e17]:\n              - listitem [ref=e18]:\n                - button \"Platform\" [ref=e20] [cursor=pointer]:\n                  - text: Platform\n                  - img [ref=e21]\n              - listitem [ref=e23]:\n                - button \"Solutions\" [ref=e25] [cursor=pointer]:\n                  - text: Solutions\n                  - img [ref=e26]\n",
         "applies_to": "playwright_mcp",
-        "source": "C:\\Chance1\\.playwright-mcp\\page-2026-04-01T14-44-47-717Z.yml",
+        "source": ".playwright-mcp\\page-2026-04-01T14-44-47-717Z.yml",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -82,7 +82,7 @@
       "fact": {
         "rule": "\" [ref=e25] [cursor=pointer]:\n                  - text: Solutions\n                  - img [ref=e26]\n              - listitem [ref=e28]:\n                - button \"Resources\" [ref=e30] [cursor=pointer]:\n                  - text: Resources\n                  - img [ref=e31]\n              - listitem [ref=e33]:\n                - button \"Open Source\" [ref=e35] [cursor=pointer]:\n                  - text: Open Source\n                  - img [ref=e36]\n              - listitem [ref=e38]:\n                - button \"Enterprise\" [ref=e40] [cursor=pointer]:\n                  - text: Enterprise\n                  - img [ref=e41]\n              - listitem [ref=e43]:\n                - link \"Pricing\" [ref=e44] [cursor=pointer]:\n                  - /url: https://github.com/pricing\n",
         "applies_to": "playwright_mcp",
-        "source": "C:\\Chance1\\.playwright-mcp\\page-2026-04-01T14-44-47-717Z.yml",
+        "source": ".playwright-mcp\\page-2026-04-01T14-44-47-717Z.yml",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -107,7 +107,7 @@
       "fact": {
         "rule": "  - link \"Pricing\" [ref=e44] [cursor=pointer]:\n                  - /url: https://github.com/pricing\n                  - generic [ref=e45]: Pricing\n          - generic [ref=e46]:\n            - button \"Search or jump to…\" [ref=e49] [cursor=pointer]:\n              - img [ref=e51]\n            - link \"Sign in\" [ref=e54] [cursor=pointer]:\n              - /url: /login?return_to=https%3A%2F%2Fgithub.com%2FNetocool2006%2FMotor-Fusion\n            - link \"Sign up\" [ref=e55] [cursor=pointer]:\n              - /url: /signup?ref_cta=Sign+up&ref_loc=header+logged+out&ref_page=%2F%3Cuser-name%3E%2F%3Crepo-name%3E&source=header-repo&source_repo=Netocool2006%2FMotor-Fusion\n            - button \"Appearance settings\" [ref=e58] [cursor=pointer]:\n              - img\n  - main [ref=e62]:\n    - generic [ref=e63]:\n",
         "applies_to": "playwright_mcp",
-        "source": "C:\\Chance1\\.playwright-mcp\\page-2026-04-01T14-44-47-717Z.yml",
+        "source": ".playwright-mcp\\page-2026-04-01T14-44-47-717Z.yml",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -132,7 +132,7 @@
       "fact": {
         "rule": "tings\" [ref=e58] [cursor=pointer]:\n              - img\n  - main [ref=e62]:\n    - generic [ref=e63]:\n      - generic [ref=e64]:\n        - generic [ref=e66]:\n          - img [ref=e67]\n          - link \"Netocool2006\" [ref=e70] [cursor=pointer]:\n            - /url: /Netocool2006\n          - generic [ref=e71]: /\n          - strong [ref=e72]:\n            - link \"Motor-Fusion\" [ref=e73] [cursor=pointer]:\n              - /url: /Netocool2006/Motor-Fusion\n          - generic [ref=e74]: Public\n        - generic [ref=e75]:\n          - list:\n            - listitem [ref=e76]:\n              - link \"You must be signed in to change notification settings\" [ref=e77] [cursor=pointer]:\n                - /url: /login?return_to=%2FNetocool2006%2FMotor-Fusion\n                - img [ref=e78]\n",
         "applies_to": "playwright_mcp",
-        "source": "C:\\Chance1\\.playwright-mcp\\page-2026-04-01T14-44-47-717Z.yml",
+        "source": ".playwright-mcp\\page-2026-04-01T14-44-47-717Z.yml",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -157,7 +157,7 @@
       "fact": {
         "rule": "            - /url: /login?return_to=%2FNetocool2006%2FMotor-Fusion\n                - img [ref=e78]\n                - text: Notifications\n            - listitem [ref=e80]:\n              - link \"Fork 0\" [ref=e81] [cursor=pointer]:\n                - /url: /login?return_to=%2FNetocool2006%2FMotor-Fusion\n                - img [ref=e82]\n                - text: Fork\n                - generic \"0\" [ref=e84]\n            - listitem [ref=e85]:\n              - link \"You must be signed in to star a repository\" [ref=e87] [cursor=pointer]:\n                - /url: /login?return_to=%2FNetocool2006%2FMotor-Fusion\n                - img [ref=e88]\n                - text: Star\n                - generic \"0 users starred this repository\" [ref=e90]: \"0\"\n      - navigation \"Repository\" [ref=e91]:\n",
         "applies_to": "playwright_mcp",
-        "source": "C:\\Chance1\\.playwright-mcp\\page-2026-04-01T14-44-47-717Z.yml",
+        "source": ".playwright-mcp\\page-2026-04-01T14-44-47-717Z.yml",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -182,7 +182,7 @@
       "fact": {
         "rule": "generic \"0 users starred this repository\" [ref=e90]: \"0\"\n      - navigation \"Repository\" [ref=e91]:\n        - list [ref=e92]:\n          - listitem [ref=e93]:\n            - link \"Code\" [ref=e94] [cursor=pointer]:\n              - /url: /Netocool2006/Motor-Fusion\n              - img [ref=e95]\n              - generic [ref=e97]: Code\n          - listitem [ref=e98]:\n            - link \"Issues\" [ref=e99] [cursor=pointer]:\n              - /url: /Netocool2006/Motor-Fusion/issues\n              - img [ref=e100]\n              - generic [ref=e103]: Issues\n          - listitem [ref=e104]:\n            - link \"Pull requests\" [ref=e105] [cursor=pointer]:\n              - /url: /Netocool2006/Motor-Fusion/pulls\n              - img [ref=e106]\n              - generic [ref=e108]: Pull requests\n",
         "applies_to": "playwright_mcp",
-        "source": "C:\\Chance1\\.playwright-mcp\\page-2026-04-01T14-44-47-717Z.yml",
+        "source": ".playwright-mcp\\page-2026-04-01T14-44-47-717Z.yml",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -207,7 +207,7 @@
       "fact": {
         "rule": "Motor-Fusion/pulls\n              - img [ref=e106]\n              - generic [ref=e108]: Pull requests\n          - listitem [ref=e109]:\n            - link \"Actions\" [ref=e110] [cursor=pointer]:\n              - /url: /Netocool2006/Motor-Fusion/actions\n              - img [ref=e111]\n              - generic [ref=e113]: Actions\n          - listitem [ref=e114]:\n            - link \"Projects\" [ref=e115] [cursor=pointer]:\n              - /url: /Netocool2006/Motor-Fusion/projects\n              - img [ref=e116]\n              - generic [ref=e118]: Projects\n          - listitem [ref=e119]:\n            - link \"Security and quality\" [ref=e120] [cursor=pointer]:\n              - /url: /Netocool2006/Motor-Fusion/security\n              - img [ref=e121]\n              - generic [ref=e123]: Security and quality\n",
         "applies_to": "playwright_mcp",
-        "source": "C:\\Chance1\\.playwright-mcp\\page-2026-04-01T14-44-47-717Z.yml",
+        "source": ".playwright-mcp\\page-2026-04-01T14-44-47-717Z.yml",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -232,7 +232,7 @@
       "fact": {
         "rule": "on/security\n              - img [ref=e121]\n              - generic [ref=e123]: Security and quality\n          - listitem [ref=e124]:\n            - link \"Insights\" [ref=e125] [cursor=pointer]:",
         "applies_to": "playwright_mcp",
-        "source": "C:\\Chance1\\.playwright-mcp\\page-2026-04-01T14-44-47-717Z.yml",
+        "source": ".playwright-mcp\\page-2026-04-01T14-44-47-717Z.yml",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -257,7 +257,7 @@
       "fact": {
         "rule": "- generic [ref=e3]:\n  - banner [ref=e5]:\n    - link \"Ir a la página principal\" [ref=e6] [cursor=pointer]:\n      - /url: /\n      - img \"NotebookLM logo\" [ref=e7]\n    - navigation \"Navegación principal\" [ref=e8]:\n      - list [ref=e9]:\n        - listitem [ref=e10]:\n          - link \"Descripción general\" [ref=e11] [cursor=pointer]:\n            - /url: /\n        - listitem [ref=e12]:\n          - link \"Planes\" [ref=e13] [cursor=pointer]:\n            - /url: /plans\n        - listitem [ref=e14]:\n          - link \"social link\" [ref=e15] [cursor=pointer]:\n            - /url: https://discord.gg/notebooklm\n            - img \"social link\" [ref=e16]\n          - link \"social link\" [ref=e17] [cursor=pointer]:\n            - /url: https://www.reddit.com/r/notebooklm/\n",
         "applies_to": "playwright_mcp",
-        "source": "C:\\Chance1\\.playwright-mcp\\page-2026-04-03T02-42-48-501Z.yml",
+        "source": ".playwright-mcp\\page-2026-04-03T02-42-48-501Z.yml",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -282,7 +282,7 @@
       "fact": {
         "rule": " \"social link\" [ref=e17] [cursor=pointer]:\n            - /url: https://www.reddit.com/r/notebooklm/\n            - img \"social link\" [ref=e18]\n          - link \"social link\" [ref=e19] [cursor=pointer]:\n            - /url: https://x.com/NotebookLM\n            - img \"social link\" [ref=e20]\n        - listitem [ref=e21]:\n          - link \"Descargar la app\" [ref=e22] [cursor=pointer]:\n            - /url: /app\n  - generic [ref=e23]:\n    - generic [ref=e27]:\n      - heading \"Entiende sobre cualquier tema\" [level=1] [ref=e28]:\n        - generic [ref=e29]: Entiende sobre cualquier tema\n      - generic [ref=e30]: Tu compañero de investigación y creación, que se basa en la información en la que confías y se creó con los modelos más recientes de Gemini.\n",
         "applies_to": "playwright_mcp",
-        "source": "C:\\Chance1\\.playwright-mcp\\page-2026-04-03T02-42-48-501Z.yml",
+        "source": ".playwright-mcp\\page-2026-04-03T02-42-48-501Z.yml",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -307,7 +307,7 @@
       "fact": {
         "rule": " que se basa en la información en la que confías y se creó con los modelos más recientes de Gemini.\n      - link \"Probar NotebookLM\" [ref=e31] [cursor=pointer]:\n        - /url: https://notebooklm.google.com/?icid=home_maincta\n        - generic [ref=e32]: Probar NotebookLM\n    - generic [ref=e37]: Tu compañero de investigación potenciado por IA\n    - generic \"Sube tus fuentes\" [ref=e38]:\n      - generic [ref=e40]:\n        - img [ref=e42]: person\n        - generic [ref=e43]: Sube tus fuentes\n        - generic [ref=e44]: Sube archivos PDF, sitios web, videos de YouTube, archivos de audio, documentos de Google, presentaciones de Google y mucho más. ",
         "applies_to": "playwright_mcp",
-        "source": "C:\\Chance1\\.playwright-mcp\\page-2026-04-03T02-42-48-501Z.yml",
+        "source": ".playwright-mcp\\page-2026-04-03T02-42-48-501Z.yml",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -332,7 +332,7 @@
       "fact": {
         "rule": ", videos de YouTube, archivos de audio, documentos de Google, presentaciones de Google y mucho más. NotebookLM los resumirá y establecerá conexiones interesantes entre los temas, todo con la ayuda de la versión más reciente de las capacidades de comprensión multimodal de Gemini.\n    - generic \"Estadísticas instantáneas\" [ref=e48]:\n      - generic [ref=e49]:\n        - generic [ref=e50]:\n          - img [ref=e52]: bolt\n          - generic [ref=e53]: Estadísticas instantáneas\n          - generic [ref=e54]: Con todas tus fuentes en su lugar, NotebookLM se pone a trabajar y se convierte en un experto en IA personalizado en la información que más te interesa.\n        - img \"undefined\" [ref=e57]\n    - generic \"Ve la fuente, no solo la respuesta\" [ref=e58]:\n      - generic [ref=e60]:\n",
         "applies_to": "playwright_mcp",
-        "source": "C:\\Chance1\\.playwright-mcp\\page-2026-04-03T02-42-48-501Z.yml",
+        "source": ".playwright-mcp\\page-2026-04-03T02-42-48-501Z.yml",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -357,7 +357,7 @@
       "fact": {
         "rule": " [ref=e57]\n    - generic \"Ve la fuente, no solo la respuesta\" [ref=e58]:\n      - generic [ref=e60]:\n        - img [ref=e62]: asterisk\n        - generic [ref=e63]: Ve la fuente, no solo la respuesta\n        - generic [ref=e64]: Confía en cada respuesta gracias a que NotebookLM proporciona citas claras de su trabajo y te muestra las citas exactas de tus fuentes.\n    - generic \"Escucha y aprende sobre la marcha\" [ref=e68]:\n      - generic [ref=e70]:\n        - img [ref=e72]: graphic_eq\n        - generic [ref=e73]: Escucha y aprende sobre la marcha\n        - generic [ref=e74]: Nuestra nueva función Resumen de audio puede convertir tus fuentes en conversaciones de “Análisis en profundidad” atractivas con un solo clic.\n    - generic [ref=e80]: Cómo usan NotebookLM las personas\n",
         "applies_to": "playwright_mcp",
-        "source": "C:\\Chance1\\.playwright-mcp\\page-2026-04-03T02-42-48-501Z.yml",
+        "source": ".playwright-mcp\\page-2026-04-03T02-42-48-501Z.yml",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -382,7 +382,7 @@
       "fact": {
         "rule": "rofundidad” atractivas con un solo clic.\n    - generic [ref=e80]: Cómo usan NotebookLM las personas\n    - generic [ref=e82]:\n      - generic [ref=e83]:\n        - generic [ref=e84]:\n          - img [ref=e87]: school\n          - generic [ref=e88]: Potencia tu estudio\n          - generic [ref=e89]: Sube grabaciones de clases, capítulos de libros de texto y trabajos de investigación. Pídele a NotebookLM que explique conceptos complejos en términos simples, proporcione ejemplos del mundo real y refuerce tu comprensión.\n        - generic [ref=e90]: Aprende más rápido y en profundidad.\n      - generic [ref=e91]:\n        - generic [ref=e92]:\n          - img [ref=e95]: dynamic_feed\n          - generic [ref=e96]: Organiza tu pensamiento\n",
         "applies_to": "playwright_mcp",
-        "source": "C:\\Chance1\\.playwright-mcp\\page-2026-04-03T02-42-48-501Z.yml",
+        "source": ".playwright-mcp\\page-2026-04-03T02-42-48-501Z.yml",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -407,7 +407,7 @@
       "fact": {
         "rule": "92]:\n          - img [ref=e95]: dynamic_feed\n          - generic [ref=e96]: Organiza tu pensamiento\n          - generic [ref=e97]: Sube tu material original y permite que NotebookLM cree un esquema de presentación optimizado, con puntos clave y que incluya pruebas de respaldo.\n        - generic [ref=e98]: Presenta temas con confianza.\n      - generic [ref=e99]:\n        - generic [ref=e100]:\n          - img [ref=e103]: lightbulb\n          - generic [ref=e104]: Elabora nuevas ideas\n          - generic [ref=e105]: Sube notas de intercambio de ideas, investigación de mercado y análisis de la competencia. Pídele a NotebookLM que identifique tendencias, genere ideas para nuevos productos y descubra oportunidades ocultas.\n        - generic [ref=e106]: Desbloquea tu potencial creativo.\n",
         "applies_to": "playwright_mcp",
-        "source": "C:\\Chance1\\.playwright-mcp\\page-2026-04-03T02-42-48-501Z.yml",
+        "source": ".playwright-mcp\\page-2026-04-03T02-42-48-501Z.yml",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -432,7 +432,7 @@
       "fact": {
         "rule": "s y descubra oportunidades ocultas.\n        - generic [ref=e106]: Desbloquea tu potencial creativo.\n    - generic [ref=e109]: Qué dicen las personas\n    - generic [ref=e112]:\n      - generic [ref=e113]:\n        - link \"Go to source of quote (opens in new window)\" [ref=e116] [cursor=pointer]:\n          - /url: https://www.youtube.com/watch?v=IPAPv6fWITM\n          - figure \"HardFork HardFork\" [ref=e117]:\n            - blockquote [ref=e118]",
         "applies_to": "playwright_mcp",
-        "source": "C:\\Chance1\\.playwright-mcp\\page-2026-04-03T02-42-48-501Z.yml",
+        "source": ".playwright-mcp\\page-2026-04-03T02-42-48-501Z.yml",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -457,7 +457,7 @@
       "fact": {
         "rule": "r-Fusion\n            - button \"Appearance settings\" [ref=e58] [cursor=pointer]:\n              - img\n  - main [ref=e62]:\n    - generic [ref=e63]:\n      - generic [ref=e64]:\n        - generic [ref=e66]:\n          - img [ref=e67]\n          - link \"Netocool2006\" [ref=e70] [cursor=pointer]:\n            - /url: /Netocool2006\n          - generic [ref=e71]: /\n          - strong [ref=e72]:\n            - link \"Motor-Fusion\" [ref=e73] [cursor=pointer]:\n              - /url: /Netocool2006/Motor-Fusion\n          - generic [ref=e74]: Public\n        - generic [ref=e75]:\n          - list:\n            - listitem [ref=e76]:\n              - link \"You must be signed in to change notification settings\" [ref=e77] [cursor=pointer]:\n                - /url: /login?return_to=%2FNetocool2006%2FMotor-Fusion\n",
         "applies_to": "playwright_mcp",
-        "source": "C:\\Chance1\\.playwright-mcp\\page-2026-04-01T14-31-01-045Z.yml",
+        "source": ".playwright-mcp\\page-2026-04-01T14-31-01-045Z.yml",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -482,7 +482,7 @@
       "fact": {
         "rule": "[ref=e77] [cursor=pointer]:\n                - /url: /login?return_to=%2FNetocool2006%2FMotor-Fusion\n                - img [ref=e78]\n                - text: Notifications\n            - listitem [ref=e80]:\n              - link \"Fork 0\" [ref=e81] [cursor=pointer]:\n                - /url: /login?return_to=%2FNetocool2006%2FMotor-Fusion\n                - img [ref=e82]\n                - text: Fork\n                - generic \"0\" [ref=e84]\n            - listitem [ref=e85]:\n              - link \"You must be signed in to star a repository\" [ref=e87] [cursor=pointer]:\n                - /url: /login?return_to=%2FNetocool2006%2FMotor-Fusion\n                - img [ref=e88]\n                - text: Star\n                - generic \"0 users starred this repository\" [ref=e90]: \"0\"\n",
         "applies_to": "playwright_mcp",
-        "source": "C:\\Chance1\\.playwright-mcp\\page-2026-04-01T14-31-01-045Z.yml",
+        "source": ".playwright-mcp\\page-2026-04-01T14-31-01-045Z.yml",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -507,7 +507,7 @@
       "fact": {
         "rule": "=pointer]:\n              - /url: /Netocool2006/Motor-Fusion/security\n              - img [ref=e121]\n              - generic [ref=e123]: Security and quality\n          - listitem [ref=e124]:\n            - link \"Ins",
         "applies_to": "playwright_mcp",
-        "source": "C:\\Chance1\\.playwright-mcp\\page-2026-04-01T14-31-01-045Z.yml",
+        "source": ".playwright-mcp\\page-2026-04-01T14-31-01-045Z.yml",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -532,7 +532,7 @@
       "fact": {
         "rule": "- generic [active] [ref=e1]:\n  - generic [ref=e3]:\n    - banner [ref=e4]:\n      - generic [ref=e5]:\n        - link [ref=e6] [cursor=pointer]:\n          - /url: \"#\"\n          - img [ref=e8]\n        - navigation [ref=e12]:\n          - list [ref=e13]:\n            - listitem [ref=e14] [cursor=pointer]:\n              - link \"Home\" [ref=e15]:\n                - /url: \"#\"\n                - img [ref=e18]\n                - generic [ref=e20]: Home\n          - list [ref=e21]:\n            - generic [ref=e22]:\n              - generic [ref=e23]:\n                - text: View more\n                - img [ref=e25]\n              - list [ref=e27]:\n                - listitem [ref=e28]:\n                  - link \"Tools\" [ref=e29] [cursor=pointer]:\n                    - /url: \"#\"\n",
         "applies_to": "playwright_mcp",
-        "source": "C:\\Chance1\\.playwright-mcp\\page-2026-04-01T18-00-22-828Z.yml",
+        "source": ".playwright-mcp\\page-2026-04-01T18-00-22-828Z.yml",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -557,7 +557,7 @@
       "fact": {
         "rule": "=e28]:\n                  - link \"Tools\" [ref=e29] [cursor=pointer]:\n                    - /url: \"#\"\n                    - img [ref=e31]\n                    - text: Tools\n                    - img [ref=e35]\n                - listitem [ref=e38]:\n                  - link \"Agentes\" [ref=e39] [cursor=pointer]:\n                    - /url: \"#\"\n                    - img [ref=e41]\n                    - text: Agentes\n                    - img [ref=e45]\n                - listitem [ref=e48]:\n                  - link \"Skills\" [ref=e49] [cursor=pointer]:\n                    - /url: \"#\"\n                    - img [ref=e51]\n                    - text: Skills\n                    - img [ref=e55]\n                - listitem [ref=e58]:\n                  - link \"DS\" [ref=e59] [cursor=pointer]:\n",
         "applies_to": "playwright_mcp",
-        "source": "C:\\Chance1\\.playwright-mcp\\page-2026-04-01T18-00-22-828Z.yml",
+        "source": ".playwright-mcp\\page-2026-04-01T18-00-22-828Z.yml",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -582,7 +582,7 @@
       "fact": {
         "rule": "55]\n                - listitem [ref=e58]:\n                  - link \"DS\" [ref=e59] [cursor=pointer]:\n                    - /url: \"#\"\n                    - img [ref=e61]\n                    - text: DS\n                    - img [ref=e65]\n            - listitem [ref=e68]:\n              - link \"Tools\" [ref=e69] [cursor=pointer]:\n                - /url: \"#\"\n                - generic [ref=e70]:\n                  - img [ref=e72]\n                  - text: Tools\n                  - img [ref=e76]\n            - listitem [ref=e79]:\n              - link \"Agentes\" [ref=e80] [cursor=pointer]:\n                - /url: \"#\"\n                - generic [ref=e81]:\n                  - img [ref=e83]\n                  - text: Agentes\n                  - img [ref=e87]\n            - listitem [ref=e90]:\n",
         "applies_to": "playwright_mcp",
-        "source": "C:\\Chance1\\.playwright-mcp\\page-2026-04-01T18-00-22-828Z.yml",
+        "source": ".playwright-mcp\\page-2026-04-01T18-00-22-828Z.yml",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -607,7 +607,7 @@
       "fact": {
         "rule": "                - text: Agentes\n                  - img [ref=e87]\n            - listitem [ref=e90]:\n              - link \"Skills\" [ref=e91] [cursor=pointer]:\n                - /url: \"#\"\n                - generic [ref=e92]:\n                  - img [ref=e94]\n                  - text: Skills\n                  - img [ref=e98]\n          - link \"Stats\" [ref=e102] [cursor=pointer]:\n            - /url: \"#\"\n      - generic [ref=e104]:\n        - list [ref=e105]:\n          - listitem [ref=e106]:\n            - link \"Home\" [ref=e107] [cursor=pointer]:\n              - /url: \"#\"\n              - img [ref=e109]\n              - text: Home\n        - list [ref=e111]:\n          - listitem [ref=e112]:\n            - link \"Tools\" [ref=e113] [cursor=pointer]:\n              - /url: \"#\"\n              - text: Tools\n",
         "applies_to": "playwright_mcp",
-        "source": "C:\\Chance1\\.playwright-mcp\\page-2026-04-01T18-00-22-828Z.yml",
+        "source": ".playwright-mcp\\page-2026-04-01T18-00-22-828Z.yml",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -632,7 +632,7 @@
       "fact": {
         "rule": "    - text: DS\n              - img [ref=e137]\n    - generic [ref=e145]:\n      - generic [ref=e146]:\n        - link \"IA Local Busca archivos, correos y datos sin salir de tu escritorio\" [ref=e147] [cursor=pointer]:\n          - /url: \"#\"\n          - text: IA Local Busca archivos, correos y datos sin salir de tu escritorio\n          - img [ref=e149]\n        - heading \"GBM, el asistente Solution Advisor\" [level=1] [ref=e152]:\n          - text: GBM, el asistente\n          - text: Solution Advisor\n        - generic [ref=e153]:\n          - button \"Empezar a buscar\" [ref=e154] [cursor=pointer]\n          - link \"Tabla DS\" [ref=e155] [cursor=pointer]:\n            - /url: \"#\"\n            - img [ref=e156]\n            - generic [ref=e158]: Tabla DS\n",
         "applies_to": "playwright_mcp",
-        "source": "C:\\Chance1\\.playwright-mcp\\page-2026-04-01T18-00-22-828Z.yml",
+        "source": ".playwright-mcp\\page-2026-04-01T18-00-22-828Z.yml",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -657,7 +657,7 @@
       "fact": {
         "rule": "r]:\n            - /url: \"#\"\n            - img [ref=e156]\n            - generic [ref=e158]: Tabla DS\n        - paragraph [ref=e160]: Automatiza tu trabajo con tu equipo personal de IA.\n        - list [ref=e162]:\n          - listitem [ref=e163] [cursor=pointer]:\n            - generic [ref=e164]: \"1\"\n            - generic [ref=e165]:\n              - generic [ref=e166]: Propuestas\n              - generic [ref=e167]: SOW, BOM, pricing\n          - listitem [ref=e168] [cursor=pointer]:\n            - generic [ref=e169]: \"2\"\n            - generic [ref=e170]:\n              - generic [ref=e171]: Archivos\n              - generic [ref=e172]: PDF, DOCX, XLSX en disco\n          - listitem [ref=e173] [cursor=pointer]:\n            - generic [ref=e174]: \"3\"\n            - generic [ref=e175]:\n",
         "applies_to": "playwright_mcp",
-        "source": "C:\\Chance1\\.playwright-mcp\\page-2026-04-01T18-00-22-828Z.yml",
+        "source": ".playwright-mcp\\page-2026-04-01T18-00-22-828Z.yml",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -682,7 +682,7 @@
       "fact": {
         "rule": "ref=e173] [cursor=pointer]:\n            - generic [ref=e174]: \"3\"\n            - generic [ref=e175]:\n              - generic [ref=e176]: Comparar\n              - generic [ref=e177]: BOMs, propuestas, versiones\n          - listitem [ref=e178] [cursor=pointer]:\n            - generic [ref=e179]: \"4\"\n            - generic [ref=e180]:",
         "applies_to": "playwright_mcp",
-        "source": "C:\\Chance1\\.playwright-mcp\\page-2026-04-01T18-00-22-828Z.yml",
+        "source": ".playwright-mcp\\page-2026-04-01T18-00-22-828Z.yml",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -705,9 +705,9 @@
       "type": "fact",
       "key": "console-2026-04-01T18-00-22-620Z_0",
       "fact": {
-        "rule": "[      38ms] [ERROR] Failed to load resource: net::ERR_FILE_NOT_FOUND @ file:///C:/Chance1/IA/Buscador_IA/dashboard_web/assets/images/home-hero/bg.jpg:0\n[      40ms] [ERROR] Failed to load resource: net::ERR_FILE_NOT_FOUND @ file:///C:/Chance1/IA/Buscador_IA/dashboard_web/assets/images/home-hero/slack.jpg:0\n[      40ms] [ERROR] Failed to load resource: net::ERR_FILE_NOT_FOUND @ file:///C:/Chance1/IA/Buscador_IA/dashboard_web/assets/images/home-hero/linear.jpg:0\n[      41ms] [ERROR] Failed to load resource: net::ERR_FILE_NOT_FOUND @ file:///C:/Chance1/IA/Buscador_IA/dashboard_web/assets/images/home-hero/2.png:0\n[      41ms] [ERROR] Failed to load resource: net::ERR_FILE_NOT_FOUND @ file:///C:/Chance1/IA/Buscador_IA/dashboard_web/assets/images/home-hero/3.png:0\n",
+        "rule": "[      38ms] [ERROR] Failed to load resource: net::ERR_FILE_NOT_FOUND @ file:///Buscador_IA/dashboard_web/assets/images/home-hero/bg.jpg:0\n[      40ms] [ERROR] Failed to load resource: net::ERR_FILE_NOT_FOUND @ file:///Buscador_IA/dashboard_web/assets/images/home-hero/slack.jpg:0\n[      40ms] [ERROR] Failed to load resource: net::ERR_FILE_NOT_FOUND @ file:///Buscador_IA/dashboard_web/assets/images/home-hero/linear.jpg:0\n[      41ms] [ERROR] Failed to load resource: net::ERR_FILE_NOT_FOUND @ file:///Buscador_IA/dashboard_web/assets/images/home-hero/2.png:0\n[      41ms] [ERROR] Failed to load resource: net::ERR_FILE_NOT_FOUND @ file:///Buscador_IA/dashboard_web/assets/images/home-hero/3.png:0\n",
         "applies_to": "playwright_mcp",
-        "source": "C:\\Chance1\\.playwright-mcp\\console-2026-04-01T18-00-22-620Z.log",
+        "source": ".playwright-mcp\\console-2026-04-01T18-00-22-620Z.log",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -729,9 +729,9 @@
       "type": "fact",
       "key": "console-2026-04-01T18-00-22-620Z_1",
       "fact": {
-        "rule": "RR_FILE_NOT_FOUND @ file:///C:/Chance1/IA/Buscador_IA/dashboard_web/assets/images/home-hero/3.png:0\n[      41ms] [ERROR] Failed to load resource: net::ERR_FILE_NOT_FOUND @ file:///C:/Chance1/IA/Buscador_IA/dashboard_web/assets/images/home-hero/4.png:0\n[      41ms] [ERROR] Failed to load resource: net::ERR_FILE_NOT_FOUND @ file:///C:/assets/images/use-cases01.png:0\n[      41ms] [ERROR] Failed to load resource: net::ERR_FILE_NOT_FOUND @ file:///C:/assets/images/use-cases02.png:0\n[      41ms] [ERROR] Failed to load resource: net::ERR_FILE_NOT_FOUND @ file:///C:/assets/images/use-cases03.png:0\n[      41ms] [ERROR] Failed to load resource: net::ERR_FILE_NOT_FOUND @ file:///C:/assets/images/card01.png:0\n",
+        "rule": "RR_FILE_NOT_FOUND @ file:///Buscador_IA/dashboard_web/assets/images/home-hero/3.png:0\n[      41ms] [ERROR] Failed to load resource: net::ERR_FILE_NOT_FOUND @ file:///Buscador_IA/dashboard_web/assets/images/home-hero/4.png:0\n[      41ms] [ERROR] Failed to load resource: net::ERR_FILE_NOT_FOUND @ file:///C:/assets/images/use-cases01.png:0\n[      41ms] [ERROR] Failed to load resource: net::ERR_FILE_NOT_FOUND @ file:///C:/assets/images/use-cases02.png:0\n[      41ms] [ERROR] Failed to load resource: net::ERR_FILE_NOT_FOUND @ file:///C:/assets/images/use-cases03.png:0\n[      41ms] [ERROR] Failed to load resource: net::ERR_FILE_NOT_FOUND @ file:///C:/assets/images/card01.png:0\n",
         "applies_to": "playwright_mcp",
-        "source": "C:\\Chance1\\.playwright-mcp\\console-2026-04-01T18-00-22-620Z.log",
+        "source": ".playwright-mcp\\console-2026-04-01T18-00-22-620Z.log",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -755,7 +755,7 @@
       "fact": {
         "rule": "s] [ERROR] Failed to load resource: net::ERR_FILE_NOT_FOUND @ file:///C:/assets/images/card01.png:0\n[      41ms] [ERROR] Failed to load resource: net::ERR_FILE_NOT_FOUND @ file:///C:/assets/images/bento01.png:0\n[      41ms] [ERROR] Failed to load resource: net::ERR_FILE_NOT_FOUND @ file:///C:/assets/images/card02-line.png:0\n[      41ms] [ERROR] Failed to load resource: net::ERR_FILE_NOT_FOUND @ file:///C:/assets/images/bento02.png:0\n[      42ms] [ERROR] Failed to load resource: net::ERR_FILE_NOT_FOUND @ file:///C:/assets/images/card03-line.png:0\n[      42ms] [ERROR] Failed to load resource: net::ERR_FILE_NOT_FOUND @ file:///C:/assets/images/bento03.png:0\n[      42ms] [ERROR] Failed to load resource: net::ERR_FILE_NOT_FOUND @ file:///C:/assets/images/bento-hover03.png:0\n",
         "applies_to": "playwright_mcp",
-        "source": "C:\\Chance1\\.playwright-mcp\\console-2026-04-01T18-00-22-620Z.log",
+        "source": ".playwright-mcp\\console-2026-04-01T18-00-22-620Z.log",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -777,9 +777,9 @@
       "type": "fact",
       "key": "console-2026-04-01T18-00-22-620Z_3",
       "fact": {
-        "rule": "OR] Failed to load resource: net::ERR_FILE_NOT_FOUND @ file:///C:/assets/images/bento-hover03.png:0\n[      42ms] [ERROR] Failed to load resource: net::ERR_FILE_NOT_FOUND @ file:///C:/assets/images/integration01.png:0\n[      42ms] [ERROR] Failed to load resource: net::ERR_FILE_NOT_FOUND @ file:///C:/assets/images/integration03.png:0\n[      42ms] [ERROR] Failed to load resource: net::ERR_FILE_NOT_FOUND @ file:///C:/assets/images/integration02.png:0\n[      42ms] [ERROR] Failed to load resource: net::ERR_FILE_NOT_FOUND @ file:///C:/Chance1/IA/Buscador_IA/dashboard_web/assets/images/home-integration-mobile-1.png:0\n[      42ms] [ERROR] Failed to load resource: net::ERR_FILE_NOT_FOUND @ file:///C:/Chance1/IA/Buscador_IA/dashboard_web/assets/images/home-integration-mobile-2.png:0\n",
+        "rule": "OR] Failed to load resource: net::ERR_FILE_NOT_FOUND @ file:///C:/assets/images/bento-hover03.png:0\n[      42ms] [ERROR] Failed to load resource: net::ERR_FILE_NOT_FOUND @ file:///C:/assets/images/integration01.png:0\n[      42ms] [ERROR] Failed to load resource: net::ERR_FILE_NOT_FOUND @ file:///C:/assets/images/integration03.png:0\n[      42ms] [ERROR] Failed to load resource: net::ERR_FILE_NOT_FOUND @ file:///C:/assets/images/integration02.png:0\n[      42ms] [ERROR] Failed to load resource: net::ERR_FILE_NOT_FOUND @ file:///Buscador_IA/dashboard_web/assets/images/home-integration-mobile-1.png:0\n[      42ms] [ERROR] Failed to load resource: net::ERR_FILE_NOT_FOUND @ file:///Buscador_IA/dashboard_web/assets/images/home-integration-mobile-2.png:0\n",
         "applies_to": "playwright_mcp",
-        "source": "C:\\Chance1\\.playwright-mcp\\console-2026-04-01T18-00-22-620Z.log",
+        "source": ".playwright-mcp\\console-2026-04-01T18-00-22-620Z.log",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -801,9 +801,9 @@
       "type": "fact",
       "key": "console-2026-04-01T18-00-22-620Z_4",
       "fact": {
-        "rule": "UND @ file:///C:/Chance1/IA/Buscador_IA/dashboard_web/assets/images/home-integration-mobile-2.png:0\n[      42ms] [ERROR] Failed to load resource: net::ERR_FILE_NOT_FOUND @ file:///C:/Chance1/IA/Buscador_IA/dashboard_web/assets/images/home-integration-mobile-3.png:0\n[      44ms] [WARNING] Allow attribute will take precedence over 'allowfullscreen'. @ file:///C:/Chance1/IA/Buscador_IA/dashboard_web/index.html:217\n[      55ms] [ERROR] Failed to load resource: net::ERR_FILE_NOT_FOUND @ file:///C:/assets/images/use-cases01.png:0\n[      55ms] [ERROR] Failed to load resource: net::ERR_FILE_NOT_FOUND @ file:///C:/assets/images/use-cases02.png:0\n[      55ms] [ERROR] Failed to load resource: net::ERR_FILE_NOT_FOUND @ file:///C:/assets/images/use-cases03.png:0\n",
+        "rule": "UND @ file:///Buscador_IA/dashboard_web/assets/images/home-integration-mobile-2.png:0\n[      42ms] [ERROR] Failed to load resource: net::ERR_FILE_NOT_FOUND @ file:///Buscador_IA/dashboard_web/assets/images/home-integration-mobile-3.png:0\n[      44ms] [WARNING] Allow attribute will take precedence over 'allowfullscreen'. @ file:///Buscador_IA/dashboard_web/index.html:217\n[      55ms] [ERROR] Failed to load resource: net::ERR_FILE_NOT_FOUND @ file:///C:/assets/images/use-cases01.png:0\n[      55ms] [ERROR] Failed to load resource: net::ERR_FILE_NOT_FOUND @ file:///C:/assets/images/use-cases02.png:0\n[      55ms] [ERROR] Failed to load resource: net::ERR_FILE_NOT_FOUND @ file:///C:/assets/images/use-cases03.png:0\n",
         "applies_to": "playwright_mcp",
-        "source": "C:\\Chance1\\.playwright-mcp\\console-2026-04-01T18-00-22-620Z.log",
+        "source": ".playwright-mcp\\console-2026-04-01T18-00-22-620Z.log",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -825,9 +825,9 @@
       "type": "fact",
       "key": "console-2026-04-01T18-00-22-620Z_5",
       "fact": {
-        "rule": "RROR] Failed to load resource: net::ERR_FILE_NOT_FOUND @ file:///C:/assets/images/use-cases03.png:0\n[      55ms] [ERROR] Failed to load resource: net::ERR_FILE_NOT_FOUND @ file:///C:/assets/images/bento01.png:0\n[      55ms] [ERROR] Failed to load resource: net::ERR_FILE_NOT_FOUND @ file:///C:/assets/images/bento02.png:0\n[      55ms] [ERROR] Failed to load resource: net::ERR_FILE_NOT_FOUND @ file:///C:/assets/images/bento03.png:0\n[      55ms] [ERROR] Failed to load resource: net::ERR_FILE_NOT_FOUND @ file:///C:/assets/images/integration03.png:0\n[      92ms] [LOG] [GBM Asistente IA v3] Dashboard listo. Backend: http://127.0.0.1:5000 @ file:///C:/Chance1/IA/Buscador_IA/dashboard_web/index.html:4221\n",
+        "rule": "RROR] Failed to load resource: net::ERR_FILE_NOT_FOUND @ file:///C:/assets/images/use-cases03.png:0\n[      55ms] [ERROR] Failed to load resource: net::ERR_FILE_NOT_FOUND @ file:///C:/assets/images/bento01.png:0\n[      55ms] [ERROR] Failed to load resource: net::ERR_FILE_NOT_FOUND @ file:///C:/assets/images/bento02.png:0\n[      55ms] [ERROR] Failed to load resource: net::ERR_FILE_NOT_FOUND @ file:///C:/assets/images/bento03.png:0\n[      55ms] [ERROR] Failed to load resource: net::ERR_FILE_NOT_FOUND @ file:///C:/assets/images/integration03.png:0\n[      92ms] [LOG] [GBM  v3] Dashboard listo. Backend: http://127.0.0.1:5000 @ file:///Buscador_IA/dashboard_web/index.html:4221\n",
         "applies_to": "playwright_mcp",
-        "source": "C:\\Chance1\\.playwright-mcp\\console-2026-04-01T18-00-22-620Z.log",
+        "source": ".playwright-mcp\\console-2026-04-01T18-00-22-620Z.log",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -849,9 +849,9 @@
       "type": "fact",
       "key": "console-2026-04-01T18-00-22-620Z_6",
       "fact": {
-        "rule": "o. Backend: http://127.0.0.1:5000 @ file:///C:/Chance1/IA/Buscador_IA/dashboard_web/index.html:4221\n[     132ms] [ERROR] Failed to load resource: net::ERR_FILE_NOT_FOUND @ file:///C:/favicon.ico:0\n[     133ms] [ERROR] Failed to load resource: net::ERR_FILE_NOT_FOUND @ file:///C:/icon.png:0\n[    2135ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5000/api/stats:0",
+        "rule": "o. Backend: http://127.0.0.1:5000 @ file:///Buscador_IA/dashboard_web/index.html:4221\n[     132ms] [ERROR] Failed to load resource: net::ERR_FILE_NOT_FOUND @ file:///C:/favicon.ico:0\n[     133ms] [ERROR] Failed to load resource: net::ERR_FILE_NOT_FOUND @ file:///C:/icon.png:0\n[    2135ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_REFUSED @ http://127.0.0.1:5000/api/stats:0",
         "applies_to": "playwright_mcp",
-        "source": "C:\\Chance1\\.playwright-mcp\\console-2026-04-01T18-00-22-620Z.log",
+        "source": ".playwright-mcp\\console-2026-04-01T18-00-22-620Z.log",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -875,7 +875,7 @@
       "fact": {
         "rule": "- generic [ref=e2]:\n  - banner [ref=e3]:\n    - generic [ref=e4]:\n      - generic [ref=e5]: ⚡\n      - text: Motor_IA Dashboard\n    - generic [ref=e6]:\n      - generic [ref=e9]: ACTIVO\n      - button \"↻ Actualizar\" [ref=e10] [cursor=pointer]\n  - main [ref=e11]:\n    - generic [ref=e12]:\n      - generic [ref=e13]:\n        - generic [ref=e14]:\n          - generic [ref=e15]: Estado Motor\n          - generic [ref=e16]: ACTIVO\n          - generic [ref=e17]: Inactivo hace 362.1 min\n        - generic [ref=e18]:\n          - generic [ref=e19]: Knowledge Base\n          - generic [ref=e20]: \"4764\"\n          - generic [ref=e21]: entradas totales\n        - generic [ref=e22]:\n          - generic [ref=e23]: Dominios Activos\n          - generic [ref=e24]: \"7\"\n",
         "applies_to": "playwright_mcp",
-        "source": "C:\\Chance1\\.playwright-mcp\\page-2026-04-01T18-00-33-282Z.yml",
+        "source": ".playwright-mcp\\page-2026-04-01T18-00-33-282Z.yml",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -900,7 +900,7 @@
       "fact": {
         "rule": "neric [ref=e22]:\n          - generic [ref=e23]: Dominios Activos\n          - generic [ref=e24]: \"7\"\n          - generic [ref=e25]: sectores configurados\n        - generic [ref=e26]:\n          - generic [ref=e27]: Sesiones Hoy\n          - generic [ref=e28]: \"4\"\n          - generic [ref=e29]: iniciadas\n        - generic [ref=e30]:\n          - generic [ref=e31]: Coverage\n          - generic [ref=e32]: 85%\n          - generic [ref=e33]: conocimiento guardado\n        - generic [ref=e34]:\n          - generic [ref=e35]: Performance\n          - generic [ref=e36]: 92/100\n          - generic [ref=e37]: score del sistema\n      - generic [ref=e38]:\n        - generic [ref=e40]:\n          - generic [ref=e41]: 📊 Dominios Knowledge Base\n          - generic [ref=e42]:\n            - generic [ref=e43]:\n",
         "applies_to": "playwright_mcp",
-        "source": "C:\\Chance1\\.playwright-mcp\\page-2026-04-01T18-00-33-282Z.yml",
+        "source": ".playwright-mcp\\page-2026-04-01T18-00-33-282Z.yml",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -925,7 +925,7 @@
       "fact": {
         "rule": "ref=e41]: 📊 Dominios Knowledge Base\n          - generic [ref=e42]:\n            - generic [ref=e43]:\n              - generic [ref=e44]: general\n              - generic [ref=e45]: 88 entradas\n            - generic [ref=e46]:\n              - generic [ref=e47]: sap_tierra\n              - generic [ref=e48]: 354 entradas\n            - generic [ref=e49]:\n              - generic [ref=e50]: files\n              - generic [ref=e51]: 3034 entradas\n            - generic [ref=e52]:\n              - generic [ref=e53]: business_rules\n              - generic [ref=e54]: 81 entradas\n            - generic [ref=e55]:\n              - generic [ref=e56]: sessions\n              - generic [ref=e57]: 502 entradas\n            - generic [ref=e58]:\n              - generic [ref=e59]: sow\n",
         "applies_to": "playwright_mcp",
-        "source": "C:\\Chance1\\.playwright-mcp\\page-2026-04-01T18-00-33-282Z.yml",
+        "source": ".playwright-mcp\\page-2026-04-01T18-00-33-282Z.yml",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -950,7 +950,7 @@
       "fact": {
         "rule": "ric [ref=e57]: 502 entradas\n            - generic [ref=e58]:\n              - generic [ref=e59]: sow\n              - generic [ref=e60]: 209 entradas\n            - generic [ref=e61]:\n              - generic [ref=e62]: monday\n              - generic [ref=e63]: 2 entradas\n        - generic [ref=e65]:\n          - generic [ref=e66]: 🖥️ Estado del Sistema\n          - generic [ref=e67]:\n            - generic [ref=e68]:\n              - generic [ref=e69]: 12%\n              - generic [ref=e70]: CPU\n            - generic [ref=e71]:\n              - generic [ref=e72]: 234MB\n              - generic [ref=e73]: Memoria\n            - generic [ref=e74]:\n              - generic [ref=e75]: 11:35:47\n              - generic [ref=e76]: Último Sync\n            - generic [ref=e77]:\n",
         "applies_to": "playwright_mcp",
-        "source": "C:\\Chance1\\.playwright-mcp\\page-2026-04-01T18-00-33-282Z.yml",
+        "source": ".playwright-mcp\\page-2026-04-01T18-00-33-282Z.yml",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -975,7 +975,7 @@
       "fact": {
         "rule": "[ref=e75]: 11:35:47\n              - generic [ref=e76]: Último Sync\n            - generic [ref=e77]:\n              - generic [ref=e78]: OPERATIVO\n              - generic [ref=e79]: Estado\n      - generic [ref=e80]:\n        - generic [ref=e81]: 📋 Actividad Reciente\n        - generic [ref=e82]:\n          - generic [ref=e83]: Últimos Eventos del Sistema\n          - generic [ref=e85]: Dashboard initialized\n      - generic [ref=e87]:\n        - generic [ref=e88]: Última Actividad\n        - generic [ref=e89]: 01-04-2026 11:13:32\n        - generic [ref=e90]:\n          - text: \"Hooks registrados:\"\n          - strong [ref=e91]: OK\n  - contentinfo [ref=e92]: \"Última actualización: 01-04-2026 12:00:33\"",
         "applies_to": "playwright_mcp",
-        "source": "C:\\Chance1\\.playwright-mcp\\page-2026-04-01T18-00-33-282Z.yml",
+        "source": ".playwright-mcp\\page-2026-04-01T18-00-33-282Z.yml",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -1000,7 +1000,7 @@
       "fact": {
         "rule": "[     845ms] [VERBOSE] [DOM] Password field is not contained in a form: (More info: https://goo.gl/9p2vKq) %o @ https://accounts.google.com/v3/signin/identifier?continue=https%3A%2F%2Fnotebooklm.google.com%2F&dsh=S841821073%3A1775229400270702&followup=https%3A%2F%2Fnotebooklm.google.com%2F&osid=1&passive=1209600&flowName=GlifWebSignIn&flowEntry=ServiceLogin&ifkv=AT1y2_V3kExtdRWYKZzdNGlRCec00RmXWRzh1CtvBob5pEGFupRNgIQ6oznI31TwDhgLhfXaIgYo4w:0\n[     871ms] [LOG] %c%s color: red; background: yellow; font-size: 24px; ADVERTENCIA @ https://www.gstatic.com/_/mss/boq-identity/_/js/k=boq-identity.AccountsSignInUi.es_419.hNMA4eYn_C8.es5.O/am=Kf8GAACiCCQD4P__DxkACIAgGrieBaAJRAYAAAAAAAAAACwQACCN/d=1/excm=_b,_tp,identifierview/ed=1/dg=0/wt=2/ujg=1/rs=AOaEmlFuFDr6sQWykiDQLjr9OOjEzOAdiw/dti=1/m=_b,_tp:4",
         "applies_to": "playwright_mcp",
-        "source": "C:\\Chance1\\.playwright-mcp\\console-2026-04-03T15-16-41-051Z.log",
+        "source": ".playwright-mcp\\console-2026-04-03T15-16-41-051Z.log",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -1024,7 +1024,7 @@
       "fact": {
         "rule": "cm=_b,_tp,identifierview/ed=1/dg=0/wt=2/ujg=1/rs=AOaEmlFuFDr6sQWykiDQLjr9OOjEzOAdiw/dti=1/m=_b,_tp:467\n[     871ms] [LOG] %c%s font-size: 18px; Si usas esta consola, un atacante podría suplantar tu identidad y robar tu información a través de un ataque llamado Self-XSS.\nNo ingreses ni pegues ningún código que no entiendas. @ https://www.gstatic.com/_/mss/boq-identity/_/js/k=boq-identity.AccountsSignInUi.es_419.hNMA4eYn_C8.es5.O/am=Kf8GAACiCCQD4P__DxkACIAgGrieBaAJRAYAAAAAAAAAACwQACCN/d=1/excm=_b,_tp,identifierview/ed=1/dg=0/wt=2/ujg=1/rs=AOaEmlFuFDr6sQWykiDQLjr9OOjEzOAdiw/dti=1/m=_b,_tp:467\n[   18944ms] [VERBOSE] [DOM] Password field is not contained in a form: (More info: https://goo.gl/9p2vKq) %o @ https://accounts.google.com/v3/signin/challenge/pwd?TL=AIgtPP3BD25RVOgMbpome62GaA69vBXy5sRq",
         "applies_to": "playwright_mcp",
-        "source": "C:\\Chance1\\.playwright-mcp\\console-2026-04-03T15-16-41-051Z.log",
+        "source": ".playwright-mcp\\console-2026-04-03T15-16-41-051Z.log",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -1048,7 +1048,7 @@
       "fact": {
         "rule": "Kq) %o @ https://accounts.google.com/v3/signin/challenge/pwd?TL=AIgtPP3BD25RVOgMbpome62GaA69vBXy5sRq56PaChIK_Q5jA_8YAosYT0oV48H2&checkConnection=youtube%3A334&checkedDomains=youtube&cid=2&continue=https%3A%2F%2Fnotebooklm.google.com%2F&dsh=S841821073%3A1775229400270702&flowEntry=ServiceLogin&flowName=GlifWebSignIn&followup=https%3A%2F%2Fnotebooklm.google.com%2F&ifkv=AT1y2_V3kExtdRWYKZzdNGlRCec00RmXWRzh1CtvBob5pEGFupRNgIQ6oznI31TwDhgLhfXaIgYo4w&osid=1&pstMsg=1:0\n[   95724ms] [LOG] %c%s color: red; background: yellow; font-size: 24px; ADVERTENCIA @ https://www.gstatic.com/_/mss/boq-googlegrowth/_/js/k=boq-googlegrowth.GrowthOnboardUi.es_419.Y2q_ciWqQU0.2018.O/am=AAAAAGYAGAAAIAE/d=1/excm=_b,_tp,landingview/ed=1/dg=0/wt=2/ujg=1/rs=AF-uQDmgFYakC9x9mG02z33rMuCaninw9Q/dti=1/m=_b,_tp:331\n",
         "applies_to": "playwright_mcp",
-        "source": "C:\\Chance1\\.playwright-mcp\\console-2026-04-03T15-16-41-051Z.log",
+        "source": ".playwright-mcp\\console-2026-04-03T15-16-41-051Z.log",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -1072,7 +1072,7 @@
       "fact": {
         "rule": "- generic [active] [ref=e1]:\n  - banner [ref=e2]:\n    - generic [ref=e3]: ⚡\n    - heading \"Motor_IA Dashboard\" [level=1] [ref=e4]\n    - generic [ref=e5]: SIN DATOS\n    - generic [ref=e7]: \"Hooks: NO registrados\"\n  - generic [ref=e9]:\n    - button \"↻ Actualizar\" [ref=e10] [cursor=pointer]\n    - 'button \"⏱ Auto-refresh: ON\" [ref=e11] [cursor=pointer]'\n    - generic [ref=e12]: \"Próxima actualización: 5:00\"\n  - main [ref=e13]:\n    - generic [ref=e14]:\n      - generic [ref=e15]:\n        - generic [ref=e16]: Estado\n        - generic [ref=e17]: SIN LOG\n        - generic [ref=e18]: No hay hook_debug.log\n      - generic [ref=e19]:\n        - generic [ref=e20]: Dominios KB\n        - generic [ref=e21]: \"3\"\n        - generic [ref=e22]: en knowledge base\n      - generic [ref=e23]:\n",
         "applies_to": "playwright_mcp",
-        "source": "C:\\Chance1\\.playwright-mcp\\page-2026-04-01T15-56-19-671Z.yml",
+        "source": ".playwright-mcp\\page-2026-04-01T15-56-19-671Z.yml",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -1097,7 +1097,7 @@
       "fact": {
         "rule": " - generic [ref=e21]: \"3\"\n        - generic [ref=e22]: en knowledge base\n      - generic [ref=e23]:\n        - generic [ref=e24]: Entradas KB\n        - generic [ref=e25]: \"0\"\n        - generic [ref=e26]: patterns + facts\n      - generic [ref=e27]:\n        - generic [ref=e28]: Errores\n        - generic [ref=e29]: \"0\"\n        - generic [ref=e30]: en log reciente\n      - generic [ref=e31]:\n        - generic [ref=e32]: Iteración actual\n        - generic [ref=e33]: —\n        - generic [ref=e34]: —\n      - generic [ref=e35]:\n        - generic [ref=e36]: Última actualización\n        - generic [ref=e37]: 09:56:19 a. m. · 01-abr\n        - generic [ref=e38]: Sin actividad registrada\n    - generic [ref=e39]:\n      - generic [ref=e40]:\n        - generic [ref=e41]:\n",
         "applies_to": "playwright_mcp",
-        "source": "C:\\Chance1\\.playwright-mcp\\page-2026-04-01T15-56-19-671Z.yml",
+        "source": ".playwright-mcp\\page-2026-04-01T15-56-19-671Z.yml",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -1122,7 +1122,7 @@
       "fact": {
         "rule": "tividad registrada\n    - generic [ref=e39]:\n      - generic [ref=e40]:\n        - generic [ref=e41]:\n          - text: 📋 Actividad reciente (hook_debug.log)\n          - generic [ref=e42]: \"0\"\n        - generic [ref=e44]: Sin entradas en log\n      - generic [ref=e45]:\n        - generic [ref=e46]:\n          - text: ⚠ Errores detectados\n          - generic [ref=e47]: \"0\"\n        - generic [ref=e49]: ✓ Sin errores detectados\n    - generic [ref=e50]:\n      - generic [ref=e51]:\n        - generic [ref=e52]: 🔄 Estado de iteración\n        - generic [ref=e54]: Sin datos de iteración\n      - generic [ref=e55]:\n        - generic [ref=e56]: 🕐 Sesiones recientes\n        - generic [ref=e58]: Sin sesiones\n    - generic [ref=e59]:\n      - generic [ref=e60]: 🧠 Dominios en KB\n      - generic [ref=e61]:\n",
         "applies_to": "playwright_mcp",
-        "source": "C:\\Chance1\\.playwright-mcp\\page-2026-04-01T15-56-19-671Z.yml",
+        "source": ".playwright-mcp\\page-2026-04-01T15-56-19-671Z.yml",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -1147,7 +1147,7 @@
       "fact": {
         "rule": "nes\n    - generic [ref=e59]:\n      - generic [ref=e60]: 🧠 Dominios en KB\n      - generic [ref=e61]:\n        - generic [ref=e62]: domains\n        - generic [ref=e63]: initialized_at\n        - generic [ref=e64]: version\n    - generic [ref=e65]:\n      - generic [ref=e66]: 💡 Último aprendizaje\n      - generic [ref=e68]: Sin datos\n  - contentinfo [ref=e69]:\n    - generic [ref=e70]: Motor_IA v1.0.0-fusion\n    - generic [ref=e71]: \"Data: AppData/Local/ClaudeCode/.adaptive_cli\"\n    - generic [ref=e72]: \"Server: localhost:7070\"\n    - generic [ref=e73]: OK · 9:56:19 a. m.",
         "applies_to": "playwright_mcp",
-        "source": "C:\\Chance1\\.playwright-mcp\\page-2026-04-01T15-56-19-671Z.yml",
+        "source": ".playwright-mcp\\page-2026-04-01T15-56-19-671Z.yml",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -1172,7 +1172,7 @@
       "fact": {
         "rule": "ef=e40]:\n          - text: 📋 Actividad reciente (hook_debug.log)\n          - generic [ref=e41]: \"0\"\n        - generic [ref=e43]: Sin datos\n      - generic [ref=e44]:\n        - generic [ref=e45]:\n          - text: ⚠ Errores detectados\n          - generic [ref=e46]: \"0\"\n        - generic [ref=e48]: ✓ Sin errores\n    - generic [ref=e49]:\n      - generic [ref=e50]:\n        - generic [ref=e51]: 🔄 Estado de iteración\n        - generic [ref=e53]: Sin datos\n      - generic [ref=e54]:\n        - generic [ref=e55]: 🕐 Sesiones recientes\n        - generic [ref=e57]: Sin datos\n    - generic [ref=e58]:\n      - generic [ref=e59]: 🧠 Dominios en KB\n      - generic [ref=e61]: Sin datos\n    - generic [ref=e62]:\n      - generic [ref=e63]: 💡 Último aprendizaje\n      - generic [ref=e65]: Sin datos\n",
         "applies_to": "playwright_mcp",
-        "source": "C:\\Chance1\\.playwright-mcp\\page-2026-04-01T15-54-33-206Z.yml",
+        "source": ".playwright-mcp\\page-2026-04-01T15-54-33-206Z.yml",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -1197,7 +1197,7 @@
       "fact": {
         "rule": "ric [ref=e62]:\n      - generic [ref=e63]: 💡 Último aprendizaje\n      - generic [ref=e65]: Sin datos\n  - contentinfo [ref=e66]:\n    - generic [ref=e67]: Motor_IA v1.0.0-fusion\n    - generic [ref=e68]: \"Data: —\"\n    - generic [ref=e69]: \"Server: localhost:7070\"\n    - generic [ref=e70]: Actualizando...",
         "applies_to": "playwright_mcp",
-        "source": "C:\\Chance1\\.playwright-mcp\\page-2026-04-01T15-54-33-206Z.yml",
+        "source": ".playwright-mcp\\page-2026-04-01T15-54-33-206Z.yml",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -1222,7 +1222,7 @@
       "fact": {
         "rule": "- generic [ref=e1]:\n  - generic [ref=e3]:\n    - generic [ref=e4]:\n      - progressbar [ref=e6]\n      - main [ref=e14]:\n        - generic [ref=e15]:\n          - img [ref=e18]\n          - generic [ref=e23]:\n            - heading \"Accede a tu cuenta\" [level=1] [ref=e24]\n            - generic [ref=e25]: con tu Cuenta de Google. Esta cuenta estará disponible para otras apps de Google en el navegador.\n        - generic [ref=e28]:\n          - generic [ref=e33]:\n            - generic [ref=e38]:\n              - textbox \"Correo electrónico o teléfono\" [active] [ref=e39]\n              - generic: Correo electrónico o teléfono\n            - button \"¿Olvidaste el correo electrónico?\" [ref=e43] [cursor=pointer]\n          - generic [ref=e46]:\n            - text: ¿Esta no es tu computadora? ",
         "applies_to": "playwright_mcp",
-        "source": "C:\\Chance1\\.playwright-mcp\\page-2026-04-03T02-42-55-815Z.yml",
+        "source": ".playwright-mcp\\page-2026-04-03T02-42-55-815Z.yml",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -1247,7 +1247,7 @@
       "fact": {
         "rule": "43] [cursor=pointer]\n          - generic [ref=e46]:\n            - text: ¿Esta no es tu computadora? Usa el modo de invitado para navegar de forma privada.\n            - link \"Más información para usar el modo de invitado\" [ref=e47] [cursor=pointer]:\n              - /url: https://support.google.com/chrome/answer/6130773?hl=es-419\n        - generic [ref=e49]:\n          - button \"Siguiente\" [ref=e53]:\n            - generic [ref=e56]: Siguiente\n          - button \"Crear cuenta\" [ref=e62]:\n            - generic [ref=e65]: Crear cuenta\n    - contentinfo [ref=e69]:\n      - combobox \"Cambiar de idioma Español (Latinoamérica)\" [ref=e73] [cursor=pointer]:\n        - generic:\n          - generic: Español (Latinoamérica)\n        - generic:\n          - img\n      - list [ref=e75]:\n",
         "applies_to": "playwright_mcp",
-        "source": "C:\\Chance1\\.playwright-mcp\\page-2026-04-03T02-42-55-815Z.yml",
+        "source": ".playwright-mcp\\page-2026-04-03T02-42-55-815Z.yml",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -1272,7 +1272,7 @@
       "fact": {
         "rule": "      - generic: Español (Latinoamérica)\n        - generic:\n          - img\n      - list [ref=e75]:\n        - listitem [ref=e76]:\n          - link \"Ayuda\" [ref=e77] [cursor=pointer]:\n            - /url: https://support.google.com/accounts?hl=es-419&p=account_iph\n        - listitem [ref=e78]:\n          - link \"Privacidad\" [ref=e79] [cursor=pointer]:\n            - /url: https://accounts.google.com/TOS?loc=GT&hl=es-419&privacy=true\n        - listitem [ref=e80]:\n          - link \"Condiciones\" [ref=e81] [cursor=pointer]:\n            - /url: https://accounts.google.com/TOS?loc=GT&hl=es-419\n  - iframe [ref=e82]:",
         "applies_to": "playwright_mcp",
-        "source": "C:\\Chance1\\.playwright-mcp\\page-2026-04-03T02-42-55-815Z.yml",
+        "source": ".playwright-mcp\\page-2026-04-03T02-42-55-815Z.yml",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -1297,7 +1297,7 @@
       "fact": {
         "rule": "- generic [ref=e2]:\n  - region\n  - generic [ref=e3]:\n    - link \"Skip to content\" [ref=e4] [cursor=pointer]:\n      - /url: \"#start-of-content\"\n    - banner [ref=e6]\n  - main [ref=e9]:\n    - generic [ref=e10]:\n      - generic [ref=e14]:\n        - img [ref=e17]\n        - heading \"Sign in to GitHub\" [level=1] [ref=e20]\n      - generic [ref=e22]:\n        - generic [ref=e23]:\n          - generic [ref=e24]: Username or email address\n          - textbox \"Username or email address\" [active] [ref=e25]\n        - generic [ref=e26]:\n          - generic [ref=e27]: Password\n          - textbox \"Password\" [ref=e28]\n          - link \"Forgot password?\" [ref=e29] [cursor=pointer]:\n            - /url: /password_reset\n        - button \"Sign in\" [ref=e31] [cursor=pointer]\n      - paragraph [ref=e34]:\n",
         "applies_to": "playwright_mcp",
-        "source": "C:\\Chance1\\.playwright-mcp\\page-2026-04-01T14-30-56-552Z.yml",
+        "source": ".playwright-mcp\\page-2026-04-01T14-30-56-552Z.yml",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -1322,7 +1322,7 @@
       "fact": {
         "rule": " /password_reset\n        - button \"Sign in\" [ref=e31] [cursor=pointer]\n      - paragraph [ref=e34]:\n        - text: New to GitHub?\n        - link \"Create an account\" [ref=e35] [cursor=pointer]:\n          - /url: /signup?return_to=https%3A%2F%2Fgithub.com%2FNetocool2006%2FMotor-Fusion%2Fpull%2Fnew%2Fmaster&source=login\n  - contentinfo [ref=e36]:\n    - list [ref=e37]:\n      - listitem [ref=e38]:\n        - link \"Terms\" [ref=e39] [cursor=pointer]:\n          - /url: https://docs.github.com/site-policy/github-terms/github-terms-of-service\n      - listitem [ref=e40]:\n        - link \"Privacy\" [ref=e41] [cursor=pointer]:\n          - /url: https://docs.github.com/site-policy/privacy-policies/github-privacy-statement\n      - listitem [ref=e42]:\n        - link \"Docs\" [ref=e43] [cursor=pointer]:\n",
         "applies_to": "playwright_mcp",
-        "source": "C:\\Chance1\\.playwright-mcp\\page-2026-04-01T14-30-56-552Z.yml",
+        "source": ".playwright-mcp\\page-2026-04-01T14-30-56-552Z.yml",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -1347,7 +1347,7 @@
       "fact": {
         "rule": "hub-privacy-statement\n      - listitem [ref=e42]:\n        - link \"Docs\" [ref=e43] [cursor=pointer]:\n          - /url: https://docs.github.com\n      - listitem [ref=e44]:\n        - link \"Contact GitHub Support\" [ref=e45] [cursor=pointer]:\n          - /url: https://support.github.com\n      - listitem [ref=e46]:\n        - button \"Manage cookies\" [ref=e48] [cursor=pointer]\n      - listitem [ref=e49]:\n        - button \"Do not share my personal information\" [ref=e51] [cursor=pointer]",
         "applies_to": "playwright_mcp",
-        "source": "C:\\Chance1\\.playwright-mcp\\page-2026-04-01T14-30-56-552Z.yml",
+        "source": ".playwright-mcp\\page-2026-04-01T14-30-56-552Z.yml",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -1372,7 +1372,7 @@
       "fact": {
         "rule": "nInUi.es_419.hNMA4eYn_C8.es5.O/am=Kf8GAACiCCQD4P__DxkACIAgGrieBaAJRAYAAAAAAAAAACwQACCN/d=1/excm=_b,_tp,identifierview/ed=1/dg=0/wt=2/ujg=1/rs=AOaEmlFuFDr6sQWykiDQLjr9OOjEzOAdiw/dti=1/m=_b,_tp:467\n[     837ms] [LOG] %c%s font-size: 18px; Si usas esta consola, un atacante podría suplantar tu identidad y robar tu información a través de un ataque llamado Self-XSS.\nNo ingreses ni pegues ningún código que no entiendas. @ https://www.gstatic.com/_/mss/boq-identity/_/js/k=boq-identity.AccountsSignInUi.es_419.hNMA4eYn_C8.es5.O/am=Kf8GAACiCCQD4P__DxkACIAgGrieBaAJRAYAAAAAAAAAACwQACCN/d=1/excm=_b,_tp,identifierview/ed=1/dg=0/wt=2/ujg=1/rs=AOaEmlFuFDr6sQWykiDQLjr9OOjEzOAdiw/dti=1/m=_b,_tp:467",
         "applies_to": "playwright_mcp",
-        "source": "C:\\Chance1\\.playwright-mcp\\console-2026-04-03T02-53-26-674Z.log",
+        "source": ".playwright-mcp\\console-2026-04-03T02-53-26-674Z.log",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -1396,7 +1396,7 @@
       "fact": {
         "rule": "[      19ms] [ERROR] Failed to load resource: the server responded with a status of 404 () @ chrome-error://chromewebdata/:0\n[  162326ms] [ERROR] Failed to load resource: the server responded with a status of 404 (File not found) @ http://localhost:8888/favicon.ico:0",
         "applies_to": "playwright_mcp",
-        "source": "C:\\Chance1\\.playwright-mcp\\console-2026-04-03T04-22-56-447Z.log",
+        "source": ".playwright-mcp\\console-2026-04-03T04-22-56-447Z.log",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -1420,7 +1420,7 @@
       "fact": {
         "rule": "[     597ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://localhost:7070/favicon.ico:0",
         "applies_to": "playwright_mcp",
-        "source": "C:\\Chance1\\.playwright-mcp\\console-2026-04-01T15-54-32-709Z.log",
+        "source": ".playwright-mcp\\console-2026-04-01T15-54-32-709Z.log",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -1444,7 +1444,7 @@
       "fact": {
         "rule": "[     371ms] [ERROR] Failed to load resource: the server responded with a status of 404 () @ chrome-error://chromewebdata/:0",
         "applies_to": "playwright_mcp",
-        "source": "C:\\Chance1\\.playwright-mcp\\console-2026-04-03T04-22-48-046Z.log",
+        "source": ".playwright-mcp\\console-2026-04-03T04-22-48-046Z.log",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""

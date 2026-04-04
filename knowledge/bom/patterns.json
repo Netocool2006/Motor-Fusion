@@ -124,7 +124,7 @@
         "auto_learned": true,
         "source": "post_tool_hook",
         "files_touched": [
-          "C:/Chance1/Prompts IA/Validador-BoM-Matematico.txt"
+          "Prompts IA/Validador-BoM-Matematico.txt"
         ],
         "activity": {
           "reads": 0,
@@ -159,7 +159,7 @@
       "key": "iter_20260317_174709_i86",
       "solution": {
         "strategy": "auto_iteration_capture",
-        "notes": "Iteracion 86:\n  Ejecuto: cd \"C:/Chance1/Asistente IA\" && python -c \"\nimport requests as req, time\n\nqueries = [\n    ('Q07', 'compara el bom de ban",
+        "notes": "Iteracion 86:\n  Ejecuto: cd \"\" && python -c \"\nimport requests as req, time\n\nqueries = [\n    ('Q07', 'compara el bom de ban",
         "auto_learned": true,
         "source": "post_tool_hook",
         "files_touched": [],
@@ -270,7 +270,7 @@
       "key": "iter_20260322_134649_i1",
       "solution": {
         "strategy": "differential_capture",
-        "notes": "Iteracion 1:\n[DIFERENCIAL] Complemento a KB existente.\n  Ejecuto: tail -1 ~/.adaptive_cli/last_learning.txt 2>/dev/null || echo \"(sin aprendizaje reciente)\"\n  Ejecuto: python \"C:\\Chance1\\Asistente IA\\knowledge_base.py\" export --query \"DB2ENT clasificacion bom licencia software\" 2>/dev/nu\n  Ejecuto: python \"C:\\Chance1\\Asistente IA\\knowledge_base.py\" export catalog --query \"DB2ENT IBM DB2\" 2>/dev/null | head -40",
+        "notes": "Iteracion 1:\n[DIFERENCIAL] Complemento a KB existente.\n  Ejecuto: tail -1 ~/.adaptive_cli/last_learning.txt 2>/dev/null || echo \"(sin aprendizaje reciente)\"\n  Ejecuto: python \"knowledge_base.py\" export --query \"DB2ENT clasificacion bom licencia software\" 2>/dev/nu\n  Ejecuto: python \"knowledge_base.py\" export catalog --query \"DB2ENT IBM DB2\" 2>/dev/null | head -40",
         "auto_learned": true,
         "source": "post_tool_hook",
         "msg_type": "instruction",

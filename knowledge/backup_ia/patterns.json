@@ -7,9 +7,9 @@
       "type": "fact",
       "key": "hook_debug_0",
       "fact": {
-        "rule": "[2026-03-14T22:55:42.616106] Hook Stop fired. Fields: ['session_id', 'transcript_path', 'cwd', 'permission_mode', 'hook_event_name', 'stop_hook_active', 'last_assistant_message']\n[2026-03-14T22:55:42.620342] session_id=2fc19811-edf3-49c3-8546-f24c78a75b53\n[2026-03-14T22:55:42.621350] transcript_path=C:\\Users\\ntoledo\\AppData\\Local\\ClaudeCode\\.claude\\projects\\C--Chance1-Asistente-IA\\2fc19811-edf3-49c3-8546-f24c78a75b53.jsonl\n[2026-03-14T22:55:42.624926] last_message length=762\n[2026-03-14T22:55:42.659816] Transcript: 231 messages loaded\n[2026-03-14T22:55:42.661840] Extracted: 0 user msgs, 0 errors, 0 decisions\n[2026-03-14T22:55:42.667625] Tools: 0 reads, 0 edits, 0 creates, 0 commands\n[2026-03-14T22:55:42.688895] Session saved. History now has 1 sessions\n",
+        "rule": "[2026-03-14T22:55:42.616106] Hook Stop fired. Fields: ['session_id', 'transcript_path', 'cwd', 'permission_mode', 'hook_event_name', 'stop_hook_active', 'last_assistant_message']\n[2026-03-14T22:55:42.620342] session_id=2fc19811-edf3-49c3-8546-f24c78a75b53\n[2026-03-14T22:55:42.621350] transcript_path=C:\\Users\\ntoledo\\AppData\\Local\\ClaudeCode\\.claude\\projects\\C--Hooks_IA-2fc19811-edf3-49c3-8546-f24c78a75b53.jsonl\n[2026-03-14T22:55:42.624926] last_message length=762\n[2026-03-14T22:55:42.659816] Transcript: 231 messages loaded\n[2026-03-14T22:55:42.661840] Extracted: 0 user msgs, 0 errors, 0 decisions\n[2026-03-14T22:55:42.667625] Tools: 0 reads, 0 edits, 0 creates, 0 commands\n[2026-03-14T22:55:42.688895] Session saved. History now has 1 sessions\n",
         "applies_to": "backup_ia",
-        "source": "C:\\Chance1\\IA\\Backup_IA\\adaptive_cli_AppData\\hook_debug.log",
+        "source": "Backup_IA\\adaptive_cli_AppData\\hook_debug.log",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -31,9 +31,9 @@
       "type": "fact",
       "key": "hook_debug_1",
       "fact": {
-        "rule": "edits, 0 creates, 0 commands\n[2026-03-14T22:55:42.688895] Session saved. History now has 1 sessions\n[2026-03-14T22:55:42.691924] Hook Stop completed successfully\n[2026-03-14T22:59:12.744550] Hook Stop fired. Fields: ['session_id', 'transcript_path', 'cwd', 'permission_mode', 'hook_event_name', 'stop_hook_active', 'last_assistant_message']\n[2026-03-14T22:59:12.748144] session_id=2fc19811-edf3-49c3-8546-f24c78a75b53\n[2026-03-14T22:59:12.749185] transcript_path=C:\\Users\\ntoledo\\AppData\\Local\\ClaudeCode\\.claude\\projects\\C--Chance1-Asistente-IA\\2fc19811-edf3-49c3-8546-f24c78a75b53.jsonl\n[2026-03-14T22:59:12.749185] last_message length=572\n[2026-03-14T22:59:12.769859] Transcript: 244 messages loaded\n[2026-03-14T22:59:12.774406] Extracted: 0 user msgs, 0 errors, 0 decisions\n",
+        "rule": "edits, 0 creates, 0 commands\n[2026-03-14T22:55:42.688895] Session saved. History now has 1 sessions\n[2026-03-14T22:55:42.691924] Hook Stop completed successfully\n[2026-03-14T22:59:12.744550] Hook Stop fired. Fields: ['session_id', 'transcript_path', 'cwd', 'permission_mode', 'hook_event_name', 'stop_hook_active', 'last_assistant_message']\n[2026-03-14T22:59:12.748144] session_id=2fc19811-edf3-49c3-8546-f24c78a75b53\n[2026-03-14T22:59:12.749185] transcript_path=C:\\Users\\ntoledo\\AppData\\Local\\ClaudeCode\\.claude\\projects\\C--Hooks_IA-2fc19811-edf3-49c3-8546-f24c78a75b53.jsonl\n[2026-03-14T22:59:12.749185] last_message length=572\n[2026-03-14T22:59:12.769859] Transcript: 244 messages loaded\n[2026-03-14T22:59:12.774406] Extracted: 0 user msgs, 0 errors, 0 decisions\n",
         "applies_to": "backup_ia",
-        "source": "C:\\Chance1\\IA\\Backup_IA\\adaptive_cli_AppData\\hook_debug.log",
+        "source": "Backup_IA\\adaptive_cli_AppData\\hook_debug.log",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -57,7 +57,7 @@
       "fact": {
         "rule": "ipt: 244 messages loaded\n[2026-03-14T22:59:12.774406] Extracted: 0 user msgs, 0 errors, 0 decisions\n[2026-03-14T22:59:12.782174] Tools: 0 reads, 0 edits, 0 creates, 0 commands\n[2026-03-14T22:59:12.804444] Session saved. History now has 3 sessions\n[2026-03-14T22:59:12.808028] Hook Stop completed successfully\n[2026-03-14T23:02:29.128300] New session added. History now has 1 sessions\n[2026-03-14T23:02:29.152669] Session merged with existing at index 0 (merge_count=2)\n[2026-03-14T23:03:41.656431] New session added. History now has 1 sessions\n[2026-03-14T23:04:22.445549] Hook Stop fired. Fields: ['session_id', 'transcript_path', 'cwd', 'permission_mode', 'hook_event_name', 'stop_hook_active', 'last_assistant_message']\n[2026-03-14T23:04:22.447134] session_id=2fc19811-edf3-49c3-8546-f24c78a75b53\n",
         "applies_to": "backup_ia",
-        "source": "C:\\Chance1\\IA\\Backup_IA\\adaptive_cli_AppData\\hook_debug.log",
+        "source": "Backup_IA\\adaptive_cli_AppData\\hook_debug.log",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -79,9 +79,9 @@
       "type": "fact",
       "key": "hook_debug_3",
       "fact": {
-        "rule": "st_assistant_message']\n[2026-03-14T23:04:22.447134] session_id=2fc19811-edf3-49c3-8546-f24c78a75b53\n[2026-03-14T23:04:22.447134] transcript_path=C:\\Users\\ntoledo\\AppData\\Local\\ClaudeCode\\.claude\\projects\\C--Chance1-Asistente-IA\\2fc19811-edf3-49c3-8546-f24c78a75b53.jsonl\n[2026-03-14T23:04:22.448136] last_message length=430\n[2026-03-14T23:04:22.491208] Transcript: 291 messages loaded\n[2026-03-14T23:04:22.493246] Extracted: 0 user msgs, 0 errors, 0 decisions\n[2026-03-14T23:04:22.498358] Tools: 0 reads, 0 edits, 0 creates, 0 commands\n[2026-03-14T23:04:22.506511] New session added. History now has 2 sessions\n[2026-03-14T23:04:22.523749] Hook Stop completed successfully\n[2026-03-14T23:05:08.668679] Hook Stop fired. ",
+        "rule": "st_assistant_message']\n[2026-03-14T23:04:22.447134] session_id=2fc19811-edf3-49c3-8546-f24c78a75b53\n[2026-03-14T23:04:22.447134] transcript_path=C:\\Users\\ntoledo\\AppData\\Local\\ClaudeCode\\.claude\\projects\\C--Hooks_IA-2fc19811-edf3-49c3-8546-f24c78a75b53.jsonl\n[2026-03-14T23:04:22.448136] last_message length=430\n[2026-03-14T23:04:22.491208] Transcript: 291 messages loaded\n[2026-03-14T23:04:22.493246] Extracted: 0 user msgs, 0 errors, 0 decisions\n[2026-03-14T23:04:22.498358] Tools: 0 reads, 0 edits, 0 creates, 0 commands\n[2026-03-14T23:04:22.506511] New session added. History now has 2 sessions\n[2026-03-14T23:04:22.523749] Hook Stop completed successfully\n[2026-03-14T23:05:08.668679] Hook Stop fired. ",
         "applies_to": "backup_ia",
-        "source": "C:\\Chance1\\IA\\Backup_IA\\adaptive_cli_AppData\\hook_debug.log",
+        "source": "Backup_IA\\adaptive_cli_AppData\\hook_debug.log",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -103,9 +103,9 @@
       "type": "fact",
       "key": "hook_debug_4",
       "fact": {
-        "rule": "-14T23:04:22.523749] Hook Stop completed successfully\n[2026-03-14T23:05:08.668679] Hook Stop fired. Fields: ['session_id', 'transcript_path', 'cwd', 'permission_mode', 'hook_event_name', 'stop_hook_active', 'last_assistant_message']\n[2026-03-14T23:05:08.675770] session_id=2fc19811-edf3-49c3-8546-f24c78a75b53\n[2026-03-14T23:05:08.678848] transcript_path=C:\\Users\\ntoledo\\AppData\\Local\\ClaudeCode\\.claude\\projects\\C--Chance1-Asistente-IA\\2fc19811-edf3-49c3-8546-f24c78a75b53.jsonl\n[2026-03-14T23:05:08.683418] last_message length=150\n[2026-03-14T23:05:08.720448] Transcript: 297 messages loaded\n[2026-03-14T23:05:08.723032] Extracted: 0 user msgs, 0 errors, 0 decisions\n[2026-03-14T23:05:08.724570] Tools: 0 reads, 0 edits, 0 creates, 0 commands\n",
+        "rule": "-14T23:04:22.523749] Hook Stop completed successfully\n[2026-03-14T23:05:08.668679] Hook Stop fired. Fields: ['session_id', 'transcript_path', 'cwd', 'permission_mode', 'hook_event_name', 'stop_hook_active', 'last_assistant_message']\n[2026-03-14T23:05:08.675770] session_id=2fc19811-edf3-49c3-8546-f24c78a75b53\n[2026-03-14T23:05:08.678848] transcript_path=C:\\Users\\ntoledo\\AppData\\Local\\ClaudeCode\\.claude\\projects\\C--Hooks_IA-2fc19811-edf3-49c3-8546-f24c78a75b53.jsonl\n[2026-03-14T23:05:08.683418] last_message length=150\n[2026-03-14T23:05:08.720448] Transcript: 297 messages loaded\n[2026-03-14T23:05:08.723032] Extracted: 0 user msgs, 0 errors, 0 decisions\n[2026-03-14T23:05:08.724570] Tools: 0 reads, 0 edits, 0 creates, 0 commands\n",
         "applies_to": "backup_ia",
-        "source": "C:\\Chance1\\IA\\Backup_IA\\adaptive_cli_AppData\\hook_debug.log",
+        "source": "Backup_IA\\adaptive_cli_AppData\\hook_debug.log",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -127,9 +127,9 @@
       "type": "fact",
       "key": "hook_debug_5",
       "fact": {
-        "rule": ", 0 errors, 0 decisions\n[2026-03-14T23:05:08.724570] Tools: 0 reads, 0 edits, 0 creates, 0 commands\n[2026-03-14T23:05:08.727233] Session merged with existing at index 1 (merge_count=2)\n[2026-03-14T23:05:08.743356] Hook Stop completed successfully\n[2026-03-15T10:58:26.583188] Hook Stop fired. Fields: ['session_id', 'transcript_path', 'cwd', 'permission_mode', 'hook_event_name', 'stop_hook_active', 'last_assistant_message']\n[2026-03-15T10:58:26.588269] session_id=c89ea9c8-24f0-43fc-9fa5-ded1689ba790\n[2026-03-15T10:58:26.593296] transcript_path=C:\\Users\\ntoledo\\AppData\\Local\\ClaudeCode\\.claude\\projects\\C--Chance1-Asistente-IA\\c89ea9c8-24f0-43fc-9fa5-ded1689ba790.jsonl\n[2026-03-15T10:58:26.597902] last_message length=186\n[2026-03-15T10:58:26.605636] Transcript: 18 messages loaded\n",
+        "rule": ", 0 errors, 0 decisions\n[2026-03-14T23:05:08.724570] Tools: 0 reads, 0 edits, 0 creates, 0 commands\n[2026-03-14T23:05:08.727233] Session merged with existing at index 1 (merge_count=2)\n[2026-03-14T23:05:08.743356] Hook Stop completed successfully\n[2026-03-15T10:58:26.583188] Hook Stop fired. Fields: ['session_id', 'transcript_path', 'cwd', 'permission_mode', 'hook_event_name', 'stop_hook_active', 'last_assistant_message']\n[2026-03-15T10:58:26.588269] session_id=c89ea9c8-24f0-43fc-9fa5-ded1689ba790\n[2026-03-15T10:58:26.593296] transcript_path=C:\\Users\\ntoledo\\AppData\\Local\\ClaudeCode\\.claude\\projects\\C--Hooks_IA-c89ea9c8-24f0-43fc-9fa5-ded1689ba790.jsonl\n[2026-03-15T10:58:26.597902] last_message length=186\n[2026-03-15T10:58:26.605636] Transcript: 18 messages loaded\n",
         "applies_to": "backup_ia",
-        "source": "C:\\Chance1\\IA\\Backup_IA\\adaptive_cli_AppData\\hook_debug.log",
+        "source": "Backup_IA\\adaptive_cli_AppData\\hook_debug.log",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -153,7 +153,7 @@
       "fact": {
         "rule": "0:58:26.597902] last_message length=186\n[2026-03-15T10:58:26.605636] Transcript: 18 messages loaded\n[2026-03-15T10:58:26.613197] Extracted: 0 user msgs, 0 errors, 0 decisions\n[2026-03-15T10:58:26.616772] Tools: 0 reads, 0 edits, 0 creates, 0 commands\n[2026-03-15T10:58:26.622415] New session added. History now has 3 sessions\n[2026-03-15T10:58:26.640815] Hook Stop completed successfully\n[2026-03-15T11:29:38.800533] Hook Stop fired. Fields: ['session_id', 'transcript_path', 'cwd', 'permission_mode', 'hook_event_name', 'stop_hook_active', 'last_assistant_message']\n[2026-03-15T11:29:38.801545] session_id=7cf55ca7-8409-4bd6-83a9-d99d7dafc781\n",
         "applies_to": "backup_ia",
-        "source": "C:\\Chance1\\IA\\Backup_IA\\adaptive_cli_AppData\\hook_debug.log",
+        "source": "Backup_IA\\adaptive_cli_AppData\\hook_debug.log",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -175,9 +175,9 @@
       "type": "fact",
       "key": "hook_debug_7",
       "fact": {
-        "rule": "st_assistant_message']\n[2026-03-15T11:29:38.801545] session_id=7cf55ca7-8409-4bd6-83a9-d99d7dafc781\n[2026-03-15T11:29:38.801545] transcript_path=C:\\Users\\ntoledo\\AppData\\Local\\ClaudeCode\\.claude\\projects\\C--Chance1-Asistente-IA\\7cf55ca7-8409-4bd6-83a9-d99d7dafc781.jsonl\n[2026-03-15T11:29:38.802550] last_message length=1445\n[2026-03-15T11:29:38.844074] Transcript: 175 messages loaded\n[2026-03-15T11:29:38.847659] Extracted: 0 user msgs, 0 errors, 0 decisions\n[2",
+        "rule": "st_assistant_message']\n[2026-03-15T11:29:38.801545] session_id=7cf55ca7-8409-4bd6-83a9-d99d7dafc781\n[2026-03-15T11:29:38.801545] transcript_path=C:\\Users\\ntoledo\\AppData\\Local\\ClaudeCode\\.claude\\projects\\C--Hooks_IA-7cf55ca7-8409-4bd6-83a9-d99d7dafc781.jsonl\n[2026-03-15T11:29:38.802550] last_message length=1445\n[2026-03-15T11:29:38.844074] Transcript: 175 messages loaded\n[2026-03-15T11:29:38.847659] Extracted: 0 user msgs, 0 errors, 0 decisions\n[2",
         "applies_to": "backup_ia",
-        "source": "C:\\Chance1\\IA\\Backup_IA\\adaptive_cli_AppData\\hook_debug.log",
+        "source": "Backup_IA\\adaptive_cli_AppData\\hook_debug.log",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -199,9 +199,9 @@
       "type": "fact",
       "key": "session_history_0",
       "fact": {
-        "rule": "[\n  {\n    \"session_id\": \"2fdcd6ec-5158-4178-86b2-c67af844132c\",\n    \"date\": \"2026-03-16\",\n    \"time\": \"15:42:45 UTC\",\n    \"cwd\": \"C:\\\\Chance1\\\\Asistente IA\",\n    \"summary\": \"revisa el motor de memoria para recordar todo lo que hemos tratado en sesiones anteriores → vi que salian unos errores como estos: ⎿  Error: Exit code 1      Traceback (most recent call last):        File \\\"<string>\\\", line 9, in <module>       → puedes reparar para que no salga ese error da impresion de fallo al ejecutar recordar la informacion → ok guarda esto en la memoria del motor local que se construyo → pregunta puedo tener 2 cli claude abiertos en terminal simultaneo? → si evita agrega algo para que no entren en conflicto → ok ahora en base a esto necesito correciones en la pagina web re\",\n",
+        "rule": "[\n  {\n    \"session_id\": \"2fdcd6ec-5158-4178-86b2-c67af844132c\",\n    \"date\": \"2026-03-16\",\n    \"time\": \"15:42:45 UTC\",\n    \"cwd\": \"\",\n    \"summary\": \"revisa el motor de memoria para recordar todo lo que hemos tratado en sesiones anteriores → vi que salian unos errores como estos: ⎿  Error: Exit code 1      Traceback (most recent call last):        File \\\"<string>\\\", line 9, in <module>       → puedes reparar para que no salga ese error da impresion de fallo al ejecutar recordar la informacion → ok guarda esto en la memoria del motor local que se construyo → pregunta puedo tener 2 cli claude abiertos en terminal simultaneo? → si evita agrega algo para que no entren en conflicto → ok ahora en base a esto necesito correciones en la pagina web re\",\n",
         "applies_to": "backup_ia",
-        "source": "C:\\Chance1\\IA\\Backup_IA\\adaptive_cli_AppData\\session_history.json",
+        "source": "Backup_IA\\adaptive_cli_AppData\\session_history.json",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -226,7 +226,7 @@
       "fact": {
         "rule": "ara que no entren en conflicto → ok ahora en base a esto necesito correciones en la pagina web re\",\n    \"user_messages\": [\n      \"revisa el motor de memoria para recordar todo lo que hemos tratado en sesiones anteriores\",\n      \"vi que salian unos errores como estos: ⎿  Error: Exit code 1\\n     Traceback (most recent call last):\\n       File \\\"<string>\\\", line 9, in <module>\\n     AttributeError: 'str' object has no attribute 'get'\\n     Learning Memory: 4 patrones que son?\",\n      \"puedes reparar para que no salga ese error da impresion de fallo al ejecutar recordar la informacion\",\n      \"ok guarda esto en la memoria del motor local que se construyo\",\n      \"pregunta puedo tener 2 cli claude abiertos en terminal simultaneo?\",\n      \"si evita agrega algo para que no entren en conflicto\",\n",
         "applies_to": "backup_ia",
-        "source": "C:\\Chance1\\IA\\Backup_IA\\adaptive_cli_AppData\\session_history.json",
+        "source": "Backup_IA\\adaptive_cli_AppData\\session_history.json",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -251,7 +251,7 @@
       "fact": {
         "rule": "de abiertos en terminal simultaneo?\",\n      \"si evita agrega algo para que no entren en conflicto\",\n      \"ok ahora en base a esto necesito correciones en la pagina web realizada 1. no esta buscando saca un error 2. cuando busca algo que que no esta en el local trata de ir al ML pero dice que la sesion esta ocupada con otro cli (parte de lo que te pedi ahorit)  3. agrega un boton en tools para que yo pueda grabar manualmente lo aprendido y que se grabe en si disparar el o los hooks  para que guarda lo aprendido manualmente.\",\n      \"cuando buscaste que es gbm su salida su estilo de letra es el basico no esta homologado con las mejoras de presentacion de letras y que hiciste antes\",\n",
         "applies_to": "backup_ia",
-        "source": "C:\\Chance1\\IA\\Backup_IA\\adaptive_cli_AppData\\session_history.json",
+        "source": "Backup_IA\\adaptive_cli_AppData\\session_history.json",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -276,7 +276,7 @@
       "fact": {
         "rule": "tra es el basico no esta homologado con las mejoras de presentacion de letras y que hiciste antes\",\n      \"la parte de tools desaparecio tomarlas del backup y realiza el tema de de agregar el boton de guardar manual el auto conocimiento, realiza tu validacion visual.\",\n      \"This session is being continued from a previous conversation that ran out of context. The summary below covers the earlier portion of the conversation.\\n\\nSummary:\\n1. Primary Request and Intent:\\n   - Review the memory engine to recall all previous session work\\n   - Fix a diagnostic error (`AttributeError: 'str' object has no attribute 'get'`) that appeared when inspecting learned_patterns.json\\n   - Save diagnostic feedback to the local KB\\n   - Add file locking to prevent conflicts when running 2 C\",\n",
         "applies_to": "backup_ia",
-        "source": "C:\\Chance1\\IA\\Backup_IA\\adaptive_cli_AppData\\session_history.json",
+        "source": "Backup_IA\\adaptive_cli_AppData\\session_history.json",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -301,7 +301,7 @@
       "fact": {
         "rule": " diagnostic feedback to the local KB\\n   - Add file locking to prevent conflicts when running 2 C\",\n      \"te soy honesto yo a nivel visual no veo cambios es decir sigo sin ver tools toma una foto y valida a nivel visual\",\n      \"añade todo esto en la base de conocimientos local\",\n      \"en la pagina me voy a buscar abre el apartado de Asistente GBM, escribo \\\"que conocimientos guardaste reciente?\\\" y salio claude tardo mas de 2 minutos, intenta con una consulta mas especifica.  la idea es que la web funcione como el cli atado a clau es decir  la idea final es que sustituya el uso de la terminal usando el front de la pagina para usar cli clau pero por el momento no fuciona igual  y 2 muy importante toda la busqueda local debe ser rapida y toda busqueda que implique ML debe usar el\"\n    ],\n",
         "applies_to": "backup_ia",
-        "source": "C:\\Chance1\\IA\\Backup_IA\\adaptive_cli_AppData\\session_history.json",
+        "source": "Backup_IA\\adaptive_cli_AppData\\session_history.json",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -324,9 +324,9 @@
       "type": "fact",
       "key": "session_history_5",
       "fact": {
-        "rule": "ortante toda la busqueda local debe ser rapida y toda busqueda que implique ML debe usar el\"\n    ],\n    \"files_read\": [\n      \"C:\\\\Chance1\\\\Asistente IA\\\\.claude\\\\hooks\\\\on_user_message.py\",\n      \"C:\\\\Chance1\\\\Asistente IA\\\\.claude\\\\hooks\\\\session_start_kb.py\",\n      \"C:\\\\Users\\\\ntoledo\\\\AppData\\\\Local\\\\ClaudeCode\\\\.claude\\\\projects\\\\C--Chance1-Asistente-IA\\\\memory\\\\MEMORY.md\",\n      \"C:\\\\Chance1\\\\Asistente IA\\\\knowledge_base.py\",\n      \"C:\\\\Chance1\\\\Asistente IA\\\\learning_memory.py\",\n      \"C:\\\\Chance1\\\\Asistente IA\\\\.claude\\\\hooks\\\\auto_learn_hook.py\",\n      \"C:\\\\Chance1\\\\Asistente IA\\\\.claude\\\\hooks\\\\iteration_learn.py\",\n      \"C:\\\\Chance1\\\\Asistente IA\\\\brand_mirror.py\",\n      \"C:\\\\Chance1\\\\Asistente IA\\\\dashboard.py\",\n      \"C:\\\\Chance1\\\\backup_Asistente\\\\brand_mirror.py\"\n    ],\n",
+        "rule": "ortante toda la busqueda local debe ser rapida y toda busqueda que implique ML debe usar el\"\n    ],\n    \"files_read\": [\n      \".claude\\\\hooks\\\\on_user_message.py\",\n      \".claude\\\\hooks\\\\session_start_kb.py\",\n      \"C:\\\\Users\\\\ntoledo\\\\AppData\\\\Local\\\\ClaudeCode\\\\.claude\\\\projects\\\\C--Hooks_IA-memory\\\\MEMORY.md\",\n      \"knowledge_base.py\",\n      \"learning_memory.py\",\n      \".claude\\\\hooks\\\\auto_learn_hook.py\",\n      \".claude\\\\hooks\\\\iteration_learn.py\",\n      \"brand_mirror.py\",\n      \"dashboard.py\",\n      \"backup_Asistente\\\\brand_mirror.py\"\n    ],\n",
         "applies_to": "backup_ia",
-        "source": "C:\\Chance1\\IA\\Backup_IA\\adaptive_cli_AppData\\session_history.json",
+        "source": "Backup_IA\\adaptive_cli_AppData\\session_history.json",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -349,9 +349,9 @@
       "type": "fact",
       "key": "session_history_6",
       "fact": {
-        "rule": "Chance1\\\\Asistente IA\\\\dashboard.py\",\n      \"C:\\\\Chance1\\\\backup_Asistente\\\\brand_mirror.py\"\n    ],\n    \"files_edited\": [\n      \"C:\\\\Users\\\\ntoledo\\\\AppData\\\\Local\\\\ClaudeCode\\\\.claude\\\\projects\\\\C--Chance1-Asistente-IA\\\\memory\\\\MEMORY.md\",\n      \"C:\\\\Chance1\\\\Asistente IA\\\\knowledge_base.py\",\n      \"C:\\\\Chance1\\\\Asistente IA\\\\learning_memory.py\",\n      \"C:\\\\Chance1\\\\Asistente IA\\\\.claude\\\\hooks\\\\auto_learn_hook.py\",\n      \"C:\\\\Chance1\\\\Asistente IA\\\\.claude\\\\hooks\\\\iteration_learn.py\",\n      \"C:\\\\Chance1\\\\Asistente IA\\\\brand_mirror.py\",\n      \"C:\\\\Chance1\\\\Asistente IA\\\\dashboard.py\"\n    ],\n    \"files_created\": [\n      \"C:\\\\Users\\\\ntoledo\\\\AppData\\\\Local\\\\ClaudeCode\\\\.claude\\\\projects\\\\C--Chance1-Asistente-IA\\\\memory\\\\feedback_no_errors_in_diagnostics.md\"\n    ],\n    \"commands_run\": [\n",
+        "rule": "Hooks_IA\\\\dashboard.py\",\n      \"backup_Asistente\\\\brand_mirror.py\"\n    ],\n    \"files_edited\": [\n      \"C:\\\\Users\\\\ntoledo\\\\AppData\\\\Local\\\\ClaudeCode\\\\.claude\\\\projects\\\\C--Hooks_IA-memory\\\\MEMORY.md\",\n      \"knowledge_base.py\",\n      \"learning_memory.py\",\n      \".claude\\\\hooks\\\\auto_learn_hook.py\",\n      \".claude\\\\hooks\\\\iteration_learn.py\",\n      \"brand_mirror.py\",\n      \"dashboard.py\"\n    ],\n    \"files_created\": [\n      \"C:\\\\Users\\\\ntoledo\\\\AppData\\\\Local\\\\ClaudeCode\\\\.claude\\\\projects\\\\C--Hooks_IA-memory\\\\feedback_no_errors_in_diagnostics.md\"\n    ],\n    \"commands_run\": [\n",
         "applies_to": "backup_ia",
-        "source": "C:\\Chance1\\IA\\Backup_IA\\adaptive_cli_AppData\\session_history.json",
+        "source": "Backup_IA\\adaptive_cli_AppData\\session_history.json",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -374,9 +374,9 @@
       "type": "fact",
       "key": "session_history_7",
       "fact": {
-        "rule": "C--Chance1-Asistente-IA\\\\memory\\\\feedback_no_errors_in_diagnostics.md\"\n    ],\n    \"commands_run\": [\n      \"tail -1 ~/.adaptive_cli/last_learning.txt\",\n      \"ls -la ~/.adaptive_cli/session_history.json 2>/dev/null && PYTHONIOENCODING=utf-8 python -c \\",
+        "rule": "C--Hooks_IA-memory\\\\feedback_no_errors_in_diagnostics.md\"\n    ],\n    \"commands_run\": [\n      \"tail -1 ~/.adaptive_cli/last_learning.txt\",\n      \"ls -la ~/.adaptive_cli/session_history.json 2>/dev/null && PYTHONIOENCODING=utf-8 python -c \\",
         "applies_to": "backup_ia",
-        "source": "C:\\Chance1\\IA\\Backup_IA\\adaptive_cli_AppData\\session_history.json",
+        "source": "Backup_IA\\adaptive_cli_AppData\\session_history.json",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -401,7 +401,7 @@
       "fact": {
         "rule": "{\n  \"version\": \"1.0\",\n  \"patterns\": {\n    \"fcf0ad3db318\": {\n      \"id\": \"fcf0ad3db318\",\n      \"task_type\": \"css_fix\",\n      \"context_key\": \"devin_pointer_events_disabled\",\n      \"solution\": {\n        \"strategy\": \"css_override_important\",\n        \"selector_chain\": [\n          \".site-header__nav-item\",\n          \"pointer-events: none\",\n          \"pointer-events: auto !important\"\n        ],\n        \"code_snippet\": \".site-header__nav-item, .site-header__nav-item a { pointer-events: auto !important; }\",\n        \"notes\": \"Devin desactiva clicks en nav con pointer-events:none. Root cause tras 4 intentos.\",\n        \"attempts_to_solve\": 4,\n        \"time_to_solve_seconds\": 600\n      },\n      \"tags\": [\n        \"css\",\n        \"devin\",\n        \"pointer-events\",\n        \"fix\"\n      ],\n",
         "applies_to": "backup_ia",
-        "source": "C:\\Chance1\\IA\\Backup_IA\\adaptive_cli_AppData\\learned_patterns.json",
+        "source": "Backup_IA\\adaptive_cli_AppData\\learned_patterns.json",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -426,7 +426,7 @@
       "fact": {
         "rule": "},\n      \"tags\": [\n        \"css\",\n        \"devin\",\n        \"pointer-events\",\n        \"fix\"\n      ],\n      \"error_context\": {\n        \"symptom\": \"Nav buttons not responding to clicks\",\n        \"misdiagnosis\": [\n          \"z-index\",\n          \"event listener conflict\"\n        ],\n        \"root_cause\": \"Devin CSS pointer-events: none on nav items\"\n      },\n      \"created_at\": \"2026-03-15T04:00:56.273984+00:00\",\n      \"updated_at\": \"2026-03-15T04:00:56.273984+00:00\",\n      \"stats\": {\n        \"lookups\": 0,\n        \"reuses\": 0,\n        \"success_rate\": 1.0,\n        \"last_lookup\": null,\n        \"last_reuse\": null\n      }\n    },\n    \"d597fe84166f\": {\n      \"id\": \"d597fe84166f\",\n      \"task_type\": \"overlay_management\",\n      \"context_key\": \"gbm_overlay_close_on_home\",\n      \"solution\": {\n",
         "applies_to": "backup_ia",
-        "source": "C:\\Chance1\\IA\\Backup_IA\\adaptive_cli_AppData\\learned_patterns.json",
+        "source": "Backup_IA\\adaptive_cli_AppData\\learned_patterns.json",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -451,7 +451,7 @@
       "fact": {
         "rule": "_type\": \"overlay_management\",\n      \"context_key\": \"gbm_overlay_close_on_home\",\n      \"solution\": {\n        \"strategy\": \"capture_phase_stopImmediate\",\n        \"code_snippet\": \"addEventListener('click', handler, true) + stopImmediatePropagation()\",\n        \"notes\": \"Capture phase intercepta antes que Devin. stopImmediatePropagation evita doble proceso.\",\n        \"attempts_to_solve\": 2,\n        \"time_to_solve_seconds\": 300\n      },\n      \"tags\": [\n        \"javascript\",\n        \"events\",\n        \"capture\",\n        \"overlay\"\n      ],\n      \"error_context\": null,\n      \"created_at\": \"2026-03-15T04:00:56.299871+00:00\",\n      \"updated_at\": \"2026-03-15T04:00:56.299871+00:00\",\n      \"stats\": {\n        \"lookups\": 0,\n        \"reuses\": 0,\n        \"success_rate\": 1.0,\n        \"last_lookup\": null,\n",
         "applies_to": "backup_ia",
-        "source": "C:\\Chance1\\IA\\Backup_IA\\adaptive_cli_AppData\\learned_patterns.json",
+        "source": "Backup_IA\\adaptive_cli_AppData\\learned_patterns.json",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -476,7 +476,7 @@
       "fact": {
         "rule": "       \"lookups\": 0,\n        \"reuses\": 0,\n        \"success_rate\": 1.0,\n        \"last_lookup\": null,\n        \"last_reuse\": null\n      }\n    },\n    \"51624e2ef956\": {\n      \"id\": \"51624e2ef956\",\n      \"task_type\": \"flask_api\",\n      \"context_key\": \"tools_whitelist_endpoint\",\n      \"solution\": {\n        \"strategy\": \"subprocess_with_whitelist\",\n        \"code_snippet\": \"subprocess.run([sys.executable, script] + args, capture_output=True, text=True, timeout=120)\",\n        \"notes\": \"Ejecutar scripts desde Flask con whitelist. Timeout 120s.\",\n        \"attempts_to_solve\": 1,\n        \"time_to_solve_seconds\": 120\n      },\n      \"tags\": [\n        \"flask\",\n        \"api\",\n        \"subprocess\",\n        \"security\"\n      ],\n      \"error_context\": null,\n",
         "applies_to": "backup_ia",
-        "source": "C:\\Chance1\\IA\\Backup_IA\\adaptive_cli_AppData\\learned_patterns.json",
+        "source": "Backup_IA\\adaptive_cli_AppData\\learned_patterns.json",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -501,7 +501,7 @@
       "fact": {
         "rule": "ask\",\n        \"api\",\n        \"subprocess\",\n        \"security\"\n      ],\n      \"error_context\": null,\n      \"created_at\": \"2026-03-15T04:00:56.340745+00:00\",\n      \"updated_at\": \"2026-03-15T04:00:56.340745+00:00\",\n      \"stats\": {\n        \"lookups\": 0,\n        \"reuses\": 0,\n        \"success_rate\": 1.0,\n        \"last_lookup\": null,\n        \"last_reuse\": null\n      }\n    },\n    \"82e9c8cc9b0d\": {\n      \"id\": \"82e9c8cc9b0d\",\n      \"task_type\": \"font_update\",\n      \"context_key\": \"devin_mirror_font_replacement\",\n      \"solution\": {\n        \"strategy\": \"replace_monospace_with_native\",\n        \"code_snippet\": \"IBM Plex Mono -> neue-haas-grotesk-text/display\",\n        \"notes\": \"Reemplazar monospace por fuentes nativas de devin.ai en todos los .gbm-* components.\",\n        \"attempts_to_solve\": 1,\n",
         "applies_to": "backup_ia",
-        "source": "C:\\Chance1\\IA\\Backup_IA\\adaptive_cli_AppData\\learned_patterns.json",
+        "source": "Backup_IA\\adaptive_cli_AppData\\learned_patterns.json",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -526,7 +526,7 @@
       "fact": {
         "rule": "e por fuentes nativas de devin.ai en todos los .gbm-* components.\",\n        \"attempts_to_solve\": 1,\n        \"time_to_solve_seconds\": 180\n      },\n      \"tags\": [\n        \"css\",\n        \"fonts\",\n        \"design\",\n        \"devin\"\n      ],\n      \"error_context\": null,\n      \"created_at\": \"2026-03-15T04:00:56.386090+00:00\",\n      \"updated_at\": \"2026-03-15T04:00:56.386090+00:00\",\n      \"stats\": {\n        \"lookups\": 0,\n        \"reuses\": 0,\n        \"success_rate\": 1.0,\n        \"last_lookup\": null,\n        \"last_reuse\": null\n      }\n    },\n    \"567069c47b0b\": {\n      \"id\": \"567069c47b0b\",\n      \"task_type\": \"dashboard_build\",\n      \"context_key\": \"brand_mirror_rebuild\",\n      \"solution\": {\n        \"strategy\": \"python_brand_mirror_script\",\n        \"code_snippet\": \"python brand_mirror.py\",\n",
         "applies_to": "backup_ia",
-        "source": "C:\\Chance1\\IA\\Backup_IA\\adaptive_cli_AppData\\learned_patterns.json",
+        "source": "Backup_IA\\adaptive_cli_AppData\\learned_patterns.json",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -551,7 +551,7 @@
       "fact": {
         "rule": "        \"strategy\": \"python_brand_mirror_script\",\n        \"code_snippet\": \"python brand_mirror.py\",\n        \"notes\": \"brand_mirror.py regenera index.html. Si se modifica index.html directamente, actualizar brand_mirror.py tambien.\",\n        \"attempts_to_solve\": 1,\n        \"time_to_solve_seconds\": 60\n      },\n      \"tags\": [\n        \"build\",\n        \"brand\",\n        \"mirror\",\n        \"rebuild\"\n      ],\n      \"error_context\": null,\n      \"created_at\": \"2026-03-15T04:00:56.434956+00:00\",\n      \"updated_at\": \"2026-03-15T04:00:56.434956+00:00\",\n      \"stats\": {\n        \"lookups\": 0,\n        \"reuses\": 0,\n        \"success_rate\": 1.0,\n        \"last_lookup\": null,\n        \"last_reuse\": null\n      }\n    },\n    \"a67edfeb5f3b\": {\n      \"id\": \"a67edfeb5f3b\",\n      \"task_type\": \"web_mirror\",\n",
         "applies_to": "backup_ia",
-        "source": "C:\\Chance1\\IA\\Backup_IA\\adaptive_cli_AppData\\learned_patterns.json",
+        "source": "Backup_IA\\adaptive_cli_AppData\\learned_patterns.json",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -576,7 +576,7 @@
       "fact": {
         "rule": "l\n      }\n    },\n    \"a67edfeb5f3b\": {\n      \"id\": \"a67edfeb5f3b\",\n      \"task_type\": \"web_mirror\",\n      \"context_key\": \"download_and_adapt_website\",\n      \"solution\": {\n        \"strategy\": \"wget_mirror_plus_brand_",
         "applies_to": "backup_ia",
-        "source": "C:\\Chance1\\IA\\Backup_IA\\adaptive_cli_AppData\\learned_patterns.json",
+        "source": "Backup_IA\\adaptive_cli_AppData\\learned_patterns.json",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -601,7 +601,7 @@
       "fact": {
         "rule": "{\"history\": [{\"ts\": \"2026-03-20T10:56:56.111564\", \"usage_rate\": 0.8, \"used_kw\": [\"usado\", \"gemini\", \"cli\", \"user\"], \"ignored_dom\": [], \"intent\": \"general\", \"had_lm\": false, \"had_kb\": true, \"had_ep\": true}, {\"ts\": \"2026-03-20T11:12:18.939433\", \"usage_rate\": 0.8, \"used_kw\": [\"usado\", \"gemini\", \"cli\", \"user\"], \"ignored_dom\": [], \"intent\": \"general\", \"had_lm\": false, \"had_kb\": true, \"had_ep\": true}, {\"ts\": \"2026-03-20T11:36:12.131404\", \"usage_rate\": 0.8, \"used_kw\": [\"usado\", \"gemini\", \"cli\", \"user\"], \"ignored_dom\": [], \"intent\": \"general\", \"had_lm\": false, \"had_kb\": true, \"had_ep\": true}, {\"ts\": \"2026-03-20T11:54:00.677500\", \"usage_rate\": 0.8, \"used_kw\": [\"puedes\", \"cambios\", \"proyecto\", \"original\"], \"ignored_dom\": [], \"intent\": \"crear\", \"had_lm\": false, \"had_kb\": true, \"had_ep\": true}, {\"ts\":",
         "applies_to": "backup_ia",
-        "source": "C:\\Chance1\\IA\\Backup_IA\\adaptive_cli_AppData\\hint_effectiveness.json",
+        "source": "Backup_IA\\adaptive_cli_AppData\\hint_effectiveness.json",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -626,7 +626,7 @@
       "fact": {
         "rule": "al\"], \"ignored_dom\": [], \"intent\": \"crear\", \"had_lm\": false, \"had_kb\": true, \"had_ep\": true}, {\"ts\": \"2026-03-20T11:57:52.426404\", \"usage_rate\": 0.4, \"used_kw\": [\"sow\", \"propuesta\"], \"ignored_dom\": [], \"intent\": \"crear\", \"had_lm\": false, \"had_kb\": true, \"had_ep\": true}, {\"ts\": \"2026-03-20T12:05:59.846749\", \"usage_rate\": 0.4, \"used_kw\": [\"sow\", \"propuesta\"], \"ignored_dom\": [], \"intent\": \"crear\", \"had_lm\": false, \"had_kb\": true, \"had_ep\": true}, {\"ts\": \"2026-03-20T12:06:06.234096\", \"usage_rate\": 0.4, \"used_kw\": [\"sow\", \"propuesta\"], \"ignored_dom\": [], \"intent\": \"crear\", \"had_lm\": false, \"had_kb\": true, \"had_ep\": true}, {\"ts\": \"2026-03-20T12:07:45.544972\", \"usage_rate\": 1.0, \"used_kw\": [\"genera\", \"sow\", \"propuesta\", \"contrato\", \"alcance\"], \"ignored_dom\": [], \"intent\": \"crear\", \"had_lm\": false",
         "applies_to": "backup_ia",
-        "source": "C:\\Chance1\\IA\\Backup_IA\\adaptive_cli_AppData\\hint_effectiveness.json",
+        "source": "Backup_IA\\adaptive_cli_AppData\\hint_effectiveness.json",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -651,7 +651,7 @@
       "fact": {
         "rule": "\", \"sow\", \"propuesta\", \"contrato\", \"alcance\"], \"ignored_dom\": [], \"intent\": \"crear\", \"had_lm\": false, \"had_kb\": true, \"had_ep\": true}, {\"ts\": \"2026-03-20T12:11:45.154173\", \"usage_rate\": 0.8, \"used_kw\": [\"porque\", \"tiene\", \"pedi\", \"proyecto\"], \"ignored_dom\": [], \"intent\": \"depurar\", \"had_lm\": false, \"had_kb\": true, \"had_ep\": true}, {\"ts\": \"2026-03-20T12:12:51.304305\", \"usage_rate\": 0.8, \"used_kw\": [\"porque\", \"tiene\", \"pedi\", \"proyecto\"], \"ignored_dom\": [], \"intent\": \"depurar\", \"had_lm\": false, \"had_kb\": true, \"had_ep\": true}, {\"ts\": \"2026-03-20T12:13:39.139374\", \"usage_rate\": 0.8, \"used_kw\": [\"porque\", \"tiene\", \"pedi\", \"proyecto\"], \"ignored_dom\": [], \"intent\": \"depurar\", \"had_lm\": false, \"had_kb\": true, \"had_ep\": true}, {\"ts\": \"2026-03-20T12:18:34.467413\", \"usage_rate\": 0.8, \"used_kw\": [\"po",
         "applies_to": "backup_ia",
-        "source": "C:\\Chance1\\IA\\Backup_IA\\adaptive_cli_AppData\\hint_effectiveness.json",
+        "source": "Backup_IA\\adaptive_cli_AppData\\hint_effectiveness.json",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -676,7 +676,7 @@
       "fact": {
         "rule": "_kb\": true, \"had_ep\": true}, {\"ts\": \"2026-03-20T12:18:34.467413\", \"usage_rate\": 0.8, \"used_kw\": [\"porque\", \"tiene\", \"pedi\", \"proyecto\"], \"ignored_dom\": [], \"intent\": \"depurar\", \"had_lm\": false, \"had_kb\": true, \"had_ep\": true}, {\"ts\": \"2026-03-20T12:19:48.219532\", \"usage_rate\": 0.8, \"used_kw\": [\"puede\", \"usar\", \"script\", \"carga\"], \"ignored_dom\": [], \"intent\": \"automatizar\", \"had_lm\": true, \"had_kb\": true, \"had_ep\": true}, {\"ts\": \"2026-03-20T12:21:02.100655\", \"usage_rate\": 0.8, \"used_kw\": [\"puede\", \"usar\", \"script\", \"carga\"], \"ignored_dom\": [], \"intent\": \"automatizar\", \"had_lm\": true, \"had_kb\": true, \"had_ep\": true}, {\"ts\": \"2026-03-20T12:24:27.948436\", \"usage_rate\": 0.8, \"used_kw\": [\"puede\", \"usar\", \"script\", \"carga\"], \"ignored_dom\": [], \"intent\": \"automatizar\", \"had_lm\": true, \"had_kb\": tr",
         "applies_to": "backup_ia",
-        "source": "C:\\Chance1\\IA\\Backup_IA\\adaptive_cli_AppData\\hint_effectiveness.json",
+        "source": "Backup_IA\\adaptive_cli_AppData\\hint_effectiveness.json",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -701,7 +701,7 @@
       "fact": {
         "rule": "\"usar\", \"script\", \"carga\"], \"ignored_dom\": [], \"intent\": \"automatizar\", \"had_lm\": true, \"had_kb\": true, \"had_ep\": true}, {\"ts\": \"2026-03-20T12:28:41.940329\", \"usage_rate\": 1.0, \"used_kw\": [\"genera\", \"sow\", \"propuesta\", \"contrato\", \"alcance\"], \"ignored_dom\": [], \"intent\": \"crear\", \"had_lm\": false, \"had_kb\": true, \"had_ep\": true}, {\"ts\": \"2026-03-20T12:29:46.164684\", \"usage_rate\": 1.0, \"used_kw\": [\"crea\", \"sow\", \"cliente\", \"nuevo\", \"propuesta\"], \"ignored_dom\": [], \"intent\": \"crear\", \"had_lm\": false, \"had_kb\": true, \"had_ep\": true}, {\"ts\": \"2026-03-20T12:33:11.971786\", \"usage_rate\": 1.0, \"used_kw\": [\"crea\", \"sow\", \"cliente\", \"nuevo\", \"propuesta\"], \"ignored_dom\": [], \"intent\": \"crear\", \"had_lm\": false, \"had_kb\": true, \"had_ep\": true}, {\"ts\": \"2026-03-20T12:33:45.653938\", \"usage_rate\": 1.0, \"us",
         "applies_to": "backup_ia",
-        "source": "C:\\Chance1\\IA\\Backup_IA\\adaptive_cli_AppData\\hint_effectiveness.json",
+        "source": "Backup_IA\\adaptive_cli_AppData\\hint_effectiveness.json",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -726,7 +726,7 @@
       "fact": {
         "rule": " false, \"had_kb\": true, \"had_ep\": true}, {\"ts\": \"2026-03-20T12:33:45.653938\", \"usage_rate\": 1.0, \"used_kw\": [\"crea\", \"sow\", \"cliente\", \"nuevo\", \"propuesta\"], \"ignored_dom\": [], \"intent\": \"crear\", \"had_lm\": false, \"had_kb\": true, \"had_ep\": true}, {\"ts\": \"2026-03-20T12:34:13.690796\", \"usage_rate\": 1.0, \"used_kw\": [\"genera\", \"sow\", \"propuesta\", \"contrato\", \"alcance\"], \"ignored_dom\": [], \"intent\": \"crear\", \"had_lm\": false, \"had_kb\": true, \"had_ep\": true}, {\"ts\": \"2026-03-20T12:34:24.344340\", \"usage_rate\": 1.0, \"used_kw\": [\"genera\", \"sow\", \"propuesta\", \"contrato\", \"alcance\"], \"ignored_dom\": [], \"intent\": \"crear\", \"had_lm\": false, \"had_kb\": true, \"had_ep\": true}, {\"ts\": \"2026-03-20T12:39:27.417725\", \"usage_rate\": 1.0, \"used_kw\": [\"genera\", \"sow\", \"propuesta\", \"contrato\", \"alcance\"], \"ignored_dom",
         "applies_to": "backup_ia",
-        "source": "C:\\Chance1\\IA\\Backup_IA\\adaptive_cli_AppData\\hint_effectiveness.json",
+        "source": "Backup_IA\\adaptive_cli_AppData\\hint_effectiveness.json",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -751,7 +751,7 @@
       "fact": {
         "rule": "\", \"usage_rate\": 1.0, \"used_kw\": [\"genera\", \"sow\", \"propuesta\", \"contrato\", \"alcance\"], \"ignored_dom\": [], \"intent\": \"crear\", \"had_lm\": false, \"had_kb\": true, \"had_ep\": true}, {\"ts\": \"2026-03-20T12:40:12.576347\", \"usage_rate\": 1.0, \"used_kw\": [\"genera\", \"sow\", \"propuesta\", \"contrato\", \"alcance\"], \"ignored_dom\": [], \"intent\": \"crear\", \"had_lm\": false, \"had_kb\": true, \"had_ep\": true}, {\"ts\": \"2026-03-20T12:59:29.519534\", \"usage_rate\": 0.8, \"used_kw\": [\"consulta\", \"transversal\", \"sin\", \"dominio\"], \"ignored_dom\": [], \"intent\": \"crear\", \"had_lm\": false, \"had_kb\": true, \"had_ep\": true}, {\"ts\": \"2026-03-20T13:06:17.130694\", \"usage_rate\": 0.8, \"used_kw\": [\"consulta\", \"transversal\", \"sin\", \"dominio\"], \"ignored_dom\": [], \"intent\": \"crear\", \"had_lm\": false, \"had_kb\": true, \"had_ep\": true}, {\"ts\": \"20",
         "applies_to": "backup_ia",
-        "source": "C:\\Chance1\\IA\\Backup_IA\\adaptive_cli_AppData\\hint_effectiveness.json",
+        "source": "Backup_IA\\adaptive_cli_AppData\\hint_effectiveness.json",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -774,9 +774,9 @@
       "type": "fact",
       "key": "iter_fingerprints_0",
       "fact": {
-        "rule": "{\"Busco 'KNOWLEDGE_DIR|BASE_DIR' en knowledge_base.py|Ejecuto: cat \\\"C:/Users/ntoledo/AppData/Local/ClaudeCode/.adaptive_cli/knowledge/|Ejecuto: ls \\\"C:/Users/ntoledo/AppData/Local/ClaudeCode/.adaptive_cli/knowledge/\\\"|Ejecuto: python -c \\\"from pathlib import Path; print(Path.home())\\\" 2>&1\": 1774052514.1927838, \"Ejecuto: cd \\\"C:/Chance1/Asistente IA\\\" && python -c \\\"\\nimport json\\nfrom pathlib im|Ejecuto: cd \\\"C:/Chance1/Asistente IA\\\" && python seed_gbm_knowledge.py 2>&1|Ejecuto: ls \\\"C:/Users/ntoledo/AppData/Local/ClaudeCode/.adaptive_cli/session_his\": 1774052539.953437, \"Glob: 1.*|Leyo 1.png\": 1774052728.3396833, \"Ejecuto: cat \\\"C:/Users/ntoledo/.claude/settings.json\\\" 2>&1|Ejecuto: ls -la \\\"C:/Users/ntoledo/AppData/Local/ClaudeCode/.adaptive_cli/\\\" 2>&1|Ejecuto: python -c \\\"from pathl",
+        "rule": "{\"Busco 'KNOWLEDGE_DIR|BASE_DIR' en knowledge_base.py|Ejecuto: cat \\\"C:/Users/ntoledo/AppData/Local/ClaudeCode/.adaptive_cli/knowledge/|Ejecuto: ls \\\"C:/Users/ntoledo/AppData/Local/ClaudeCode/.adaptive_cli/knowledge/\\\"|Ejecuto: python -c \\\"from pathlib import Path; print(Path.home())\\\" 2>&1\": 1774052514.1927838, \"Ejecuto: cd \\\"\" && python -c \\\"\\nimport json\\nfrom pathlib im|Ejecuto: cd \\\"\" && python seed_gbm_knowledge.py 2>&1|Ejecuto: ls \\\"C:/Users/ntoledo/AppData/Local/ClaudeCode/.adaptive_cli/session_his\": 1774052539.953437, \"Glob: 1.*|Leyo 1.png\": 1774052728.3396833, \"Ejecuto: cat \\\"C:/Users/ntoledo/.claude/settings.json\\\" 2>&1|Ejecuto: ls -la \\\"C:/Users/ntoledo/AppData/Local/ClaudeCode/.adaptive_cli/\\\" 2>&1|Ejecuto: python -c \\\"from pathl",
         "applies_to": "backup_ia",
-        "source": "C:\\Chance1\\IA\\Backup_IA\\adaptive_cli_AppData\\iter_fingerprints.json",
+        "source": "Backup_IA\\adaptive_cli_AppData\\iter_fingerprints.json",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -799,9 +799,9 @@
       "type": "fact",
       "key": "iter_fingerprints_1",
       "fact": {
-        "rule": "la \\\"C:/Users/ntoledo/AppData/Local/ClaudeCode/.adaptive_cli/\\\" 2>&1|Ejecuto: python -c \\\"from pathlib import Path; print('Home:', Path.home()); print\": 1774052805.5656424, \"Ejecuto: echo \\\"=== 1. HOOKS REGISTRADOS ===\\\" && powershell -c \\\"(Get-Content 'C:\\\\|Ejecuto: echo \\\"=== 2. HOOK FILES EXIST? ===\\\" && for f in \\\"C:/Chance1/Asistente I|Ejecuto: echo \\\"=== 3. KB DOMAINS ===\\\" && ls \\\"C:/Users/ntoledo/AppData/Local/Clau\": 1774052827.3051882, \"Ejecuto: echo \\\"=== 11. KB PATTERN COUNTS ===\\\" && python -c \\\"\\nimport json\\nfrom pa|Ejecuto: echo \\\"=== 13b. EPISODIC INDEX - tables ===\\\" && python -c \\\"\\nimport sqlit|Ejecuto: echo \\\"=== 14. MOTOR_INTELIGENTE HOOKS ===\\\" && echo \\\"No hooks del Motor |Ejecuto: echo \\\"=== 9. ",
+        "rule": "la \\\"C:/Users/ntoledo/AppData/Local/ClaudeCode/.adaptive_cli/\\\" 2>&1|Ejecuto: python -c \\\"from pathlib import Path; print('Home:', Path.home()); print\": 1774052805.5656424, \"Ejecuto: echo \\\"=== 1. HOOKS REGISTRADOS ===\\\" && powershell -c \\\"(Get-Content 'C:\\\\|Ejecuto: echo \\\"=== 2. HOOK FILES EXIST? ===\\\" && for f in \\\"Asistente I|Ejecuto: echo \\\"=== 3. KB DOMAINS ===\\\" && ls \\\"C:/Users/ntoledo/AppData/Local/Clau\": 1774052827.3051882, \"Ejecuto: echo \\\"=== 11. KB PATTERN COUNTS ===\\\" && python -c \\\"\\nimport json\\nfrom pa|Ejecuto: echo \\\"=== 13b. EPISODIC INDEX - tables ===\\\" && python -c \\\"\\nimport sqlit|Ejecuto: echo \\\"=== 14. MOTOR_INTELIGENTE HOOKS ===\\\" && echo \\\"No hooks del Motor |Ejecuto: echo \\\"=== 9. ",
         "applies_to": "backup_ia",
-        "source": "C:\\Chance1\\IA\\Backup_IA\\adaptive_cli_AppData\\iter_fingerprints.json",
+        "source": "Backup_IA\\adaptive_cli_AppData\\iter_fingerprints.json",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -824,9 +824,9 @@
       "type": "fact",
       "key": "iter_fingerprints_2",
       "fact": {
-        "rule": ": echo \\\"=== 14. MOTOR_INTELIGENTE HOOKS ===\\\" && echo \\\"No hooks del Motor |Ejecuto: echo \\\"=== 9. HOOK LIVE TEST - PostToolUse ===\\\" && echo '{\\\"session_id\\\":\\\"|Ejecuto: powershell -c \\\"\\n\\\\$s = Get-Content 'C:\\\\Users\\\\ntoledo\\\\.claude\\\\settings.js|Glob: **/*.md\": 1774052905.4399924, \"Creo _restore_hooks.py|Ejecuto: echo \\\"=== VERIFICACION FINAL ===\\\" && powershell -c \\\"\\n\\\\$s = Get-Content |Ejecuto: ls \\\"C:/Chance1/\\\"|Ejecuto: ls \\\"C:/Chance1/Asistente IA/\\\"|Ejecuto: ls \\\"C:/Chance1/Asistente IA/installer/\\\"|Ejecuto: ls \\\"C:/Chance1/Motor_Inteligente_IA/\\\"|Ejecuto: ls \\\"C:/Chance1/Motor_Inteligente_IA/installer/\\\"|Ejecuto: ls -R \\\"C:/Chance1/Asistente IA/installer/assets/\\\" 2>/dev/null || echo \\\"|Ejecuto: ls -R \\\"C:/Chance1/Motor_Inteligente_IA/installer/assets/\\\" 2>/dev/null ||Ejecuto:",
+        "rule": ": echo \\\"=== 14. MOTOR_INTELIGENTE HOOKS ===\\\" && echo \\\"No hooks del Motor |Ejecuto: echo \\\"=== 9. HOOK LIVE TEST - PostToolUse ===\\\" && echo '{\\\"session_id\\\":\\\"|Ejecuto: powershell -c \\\"\\n\\\\$s = Get-Content 'C:\\\\Users\\\\ntoledo\\\\.claude\\\\settings.js|Glob: **/*.md\": 1774052905.4399924, \"Creo _restore_hooks.py|Ejecuto: echo \\\"=== VERIFICACION FINAL ===\\\" && powershell -c \\\"\\n\\\\$s = Get-Content |Ejecuto: ls \\\"\\\"|Ejecuto: ls \\\"\"|Ejecuto: ls \\\"installer/\\\"|Ejecuto: ls \\\"Motor_Inteligente_IA/\\\"|Ejecuto: ls \\\"Motor_Inteligente_IA/installer/\\\"|Ejecuto: ls -R \\\"installer/assets/\\\" 2>/dev/null || echo \\\"|Ejecuto: ls -R \\\"Motor_Inteligente_IA/installer/assets/\\\" 2>/dev/null ||Ejecuto:",
         "applies_to": "backup_ia",
-        "source": "C:\\Chance1\\IA\\Backup_IA\\adaptive_cli_AppData\\iter_fingerprints.json",
+        "source": "Backup_IA\\adaptive_cli_AppData\\iter_fingerprints.json",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -849,9 +849,9 @@
       "type": "fact",
       "key": "iter_fingerprints_3",
       "fact": {
-        "rule": " echo \\\"|Ejecuto: ls -R \\\"C:/Chance1/Motor_Inteligente_IA/installer/assets/\\\" 2>/dev/null ||Ejecuto: mkdir -p \\\"C:/Users/ntoledo/.motor_inteligente\\\" && python -c \\\"\\nimport js|Ejecuto: python \\\"C:/Chance1/_restore_hooks.py\\\" 2>&1|Ejecuto: rm \\\"C:/Chance1/_restore_hooks.py\\\"|Leyo install.ps1|Leyo install.ps1|Leyo uninstall.ps1|Leyo uninstall.ps1\": 1774052989.085992, \"Ejecuto: cat \\\"C:/Users/ntoledo/.claude/settings.json\\\" 2>&1 | head -80|Ejecuto: cat \\\"C:/Users/ntoledo/.motor_inteligente/adapter.json\\\" 2>&1 && echo \\\"\\\" |Ejecuto: echo \\\"=== ASISTENTE IA ===\\\" && ls \\\"C:/Chance1/_test_install/asistente_t|Ejecuto: echo \\\"========== VERIFICACION ASISTENTE IA ==========\\\" && echo \\\"\\\" && ec|Ejecuto: echo \\\"========== VERIFICACION MOTOR IA ==========\\\" && echo \\\"\\\" && echo \\\"|Ejecuto: mkdir -p ",
+        "rule": " echo \\\"|Ejecuto: ls -R \\\"Motor_Inteligente_IA/installer/assets/\\\" 2>/dev/null ||Ejecuto: mkdir -p \\\"C:/Users/ntoledo/.motor_inteligente\\\" && python -c \\\"\\nimport js|Ejecuto: python \\\"_restore_hooks.py\\\" 2>&1|Ejecuto: rm \\\"_restore_hooks.py\\\"|Leyo install.ps1|Leyo install.ps1|Leyo uninstall.ps1|Leyo uninstall.ps1\": 1774052989.085992, \"Ejecuto: cat \\\"C:/Users/ntoledo/.claude/settings.json\\\" 2>&1 | head -80|Ejecuto: cat \\\"C:/Users/ntoledo/.motor_inteligente/adapter.json\\\" 2>&1 && echo \\\"\\\" |Ejecuto: echo \\\"=== ASISTENTE IA ===\\\" && ls \\\"_test_install/asistente_t|Ejecuto: echo \\\"========== VERIFICACION ASISTENTE IA ==========\\\" && echo \\\"\\\" && ec|Ejecuto: echo \\\"========== VERIFICACION MOTOR IA ==========\\\" && echo \\\"\\\" && echo \\\"|Ejecuto: mkdir -p ",
         "applies_to": "backup_ia",
-        "source": "C:\\Chance1\\IA\\Backup_IA\\adaptive_cli_AppData\\iter_fingerprints.json",
+        "source": "Backup_IA\\adaptive_cli_AppData\\iter_fingerprints.json",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -874,9 +874,9 @@
       "type": "fact",
       "key": "iter_fingerprints_4",
       "fact": {
-        "rule": "uto: echo \\\"========== VERIFICACION MOTOR IA ==========\\\" && echo \\\"\\\" && echo \\\"|Ejecuto: mkdir -p \\\"C:/Chance1/_pretest/asistente\\\" \\\"C:/Chance1/_pretest/motor\\\"|Ejecuto: mkdir -p \\\"C:/Chance1/_test_install/asistente_test\\\" \\\"C:/Chance1/_test_in|Ejecuto: powershell -ExecutionPolicy Bypass -File \\\"C:/Chance1/Asistente IA/insta|Ejecuto: powershell -ExecutionPolicy Bypass -File \\\"C:/Chance1/Asistente IA/insta|Ejecuto: powershell -ExecutionPolicy Bypass -File \\\"C:/Chance1/Asistente IA/insta|Ejecuto: powershell -ExecutionPolicy Bypass -File \\\"C:/Chance1/Motor_Inteligente_|Ejecuto: powershell -ExecutionPolicy Bypass -File \\\"C:/Chance1/Motor_Inteligente_|Ejecuto: powershell -ExecutionPolicy Bypass -File \\\"C:/Chance1/Motor_Inteligente_\": 1774053079.789849, \"Creo _check_hooks.py|Edito uninstall.p",
+        "rule": "uto: echo \\\"========== VERIFICACION MOTOR IA ==========\\\" && echo \\\"\\\" && echo \\\"|Ejecuto: mkdir -p \\\"_pretest/asistente\\\" \\\"_pretest/motor\\\"|Ejecuto: mkdir -p \\\"_test_install/asistente_test\\\" \\\"_test_in|Ejecuto: powershell -ExecutionPolicy Bypass -File \\\"insta|Ejecuto: powershell -ExecutionPolicy Bypass -File \\\"insta|Ejecuto: powershell -ExecutionPolicy Bypass -File \\\"insta|Ejecuto: powershell -ExecutionPolicy Bypass -File \\\"Motor_Inteligente_|Ejecuto: powershell -ExecutionPolicy Bypass -File \\\"Motor_Inteligente_|Ejecuto: powershell -ExecutionPolicy Bypass -File \\\"Motor_Inteligente_\": 1774053079.789849, \"Creo _check_hooks.py|Edito uninstall.p",
         "applies_to": "backup_ia",
-        "source": "C:\\Chance1\\IA\\Backup_IA\\adaptive_cli_AppData\\iter_fingerprints.json",
+        "source": "Backup_IA\\adaptive_cli_AppData\\iter_fingerprints.json",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -899,9 +899,9 @@
       "type": "fact",
       "key": "iter_fingerprints_5",
       "fact": {
-        "rule": "s -File \\\"C:/Chance1/Motor_Inteligente_\": 1774053079.789849, \"Creo _check_hooks.py|Edito uninstall.ps1|Edito uninstall.ps1|Ejecuto: echo \\\"=== Dirs test eliminados? ===\\\" && ls \\\"C:/Chance1/_pretest/\\\" 2>&1 |Ejecuto: echo \\\"=== Test dir exists? ===\\\" && ls \\\"C:/Chance1/_test_install/\\\" 2>&1 |Ejecuto: mkdir -p \\\"C:/Chance1/_test_install/asistente_test2\\\" \\\"C:/Chance1/_test_i|Ejecuto: powershell -ExecutionPolicy Bypass -File \\\"C:/Chance1/Asistente IA/insta|Ejecuto: powershell -ExecutionPolicy Bypass -File \\\"C:/Chance1/Asistente IA/insta|Ejecuto: powershell -ExecutionPolicy Bypass -File \\\"C:/Chance1/Motor_Inteligente_|Ejecuto: powershell -ExecutionPolicy Bypass -File \\\"C:/Chance1/Motor_Inteligente_|Ejecuto: python \\\"C:/Chance1/_check_hooks.py\\\" 2>&1|Ejecuto: python \\\"C:/Chance1/_check_hooks.p",
+        "rule": "s -File \\\"Motor_Inteligente_\": 1774053079.789849, \"Creo _check_hooks.py|Edito uninstall.ps1|Edito uninstall.ps1|Ejecuto: echo \\\"=== Dirs test eliminados? ===\\\" && ls \\\"_pretest/\\\" 2>&1 |Ejecuto: echo \\\"=== Test dir exists? ===\\\" && ls \\\"_test_install/\\\" 2>&1 |Ejecuto: mkdir -p \\\"_test_install/asistente_test2\\\" \\\"_test_i|Ejecuto: powershell -ExecutionPolicy Bypass -File \\\"insta|Ejecuto: powershell -ExecutionPolicy Bypass -File \\\"insta|Ejecuto: powershell -ExecutionPolicy Bypass -File \\\"Motor_Inteligente_|Ejecuto: powershell -ExecutionPolicy Bypass -File \\\"Motor_Inteligente_|Ejecuto: python \\\"_check_hooks.py\\\" 2>&1|Ejecuto: python \\\"_check_hooks.p",
         "applies_to": "backup_ia",
-        "source": "C:\\Chance1\\IA\\Backup_IA\\adaptive_cli_AppData\\iter_fingerprints.json",
+        "source": "Backup_IA\\adaptive_cli_AppData\\iter_fingerprints.json",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -924,9 +924,9 @@
       "type": "fact",
       "key": "iter_fingerprints_6",
       "fact": {
-        "rule": "nte_|Ejecuto: python \\\"C:/Chance1/_check_hooks.py\\\" 2>&1|Ejecuto: python \\\"C:/Chance1/_check_hooks.py\\\" 2>&1|Ejecuto: rm -rf \\\"C:/Chance1/_pretest\\\" \\\"C:/Chance1/_check_hooks.py\\\" 2>&1 && echo |Leyo uninstall.ps1\": 1774053141.0568483, \"Creo MEMORY.md|Creo feedback_testing_isolation.md|Ejecuto: powershell -ExecutionPolicy Bypass -File \\\"C:/Chance1/Motor_Inteligente_|Ejecuto: rm -rf \\\"C:/Chance1/_test_install\\\" 2>&1 && echo \\\"Cleanup OK\\\"\": 1774053410.750873, \"Ejecuto: echo \\\"=== Node.js ===\\\" && where node 2>&1 && node --version 2>&1 && ech|Ejecuto: echo \\\"=== Ollama ===\\\" && where ollama 2>&1 && ollama --version 2>&1 && |Ejecuto: ls \\\"C:/Chance1/Asistente IA/.claude/hooks/\\\" 2>/dev/null|Ejecuto: ls \\\"C:/Chance1/Motor_Inteligente_IA/hooks/\\\" 2>/dev/null|Ejecuto: ls \\\"C:/Users/ntoledo/.adapt",
+        "rule": "nte_|Ejecuto: python \\\"_check_hooks.py\\\" 2>&1|Ejecuto: python \\\"_check_hooks.py\\\" 2>&1|Ejecuto: rm -rf \\\"_pretest\\\" \\\"_check_hooks.py\\\" 2>&1 && echo |Leyo uninstall.ps1\": 1774053141.0568483, \"Creo MEMORY.md|Creo feedback_testing_isolation.md|Ejecuto: powershell -ExecutionPolicy Bypass -File \\\"Motor_Inteligente_|Ejecuto: rm -rf \\\"_test_install\\\" 2>&1 && echo \\\"Cleanup OK\\\"\": 1774053410.750873, \"Ejecuto: echo \\\"=== Node.js ===\\\" && where node 2>&1 && node --version 2>&1 && ech|Ejecuto: echo \\\"=== Ollama ===\\\" && where ollama 2>&1 && ollama --version 2>&1 && |Ejecuto: ls \\\".claude/hooks/\\\" 2>/dev/null|Ejecuto: ls \\\"Motor_Inteligente_IA/hooks/\\\" 2>/dev/null|Ejecuto: ls \\\"C:/Users/ntoledo/.adapt",
         "applies_to": "backup_ia",
-        "source": "C:\\Chance1\\IA\\Backup_IA\\adaptive_cli_AppData\\iter_fingerprints.json",
+        "source": "Backup_IA\\adaptive_cli_AppData\\iter_fingerprints.json",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -949,9 +949,9 @@
       "type": "fact",
       "key": "iter_fingerprints_7",
       "fact": {
-        "rule": "uto: ls \\\"C:/Chance1/Motor_Inteligente_IA/hooks/\\\" 2>/dev/null|Ejecuto: ls \\\"C:/Users/ntoledo/.adaptive_cli/execution_log.jsonl\\\" 2>/dev/null && |Ejecuto: ls \\\"C:/Users/nto",
+        "rule": "uto: ls \\\"Motor_Inteligente_IA/hooks/\\\" 2>/dev/null|Ejecuto: ls \\\"C:/Users/ntoledo/.adaptive_cli/execution_log.jsonl\\\" 2>/dev/null && |Ejecuto: ls \\\"C:/Users/nto",
         "applies_to": "backup_ia",
-        "source": "C:\\Chance1\\IA\\Backup_IA\\adaptive_cli_AppData\\iter_fingerprints.json",
+        "source": "Backup_IA\\adaptive_cli_AppData\\iter_fingerprints.json",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -976,7 +976,7 @@
       "fact": {
         "rule": "{\"fix_86603\": [{\"ts\": \"2026-03-20T10:09:24.747243\", \"file_ext\": \"none\", \"hour\": 10, \"weekday\": 4, \"error\": \"modulenotfounderror: no module named pytesseract\\ntraceback (most recent call las\"}], \"fix_94048\": [{\"ts\": \"2026-03-20T14:37:28.299159\", \"file_ext\": \"none\", \"hour\": 14, \"weekday\": 4, \"error\": \"traceback modulenotfounderror importerror failed\"}, {\"ts\": \"2026-03-20T14:37:29.188519\", \"file_ext\": \"none\", \"hour\": 14, \"weekday\": 4, \"error\": \"traceback modulenotfounderror playwright not installed failed\"}, {\"ts\": \"2026-03-20T14:38:30.839255\", \"file_ext\": \"none\", \"hour\": 14, \"weekday\": 4, \"error\": \"traceback modulenotfounderror importerror failed\"}, {\"ts\": \"2026-03-20T14:38:31.769094\", \"file_ext\": \"none\", \"hour\": 14, \"weekday\": 4, \"error\": \"traceback modulenotfounderror playwright not instal",
         "applies_to": "backup_ia",
-        "source": "C:\\Chance1\\IA\\Backup_IA\\adaptive_cli_AppData\\pattern_failures.json",
+        "source": "Backup_IA\\adaptive_cli_AppData\\pattern_failures.json",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -1001,7 +1001,7 @@
       "fact": {
         "rule": "xt\": \"none\", \"hour\": 14, \"weekday\": 4, \"error\": \"traceback modulenotfounderror playwright not installed failed\"}, {\"ts\": \"2026-03-20T14:39:33.189917\", \"file_ext\": \"none\", \"hour\": 14, \"weekday\": 4, \"error\": \"traceback modulenotfounderror importerror failed\"}, {\"ts\": \"2026-03-20T14:39:34.098861\", \"file_ext\": \"none\", \"hour\": 14, \"weekday\": 4, \"error\": \"traceback modulenotfounderror playwright not installed failed\"}, {\"ts\": \"2026-03-20T14:40:00.417925\", \"file_ext\": \"none\", \"hour\": 14, \"weekday\": 4, \"error\": \"traceback modulenotfounderror importerror failed\"}, {\"ts\": \"2026-03-20T14:40:01.536482\", \"file_ext\": \"none\", \"hour\": 14, \"weekday\": 4, \"error\": \"traceback modulenotfounderror playwright not installed failed\"}, {\"ts\": \"2026-03-20T14:40:34.168879\", \"file_ext\": \"none\", \"hour\": 14, \"weekday\": ",
         "applies_to": "backup_ia",
-        "source": "C:\\Chance1\\IA\\Backup_IA\\adaptive_cli_AppData\\pattern_failures.json",
+        "source": "Backup_IA\\adaptive_cli_AppData\\pattern_failures.json",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -1026,7 +1026,7 @@
       "fact": {
         "rule": "installed failed\"}, {\"ts\": \"2026-03-20T14:40:34.168879\", \"file_ext\": \"none\", \"hour\": 14, \"weekday\": 4, \"error\": \"traceback modulenotfounderror importerror failed\"}, {\"ts\": \"2026-03-20T14:40:35.395373\", \"file_ext\": \"none\", \"hour\": 14, \"weekday\": 4, \"error\": \"traceback modulenotfounderror playwright not installed failed\"}, {\"ts\": \"2026-03-20T14:41:16.558375\", \"file_ext\": \"none\", \"hour\": 14, \"weekday\": 4, \"error\": \"traceback modulenotfounderror importerror failed\"}, {\"ts\": \"2026-03-20T14:41:17.468374\", \"file_ext\": \"none\", \"hour\": 14, \"weekday\": 4, \"error\": \"traceback modulenotfounderror playwright not installed failed\"}, {\"ts\": \"2026-03-20T14:41:53.902130\", \"file_ext\": \"none\", \"hour\": 14, \"weekday\": 4, \"error\": \"traceback modulenotfounderror importerror failed\"}, {\"ts\": \"2026-03-20T14:41:54.9",
         "applies_to": "backup_ia",
-        "source": "C:\\Chance1\\IA\\Backup_IA\\adaptive_cli_AppData\\pattern_failures.json",
+        "source": "Backup_IA\\adaptive_cli_AppData\\pattern_failures.json",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -1051,7 +1051,7 @@
       "fact": {
         "rule": "day\": 4, \"error\": \"traceback modulenotfounderror importerror failed\"}, {\"ts\": \"2026-03-20T14:41:54.985960\", \"file_ext\": \"none\", \"hour\": 14, \"weekday\": 4, \"error\": \"traceback modulenotfounderror playwright not installed failed\"}, {\"ts\": \"2026-03-20T14:42:22.979879\", \"file_ext\": \"none\", \"hour\": 14, \"weekday\": 4, \"error\": \"traceback modulenotfounderror importerror failed\"}, {\"ts\": \"2026-03-20T14:42:23.870894\", \"file_ext\": \"none\", \"hour\": 14, \"weekday\": 4, \"error\": \"traceback modulenotfounderror playwright not installed failed\"}, {\"ts\": \"2026-03-20T14:42:46.503708\", \"file_ext\": \"none\", \"hour\": 14, \"weekday\": 4, \"error\": \"traceback modulenotfounderror importerror failed\"}, {\"ts\": \"2026-03-20T14:42:47.657912\", \"file_ext\": \"none\", \"hour\": 14, \"weekday\": 4, \"error\": \"traceback modulenotfounderror ",
         "applies_to": "backup_ia",
-        "source": "C:\\Chance1\\IA\\Backup_IA\\adaptive_cli_AppData\\pattern_failures.json",
+        "source": "Backup_IA\\adaptive_cli_AppData\\pattern_failures.json",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -1076,7 +1076,7 @@
       "fact": {
         "rule": "2:47.657912\", \"file_ext\": \"none\", \"hour\": 14, \"weekday\": 4, \"error\": \"traceback modulenotfounderror playwright not installed failed\"}, {\"ts\": \"2026-03-20T17:17:45.699925\", \"file_ext\": \"none\", \"hour\": 17, \"weekday\": 4, \"error\": \"traceback modulenotfounderror importerror failed\"}, {\"ts\": \"2026-03-20T17:17:46.618490\", \"file_ext\": \"none\", \"hour\": 17, \"weekday\": 4, \"error\": \"traceback modulenotfounderror playwright not installed failed\"}]}",
         "applies_to": "backup_ia",
-        "source": "C:\\Chance1\\IA\\Backup_IA\\adaptive_cli_AppData\\pattern_failures.json",
+        "source": "Backup_IA\\adaptive_cli_AppData\\pattern_failures.json",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -1099,9 +1099,9 @@
       "type": "fact",
       "key": "last_learning_0",
       "fact": {
-        "rule": "[2026-03-20 18:29:49] GUARDADO iter 2 | KB/files | 16 acciones | Leyo: install.ps1, uninstall.ps1 | Creo _restore_hooks.py: import json from pathlib import Path  sf = Path(r\"C:\\Users\\nt\n[2026-03-20 18:30:26] DEDUP-SKIP iter 2 | KB/files | 16 acciones |\n[2026-03-20 18:31:19] GUARDADO iter 3 | KB/files | 13 acciones | Ejecuto: mkdir -p \"C:/Chance1/_test_install/asistente_test\" \"C:/Chance1/_test_install/motor_test\" | Ejecuto: powershell\n[2026-03-20 18:32:21] GUARDADO iter 4 | KB/files | 14 acciones | Leyo: uninstall.ps1 | Edito uninstall.ps1:     if (Test-Path $dataDir) {         try {             Remo ->     if (Test-\n[2026-03-20 18:33:43] DEDUP-SKIP iter 4 | KB/files | 14 acciones |\n[2026-03-20 18:34:42] DEDUP-SKIP iter 4 | KB/files | 14 acciones |\n",
+        "rule": "[2026-03-20 18:29:49] GUARDADO iter 2 | KB/files | 16 acciones | Leyo: install.ps1, uninstall.ps1 | Creo _restore_hooks.py: import json from pathlib import Path  sf = Path(r\"C:\\Users\\nt\n[2026-03-20 18:30:26] DEDUP-SKIP iter 2 | KB/files | 16 acciones |\n[2026-03-20 18:31:19] GUARDADO iter 3 | KB/files | 13 acciones | Ejecuto: mkdir -p \"_test_install/asistente_test\" \"_test_install/motor_test\" | Ejecuto: powershell\n[2026-03-20 18:32:21] GUARDADO iter 4 | KB/files | 14 acciones | Leyo: uninstall.ps1 | Edito uninstall.ps1:     if (Test-Path $dataDir) {         try {             Remo ->     if (Test-\n[2026-03-20 18:33:43] DEDUP-SKIP iter 4 | KB/files | 14 acciones |\n[2026-03-20 18:34:42] DEDUP-SKIP iter 4 | KB/files | 14 acciones |\n",
         "applies_to": "backup_ia",
-        "source": "C:\\Chance1\\IA\\Backup_IA\\adaptive_cli_AppData\\last_learning.txt",
+        "source": "Backup_IA\\adaptive_cli_AppData\\last_learning.txt",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -1125,7 +1125,7 @@
       "fact": {
         "rule": "ter 4 | KB/files | 14 acciones |\n[2026-03-20 18:34:42] DEDUP-SKIP iter 4 | KB/files | 14 acciones |\n[2026-03-20 18:36:32] DEDUP-SKIP iter 4 | KB/files | 14 acciones |\n[2026-03-20 18:36:50] GUARDADO iter 5 | KB/files | 4 acciones | Creo feedback_testing_isolation.md: --- name: testing_isolation description: NUNCA tocar datos/motores existentes al | C\n[2026-03-20 18:37:09] GUARDADO iter 6 | KB/sessions | 15 acciones | Leyo: session_end.py, auto_learn_hook.py | Ejecuto: ls \"C:/Users/ntoledo/.adaptive_cli/knowledge/\" 2>/dev/null || echo \"\n[2026-03-20 18:41:10] DEDUP-SKIP iter 6 | KB/sessions | 15 acciones |\n[2026-03-20 18:42:21] GUARDADO iter 1 | KB/sessions | 13 acciones | Ejecuto: echo \"=== 9. HOOK LIVE TEST - PostToolUse ===\" && echo '{\"session_id\":\"test_health\",\"hook_event_name\":\"PostTool\n",
         "applies_to": "backup_ia",
-        "source": "C:\\Chance1\\IA\\Backup_IA\\adaptive_cli_AppData\\last_learning.txt",
+        "source": "Backup_IA\\adaptive_cli_AppData\\last_learning.txt",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -1149,7 +1149,7 @@
       "fact": {
         "rule": " HOOK LIVE TEST - PostToolUse ===\" && echo '{\"session_id\":\"test_health\",\"hook_event_name\":\"PostTool\n[2026-03-20 18:42:59] DEDUP-SKIP iter 1 | KB/sessions | 13 acciones |\n[2026-03-20 18:43:39] GUARDADO iter 2 | KB/files | 24 acciones | Leyo: uninstall.ps1, install.ps1 | Creo _restore_hooks.py: import json from pathlib import Path  sf = Path(r\"C:\\Users\\nt\n[2026-03-20 18:44:25] GUARDADO iter 3 | KB/files | 17 acciones | Leyo: settings.json, settings.local.json | Edito settings.json:     \"hooks\":  {                   \"PostToolUse\":  [\n[2026-03-20 19:17:12] GUARDADO iter 4 | KB/files | 15 acciones | Leyo: uninstall.ps1 | Edito uninstall.ps1:     if (Test-Path $dataDir) {         try {             Remo ->     if (Test-\n[2026-03-20 19:19:38] DEDUP-SKIP iter 4 | KB/files | 15 acciones |\n",
         "applies_to": "backup_ia",
-        "source": "C:\\Chance1\\IA\\Backup_IA\\adaptive_cli_AppData\\last_learning.txt",
+        "source": "Backup_IA\\adaptive_cli_AppData\\last_learning.txt",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -1173,7 +1173,7 @@
       "fact": {
         "rule": "           Remo ->     if (Test-\n[2026-03-20 19:19:38] DEDUP-SKIP iter 4 | KB/files | 15 acciones |\n[2026-03-20 19:21:00] DEDUP-SKIP iter 4 | KB/files | 15 acciones |\n[2026-03-20 19:30:28] DEDUP-SKIP iter 4 | KB/files | 15 acciones |\n[2026-03-20 19:30:59] DEDUP-SKIP iter 4 | KB/files | 15 acciones |\n[2026-03-20 19:35:13] DEDUP-SKIP iter 4 | KB/files | 15 acciones |",
         "applies_to": "backup_ia",
-        "source": "C:\\Chance1\\IA\\Backup_IA\\adaptive_cli_AppData\\last_learning.txt",
+        "source": "Backup_IA\\adaptive_cli_AppData\\last_learning.txt",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -1197,7 +1197,7 @@
       "fact": {
         "rule": "{\n  \"sow\": {\n    \"description\": \"Dominio auto-creado: sow\",\n    \"file\": \"patterns.json\",\n    \"entry_type\": \"pattern\",\n    \"auto_created\": true\n  }\n}",
         "applies_to": "backup_ia",
-        "source": "C:\\Chance1\\IA\\Backup_IA\\adaptive_cli_Home\\knowledge\\domains.json",
+        "source": "Backup_IA\\adaptive_cli_Home\\knowledge\\domains.json",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -1222,7 +1222,7 @@
       "fact": {
         "rule": ": \"patterns.json\",\n    \"entry_type\": \"pattern\",\n    \"auto_created\": true\n  },\n  \"business_rules\": {\n    \"description\": \"Domain business_rules\",\n    \"file\": \"patterns.json\",\n    \"entry_type\": \"pattern\",\n    \"auto_created\": true\n  },\n  \"catalog\": {\n    \"description\": \"Domain catalog\",\n    \"file\": \"patterns.json\",\n    \"entry_type\": \"pattern\",\n    \"auto_created\": true\n  },\n  \"clients\": {\n    \"description\": \"Domain clients\",\n    \"file\": \"patterns.json\",\n    \"entry_type\": \"pattern\",\n    \"auto_created\": true\n  },\n  \"files\": {\n    \"description\": \"Domain files\",\n    \"file\": \"patterns.json\",\n    \"entry_type\": \"pattern\",\n    \"auto_created\": true\n  },\n  \"monday\": {\n    \"description\": \"Domain monday\",\n    \"file\": \"patterns.json\",\n    \"entry_type\": \"pattern\",\n    \"auto_created\": true\n  },\n",
         "applies_to": "backup_ia",
-        "source": "C:\\Chance1\\IA\\Backup_IA\\adaptive_cli_AppData\\knowledge\\domains.json",
+        "source": "Backup_IA\\adaptive_cli_AppData\\knowledge\\domains.json",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -1247,7 +1247,7 @@
       "fact": {
         "rule": "in monday\",\n    \"file\": \"patterns.json\",\n    \"entry_type\": \"pattern\",\n    \"auto_created\": true\n  },\n  \"outlook\": {\n    \"description\": \"Domain outlook\",\n    \"file\": \"patterns.json\",\n    \"entry_type\": \"pattern\",\n    \"auto_created\": true\n  },\n  \"pptx\": {\n    \"description\": \"Domain pptx\",\n    \"file\": \"patterns.json\",\n    \"entry_type\": \"pattern\",\n    \"auto_created\": true\n  },\n  \"sap_nube\": {\n    \"description\": \"Domain sap_nube\",\n    \"file\": \"patterns.json\",\n    \"entry_type\": \"pattern\",\n    \"auto_created\": true\n  },\n  \"sap_tierra\": {\n    \"description\": \"Domain sap_tierra\",\n    \"file\": \"patterns.json\",\n    \"entry_type\": \"pattern\",\n    \"auto_created\": true\n  },\n  \"sessions\": {\n    \"description\": \"Domain sessions\",\n    \"file\": \"patterns.json\",\n    \"entry_type\": \"pattern\",\n    \"auto_created\": true\n",
         "applies_to": "backup_ia",
-        "source": "C:\\Chance1\\IA\\Backup_IA\\adaptive_cli_AppData\\knowledge\\domains.json",
+        "source": "Backup_IA\\adaptive_cli_AppData\\knowledge\\domains.json",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -1272,7 +1272,7 @@
       "fact": {
         "rule": "omain sessions\",\n    \"file\": \"patterns.json\",\n    \"entry_type\": \"pattern\",\n    \"auto_created\": true\n  },\n  \"sow\": {\n    \"description\": \"Domain sow\",\n    \"file\": \"patterns.json\",\n    \"entry_type\": \"pattern\",\n    \"auto_created\": true\n  }\n}",
         "applies_to": "backup_ia",
-        "source": "C:\\Chance1\\IA\\Backup_IA\\adaptive_cli_AppData\\knowledge\\domains.json",
+        "source": "Backup_IA\\adaptive_cli_AppData\\knowledge\\domains.json",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -1297,7 +1297,7 @@
       "fact": {
         "rule": "{\n  \"sap_tierra\": {\n    \"sap\": 2,\n    \"crm\": 2,\n    \"tierra\": 2,\n    \"playwright\": 2,\n    \"selector\": 2,\n    \"oportunidad\": 1,\n    \"quote\": 2,\n    \"iframe\": 2,\n    \"aria\": 2,\n    \"login\": 1,\n    \"logon\": 2,\n    \"webclient\": 2\n  },\n  \"sap_nube\": {\n    \"nube\": 2,\n    \"cloud\": 2,\n    \"formulario\": 1,\n    \"s4hana\": 2,\n    \"fiori\": 2\n  },\n  \"sow\": {\n    \"sow\": 3,\n    \"propuesta\": 2,\n    \"contrato\": 2,\n    \"practica\": 2,\n    \"servicio\": 1,\n    \"alcance\": 2,\n    \"entregable\": 2,\n    \"cliente\": 1\n  },\n  \"bom\": {\n    \"bom\": 3,\n    \"listado\": 2,\n    \"material\": 2,\n    \"partnum\": 2,\n    \"producto\": 1,\n    \"precio\": 1,\n    \"cantidad\": 2,\n    \"sku\": 2\n  },\n  \"monday\": {\n    \"monday\": 3,\n    \"pipeline\": 2,\n    \"bitacora\": 2,\n    \"tablero\": 2,\n    \"item\": 1\n  },\n  \"outlook\": {\n    \"outlook\": 3,\n",
         "applies_to": "backup_ia",
-        "source": "C:\\Chance1\\IA\\Backup_IA\\adaptive_cli_AppData\\knowledge\\domain_hints.json",
+        "source": "Backup_IA\\adaptive_cli_AppData\\knowledge\\domain_hints.json",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -1322,7 +1322,7 @@
       "fact": {
         "rule": "eline\": 2,\n    \"bitacora\": 2,\n    \"tablero\": 2,\n    \"item\": 1\n  },\n  \"outlook\": {\n    \"outlook\": 3,\n    \"correo\": 2,\n    \"email\": 2,\n    \"adjunto\": 2,\n    \"bandeja\": 2,\n    \"smtp\": 2,\n    \"mensaje\": 1\n  },\n  \"files\": {\n    \"pdf\": 2,\n    \"excel\": 2,\n    \"docx\": 2,\n    \"xlsx\": 2,\n    \"word\": 2,\n    \"archivo\": 1,\n    \"documento\": 1,\n    \"convertir\": 1,\n    \"python\": 1,\n    \"script\": 1,\n    \"hook\": 2,\n    \"json\": 1\n  },\n  \"business_rules\": {\n    \"regla\": 2,\n    \"nomenclatura\": 3,\n    \"sufijo\": 2,\n    \"prefijo\": 2,\n    \"_ps\": 3,\n    \"_rn\": 3,\n    \"codigo\": 1,\n    \"formato\": 1,\n    \"convencion\": 2\n  },\n  \"catalog\": {\n    \"catalogo\": 2,\n    \"sku\": 3,\n    \"licencia\": 2,\n    \"ibm\": 2,\n    \"partnumber\": 2,\n    \"modelo\": 1,\n    \"fabricante\": 2\n  },\n  \"contabilidad\": {\n    \"factura\": 2,\n    \"iva\": 2,\n",
         "applies_to": "backup_ia",
-        "source": "C:\\Chance1\\IA\\Backup_IA\\adaptive_cli_AppData\\knowledge\\domain_hints.json",
+        "source": "Backup_IA\\adaptive_cli_AppData\\knowledge\\domain_hints.json",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -1347,7 +1347,7 @@
       "fact": {
         "rule": "\": 2,\n    \"modelo\": 1,\n    \"fabricante\": 2\n  },\n  \"contabilidad\": {\n    \"factura\": 2,\n    \"iva\": 2,\n    \"balance\": 2,\n    \"debe\": 2,\n    \"haber\": 2,\n    \"cuenta\": 2,\n    \"asiento\": 2\n  },\n  \"finanzas\": {\n    \"presupuesto\": 2,\n    \"flujo\": 2,\n    \"inversion\": 2,\n    \"roi\": 2,\n    \"capital\": 2,\n    \"rendimiento\": 2,\n    \"caja\": 2\n  },\n  \"test_dd_direct_J\": {\n    \"kw_j_unico_alpha\": 1,\n    \"kw_j_unico_beta\": 1,\n    \"kw_j_unico_gamma\": 1,\n    \"texto\": 1,\n    \"largo\": 1,\n    \"otras\": 1,\n    \"palabras\": 1,\n    \"contexto\": 1,\n    \"negocio\": 1\n  },\n  \"test_kb_direct_exhaustivo\": {\n    \"kw_k9_process_file_unico\": 1,\n    \"contenido\": 1,\n    \"prueba\": 1,\n    \"process_file\": 1,\n    \"exhaustivo\": 1,\n    \"archivo\": 1,\n    \"contiene\": 1,\n    \"informacion\": 1,\n    \"verificar\": 1,\n    \"pipeline\": 1,\n",
         "applies_to": "backup_ia",
-        "source": "C:\\Chance1\\IA\\Backup_IA\\adaptive_cli_AppData\\knowledge\\domain_hints.json",
+        "source": "Backup_IA\\adaptive_cli_AppData\\knowledge\\domain_hints.json",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -1372,7 +1372,7 @@
       "fact": {
         "rule": ",\n    \"archivo\": 1,\n    \"contiene\": 1,\n    \"informacion\": 1,\n    \"verificar\": 1,\n    \"pipeline\": 1,\n    \"completo\": 1,\n    \"ingestion\": 1\n  }\n}",
         "applies_to": "backup_ia",
-        "source": "C:\\Chance1\\IA\\Backup_IA\\adaptive_cli_AppData\\knowledge\\domain_hints.json",
+        "source": "Backup_IA\\adaptive_cli_AppData\\knowledge\\domain_hints.json",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -1397,7 +1397,7 @@
       "fact": {
         "rule": "{\n  \"sow\": {\n    \"description\": \"SOWs: generación, revisión, fusión (hasta 6 prácticas), propuesta económica\",\n    \"file\": \"patterns.json\",\n    \"entry_type\": \"pattern\"\n  },\n  \"bom\": {\n    \"description\": \"BoMs: validación math, part numbers, clasificación, fusión, pricing, tipo de cambio\",\n    \"file\": \"patterns.json\",\n    \"entry_type\": \"pattern\"\n  },\n  \"pptx\": {\n    \"description\": \"Presentaciones: resumen propuestas, offering productos/servicios\",\n    \"file\": \"patterns.json\",\n    \"entry_type\": \"pattern\"\n  },\n  \"sap_tierra\": {\n    \"description\": \"SAP CRM Web (Tierra): quotes, items, oportunidades, Playwright automation\",\n    \"file\": \"patterns.json\",\n    \"entry_type\": \"pattern\"\n  },\n  \"sap_nube\": {\n    \"description\": \"SAP CRM Nube: formularios cloud, oportunidades\",\n",
         "applies_to": "backup_ia",
-        "source": "C:\\Chance1\\IA\\Backup_IA\\adaptive_cli_AppData\\knowledge\\domains_builtin.json",
+        "source": "Backup_IA\\adaptive_cli_AppData\\knowledge\\domains_builtin.json",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -1422,7 +1422,7 @@
       "fact": {
         "rule": "\"pattern\"\n  },\n  \"sap_nube\": {\n    \"description\": \"SAP CRM Nube: formularios cloud, oportunidades\",\n    \"file\": \"patterns.json\",\n    \"entry_type\": \"pattern\"\n  },\n  \"monday\": {\n    \"description\": \"Monday.com: pipeline propuestas, bitácora, seguimiento\",\n    \"file\": \"patterns.json\",\n    \"entry_type\": \"pattern\"\n  },\n  \"bpm_bau\": {\n    \"description\": \"BPM BAU: procesos autorización, forms, pestañas\",\n    \"file\": \"patterns.json\",\n    \"entry_type\": \"pattern\"\n  },\n  \"outlook\": {\n    \"description\": \"Outlook: correos, adjuntos, integración SAP\",\n    \"file\": \"patterns.json\",\n    \"entry_type\": \"pattern\"\n  },\n  \"files\": {\n    \"description\": \"Archivos multi-formato: PDF, Excel, DOCX, JPG, conversiones\",\n    \"file\": \"patterns.json\",\n    \"entry_type\": \"pattern\"\n  },\n  \"sessions\": {\n",
         "applies_to": "backup_ia",
-        "source": "C:\\Chance1\\IA\\Backup_IA\\adaptive_cli_AppData\\knowledge\\domains_builtin.json",
+        "source": "Backup_IA\\adaptive_cli_AppData\\knowledge\\domains_builtin.json",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -1447,7 +1447,7 @@
       "fact": {
         "rule": ", JPG, conversiones\",\n    \"file\": \"patterns.json\",\n    \"entry_type\": \"pattern\"\n  },\n  \"sessions\": {\n    \"description\": \"Sesiones: cliente (upsell), internas (preventa, AMs), nuevos productos\",\n    \"file\": \"facts.json\",\n    \"entry_type\": \"fact\"\n  },\n  \"clients\": {\n    \"description\": \"Proyectos por cliente: SOWs, BoMs, propuestas, docs de Bantrab, etc.\",\n    \"file\": \"facts.json\",\n    \"entry_type\": \"fact\"\n  },\n  \"business_rules\": {\n    \"description\": \"Reglas negocio GBM: nomenclatura (_PS, _RN), tarifas, cláusulas, SLAs, procesos\",\n    \"file\": \"facts.json\",\n    \"entry_type\": \"fact\"\n  },\n  \"catalog\": {\n    \"description\": \"Catálogo productos: IBM, SAP, servicios GBM, códigos, precios, SKUs\",\n    \"file\": \"facts.json\",\n    \"entry_type\": \"fact\"\n  }\n}",
         "applies_to": "backup_ia",
-        "source": "C:\\Chance1\\IA\\Backup_IA\\adaptive_cli_AppData\\knowledge\\domains_builtin.json",
+        "source": "Backup_IA\\adaptive_cli_AppData\\knowledge\\domains_builtin.json",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -1470,9 +1470,9 @@
       "type": "fact",
       "key": "iteration_state_0",
       "fact": {
-        "rule": "{\"sid\": \"b8f39c43-ea7a-4aa3-8cbc-6972efe3400a\", \"iteration\": 4, \"last_ts\": 1774053865.7802713, \"explore_streak\": 0, \"explored_files\": [\"C:\\\\Chance1\\\\Motor_Inteligente_IA\\\\adapters\\\\ollama.py\", \"C:\\\\Chance1\\\\Buscador_IA\\\\dashboard.py\", \"C:\\\\Chance1\\\\Buscador_IA\\\\llm_config.json\", \"C:\\\\Chance1\\\\Buscador_IA\\\\dashboard_web\\\\devin_mirror\\\\index.html\", \"C:\\\\Chance1\\\\Motor_Inteligente_IA\\\\hooks\\\\user_prompt_submit.py\", \"C:\\\\Chance1\\\\Motor_Inteligente_IA\\\\core\\\\iteration_learn.py\", \"C:\\\\Chance1\\\\Asistente IA\\\\.claude\\\\hooks\\\\post_action_learn.py\", \"C:\\\\Chance1\\\\Asistente IA\\\\.claude\\\\hooks\\\\iteration_learn.py\", \"C:/Chance1/Motor_Inteligente_IA/installer/install.ps1\", \"C:\\\\Chance1\\\\Motor_Inteligente_IA\\\\installer\\\\install.ps1\", \"C:\\\\Chance1\\\\Asistente IA\\\\installer\\\\install.ps1\", \"C:\\\\Users\\\\ntoled",
+        "rule": "{\"sid\": \"b8f39c43-ea7a-4aa3-8cbc-6972efe3400a\", \"iteration\": 4, \"last_ts\": 1774053865.7802713, \"explore_streak\": 0, \"explored_files\": [\"Motor_Inteligente_IA\\\\adapters\\\\ollama.py\", \"Buscador_IA\\\\dashboard.py\", \"Buscador_IA\\\\llm_config.json\", \"Buscador_IA\\\\dashboard_web\\\\devin_mirror\\\\index.html\", \"Motor_Inteligente_IA\\\\hooks\\\\user_prompt_submit.py\", \"Motor_Inteligente_IA\\\\core\\\\iteration_learn.py\", \".claude\\\\hooks\\\\post_action_learn.py\", \".claude\\\\hooks\\\\iteration_learn.py\", \"Motor_Inteligente_IA/installer/install.ps1\", \"Motor_Inteligente_IA\\\\installer\\\\install.ps1\", \"installer\\\\install.ps1\", \"C:\\\\Users\\\\ntoled",
         "applies_to": "backup_ia",
-        "source": "C:\\Chance1\\IA\\Backup_IA\\adaptive_cli_AppData\\iteration_state.json",
+        "source": "Backup_IA\\adaptive_cli_AppData\\iteration_state.json",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -1495,9 +1495,9 @@
       "type": "fact",
       "key": "iteration_state_1",
       "fact": {
-        "rule": "IA\\\\installer\\\\install.ps1\", \"C:\\\\Chance1\\\\Asistente IA\\\\installer\\\\install.ps1\", \"C:\\\\Users\\\\ntoledo\\\\.claude\\\\settings.json\", \"C:\\\\Chance1\\\\Motor_Inteligente_IA\\\\installer\\\\uninstall.ps1\", \"C:\\\\Chance1\\\\Asistente IA\\\\installer\\\\uninstall.ps1\", \"C:\\\\Chance1\\\\Asistente IA\\\\.claude\\\\hooks\\\\auto_learn_hook.py\", \"C:\\\\Chance1\\\\Motor_Inteligente_IA\\\\hooks\\\\session_end.py\", \"C:\\\\Chance1\\\\Asistente IA\\\\knowledge_base.py\", \"C:\\\\Chance1\\\\Asistente IA\\\\seed_gbm_knowledge.py\", \"C:\\\\Chance1\\\\1.png\", \"C:\\\\Chance1\\\\.claude\\\\settings.local.json\"], \"last_read_ts\": 0, \"territory_searched\": false, \"exp_count\": 4, \"_recovered\": true}",
+        "rule": "IA\\\\installer\\\\install.ps1\", \"installer\\\\install.ps1\", \"C:\\\\Users\\\\ntoledo\\\\.claude\\\\settings.json\", \"Motor_Inteligente_IA\\\\installer\\\\uninstall.ps1\", \"installer\\\\uninstall.ps1\", \".claude\\\\hooks\\\\auto_learn_hook.py\", \"Motor_Inteligente_IA\\\\hooks\\\\session_end.py\", \"knowledge_base.py\", \"seed_gbm_knowledge.py\", \"1.png\", \".claude\\\\settings.local.json\"], \"last_read_ts\": 0, \"territory_searched\": false, \"exp_count\": 4, \"_recovered\": true}",
         "applies_to": "backup_ia",
-        "source": "C:\\Chance1\\IA\\Backup_IA\\adaptive_cli_AppData\\iteration_state.json",
+        "source": "Backup_IA\\adaptive_cli_AppData\\iteration_state.json",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -1520,9 +1520,9 @@
       "type": "fact",
       "key": "feedback_testing_isolation_0",
       "fact": {
-        "rule": "---\nname: testing_isolation\ndescription: NUNCA tocar datos/motores existentes al hacer pruebas - crear carpeta aparte y limpiar después\ntype: feedback\n---\n\nRegla de oro: al hacer pruebas, SIEMPRE crear un apartado/carpeta separada. NUNCA tocar, borrar o modificar los dos motores existentes (Asistente IA y Motor_Inteligente_IA) ni sus datos (~/.adaptive_cli/, ~/.motor_inteligente/).\n\n**Why:** En sesión 2026-03-20, los uninstallers de prueba borraron datos reales de KB y corrompieron domains.json. Los hooks de test se registraron en settings.json causando errores \"Ran 2 stop hooks\" con rutas fantasma.\n\n**How to apply:**\n- Crear carpeta tipo `_pretest/` o `_test_install/` para pruebas\n- Usar `-KeepData` en uninstallers para no tocar KB real\n",
+        "rule": "---\nname: testing_isolation\ndescription: NUNCA tocar datos/motores existentes al hacer pruebas - crear carpeta aparte y limpiar después\ntype: feedback\n---\n\nRegla de oro: al hacer pruebas, SIEMPRE crear un apartado/carpeta separada. NUNCA tocar, borrar o modificar los dos motores existentes ( y Motor_Inteligente_IA) ni sus datos (~/.adaptive_cli/, ~/.motor_inteligente/).\n\n**Why:** En sesión 2026-03-20, los uninstallers de prueba borraron datos reales de KB y corrompieron domains.json. Los hooks de test se registraron en settings.json causando errores \"Ran 2 stop hooks\" con rutas fantasma.\n\n**How to apply:**\n- Crear carpeta tipo `_pretest/` o `_test_install/` para pruebas\n- Usar `-KeepData` en uninstallers para no tocar KB real\n",
         "applies_to": "backup_ia",
-        "source": "C:\\Chance1\\IA\\Backup_IA\\memoria_claude\\feedback_testing_isolation.md",
+        "source": "Backup_IA\\memoria_claude\\feedback_testing_isolation.md",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -1546,7 +1546,7 @@
       "fact": {
         "rule": "_pretest/` o `_test_install/` para pruebas\n- Usar `-KeepData` en uninstallers para no tocar KB real\n- Verificar que settings.json no quede con hooks apuntando a rutas de test\n- Al terminar pruebas, limpiar solo la carpeta de test",
         "applies_to": "backup_ia",
-        "source": "C:\\Chance1\\IA\\Backup_IA\\memoria_claude\\feedback_testing_isolation.md",
+        "source": "Backup_IA\\memoria_claude\\feedback_testing_isolation.md",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -1570,7 +1570,7 @@
       "fact": {
         "rule": "{\"domains\": [\"files\"], \"keywords\": [\"valida\", \"cierto\", \"reporte\", \"dice\", \"realidad\", \"149\", \"patrones\", \"existen\", \"patrones\", \"knowledge\", \"manuales\", \"141\", \"auto\", \"capturados\", \"falso\", \"task_attempts\", \"json\", \"pending_errors\", \"json\", \"existen\", \"disco\", \"sesiones\", \"registradas\", \"falso\", \"session_history\"], \"ts\": \"2026-03-20T19:34:44.989864\"}",
         "applies_to": "backup_ia",
-        "source": "C:\\Chance1\\IA\\Backup_IA\\adaptive_cli_AppData\\classify_cache.json",
+        "source": "Backup_IA\\adaptive_cli_AppData\\classify_cache.json",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -1595,7 +1595,7 @@
       "fact": {
         "rule": "{\"type\": \"informing\", \"prompt\": \"valida si esto es cierto Reporte dice    Realidad\\n\\\"149 patrones de cÃ³digo\\\"    NO existen. 0 patrones en knowledge/\\n\\\"8 manuales + 141 auto-capturados\\\"    Falso. task_attempts.json y pending_errors.jso\", \"domains\": [\"files\"], \"has_kb\": true, \"ts\": \"2026-03-20T19:34:45.315436\"}",
         "applies_to": "backup_ia",
-        "source": "C:\\Chance1\\IA\\Backup_IA\\adaptive_cli_AppData\\hook_state\\msg_type.json",
+        "source": "Backup_IA\\adaptive_cli_AppData\\hook_state\\msg_type.json",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -1620,7 +1620,7 @@
       "fact": {
         "rule": "{\"ts\": \"2026-03-20T19:34:45.319620\", \"domains\": [\"files\"], \"keywords\": [\"valida\", \"cierto\", \"reporte\", \"dice\", \"realidad\"], \"has_lm\": false, \"has_kb\": true, \"has_ep\": true, \"intent\": \"depurar\"}",
         "applies_to": "backup_ia",
-        "source": "C:\\Chance1\\IA\\Backup_IA\\adaptive_cli_AppData\\last_injection.json",
+        "source": "Backup_IA\\adaptive_cli_AppData\\last_injection.json",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -1645,7 +1645,7 @@
       "fact": {
         "rule": "# Memory Index\n\n## Feedback\n- [feedback_testing_isolation.md](feedback_testing_isolation.md) - NUNCA tocar datos/motores existentes al hacer pruebas",
         "applies_to": "backup_ia",
-        "source": "C:\\Chance1\\IA\\Backup_IA\\memoria_claude\\MEMORY.md",
+        "source": "Backup_IA\\memoria_claude\\MEMORY.md",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -1669,7 +1669,7 @@
       "fact": {
         "rule": "{\"sow\": {\"bom\": 84}, \"bom\": {\"sow\": 84, \"sap_tierra\": 1}, \"sap_tierra\": {\"bom\": 1}}",
         "applies_to": "backup_ia",
-        "source": "C:\\Chance1\\IA\\Backup_IA\\adaptive_cli_AppData\\domain_cooccurrence.json",
+        "source": "Backup_IA\\adaptive_cli_AppData\\domain_cooccurrence.json",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -1694,7 +1694,7 @@
       "fact": {
         "rule": "{\"sow\": {\"bom\": 84}, \"sap_tierra\": {\"bom\": 1}, \"bom\": {\"files\": 32}}",
         "applies_to": "backup_ia",
-        "source": "C:\\Chance1\\IA\\Backup_IA\\adaptive_cli_AppData\\domain_markov.json",
+        "source": "Backup_IA\\adaptive_cli_AppData\\domain_markov.json",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""

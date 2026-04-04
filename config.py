@@ -35,17 +35,6 @@ else:
     CLAUDE_CODE_DIR = APPDATA_LOCAL / 'ClaudeCode' / '.claude'
     PROJECTS_DIR = CLAUDE_CODE_DIR / 'projects'
 
-# Find the C--chance1 project directory (case-insensitive)
-CHANCE_PROJECT_DIR = None
-if PROJECTS_DIR.exists():
-    for project_dir in PROJECTS_DIR.iterdir():
-        if project_dir.is_dir() and project_dir.name.lower() == 'c--chance1':
-            CHANCE_PROJECT_DIR = project_dir
-            break
-
-if not CHANCE_PROJECT_DIR:
-    CHANCE_PROJECT_DIR = PROJECTS_DIR / 'C--chance1'
-
 # Log files
 LOG_DIR = CORE_DIR
 KB_ENFORCER_LOG = LOG_DIR / 'kb_enforcer.log'
@@ -145,6 +134,5 @@ if __name__ == '__main__':
     print("=" * 70)
     print(f"Project Root: {PROJECT_ROOT}")
     print(f"Knowledge Dir: {KNOWLEDGE_DIR}")
-    print(f"Claude Project: {CHANCE_PROJECT_DIR}")
     print(f"Settings: {SETTINGS_JSON}")
     print("=" * 70)

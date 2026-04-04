@@ -7,9 +7,9 @@
       "type": "fact",
       "key": "test_stress_0",
       "fact": {
-        "rule": "\"\"\"\nStress test suite for WordCOM engine.\nUses a SINGLE Word instance to avoid COM RPC crashes between test classes.\n\"\"\"\n\nimport os\nimport re\nimport shutil\nimport sys\nimport unittest\n\nsys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', 'src'))\nfrom word_com import WordCOM, WordCOMError\n\nINPUT = r'C:\\Chance1\\temp2\\Propuesta de PostgreSQL CE On Prem Horas - Banco GyT 30032026 (1).docx'\nWORK = r'C:\\Chance1\\temp2\\TEST_STRESS.docx'\n\n# Single shared Word instance\n_word = None\n\ndef get_word():\n    global _word\n    if _word is None:\n        _word = WordCOM(visible=False)\n    return _word\n\ndef reload_doc():\n    \"\"\"Fresh copy + open.\"\"\"\n    w = get_word()\n    try:\n        w.close_document(save=False)\n    except Exception:\n        pass\n    shutil.copy2(INPUT, WORK)\n",
+        "rule": "\"\"\"\nStress test suite for WordCOM engine.\nUses a SINGLE Word instance to avoid COM RPC crashes between test classes.\n\"\"\"\n\nimport os\nimport re\nimport shutil\nimport sys\nimport unittest\n\nsys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', 'src'))\nfrom word_com import WordCOM, WordCOMError\n\nINPUT = r'temp2\\Propuesta de PostgreSQL CE On Prem Horas - Banco GyT 30032026 (1).docx'\nWORK = r'temp2\\TEST_STRESS.docx'\n\n# Single shared Word instance\n_word = None\n\ndef get_word():\n    global _word\n    if _word is None:\n        _word = WordCOM(visible=False)\n    return _word\n\ndef reload_doc():\n    \"\"\"Fresh copy + open.\"\"\"\n    w = get_word()\n    try:\n        w.close_document(save=False)\n    except Exception:\n        pass\n    shutil.copy2(INPUT, WORK)\n",
         "applies_to": "tests",
-        "source": "C:\\Chance1\\IA\\IA_Word\\tests\\test_stress.py",
+        "source": "IA_Word\\tests\\test_stress.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -34,7 +34,7 @@
       "fact": {
         "rule": "      w.close_document(save=False)\n    except Exception:\n        pass\n    shutil.copy2(INPUT, WORK)\n    return w.open_document(WORK)\n\nclass Test01_FindReplace(unittest.TestCase):\n    \"\"\"Find/Replace edge cases.\"\"\"\n\n    @classmethod\n    def setUpClass(cls):\n        if not os.path.exists(INPUT):\n            raise unittest.SkipTest(f\"Input not found\")\n        reload_doc()\n\n    def test_unicode_accents(self):\n        \"\"\"Spanish accented characters don't crash.\"\"\"\n        w = get_word()\n        w.find_replace('Información inicial', 'Información inicial')\n\n    def test_currency_in_tables(self):\n        \"\"\"Dollar signs exist in document tables.\"\"\"\n        w = get_word()\n        tables = w.get_tables()\n        all_text = ' '.join(cell for t in tables for row in t['data'] for cell in row)\n",
         "applies_to": "tests",
-        "source": "C:\\Chance1\\IA\\IA_Word\\tests\\test_stress.py",
+        "source": "IA_Word\\tests\\test_stress.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -59,7 +59,7 @@
       "fact": {
         "rule": "get_tables()\n        all_text = ' '.join(cell for t in tables for row in t['data'] for cell in row)\n        self.assertIn('$', all_text)\n\n    def test_find_nonexistent(self):\n        \"\"\"Finding non-existent text returns 0.\"\"\"\n        self.assertEqual(get_word().find_replace('ZZZNOTEXIST999', 'x'), 0)\n\n    def test_empty_replacement(self):\n        \"\"\"Replace with empty string doesn't crash.\"\"\"\n        get_word().find_replace('NONEXIST123', '')\n\n    def test_smart_replace_structure(self):\n        \"\"\"smart_replace returns dict with all 3 areas.\"\"\"\n        r = get_word().smart_replace('NONEXIST', 'x')\n        self.assertIn('body', r)\n        self.assertIn('footer_shapes', r)\n        self.assertIn('tables', r)\n\n    def test_long_text_search(self):\n",
         "applies_to": "tests",
-        "source": "C:\\Chance1\\IA\\IA_Word\\tests\\test_stress.py",
+        "source": "IA_Word\\tests\\test_stress.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -84,7 +84,7 @@
       "fact": {
         "rule": "sertIn('footer_shapes', r)\n        self.assertIn('tables', r)\n\n    def test_long_text_search(self):\n        \"\"\"Very long search string doesn't crash.\"\"\"\n        get_word().find_replace('x' * 200, 'short')\n\n    def test_footer_shape_replace_nonexistent(self):\n        \"\"\"Footer shape replace with non-existent text returns 0.\"\"\"\n        self.assertEqual(get_word().replace_in_footer_shapes('NONEXIST', 'x'), 0)\n\nclass Test02_HeadingDetection(unittest.TestCase):\n    \"\"\"Heading level detection patterns.\"\"\"\n\n    @classmethod\n    def setUpClass(cls):\n        reload_doc()\n\n    def test_level_1(self):\n        self.assertEqual(get_word()._detect_heading_level('1.  Something'), 1)\n\n    def test_level_2(self):\n        self.assertEqual(get_word()._detect_heading_level('2.1.  Something'), 2)\n\n",
         "applies_to": "tests",
-        "source": "C:\\Chance1\\IA\\IA_Word\\tests\\test_stress.py",
+        "source": "IA_Word\\tests\\test_stress.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -109,7 +109,7 @@
       "fact": {
         "rule": "st_level_2(self):\n        self.assertEqual(get_word()._detect_heading_level('2.1.  Something'), 2)\n\n    def test_level_3(self):\n        self.assertEqual(get_word()._detect_heading_level('3.1.2.  Something'), 3)\n\n    def test_not_heading(self):\n        self.assertEqual(get_word()._detect_heading_level('Normal text'), 0)\n\n    def test_empty(self):\n        self.assertEqual(get_word()._detect_heading_level(''), 0)\n\n    def test_no_space_after_dot(self):\n        \"\"\"'1.Something' without space is not a heading.\"\"\"\n        self.assertEqual(get_word()._detect_heading_level('1.Something'), 0)\n\n    def test_deep_nesting(self):\n        self.assertEqual(get_word()._detect_heading_level('1.2.3.4.  Deep'), 4)\n\nclass Test03_Sections(unittest.TestCase):\n    \"\"\"Section listing and properties.\"\"\"\n\n",
         "applies_to": "tests",
-        "source": "C:\\Chance1\\IA\\IA_Word\\tests\\test_stress.py",
+        "source": "IA_Word\\tests\\test_stress.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -134,7 +134,7 @@
       "fact": {
         "rule": ".  Deep'), 4)\n\nclass Test03_Sections(unittest.TestCase):\n    \"\"\"Section listing and properties.\"\"\"\n\n    @classmethod\n    def setUpClass(cls):\n        reload_doc()\n\n    def test_sections_nonempty(self):\n        sections = get_word().get_sections()\n        self.assertGreater(len(sections), 10)\n\n    def test_section_fields(self):\n        for s in get_word().get_sections():\n            self.assertIn('text', s)\n            self.assertIn('level', s)\n            self.assertIn('page', s)\n\n    def test_levels_valid(self):\n        for s in get_word().get_sections():\n            self.assertGreaterEqual(s['level'], 1)\n            self.assertLessEqual(s['level'], 4)\n\n    def test_pages_positive(self):\n        for s in get_word().get_sections():\n            self.assertGreater(s['page'], 0)\n\n",
         "applies_to": "tests",
-        "source": "C:\\Chance1\\IA\\IA_Word\\tests\\test_stress.py",
+        "source": "IA_Word\\tests\\test_stress.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -159,7 +159,7 @@
       "fact": {
         "rule": "ve(self):\n        for s in get_word().get_sections():\n            self.assertGreater(s['page'], 0)\n\n    def test_no_toc_entries(self):\n        for s in get_word().get_sections():\n            self.assertNotIn('...', s['text'])\n\n    def test_known_sections_exist(self):\n        texts = ' '.join(s['text'] for s in get_word().get_sections())\n        for pat in ['Por qu', 'Alcance', 'Propuesta', 'rminos', 'Aceptaci', 'Anexos']:\n            self.assertIn(pat, texts, f\"'{pat}' not found in sections\")\n\nclass Test04_Tables(unittest.TestCase):\n    \"\"\"Table reading.\"\"\"\n\n    @classmethod\n    def setUpClass(cls):\n        reload_doc()\n\n    def test_tables_exist(self):\n        tables = get_word().get_tables()\n        self.assertGreater(len(tables), 0)\n\n    def test_table_fields(self):\n",
         "applies_to": "tests",
-        "source": "C:\\Chance1\\IA\\IA_Word\\tests\\test_stress.py",
+        "source": "IA_Word\\tests\\test_stress.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -184,7 +184,7 @@
       "fact": {
         "rule": "et_word().get_tables()\n        self.assertGreater(len(tables), 0)\n\n    def test_table_fields(self):\n        for t in get_word().get_tables():\n            self.assertIn('rows', t)\n            self.assertIn('columns', t)",
         "applies_to": "tests",
-        "source": "C:\\Chance1\\IA\\IA_Word\\tests\\test_stress.py",
+        "source": "IA_Word\\tests\\test_stress.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -209,7 +209,7 @@
       "fact": {
         "rule": "\"\"\"\nmock_server.py -- Flask test server with 8 form routes for FormFiller_IA\n=========================================================================\nProvides /simple, /medium, /complex, /dynamic-ids, /popup-form,\n/multi-frame, /slow-form, /error-form, and /api/submit.\n\nRun with: python mock_server.py  (starts on port 5055)\n\"\"\"\nimport json\nimport random\nimport string\nfrom flask import Flask, request, jsonify, render_template_string\n\napp = Flask(__name__)\n\n# ---------------------------------------------------------------------------\n# Shared CSS\n# ---------------------------------------------------------------------------\nBASE_CSS = \"\"\"\n<style>\n  * { box-sizing: border-box; }\n  body { font-family: 'Segoe UI', Arial, sans-serif; margin: 0; padding: 20px;\n",
         "applies_to": "tests",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\tests\\mock_server.py",
+        "source": "FormFiller_IA\\tests\\mock_server.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -234,7 +234,7 @@
       "fact": {
         "rule": "izing: border-box; }\n  body { font-family: 'Segoe UI', Arial, sans-serif; margin: 0; padding: 20px;\n         background: #f5f6fa; color: #333; }\n  h1 { color: #2c3e50; border-bottom: 2px solid #3498db; padding-bottom: 8px; }\n  form { background: #fff; padding: 24px; border-radius: 8px;\n         box-shadow: 0 2px 8px rgba(0,0,0,0.1); max-width: 700px; }\n  label { display: block; margin-top: 12px; font-weight: 600; color: #555; }\n  input[type=\"text\"], input[type=\"email\"], input[type=\"tel\"],\n  input[type=\"number\"], input[type=\"date\"], input[type=\"password\"],\n  select, textarea {\n    width: 100%; padding: 8px 12px; margin-top: 4px; border: 1px solid #ccc;\n    border-radius: 4px; font-size: 14px;\n  }\n  textarea { min-height: 80px; resize: vertical; }\n  button[type=\"submit\"], button.btn {\n",
         "applies_to": "tests",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\tests\\mock_server.py",
+        "source": "FormFiller_IA\\tests\\mock_server.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -259,7 +259,7 @@
       "fact": {
         "rule": " 14px;\n  }\n  textarea { min-height: 80px; resize: vertical; }\n  button[type=\"submit\"], button.btn {\n    margin-top: 16px; padding: 10px 24px; background: #3498db; color: #fff;\n    border: none; border-radius: 4px; cursor: pointer; font-size: 14px;\n  }\n  button[type=\"submit\"]:hover, button.btn:hover { background: #2980b9; }\n  fieldset { border: 1px solid #ddd; border-radius: 6px; padding: 16px;\n             margin-top: 16px; }\n  legend { font-weight: 700; color: #2c3e50; padding: 0 8px; }\n  .radio-group label, .checkbox-group label {\n    display: inline-block; margin-right: 16px; font-weight: 400; }\n  .error-bar { background: #e74c3c; color: #fff; padding: 12px 16px;\n               border-radius: 4px; margin-bottom: 12px; display: none;\n               font-weight: 600; }\n",
         "applies_to": "tests",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\tests\\mock_server.py",
+        "source": "FormFiller_IA\\tests\\mock_server.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -284,7 +284,7 @@
       "fact": {
         "rule": "         border-radius: 4px; margin-bottom: 12px; display: none;\n               font-weight: 600; }\n  .error-bar.visible { display: block; }\n  .spinner { display: none; width: 18px; height: 18px; border: 3px solid #ddd;\n             border-top-color: #3498db; border-radius: 50%;\n             animation: spin 0.8s linear infinite; margin-left: 8px;\n             vertical-align: middle; }\n  .spinner.loading { display: inline-block; }\n  @keyframes spin { to { transform: rotate(360deg); } }\n  .hidden { display: none; }\n  .custom-dropdown { position: relative; cursor: pointer; }\n  .custom-dropdown .dd-selected { padding: 8px 12px; border: 1px solid #ccc;\n    border-radius: 4px; background: #fff; }\n  .custom-dropdown .dd-options { position: absolute; top: 100%; left: 0;\n",
         "applies_to": "tests",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\tests\\mock_server.py",
+        "source": "FormFiller_IA\\tests\\mock_server.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -309,7 +309,7 @@
       "fact": {
         "rule": ": 4px; background: #fff; }\n  .custom-dropdown .dd-options { position: absolute; top: 100%; left: 0;\n    width: 100%; background: #fff; border: 1px solid #ccc; border-radius: 4px;\n    display: none; z-index: 10; max-height: 200px; overflow-y: auto; }\n  .custom-dropdown .dd-options.open { display: block; }\n  .custom-dropdown .dd-option { padding: 8px 12px; cursor: pointer; }\n  .custom-dropdown .dd-option:hover { background: #ecf0f1; }\n</style>\n\"\"\"\n\n# ---------------------------------------------------------------------------\n# /simple -- 5 text inputs\n# ---------------------------------------------------------------------------\n@app.route(\"/simple\")\ndef simple_form():\n    return render_template_string(\"\"\"<!DOCTYPE html>\n<html><head><title>Simple Form</title>\"\"\" + BASE_CSS + \"\"\"</head>\n",
         "applies_to": "tests",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\tests\\mock_server.py",
+        "source": "FormFiller_IA\\tests\\mock_server.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -334,7 +334,7 @@
       "fact": {
         "rule": "emplate_string(\"\"\"<!DOCTYPE html>\n<html><head><title>Simple Form</title>\"\"\" + BASE_CSS + \"\"\"</head>\n<body>\n<h1>Simple Form (5 fields)</h1>\n<form id=\"simpleForm\" method=\"post\" action=\"/api/submit\">\n  <label for=\"name\">Name</label>\n  <input type=\"text\" id=\"name\" name=\"name\" placeholder=\"Full name\" required>\n\n  <label for=\"email\">Email</label>\n  <input type=\"email\" id=\"email\" name=\"email\" placeholder=\"user@example.com\" required>\n\n  <label for=\"phone\">Phone</label>\n  <input type=\"tel\" id=\"phone\" name=\"phone\" placeholder=\"+1 555-0100\">\n\n  <label for=\"company\">Company</label>\n  <input type=\"text\" id=\"company\" name=\"company\" placeholder=\"Company name\">\n\n  <label for=\"message\">Message</label>\n  <textarea id=\"message\" name=\"message\" placeholder=\"Your message...\"></textarea>\n\n",
         "applies_to": "tests",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\tests\\mock_server.py",
+        "source": "FormFiller_IA\\tests\\mock_server.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -359,7 +359,7 @@
       "fact": {
         "rule": ">Message</label>\n  <textarea id=\"message\" name=\"message\" placeholder=\"Your message...\"></textarea>\n\n  <button type=\"submit\">Submit</button>\n</form>\n</body></html>\"\"\")\n\n# ---------------------------------------------------------------------------\n# /medium -- 10 fields with mixed types\n# ---------------------------------------------------------------------------\n@app.route(\"/medium\")\ndef medium_form():\n    return render_template_string(\"\"\"<!DOCTYPE html>\n<html><head><title>Medium Form</title>\"\"\" + BASE_CSS + \"\"\"</head>\n<body>\n<h1>Medium Form (10 fields)</h1>\n<form id=\"mediumForm\" method=\"post\" action=\"/api/submit\">\n  <label for=\"first_name\">First Name</label>\n  <input type=\"text\" id=\"first_name\" name=\"first_name\" required>\n\n  <label for=\"last_name\">Last Name</label>\n",
         "applies_to": "tests",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\tests\\mock_server.py",
+        "source": "FormFiller_IA\\tests\\mock_server.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -384,7 +384,7 @@
       "fact": {
         "rule": "type=\"text\" id=\"first_name\" name=\"first_name\" required>\n\n  <label for=\"last_name\">Last Name</label>\n  <input type=\"text\" id=\"last_name\" name=\"last_name\" required>\n\n  <label for=\"username\">Username</label>\n  <input type=\"text\" id=\"username\"",
         "applies_to": "tests",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\tests\\mock_server.py",
+        "source": "FormFiller_IA\\tests\\mock_server.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -409,7 +409,7 @@
       "fact": {
         "rule": "\"\"\"\nsap_live_test.py — Test visual SAP con dashboard web en localhost:5060\n======================================================================\nLevanta un Flask server que muestra screenshots en tiempo real.\nEn paralelo ejecuta el test SAP con Playwright headless.\nEl usuario ve el progreso en el preview panel (localhost:5060).\n\"\"\"\nimport sys, os, time, json, threading, base64\nfrom pathlib import Path\nfrom datetime import datetime\n\nif hasattr(sys.stdout, \"reconfigure\"):\n    sys.stdout.reconfigure(encoding=\"utf-8\", errors=\"replace\")\nif hasattr(sys.stderr, \"reconfigure\"):\n    sys.stderr.reconfigure(encoding=\"utf-8\", errors=\"replace\")\n\nsys.path.insert(0, str(Path(__file__).parent.parent))\n\nfrom flask import Flask, render_template_string, jsonify\n\n",
         "applies_to": "tests",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\tests\\sap_live_test.py",
+        "source": "FormFiller_IA\\tests\\sap_live_test.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -434,7 +434,7 @@
       "fact": {
         "rule": "rt(0, str(Path(__file__).parent.parent))\n\nfrom flask import Flask, render_template_string, jsonify\n\n# ── Estado global del test ─────────────────────────────────\ntest_state = {\n    \"status\": \"waiting\",\n    \"steps\": [],\n    \"current_step\": \"\",\n    \"screenshot\": \"\",\n    \"screenshot_b64\": \"\",\n    \"started_at\": None,\n    \"elapsed\": 0,\n}\n\napp = Flask(__name__)\n\nDASHBOARD_HTML = \"\"\"\n<!DOCTYPE html>\n<html><head>\n<meta charset=\"utf-8\">\n<title>FormFiller_IA - SAP Test en Vivo</title>\n<style>\n  * { margin: 0; padding: 0; box-sizing: border-box; }\n  body { font-family: 'Consolas', monospace; background: #1a1a2e; color: #e0e0e0; }\n  .header { background: #16213e; padding: 12px 20px; border-bottom: 2px solid #0f3460; display: flex; justify-content: space-between; align-items: center; }\n",
         "applies_to": "tests",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\tests\\sap_live_test.py",
+        "source": "FormFiller_IA\\tests\\sap_live_test.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -459,7 +459,7 @@
       "fact": {
         "rule": "er-bottom: 2px solid #0f3460; display: flex; justify-content: space-between; align-items: center; }\n  .header h1 { font-size: 16px; color: #e94560; }\n  .header .status { font-size: 14px; padding: 4px 12px; border-radius: 4px; }\n  .status.waiting { background: #555; }\n  .status.running { background: #e94560; animation: pulse 1s infinite; }\n  .status.done { background: #28a745; }\n  .status.error { background: #dc3545; }\n  @keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.6; } }\n  .main { display: flex; height: calc(100vh - 50px); }\n  .panel-left { width: 35%; padding: 10px; overflow-y: auto; border-right: 1px solid #0f3460; }\n  .panel-right { width: 65%; padding: 10px; display: flex; align-items: center; justify-content: center; background: #111; }\n",
         "applies_to": "tests",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\tests\\sap_live_test.py",
+        "source": "FormFiller_IA\\tests\\sap_live_test.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -484,7 +484,7 @@
       "fact": {
         "rule": "5%; padding: 10px; display: flex; align-items: center; justify-content: center; background: #111; }\n  .panel-right img { max-width: 100%; max-height: 100%; border: 1px solid #333; border-radius: 4px; }\n  .step { padding: 6px 10px; margin: 3px 0; border-radius: 4px; font-size: 12px; border-left: 3px solid #555; }\n  .step.ok { border-left-color: #28a745; background: rgba(40,167,69,0.1); }\n  .step.fail { border-left-color: #dc3545; background: rgba(220,53,69,0.1); }\n  .step.info { border-left-color: #17a2b8; background: rgba(23,162,184,0.1); }\n  .step.active { border-left-color: #e94560; background: rgba(233,69,96,0.15); animation: pulse 1.5s infinite; }\n  .step .time { color: #888; font-size: 10px; }\n  .step .icon { margin-right: 5px; }\n  .no-img { color: #555; font-size: 14px; }\n",
         "applies_to": "tests",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\tests\\sap_live_test.py",
+        "source": "FormFiller_IA\\tests\\sap_live_test.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -509,7 +509,7 @@
       "fact": {
         "rule": "font-size: 10px; }\n  .step .icon { margin-right: 5px; }\n  .no-img { color: #555; font-size: 14px; }\n  .elapsed { color: #e94560; font-size: 13px; }\n</style>\n</head><body>\n<div class=\"header\">\n  <h1>FormFiller_IA - Test SAP CRM en Vivo</h1>\n  <div>\n    <span class=\"elapsed\" id=\"elapsed\"></span>\n    <span class=\"status\" id=\"status\">Esperando...</span>\n  </div>\n</div>\n<div class=\"main\">\n  <div class=\"panel-left\" id=\"steps\"></div>\n  <div class=\"panel-right\">\n    <img id=\"screenshot\" src=\"\" style=\"display:none\">\n    <span class=\"no-img\" id=\"no-img\">Esperando primer screenshot...</span>\n  </div>\n</div>\n<script>\nfunction refresh() {\n  fetch('/api/state').then(r => r.json()).then(data => {\n    // Status\n    const st = document.getElementById('status');\n    st.textContent = data.status;\n",
         "applies_to": "tests",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\tests\\sap_live_test.py",
+        "source": "FormFiller_IA\\tests\\sap_live_test.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -534,7 +534,7 @@
       "fact": {
         "rule": "{\n    // Status\n    const st = document.getElementById('status');\n    st.textContent = data.status;\n    st.className = 'status ' + data.status;\n\n    // Elapsed\n    if (data.elapsed > 0) {\n      document.getElementById('elapsed').textContent = data.elapsed.toFixed(1) + 's';\n    }\n\n    // Steps\n    const stepsDiv = document.getElementById('steps');\n    stepsDiv.innerHTML = '';\n    data.steps.forEach(s => {\n      const div = document.createElement('div');\n      div.className = 'step ' + s.level;\n      div.innerHTML = '<span class=\"time\">' + s.time + '</span> ' +\n                       '<span class=\"icon\">' + s.icon + '</span> ' + s.msg;\n      stepsDiv.appendChild(div);\n    });\n    stepsDiv.scrollTop = stepsDiv.scrollHeight;\n\n    // Screenshot\n    if (data.screenshot_b64) {\n",
         "applies_to": "tests",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\tests\\sap_live_test.py",
+        "source": "FormFiller_IA\\tests\\sap_live_test.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -559,7 +559,7 @@
       "fact": {
         "rule": ";\n    stepsDiv.scrollTop = stepsDiv.scrollHeight;\n\n    // Screenshot\n    if (data.screenshot_b64) {\n      const img = document.getElementById('screenshot');\n      img.src = 'data:image/png;base64,' + data.screenshot_b64;\n      img.style.display = 'block';\n      document.getElementById('no-img').style.display = 'none';\n    }\n  });\n}\nsetInterval(refresh, 500);\n</script>\n</body></html>\n\"\"\"\n\n@app.route(\"/\")\ndef index():\n    return render_template_string(DASHBOARD_HTML)\n\n@app.route(\"/api/state\")\ndef api_state():\n    return jsonify(test_state)\n\n# ── Helpers ─────────────────────────────────────────────────\n\ndef log_step(msg, level=\"info\"):\n    ts = time.strftime(\"%H:%M:%S\")\n    icons = {\"info\": \"i\", \"ok\": \"OK\", \"fail\": \"!!\", \"active\": \">>\"}\n    test_state[\"steps\"].append({\n",
         "applies_to": "tests",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\tests\\sap_live_test.py",
+        "source": "FormFiller_IA\\tests\\sap_live_test.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -584,7 +584,7 @@
       "fact": {
         "rule": "   icons = {\"info\": \"i\", \"ok\": \"OK\", \"fail\": \"!!\", \"active\": \">>\"}\n    test_state[\"steps\"].append({\n        \"time\": ts, \"msg\": msg, \"level\": level,\n        \"icon\": icons.get(level, \"\")\n    })\n    test_state[\"current_step\"] = msg\n    if test_state[\"started_",
         "applies_to": "tests",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\tests\\sap_live_test.py",
+        "source": "FormFiller_IA\\tests\\sap_live_test.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -609,7 +609,7 @@
       "fact": {
         "rule": "\"\"\"\ntest_sap_visual.py — Test visual en SAP CRM real usando FormFiller_IA\n=====================================================================\n1. Abre SAP CRM login\n2. Llena usuario y password\n3. Navega a Opportunities\n4. Busca oportunidad 245451\n\"\"\"\nimport sys, os, time, base64\nfrom pathlib import Path\n\n# Fix Windows encoding\nif hasattr(sys.stdout, \"reconfigure\"):\n    sys.stdout.reconfigure(encoding=\"utf-8\", errors=\"replace\")\nif hasattr(sys.stderr, \"reconfigure\"):\n    sys.stderr.reconfigure(encoding=\"utf-8\", errors=\"replace\")\n\nsys.path.insert(0, str(Path(__file__).parent.parent))\n\nfrom playwright.sync_api import sync_playwright\nfrom core.scanner import Scanner\nfrom core.filler import Filler\nfrom core.waiter import AdaptiveWaiter\nfrom core.error_handler import ErrorHandler\n",
         "applies_to": "tests",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\tests\\test_sap_visual.py",
+        "source": "FormFiller_IA\\tests\\test_sap_visual.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -634,7 +634,7 @@
       "fact": {
         "rule": "er import Filler\nfrom core.waiter import AdaptiveWaiter\nfrom core.error_handler import ErrorHandler\nfrom core.anti_loop import AntiLoop\n\n# Credenciales SAP (de sap_inspeccion.py)\nSAP_URL = \"https://wdp-sap.gbm.net:8105/sap/crm_logon?sap-client=500\"\nSAP_USER = \"ntoledo\"\nSAP_PASS = \"nB$1240906\"\nHTTP_USER = \"ntoledo\"\nHTTP_PASS = \"Gbmcr2026\"\nOPP_ID = \"245451\"\n\ndef log(msg, level=\"INFO\"):\n    ts = time.strftime(\"%H:%M:%S\")\n    icons = {\"INFO\": \"  \", \"OK\": \"✅\", \"FAIL\": \"❌\", \"STEP\": \"──\", \"SCAN\": \"🔍\", \"FILL\": \"📝\"}\n    print(f\"[{ts}] {icons.get(level, '  ')} {msg}\", flush=True)\n\ndef run_test():\n    log(\"=\" * 60)\n    log(\"FormFiller_IA — TEST VISUAL SAP CRM\")\n    log(\"=\" * 60)\n\n    pw = sync_playwright().start()\n    browser = pw.chromium.launch(headless=False)\n    context = browser.new_context(\n",
         "applies_to": "tests",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\tests\\test_sap_visual.py",
+        "source": "FormFiller_IA\\tests\\test_sap_visual.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -659,7 +659,7 @@
       "fact": {
         "rule": "right().start()\n    browser = pw.chromium.launch(headless=False)\n    context = browser.new_context(\n        ignore_https_errors=True,\n        http_credentials={\"username\": HTTP_USER, \"password\": HTTP_PASS}\n    )\n    page = context.new_page()\n    page.set_default_timeout(30000)\n\n    # Inicializar FormFiller components\n    scanner = Scanner(page)\n    waiter = AdaptiveWaiter(scanner)\n    filler = Filler(scanner, waiter)\n    error_handler = ErrorHandler(scanner)\n    anti_loop = AntiLoop()\n\n    try:\n        # ── PASO 1: Navegar a SAP login ────────────────────────\n        log(\"PASO 1: Navegando a SAP CRM login...\", \"STEP\")\n        page.goto(SAP_URL, wait_until=\"domcontentloaded\", timeout=30000)\n        time.sleep(2)\n        scanner.take_screenshot(\"01_sap_login\")\n",
         "applies_to": "tests",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\tests\\test_sap_visual.py",
+        "source": "FormFiller_IA\\tests\\test_sap_visual.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -684,7 +684,7 @@
       "fact": {
         "rule": "ontentloaded\", timeout=30000)\n        time.sleep(2)\n        scanner.take_screenshot(\"01_sap_login\")\n        log(\"Pagina de login cargada\", \"OK\")\n\n        # ── PASO 2: Scan del formulario de login ──────────────\n        log(\"PASO 2: Escaneando formulario de login...\", \"SCAN\")\n        scan = scanner.scan_full()\n        log(f\"Encontrados {len(scan.fields)} campos\", \"INFO\")\n        for f in scan.fields[:10]:\n            log(f\"  Campo: id={f.get('id','?')[:40]} type={f.get('type','?')} \"\n                f\"name={f.get('name','?')}\", \"INFO\")\n\n        # ── PASO 3: Llenar login con FormFiller ───────────────\n        log(\"PASO 3: Llenando login con FormFiller...\", \"FILL\")\n\n        # Buscar campo de usuario\n",
         "applies_to": "tests",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\tests\\test_sap_visual.py",
+        "source": "FormFiller_IA\\tests\\test_sap_visual.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -709,7 +709,7 @@
       "fact": {
         "rule": "\n        log(\"PASO 3: Llenando login con FormFiller...\", \"FILL\")\n\n        # Buscar campo de usuario\n        user_field = scan.find_field(\"sap-user\") or scan.find_field(\"user\") or scan.find_field(\"username\")\n        if user_field:\n            result = filler.fill(page, scan, user_field, SAP_USER)\n            log(f\"Usuario: {result.strategy_used} -> {'OK' if result.success else 'FAIL'}\",\n                \"OK\" if result.success else \"FAIL\")\n        else:\n            # Fallback: intentar por selector directo\n            log(\"Campo user no encontrado por scan, intentando selector directo...\", \"INFO\")\n            try:\n                page.fill(\"#sap-user\", SAP_USER)\n                log(\"Usuario llenado por selector directo #sap-user\", \"OK\")\n            except Exception as e:\n",
         "applies_to": "tests",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\tests\\test_sap_visual.py",
+        "source": "FormFiller_IA\\tests\\test_sap_visual.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -734,7 +734,7 @@
       "fact": {
         "rule": "     log(\"Usuario llenado por selector directo #sap-user\", \"OK\")\n            except Exception as e:\n                log(f\"Fallback user tambien fallo: {e}\", \"FAIL\")\n\n        time.sleep(0.5)\n\n        # Buscar campo de password\n        pass_field = scan.find_field(\"sap-password\") or scan.find_field(\"password\")\n        if pass_field:\n            result = filler.fill(page, scan, pass_field, SAP_PASS)\n            log(f\"Password: {result.strategy_used} -> {'OK' if result.success else 'FAIL'}\",\n                \"OK\" if result.success else \"FAIL\")\n        else:\n            try:\n                page.fill(\"#sap-password\", SAP_PASS)\n                log(\"Password llenado por selector directo #sap-password\", \"OK\")\n            except Exception as e:\n",
         "applies_to": "tests",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\tests\\test_sap_visual.py",
+        "source": "FormFiller_IA\\tests\\test_sap_visual.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -759,7 +759,7 @@
       "fact": {
         "rule": "log(\"Password llenado por selector directo #sap-password\", \"OK\")\n            except Exception as e:\n                log(f\"Fallback password tambien fallo: {e}\", \"FAIL\")\n\n        scanner.take_screenshot(\"02_login_filled\")\n\n        # ── PASO 4: Submit login ──────────────────────────────\n        log(\"PASO 4: Haciendo login (Enter)...\", \"STEP\")\n        page.keyboard.press(\"Enter\")\n        log(\"Esperando carga de SAP CRM (puede tardar 15-20s)...\", \"INFO\")\n        time.sleep(5)\n        scanner.take_screenshot(\"03_post_login_5s\")\n\n        # Verificar si hay dialogo \"Existing Logon\"\n        for frame in page.frames:\n            try:\n                existing = frame.query_selector(\"text=Continue with this logon\")\n                if not existing:\n",
         "applies_to": "tests",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\tests\\test_sap_visual.py",
+        "source": "FormFiller_IA\\tests\\test_sap_visual.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -784,7 +784,7 @@
       "fact": {
         "rule": "  existing = frame.query_selector(\"text=Continue with this logon\")\n                if not existing:\n                    existing = frame.query_selector(\"text=End this logon\")\n                if existing and existing.is_visible():\n                    log(\"Dialogo 'Existing Logon' detectado, continuando...\", \"INFO\")\n                    # Click en \"Continue with this lo",
         "applies_to": "tests",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\tests\\test_sap_visual.py",
+        "source": "FormFiller_IA\\tests\\test_sap_visual.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -809,7 +809,7 @@
       "fact": {
         "rule": "\"\"\"\ntest_error_handler.py -- Unit tests for error classification and reactions\n===========================================================================\nTests classify_error, get_reaction, and AntiLoop behavior.\n\"\"\"\nimport sys\nimport os\nimport unittest\n\nsys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), \"..\")))\n\nfrom core.error_handler import ErrorHandler, ErrorType, ErrorInfo, ErrorReaction, REACTIONS\nfrom core.anti_loop import AntiLoop, AntiLoopAction\n\nclass TestClassifyError(unittest.TestCase):\n    \"\"\"Tests for ErrorHandler.classify_error().\"\"\"\n\n    def setUp(self):\n        # ErrorHandler needs a scanner, but classify_error is pure logic\n        self.handler = ErrorHandler.__new__(ErrorHandler)\n\n    def test_already_exists_is_duplicado(self):\n",
         "applies_to": "tests",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\tests\\test_error_handler.py",
+        "source": "FormFiller_IA\\tests\\test_error_handler.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -834,7 +834,7 @@
       "fact": {
         "rule": " self.handler = ErrorHandler.__new__(ErrorHandler)\n\n    def test_already_exists_is_duplicado(self):\n        result = self.handler.classify_error(\"Customer already exists: CUST001\")\n        self.assertEqual(result, ErrorType.DUPLICADO)\n\n    def test_duplicate_is_duplicado(self):\n        result = self.handler.classify_error(\"Duplicate entry found\")\n        self.assertEqual(result, ErrorType.DUPLICADO)\n\n    def test_ya_existe_is_duplicado(self):\n        result = self.handler.classify_error(\"El registro ya existe en la base de datos\")\n        self.assertEqual(result, ErrorType.DUPLICADO)\n\n    def test_required_is_campo_requerido(self):\n        result = self.handler.classify_error(\"This field is required\")\n        self.assertEqual(result, ErrorType.CAMPO_REQUERIDO)\n\n",
         "applies_to": "tests",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\tests\\test_error_handler.py",
+        "source": "FormFiller_IA\\tests\\test_error_handler.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -859,7 +859,7 @@
       "fact": {
         "rule": "assify_error(\"This field is required\")\n        self.assertEqual(result, ErrorType.CAMPO_REQUERIDO)\n\n    def test_obligatorio_is_campo_requerido(self):\n        result = self.handler.classify_error(\"Campo obligatorio\")\n        self.assertEqual(result, ErrorType.CAMPO_REQUERIDO)\n\n    def test_invalid_is_valor_invalido(self):\n        result = self.handler.classify_error(\"Invalid amount format\")\n        self.assertEqual(result, ErrorType.VALOR_INVALIDO)\n\n    def test_formato_incorrecto_is_valor_invalido(self):\n        result = self.handler.classify_error(\"Formato incorrecto del campo\")\n        self.assertEqual(result, ErrorType.VALOR_INVALIDO)\n\n    def test_session_expired_is_sesion_expirada(self):\n        result = self.handler.classify_error(\"Session expired, please log in again\")\n",
         "applies_to": "tests",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\tests\\test_error_handler.py",
+        "source": "FormFiller_IA\\tests\\test_error_handler.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -884,7 +884,7 @@
       "fact": {
         "rule": "xpirada(self):\n        result = self.handler.classify_error(\"Session expired, please log in again\")\n        self.assertEqual(result, ErrorType.SESION_EXPIRADA)\n\n    def test_token_expired_is_sesion_expirada(self):\n        result = self.handler.classify_error(\"Token expired\")\n        self.assertEqual(result, ErrorType.SESION_EXPIRADA)\n\n    def test_not_authorized_is_sin_permiso(self):\n        result = self.handler.classify_error(\"Unauthorized access attempt\")\n        self.assertEqual(result, ErrorType.SIN_PERMISO)\n\n    def test_forbidden_is_sin_permiso(self):\n        result = self.handler.classify_error(\"403 Forbidden\")\n        self.assertEqual(result, ErrorType.SIN_PERMISO)\n\n    def test_access_denied_is_sin_permiso(self):\n",
         "applies_to": "tests",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\tests\\test_error_handler.py",
+        "source": "FormFiller_IA\\tests\\test_error_handler.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -909,7 +909,7 @@
       "fact": {
         "rule": "  self.assertEqual(result, ErrorType.SIN_PERMISO)\n\n    def test_access_denied_is_sin_permiso(self):\n        result = self.handler.classify_error(\"Access denied to this resource\")\n        self.assertEqual(result, ErrorType.SIN_PERMISO)\n\n    def test_locked_is_bloqueado(self):\n        result = self.handler.classify_error(\"Record locked by user ADMIN\")\n        self.assertEqual(result, ErrorType.BLOQUEADO)\n\n    def test_blocked_is_bloqueado(self):\n        result = self.handler.classify_error(\"Account blocked\")\n        self.assertEqual(result, ErrorType.BLOQUEADO)\n\n    def test_random_text_is_desconocido(self):\n        result = self.handler.classify_error(\"Some random gibberish error message xyz\")\n        self.assertEqual(result, ErrorType.DESCONOCIDO)\n\n",
         "applies_to": "tests",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\tests\\test_error_handler.py",
+        "source": "FormFiller_IA\\tests\\test_error_handler.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -934,7 +934,7 @@
       "fact": {
         "rule": "\"Some random gibberish error message xyz\")\n        self.assertEqual(result, ErrorType.DESCONOCIDO)\n\n    def test_empty_string_is_desconocido(self):\n        result = self.handler.classify_error(\"\")\n        self.assertEqual(result, ErrorType.DESCONOCIDO)\n\n    def test_case_insensitive(self):\n        result = self.handler.classify_error(\"SESSION EXPIRED\")\n        self.assertEqual(result, ErrorType.SESION_EXPIRADA)\n\nclass TestGetReaction(unittest.TestCase):\n    \"\"\"Tests for ErrorHandler.get_reaction().\"\"\"\n\n    def setUp(self):\n        self.handler = ErrorHandler.__new__(ErrorHandler)\n\n    def test_duplicado_reaction_is_skip(self):\n        info = ErrorInfo(ErrorType.DUPLICADO, \"duplicate found\")\n        reaction = self.handler.get_reaction(info)\n",
         "applies_to": "tests",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\tests\\test_error_handler.py",
+        "source": "FormFiller_IA\\tests\\test_error_handler.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -959,7 +959,7 @@
       "fact": {
         "rule": "rrorInfo(ErrorType.DUPLICADO, \"duplicate found\")\n        reaction = self.handler.get_reaction(info)\n        self.assertEqual(reaction.action, \"SKIP\")\n        self.assertTrue(reaction.continuar)\n\n    def test_campo_requerido_reaction_is_retry(self):\n        info = ErrorInfo(ErrorType.CAMPO_REQUERIDO, \"field required\")\n        reaction = self.handler.get_reaction(info)\n        self.assertEqual(reaction.action, \"RETRY\")\n        self.assertTrue(reaction.continuar)\n        self.assertGreater(reaction.max_retries, 0)\n\n    def test_valor_invalido_reaction_is_skip(self):\n        info = ErrorInfo(ErrorType.VALOR_INVALIDO, \"invalid value\")\n        reaction = self.handler.get_reaction(info)\n        self.assertEqual(reaction.action, \"SKIP\")\n        self.assertTrue(reaction.continuar)\n\n",
         "applies_to": "tests",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\tests\\test_error_handler.py",
+        "source": "FormFiller_IA\\tests\\test_error_handler.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -984,7 +984,7 @@
       "fact": {
         "rule": "nfo)\n        self.assertEqual(reaction.action, \"SKIP\")\n        self.assertTrue(reaction.continuar)\n\n    def test_sesion_expirada_reaction_is_abort(self):\n        info = ErrorInfo(ErrorType.SESION_EXPIRADA, \"session expired\")\n        reaction = self.handler.get_reaction(info)\n        self.assertEqual(reaction.action, \"ABORT\")",
         "applies_to": "tests",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\tests\\test_error_handler.py",
+        "source": "FormFiller_IA\\tests\\test_error_handler.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -1009,7 +1009,7 @@
       "fact": {
         "rule": "\"\"\"\ntest_scanner.py -- Unit tests for Scanner logic (no browser required)\n======================================================================\nTests ScanResult.diff(), ScanResult.find_field(), Scanner.decidir_nivel(),\nand ScanLevel ordering.\n\"\"\"\nimport sys\nimport os\nimport unittest\n\n# Ensure project root is on sys.path so 'config' and 'core' resolve\nsys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), \"..\")))\n\nfrom core.scanner import ScanResult, ScanLevel, Scanner\n\nclass TestScanResultDiff(unittest.TestCase):\n    \"\"\"Tests for ScanResult.diff().\"\"\"\n\n    def _make_result(self, fields):\n        return ScanResult(\n            level=ScanLevel.FULL,\n            timestamp=1000.0,\n            dom_hash=\"abc123\",\n            fields=fields,\n            elements=fields,\n",
         "applies_to": "tests",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\tests\\test_scanner.py",
+        "source": "FormFiller_IA\\tests\\test_scanner.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -1034,7 +1034,7 @@
       "fact": {
         "rule": "tamp=1000.0,\n            dom_hash=\"abc123\",\n            fields=fields,\n            elements=fields,\n            iframes=[],\n            url=\"http://localhost\",\n            raw={},\n        )\n\n    def test_diff_detects_added_fields(self):\n        old = self._make_result([\n            {\"name\": \"name\", \"id\": \"name\", \"value\": \"Alice\"},\n        ])\n        new = self._make_result([\n            {\"name\": \"name\", \"id\": \"name\", \"value\": \"Alice\"},\n            {\"name\": \"email\", \"id\": \"email\", \"value\": \"\"},\n        ])\n        diff = new.diff(old)\n        self.assertEqual(len(diff[\"added\"]), 1)\n        self.assertEqual(diff[\"added\"][0][\"name\"], \"email\")\n        self.assertEqual(len(diff[\"removed\"]), 0)\n\n    def test_diff_detects_removed_fields(self):\n        old = self._make_result([\n",
         "applies_to": "tests",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\tests\\test_scanner.py",
+        "source": "FormFiller_IA\\tests\\test_scanner.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -1059,7 +1059,7 @@
       "fact": {
         "rule": "[\"removed\"]), 0)\n\n    def test_diff_detects_removed_fields(self):\n        old = self._make_result([\n            {\"name\": \"name\", \"id\": \"name\", \"value\": \"Alice\"},\n            {\"name\": \"phone\", \"id\": \"phone\", \"value\": \"123\"},\n        ])\n        new = self._make_result([\n            {\"name\": \"name\", \"id\": \"name\", \"value\": \"Alice\"},\n        ])\n        diff = new.diff(old)\n        self.assertEqual(len(diff[\"removed\"]), 1)\n        self.assertEqual(diff[\"removed\"][0][\"name\"], \"phone\")\n\n    def test_diff_detects_changed_values(self):\n        old = self._make_result([\n            {\"name\": \"name\", \"id\": \"name\", \"value\": \"Alice\"},\n        ])\n        new = self._make_result([\n            {\"name\": \"name\", \"id\": \"name\", \"value\": \"Bob\"},\n        ])\n        diff = new.diff(old)\n",
         "applies_to": "tests",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\tests\\test_scanner.py",
+        "source": "FormFiller_IA\\tests\\test_scanner.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -1084,7 +1084,7 @@
       "fact": {
         "rule": "            {\"name\": \"name\", \"id\": \"name\", \"value\": \"Bob\"},\n        ])\n        diff = new.diff(old)\n        self.assertEqual(len(diff[\"changed\"]), 1)\n        self.assertEqual(diff[\"changed\"][0][\"field\"][\"value\"], \"Bob\")\n        self.assertEqual(diff[\"changed\"][0][\"old_value\"], \"Alice\")\n\n    def test_diff_against_none_returns_all_added(self):\n        result = self._make_result([\n            {\"name\": \"a\", \"id\": \"a\", \"value\": \"1\"},\n            {\"name\": \"b\", \"id\": \"b\", \"value\": \"2\"},\n        ])\n        diff = result.diff(None)\n        self.assertEqual(len(diff[\"added\"]), 2)\n        self.assertEqual(len(diff[\"removed\"]), 0)\n        self.assertEqual(len(diff[\"changed\"]), 0)\n\n    def test_diff_identical_results_empty(self):\n        fields = [{\"name\": \"x\", \"id\": \"x\", \"value\": \"v\"}]\n",
         "applies_to": "tests",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\tests\\test_scanner.py",
+        "source": "FormFiller_IA\\tests\\test_scanner.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -1109,7 +1109,7 @@
       "fact": {
         "rule": " test_diff_identical_results_empty(self):\n        fields = [{\"name\": \"x\", \"id\": \"x\", \"value\": \"v\"}]\n        a = self._make_result(fields)\n        b = self._make_result(fields)\n        diff = a.diff(b)\n        self.assertEqual(len(diff[\"added\"]), 0)\n        self.assertEqual(len(diff[\"removed\"]), 0)\n        self.assertEqual(len(diff[\"changed\"]), 0)\n\nclass TestScanResultFindField(unittest.TestCase):\n    \"\"\"Tests for ScanResult.find_field().\"\"\"\n\n    def setUp(self):\n        self.result = ScanResult(\n            level=ScanLevel.FULL,\n            timestamp=1000.0,\n            dom_hash=\"abc123\",\n            fields=[\n                {\"name\": \"customer_name\", \"id\": \"cust_name\", \"ariaLabel\": \"Customer Name\",\n                 \"placeholder\": \"Enter customer\", \"value\": \"\"},\n",
         "applies_to": "tests",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\tests\\test_scanner.py",
+        "source": "FormFiller_IA\\tests\\test_scanner.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -1134,7 +1134,7 @@
       "fact": {
         "rule": "ame\", \"ariaLabel\": \"Customer Name\",\n                 \"placeholder\": \"Enter customer\", \"value\": \"\"},\n                {\"name\": \"email\", \"id\": \"email_field\", \"ariaLabel\": \"\",\n                 \"placeholder\": \"user@example.com\", \"value\": \"\"},\n                {\"name\": \"phone\", \"id\": \"phone\", \"ariaLabel\": \"Phone Number\",\n                 \"placeholder\": \"\", \"value\": \"\"},\n            ],\n            elements=[],\n            iframes=[],\n            url=\"http://localhost\",\n            raw={},\n        )\n\n    def test_find_by_name(self):\n        field = self.result.find_field(\"customer_name\")\n        self.assertIsNotNone(field)\n        self.assertEqual(field[\"name\"], \"customer_name\")\n\n    def test_find_by_id(self):\n        field = self.result.find_field(\"email_field\")\n",
         "applies_to": "tests",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\tests\\test_scanner.py",
+        "source": "FormFiller_IA\\tests\\test_scanner.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -1159,7 +1159,7 @@
       "fact": {
         "rule": "stomer_name\")\n\n    def test_find_by_id(self):\n        field = self.result.find_field(\"email_field\")\n        self.assertIsNotNone(field)\n        self.assertEqual(field[\"id\"], \"email_field\")\n\n    def test_find_by_aria_label(self):\n        field = self.result.find_field(\"Customer Name\")\n        self.assertIsNotNone(field)\n        self.assertEqual(field[\"name\"], \"customer_name\")\n\n    def test_find_by_placeholder(self):\n        field = self.result.find_field(\"Enter customer\")\n        self.assertIsNotNone(field)\n        self.assertEqual(field[\"name\"], \"customer_name\")\n\n    def test_find_case_insensitive(self):\n        field = self.result.find_field(\"PHONE\")\n        self.assertIsNotNone(field)\n        self.assertEqual(field[\"name\"], \"phone\")\n\n    def test_find_nonexistent_returns_none(self):\n",
         "applies_to": "tests",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\tests\\test_scanner.py",
+        "source": "FormFiller_IA\\tests\\test_scanner.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -1184,7 +1184,7 @@
       "fact": {
         "rule": "        self.assertEqual(field[\"name\"], \"phone\")\n\n    def test_find_nonexistent_returns_none(self):\n        field = self.result.find_field(\"nonexistent_field\")\n        self.assertIsNone(field)\n\nclass TestDecidirNivel(unittest.TestCa",
         "applies_to": "tests",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\tests\\test_scanner.py",
+        "source": "FormFiller_IA\\tests\\test_scanner.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -1209,7 +1209,7 @@
       "fact": {
         "rule": "\"\"\"\ntest_full_cycle.py -- Integration test: mock server + Playwright + Orchestrator\n================================================================================\n1. Starts mock_server.py in a background thread\n2. Launches Playwright (headless)\n3. Creates Orchestrator\n4. Runs fill_form on /simple with test data\n5. Verifies all 5 fields filled correctly\n6. Runs fill_form on /error-form with existing customer_id\n7. Verifies DUPLICADO was detected and handled\n8. Cleans up\n\"\"\"\nimport sys\nimport os\nimport time\nimport threading\nimport unittest\n\nsys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), \"..\")))\n\n# We import the Flask app from mock_server but run it in a thread\nfrom tests.mock_server import app as flask_app\n\ndef _start_mock_server():\n",
         "applies_to": "tests",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\tests\\test_full_cycle.py",
+        "source": "FormFiller_IA\\tests\\test_full_cycle.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -1234,7 +1234,7 @@
       "fact": {
         "rule": "er but run it in a thread\nfrom tests.mock_server import app as flask_app\n\ndef _start_mock_server():\n    \"\"\"Run Flask in a daemon thread.\"\"\"\n    flask_app.run(host=\"127.0.0.1\", port=5055, debug=False, use_reloader=False)\n\nclass TestFullCycle(unittest.TestCase):\n    \"\"\"Integration test: fills forms on mock server via Playwright.\"\"\"\n\n    _server_thread = None\n\n    @classmethod\n    def setUpClass(cls):\n        \"\"\"Start mock server and Playwright browser.\"\"\"\n        # Start Flask server in background\n        cls._server_thread = threading.Thread(target=_start_mock_server, daemon=True)\n        cls._server_thread.start()\n        time.sleep(1.5)  # Wait for server startup\n\n        # Launch Playwright\n        try:\n            from playwright.sync_api import sync_playwright\n",
         "applies_to": "tests",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\tests\\test_full_cycle.py",
+        "source": "FormFiller_IA\\tests\\test_full_cycle.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -1259,7 +1259,7 @@
       "fact": {
         "rule": "       # Launch Playwright\n        try:\n            from playwright.sync_api import sync_playwright\n        except ImportError:\n            raise unittest.SkipTest(\"playwright not installed (pip install playwright)\")\n\n        cls._pw = sync_playwright().start()\n        try:\n            cls._browser = cls._pw.chromium.launch(headless=True)\n        except Exception as e:\n            cls._pw.stop()\n            raise unittest.SkipTest(f\"Could not launch Chromium: {e}\")\n        cls._context = cls._browser.new_context()\n        cls._page = cls._context.new_page()\n\n    @classmethod\n    def tearDownClass(cls):\n        \"\"\"Clean up browser.\"\"\"\n        try:\n            cls._context.close()\n            cls._browser.close()\n            cls._pw.stop()\n        except Exception:\n            pass\n\n",
         "applies_to": "tests",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\tests\\test_full_cycle.py",
+        "source": "FormFiller_IA\\tests\\test_full_cycle.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -1284,7 +1284,7 @@
       "fact": {
         "rule": "        cls._browser.close()\n            cls._pw.stop()\n        except Exception:\n            pass\n\n    def _make_orchestrator(self):\n        \"\"\"Build an Orchestrator wired to the test page.\"\"\"\n        from core.scanner import Scanner\n        from core.waiter import AdaptiveWaiter\n        from core.filler import Filler\n        from core.recorder import FormRecorder\n        from core.dropdown import DropdownHandler\n        from core.popup import PopupHandler\n        from core.error_handler import ErrorHandler\n        from core.anti_loop import AntiLoop\n\n        page = self.__class__._page\n        scanner = Scanner(page)\n        waiter = AdaptiveWaiter(scanner)\n        filler = Filler(scanner, waiter)\n        recorder = FormRecorder(scanner)\n",
         "applies_to": "tests",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\tests\\test_full_cycle.py",
+        "source": "FormFiller_IA\\tests\\test_full_cycle.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -1309,7 +1309,7 @@
       "fact": {
         "rule": "veWaiter(scanner)\n        filler = Filler(scanner, waiter)\n        recorder = FormRecorder(scanner)\n        dropdown = DropdownHandler(scanner, waiter)\n        popup = PopupHandler(scanner, waiter)\n        error_handler = ErrorHandler(scanner)\n        anti_loop = AntiLoop()\n\n        from core.orchestrator import Orchestrator\n        return Orchestrator(\n            page=page,\n            scanner=scanner,\n            filler=filler,\n            waiter=waiter,\n            recorder=recorder,\n            dropdown_handler=dropdown,\n            popup_handler=popup,\n            error_handler=error_handler,\n            anti_loop=anti_loop,\n        )\n\n    # ------------------------------------------------------------------\n    # Test 1: Fill /simple with 5 fields\n",
         "applies_to": "tests",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\tests\\test_full_cycle.py",
+        "source": "FormFiller_IA\\tests\\test_full_cycle.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -1334,7 +1334,7 @@
       "fact": {
         "rule": "----------------------------------------------------------\n    # Test 1: Fill /simple with 5 fields\n    # ------------------------------------------------------------------\n    def test_01_fill_simple_form(self):\n        page = self.__class__._page\n        orch = self._make_orchestrator()\n\n        test_data = {\n            \"name\": \"Juan Perez\",\n            \"email\": \"juan@test.com\",\n            \"phone\": \"+52 555 1234\",\n            \"company\": \"Acme Corp\",\n            \"message\": \"Hello from integration test\",\n        }\n\n        result = orch.fill_form(\n            form_name=\"simple_test\",\n            data=test_data,\n            url=\"http://localhost:5055/simple\",\n        )\n\n        print(f\"\\n[Integration] Simple form result: {result}\")\n",
         "applies_to": "tests",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\tests\\test_full_cycle.py",
+        "source": "FormFiller_IA\\tests\\test_full_cycle.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -1359,7 +1359,7 @@
       "fact": {
         "rule": "//localhost:5055/simple\",\n        )\n\n        print(f\"\\n[Integration] Simple form result: {result}\")\n        self.assertGreater(result.fields_filled, 0, \"Should have filled at least 1 field\")\n\n        # Verify values via JS\n        for field_name, expected_value in test_data.items():\n            tag = \"textarea\" if field_name == \"message\" else \"input\"\n            actual = page.evaluate(\n                f\"document.querySelector('{tag}[name=\\\"{field_name}\\\"]')?.value || ''\"\n            )\n            if actual:\n                self.assertEqual(\n                    actual.strip(), expected_value.strip(),\n                    f\"Field '{field_name}' mismatch: got '{actual}', expected '{expected_value}'\"\n                )\n\n    # ------------------------------------------------------------------\n",
         "applies_to": "tests",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\tests\\test_full_cycle.py",
+        "source": "FormFiller_IA\\tests\\test_full_cycle.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -1384,7 +1384,7 @@
       "fact": {
         "rule": "alue}'\"\n                )\n\n    # ------------------------------------------------------------------\n    # Test 2: Error handling on /error-form\n    # ------------------------------------------------------------------\n    def test_02_error_form_duplicado(self):\n        page = self.__class__._page\n        o",
         "applies_to": "tests",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\tests\\test_full_cycle.py",
+        "source": "FormFiller_IA\\tests\\test_full_cycle.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -1409,7 +1409,7 @@
       "fact": {
         "rule": "\"\"\"\ntest_filler.py -- Unit tests for Filler logic (no browser required)\n====================================================================\nTests FillResult creation, cascade order, and _verify_fill logic.\n\"\"\"\nimport sys\nimport os\nimport unittest\n\nsys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), \"..\")))\n\nfrom core.filler import Filler, FillResult\n\nclass TestFillResultCreation(unittest.TestCase):\n    \"\"\"Tests for FillResult data class.\"\"\"\n\n    def test_default_values(self):\n        r = FillResult()\n        self.assertFalse(r.success)\n        self.assertEqual(r.strategy_used, \"\")\n        self.assertEqual(r.attempts, 0)\n        self.assertEqual(r.value_before, \"\")\n        self.assertEqual(r.value_after, \"\")\n        self.assertEqual(r.selector_used, \"\")\n",
         "applies_to": "tests",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\tests\\test_filler.py",
+        "source": "FormFiller_IA\\tests\\test_filler.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -1434,7 +1434,7 @@
       "fact": {
         "rule": "fore, \"\")\n        self.assertEqual(r.value_after, \"\")\n        self.assertEqual(r.selector_used, \"\")\n        self.assertEqual(r.duration_ms, 0.0)\n\n    def test_custom_values(self):\n        r = FillResult(\n            success=True,\n            strategy_used=\"js_inject\",\n            attempts=2,\n            value_before=\"old\",\n            value_after=\"new\",\n            selector_used=\"#myField\",\n            duration_ms=15.5,\n        )\n        self.assertTrue(r.success)\n        self.assertEqual(r.strategy_used, \"js_inject\")\n        self.assertEqual(r.attempts, 2)\n        self.assertEqual(r.value_before, \"old\")\n        self.assertEqual(r.value_after, \"new\")\n        self.assertEqual(r.selector_used, \"#myField\")\n        self.assertAlmostEqual(r.duration_ms, 15.5)\n\n    def test_repr(self):\n",
         "applies_to": "tests",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\tests\\test_filler.py",
+        "source": "FormFiller_IA\\tests\\test_filler.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -1459,7 +1459,7 @@
       "fact": {
         "rule": "tor_used, \"#myField\")\n        self.assertAlmostEqual(r.duration_ms, 15.5)\n\n    def test_repr(self):\n        r = FillResult(success=True, strategy_used=\"label_search\", attempts=3, duration_ms=42.0)\n        text = repr(r)\n        self.assertIn(\"success=True\", text)\n        self.assertIn(\"label_search\", text)\n        self.assertIn(\"attempts=3\", text)\n\nclass TestCascadeOrder(unittest.TestCase):\n    \"\"\"Tests that the Filler cascade strategies are in the correct order.\"\"\"\n\n    def test_strategy_order(self):\n        \"\"\"Verify the 5 strategies are defined in the expected order.\"\"\"\n        # We cannot instantiate Filler without scanner/waiter, but we can\n        # inspect the fill method to check strategy names from the source.\n        expected_order = [\n            \"js_inject\",\n",
         "applies_to": "tests",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\tests\\test_filler.py",
+        "source": "FormFiller_IA\\tests\\test_filler.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -1484,7 +1484,7 @@
       "fact": {
         "rule": "method to check strategy names from the source.\n        expected_order = [\n            \"js_inject\",\n            \"learned_selector\",\n            \"partial_id\",\n            \"label_search\",\n            \"ml_fallback\",\n        ]\n        # Verify by checking that Filler has the corresponding private methods\n        filler_cls = Filler\n        for strat in expected_order:\n            method_name = f\"_try_{strat}\"\n            self.assertTrue(\n                hasattr(filler_cls, method_name),\n                f\"Filler missing method {method_name}\",\n            )\n\n    def test_strategy_count(self):\n        \"\"\"Filler should have at least 5 cascade strategies (base 5 + SAP extras).\"\"\"\n        strat_methods = [\n            m for m in dir(Filler)\n",
         "applies_to": "tests",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\tests\\test_filler.py",
+        "source": "FormFiller_IA\\tests\\test_filler.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -1509,7 +1509,7 @@
       "fact": {
         "rule": "e strategies (base 5 + SAP extras).\"\"\"\n        strat_methods = [\n            m for m in dir(Filler)\n            if m.startswith(\"_try_\") and callable(getattr(Filler, m))\n        ]\n        self.assertGreaterEqual(len(strat_methods), 5)\n        # Verify SAP strategies exist\n        self.assertIn(\"_try_sap_type\", dir(Filler))\n        self.assertIn(\"_try_sap_label_search\", dir(Filler))\n\nclass TestVerifyFillLogic(unittest.TestCase):\n    \"\"\"Tests for Filler._verify_fill logic using a mock page.\"\"\"\n\n    class MockTarget:\n        \"\"\"Simulates a Playwright page/frame with evaluate().\"\"\"\n        def __init__(self, return_value):\n            self._return_value = return_value\n\n        def evaluate(self, js):\n            return self._return_value\n\n    def _make_filler(self):\n",
         "applies_to": "tests",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\tests\\test_filler.py",
+        "source": "FormFiller_IA\\tests\\test_filler.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -1534,7 +1534,7 @@
       "fact": {
         "rule": "\n        def evaluate(self, js):\n            return self._return_value\n\n    def _make_filler(self):\n        \"\"\"Create a Filler with None dependencies (only _verify_fill is used).\"\"\"\n        return Filler.__new__(Filler)\n\n    def test_verify_exact_match(self):\n        filler = self._make_filler()\n        mock_page = self.MockTarget(\"hello\")\n        result = filler._verify_fill(mock_page, None, \"#field\", \"hello\")\n        self.assertTrue(result)\n\n    def test_verify_partial_match(self):\n        filler = self._make_filler()\n        mock_page = self.MockTarget(\"Option: hello world\")\n        result = filler._verify_fill(mock_page, None, \"#field\", \"hello world\")\n        self.assertTrue(result)\n\n    def test_verify_mismatch(self):\n        filler = self._make_filler()\n",
         "applies_to": "tests",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\tests\\test_filler.py",
+        "source": "FormFiller_IA\\tests\\test_filler.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -1559,7 +1559,7 @@
       "fact": {
         "rule": "  self.assertTrue(result)\n\n    def test_verify_mismatch(self):\n        filler = self._make_filler()\n        mock_page = self.MockTarget(\"something_else\")\n        result = filler._verify_fill(mock_page, None, \"#field\", \"expected_value\")\n        self.assertFalse(result)\n\n    def test_verify_null_value(self):\n        filler = self._make_filler()\n        mock_page = self.MockTarget(None)\n        result = filler._verify_fill(mock_page, None, \"#field\", \"expected\")\n        self.assertFalse(result)\n\n    def test_verify_with_whitespace(self):\n        filler = self._make_filler()\n        mock_page = self.MockTarget(\"  hello  \")\n        result = filler._verify_fill(mock_page, None, \"#field\", \"hello\")\n        self.assertTrue(result)\n\n    def test_verify_uses_frame_when_provided(self):\n",
         "applies_to": "tests",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\tests\\test_filler.py",
+        "source": "FormFiller_IA\\tests\\test_filler.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -1584,7 +1584,7 @@
       "fact": {
         "rule": "eld\", \"hello\")\n        self.assertTrue(result)\n\n    def test_verify_uses_frame_when_provided(self):\n        filler = self._make_filler()\n        mock_page = self.MockTarget(\"wrong\")\n        mock_frame = self.MockTarget(\"correct\")\n        result = filler._verify_fill(moc",
         "applies_to": "tests",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\tests\\test_filler.py",
+        "source": "FormFiller_IA\\tests\\test_filler.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -1609,7 +1609,7 @@
       "fact": {
         "rule": "\"\"\"\nrun_tests.py -- Test runner for FormFiller_IA\n===============================================\nRuns all unit tests, then optionally runs integration tests.\n\nUsage:\n    python run_tests.py               # unit tests only\n    python run_tests.py --integration # unit + integration tests\n\"\"\"\nimport sys\nimport os\nimport argparse\nimport unittest\n\n# Ensure project root is importable\nsys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), \"..\")))\n\ndef run_unit_tests() -> unittest.TestResult:\n    \"\"\"Discover and run all unit tests (test_scanner, test_filler, test_error_handler).\"\"\"\n    print(\"=\" * 60)\n    print(\"  FormFiller_IA -- Unit Tests\")\n    print(\"=\" * 60)\n\n    loader = unittest.TestLoader()\n    suite = unittest.TestSuite()\n\n",
         "applies_to": "tests",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\tests\\run_tests.py",
+        "source": "FormFiller_IA\\tests\\run_tests.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -1634,7 +1634,7 @@
       "fact": {
         "rule": "t Tests\")\n    print(\"=\" * 60)\n\n    loader = unittest.TestLoader()\n    suite = unittest.TestSuite()\n\n    test_dir = os.path.dirname(os.path.abspath(__file__))\n\n    # Load specific unit test modules\n    for module_name in (\"test_scanner\", \"test_filler\", \"test_error_handler\"):\n        try:\n            module_suite = loader.loadTestsFromName(module_name)\n            suite.addTests(module_suite)\n        except Exception as e:\n            print(f\"  Warning: could not load {module_name}: {e}\")\n            # Try importing directly\n            try:\n                mod = __import__(module_name)\n                module_suite = loader.loadTestsFromModule(mod)\n                suite.addTests(module_suite)\n            except Exception as e2:\n                print(f\"  Error loading {module_name}: {e2}\")\n\n",
         "applies_to": "tests",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\tests\\run_tests.py",
+        "source": "FormFiller_IA\\tests\\run_tests.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -1659,7 +1659,7 @@
       "fact": {
         "rule": "\n            except Exception as e2:\n                print(f\"  Error loading {module_name}: {e2}\")\n\n    runner = unittest.TextTestRunner(verbosity=2)\n    return runner.run(suite)\n\ndef run_integration_tests() -> unittest.TestResult:\n    \"\"\"Run the full-cycle integration test.\"\"\"\n    print(\"\\n\" + \"=\" * 60)\n    print(\"  FormFiller_IA -- Integration Tests\")\n    print(\"=\" * 60)\n\n    loader = unittest.TestLoader()\n    suite = unittest.TestSuite()\n\n    try:\n        from tests import test_full_cycle\n        module_suite = loader.loadTestsFromModule(test_full_cycle)\n        suite.addTests(module_suite)\n    except ImportError:\n        try:\n            import test_full_cycle\n            module_suite = loader.loadTestsFromModule(test_full_cycle)\n            suite.addTests(module_suite)\n",
         "applies_to": "tests",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\tests\\run_tests.py",
+        "source": "FormFiller_IA\\tests\\run_tests.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -1684,7 +1684,7 @@
       "fact": {
         "rule": "module_suite = loader.loadTestsFromModule(test_full_cycle)\n            suite.addTests(module_suite)\n        except ImportError as e:\n            print(f\"  Could not import test_full_cycle: {e}\")\n            print(\"  Make sure playwright is installed: pip install playwright\")\n            return None\n\n    runner = unittest.TextTestRunner(verbosity=2)\n    return runner.run(suite)\n\ndef main():\n    parser = argparse.ArgumentParser(description=\"FormFiller_IA Test Runner\")\n    parser.add_argument(\n        \"--integration\", action=\"store_true\",\n        help=\"Also run integration tests (requires Flask, Playwright)\",\n    )\n    args = parser.parse_args()\n\n    # Change to test directory so module imports work\n    test_dir = os.path.dirname(os.path.abspath(__file__))\n    os.chdir(test_dir)\n\n",
         "applies_to": "tests",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\tests\\run_tests.py",
+        "source": "FormFiller_IA\\tests\\run_tests.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -1709,7 +1709,7 @@
       "fact": {
         "rule": "dule imports work\n    test_dir = os.path.dirname(os.path.abspath(__file__))\n    os.chdir(test_dir)\n\n    # Run unit tests\n    unit_result = run_unit_tests()\n\n    # Run integration tests if requested\n    integration_result = None\n    if args.integration:\n        integration_result = run_integration_tests()\n\n    # Summary\n    print(\"\\n\" + \"=\" * 60)\n    print(\"  Summary\")\n    print(\"=\" * 60)\n\n    all_passed = True\n\n    if unit_result:\n        unit_ok = unit_result.wasSuccessful()\n        unit_count = unit_result.testsRun\n        unit_fail = len(unit_result.failures) + len(unit_result.errors)\n        print(f\"  Unit tests:        {unit_count} run, {unit_fail} failed  {'PASS' if unit_ok else 'FAIL'}\")\n        if not unit_ok:\n            all_passed = False\n    else:\n",
         "applies_to": "tests",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\tests\\run_tests.py",
+        "source": "FormFiller_IA\\tests\\run_tests.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -1734,7 +1734,7 @@
       "fact": {
         "rule": " {'PASS' if unit_ok else 'FAIL'}\")\n        if not unit_ok:\n            all_passed = False\n    else:\n        print(\"  Unit tests:        NOT RUN\")\n\n    if args.integration:\n        if integration_result:\n            int_ok = integration_result.wasSuccessful()\n            int_count = integration_result.testsRun\n            int_fail = len(integration_result.failures) + len(integration_result.errors)\n            print(f\"  Integration tests: {int_count} run, {int_fail} failed  {'PASS' if int_ok else 'FAIL'}\")\n            if not int_ok:\n                all_passed = False\n        else:\n            print(\"  Integration tests: SKIPPED (import error)\")\n    else:\n        print(\"  Integration tests: SKIPPED (use --integration)\")\n\n    print(\"=\" * 60)\n\n    sys.exit(0 if all_passed else 1)\n\n",
         "applies_to": "tests",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\tests\\run_tests.py",
+        "source": "FormFiller_IA\\tests\\run_tests.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -1759,7 +1759,7 @@
       "fact": {
         "rule": "on tests: SKIPPED (use --integration)\")\n\n    print(\"=\" * 60)\n\n    sys.exit(0 if all_passed else 1)\n\nif __name__ == \"__main__\":\n    main()",
         "applies_to": "tests",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\tests\\run_tests.py",
+        "source": "FormFiller_IA\\tests\\run_tests.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -1782,9 +1782,9 @@
       "type": "fact",
       "key": "test_functional_100_0",
       "fact": {
-        "rule": "\"\"\"\n100 Functional Tests for WordCOM engine.\n\nEach test copies the source document, performs an operation,\nvalidates the result, and saves to test_results/.\n\nCategories (100 tests):\n  A. Find/Replace operations (15)\n  B. Section deletion combinations (15)\n  C. Heading renumbering (10)\n  D. Section movement (10)\n  E. Table operations (10)\n  F. Footer shape modifications (10)\n  G. Font/format reading (10)\n  H. Document structure queries (10)\n  I. Combined multi-step operations (10)\n\"\"\"\n\nimport os\nimport re\nimport shutil\nimport sys\nimport time\nimport unittest\n\nsys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', 'src'))\nfrom word_com import WordCOM, WordCOMError\n\nINPUT = r'C:\\Chance1\\temp2\\Propuesta de PostgreSQL CE On Prem Horas - Banco GyT 30032026 (1).docx'\n",
+        "rule": "\"\"\"\n100 Functional Tests for WordCOM engine.\n\nEach test copies the source document, performs an operation,\nvalidates the result, and saves to test_results/.\n\nCategories (100 tests):\n  A. Find/Replace operations (15)\n  B. Section deletion combinations (15)\n  C. Heading renumbering (10)\n  D. Section movement (10)\n  E. Table operations (10)\n  F. Footer shape modifications (10)\n  G. Font/format reading (10)\n  H. Document structure queries (10)\n  I. Combined multi-step operations (10)\n\"\"\"\n\nimport os\nimport re\nimport shutil\nimport sys\nimport time\nimport unittest\n\nsys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', 'src'))\nfrom word_com import WordCOM, WordCOMError\n\nINPUT = r'temp2\\Propuesta de PostgreSQL CE On Prem Horas - Banco GyT 30032026 (1).docx'\n",
         "applies_to": "tests",
-        "source": "C:\\Chance1\\IA\\IA_Word\\tests\\test_functional_100.py",
+        "source": "IA_Word\\tests\\test_functional_100.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -1807,9 +1807,9 @@
       "type": "fact",
       "key": "test_functional_100_1",
       "fact": {
-        "rule": "\nINPUT = r'C:\\Chance1\\temp2\\Propuesta de PostgreSQL CE On Prem Horas - Banco GyT 30032026 (1).docx'\nRESULTS = r'C:\\Chance1\\IA_Word\\test_results'\n\nos.makedirs(RESULTS, exist_ok=True)\n\n_word = None\n\ndef get_word():\n    global _word\n    if _word is None:\n        _word = WordCOM(visible=False)\n    return _word\n\ndef fresh_doc(test_name):\n    \"\"\"Copy source to test_results and open.\"\"\"\n    w = get_word()\n    try:\n        w.close_document(save=False)\n    except Exception:\n        pass\n    dest = os.path.join(RESULTS, f'{test_name}.docx')\n    shutil.copy2(INPUT, dest)\n    w.open_document(dest)\n    return dest\n\n# ============================================================\n# A. FIND/REPLACE OPERATIONS (15 tests)\n# ============================================================\n\n",
+        "rule": "\nINPUT = r'temp2\\Propuesta de PostgreSQL CE On Prem Horas - Banco GyT 30032026 (1).docx'\nRESULTS = r'IA_Word\\test_results'\n\nos.makedirs(RESULTS, exist_ok=True)\n\n_word = None\n\ndef get_word():\n    global _word\n    if _word is None:\n        _word = WordCOM(visible=False)\n    return _word\n\ndef fresh_doc(test_name):\n    \"\"\"Copy source to test_results and open.\"\"\"\n    w = get_word()\n    try:\n        w.close_document(save=False)\n    except Exception:\n        pass\n    dest = os.path.join(RESULTS, f'{test_name}.docx')\n    shutil.copy2(INPUT, dest)\n    w.open_document(dest)\n    return dest\n\n# ============================================================\n# A. FIND/REPLACE OPERATIONS (15 tests)\n# ============================================================\n\n",
         "applies_to": "tests",
-        "source": "C:\\Chance1\\IA\\IA_Word\\tests\\test_functional_100.py",
+        "source": "IA_Word\\tests\\test_functional_100.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -1834,7 +1834,7 @@
       "fact": {
         "rule": " FIND/REPLACE OPERATIONS (15 tests)\n# ============================================================\n\nclass TestA_FindReplace(unittest.TestCase):\n\n    def test_A01_replace_client_name(self):\n        fresh_doc('A01_replace_client')\n        w = get_word()\n        n = w.find_replace('Banco GyT Continental', 'Banco Ficticius')\n        self.assertGreater(n, 0)\n        w.save()\n\n    def test_A02_replace_date_body(self):\n        fresh_doc('A02_replace_date')\n        w = get_word()\n        n = w.find_replace('30 de marzo de 2026', '15 de abril de 2026')\n        w.save()\n\n    def test_A03_replace_currency_amount(self):\n        fresh_doc('A03_replace_currency')\n        w = get_word()\n        n = w.replace_in_tables('400.00', '500.00')\n        self.assertGreater(n, 0)\n        w.save()\n\n",
         "applies_to": "tests",
-        "source": "C:\\Chance1\\IA\\IA_Word\\tests\\test_functional_100.py",
+        "source": "IA_Word\\tests\\test_functional_100.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -1859,7 +1859,7 @@
       "fact": {
         "rule": "     n = w.replace_in_tables('400.00', '500.00')\n        self.assertGreater(n, 0)\n        w.save()\n\n    def test_A04_replace_product_name(self):\n        fresh_doc('A04_replace_product')\n        w = get_word()\n        n = w.find_replace('PostgreSQL Community Edition', 'MySQL Enterprise')\n        self.assertGreater(n, 0)\n        w.save()\n\n    def test_A05_replace_coverage_hours(self):\n        fresh_doc('A05_replace_coverage')\n        w = get_word()\n        n = w.find_replace('24x7', '8x5')\n        w.save()\n\n    def test_A06_replace_version(self):\n        fresh_doc('A06_replace_version')\n        w = get_word()\n        n = w.replace_in_footer_shapes('v1.0', 'v2.0')\n        w.save()\n\n    def test_A07_replace_opportunity_number(self):\n        fresh_doc('A07_replace_opp')\n        w = get_word()\n",
         "applies_to": "tests",
-        "source": "C:\\Chance1\\IA\\IA_Word\\tests\\test_functional_100.py",
+        "source": "IA_Word\\tests\\test_functional_100.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -1884,7 +1884,7 @@
       "fact": {
         "rule": "t_A07_replace_opportunity_number(self):\n        fresh_doc('A07_replace_opp')\n        w = get_word()\n        r = w.smart_replace('227334', '999999')\n        self.assertGreater(sum(r.values()), 0)\n        w.save()\n\n    def test_A08_replace_multiple_dates(self):\n        fresh_doc('A08_replace_multi_dates')\n        w = get_word()\n        w.smart_replace('04 de febrero de 2025', '01 de enero de 2027')\n        w.smart_replace('04 de febrero de 2024', '01 de enero de 2027')\n        w.save()\n\n    def test_A09_replace_company_GBM(self):\n        fresh_doc('A09_replace_GBM_count')\n        w = get_word()\n        n = w.find_replace('GBM', 'GBM')  # Count occurrences\n        self.assertGreater(n, 20, \"GBM should appear 20+ times\")\n\n    def test_A10_replace_email_domain(self):\n",
         "applies_to": "tests",
-        "source": "C:\\Chance1\\IA\\IA_Word\\tests\\test_functional_100.py",
+        "source": "IA_Word\\tests\\test_functional_100.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -1909,7 +1909,7 @@
       "fact": {
         "rule": "f.assertGreater(n, 20, \"GBM should appear 20+ times\")\n\n    def test_A10_replace_email_domain(self):\n        fresh_doc('A10_replace_email')\n        w = get_word()\n        n = w.find_replace('gbm.net', 'empresa.com')\n        w.save()\n\n    def test_A11_replace_phone_numbers(self):\n        fresh_doc('A11_replace_phone')\n        w = get_word()\n        n = w.find_replace('ext. 3911', 'ext. 5000')\n        w.save()\n\n    def test_A12_replace_payment_terms(self):\n        fresh_doc('A12_replace_payment')\n        w = get_word()\n        n = w.find_replace('100% anticipado', '50% anticipo, 50% entrega')\n        w.save()\n\n    def test_A13_replace_validity_period(self):\n        fresh_doc('A13_replace_validity')\n        w = get_word()\n        n = w.find_replace('treinta (30)', 'quince (15)')\n",
         "applies_to": "tests",
-        "source": "C:\\Chance1\\IA\\IA_Word\\tests\\test_functional_100.py",
+        "source": "IA_Word\\tests\\test_functional_100.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -1934,7 +1934,7 @@
       "fact": {
         "rule": "replace_validity')\n        w = get_word()\n        n = w.find_replace('treinta (30)', 'quince (15)')\n        w.save()\n\n    def test_A14_replace_service_type(self):\n        fresh_doc('A14_replace_service')\n        w = get_word()\n        n = w.find_replace('Soporte', 'Soporte Premium')\n        w.save()\n\n    def test_A15_smart_replace_all_areas(self):\n        fresh_doc('A15_smart_replace_all')\n        w = get_word()\n        r = w.smart_replace('227334', '111111')\n        self.assertIn('body', r)\n        self.assertIn('footer_shapes', r)\n        self.assertIn('tables', r)\n        w.save()\n\n# ============================================================\n# B. SECTION DELETION COMBINATIONS (15 tests)\n# ============================================================\n\n",
         "applies_to": "tests",
-        "source": "C:\\Chance1\\IA\\IA_Word\\tests\\test_functional_100.py",
+        "source": "IA_Word\\tests\\test_functional_100.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -1959,7 +1959,7 @@
       "fact": {
         "rule": "ON DELETION COMBINATIONS (15 tests)\n# ============================================================\n\nclass TestB_DeleteSections(unittest.TestCase):\n\n    def test_B01_delete_strategy(self):\n        fresh_doc('B01_del_strategy')",
         "applies_to": "tests",
-        "source": "C:\\Chance1\\IA\\IA_Word\\tests\\test_functional_100.py",
+        "source": "IA_Word\\tests\\test_functional_100.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -1982,9 +1982,9 @@
       "type": "fact",
       "key": "test_word_features_0",
       "fact": {
-        "rule": "\"\"\"\nComprehensive Word feature tests organized by ribbon tabs.\nTests all COM-accessible operations: Inicio, Insertar, Disposicion, Referencias.\n59 test cases covering sub-cases for each Word feature category.\n\"\"\"\n\nimport os\nimport shutil\nimport sys\nimport unittest\n\nsys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', 'src'))\nfrom word_com import WordCOM, WordCOMError\n\nINPUT = r'C:\\Chance1\\temp2\\Propuesta de PostgreSQL CE On Prem Horas - Banco GyT 30032026 (1).docx'\nWORK = r'C:\\Chance1\\temp2\\TEST_FEATURES.docx'\n\n_word = None\n\ndef get_word():\n    global _word\n    if _word is None:\n        _word = WordCOM(visible=False)\n    return _word\n\ndef reload_doc():\n    w = get_word()\n    try:\n        w.close_document(save=False)\n    except Exception:\n        pass\n",
+        "rule": "\"\"\"\nComprehensive Word feature tests organized by ribbon tabs.\nTests all COM-accessible operations: Inicio, Insertar, Disposicion, Referencias.\n59 test cases covering sub-cases for each Word feature category.\n\"\"\"\n\nimport os\nimport shutil\nimport sys\nimport unittest\n\nsys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', 'src'))\nfrom word_com import WordCOM, WordCOMError\n\nINPUT = r'temp2\\Propuesta de PostgreSQL CE On Prem Horas - Banco GyT 30032026 (1).docx'\nWORK = r'temp2\\TEST_FEATURES.docx'\n\n_word = None\n\ndef get_word():\n    global _word\n    if _word is None:\n        _word = WordCOM(visible=False)\n    return _word\n\ndef reload_doc():\n    w = get_word()\n    try:\n        w.close_document(save=False)\n    except Exception:\n        pass\n",
         "applies_to": "tests",
-        "source": "C:\\Chance1\\IA\\IA_Word\\tests\\test_word_features.py",
+        "source": "IA_Word\\tests\\test_word_features.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -2009,7 +2009,7 @@
       "fact": {
         "rule": "    w = get_word()\n    try:\n        w.close_document(save=False)\n    except Exception:\n        pass\n    shutil.copy2(INPUT, WORK)\n    return w.open_document(WORK)\n\n# ============================================================\n# INICIO (HOME)\n# ============================================================\n\nclass Test_Home_01_Clipboard(unittest.TestCase):\n    \"\"\"Portapapeles: copy, cut, paste operations.\"\"\"\n\n    @classmethod\n    def setUpClass(cls):\n        if not os.path.exists(INPUT):\n            raise unittest.SkipTest(\"Input not found\")\n        reload_doc()\n\n    def test_copy_text_between_paragraphs(self):\n        \"\"\"Copy text from one paragraph range to another.\"\"\"\n        doc = get_word().doc\n        source = doc.Paragraphs(70).Range  # \"1.  Por que GBM?\"\n",
         "applies_to": "tests",
-        "source": "C:\\Chance1\\IA\\IA_Word\\tests\\test_word_features.py",
+        "source": "IA_Word\\tests\\test_word_features.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -2034,7 +2034,7 @@
       "fact": {
         "rule": "er.\"\"\"\n        doc = get_word().doc\n        source = doc.Paragraphs(70).Range  # \"1.  Por que GBM?\"\n        source_text = source.Text.strip()\n        # FormattedText copy preserves formatting\n        formatted = source.FormattedText\n        self.assertIsNotNone(formatted)\n        self.assertGreater(len(source_text), 0)\n\n    def test_cut_paste_preserves_format(self):\n        \"\"\"Cut and paste via FormattedText preserves font info.\"\"\"\n        doc = get_word().doc\n        source = doc.Paragraphs(70).Range\n        fmt = source.FormattedText\n        font_before = source.Font.Name\n        # FormattedText carries formatting\n        self.assertIsNotNone(font_before)\n\n    def test_paste_text_only(self):\n        \"\"\"Can set Range.Text (plain text, no formatting).\"\"\"\n        doc = get_word().doc\n",
         "applies_to": "tests",
-        "source": "C:\\Chance1\\IA\\IA_Word\\tests\\test_word_features.py",
+        "source": "IA_Word\\tests\\test_word_features.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -2059,7 +2059,7 @@
       "fact": {
         "rule": "y(self):\n        \"\"\"Can set Range.Text (plain text, no formatting).\"\"\"\n        doc = get_word().doc\n        # Setting .Text strips formatting (paste as text)\n        test_range = doc.Range(0, 0)\n        # Just verify the property is settable without crash\n        self.assertTrue(hasattr(test_range, 'Text'))\n\n    def test_format_painter_read(self):\n        \"\"\"Can read formatting from one range to apply to another.\"\"\"\n        doc = get_word().doc\n        rng = doc.Paragraphs(70).Range\n        font_name = rng.Font.Name\n        font_size = rng.Font.Size\n        bold = rng.Font.Bold\n        self.assertIsInstance(font_name, str)\n        self.assertIsInstance(font_size, float)\n\nclass Test_Home_02_Font(unittest.TestCase):\n    \"\"\"Fuente: read/write font properties.\"\"\"\n\n    @classmethod\n",
         "applies_to": "tests",
-        "source": "C:\\Chance1\\IA\\IA_Word\\tests\\test_word_features.py",
+        "source": "IA_Word\\tests\\test_word_features.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -2084,7 +2084,7 @@
       "fact": {
         "rule": "st_Home_02_Font(unittest.TestCase):\n    \"\"\"Fuente: read/write font properties.\"\"\"\n\n    @classmethod\n    def setUpClass(cls):\n        reload_doc()\n\n    def test_read_font_name(self):\n        doc = get_word().doc\n        name = doc.Paragraphs(70).Range.Font.Name\n        self.assertIsInstance(name, str)\n        self.assertGreater(len(name), 0)\n\n    def test_read_font_size(self):\n        doc = get_word().doc\n        size = doc.Paragraphs(70).Range.Font.Size\n        self.assertGreater(size, 0)\n\n    def test_detect_bold_italic_underline(self):\n        doc = get_word().doc\n        font = doc.Paragraphs(70).Range.Font\n        # These return 0 (False), -1 (True), or 9999999 (mixed)\n        self.assertIn(font.Bold, [0, -1, 9999999])\n        self.assertIn(font.Italic, [0, -1, 9999999])\n",
         "applies_to": "tests",
-        "source": "C:\\Chance1\\IA\\IA_Word\\tests\\test_word_features.py",
+        "source": "IA_Word\\tests\\test_word_features.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -2109,7 +2109,7 @@
       "fact": {
         "rule": "    self.assertIn(font.Bold, [0, -1, 9999999])\n        self.assertIn(font.Italic, [0, -1, 9999999])\n        self.assertIn(font.Underline, [0, -1, 9999999, 1])\n\n    def test_read_font_color(self):\n        doc = get_word().doc\n        color = doc.Paragraphs(70).Range.Font.Color\n        self.assertIsInstance(color, int)\n\n    def test_change_font_name(self):\n        doc = get_word().doc\n        para = doc.Paragraphs(doc.Paragraphs.Count)  # last paragraph\n        para.Range.Font.Name = \"Calibri\"\n        self.assertEqual(para.Range.Font.Name, \"Calibri\")\n\n    def test_change_font_size(self):\n        doc = get_word().doc\n        para = doc.Paragraphs(doc.Paragraphs.Count)\n        para.Range.Font.Size = 14\n        self.assertEqual(para.Range.Font.Size, 14.0)\n\n    def test_apply_bold_italic(self):\n",
         "applies_to": "tests",
-        "source": "C:\\Chance1\\IA\\IA_Word\\tests\\test_word_features.py",
+        "source": "IA_Word\\tests\\test_word_features.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -2134,7 +2134,7 @@
       "fact": {
         "rule": "ze = 14\n        self.assertEqual(para.Range.Font.Size, 14.0)\n\n    def test_apply_bold_italic(self):\n        doc = get_word().doc\n        para = doc.Paragraphs(doc.Paragraphs.Count)\n        para.Range.Font.Bold = -1  # True in COM\n        para.Range.Font.Italic = -1\n        self.assertEqual(para.Range.Font.Bold, -1)\n        self.assertEqual(para.Range.Font.Italic, -1)\n\n    def test_change_color(self):\n        doc = get_word().doc\n        para = doc.Paragraphs(doc.Paragraphs.Count)\n        para.Range.Font.Color = 255  # Red\n        self.assertEqual(para.Range.Font.Color, 255)\n\n    def test_detect_strikethrough(self):\n        doc = get_word().doc\n        strike = doc.Paragraphs(70).Range.Font.StrikeThrough\n        self.assertIn(strike, [0, -1, 9999999])\n\n",
         "applies_to": "tests",
-        "source": "C:\\Chance1\\IA\\IA_Word\\tests\\test_word_features.py",
+        "source": "IA_Word\\tests\\test_word_features.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -2159,7 +2159,7 @@
       "fact": {
         "rule": "rike = doc.Paragraphs(70).Range.Font.StrikeThrough\n        self.assertIn(strike, [0, -1, 9999999])\n\nclass Test_Home_03_Paragraph(unittest.TestCase):\n    \"\"\"Parrafo: alignment, spacing, indentation.\"\"\"\n\n    @classmethod\n    d",
         "applies_to": "tests",
-        "source": "C:\\Chance1\\IA\\IA_Word\\tests\\test_word_features.py",
+        "source": "IA_Word\\tests\\test_word_features.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -2184,7 +2184,7 @@
       "fact": {
         "rule": "\"\"\"\nTest case: PostgreSQL Proposal Document.\n\nThis test replicates the manual editing workflow that was previously done\nby hand. It opens a PostgreSQL proposal template, removes irrelevant\nsections (installation/setup), updates dates and metadata, validates the\nresult, and saves a clean copy.\n\nPrerequisites:\n    - Microsoft Word installed\n    - A PostgreSQL proposal template document available\n\nUsage:\n    pytest tests/test_postgresql_proposal.py -v\n    python -m pytest tests/test_postgresql_proposal.py -v\n\"\"\"\n\nfrom __future__ import annotations\n\nimport os\nimport shutil\nimport tempfile\nfrom typing import Generator\n\nimport pytest\n\n# Adjust these paths to match your environment\nTEMPLATE_DIR = os.path.join(os.path.dirname(__file__), \"..\", \"templates\")\n",
         "applies_to": "tests",
-        "source": "C:\\Chance1\\IA\\IA_Word\\tests\\test_postgresql_proposal.py",
+        "source": "IA_Word\\tests\\test_postgresql_proposal.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -2209,7 +2209,7 @@
       "fact": {
         "rule": "to match your environment\nTEMPLATE_DIR = os.path.join(os.path.dirname(__file__), \"..\", \"templates\")\nPOSTGRESQL_TEMPLATE = os.path.join(TEMPLATE_DIR, \"propuesta_postgresql.docx\")\nOUTPUT_DIR = os.path.join(os.path.dirname(__file__), \"..\", \"output\")\n\ndef template_exists() -> bool:\n    \"\"\"Check if the PostgreSQL template document exists.\"\"\"\n    return os.path.exists(POSTGRESQL_TEMPLATE)\n\nskip_if_no_template = pytest.mark.skipif(\n    not template_exists(),\n    reason=f\"Template not found: {POSTGRESQL_TEMPLATE}\",\n)\n\nskip_if_no_word = pytest.mark.skipif(\n    os.name != \"nt\",\n    reason=\"COM Automation requires Windows with Microsoft Word installed.\",\n)\n\n@pytest.fixture\ndef working_copy() -> Generator[str, None, None]:\n    \"\"\"\n    Create a temporary working copy of the template document.\n\n",
         "applies_to": "tests",
-        "source": "C:\\Chance1\\IA\\IA_Word\\tests\\test_postgresql_proposal.py",
+        "source": "IA_Word\\tests\\test_postgresql_proposal.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -2234,7 +2234,7 @@
       "fact": {
         "rule": " Generator[str, None, None]:\n    \"\"\"\n    Create a temporary working copy of the template document.\n\n    Yields the path to the temporary file. Cleans up after the test.\n    \"\"\"\n    if not template_exists():\n        pytest.skip(\"Template document not available\")\n\n    temp_dir = tempfile.mkdtemp(prefix=\"ia_word_test_\")\n    temp_path = os.path.join(temp_dir, \"test_postgresql.docx\")\n    shutil.copy2(POSTGRESQL_TEMPLATE, temp_path)\n\n    yield temp_path\n\n    # Cleanup\n    try:\n        shutil.rmtree(temp_dir)\n    except Exception:\n        pass\n\n@pytest.fixture\ndef word_com():\n    \"\"\"\n    Create a WordCOM instance for testing.\n\n    Ensures Word is properly closed even if a test fails.\n    \"\"\"\n    from src.word_com import WordCOM\n\n    word = WordCOM(visible=False)\n    word._ensure_app()\n\n",
         "applies_to": "tests",
-        "source": "C:\\Chance1\\IA\\IA_Word\\tests\\test_postgresql_proposal.py",
+        "source": "IA_Word\\tests\\test_postgresql_proposal.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -2259,7 +2259,7 @@
       "fact": {
         "rule": "\"\"\"\n    from src.word_com import WordCOM\n\n    word = WordCOM(visible=False)\n    word._ensure_app()\n\n    yield word\n\n    # Always cleanup\n    word.quit()\n\n@skip_if_no_word\n@skip_if_no_template\nclass TestPostgreSQLProposal:\n    \"\"\"\n    Test suite for PostgreSQL proposal document manipulation.\n\n    These tests replicate the workflow that was previously done manually\n    and that broke when using python-docx due to XML run splitting.\n    \"\"\"\n\n    def test_open_document(self, word_com, working_copy: str) -> None:\n        \"\"\"Test that the document opens successfully and has expected structure.\"\"\"\n        info = word_com.open_document(working_copy)\n\n        assert info[\"name\"] == \"test_postgresql.docx\"\n        assert info[\"page_count\"] > 0\n        assert info[\"paragraph_count\"] > 0\n\n",
         "applies_to": "tests",
-        "source": "C:\\Chance1\\IA\\IA_Word\\tests\\test_postgresql_proposal.py",
+        "source": "IA_Word\\tests\\test_postgresql_proposal.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -2284,7 +2284,7 @@
       "fact": {
         "rule": "_postgresql.docx\"\n        assert info[\"page_count\"] > 0\n        assert info[\"paragraph_count\"] > 0\n\n    def test_get_sections(self, word_com, working_copy: str) -> None:\n        \"\"\"Test that we can extract section headings.\"\"\"\n        word_com.open_document(working_copy)\n        sections = word_com.get_sections()\n\n        assert len(sections) > 0\n        for section in sections:\n            assert \"text\" in section\n            assert \"level\" in section\n            assert \"page\" in section\n\n    def test_get_tables(self, word_com, working_copy: str) -> None:\n        \"\"\"Test that we can extract table contents.\"\"\"\n        word_com.open_document(working_copy)\n        tables = word_com.get_tables()\n\n        assert len(tables) > 0\n        for table in tables:\n            assert \"data\" in table\n",
         "applies_to": "tests",
-        "source": "C:\\Chance1\\IA\\IA_Word\\tests\\test_postgresql_proposal.py",
+        "source": "IA_Word\\tests\\test_postgresql_proposal.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -2309,7 +2309,7 @@
       "fact": {
         "rule": "s()\n\n        assert len(tables) > 0\n        for table in tables:\n            assert \"data\" in table\n            assert \"rows\" in table\n            assert \"columns\" in table\n\n    def test_find_replace_dates(self, word_com, working_copy: str) -> None:\n        \"\"\"\n        Test find/replace on dates.\n\n        This is the operation that FAILED with python-docx because \"2025\"\n        was stored as \"202\"+\"5\" in the XML. COM automation handles this\n        correctly because it operates on the rendered text.\n        \"\"\"\n        word_com.open_document(working_copy)\n\n        # Replace year - this should work even if XML has split runs\n        count = word_com.find_replace(\"2025\", \"2026\")\n\n        # We expect at least some replacements (dates appear multiple times)\n",
         "applies_to": "tests",
-        "source": "C:\\Chance1\\IA\\IA_Word\\tests\\test_postgresql_proposal.py",
+        "source": "IA_Word\\tests\\test_postgresql_proposal.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -2334,7 +2334,7 @@
       "fact": {
         "rule": "place(\"2025\", \"2026\")\n\n        # We expect at least some replacements (dates appear multiple times)\n        # If the document uses 2025, count > 0; otherwise the template\n        # might already use a different year\n        assert count >= 0  # At minimum, no error occurred\n\n        # Replace month names\n        month_replacements = word_com.find_replace(\"Enero\", \"Marzo\")\n        assert month_replacements >= 0\n\n    def test_delete_installation_section(self, word_com, working_copy: str) -> None:\n        \"\"\"\n        Test deleting the installation/setup section.\n\n        For a services-only PostgreSQL proposal, installation sections\n        should be removed.\n        \"\"\"\n        word_com.open_document(working_copy)\n\n        sections_before = word_com.get_sections()\n",
         "applies_to": "tests",
-        "source": "C:\\Chance1\\IA\\IA_Word\\tests\\test_postgresql_proposal.py",
+        "source": "IA_Word\\tests\\test_postgresql_proposal.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -2359,7 +2359,7 @@
       "fact": {
         "rule": "\"\"\"\n        word_com.open_document(working_copy)\n\n        sections_before = word_com.get_sections()\n        section_count_before = len(sections_before)\n\n        # Try to delete installation section (may or may not exist in template)",
         "applies_to": "tests",
-        "source": "C:\\Chance1\\IA\\IA_Word\\tests\\test_postgresql_proposal.py",
+        "source": "IA_Word\\tests\\test_postgresql_proposal.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -2382,9 +2382,9 @@
       "type": "fact",
       "key": "run_5_advanced_0",
       "fact": {
-        "rule": "\"\"\"\n5 Pruebas Avanzadas de Certificacion - Escenarios Complejos.\nBasado en edge cases reales de la industria:\n  ADV1: Merge 2 secciones de docs diferentes en uno solo\n  ADV2: Campos Word (IF, DATE, NUMPAGES) + actualizar todos\n  ADV3: Proteccion de documento + desproteger + modificar\n  ADV4: Track Changes - aceptar/rechazar cambios\n  ADV5: Documento complejo: nested tables, cross-refs, bookmarks, TOC update\n\"\"\"\nimport sys, os, shutil, time, re\nsys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', 'src'))\nfrom word_com import WordCOM\n\nINPUT = r'C:\\Chance1\\temp2\\Propuesta de PostgreSQL CE On Prem Horas - Banco GyT 30032026 (1).docx'\nOUT = r'C:\\Chance1\\IA_Word\\pruebas_reales'\nos.makedirs(OUT, exist_ok=True)\n\npassed = 0\nfailed = 0\nresults = []\n\ndef run_test(num, name, func):\n",
+        "rule": "\"\"\"\n5 Pruebas Avanzadas de Certificacion - Escenarios Complejos.\nBasado en edge cases reales de la industria:\n  ADV1: Merge 2 secciones de docs diferentes en uno solo\n  ADV2: Campos Word (IF, DATE, NUMPAGES) + actualizar todos\n  ADV3: Proteccion de documento + desproteger + modificar\n  ADV4: Track Changes - aceptar/rechazar cambios\n  ADV5: Documento complejo: nested tables, cross-refs, bookmarks, TOC update\n\"\"\"\nimport sys, os, shutil, time, re\nsys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', 'src'))\nfrom word_com import WordCOM\n\nINPUT = r'temp2\\Propuesta de PostgreSQL CE On Prem Horas - Banco GyT 30032026 (1).docx'\nOUT = r'IA_Word\\pruebas_reales'\nos.makedirs(OUT, exist_ok=True)\n\npassed = 0\nfailed = 0\nresults = []\n\ndef run_test(num, name, func):\n",
         "applies_to": "tests",
-        "source": "C:\\Chance1\\IA\\IA_Word\\tests\\run_5_advanced.py",
+        "source": "IA_Word\\tests\\run_5_advanced.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -2409,7 +2409,7 @@
       "fact": {
         "rule": "os.makedirs(OUT, exist_ok=True)\n\npassed = 0\nfailed = 0\nresults = []\n\ndef run_test(num, name, func):\n    global passed, failed\n    print(f'\\n{\"=\" * 70}')\n    print(f'ADV{num}: {name}')\n    print(\"=\" * 70)\n    try:\n        func()\n        passed += 1\n        results.append((num, name, 'PASS'))\n        print(f'  >>> PASS')\n    except Exception as e:\n        failed += 1\n        results.append((num, name, f'FAIL: {e}'))\n        print(f'  >>> FAIL: {e}')\n        import traceback\n        traceback.print_exc()\n\nw = WordCOM(visible=False)\n\ndef fresh(name):\n    try: w.close_document(save=False)\n    except: pass\n    time.sleep(1)\n    dest = os.path.join(OUT, f'{name}.docx')\n    for attempt in range(5):\n        try:\n            if os.path.exists(dest): os.remove(dest)\n            break\n",
         "applies_to": "tests",
-        "source": "C:\\Chance1\\IA\\IA_Word\\tests\\run_5_advanced.py",
+        "source": "IA_Word\\tests\\run_5_advanced.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -2434,7 +2434,7 @@
       "fact": {
         "rule": "pt in range(5):\n        try:\n            if os.path.exists(dest): os.remove(dest)\n            break\n        except PermissionError:\n            time.sleep(2)\n    # Copy via bytes to avoid metadata lock issues\n    with open(INPUT, 'rb') as f:\n        data = f.read()\n    with open(dest, 'wb') as f:\n        f.write(data)\n    time.sleep(1)\n    w.open_document(dest)\n    return dest\n\n# ============================================================\ndef test_adv1():\n    \"\"\"Merge: extraer secciones de un doc y componer doc nuevo.\"\"\"\n    fresh('ADV1_Merge_Compose')\n    doc = w.doc\n\n    # Simula: tomar seccion \"Horas de Soporte\" y duplicarla\n    # (como si viniera de otro documento)\n    # 1. Find the Horas section\n    horas_start = horas_end = None\n    for i in range(1, doc.Paragraphs.Count + 1):\n",
         "applies_to": "tests",
-        "source": "C:\\Chance1\\IA\\IA_Word\\tests\\run_5_advanced.py",
+        "source": "IA_Word\\tests\\run_5_advanced.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -2459,7 +2459,7 @@
       "fact": {
         "rule": "e Horas section\n    horas_start = horas_end = None\n    for i in range(1, doc.Paragraphs.Count + 1):\n        text = doc.Paragraphs(i).Range.Text.strip()\n        if '3.1.1.' in text and 'Horas de Soporte' in text and '...' not in text:\n            horas_start = doc.Paragraphs(i).Range.Start\n        if horas_start and '3.1.2.' in text and '...' not in text:\n            horas_end = doc.Paragraphs(i).Range.Start\n            break\n\n    assert horas_start and horas_end, \"Horas section not found\"\n\n    # 2. Copy section content via FormattedText\n    source = doc.Range(horas_start, horas_end)\n    formatted = source.FormattedText\n\n    # 3. Insert a copy at the end (before Anexos) as \"3.1.3. Horas Premium\"\n    for i in range(1, doc.Paragraphs.Count + 1):\n",
         "applies_to": "tests",
-        "source": "C:\\Chance1\\IA\\IA_Word\\tests\\run_5_advanced.py",
+        "source": "IA_Word\\tests\\run_5_advanced.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -2484,7 +2484,7 @@
       "fact": {
         "rule": " the end (before Anexos) as \"3.1.3. Horas Premium\"\n    for i in range(1, doc.Paragraphs.Count + 1):\n        text = doc.Paragraphs(i).Range.Text.strip()\n        if text.startswith('7.') and 'Anexos' in text and '...' not in text:\n            target = doc.Range(doc.Paragraphs(i).Range.Start, doc.Paragraphs(i).Range.Start)\n            target.FormattedText = formatted\n            print('  Seccion copiada antes de Anexos')\n            break\n\n    # 4. Rename the copy\n    w.find_then_set('3.1.1.    Horas de Soporte, Asistencia y Preventivo', '3.1.3.    Horas Premium de Soporte')\n\n    # 5. Verify both sections exist\n    secs = w.get_sections()\n    texts = ' '.join(s['text'] for s in secs)\n    assert 'Horas de Soporte, Asistencia' in texts, \"Original section missing\"\n",
         "applies_to": "tests",
-        "source": "C:\\Chance1\\IA\\IA_Word\\tests\\run_5_advanced.py",
+        "source": "IA_Word\\tests\\run_5_advanced.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -2509,7 +2509,7 @@
       "fact": {
         "rule": "ext'] for s in secs)\n    assert 'Horas de Soporte, Asistencia' in texts, \"Original section missing\"\n    # The renamed one might be found by find_then_set\n    w.save()\n    print(f'  Secciones: {len(secs)}')\n\nrun_test(1, 'Merge: copiar seccion y componer documento', test_adv1)\n\n# ============================================================\ndef test_adv2():\n    \"\"\"Campos Word: insertar DATE, NUMPAGES, IF y actualizar.\"\"\"\n    fresh('ADV2_Campos_Word')\n    doc = w.doc\n\n    # 1. Insert a DATE field at end of document\n    end_range = doc.Range(doc.Content.End - 1, doc.Content.End - 1)\n    end_range.Text = \"\\rFecha de generacion: \"\n    # Move to after the text we just inserted\n    insert_pos = doc.Content.End - 1\n    field_range = doc.Range(insert_pos, insert_pos)\n",
         "applies_to": "tests",
-        "source": "C:\\Chance1\\IA\\IA_Word\\tests\\run_5_advanced.py",
+        "source": "IA_Word\\tests\\run_5_advanced.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -2534,7 +2534,7 @@
       "fact": {
         "rule": "t inserted\n    insert_pos = doc.Content.End - 1\n    field_range = doc.Range(insert_pos, insert_pos)\n    doc.Fields.Add(field_range, 31, r'\\@ \"dd/MM/yyyy\"', True)  # wdFieldDate=31\n    print('  Campo DATE insertado')\n\n    # 2. Insert NUMPAGES field\n    end2 = doc.Content.End - 1\n    doc.Range(end2, end2).Text = \"\\rTotal paginas: \"\n    end3 = doc.Content.End - 1\n    doc.Fields.Add(doc.Range(end3, end3), 26, '', True)  # wdFieldNumPages=26\n    print('  Campo NUMPAGES insertado')\n\n    # 3. Count all fields\n    field_count = doc.Fields.Count\n    print(f'  Total campos en documento: {field_count}')\n    assert field_count >= 2, f\"Should have at least 2 fields, got {field_count}\"\n\n    # 4. Update all fields\n    for f in doc.Fields:\n        try:\n            f.Update()\n        except:\n",
         "applies_to": "tests",
-        "source": "C:\\Chance1\\IA\\IA_Word\\tests\\run_5_advanced.py",
+        "source": "IA_Word\\tests\\run_5_advanced.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -2559,7 +2559,7 @@
       "fact": {
         "rule": "# 4. Update all fields\n    for f in doc.Fields:\n        try:\n            f.Update()\n        except:\n            pass\n    print('  Todos los campos actualizados')\n\n    # 5. Read field results\n    for f in doc.Fields:\n        try:\n            result = f",
         "applies_to": "tests",
-        "source": "C:\\Chance1\\IA\\IA_Word\\tests\\run_5_advanced.py",
+        "source": "IA_Word\\tests\\run_5_advanced.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -2582,9 +2582,9 @@
       "type": "fact",
       "key": "run_10_real_tests_0",
       "fact": {
-        "rule": "\"\"\"\n10 Pruebas Reales de Certificacion.\nCada prueba genera un documento Word real en pruebas_reales/.\nTodas las validaciones son sobre el documento resultante abierto en Word.\n\"\"\"\nimport sys, os, shutil, re, time\nsys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', 'src'))\nfrom word_com import WordCOM\n\nINPUT = r'C:\\Chance1\\temp2\\Propuesta de PostgreSQL CE On Prem Horas - Banco GyT 30032026 (1).docx'\nOUT = r'C:\\Chance1\\IA_Word\\pruebas_reales'\nos.makedirs(OUT, exist_ok=True)\n\n# Clean old files\nfor f in os.listdir(OUT):\n    fp = os.path.join(OUT, f)\n    try:\n        os.remove(fp)\n    except:\n        pass\n\npassed = 0\nfailed = 0\nresults = []\n\ndef run_test(num, name, func):\n    global passed, failed\n    print(f'\\n{\"=\" * 70}')\n    print(f'PRUEBA {num}: {name}')\n    print(\"=\" * 70)\n",
+        "rule": "\"\"\"\n10 Pruebas Reales de Certificacion.\nCada prueba genera un documento Word real en pruebas_reales/.\nTodas las validaciones son sobre el documento resultante abierto en Word.\n\"\"\"\nimport sys, os, shutil, re, time\nsys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', 'src'))\nfrom word_com import WordCOM\n\nINPUT = r'temp2\\Propuesta de PostgreSQL CE On Prem Horas - Banco GyT 30032026 (1).docx'\nOUT = r'IA_Word\\pruebas_reales'\nos.makedirs(OUT, exist_ok=True)\n\n# Clean old files\nfor f in os.listdir(OUT):\n    fp = os.path.join(OUT, f)\n    try:\n        os.remove(fp)\n    except:\n        pass\n\npassed = 0\nfailed = 0\nresults = []\n\ndef run_test(num, name, func):\n    global passed, failed\n    print(f'\\n{\"=\" * 70}')\n    print(f'PRUEBA {num}: {name}')\n    print(\"=\" * 70)\n",
         "applies_to": "tests",
-        "source": "C:\\Chance1\\IA\\IA_Word\\tests\\run_10_real_tests.py",
+        "source": "IA_Word\\tests\\run_10_real_tests.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -2609,7 +2609,7 @@
       "fact": {
         "rule": "al passed, failed\n    print(f'\\n{\"=\" * 70}')\n    print(f'PRUEBA {num}: {name}')\n    print(\"=\" * 70)\n    try:\n        func()\n        passed += 1\n        results.append((num, name, 'PASS'))\n        print(f'  >>> PASS')\n    except Exception as e:\n        failed += 1\n        results.append((num, name, f'FAIL: {e}'))\n        print(f'  >>> FAIL: {e}')\n\nw = WordCOM(visible=False)\n\ndef fresh(name):\n    try:\n        w.close_document(save=False)\n    except:\n        pass\n    time.sleep(0.5)\n    dest = os.path.join(OUT, f'{name}.docx')\n    if os.path.exists(dest):\n        os.remove(dest)\n    shutil.copy2(INPUT, dest)\n    w.open_document(dest)\n    return dest\n\n# ============================================================\ndef test_01():\n",
         "applies_to": "tests",
-        "source": "C:\\Chance1\\IA\\IA_Word\\tests\\run_10_real_tests.py",
+        "source": "IA_Word\\tests\\run_10_real_tests.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -2634,7 +2634,7 @@
       "fact": {
         "rule": "est)\n    return dest\n\n# ============================================================\ndef test_01():\n    \"\"\"Solo Soporte: quitar install, renumerar, mover, fix math\"\"\"\n    fresh('P01_Solo_Soporte')\n    for h in ['3.1.1.           Servicios', 'Estrategia de implementaci',\n              'Equipo requerido', 'Servicios de Setup']:\n        assert w.delete_section_by_heading(h), f'No se elimino: {h}'\n    for old, new in [('3.4.','3.2.'),('3.5.','3.3.'),('4.2.','4.1.'),('4.3.','4.2.')]:\n        w.renumber_heading(old, new)\n    w.move_section_before('Resumen de la Inversi', 'rminos y Condiciones')\n    w.smart_replace('227334', '300001')\n    for old, new in [('15,405.08','12,720.00'),('1,848.61','1,526.40'),('17,253.69','14,246.40')]:\n        w.replace_in_tables(old, new)\n    w.save()\n    # Validar\n",
         "applies_to": "tests",
-        "source": "C:\\Chance1\\IA\\IA_Word\\tests\\run_10_real_tests.py",
+        "source": "IA_Word\\tests\\run_10_real_tests.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -2659,7 +2659,7 @@
       "fact": {
         "rule": "6.40'),('17,253.69','14,246.40')]:\n        w.replace_in_tables(old, new)\n    w.save()\n    # Validar\n    secs = w.get_sections()\n    texts = ' '.join(s['text'] for s in secs)\n    assert 'Estrategia' not in texts\n    assert 'Setup' not in texts\n    for r in ['Por qu','Alcance','Horas de Soporte','rminos','Aceptaci','Anexos']:\n        assert r in texts, f'Falta: {r}'\n    amounts = re.findall(r'[\\d,]+\\.\\d+', w.doc.Tables(2).Range.Text)\n    assert '12,720.00' in amounts and '1,526.40' in amounts and '14,246.40' in amounts\n    print('  Validado: estructura, math, secciones eliminadas')\n\nrun_test(1, 'Solo Soporte - quitar install, renumerar, mover, fix math', test_01)\n\n# ============================================================\ndef test_02():\n    \"\"\"Cambio total de cliente y producto\"\"\"\n",
         "applies_to": "tests",
-        "source": "C:\\Chance1\\IA\\IA_Word\\tests\\run_10_real_tests.py",
+        "source": "IA_Word\\tests\\run_10_real_tests.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -2684,7 +2684,7 @@
       "fact": {
         "rule": "=======================================\ndef test_02():\n    \"\"\"Cambio total de cliente y producto\"\"\"\n    fresh('P02_Nuevo_Cliente')\n    w.smart_replace('Banco GyT Continental', 'Corporacion Acme SA')\n    w.smart_replace('227334', '400500')\n    w.smart_replace('04 de febrero de 2025', '01 de agosto de 2026')\n    w.smart_replace('04 de febrero de 2024', '01 de agosto de 2026')\n    w.find_replace('PostgreSQL Community Edition', 'Oracle Database Enterprise')\n    w.replace_in_body_paragraphs('PostgreSQL', 'Oracle')\n    w.replace_in_body_paragraphs('Postgres', 'Oracle')\n    w.save()\n    body = w.doc.Content.Text\n    assert body.count('Acme') > 3, f'Acme solo {body.count(\"Acme\")} veces'\n    assert body.count('Oracle') > 3, f'Oracle solo {body.count(\"Oracle\")} veces'\n",
         "applies_to": "tests",
-        "source": "C:\\Chance1\\IA\\IA_Word\\tests\\run_10_real_tests.py",
+        "source": "IA_Word\\tests\\run_10_real_tests.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -2709,7 +2709,7 @@
       "fact": {
         "rule": "nt(\"Acme\")} veces'\n    assert body.count('Oracle') > 3, f'Oracle solo {body.count(\"Oracle\")} veces'\n    print(f'  Acme:{body.count(\"Acme\")} Oracle:{body.count(\"Oracle\")}')\n\nrun_test(2, 'Cambio total de cliente (Acme) y producto (Oracle)', test_02)\n\n# ============================================================\ndef test_03():\n    \"\"\"Reestructuracion: quitar 5 secciones + agregar fila tabla\"\"\"\n    fresh('P03_Reestructuracion')\n    deleted = sum(1 for h in ['3.1.1.           Servicios','Estrategia','Equipo requerido',\n                               'Servicios de Setup','Exclusiones']\n                  if w.delete_section_by_heading(h))\n    assert deleted >= 4, f'Solo {deleted} eliminadas'\n    table = w.doc.Tables(1)\n    rb = table.Rows.Count\n    table.Rows.Add()\n    try:\n",
         "applies_to": "tests",
-        "source": "C:\\Chance1\\IA\\IA_Word\\tests\\run_10_real_tests.py",
+        "source": "IA_Word\\tests\\run_10_real_tests.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -2734,7 +2734,7 @@
       "fact": {
         "rule": "ed} eliminadas'\n    table = w.doc.Tables(1)\n    rb = table.Rows.Count\n    table.Rows.Add()\n    try:\n        table.Cell(table.Rows.Count, 1).Range.Text = 'Consultoria\\r'\n        table.Cell(table.Rows.Count, 6).Range.Text = '$1,000.00\\r'\n    except: pass\n    assert table.Rows.Count == rb + 1\n    w.save()\n    print(f'  {deleted} secciones eliminadas, fila agregada ({rb}->{table.Rows.Count})')\n\nrun_test(3, 'Reestructuracion: quitar 5 secciones + agregar fila tabla', test_03)\n\n# ============================================================\ndef test_04():\n    \"\"\"Montos x2: duplicar todos los precios\"\"\"\n    fresh('P04_Montos_x2')\n    w.find_then_set('$80', '$160')\n    w.find_then_set('$60', '$120')\n    w.find_then_set('400.00', '800.00')\n    w.find_then_set('300.00', '600.00')\n",
         "applies_to": "tests",
-        "source": "C:\\Chance1\\IA\\IA_Word\\tests\\run_10_real_tests.py",
+        "source": "IA_Word\\tests\\run_10_real_tests.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -2759,7 +2759,7 @@
       "fact": {
         "rule": "_set('$60', '$120')\n    w.find_then_set('400.00', '800.00')\n    w.find_then_set('300.00', '600.00')\n    w.find_then_set('360.00', '720.00')\n    w.find_then_set('1,060.00', '2,120.00')\n    w.find_then_set('127.20', '254.40')\n    w.find_then_set",
         "applies_to": "tests",
-        "source": "C:\\Chance1\\IA\\IA_Word\\tests\\run_10_real_tests.py",
+        "source": "IA_Word\\tests\\run_10_real_tests.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -2782,9 +2782,9 @@
       "type": "fact",
       "key": "test_e2e_postgresql_0",
       "fact": {
-        "rule": "\"\"\"\nEnd-to-end test: Transform PostgreSQL CE proposal.\n\nTakes the original document with installation + support services,\nremoves installation sections, updates dates/numbers, and validates\nthe result matches all GBM business rules.\n\"\"\"\n\nimport os\nimport re\nimport shutil\nimport sys\nimport unittest\n\nsys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', 'src'))\nfrom word_com import WordCOM\n\nINPUT = r'C:\\Chance1\\temp2\\Propuesta de PostgreSQL CE On Prem Horas - Banco GyT 30032026 (1).docx'\nOUTPUT = r'C:\\Chance1\\temp2\\TEST_E2E_PostgreSQL.docx'\n\nclass TestPostgreSQLE2E(unittest.TestCase):\n    \"\"\"End-to-end test for PostgreSQL proposal transformation.\"\"\"\n\n    @classmethod\n    def setUpClass(cls):\n        if not os.path.exists(INPUT):\n",
+        "rule": "\"\"\"\nEnd-to-end test: Transform PostgreSQL CE proposal.\n\nTakes the original document with installation + support services,\nremoves installation sections, updates dates/numbers, and validates\nthe result matches all GBM business rules.\n\"\"\"\n\nimport os\nimport re\nimport shutil\nimport sys\nimport unittest\n\nsys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', 'src'))\nfrom word_com import WordCOM\n\nINPUT = r'temp2\\Propuesta de PostgreSQL CE On Prem Horas - Banco GyT 30032026 (1).docx'\nOUTPUT = r'temp2\\TEST_E2E_PostgreSQL.docx'\n\nclass TestPostgreSQLE2E(unittest.TestCase):\n    \"\"\"End-to-end test for PostgreSQL proposal transformation.\"\"\"\n\n    @classmethod\n    def setUpClass(cls):\n        if not os.path.exists(INPUT):\n",
         "applies_to": "tests",
-        "source": "C:\\Chance1\\IA\\IA_Word\\tests\\test_e2e_postgresql.py",
+        "source": "IA_Word\\tests\\test_e2e_postgresql.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -2809,7 +2809,7 @@
       "fact": {
         "rule": "transformation.\"\"\"\n\n    @classmethod\n    def setUpClass(cls):\n        if not os.path.exists(INPUT):\n            raise unittest.SkipTest(f\"Input file not found: {INPUT}\")\n        shutil.copy2(INPUT, OUTPUT)\n        cls.word = WordCOM(visible=False)\n        cls.info = cls.word.open_document(OUTPUT)\n\n    @classmethod\n    def tearDownClass(cls):\n        try:\n            cls.word.save()\n            cls.word.quit()\n        except Exception:\n            pass\n\n    def test_01_open(self):\n        \"\"\"Document opens with expected structure.\"\"\"\n        self.assertEqual(self.info['section_count'], 14)\n        self.assertGreater(self.info['page_count'], 15)\n\n    def test_02_delete_installation(self):\n        \"\"\"Remove installation section 3.1.1 Servicios.\"\"\"\n",
         "applies_to": "tests",
-        "source": "C:\\Chance1\\IA\\IA_Word\\tests\\test_e2e_postgresql.py",
+        "source": "IA_Word\\tests\\test_e2e_postgresql.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -2834,7 +2834,7 @@
       "fact": {
         "rule": "  def test_02_delete_installation(self):\n        \"\"\"Remove installation section 3.1.1 Servicios.\"\"\"\n        result = self.word.delete_section_by_heading('3.1.1.           Servicios')\n        self.assertTrue(result)\n\n    def test_03_delete_strategy(self):\n        \"\"\"Remove strategy section.\"\"\"\n        result = self.word.delete_section_by_heading('Estrategia de implementaci')\n        self.assertTrue(result)\n\n    def test_04_delete_team(self):\n        \"\"\"Remove team section.\"\"\"\n        result = self.word.delete_section_by_heading('Equipo requerido')\n        self.assertTrue(result)\n\n    def test_05_delete_setup(self):\n        \"\"\"Remove setup pricing section.\"\"\"\n        result = self.word.delete_section_by_heading('Servicios de Setup')\n        self.assertTrue(result)\n\n",
         "applies_to": "tests",
-        "source": "C:\\Chance1\\IA\\IA_Word\\tests\\test_e2e_postgresql.py",
+        "source": "IA_Word\\tests\\test_e2e_postgresql.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -2859,7 +2859,7 @@
       "fact": {
         "rule": "result = self.word.delete_section_by_heading('Servicios de Setup')\n        self.assertTrue(result)\n\n    def test_06_update_objective(self):\n        \"\"\"Update objective to focus on support services.\"\"\"\n        doc = self.word.doc\n        updated = False\n        for i in range(1, doc.Paragraphs.Count + 1):\n            text = doc.Paragraphs(i).Range.Text.strip()\n            if 'nstalaci' in text and 'motor' in text:\n                self.word.replace_in_paragraph(\n                    i, text.rstrip('\\r'),\n                    'Servicio de horas de soporte, asistencia y preventivo '\n                    'para la plataforma PostgreSQL Community Edition.'\n                )\n                updated = True\n                break\n        self.assertTrue(updated)\n\n",
         "applies_to": "tests",
-        "source": "C:\\Chance1\\IA\\IA_Word\\tests\\test_e2e_postgresql.py",
+        "source": "IA_Word\\tests\\test_e2e_postgresql.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -2884,7 +2884,7 @@
       "fact": {
         "rule": "           )\n                updated = True\n                break\n        self.assertTrue(updated)\n\n    def test_07_renumber_headings(self):\n        \"\"\"Renumber sections after deletions.\"\"\"\n        self.assertTrue(self.word.renumber_heading('3.4.', '3.2.'))\n        self.assertTrue(self.word.renumber_heading('3.5.', '3.3.'))\n        self.assertTrue(self.word.renumber_heading('4.2.', '4.1.'))\n        self.assertTrue(self.word.renumber_heading('4.3.', '4.2.'))\n\n    def test_08_smart_replace_opp_number(self):\n        \"\"\"Update opportunity number everywhere.\"\"\"\n        r = self.word.smart_replace('227334', '246856')\n        self.assertGreater(r['footer_shapes'], 0, \"Footer shapes should be updated\")\n\n    def test_09_smart_replace_dates(self):\n        \"\"\"Update dates everywhere.\"\"\"\n",
         "applies_to": "tests",
-        "source": "C:\\Chance1\\IA\\IA_Word\\tests\\test_e2e_postgresql.py",
+        "source": "IA_Word\\tests\\test_e2e_postgresql.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -2909,7 +2909,7 @@
       "fact": {
         "rule": "uld be updated\")\n\n    def test_09_smart_replace_dates(self):\n        \"\"\"Update dates everywhere.\"\"\"\n        r1 = self.word.smart_replace('04 de febrero de 2025', '30 de marzo de 2026')\n        r2 = self.word.smart_replace('04 de febrero de 2024', '30 de marzo de 2026')\n        total = sum(r1.values()) + sum(r2.values())\n        self.assertGreater(total, 0, \"Dates should be updated\")\n\n    def test_10_fix_resumen_table(self):\n        \"\"\"Fix Resumen table totals and remove Setup row.\"\"\"\n        doc = self.word.doc\n        # Delete Setup row\n        table = doc.Tables(2)\n        deleted = False\n        for r in range(1, table.Rows.Count + 1):\n            try:\n                for c in range(1, 8):\n                    try:\n",
         "applies_to": "tests",
-        "source": "C:\\Chance1\\IA\\IA_Word\\tests\\test_e2e_postgresql.py",
+        "source": "IA_Word\\tests\\test_e2e_postgresql.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -2934,7 +2934,7 @@
       "fact": {
         "rule": "le.Rows.Count + 1):\n            try:\n                for c in range(1, 8):\n                    try:\n                        if 'Servicios Profesionales' in table.Cell(r, c).Range.Text:\n                            table.Rows(r).Delete()\n                            deleted = True\n                            break\n                    except Exception:\n                        pass\n            except Exception:\n                pass\n        self.assertTrue(deleted, \"Setup row should be deleted\")\n\n        # Fix totals\n        for old, new in [('15,405.08', '12,720.00'), ('1,848.61', '1,526.40'), ('17,253.69', '14,246.40')]:\n            n = self.word.replace_in_tables(old, new)\n            self.assertGreater(n, 0, f\"Should replace {old} with {new}\")\n\n",
         "applies_to": "tests",
-        "source": "C:\\Chance1\\IA\\IA_Word\\tests\\test_e2e_postgresql.py",
+        "source": "IA_Word\\tests\\test_e2e_postgresql.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -2959,7 +2959,7 @@
       "fact": {
         "rule": "place_in_tables(old, new)\n            self.assertGreater(n, 0, f\"Should replace {old} with {new}\")\n\n    def test_10b_move_resumen_before_terminos(self):\n        \"\"\"Move 4.2 Resumen before section 5 Terminos.\"\"\"\n        result = self.word.move_section_before('Resumen de la Inversi', 'rminos y Condiciones')\n        # May return False if already in order (depends on test run order)\n        sect",
         "applies_to": "tests",
-        "source": "C:\\Chance1\\IA\\IA_Word\\tests\\test_e2e_postgresql.py",
+        "source": "IA_Word\\tests\\test_e2e_postgresql.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -2984,7 +2984,7 @@
       "fact": {
         "rule": " de Soporte\")\nprint(\"Cliente: GyT -> Ficticius | Opp: 300001 | Fecha: junio 2026\")\nprint(\"=\" * 70)\n\nout1 = os.path.join(OUT, 'PRUEBA1_Solo_Soporte.docx')\nshutil.copy2(INPUT, out1)\ninfo = w.open_document(out1)\nprint(f'  Abierto: {info[\"page_count\"]} pags')\n\nfor h in ['3.1.1.           Servicios', 'Estrategia de implementaci',\n          'Equipo requerido', 'Servicios de Setup']:\n    print(f'  Eliminar \"{h[:35]}\": {w.delete_section_by_heading(h)}')\n\nfor old, new in [('3.4.', '3.2.'), ('3.5.', '3.3.'), ('4.2.', '4.1.'), ('4.3.', '4.2.')]:\n    w.renumber_heading(old, new)\nprint('  Renumerado')\n\nw.move_section_before('Resumen de la Inversi', 'rminos y Condiciones')\nprint('  Movido 4.2 antes de sec 5')\n\nfor i in range(1, w.doc.Paragraphs.Count + 1):\n",
         "applies_to": "tests",
-        "source": "C:\\Chance1\\IA\\IA_Word\\tests\\run_3_real_tests.py",
+        "source": "IA_Word\\tests\\run_3_real_tests.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -3009,7 +3009,7 @@
       "fact": {
         "rule": " Condiciones')\nprint('  Movido 4.2 antes de sec 5')\n\nfor i in range(1, w.doc.Paragraphs.Count + 1):\n    text = w.doc.Paragraphs(i).Range.Text.strip()\n    if 'nstalaci' in text and 'motor' in text:\n        w.replace_in_paragraph(i, text.rstrip('\\r'),\n            'Servicio de horas de soporte, asistencia y preventivo para la plataforma PostgreSQL Community Edition.')\n        break\n\nfor old, new in [('227334', '300001'), ('Banco GyT Continental', 'Banco Ficticius SA'),\n                 ('04 de febrero de 2025', '15 de junio de 2026'),\n                 ('04 de febrero de 2024', '15 de junio de 2026'),\n                 ('30 de marzo de 2026', '15 de junio de 2026')]:\n    w.smart_replace(old, new)\n\n",
         "applies_to": "tests",
-        "source": "C:\\Chance1\\IA\\IA_Word\\tests\\run_3_real_tests.py",
+        "source": "IA_Word\\tests\\run_3_real_tests.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -3034,7 +3034,7 @@
       "fact": {
         "rule": "),\n                 ('30 de marzo de 2026', '15 de junio de 2026')]:\n    w.smart_replace(old, new)\n\nfor old, new in [('15,405.08', '12,720.00'), ('1,848.61', '1,526.40'), ('17,253.69', '14,246.40')]:\n    w.replace_in_tables(old, new)\n\ntable = w.doc.Tables(2)\nfor r in range(1, table.Rows.Count + 1):\n    try:\n        for c in range(1, 8):\n            try:\n                if 'Servicios Profesionales' in table.Cell(r, c).Range.Text:\n                    table.Rows(r).Delete()\n                    break\n            except: pass\n    except: pass\n\nw.save()\n\n# VALIDACION\nprint('\\n  --- VALIDACION ---')\nsecs = w.get_sections()\ntexts = ' '.join(s['text'] for s in secs)\npages = w.doc.ComputeStatistics(2)\nprint(f'  Paginas: {info[\"page_count\"]} -> {pages}')\n",
         "applies_to": "tests",
-        "source": "C:\\Chance1\\IA\\IA_Word\\tests\\run_3_real_tests.py",
+        "source": "IA_Word\\tests\\run_3_real_tests.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -3059,7 +3059,7 @@
       "fact": {
         "rule": " s in secs)\npages = w.doc.ComputeStatistics(2)\nprint(f'  Paginas: {info[\"page_count\"]} -> {pages}')\nassert 'Estrategia' not in texts, \"Estrategia deberia estar eliminada\"\nassert 'Setup' not in texts, \"Setup deberia estar eliminado\"\nprint('  OK: No hay secciones de instalacion')\nfor req in ['Por qu', 'Alcance', 'Horas de Soporte', 'rminos', 'Aceptaci', 'Anexos']:\n    assert req in texts, f\"Falta: {req}\"\nprint('  OK: Secciones obligatorias presentes')\nt2_text = w.doc.Tables(2).Range.Text\namounts = re.findall(r'[\\d,]+\\.\\d+', t2_text)\nassert '12,720.00' in amounts and '1,526.40' in amounts and '14,246.40' in amounts\nprint('  OK: Matematica $12,720 + IVA $1,526.40 = $14,246.40')\nw.close_document(save=True)\nprint(f'  GUARDADO: {out1}\\n')\n\n",
         "applies_to": "tests",
-        "source": "C:\\Chance1\\IA\\IA_Word\\tests\\run_3_real_tests.py",
+        "source": "IA_Word\\tests\\run_3_real_tests.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -3084,7 +3084,7 @@
       "fact": {
         "rule": " $12,720 + IVA $1,526.40 = $14,246.40')\nw.close_document(save=True)\nprint(f'  GUARDADO: {out1}\\n')\n\n# ============================================================\n# PRUEBA 2: Reusar propuesta completa para otro cliente y producto\n# ============================================================\nprint(\"=\" * 70)\nprint(\"PRUEBA 2: Reusar para cliente y producto diferente\")\nprint(\"PostgreSQL -> Oracle | GyT -> Acme | Montos x1.5 | Pago 30/70\")\nprint(\"=\" * 70)\n\nout2 = os.path.join(OUT, 'PRUEBA2_Reuso_Completo.docx')\nshutil.copy2(INPUT, out2)\nw.open_document(out2)\n\nw.smart_replace('Banco GyT Continental', 'Corporacion Acme Guatemala')\nw.find_replace('PostgreSQL Community Edition', 'Oracle Database Enterprise')\nw.find_replace('PostgreSQL', 'Oracle')\nw.find_replace('Postgres', 'Oracle')\n",
         "applies_to": "tests",
-        "source": "C:\\Chance1\\IA\\IA_Word\\tests\\run_3_real_tests.py",
+        "source": "IA_Word\\tests\\run_3_real_tests.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -3109,7 +3109,7 @@
       "fact": {
         "rule": "e Database Enterprise')\nw.find_replace('PostgreSQL', 'Oracle')\nw.find_replace('Postgres', 'Oracle')\nw.smart_replace('227334', '400500')\nw.smart_replace('04 de febrero de 2025', '01 de agosto de 2026')\nw.smart_replace('04 de febrero de 2024', '01 de agosto de 2026')\nw.smart_replace('30 de marzo de 2026', '01 de agosto de 2026')\nprint('  Reemplazos: cliente, producto, opp, fechas')\n\nw.replace_in_tables('400.00', '600.00')\nw.replace_in_tables('300.00', '450.00')\nw.replace_in_tables('360.00', '540.00')\nw.replace_in_tables('1,060.00', '1,590.00')\nw.replace_in_tables('127.20', '190.80')\nw.replace_in_tables('1,187.20', '1,780.80')\nw.find_replace('100% anticipado', '30% anticipo, 70% a 30 dias')\nprint('  Montos x1.5, forma de pago cambiada')\n\nw.save()\n\nprint('\\n  --- VALIDACION ---')\n",
         "applies_to": "tests",
-        "source": "C:\\Chance1\\IA\\IA_Word\\tests\\run_3_real_tests.py",
+        "source": "IA_Word\\tests\\run_3_real_tests.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -3134,7 +3134,7 @@
       "fact": {
         "rule": "30 dias')\nprint('  Montos x1.5, forma de pago cambiada')\n\nw.save()\n\nprint('\\n  --- VALIDACION ---')\nbody = w.doc.Content.Text\nacme = body.count('Acme')\noracle = body.count('Oracle')\ngyt_remaining = body.count('GyT')\nprint(f'  \"Acme\" en doc: {acme}')\nprint(f'  \"Oracle\" en doc: {oracle}')\nprint(f'  \"GyT\" restante: {gyt_remaining}')\nassert acme > 5, \"Acme deberia aparecer multiples veces\"\nassert oracle > 5, \"Ora",
         "applies_to": "tests",
-        "source": "C:\\Chance1\\IA\\IA_Word\\tests\\run_3_real_tests.py",
+        "source": "IA_Word\\tests\\run_3_real_tests.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -3159,7 +3159,7 @@
       "fact": {
         "rule": "# -*- coding: utf-8 -*-\n\"\"\"\nStress tests de alta complejidad basados en escenarios reales de internet.\nCada test crea su propio workbook con el escenario problematico.\n\nSources:\n- Microsoft Support: circular references, broken formulas\n- Corporate Finance Institute: financial model stress testing\n- DataCamp: circular reference detection\n- Analytics Vidhya: merged cells, pivot tables edge cases\n\"\"\"\n\nimport os\nimport sys\nimport time\nimport tempfile\nimport unittest\nimport datetime\n\nsys.path.insert(0, os.path.join(os.path.dirname(__file__), \"..\"))\nfrom src.excel_com import ExcelCOM, ExcelCOMError, ValidationResult\n\nTMP = tempfile.gettempdir()\nxl: ExcelCOM = None\n\ndef setUpModule():\n    global xl\n    xl = ExcelCOM(visible=False)\n    xl._ensure_app()\n\ndef tearDownModule():\n    global xl\n",
         "applies_to": "tests",
-        "source": "C:\\Chance1\\IA\\IA_Excel\\tests\\test_stress_complex.py",
+        "source": "IA_Excel\\tests\\test_stress_complex.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -3184,7 +3184,7 @@
       "fact": {
         "rule": "lobal xl\n    xl = ExcelCOM(visible=False)\n    xl._ensure_app()\n\ndef tearDownModule():\n    global xl\n    try:\n        xl.close_workbook(save=False)\n    except Exception:\n        pass\n    if xl:\n        xl.quit()\n\ndef create_workbook(name):\n    \"\"\"Helper: create a new workbook, return path.\"\"\"\n    wb = xl.app.Workbooks.Add()\n    path = os.path.join(TMP, f\"stress_{name}.xlsx\")\n    wb.SaveAs(os.path.abspath(path), FileFormat=51)\n    return wb, path\n\ndef close_and_reopen(path, read_only=True):\n    \"\"\"Close current, reopen for testing.\"\"\"\n    try:\n        xl.close_workbook(save=False)\n    except Exception:\n        pass\n    xl.open_workbook(path, read_only=read_only)\n\n# ═══════════════════════════════════════════════════════════\n# 1. MERGED CELLS COMPLEJAS\n",
         "applies_to": "tests",
-        "source": "C:\\Chance1\\IA\\IA_Excel\\tests\\test_stress_complex.py",
+        "source": "IA_Excel\\tests\\test_stress_complex.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -3209,7 +3209,7 @@
       "fact": {
         "rule": "ad_only)\n\n# ═══════════════════════════════════════════════════════════\n# 1. MERGED CELLS COMPLEJAS\n# Escenario: headers merged en multiples niveles, celdas\n# merged verticales y horizontales, valores solo en primera celda\n# ═══════════════════════════════════════════════════════════\nclass TestMergedCellsComplex(unittest.TestCase):\n\n    @classmethod\n    def setUpClass(cls):\n        wb, cls.path = create_workbook(\"merged\")\n        sh = wb.ActiveSheet\n        sh.Name = \"MergedComplex\"\n\n        # Header merged horizontal (A1:E1)\n        sh.Range(\"A1:E1\").Merge()\n        sh.Range(\"A1\").Value = \"PROPUESTA ECONOMICA CONSOLIDADA\"\n\n        # Sub-headers merged (A2:B2, C2:E2)\n        sh.Range(\"A2:B2\").Merge()\n        sh.Range(\"A2\").Value = \"Informacion del Item\"\n        sh.Range(\"C2:E2\").Merge()\n",
         "applies_to": "tests",
-        "source": "C:\\Chance1\\IA\\IA_Excel\\tests\\test_stress_complex.py",
+        "source": "IA_Excel\\tests\\test_stress_complex.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -3234,7 +3234,7 @@
       "fact": {
         "rule": "2\").Merge()\n        sh.Range(\"A2\").Value = \"Informacion del Item\"\n        sh.Range(\"C2:E2\").Merge()\n        sh.Range(\"C2\").Value = \"Valores Financieros\"\n\n        # Vertical merge (A3:A5)\n        sh.Range(\"A3:A5\").Merge()\n        sh.Range(\"A3\").Value = \"Hardware\"\n\n        # Another vertical merge (A6:A8)\n        sh.Range(\"A6:A8\").Merge()\n        sh.Range(\"A6\").Value = \"Software\"\n\n        # Data\n        for i, (desc, qty, price) in enumerate([\n            (\"Servidor Dell R750\", 2, 15000),\n            (\"Storage NetApp\", 1, 45000),\n            (\"Rack 42U\", 1, 3000),\n            (\"Red Hat OpenShift\", 5, 4950),\n            (\"PostgreSQL License\", 3, 2200),\n            (\"Windows Server\", 4, 1200),\n        ], 3):\n            sh.Cells(i, 2).Value = desc\n            sh.Cells(i, 3).Value = qty\n",
         "applies_to": "tests",
-        "source": "C:\\Chance1\\IA\\IA_Excel\\tests\\test_stress_complex.py",
+        "source": "IA_Excel\\tests\\test_stress_complex.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -3259,7 +3259,7 @@
       "fact": {
         "rule": "200),\n        ], 3):\n            sh.Cells(i, 2).Value = desc\n            sh.Cells(i, 3).Value = qty\n            sh.Cells(i, 4).Value = price\n            sh.Cells(i, 5).Value = qty * price\n\n        wb.Save()\n        wb.Close()\n\n    def setUp(self):\n        close_and_reopen(self.path)\n\n    def test_01_detect_merged_cells(self):\n        merged = xl.get_merged_cells(sheet=\"MergedComplex\")\n        self.assertGreater(len(merged), 0)\n        # Should find at least the big header merge\n        addresses = [m[\"address\"] for m in merged]\n        has_big_merge = any(\"$A$1\" in a for a in addresses)\n        self.assertTrue(has_big_merge)\n\n    def test_02_read_merged_value(self):\n        val = xl.read_cell(\"A1\", sheet=\"MergedComplex\")\n        self.assertEqual(val, \"PROPUESTA ECONOMICA CONSOLIDADA\")\n\n",
         "applies_to": "tests",
-        "source": "C:\\Chance1\\IA\\IA_Excel\\tests\\test_stress_complex.py",
+        "source": "IA_Excel\\tests\\test_stress_complex.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -3284,7 +3284,7 @@
       "fact": {
         "rule": "cell(\"A1\", sheet=\"MergedComplex\")\n        self.assertEqual(val, \"PROPUESTA ECONOMICA CONSOLIDADA\")\n\n    def test_03_merged_vertical_read(self):\n        val = xl.read_cell(\"A3\", sheet=\"MergedComplex\")\n        self.assertEqual(val, \"Hardware\")\n        # Merged cells B-E should be None\n        val_below = xl.read_cell(\"A4\", sheet=\"MergedComplex\")\n        self.assertIsNone(val_below)\n\n    def test_04_read_range_with_merges(self):\n        data = xl.read_sheet_data(sheet=\"MergedComplex\")\n        self.assertGreater(len(data), 5)\n        # First row should have the merged header\n        self.assertEqual(data[0][0], \"PROPUESTA ECONOMICA CONSOLIDADA\")\n\n    @classmethod\n    def tearDownClass(cls):\n        try:\n            xl.close_workbook(save=False)\n        except Exception:\n            pass\n",
         "applies_to": "tests",
-        "source": "C:\\Chance1\\IA\\IA_Excel\\tests\\test_stress_complex.py",
+        "source": "IA_Excel\\tests\\test_stress_complex.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -3309,7 +3309,7 @@
       "fact": {
         "rule": ":\n        try:\n            xl.close_workbook(save=False)\n        except Exception:\n            pass\n        os.unlink(cls.path)\n\n# ═══════════════════════════════════════════════════════════\n# 2. FORMULAS CON ERRORES (#REF!, #DIV/0!, #N/A, #VALUE!)\n# Escenario: workbook con formulas rotas que deben ser\n# detectadas y reportadas correctamente\n# ═══════════════════════════════════════════════════════════\nclass TestFormulaErrors(unittest.TestCase):\n\n    @classmethod\n    def setUpClass(cls):\n        wb, cls.path = create_workbook(\"errors\")\n        sh = wb.ActiveSheet\n        sh.Name = \"Errors\"\n\n        sh.Cells(1, 1).Value = \"Formula\"\n        sh.Cells(1, 2).Value = \"Tipo Error\"\n\n        # #DIV/0!\n        sh.Cells(2, 1).Formula = \"=1/0\"\n        sh.Cells(2, 2).Value = \"#DIV/0!\"\n\n",
         "applies_to": "tests",
-        "source": "C:\\Chance1\\IA\\IA_Excel\\tests\\test_stress_complex.py",
+        "source": "IA_Excel\\tests\\test_stress_complex.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -3334,7 +3334,7 @@
       "fact": {
         "rule": "        # #DIV/0!\n        sh.Cells(2, 1).Formula = \"=1/0\"\n        sh.Cells(2, 2).Value = \"#DIV/0!\"\n\n        # #VALUE!\n        sh.Cells(3, 1).Formula = '=\"texto\"+1'\n        sh.C",
         "applies_to": "tests",
-        "source": "C:\\Chance1\\IA\\IA_Excel\\tests\\test_stress_complex.py",
+        "source": "IA_Excel\\tests\\test_stress_complex.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -3359,7 +3359,7 @@
       "fact": {
         "rule": "# -*- coding: utf-8 -*-\n\"\"\"Test suite for ExcelCOM - creates temp workbooks for safe testing.\"\"\"\n\nimport os\nimport sys\nimport tempfile\nimport unittest\nimport datetime\n\nsys.path.insert(0, os.path.join(os.path.dirname(__file__), \"..\"))\nfrom src.excel_com import ExcelCOM, ExcelCOMError\n\nTEST_PREFIX = \"[IA_EXCEL_TEST]\"\nclient: ExcelCOM = None\ntest_wb_path: str = None\n\ndef setUpModule():\n    global client, test_wb_path\n    client = ExcelCOM(visible=False)\n    client._ensure_app()\n\n    # Create a test workbook with sample data\n    test_wb_path = os.path.join(tempfile.gettempdir(), \"ia_excel_test.xlsx\")\n    wb = client.app.Workbooks.Add()\n    sh = wb.ActiveSheet\n    sh.Name = \"Datos\"\n\n    # Headers\n    headers = [\"Item\", \"Descripcion\", \"Cantidad\", \"Precio\", \"Total\"]\n",
         "applies_to": "tests",
-        "source": "C:\\Chance1\\IA\\IA_Excel\\tests\\test_excel_features.py",
+        "source": "IA_Excel\\tests\\test_excel_features.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -3384,7 +3384,7 @@
       "fact": {
         "rule": ".Name = \"Datos\"\n\n    # Headers\n    headers = [\"Item\", \"Descripcion\", \"Cantidad\", \"Precio\", \"Total\"]\n    for c, h in enumerate(headers, 1):\n        sh.Cells(1, c).Value = h\n        sh.Cells(1, c).Font.Bold = True\n\n    # Data rows\n    data = [\n        [\"HW-001\", \"Servidor Dell R750\", 2, 15000.00, 30000.00],\n        [\"SW-001\", \"Red Hat OpenShift License\", 5, 4950.00, 24750.00],\n        [\"SV-001\", \"Servicio Implementacion\", 120, 80.00, 9600.00],\n        [\"HW-002\", \"Storage NetApp\", 1, 45000.00, 45000.00],\n        [\"SW-002\", \"Suscripcion PostgreSQL\", 3, 2200.00, 6600.00],\n    ]\n    for r, row in enumerate(data, 2):\n        for c, val in enumerate(row, 1):\n            sh.Cells(r, c).Value = val\n\n    # Totals\n    sh.Cells(7, 4).Value = \"Subtotal\"\n    sh.Cells(7, 5).Value = 115950.00\n",
         "applies_to": "tests",
-        "source": "C:\\Chance1\\IA\\IA_Excel\\tests\\test_excel_features.py",
+        "source": "IA_Excel\\tests\\test_excel_features.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -3409,7 +3409,7 @@
       "fact": {
         "rule": "alue = val\n\n    # Totals\n    sh.Cells(7, 4).Value = \"Subtotal\"\n    sh.Cells(7, 5).Value = 115950.00\n    sh.Cells(7, 5).NumberFormat = \"$#,##0.00\"\n    sh.Cells(8, 4).Value = \"IVA 12%\"\n    sh.Cells(8, 5).Value = 13914.00\n    sh.Cells(8, 5).NumberFormat = \"$#,##0.00\"\n    sh.Cells(9, 4).Value = \"Total\"\n    sh.Cells(9, 5).Value = 129864.00\n    sh.Cells(9, 5).NumberFormat = \"$#,##0.00\"\n    sh.Cells(9, 5).Font.Bold = True\n\n    # Formula\n    sh.Cells(10, 5).Formula = \"=SUM(E2:E6)\"\n\n    # Add a second sheet\n    sh2 = wb.Sheets.Add(After=sh)\n    sh2.Name = \"Resumen\"\n    sh2.Cells(1, 1).Value = \"Total General\"\n    sh2.Cells(1, 2).Formula = \"=Datos!E9\"\n\n    # Add a hidden sheet\n    sh3 = wb.Sheets.Add(After=sh2)\n    sh3.Name = \"Oculta\"\n    sh3.Cells(1, 1).Value = \"Datos ocultos\"\n",
         "applies_to": "tests",
-        "source": "C:\\Chance1\\IA\\IA_Excel\\tests\\test_excel_features.py",
+        "source": "IA_Excel\\tests\\test_excel_features.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -3434,7 +3434,7 @@
       "fact": {
         "rule": " sh3 = wb.Sheets.Add(After=sh2)\n    sh3.Name = \"Oculta\"\n    sh3.Cells(1, 1).Value = \"Datos ocultos\"\n    sh3.Visible = 0  # xlSheetHidden\n\n    wb.SaveAs(os.path.abspath(test_wb_path), FileFormat=51)\n    wb.Close()\n    print(f\"\\nTest workbook creado: {test_wb_path}\")\n\ndef tearDownModule():\n    global client, test_wb_path\n    try:\n        client.close_workbook(save=False)\n    except Exception:\n        pass\n    if client:\n        client.quit()\n    if test_wb_path and os.path.exists(test_wb_path):\n        try:\n            os.unlink(test_wb_path)\n        except Exception:\n            pass\n\n# ─── Workbook Operations ─────────────────────────────────\n\nclass TestWorkbook(unittest.TestCase):\n\n    def setUp(self):\n        try:\n            client.close_workbook(save=False)\n        except Exception:\n",
         "applies_to": "tests",
-        "source": "C:\\Chance1\\IA\\IA_Excel\\tests\\test_excel_features.py",
+        "source": "IA_Excel\\tests\\test_excel_features.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -3459,7 +3459,7 @@
       "fact": {
         "rule": "f setUp(self):\n        try:\n            client.close_workbook(save=False)\n        except Exception:\n            pass\n        client.open_workbook(test_wb_path, read_only=True)\n\n    def test_01_open_workbook(self):\n        info = client.get_workbook_info()\n        self.assertEqual(info[\"sheet_count\"], 3)\n        self.assertIn(\"Datos\", [s[\"name\"] for s in info[\"sheets\"]])\n\n    def test_02_list_sheets(self):\n        sheets = client.list_sheets()\n        self.assertEqual(len(sheets), 3)\n        names = [s[\"name\"] for s in sheets]\n        self.assertIn(\"Datos\", names)\n        self.assertIn(\"Resumen\", names)\n        self.assertIn(\"Oculta\", names)\n\n    def test_03_list_sheets_visible_only(self):\n        sheets = client.list_sheets(include_hidden=False)\n        self.assertEqual(len(sheets), 2)\n\n",
         "applies_to": "tests",
-        "source": "C:\\Chance1\\IA\\IA_Excel\\tests\\test_excel_features.py",
+        "source": "IA_Excel\\tests\\test_excel_features.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -3484,7 +3484,7 @@
       "fact": {
         "rule": "        sheets = client.list_sheets(include_hidden=False)\n        self.assertEqual(len(sheets), 2)\n\n    def test_04_workbook_info(self):\n        info = client.get_workbook_info()\n        self.assertIn(\"name\", info)\n        self.assertIn(\"sheets\", info)\n        self.assertEqual(info[\"sheet_count\"], 3)\n\n# ─── Hidden Elements ─────────────────────────────────────\n\nclass TestHidden(unittest.TestCase):\n\n    def setUp(self):\n        try:\n            client.close_workbook(save=False)\n        except Exception:\n            pass\n        client.open_workbook(test_wb_path, read_only=True)\n\n    def test_05_get_hidden_sheets(self):\n        hidden = client.get_hidden_sheets()\n        self.assertEqual(len(hidden), 1)\n        self.assertEqual(hidden[0][\"name\"], \"Oculta\")\n\n",
         "applies_to": "tests",
-        "source": "C:\\Chance1\\IA\\IA_Excel\\tests\\test_excel_features.py",
+        "source": "IA_Excel\\tests\\test_excel_features.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -3509,7 +3509,7 @@
       "fact": {
         "rule": "s()\n        self.assertEqual(len(hidden), 1)\n        self.assertEqual(hidden[0][\"name\"], \"Oculta\")\n\n    def test_06_get_hidden_rows(self):\n        hidden = client.get_hidden_rows(sheet=\"Datos\")\n        self.assertIsInstance(hidden, list)\n\n    def test_07_get_hidden_columns(self):\n        hidden = client.get_hidden_columns(sheet=\"Datos\")\n        self.assertIsInstance(hidden, list)\n\n# ─── Cell Operations ─────────────────────────────────────\n\nclass TestCells(unittest.TestCase):\n\n    def setUp(self):\n        try:\n            client.close_workbook(save=False)\n        except Exception:\n            pass\n        client.open_workbook(test_wb_path, read_only=True)\n\n    def test_08_read_cell(self):\n        val = client.read_cell(\"A1\", sheet=\"Datos\")\n        self.assertEqual(val, \"Item\")\n\n",
         "applies_to": "tests",
-        "source": "C:\\Chance1\\IA\\IA_Excel\\tests\\test_excel_features.py",
+        "source": "IA_Excel\\tests\\test_excel_features.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -3534,7 +3534,7 @@
       "fact": {
         "rule": "l(self):\n        val = client.read_cell(\"A1\", sheet=\"Datos\")\n        self.assertEqual(val, \"Item\")\n\n    def test_09_read_cell_numeric(self):\n        val = client.read_cell(\"D2\", sheet=\"Datos\")\n        self.ass",
         "applies_to": "tests",
-        "source": "C:\\Chance1\\IA\\IA_Excel\\tests\\test_excel_features.py",
+        "source": "IA_Excel\\tests\\test_excel_features.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""

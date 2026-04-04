@@ -9,7 +9,7 @@
       "fact": {
         "rule": "# -*- coding: utf-8 -*-\n\"\"\"ExcelCOM - Excel desktop automation via COM.\"\"\"\n\nimport os\nimport re\nimport time\nimport datetime\nfrom typing import Any, Optional\nfrom dataclasses import dataclass, field\n\nimport pythoncom\nimport win32com.client\nfrom pywintypes import com_error\n\nfrom .constants import (\n    XL_VALUES, XL_FORMULAS, XL_PART, XL_WHOLE,\n    XL_BY_ROWS, XL_NEXT,\n    XL_SHEET_VISIBLE, XL_SHEET_HIDDEN, XL_SHEET_VERY_HIDDEN,\n    XL_XLSX, XL_CSV_UTF8, XL_LOCAL_SESSION_CHANGES,\n    IVA_RATES, BOM_CATEGORIES,\n)\n\nclass ExcelCOMError(Exception):\n    \"\"\"Raised when a COM operation on Excel fails.\"\"\"\n\n@dataclass\nclass ValidationResult:\n    passed: bool\n    issues: list = field(default_factory=list)\n\n    def to_dict(self) -> dict:\n        return {\"passed\": self.passed, \"issues\": self.issues}\n\n",
         "applies_to": "ia_excel",
-        "source": "C:\\Chance1\\IA\\IA_Excel\\src\\excel_com.py",
+        "source": "IA_Excel\\src\\excel_com.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -34,7 +34,7 @@
       "fact": {
         "rule": "ist)\n\n    def to_dict(self) -> dict:\n        return {\"passed\": self.passed, \"issues\": self.issues}\n\nclass ExcelCOM:\n    \"\"\"Wrapper for Excel desktop COM automation.\"\"\"\n\n    def __init__(self, visible: bool = False) -> None:\n        self._app = None\n        self._wb = None\n        self._visible = visible\n        self._initialized = False\n\n    def _ensure_app(self) -> None:\n        if self._app is not None:\n            return\n        try:\n            pythoncom.CoInitialize()\n            self._app = win32com.client.Dispatch(\"Excel.Application\")\n            self._app.Visible = self._visible\n            self._app.DisplayAlerts = False\n            self._initialized = True\n        except com_error as e:\n            raise ExcelCOMError(f\"No se pudo iniciar Excel: {e}\") from e\n\n",
         "applies_to": "ia_excel",
-        "source": "C:\\Chance1\\IA\\IA_Excel\\src\\excel_com.py",
+        "source": "IA_Excel\\src\\excel_com.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -59,7 +59,7 @@
       "fact": {
         "rule": "   except com_error as e:\n            raise ExcelCOMError(f\"No se pudo iniciar Excel: {e}\") from e\n\n    def __enter__(self) -> \"ExcelCOM\":\n        self._ensure_app()\n        return self\n\n    def __exit__(self, *args) -> None:\n        self.quit()\n\n    def quit(self) -> None:\n        try:\n            if self._wb:\n                self._wb.Close(SaveChanges=0)\n        except Exception:\n            pass\n        try:\n            if self._app:\n                self._app.Quit()\n        except Exception:\n            pass\n        self._wb = None\n        self._app = None\n        try:\n            pythoncom.CoUninitialize()\n        except Exception:\n            pass\n\n    @property\n    def app(self) -> Any:\n        self._ensure_app()\n        return self._app\n\n    @property\n    def wb(self) -> Any:\n",
         "applies_to": "ia_excel",
-        "source": "C:\\Chance1\\IA\\IA_Excel\\src\\excel_com.py",
+        "source": "IA_Excel\\src\\excel_com.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -84,7 +84,7 @@
       "fact": {
         "rule": "-> Any:\n        self._ensure_app()\n        return self._app\n\n    @property\n    def wb(self) -> Any:\n        if self._wb is None:\n            raise ExcelCOMError(\"No hay workbook abierto. Usar open_workbook() primero.\")\n        return self._wb\n\n    # ── Workbook Operations ──────────────────────────────────\n\n    def open_workbook(self, path: str, read_only: bool = False) -> dict:\n        \"\"\"Open an Excel file.\"\"\"\n        full = os.path.abspath(path)\n        if not os.path.exists(full):\n            raise ExcelCOMError(f\"Archivo no encontrado: {full}\")\n        try:\n            self._ensure_app()\n            self._wb = self.app.Workbooks.Open(full, ReadOnly=read_only)\n            time.sleep(0.5)\n            return {\n                \"name\": str(self._wb.Name),\n                \"path\": full,\n",
         "applies_to": "ia_excel",
-        "source": "C:\\Chance1\\IA\\IA_Excel\\src\\excel_com.py",
+        "source": "IA_Excel\\src\\excel_com.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -109,7 +109,7 @@
       "fact": {
         "rule": "0.5)\n            return {\n                \"name\": str(self._wb.Name),\n                \"path\": full,\n                \"sheets\": self._wb.Sheets.Count,\n                \"active_sheet\": str(self._wb.ActiveSheet.Name),\n            }\n        except com_error as e:\n            raise ExcelCOMError(f\"Error abriendo workbook: {e}\") from e\n\n    def close_workbook(self, save: bool = False) -> None:\n        try:\n            if self._wb:\n                self._wb.Close(SaveChanges=1 if save else 0)\n                self._wb = None\n        except com_error as e:\n            raise ExcelCOMError(f\"Error cerrando workbook: {e}\") from e\n\n    def save(self) -> None:\n        try:\n            self.wb.Save()\n        except com_error as e:\n            raise ExcelCOMError(f\"Error guardando: {e}\") from e\n\n",
         "applies_to": "ia_excel",
-        "source": "C:\\Chance1\\IA\\IA_Excel\\src\\excel_com.py",
+        "source": "IA_Excel\\src\\excel_com.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -134,7 +134,7 @@
       "fact": {
         "rule": "e()\n        except com_error as e:\n            raise ExcelCOMError(f\"Error guardando: {e}\") from e\n\n    def save_as(self, path: str, file_format: int = XL_XLSX) -> str:\n        full = os.path.abspath(path)\n        try:\n            self.wb.SaveAs(full, FileFormat=file_format,\n                          ConflictResolution=XL_LOCAL_SESSION_CHANGES)\n            return full\n        except com_error as e:\n            raise ExcelCOMError(f\"Error en SaveAs: {e}\") from e\n\n    def get_workbook_info(self) -> dict:\n        wb = self.wb\n        sheets_info = []\n        for i in range(1, wb.Sheets.Count + 1):\n            sh = wb.Sheets(i)\n            vis = \"visible\" if sh.Visible == XL_SHEET_VISIBLE else \\\n                  \"hidden\" if sh.Visible == XL_SHEET_HIDDEN else \"very_hidden\"\n",
         "applies_to": "ia_excel",
-        "source": "C:\\Chance1\\IA\\IA_Excel\\src\\excel_com.py",
+        "source": "IA_Excel\\src\\excel_com.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -159,7 +159,7 @@
       "fact": {
         "rule": "SHEET_VISIBLE else \\\n                  \"hidden\" if sh.Visible == XL_SHEET_HIDDEN else \"very_hidden\"\n            sheets_info.append({\"index\": i, \"name\": str(sh.Name), \"visibility\": vis})\n        return {\n            \"name\": str(wb.Name),\n            \"path\": str(wb.FullName),\n            \"sheet_count\": wb.Sheets.Count,\n            \"sheets\": sheets_info,\n            \"active_sheet\": str(wb.ActiveSheet.Name),\n        }\n\n    # ── Sheet Management ─────────────────────────────────────\n\n    def list_sheets(self, include_hidden: bool = True) -> list:\n        result = []\n        for i in range(1, self.wb.Sheets.Count + 1):\n            sh = self.wb.Sheets(i)\n            vis = sh.Visible\n            if not include_hidden and vis != XL_SHEET_VISIBLE:\n                continue\n",
         "applies_to": "ia_excel",
-        "source": "C:\\Chance1\\IA\\IA_Excel\\src\\excel_com.py",
+        "source": "IA_Excel\\src\\excel_com.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -184,7 +184,7 @@
       "fact": {
         "rule": " sh.Visible\n            if not include_hidden and vis != XL_SHEET_VISIBLE:\n                continue\n            used = sh.UsedRange\n            result.append({\n                \"index\": i,",
         "applies_to": "ia_excel",
-        "source": "C:\\Chance1\\IA\\IA_Excel\\src\\excel_com.py",
+        "source": "IA_Excel\\src\\excel_com.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -209,7 +209,7 @@
       "fact": {
         "rule": "# -*- coding: utf-8 -*-\n\"\"\"\nStress tests de alta complejidad basados en escenarios reales de internet.\nCada test crea su propio workbook con el escenario problematico.\n\nSources:\n- Microsoft Support: circular references, broken formulas\n- Corporate Finance Institute: financial model stress testing\n- DataCamp: circular reference detection\n- Analytics Vidhya: merged cells, pivot tables edge cases\n\"\"\"\n\nimport os\nimport sys\nimport time\nimport tempfile\nimport unittest\nimport datetime\n\nsys.path.insert(0, os.path.join(os.path.dirname(__file__), \"..\"))\nfrom src.excel_com import ExcelCOM, ExcelCOMError, ValidationResult\n\nTMP = tempfile.gettempdir()\nxl: ExcelCOM = None\n\ndef setUpModule():\n    global xl\n    xl = ExcelCOM(visible=False)\n    xl._ensure_app()\n\ndef tearDownModule():\n    global xl\n",
         "applies_to": "ia_excel",
-        "source": "C:\\Chance1\\IA\\IA_Excel\\tests\\test_stress_complex.py",
+        "source": "IA_Excel\\tests\\test_stress_complex.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -234,7 +234,7 @@
       "fact": {
         "rule": "lobal xl\n    xl = ExcelCOM(visible=False)\n    xl._ensure_app()\n\ndef tearDownModule():\n    global xl\n    try:\n        xl.close_workbook(save=False)\n    except Exception:\n        pass\n    if xl:\n        xl.quit()\n\ndef create_workbook(name):\n    \"\"\"Helper: create a new workbook, return path.\"\"\"\n    wb = xl.app.Workbooks.Add()\n    path = os.path.join(TMP, f\"stress_{name}.xlsx\")\n    wb.SaveAs(os.path.abspath(path), FileFormat=51)\n    return wb, path\n\ndef close_and_reopen(path, read_only=True):\n    \"\"\"Close current, reopen for testing.\"\"\"\n    try:\n        xl.close_workbook(save=False)\n    except Exception:\n        pass\n    xl.open_workbook(path, read_only=read_only)\n\n# ═══════════════════════════════════════════════════════════\n# 1. MERGED CELLS COMPLEJAS\n",
         "applies_to": "ia_excel",
-        "source": "C:\\Chance1\\IA\\IA_Excel\\tests\\test_stress_complex.py",
+        "source": "IA_Excel\\tests\\test_stress_complex.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -259,7 +259,7 @@
       "fact": {
         "rule": "ad_only)\n\n# ═══════════════════════════════════════════════════════════\n# 1. MERGED CELLS COMPLEJAS\n# Escenario: headers merged en multiples niveles, celdas\n# merged verticales y horizontales, valores solo en primera celda\n# ═══════════════════════════════════════════════════════════\nclass TestMergedCellsComplex(unittest.TestCase):\n\n    @classmethod\n    def setUpClass(cls):\n        wb, cls.path = create_workbook(\"merged\")\n        sh = wb.ActiveSheet\n        sh.Name = \"MergedComplex\"\n\n        # Header merged horizontal (A1:E1)\n        sh.Range(\"A1:E1\").Merge()\n        sh.Range(\"A1\").Value = \"PROPUESTA ECONOMICA CONSOLIDADA\"\n\n        # Sub-headers merged (A2:B2, C2:E2)\n        sh.Range(\"A2:B2\").Merge()\n        sh.Range(\"A2\").Value = \"Informacion del Item\"\n        sh.Range(\"C2:E2\").Merge()\n",
         "applies_to": "ia_excel",
-        "source": "C:\\Chance1\\IA\\IA_Excel\\tests\\test_stress_complex.py",
+        "source": "IA_Excel\\tests\\test_stress_complex.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -284,7 +284,7 @@
       "fact": {
         "rule": "2\").Merge()\n        sh.Range(\"A2\").Value = \"Informacion del Item\"\n        sh.Range(\"C2:E2\").Merge()\n        sh.Range(\"C2\").Value = \"Valores Financieros\"\n\n        # Vertical merge (A3:A5)\n        sh.Range(\"A3:A5\").Merge()\n        sh.Range(\"A3\").Value = \"Hardware\"\n\n        # Another vertical merge (A6:A8)\n        sh.Range(\"A6:A8\").Merge()\n        sh.Range(\"A6\").Value = \"Software\"\n\n        # Data\n        for i, (desc, qty, price) in enumerate([\n            (\"Servidor Dell R750\", 2, 15000),\n            (\"Storage NetApp\", 1, 45000),\n            (\"Rack 42U\", 1, 3000),\n            (\"Red Hat OpenShift\", 5, 4950),\n            (\"PostgreSQL License\", 3, 2200),\n            (\"Windows Server\", 4, 1200),\n        ], 3):\n            sh.Cells(i, 2).Value = desc\n            sh.Cells(i, 3).Value = qty\n",
         "applies_to": "ia_excel",
-        "source": "C:\\Chance1\\IA\\IA_Excel\\tests\\test_stress_complex.py",
+        "source": "IA_Excel\\tests\\test_stress_complex.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -309,7 +309,7 @@
       "fact": {
         "rule": "200),\n        ], 3):\n            sh.Cells(i, 2).Value = desc\n            sh.Cells(i, 3).Value = qty\n            sh.Cells(i, 4).Value = price\n            sh.Cells(i, 5).Value = qty * price\n\n        wb.Save()\n        wb.Close()\n\n    def setUp(self):\n        close_and_reopen(self.path)\n\n    def test_01_detect_merged_cells(self):\n        merged = xl.get_merged_cells(sheet=\"MergedComplex\")\n        self.assertGreater(len(merged), 0)\n        # Should find at least the big header merge\n        addresses = [m[\"address\"] for m in merged]\n        has_big_merge = any(\"$A$1\" in a for a in addresses)\n        self.assertTrue(has_big_merge)\n\n    def test_02_read_merged_value(self):\n        val = xl.read_cell(\"A1\", sheet=\"MergedComplex\")\n        self.assertEqual(val, \"PROPUESTA ECONOMICA CONSOLIDADA\")\n\n",
         "applies_to": "ia_excel",
-        "source": "C:\\Chance1\\IA\\IA_Excel\\tests\\test_stress_complex.py",
+        "source": "IA_Excel\\tests\\test_stress_complex.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -334,7 +334,7 @@
       "fact": {
         "rule": "cell(\"A1\", sheet=\"MergedComplex\")\n        self.assertEqual(val, \"PROPUESTA ECONOMICA CONSOLIDADA\")\n\n    def test_03_merged_vertical_read(self):\n        val = xl.read_cell(\"A3\", sheet=\"MergedComplex\")\n        self.assertEqual(val, \"Hardware\")\n        # Merged cells B-E should be None\n        val_below = xl.read_cell(\"A4\", sheet=\"MergedComplex\")\n        self.assertIsNone(val_below)\n\n    def test_04_read_range_with_merges(self):\n        data = xl.read_sheet_data(sheet=\"MergedComplex\")\n        self.assertGreater(len(data), 5)\n        # First row should have the merged header\n        self.assertEqual(data[0][0], \"PROPUESTA ECONOMICA CONSOLIDADA\")\n\n    @classmethod\n    def tearDownClass(cls):\n        try:\n            xl.close_workbook(save=False)\n        except Exception:\n            pass\n",
         "applies_to": "ia_excel",
-        "source": "C:\\Chance1\\IA\\IA_Excel\\tests\\test_stress_complex.py",
+        "source": "IA_Excel\\tests\\test_stress_complex.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -359,7 +359,7 @@
       "fact": {
         "rule": ":\n        try:\n            xl.close_workbook(save=False)\n        except Exception:\n            pass\n        os.unlink(cls.path)\n\n# ═══════════════════════════════════════════════════════════\n# 2. FORMULAS CON ERRORES (#REF!, #DIV/0!, #N/A, #VALUE!)\n# Escenario: workbook con formulas rotas que deben ser\n# detectadas y reportadas correctamente\n# ═══════════════════════════════════════════════════════════\nclass TestFormulaErrors(unittest.TestCase):\n\n    @classmethod\n    def setUpClass(cls):\n        wb, cls.path = create_workbook(\"errors\")\n        sh = wb.ActiveSheet\n        sh.Name = \"Errors\"\n\n        sh.Cells(1, 1).Value = \"Formula\"\n        sh.Cells(1, 2).Value = \"Tipo Error\"\n\n        # #DIV/0!\n        sh.Cells(2, 1).Formula = \"=1/0\"\n        sh.Cells(2, 2).Value = \"#DIV/0!\"\n\n",
         "applies_to": "ia_excel",
-        "source": "C:\\Chance1\\IA\\IA_Excel\\tests\\test_stress_complex.py",
+        "source": "IA_Excel\\tests\\test_stress_complex.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -384,7 +384,7 @@
       "fact": {
         "rule": "        # #DIV/0!\n        sh.Cells(2, 1).Formula = \"=1/0\"\n        sh.Cells(2, 2).Value = \"#DIV/0!\"\n\n        # #VALUE!\n        sh.Cells(3, 1).Formula = '=\"texto\"+1'\n        sh.C",
         "applies_to": "ia_excel",
-        "source": "C:\\Chance1\\IA\\IA_Excel\\tests\\test_stress_complex.py",
+        "source": "IA_Excel\\tests\\test_stress_complex.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -409,7 +409,7 @@
       "fact": {
         "rule": "\"\"\"\nMCP Server for Excel Automation.\n\nExposes tools to any LLM for controlling Microsoft Excel via COM Automation.\nEach tool performs a specific spreadsheet operation and returns structured JSON.\n\nRun with:\n    python -m src.mcp_server\n\"\"\"\n\nfrom __future__ import annotations\n\nimport json\nimport logging\nimport sys\nimport traceback\nfrom typing import Any, Optional\n\nfrom mcp.server import Server\nfrom mcp.server.stdio import stdio_server\nfrom mcp.types import TextContent, Tool\n\nfrom .excel_com import ExcelCOM, ExcelCOMError\n\nlogging.basicConfig(\n    level=logging.INFO,\n    format=\"%(asctime)s [%(levelname)s] %(name)s: %(message)s\",\n    handlers=[logging.StreamHandler(sys.stderr)],\n)\nlogger = logging.getLogger(\"ia_excel\")\n\n_xl: Optional[ExcelCOM] = None\n\ndef get_xl() -> ExcelCOM:\n",
         "applies_to": "ia_excel",
-        "source": "C:\\Chance1\\IA\\IA_Excel\\src\\mcp_server.py",
+        "source": "IA_Excel\\src\\mcp_server.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -434,7 +434,7 @@
       "fact": {
         "rule": ")\nlogger = logging.getLogger(\"ia_excel\")\n\n_xl: Optional[ExcelCOM] = None\n\ndef get_xl() -> ExcelCOM:\n    global _xl\n    if _xl is None:\n        _xl = ExcelCOM(visible=False)\n        _xl._ensure_app()\n    return _xl\n\ndef result_json(data: Any) -> list[TextContent]:\n    return [TextContent(type=\"text\", text=json.dumps(data, ensure_ascii=False, indent=2, default=str))]\n\ndef error_json(message: str, details: str = \"\") -> list[TextContent]:\n    payload = {\"error\": message}\n    if details:\n        payload[\"details\"] = details\n    return [TextContent(type=\"text\", text=json.dumps(payload, ensure_ascii=False, indent=2))]\n\napp = Server(\"ia_excel\")\n\n@app.list_tools()\nasync def list_tools() -> list[Tool]:\n    return [\n        Tool(\n            name=\"open_workbook\",\n",
         "applies_to": "ia_excel",
-        "source": "C:\\Chance1\\IA\\IA_Excel\\src\\mcp_server.py",
+        "source": "IA_Excel\\src\\mcp_server.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -459,7 +459,7 @@
       "fact": {
         "rule": "\nasync def list_tools() -> list[Tool]:\n    return [\n        Tool(\n            name=\"open_workbook\",\n            description=\"Open an Excel workbook (.xlsx/.xls). Must be called before any other operation.\",\n            inputSchema={\n                \"type\": \"object\",\n                \"properties\": {\n                    \"path\": {\"type\": \"string\", \"description\": \"Absolute path to the Excel file.\"},\n                    \"read_only\": {\"type\": \"boolean\", \"description\": \"Open in read-only mode. Default: true.\", \"default\": True},\n                },\n                \"required\": [\"path\"],\n            },\n        ),\n        Tool(\n            name=\"analyze_workbook\",\n            description=(\n                \"Full analysis of the open workbook: sheets (visible/hidden), \"\n",
         "applies_to": "ia_excel",
-        "source": "C:\\Chance1\\IA\\IA_Excel\\src\\mcp_server.py",
+        "source": "IA_Excel\\src\\mcp_server.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -484,7 +484,7 @@
       "fact": {
         "rule": "      description=(\n                \"Full analysis of the open workbook: sheets (visible/hidden), \"\n                \"formula count per sheet, hidden rows/columns, charts, pivot tables, named ranges. \"\n                \"Use this first to understand the workbook structure.\"\n            ),\n            inputSchema={\"type\": \"object\", \"properties\": {}},\n        ),\n        Tool(\n            name=\"read_range\",\n            description=\"Read cell values from a range (e.g., 'A1:E10') or a single cell (e.g., 'B5').\",\n            inputSchema={\n                \"type\": \"object\",\n                \"properties\": {\n                    \"range\": {\"type\": \"string\", \"description\": \"Cell or range address (e.g., 'A1', 'B2:D20').\"},\n                    \"sheet\": {\"type\": \"string\", \"description\": \"Sheet name. ",
         "applies_to": "ia_excel",
-        "source": "C:\\Chance1\\IA\\IA_Excel\\src\\mcp_server.py",
+        "source": "IA_Excel\\src\\mcp_server.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -509,7 +509,7 @@
       "fact": {
         "rule": "g., 'A1', 'B2:D20').\"},\n                    \"sheet\": {\"type\": \"string\", \"description\": \"Sheet name. Uses active sheet if omitted.\"},\n                },\n                \"required\": [\"range\"],\n            },\n        ),\n        Tool(\n            name=\"write_range\",\n            description=\"Write values to a range. Provide data as a 2D array.\",\n            inputSchema={\n                \"type\": \"object\",\n                \"properties\": {\n                    \"range\": {\"type\": \"string\", \"description\": \"Starting cell or range (e.g., 'A1', 'B2:D4').\"},\n                    \"data\": {\"type\": \"array\", \"description\": \"2D array of values to write.\", \"items\": {\"type\": \"array\"}},\n                    \"sheet\": {\"type\": \"string\", \"description\": \"Sheet name.\"},\n                },\n",
         "applies_to": "ia_excel",
-        "source": "C:\\Chance1\\IA\\IA_Excel\\src\\mcp_server.py",
+        "source": "IA_Excel\\src\\mcp_server.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -534,7 +534,7 @@
       "fact": {
         "rule": ",\n                    \"sheet\": {\"type\": \"string\", \"description\": \"Sheet name.\"},\n                },\n                \"required\": [\"range\", \"data\"],\n            },\n        ),\n        Tool(\n            name=\"read_sheet_data\",\n            description=\"Read all data from a sheet's used range as a 2D array. Good for getting full sheet contents.\",\n            inputSchema={\n                \"type\": \"object\",\n                \"properties\": {\n                    \"sheet\": {\"type\": \"string\", \"description\": \"Sheet name. Uses active sheet if omitted.\"},\n                    \"max_rows\": {\"type\": \"integer\", \"description\": \"Max rows to read. Default: 5000.\", \"default\": 5000},\n                },\n            },\n        ),\n        Tool(\n            name=\"find_in_workbook\",\n",
         "applies_to": "ia_excel",
-        "source": "C:\\Chance1\\IA\\IA_Excel\\src\\mcp_server.py",
+        "source": "IA_Excel\\src\\mcp_server.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -559,7 +559,7 @@
       "fact": {
         "rule": "0},\n                },\n            },\n        ),\n        Tool(\n            name=\"find_in_workbook\",\n            description=\"Search for text across all visible sheets. Returns all matching cells with addresses and values.\",\n            inputSchema={\n                \"type\": \"object\",\n                \"properties\": {\n                    \"text\": {\"type\": \"string\", \"description\": \"Text to search for.\"},\n                },\n                \"required\": [\"text\"],\n            },\n        ),\n        Tool(\n            name=\"find_replace\",\n            description=\"Find and replace text in a specific sheet or the active sheet.\",\n            inputSchema={\n                \"type\": \"object\",\n                \"properties\": {\n                    \"old_text\": {\"type\": \"string\", \"description\": \"Text to find.\"},\n",
         "applies_to": "ia_excel",
-        "source": "C:\\Chance1\\IA\\IA_Excel\\src\\mcp_server.py",
+        "source": "IA_Excel\\src\\mcp_server.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -584,7 +584,7 @@
       "fact": {
         "rule": "\"properties\": {\n                    \"old_text\": {\"type\": \"string\", \"description\": \"Text to find.\"},\n                    \"new_text\": {\"type\": \"string\", \"description\": \"Replacement text.\"},\n                    \"sheet\": {\"type\": \"string\", \"description\": \"Sheet name",
         "applies_to": "ia_excel",
-        "source": "C:\\Chance1\\IA\\IA_Excel\\src\\mcp_server.py",
+        "source": "IA_Excel\\src\\mcp_server.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -609,7 +609,7 @@
       "fact": {
         "rule": "# -*- coding: utf-8 -*-\n\"\"\"Test suite for ExcelCOM - creates temp workbooks for safe testing.\"\"\"\n\nimport os\nimport sys\nimport tempfile\nimport unittest\nimport datetime\n\nsys.path.insert(0, os.path.join(os.path.dirname(__file__), \"..\"))\nfrom src.excel_com import ExcelCOM, ExcelCOMError\n\nTEST_PREFIX = \"[IA_EXCEL_TEST]\"\nclient: ExcelCOM = None\ntest_wb_path: str = None\n\ndef setUpModule():\n    global client, test_wb_path\n    client = ExcelCOM(visible=False)\n    client._ensure_app()\n\n    # Create a test workbook with sample data\n    test_wb_path = os.path.join(tempfile.gettempdir(), \"ia_excel_test.xlsx\")\n    wb = client.app.Workbooks.Add()\n    sh = wb.ActiveSheet\n    sh.Name = \"Datos\"\n\n    # Headers\n    headers = [\"Item\", \"Descripcion\", \"Cantidad\", \"Precio\", \"Total\"]\n",
         "applies_to": "ia_excel",
-        "source": "C:\\Chance1\\IA\\IA_Excel\\tests\\test_excel_features.py",
+        "source": "IA_Excel\\tests\\test_excel_features.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -634,7 +634,7 @@
       "fact": {
         "rule": ".Name = \"Datos\"\n\n    # Headers\n    headers = [\"Item\", \"Descripcion\", \"Cantidad\", \"Precio\", \"Total\"]\n    for c, h in enumerate(headers, 1):\n        sh.Cells(1, c).Value = h\n        sh.Cells(1, c).Font.Bold = True\n\n    # Data rows\n    data = [\n        [\"HW-001\", \"Servidor Dell R750\", 2, 15000.00, 30000.00],\n        [\"SW-001\", \"Red Hat OpenShift License\", 5, 4950.00, 24750.00],\n        [\"SV-001\", \"Servicio Implementacion\", 120, 80.00, 9600.00],\n        [\"HW-002\", \"Storage NetApp\", 1, 45000.00, 45000.00],\n        [\"SW-002\", \"Suscripcion PostgreSQL\", 3, 2200.00, 6600.00],\n    ]\n    for r, row in enumerate(data, 2):\n        for c, val in enumerate(row, 1):\n            sh.Cells(r, c).Value = val\n\n    # Totals\n    sh.Cells(7, 4).Value = \"Subtotal\"\n    sh.Cells(7, 5).Value = 115950.00\n",
         "applies_to": "ia_excel",
-        "source": "C:\\Chance1\\IA\\IA_Excel\\tests\\test_excel_features.py",
+        "source": "IA_Excel\\tests\\test_excel_features.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -659,7 +659,7 @@
       "fact": {
         "rule": "alue = val\n\n    # Totals\n    sh.Cells(7, 4).Value = \"Subtotal\"\n    sh.Cells(7, 5).Value = 115950.00\n    sh.Cells(7, 5).NumberFormat = \"$#,##0.00\"\n    sh.Cells(8, 4).Value = \"IVA 12%\"\n    sh.Cells(8, 5).Value = 13914.00\n    sh.Cells(8, 5).NumberFormat = \"$#,##0.00\"\n    sh.Cells(9, 4).Value = \"Total\"\n    sh.Cells(9, 5).Value = 129864.00\n    sh.Cells(9, 5).NumberFormat = \"$#,##0.00\"\n    sh.Cells(9, 5).Font.Bold = True\n\n    # Formula\n    sh.Cells(10, 5).Formula = \"=SUM(E2:E6)\"\n\n    # Add a second sheet\n    sh2 = wb.Sheets.Add(After=sh)\n    sh2.Name = \"Resumen\"\n    sh2.Cells(1, 1).Value = \"Total General\"\n    sh2.Cells(1, 2).Formula = \"=Datos!E9\"\n\n    # Add a hidden sheet\n    sh3 = wb.Sheets.Add(After=sh2)\n    sh3.Name = \"Oculta\"\n    sh3.Cells(1, 1).Value = \"Datos ocultos\"\n",
         "applies_to": "ia_excel",
-        "source": "C:\\Chance1\\IA\\IA_Excel\\tests\\test_excel_features.py",
+        "source": "IA_Excel\\tests\\test_excel_features.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -684,7 +684,7 @@
       "fact": {
         "rule": " sh3 = wb.Sheets.Add(After=sh2)\n    sh3.Name = \"Oculta\"\n    sh3.Cells(1, 1).Value = \"Datos ocultos\"\n    sh3.Visible = 0  # xlSheetHidden\n\n    wb.SaveAs(os.path.abspath(test_wb_path), FileFormat=51)\n    wb.Close()\n    print(f\"\\nTest workbook creado: {test_wb_path}\")\n\ndef tearDownModule():\n    global client, test_wb_path\n    try:\n        client.close_workbook(save=False)\n    except Exception:\n        pass\n    if client:\n        client.quit()\n    if test_wb_path and os.path.exists(test_wb_path):\n        try:\n            os.unlink(test_wb_path)\n        except Exception:\n            pass\n\n# ─── Workbook Operations ─────────────────────────────────\n\nclass TestWorkbook(unittest.TestCase):\n\n    def setUp(self):\n        try:\n            client.close_workbook(save=False)\n        except Exception:\n",
         "applies_to": "ia_excel",
-        "source": "C:\\Chance1\\IA\\IA_Excel\\tests\\test_excel_features.py",
+        "source": "IA_Excel\\tests\\test_excel_features.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -709,7 +709,7 @@
       "fact": {
         "rule": "f setUp(self):\n        try:\n            client.close_workbook(save=False)\n        except Exception:\n            pass\n        client.open_workbook(test_wb_path, read_only=True)\n\n    def test_01_open_workbook(self):\n        info = client.get_workbook_info()\n        self.assertEqual(info[\"sheet_count\"], 3)\n        self.assertIn(\"Datos\", [s[\"name\"] for s in info[\"sheets\"]])\n\n    def test_02_list_sheets(self):\n        sheets = client.list_sheets()\n        self.assertEqual(len(sheets), 3)\n        names = [s[\"name\"] for s in sheets]\n        self.assertIn(\"Datos\", names)\n        self.assertIn(\"Resumen\", names)\n        self.assertIn(\"Oculta\", names)\n\n    def test_03_list_sheets_visible_only(self):\n        sheets = client.list_sheets(include_hidden=False)\n        self.assertEqual(len(sheets), 2)\n\n",
         "applies_to": "ia_excel",
-        "source": "C:\\Chance1\\IA\\IA_Excel\\tests\\test_excel_features.py",
+        "source": "IA_Excel\\tests\\test_excel_features.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -734,7 +734,7 @@
       "fact": {
         "rule": "        sheets = client.list_sheets(include_hidden=False)\n        self.assertEqual(len(sheets), 2)\n\n    def test_04_workbook_info(self):\n        info = client.get_workbook_info()\n        self.assertIn(\"name\", info)\n        self.assertIn(\"sheets\", info)\n        self.assertEqual(info[\"sheet_count\"], 3)\n\n# ─── Hidden Elements ─────────────────────────────────────\n\nclass TestHidden(unittest.TestCase):\n\n    def setUp(self):\n        try:\n            client.close_workbook(save=False)\n        except Exception:\n            pass\n        client.open_workbook(test_wb_path, read_only=True)\n\n    def test_05_get_hidden_sheets(self):\n        hidden = client.get_hidden_sheets()\n        self.assertEqual(len(hidden), 1)\n        self.assertEqual(hidden[0][\"name\"], \"Oculta\")\n\n",
         "applies_to": "ia_excel",
-        "source": "C:\\Chance1\\IA\\IA_Excel\\tests\\test_excel_features.py",
+        "source": "IA_Excel\\tests\\test_excel_features.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -759,7 +759,7 @@
       "fact": {
         "rule": "s()\n        self.assertEqual(len(hidden), 1)\n        self.assertEqual(hidden[0][\"name\"], \"Oculta\")\n\n    def test_06_get_hidden_rows(self):\n        hidden = client.get_hidden_rows(sheet=\"Datos\")\n        self.assertIsInstance(hidden, list)\n\n    def test_07_get_hidden_columns(self):\n        hidden = client.get_hidden_columns(sheet=\"Datos\")\n        self.assertIsInstance(hidden, list)\n\n# ─── Cell Operations ─────────────────────────────────────\n\nclass TestCells(unittest.TestCase):\n\n    def setUp(self):\n        try:\n            client.close_workbook(save=False)\n        except Exception:\n            pass\n        client.open_workbook(test_wb_path, read_only=True)\n\n    def test_08_read_cell(self):\n        val = client.read_cell(\"A1\", sheet=\"Datos\")\n        self.assertEqual(val, \"Item\")\n\n",
         "applies_to": "ia_excel",
-        "source": "C:\\Chance1\\IA\\IA_Excel\\tests\\test_excel_features.py",
+        "source": "IA_Excel\\tests\\test_excel_features.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -784,7 +784,7 @@
       "fact": {
         "rule": "l(self):\n        val = client.read_cell(\"A1\", sheet=\"Datos\")\n        self.assertEqual(val, \"Item\")\n\n    def test_09_read_cell_numeric(self):\n        val = client.read_cell(\"D2\", sheet=\"Datos\")\n        self.ass",
         "applies_to": "ia_excel",
-        "source": "C:\\Chance1\\IA\\IA_Excel\\tests\\test_excel_features.py",
+        "source": "IA_Excel\\tests\\test_excel_features.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -807,9 +807,9 @@
       "type": "fact",
       "key": "MANUAL_TECNICO_0",
       "fact": {
-        "rule": "# IA_Excel - Manual Tecnico de Instalacion\n\n## Prerequisitos\n\n| Componente | Version minima | Notas |\n|-----------|---------------|-------|\n| Python | 3.12+ | Debe estar en PATH |\n| pywin32 | >= 306 | Provee win32com.client y pythoncom |\n| mcp | >= 1.0.0 | Model Context Protocol SDK |\n| Excel | Desktop (Office 365 / 2019+) | No funciona con Excel Online ni New Outlook |\n| Windows | 10/11 | COM Automation solo existe en Windows |\n\n---\n\n## Instalacion paso a paso\n\n### 1. Clonar el repositorio\n\n```bash\ncd C:\\Chance1\ngit clone <url-del-repo> IA_Excel\ncd IA_Excel\n```\n\n### 2. Crear entorno virtual\n\n```bash\npython -m venv .venv\n.venv\\Scripts\\activate\n```\n\n### 3. Instalar dependencias\n\n```bash\npip install -r requirements.txt\n```\n\nEl archivo `requirements.txt` contiene:\n\n```\npywin32>=306\n",
+        "rule": "# IA_Excel - Manual Tecnico de Instalacion\n\n## Prerequisitos\n\n| Componente | Version minima | Notas |\n|-----------|---------------|-------|\n| Python | 3.12+ | Debe estar en PATH |\n| pywin32 | >= 306 | Provee win32com.client y pythoncom |\n| mcp | >= 1.0.0 | Model Context Protocol SDK |\n| Excel | Desktop (Office 365 / 2019+) | No funciona con Excel Online ni New Outlook |\n| Windows | 10/11 | COM Automation solo existe en Windows |\n\n---\n\n## Instalacion paso a paso\n\n### 1. Clonar el repositorio\n\n```bash\ncd C:\\Hooks_IA\ngit clone <url-del-repo> IA_Excel\ncd IA_Excel\n```\n\n### 2. Crear entorno virtual\n\n```bash\npython -m venv .venv\n.venv\\Scripts\\activate\n```\n\n### 3. Instalar dependencias\n\n```bash\npip install -r requirements.txt\n```\n\nEl archivo `requirements.txt` contiene:\n\n```\npywin32>=306\n",
         "applies_to": "ia_excel",
-        "source": "C:\\Chance1\\IA\\IA_Excel\\MANUAL_TECNICO.md",
+        "source": "IA_Excel\\MANUAL_TECNICO.md",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -833,7 +833,7 @@
       "fact": {
         "rule": "bash\npip install -r requirements.txt\n```\n\nEl archivo `requirements.txt` contiene:\n\n```\npywin32>=306\nmcp>=1.0.0\n```\n\n### 4. Verificar COM Automation\n\n```bash\npython -c \"import win32com.client; app = win32com.client.Dispatch('Excel.Application'); print(f'Excel {app.Version}'); app.Quit()\"\n```\n\nSi falla, ejecutar como administrador:\n\n```bash\npython Scripts/pywin32_postinstall.py -install\n```\n\n---\n\n## Estructura de archivos\n\n```\nIA_Excel/\n├── .claude/\n│   └── agents/\n│       └── excel-agent.md      # Definicion del agente para Claude Code\n├── .mcp.json                   # Configuracion del servidor MCP\n├── src/\n│   ├── __init__.py\n│   ├── constants.py            # Constantes COM (XlDirection, XlSheetVisibility, IVA_RATES, BOM_CATEGORIES)\n",
         "applies_to": "ia_excel",
-        "source": "C:\\Chance1\\IA\\IA_Excel\\MANUAL_TECNICO.md",
+        "source": "IA_Excel\\MANUAL_TECNICO.md",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -857,7 +857,7 @@
       "fact": {
         "rule": "onstants.py            # Constantes COM (XlDirection, XlSheetVisibility, IVA_RATES, BOM_CATEGORIES)\n│   ├── excel_com.py            # Clase ExcelCOM - 40+ metodos de automatizacion\n│   └── mcp_server.py           # Servidor MCP con 16 tools expuestas\n├── tests/\n│   ├── __init__.py\n│   ├── test_excel_features.py  # 48 tests unitarios (crean workbooks temporales)\n│   ├── test_stress_complex.py  # 50 tests de stress (escenarios complejos reales)\n│   └── test_real_boms.py       # 10 tests con BoMs de produccion (archivos no incluidos)\n├── CLAUDE.md                   # Reglas criticas para Claude Code\n├── requirements.txt\n└── README.md\n```\n\n### Descripcion de archivos clave\n\n**`src/constants.py`** - Constantes de la API COM de Excel traducidas a Python. Incluye:\n",
         "applies_to": "ia_excel",
-        "source": "C:\\Chance1\\IA\\IA_Excel\\MANUAL_TECNICO.md",
+        "source": "IA_Excel\\MANUAL_TECNICO.md",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -881,7 +881,7 @@
       "fact": {
         "rule": "vos clave\n\n**`src/constants.py`** - Constantes de la API COM de Excel traducidas a Python. Incluye:\n- Enumeraciones XlDirection, XlFindLookIn, XlSheetVisibility, XlFileFormat\n- Tasas IVA por pais (IVA_RATES dict)\n- Keywords de categorizacion de BoM (BOM_CATEGORIES dict)\n\n**`src/excel_com.py`** - Clase principal `ExcelCOM`. Maneja todo el ciclo de vida COM y expone 40+ metodos organizados por categoria. Tambien define `ExcelCOMError` y `ValidationResult`.\n\n**`src/mcp_server.py`** - Servidor MCP que envuelve ExcelCOM en 16 tools invocables por cualquier LLM. Usa singleton para la instancia Excel. Todas las respuestas son JSON.\n\n---\n\n## Ejecutar tests\n\n### Total de tests: 108\n\n| Suite | Archivo | Cantidad | Descripcion |\n|-------|---------|----------|------------|\n",
         "applies_to": "ia_excel",
-        "source": "C:\\Chance1\\IA\\IA_Excel\\MANUAL_TECNICO.md",
+        "source": "IA_Excel\\MANUAL_TECNICO.md",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -903,9 +903,9 @@
       "type": "fact",
       "key": "MANUAL_TECNICO_4",
       "fact": {
-        "rule": "ests: 108\n\n| Suite | Archivo | Cantidad | Descripcion |\n|-------|---------|----------|------------|\n| Unitarios | `tests/test_excel_features.py` | 48 | Crean workbooks temporales, prueban cada metodo individual |\n| Stress | `tests/test_stress_complex.py` | 50 | Escenarios complejos basados en problemas reales de internet |\n| BoMs reales | `tests/test_real_boms.py` | 10 | Archivos de produccion GBM (no incluidos en repo) |\n| **Total** | | **108** | |\n\n### Tests unitarios (48 tests)\n\n```bash\ncd C:\\Chance1\\IA_Excel\npython -m pytest tests/test_excel_features.py -v\n```\n\nLos tests crean workbooks temporales en `%TEMP%` con datos de ejemplo. Requieren Excel desktop instalado. El modulo `setUpModule` crea un workbook con hojas de prueba, datos financieros, formulas y hojas ocultas.\n\n",
+        "rule": "ests: 108\n\n| Suite | Archivo | Cantidad | Descripcion |\n|-------|---------|----------|------------|\n| Unitarios | `tests/test_excel_features.py` | 48 | Crean workbooks temporales, prueban cada metodo individual |\n| Stress | `tests/test_stress_complex.py` | 50 | Escenarios complejos basados en problemas reales de internet |\n| BoMs reales | `tests/test_real_boms.py` | 10 | Archivos de produccion GBM (no incluidos en repo) |\n| **Total** | | **108** | |\n\n### Tests unitarios (48 tests)\n\n```bash\ncd IA_Excel\npython -m pytest tests/test_excel_features.py -v\n```\n\nLos tests crean workbooks temporales en `%TEMP%` con datos de ejemplo. Requieren Excel desktop instalado. El modulo `setUpModule` crea un workbook con hojas de prueba, datos financieros, formulas y hojas ocultas.\n\n",
         "applies_to": "ia_excel",
-        "source": "C:\\Chance1\\IA\\IA_Excel\\MANUAL_TECNICO.md",
+        "source": "IA_Excel\\MANUAL_TECNICO.md",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -929,7 +929,7 @@
       "fact": {
         "rule": "o `setUpModule` crea un workbook con hojas de prueba, datos financieros, formulas y hojas ocultas.\n\n### Tests de stress (50 tests en 10 categorias)\n\n```bash\npython -m pytest tests/test_stress_complex.py -v\n```\n\nCada test crea su propio workbook con un escenario problematico especifico. Las fuentes de los escenarios incluyen Microsoft Support, Corporate Finance Institute, DataCamp y Analytics Vidhya.\n\n| # | Clase | Tests | Escenario |\n|---|-------|-------|-----------|\n| 1 | `TestMergedCellsComplex` | 4 | Headers merged multi-nivel, merges horizontales (A1:E1) y verticales (A3:A5), lectura de valores |\n| 2 | `TestFormulaErrors` | 5 | #DIV/0!, #VALUE!, #N/A, #NAME?, nested IF profundo (4 niveles) |\n",
         "applies_to": "ia_excel",
-        "source": "C:\\Chance1\\IA\\IA_Excel\\MANUAL_TECNICO.md",
+        "source": "IA_Excel\\MANUAL_TECNICO.md",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -953,7 +953,7 @@
       "fact": {
         "rule": " |\n| 2 | `TestFormulaErrors` | 5 | #DIV/0!, #VALUE!, #N/A, #NAME?, nested IF profundo (4 niveles) |\n| 3 | `TestCrossSheetChain` | 3 | Cadena Base->Nivel1->Nivel2->Consolidado, formulas cross-sheet con IVA cascading |\n| 4 | `TestVeryHiddenSheets` | 3 | xlSheetHidden vs xlSheetVeryHidden, deteccion de ambos niveles, filtrado visible-only |\n| 5 | `TestLargeDataset` | 4 | 10,000 filas con 3 columnas de formulas (30,003 total), benchmarks de lectura y busqueda |\n| 6 | `TestMixedTypes` | 10 | Integers, floats, strings, booleans, None, fechas, negativos, cero, numeros 1e15 y 0.0000001 |\n| 7 | `TestHiddenFinancial` | 6 | BoM con columnas F:G ocultas (costo/margen), fila 3 oculta, validacion IVA GT, line items |\n",
         "applies_to": "ia_excel",
-        "source": "C:\\Chance1\\IA\\IA_Excel\\MANUAL_TECNICO.md",
+        "source": "IA_Excel\\MANUAL_TECNICO.md",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -977,7 +977,7 @@
       "fact": {
         "rule": "` | 6 | BoM con columnas F:G ocultas (costo/margen), fila 3 oculta, validacion IVA GT, line items |\n| 8 | `TestNumberFormats` | 4 | USD, EUR, Quetzales, porcentaje, cientifico, contable negativo, deteccion automatica |\n| 9 | `TestNamedRangesComplex` | 3 | Rangos nombrados validos, con formula (SumaVentas=SUM), ocultos (_CostosInternos) |\n| 10 | `TestFinancialModelStress` | 8 | Modelo con descuentos, IVA multi-pais (GT/",
         "applies_to": "ia_excel",
-        "source": "C:\\Chance1\\IA\\IA_Excel\\MANUAL_TECNICO.md",
+        "source": "IA_Excel\\MANUAL_TECNICO.md",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -1001,7 +1001,7 @@
       "fact": {
         "rule": "# IA_Excel - Manual de Usuario\n\n## Que es IA_Excel\n\nAgente de automatizacion de Excel via COM que permite a Claude leer, escribir, analizar y transformar archivos Excel directamente desde el escritorio. Opera sobre Excel desktop real (no librerias de parsing), lo que significa acceso completo a formulas calculadas, elementos ocultos, pivot tables, charts y named ranges.\n\n**Capacidades principales (40+ metodos en 13 categorias):**\n\n- Abrir y analizar workbooks (.xlsx/.xls)\n- Leer/escribir celdas y rangos\n- Detectar hojas, filas y columnas ocultas (incluyendo xlSheetVeryHidden)\n- Detectar y gestionar celdas merged (scan celda por celda)\n- Validar calculos financieros (IVA por pais)\n- Parsear y categorizar BoMs (hardware/software/servicios)\n- Fusionar multiples BoMs en uno\n",
         "applies_to": "ia_excel",
-        "source": "C:\\Chance1\\IA\\IA_Excel\\MANUAL_USUARIO.md",
+        "source": "IA_Excel\\MANUAL_USUARIO.md",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -1025,7 +1025,7 @@
       "fact": {
         "rule": "r pais)\n- Parsear y categorizar BoMs (hardware/software/servicios)\n- Fusionar multiples BoMs en uno\n- Exportar a HTML con sistema de diseno Buscador_IA (tema oscuro profesional)\n- Buscar y reemplazar en todo el workbook\n- Listar y analizar formulas, incluyendo referencias cross-sheet\n- Gestionar rangos nombrados (visibles y ocultos)\n- Copiar hojas entre workbooks\n- Listar pivot tables y charts\n\n---\n\n## Como invocar el agente\n\n### Desde Claude Code\n\n```bash\n# Opcion 1: Invocacion directa\nclaude --agent excel-agent\n\n# Opcion 2: Dentro de una sesion, mencionar el agente\n@excel-agent analiza este archivo Excel\n```\n\n### Requisitos previos\n\n- Claude Code instalado y configurado\n- El archivo `.claude/agents/excel-agent.md` presente en el proyecto\n",
         "applies_to": "ia_excel",
-        "source": "C:\\Chance1\\IA\\IA_Excel\\MANUAL_USUARIO.md",
+        "source": "IA_Excel\\MANUAL_USUARIO.md",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -1049,7 +1049,7 @@
       "fact": {
         "rule": "e Code instalado y configurado\n- El archivo `.claude/agents/excel-agent.md` presente en el proyecto\n- El servidor MCP `ia_excel` corriendo (configurado en `.mcp.json`)\n- Excel desktop instalado en Windows\n\n---\n\n## Casos de uso con ejemplos\n\n### 1. Abrir y analizar un workbook\n\n```\nAbre C:\\Proyectos\\cotizacion_2025.xlsx y dame un analisis completo\n```\n\nEl agente ejecuta `open_workbook` + `analyze` y reporta:\n- Cantidad de hojas (visibles y ocultas)\n- Conteo de formulas por hoja\n- Filas/columnas ocultas\n- Rangos nombrados\n- Pivot tables y charts\n\n### 2. Detectar elementos ocultos\n\n```\nRevisa C:\\BoMs\\BOM_Cisco_2025.xlsx y listame todas las hojas, filas y columnas ocultas\n```\n\nEsto es critico para BoMs de GBM. Un BoM tipico tiene 15+ hojas ocultas que contienen:\n",
         "applies_to": "ia_excel",
-        "source": "C:\\Chance1\\IA\\IA_Excel\\MANUAL_USUARIO.md",
+        "source": "IA_Excel\\MANUAL_USUARIO.md",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -1073,7 +1073,7 @@
       "fact": {
         "rule": "ocultas\n```\n\nEsto es critico para BoMs de GBM. Un BoM tipico tiene 15+ hojas ocultas que contienen:\n- Hojas de costos internos (\"Costos\", \"Precios\")\n- Calculos de margen\n- Tablas de descuento por volumen\n\nEl agente usa `detect_hidden` para revelar todo sin modificar el archivo.\n\n### 3. Validacion financiera\n\n```\nValida el IVA del subtotal $115,950.00 con IVA $13,914.00 para Guatemala\n```\n\nTasas de IVA soportadas:\n\n| Pais | Codigo | Tasa |\n|------|--------|------|\n| Guatemala | GT | 12% |\n| Costa Rica | CR | 13% |\n| Panama | PA | 7% |\n| El Salvador | SV | 13% |\n| Honduras | HN | 15% |\n| Nicaragua | NI | 15% |\n| Rep. Dominicana | DO | 18% |\n\nTambien valida:\n- `subtotal + IVA = total`\n- `cantidad * precio = total` por linea\n- Sumas de columnas completas\n\n### 4. ",
         "applies_to": "ia_excel",
-        "source": "C:\\Chance1\\IA\\IA_Excel\\MANUAL_USUARIO.md",
+        "source": "IA_Excel\\MANUAL_USUARIO.md",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -1097,7 +1097,7 @@
       "fact": {
         "rule": "btotal + IVA = total`\n- `cantidad * precio = total` por linea\n- Sumas de columnas completas\n\n### 4. Parsear y categorizar items de BoM\n\n```\nParsea el BoM en la hoja \"Detalle\" del archivo BOM_IBM.xlsx y clasificalo por categoria\n```\n\nLa clasificacion automatica usa keywords:\n\n| Categoria | Keywords detectados |\n|-----------|-------------------|\n| Hardware | server, storage, switch, rack, memory, disk, chassis, blade, ssd, nvme |\n| Software | license, subscription, platform, edition, suite |\n| Servicios | consulting, implementation, migration, support, training, hora |\n\nItems que no coinciden se clasifican como \"other\".\n\n### 5. Fusionar multiples BoMs\n\n```\nMerge estos 3 BoMs en uno solo:\n- C:\\BoMs\\BOM_Cisco.xlsx\n- C:\\BoMs\\BOM_IBM.xlsx\n- C:\\BoMs\\BOM_Dell.xlsx\n",
         "applies_to": "ia_excel",
-        "source": "C:\\Chance1\\IA\\IA_Excel\\MANUAL_USUARIO.md",
+        "source": "IA_Excel\\MANUAL_USUARIO.md",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -1121,7 +1121,7 @@
       "fact": {
         "rule": "e estos 3 BoMs en uno solo:\n- C:\\BoMs\\BOM_Cisco.xlsx\n- C:\\BoMs\\BOM_IBM.xlsx\n- C:\\BoMs\\BOM_Dell.xlsx\nGuardar resultado en C:\\BoMs\\BOM_Consolidado.xlsx\n```\n\nEl agente abre cada archivo, extrae los records y los combina en un workbook nuevo.\n\n### 6. Exportar a HTML con sistema de diseno Buscador_IA\n\n```\nExporta la hoja \"Summary\" de cotizacion.xlsx a HTML en C:\\output\\reporte.html\ncon titulo \"Cotizacion Data Center 2025\"\n```\n\nEl HTML generado usa el sistema de diseno **Buscador_IA** (ver seccion dedicada mas abajo):\n- Tema oscuro (dark theme) con glassmorphism cards y backdrop-filter blur\n- Fuentes: DM Sans (UI), Fraunces (titulos), JetBrains Mono (datos)\n- Celdas de moneda resaltadas automaticamente\n- Stats cards con metricas clave\n- Sidebar de navegacion\n\n### 7. ",
         "applies_to": "ia_excel",
-        "source": "C:\\Chance1\\IA\\IA_Excel\\MANUAL_USUARIO.md",
+        "source": "IA_Excel\\MANUAL_USUARIO.md",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -1145,7 +1145,7 @@
       "fact": {
         "rule": " moneda resaltadas automaticamente\n- Stats cards con metricas clave\n- Sidebar de navegacion\n\n### 7. Buscar y reemplazar en todo el workbook\n\n```\nEn el archivo cotizacion.xlsx, reemplaza \"IBM\" por \"Kyndryl\" en todas las hojas\n```\n\nUsa `find_replace` por hoja o `find_in_workbook` para busqueda global.\n\n### 8. Listar y analizar formulas\n\n```\nListame todas las formulas de la hoja \"Resumen\" y destacame las que\nreferencian otras hojas\n```\n\nEl agente identifica:\n- Total de formulas en la hoja\n- Formulas con referencias cross-sheet (contienen \"!\")\n- Posibles referencias rotas\n\n---\n\n## Servidor MCP (16 tools)\n\nIA_Excel expone sus funcionalidades como servidor MCP (Model Context Protocol) con 16 tools invocables por cualquier LLM compatible.\n\n### Tools disponibles\n\n| Tool | Descripcion |\n",
         "applies_to": "ia_excel",
-        "source": "C:\\Chance1\\IA\\IA_Excel\\MANUAL_USUARIO.md",
+        "source": "IA_Excel\\MANUAL_USUARIO.md",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -1169,7 +1169,7 @@
       "fact": {
         "rule": "on 16 tools invocables por cualquier LLM compatible.\n\n### Tools disponibles\n\n| Tool | Descripcion |\n|------|------------|\n| `open_workbook` | Abrir archivo .xlsx/.xls |\n| `analyze_workbook` | Analisis completo del workbook |\n| `read_range` | Leer celda o rango |\n| `write_range` | Escribir datos en rango",
         "applies_to": "ia_excel",
-        "source": "C:\\Chance1\\IA\\IA_Excel\\MANUAL_USUARIO.md",
+        "source": "IA_Excel\\MANUAL_USUARIO.md",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -1193,7 +1193,7 @@
       "fact": {
         "rule": "---\nname: excel-agent\ndescription: Agente experto en Excel COM para analisis, validacion financiera, BoM parsing, deteccion de elementos ocultos, merge de workbooks y exportacion HTML. Maneja cualquier Excel por complejo que sea.\nmodel: sonnet\ntools:\n  - Bash\n  - Read\n  - Glob\n  - Grep\n  - Write\n  - Edit\n---\n\nEres un agente especializado en automatizacion de Excel via COM. Tu trabajo es analizar, validar, transformar y exportar archivos Excel de cualquier complejidad.\n\n## Reglas CRITICAS\n\n1. **SIEMPRE abrir en read_only=True** a menos que necesites modificar el archivo.\n2. **SIEMPRE cerrar el workbook** al terminar cada operacion. Si no cierras, Excel COM se queda colgado.\n3. **NUNCA sobrescribir el archivo original** sin confirmacion. Guardar resultados en archivos nuevos.\n4. ",
         "applies_to": "ia_excel",
-        "source": "C:\\Chance1\\IA\\IA_Excel\\.claude\\agents\\excel-agent.md",
+        "source": "IA_Excel\\.claude\\agents\\excel-agent.md",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -1217,7 +1217,7 @@
       "fact": {
         "rule": "UNCA sobrescribir el archivo original** sin confirmacion. Guardar resultados en archivos nuevos.\n4. **Excel COM es pesado** - procesar un workbook a la vez, cerrar antes de abrir otro.\n5. **DisplayAlerts = False** ya esta configurado - no aparecen popups.\n6. **Verificar elementos ocultos PRIMERO** - hojas ocultas, filas ocultas, columnas ocultas pueden contener datos criticos que cambian el analisis.\n7. **Formulas vs Valores** - .Value da el resultado calculado, .Formula da la formula. Ambos son importantes.\n8. **Celdas merged** - solo la primera celda del merge tiene valor, las demas son None.\n9. **UsedRange puede mentir** - a veces incluye celdas vacias. Validar contenido real.\n\n## Flujo de trabajo\n\n### Para analisis de un Excel:\n1. Abrir con `open_workbook(path, read_only=True)`\n2. ",
         "applies_to": "ia_excel",
-        "source": "C:\\Chance1\\IA\\IA_Excel\\.claude\\agents\\excel-agent.md",
+        "source": "IA_Excel\\.claude\\agents\\excel-agent.md",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -1241,7 +1241,7 @@
       "fact": {
         "rule": "jo de trabajo\n\n### Para analisis de un Excel:\n1. Abrir con `open_workbook(path, read_only=True)`\n2. Ejecutar `analyze()` para vision general completa\n3. Verificar `get_hidden_sheets()` - los BoMs de GBM tienen hasta 15 hojas ocultas\n4. Para cada hoja visible, verificar `get_hidden_rows()` y `get_hidden_columns()`\n5. Listar formulas con `list_formulas()` - detectar cross-sheet references (contienen \"!\")\n6. Detectar celdas de moneda con `detect_currency_cells()`\n7. Cerrar con `close_workbook(save=False)`\n\n### Para validacion financiera:\n1. Abrir el archivo\n2. Detectar celdas de moneda para ubicar la tabla financiera\n3. Usar `validate_line_items()` para verificar qty * price = total\n4. Usar `validate_iva()` con el pais correcto (GT=12%, CR=13%, PA=7%, etc.)\n5. ",
         "applies_to": "ia_excel",
-        "source": "C:\\Chance1\\IA\\IA_Excel\\.claude\\agents\\excel-agent.md",
+        "source": "IA_Excel\\.claude\\agents\\excel-agent.md",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -1265,7 +1265,7 @@
       "fact": {
         "rule": " qty * price = total\n4. Usar `validate_iva()` con el pais correcto (GT=12%, CR=13%, PA=7%, etc.)\n5. Usar `validate_total()` para subtotal + iva = total\n6. Usar `sum_range()` para verificar totales de columnas\n7. Reportar discrepancias al usuario\n\n### Para BoM parsing:\n1. Abrir el archivo\n2. Usar `parse_bom(sheet, header_row)` - detectar la fila de headers correcta\n3. `split_bom_by_category()` clasifica automaticamente en: hardware, software, services, other\n4. Verificar categorizacion manualmente si hay items ambiguos\n5. Para merge: usar `merge_boms(paths, output)` con lista de archivos\n\n### Para exportar a HTML:\n1. Abrir el archivo\n2. Seleccionar la hoja correcta (usualmente Summary o la primera visible)\n3. `export_to_html(path, sheet, title)` genera HTML con design system Buscador_IA\n4. ",
         "applies_to": "ia_excel",
-        "source": "C:\\Chance1\\IA\\IA_Excel\\.claude\\agents\\excel-agent.md",
+        "source": "IA_Excel\\.claude\\agents\\excel-agent.md",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -1287,9 +1287,9 @@
       "type": "fact",
       "key": "excel-agent_4",
       "fact": {
-        "rule": "imera visible)\n3. `export_to_html(path, sheet, title)` genera HTML con design system Buscador_IA\n4. El HTML incluye: sidebar, stats cards, tabla con moneda resaltada, fonts DM Sans/Fraunces/JetBrains Mono\n\n### Para detectar problemas/anomalias:\n1. `get_hidden_sheets()` - hojas que alguien oculto (pueden tener precios de costo)\n2. `get_hidden_rows()` / `get_hidden_columns()` - filas/columnas ocultas dentro de hojas visibles\n3. `detect_circular_references()` - formulas circulares\n4. `list_formulas()` + filtrar por \"!\" - dependencias cross-sheet rotas\n5. `get_merged_cells()` - merges que pueden romper copy/paste\n6. `list_named_ranges()` - rangos nombrados que pueden apuntar a hojas eliminadas\n\n## Libreria disponible\n\nUbicacion: `C:\\Chance1\\IA_Excel\\src\\excel_com.py`\n\n```python\nimport sys\n",
+        "rule": "imera visible)\n3. `export_to_html(path, sheet, title)` genera HTML con design system Buscador_IA\n4. El HTML incluye: sidebar, stats cards, tabla con moneda resaltada, fonts DM Sans/Fraunces/JetBrains Mono\n\n### Para detectar problemas/anomalias:\n1. `get_hidden_sheets()` - hojas que alguien oculto (pueden tener precios de costo)\n2. `get_hidden_rows()` / `get_hidden_columns()` - filas/columnas ocultas dentro de hojas visibles\n3. `detect_circular_references()` - formulas circulares\n4. `list_formulas()` + filtrar por \"!\" - dependencias cross-sheet rotas\n5. `get_merged_cells()` - merges que pueden romper copy/paste\n6. `list_named_ranges()` - rangos nombrados que pueden apuntar a hojas eliminadas\n\n## Libreria disponible\n\nUbicacion: `IA_Excel\\src\\excel_com.py`\n\n```python\nimport sys\n",
         "applies_to": "ia_excel",
-        "source": "C:\\Chance1\\IA\\IA_Excel\\.claude\\agents\\excel-agent.md",
+        "source": "IA_Excel\\.claude\\agents\\excel-agent.md",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -1311,9 +1311,9 @@
       "type": "fact",
       "key": "excel-agent_5",
       "fact": {
-        "rule": "as\n\n## Libreria disponible\n\nUbicacion: `C:\\Chance1\\IA_Excel\\src\\excel_com.py`\n\n```python\nimport sys\nsys.path.insert(0, \"C:/Chance1/IA_Excel\")\nfrom src.excel_com import ExcelCOM\n\nxl = ExcelCOM(visible=False)\nxl._ensure_app()\n```\n\n### Metodos completos:\n\n**Workbook:**\n- `open_workbook(path, read_only=False)` → dict {name, path, sheets, active_sheet}\n- `close_workbook(save=False)` → None\n- `save()` → None\n- `save_as(path, file_format=51)` → str (path absoluto)\n- `get_workbook_info()` → dict\n- `analyze()` → dict (analisis completo: hojas, formulas, hidden, named ranges)\n\n**Hojas:**\n- `list_sheets(include_hidden=True)` → list [{index, name, visible, hidden, very_hidden, rows, cols}]\n- `get_hidden_sheets()` → list (solo las ocultas)\n- `unhide_sheet(name)` → dict\n",
+        "rule": "as\n\n## Libreria disponible\n\nUbicacion: `IA_Excel\\src\\excel_com.py`\n\n```python\nimport sys\nsys.path.insert(0, \"IA_Excel\")\nfrom src.excel_com import ExcelCOM\n\nxl = ExcelCOM(visible=False)\nxl._ensure_app()\n```\n\n### Metodos completos:\n\n**Workbook:**\n- `open_workbook(path, read_only=False)` → dict {name, path, sheets, active_sheet}\n- `close_workbook(save=False)` → None\n- `save()` → None\n- `save_as(path, file_format=51)` → str (path absoluto)\n- `get_workbook_info()` → dict\n- `analyze()` → dict (analisis completo: hojas, formulas, hidden, named ranges)\n\n**Hojas:**\n- `list_sheets(include_hidden=True)` → list [{index, name, visible, hidden, very_hidden, rows, cols}]\n- `get_hidden_sheets()` → list (solo las ocultas)\n- `unhide_sheet(name)` → dict\n",
         "applies_to": "ia_excel",
-        "source": "C:\\Chance1\\IA\\IA_Excel\\.claude\\agents\\excel-agent.md",
+        "source": "IA_Excel\\.claude\\agents\\excel-agent.md",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -1337,7 +1337,7 @@
       "fact": {
         "rule": "idden, rows, cols}]\n- `get_hidden_sheets()` → list (solo las ocultas)\n- `unhide_sheet(name)` → dict\n- `unhide_all_sheets()` → list (nombres unhidden)\n- `create_sheet(name, after=None)` → dict\n- `delete_sheet(name)` → dict\n- `rename_sheet(old, new)` → dict\n- `activate_sheet(name)` → dict\n\n**Celdas/Rangos:**\n- `read_cell(cell, sheet=None)` → Any valor\n- `write_cell(cell, value, sheet=None)` → None\n- `read_range(range_str, sheet=None)` → list[list] 2D\n- `write_range(range_str, data, sheet=None)` → None\n- `get_used_range(sheet=None)` → dict {address, rows, cols, first_row, first_col}\n- `read_sheet_data(sheet=None, max_rows=5000)` → list[list] toda la hoja\n- `clear_range(range_str, sheet=None)` → None\n\n**Elementos ocultos:**\n- `get_hidden_rows(sheet=None)` → list[int] indices de filas ocultas\n",
         "applies_to": "ia_excel",
-        "source": "C:\\Chance1\\IA\\IA_Excel\\.claude\\agents\\excel-agent.md",
+        "source": "IA_Excel\\.claude\\agents\\excel-agent.md",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -1361,7 +1361,7 @@
       "fact": {
         "rule": "→ None\n\n**Elementos ocultos:**\n- `get_hidden_rows(sheet=None)` → list[int] indices de filas ocultas\n- `get_hidden_columns(sheet=None)` → list[int] indices de columnas ocultas\n- `unhide_a",
         "applies_to": "ia_excel",
-        "source": "C:\\Chance1\\IA\\IA_Excel\\.claude\\agents\\excel-agent.md",
+        "source": "IA_Excel\\.claude\\agents\\excel-agent.md",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -1385,7 +1385,7 @@
       "fact": {
         "rule": "# -*- coding: utf-8 -*-\n\"\"\"Excel COM enumeration constants.\"\"\"\n\n# XlDirection\nXL_DOWN = -4121\nXL_UP = -4162\nXL_TO_LEFT = -4159\nXL_TO_RIGHT = -4161\n\n# XlFindLookIn\nXL_VALUES = -4163\nXL_FORMULAS = -4123\nXL_COMMENTS = -4144\n\n# XlLookAt\nXL_WHOLE = 1\nXL_PART = 2\n\n# XlSearchOrder\nXL_BY_ROWS = 1\nXL_BY_COLUMNS = 2\n\n# XlSearchDirection\nXL_NEXT = 1\nXL_PREVIOUS = 2\n\n# XlCellType\nXL_CELL_TYPE_CONSTANTS = 2\nXL_CELL_TYPE_FORMULAS = -4123\nXL_CELL_TYPE_BLANKS = 4\nXL_CELL_TYPE_LAST_CELL = 11\nXL_CELL_TYPE_VISIBLE = 12\n\n# XlSheetVisibility\nXL_SHEET_VISIBLE = -1\nXL_SHEET_HIDDEN = 0\nXL_SHEET_VERY_HIDDEN = 2\n\n# XlHAlign\nXL_HALIGN_CENTER = -4108\nXL_HALIGN_LEFT = -4131\nXL_HALIGN_RIGHT = -4152\nXL_HALIGN_GENERAL = 1\n\n# XlVAlign\nXL_VALIGN_CENTER = -4108\nXL_VALIGN_TOP = -4160\nXL_VALIGN_BOTTOM = -4107\n\n",
         "applies_to": "ia_excel",
-        "source": "C:\\Chance1\\IA\\IA_Excel\\src\\constants.py",
+        "source": "IA_Excel\\src\\constants.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -1410,7 +1410,7 @@
       "fact": {
         "rule": "GN_GENERAL = 1\n\n# XlVAlign\nXL_VALIGN_CENTER = -4108\nXL_VALIGN_TOP = -4160\nXL_VALIGN_BOTTOM = -4107\n\n# XlBordersIndex\nXL_EDGE_LEFT = 7\nXL_EDGE_TOP = 8\nXL_EDGE_BOTTOM = 9\nXL_EDGE_RIGHT = 10\nXL_INSIDE_HORIZONTAL = 12\nXL_INSIDE_VERTICAL = 11\n\n# XlLineStyle\nXL_CONTINUOUS = 1\nXL_DASH = -4115\nXL_NONE = -4142\n\n# XlFileFormat\nXL_XLSX = 51\nXL_XLS = 56\nXL_CSV = 6\nXL_CSV_UTF8 = 62\n\n# XlSaveConflictResolution\nXL_LOCAL_SESSION_CHANGES = 2\n\n# Financial\nIVA_RATE_GT = 0.12  # Guatemala 12%\nIVA_RATE_CR = 0.13  # Costa Rica 13%\nIVA_RATE_PA = 0.07  # Panama 7%\nIVA_RATE_SV = 0.13  # El Salvador 13%\nIVA_RATE_HN = 0.15  # Honduras 15%\nIVA_RATE_NI = 0.15  # Nicaragua 15%\nIVA_RATE_DO = 0.18  # Republica Dominicana 18%\n\nIVA_RATES = {\n    \"GT\": IVA_RATE_GT, \"CR\": IVA_RATE_CR, \"PA\": IVA_RATE_PA,\n",
         "applies_to": "ia_excel",
-        "source": "C:\\Chance1\\IA\\IA_Excel\\src\\constants.py",
+        "source": "IA_Excel\\src\\constants.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -1435,7 +1435,7 @@
       "fact": {
         "rule": "epublica Dominicana 18%\n\nIVA_RATES = {\n    \"GT\": IVA_RATE_GT, \"CR\": IVA_RATE_CR, \"PA\": IVA_RATE_PA,\n    \"SV\": IVA_RATE_SV, \"HN\": IVA_RATE_HN, \"NI\": IVA_RATE_NI,\n    \"DO\": IVA_RATE_DO,\n}\n\n# BoM categories\nBOM_CATEGORIES = {\n    \"hardware\": [\"server\", \"servidor\", \"storage\", \"almacenamiento\", \"switch\", \"rack\",\n                 \"power\", \"cable\", \"adapter\", \"memory\", \"memoria\", \"disk\", \"disco\",\n                 \"chassis\", \"blade\", \"hdd\", \"ssd\", \"nvme\"],\n    \"software\": [\"license\", \"licencia\", \"subscription\", \"suscripcion\", \"software\",\n                 \"platform\", \"plataforma\", \"edition\", \"suite\"],\n    \"services\": [\"service\", \"servicio\", \"hora\", \"hour\", \"consulting\", \"consultoria\",\n                 \"implementation\", \"implementacion\", \"migration\", \"migracion\",\n",
         "applies_to": "ia_excel",
-        "source": "C:\\Chance1\\IA\\IA_Excel\\src\\constants.py",
+        "source": "IA_Excel\\src\\constants.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -1460,7 +1460,7 @@
       "fact": {
         "rule": "ing\", \"consultoria\",\n                 \"implementation\", \"implementacion\", \"migration\", \"migracion\",\n                 \"support\", \"soporte\", \"training\", \"capacitacion\", \"asistencia\"],\n}",
         "applies_to": "ia_excel",
-        "source": "C:\\Chance1\\IA\\IA_Excel\\src\\constants.py",
+        "source": "IA_Excel\\src\\constants.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -1485,7 +1485,7 @@
       "fact": {
         "rule": "# IA_Excel - Excel COM Automation Library\n\n## Reglas criticas\n\n1. Excel COM requiere `pythoncom.CoInitialize()` antes de `Dispatch`\n2. Siempre cerrar workbook antes de quit: Close(SaveChanges=0) → Quit() → CoUninitialize()\n3. `DisplayAlerts = False` para evitar popups que bloquean COM\n4. UsedRange puede incluir celdas vacias - validar contenido\n5. Formulas se leen con `.Formula`, valores calculados con `.Value`\n6. Celdas merged: solo la primera celda tiene valor, las demas son None\n7. Hidden sheets/rows/cols: siempre verificar antes de analizar\n\n## Uso basico\n\n```python\nfrom src.excel_com import ExcelCOM\n\nwith ExcelCOM() as xl:\n    xl.open_workbook(\"archivo.xlsx\")\n    data = xl.read_sheet_data(sheet=\"Sheet1\")\n    analysis = xl.analyze()  # Full analysis\n",
         "applies_to": "ia_excel",
-        "source": "C:\\Chance1\\IA\\IA_Excel\\CLAUDE.md",
+        "source": "IA_Excel\\CLAUDE.md",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -1509,7 +1509,7 @@
       "fact": {
         "rule": "o.xlsx\")\n    data = xl.read_sheet_data(sheet=\"Sheet1\")\n    analysis = xl.analyze()  # Full analysis\n    xl.export_to_html(\"output.html\")\n```",
         "applies_to": "ia_excel",
-        "source": "C:\\Chance1\\IA\\IA_Excel\\CLAUDE.md",
+        "source": "IA_Excel\\CLAUDE.md",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -1533,7 +1533,7 @@
       "fact": {
         "rule": "# pytest cache directory #\n\nThis directory contains data from the pytest's cache plugin,\nwhich provides the `--lf` and `--ff` options, as well as the `cache` fixture.\n\n**Do not** commit this to version control.\n\nSee [the docs](https://docs.pytest.org/en/stable/how-to/cache.html) for more information.",
         "applies_to": "ia_excel",
-        "source": "C:\\Chance1\\IA\\IA_Excel\\.pytest_cache\\README.md",
+        "source": "IA_Excel\\.pytest_cache\\README.md",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -1557,7 +1557,7 @@
       "fact": {
         "rule": "from .excel_com import ExcelCOM, ExcelCOMError\nfrom .constants import IVA_RATES, BOM_CATEGORIES\n\n__all__ = [\"ExcelCOM\", \"ExcelCOMError\", \"IVA_RATES\", \"BOM_CATEGORIES\"]",
         "applies_to": "ia_excel",
-        "source": "C:\\Chance1\\IA\\IA_Excel\\src\\__init__.py",
+        "source": "IA_Excel\\src\\__init__.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -1582,7 +1582,7 @@
       "fact": {
         "rule": "{\n  \"mcpServers\": {\n    \"ia_excel\": {\n      \"command\": \"python\",\n      \"args\": [\"-m\", \"src.mcp_server\"]\n    }\n  }\n}",
         "applies_to": "ia_excel",
-        "source": "C:\\Chance1\\IA\\IA_Excel\\.mcp.json",
+        "source": "IA_Excel\\.mcp.json",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""

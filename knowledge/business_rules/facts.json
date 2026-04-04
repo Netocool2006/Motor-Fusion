@@ -776,7 +776,7 @@
       "type": "fact",
       "key": "backup_rollback_procedure",
       "fact": {
-        "rule": "Backup en C:/Chance1/backup_Asistente/. Copia completa front+back. Rollback: copiar de vuelta a Asistente IA/.",
+        "rule": "Backup en backup_Asistente/. Copia completa front+back. Rollback: copiar de vuelta a .",
         "applies_to": "Recuperacion ante errores",
         "source": "Session 2026-03-14",
         "confidence": "verified"
@@ -2164,7 +2164,7 @@
       "key": "iter_20260320_092939_i5",
       "solution": {
         "strategy": "auto_iteration_capture",
-        "notes": "Iteracion 5:\n  Ejecuto: cd \"/c/Chance1/Asistente IA\" && curl -s -m 5 http://localhost:5000/api/health 2>&1 || echo \"DASHBOARD_OFFLINE\"\n  Ejecuto: # 2. PostToolUse: cuantas iteraciones lleva esta sesion activa\nPYTHONIOENCODING=utf-8 python -c \"\nimport json\nfrom pathl",
+        "notes": "Iteracion 5:\n  Ejecuto: cd \"/c/Hooks_IA/\" && curl -s -m 5 http://localhost:5000/api/health 2>&1 || echo \"DASHBOARD_OFFLINE\"\n  Ejecuto: # 2. PostToolUse: cuantas iteraciones lleva esta sesion activa\nPYTHONIOENCODING=utf-8 python -c \"\nimport json\nfrom pathl",
         "auto_learned": true,
         "source": "post_tool_hook",
         "files_touched": [],
@@ -2201,7 +2201,7 @@
       "key": "iter_20260320_100857_i5",
       "solution": {
         "strategy": "auto_iteration_capture",
-        "notes": "Iteracion 5:\n  Ejecuto: cd \"/c/Chance1/Asistente IA\" && curl -s -m 5 http://localhost:5000/api/health 2>&1 || echo \"DASHBOARD_OFFLINE\"\n  Ejecuto: # 2. PostToolUse: cuantas iteraciones lleva esta sesion activa\nPYTHONIOENCODING=utf-8 python -c \"\nimport json\nfrom pathl\n  Ejecuto: # Verificar campo real que Claude Code envia en PostToolUse\n# El hook_debug.log captura el input real\nPYTHONIOENCODING=u",
+        "notes": "Iteracion 5:\n  Ejecuto: cd \"/c/Hooks_IA/\" && curl -s -m 5 http://localhost:5000/api/health 2>&1 || echo \"DASHBOARD_OFFLINE\"\n  Ejecuto: # 2. PostToolUse: cuantas iteraciones lleva esta sesion activa\nPYTHONIOENCODING=utf-8 python -c \"\nimport json\nfrom pathl\n  Ejecuto: # Verificar campo real que Claude Code envia en PostToolUse\n# El hook_debug.log captura el input real\nPYTHONIOENCODING=u",
         "auto_learned": true,
         "source": "post_tool_hook",
         "files_touched": [],
@@ -2238,7 +2238,7 @@
       "key": "iter_20260320_101356_i5",
       "solution": {
         "strategy": "auto_iteration_capture",
-        "notes": "Iteracion 5:\n  Ejecuto: cd \"/c/Chance1/Asistente IA\" && curl -s -m 5 http://localhost:5000/api/health 2>&1 || echo \"DASHBOARD_OFFLINE\"\n  Ejecuto: # 2. PostToolUse: cuantas iteraciones lleva esta sesion activa\nPYTHONIOENCODING=utf-8 python -c \"\nimport json\nfrom pathl\n  Ejecuto: # Verificar campo real que Claude Code envia en PostToolUse\n# El hook_debug.log captura el input real\nPYTHONIOENCODING=u\n  Ejecuto: echo \"\"\necho \"╔══════════════════════════════════════════════════╗\"\necho \"║  ESCENARIO B: SALIDA CONTROLADA (exit / /sto",
+        "notes": "Iteracion 5:\n  Ejecuto: cd \"/c/Hooks_IA/\" && curl -s -m 5 http://localhost:5000/api/health 2>&1 || echo \"DASHBOARD_OFFLINE\"\n  Ejecuto: # 2. PostToolUse: cuantas iteraciones lleva esta sesion activa\nPYTHONIOENCODING=utf-8 python -c \"\nimport json\nfrom pathl\n  Ejecuto: # Verificar campo real que Claude Code envia en PostToolUse\n# El hook_debug.log captura el input real\nPYTHONIOENCODING=u\n  Ejecuto: echo \"\"\necho \"╔══════════════════════════════════════════════════╗\"\necho \"║  ESCENARIO B: SALIDA CONTROLADA (exit / /sto",
         "auto_learned": true,
         "source": "post_tool_hook",
         "files_touched": [],
@@ -2275,12 +2275,12 @@
       "key": "iter_20260320_103030_i5",
       "solution": {
         "strategy": "auto_iteration_capture",
-        "notes": "Iteracion 5:\n  Ejecuto: cd \"/c/Chance1/Asistente IA\" && curl -s -m 5 http://localhost:5000/api/health 2>&1 || echo \"DASHBOARD_OFFLINE\"\n  Ejecuto: # 2. PostToolUse: cuantas iteraciones lleva esta sesion activa\nPYTHONIOENCODING=utf-8 python -c \"\nimport json\nfrom pathl\n  Ejecuto: # Verificar campo real que Claude Code envia en PostToolUse\n# El hook_debug.log captura el input real\nPYTHONIOENCODING=u\n  Ejecuto: echo \"\"\necho \"╔══════════════════════════════════════════════════╗\"\necho \"║  ESCENARIO B: SALIDA CONTROLADA (exit / /sto\n  Leyo iteration_learn.py\n  Leyo auto_learn_hook.py\n  Leyo auto_learn_hook.py\n  Leyo iteration_learn.py\n  Leyo iteration_learn.py\n  Leyo auto_learn_hook.py\n  Leyo iteration_learn.py\n  Leyo auto_learn_hook.py",
+        "notes": "Iteracion 5:\n  Ejecuto: cd \"/c/Hooks_IA/\" && curl -s -m 5 http://localhost:5000/api/health 2>&1 || echo \"DASHBOARD_OFFLINE\"\n  Ejecuto: # 2. PostToolUse: cuantas iteraciones lleva esta sesion activa\nPYTHONIOENCODING=utf-8 python -c \"\nimport json\nfrom pathl\n  Ejecuto: # Verificar campo real que Claude Code envia en PostToolUse\n# El hook_debug.log captura el input real\nPYTHONIOENCODING=u\n  Ejecuto: echo \"\"\necho \"╔══════════════════════════════════════════════════╗\"\necho \"║  ESCENARIO B: SALIDA CONTROLADA (exit / /sto\n  Leyo iteration_learn.py\n  Leyo auto_learn_hook.py\n  Leyo auto_learn_hook.py\n  Leyo iteration_learn.py\n  Leyo iteration_learn.py\n  Leyo auto_learn_hook.py\n  Leyo iteration_learn.py\n  Leyo auto_learn_hook.py",
         "auto_learned": true,
         "source": "post_tool_hook",
         "files_touched": [
-          "C:/Chance1/Asistente IA/.claude/hooks/auto_learn_hook.py",
-          "C:/Chance1/Asistente IA/.claude/hooks/iteration_learn.py"
+          ".claude/hooks/auto_learn_hook.py",
+          ".claude/hooks/iteration_learn.py"
         ],
         "activity": {
           "reads": 8,

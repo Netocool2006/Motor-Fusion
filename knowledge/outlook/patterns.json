@@ -8,11 +8,11 @@
       "key": "iter_20260315_211559_i11",
       "solution": {
         "strategy": "auto_iteration_capture",
-        "notes": "Iteracion 11:\n  Ejecuto: cd \"C:\\Chance1\\Asistente IA\" && curl -s http://localhost:5000/api/chat -H \"Content-Type: application/json\" -d '{\"message\n  Ejecuto: ls \"C:/Chance1/backup_Asistente/\" 2>/dev/null | head -20\n  Busco 'structured.*outlook|outlook.*structured' en dashboard.py\n  Busco 'structured' en dashboard.py\n  Ejecuto: diff \"C:/Chance1/backup_Asistente/dashboard.py\" \"C:/Chance1/Asistente IA/dashboard.py\" | head -100\n  Busco 'structured' en dashboard.py\n  Busco 'def.*chat|/api/chat|outlook_recent|ultimos|correo' en dashboard.py\n  Leyo dashboard.py\n  Leyo dashboard.py",
+        "notes": "Iteracion 11:\n  Ejecuto: cd \"\" && curl -s http://localhost:5000/api/chat -H \"Content-Type: application/json\" -d '{\"message\n  Ejecuto: ls \"backup_Asistente/\" 2>/dev/null | head -20\n  Busco 'structured.*outlook|outlook.*structured' en dashboard.py\n  Busco 'structured' en dashboard.py\n  Ejecuto: diff \"backup_Asistente/dashboard.py\" \"dashboard.py\" | head -100\n  Busco 'structured' en dashboard.py\n  Busco 'def.*chat|/api/chat|outlook_recent|ultimos|correo' en dashboard.py\n  Leyo dashboard.py\n  Leyo dashboard.py",
         "auto_learned": true,
         "source": "post_tool_hook",
         "files_touched": [
-          "C:\\Chance1\\Asistente IA\\dashboard.py"
+          "dashboard.py"
         ],
         "activity": {
           "reads": 2,
@@ -84,13 +84,13 @@
       "key": "iter_20260316_220110_i24",
       "solution": {
         "strategy": "auto_iteration_capture",
-        "notes": "Iteracion 24:\n  Creo project_tasks_20260317.md\n  Leyo MEMORY.md\n  Edito MEMORY.md > cambio: ## Project - [project_semantic_search_checkpoint.md](project -> ## Project - [pr\n  Ejecuto: cd \"C:/Chance1/Asistente IA\" && grep -n \"def classify_intent\\|INTENT_PATTERNS\\|def _handle_greeting\\|def _handle_file_se\n  Leyo dashboard.py\n  Leyo dashboard.py\n  Ejecuto: cd \"C:/Chance1/Asistente IA\" && grep -n \"outlook\\|email\\|correo\\|/api/outlook\\|win32com\\|CreateItem\\|MailItem\\|webbrowse\n  Ejecuto: cd \"C:/Chance1/Asistente IA\" && grep -n \"def send_email\\|def create_draft\\|def display\\|CreateItem\\|MailItem\\|\\.Display\\",
+        "notes": "Iteracion 24:\n  Creo project_tasks_20260317.md\n  Leyo MEMORY.md\n  Edito MEMORY.md > cambio: ## Project - [project_semantic_search_checkpoint.md](project -> ## Project - [pr\n  Ejecuto: cd \"\" && grep -n \"def classify_intent\\|INTENT_PATTERNS\\|def _handle_greeting\\|def _handle_file_se\n  Leyo dashboard.py\n  Leyo dashboard.py\n  Ejecuto: cd \"\" && grep -n \"outlook\\|email\\|correo\\|/api/outlook\\|win32com\\|CreateItem\\|MailItem\\|webbrowse\n  Ejecuto: cd \"\" && grep -n \"def send_email\\|def create_draft\\|def display\\|CreateItem\\|MailItem\\|\\.Display\\",
         "auto_learned": true,
         "source": "post_tool_hook",
         "files_touched": [
-          "C:\\Users\\ntoledo\\AppData\\Local\\ClaudeCode\\.claude\\projects\\C--chance1-Asistente-IA\\memory\\MEMORY.md",
-          "C:/Chance1/Asistente IA/dashboard.py",
-          "C:\\Users\\ntoledo\\AppData\\Local\\ClaudeCode\\.claude\\projects\\C--chance1-Asistente-IA\\memory\\project_tasks_20260317.md"
+          "C:\\Users\\ntoledo\\AppData\\Local\\ClaudeCode\\.claude\\projects\\C--chance1-Hooks-IA\\memory\\MEMORY.md",
+          "dashboard.py",
+          "C:\\Users\\ntoledo\\AppData\\Local\\ClaudeCode\\.claude\\projects\\C--chance1-Hooks-IA\\memory\\project_tasks_20260317.md"
         ],
         "activity": {
           "reads": 3,
@@ -129,7 +129,7 @@
         "auto_learned": true,
         "source": "post_tool_hook",
         "files_touched": [
-          "C:/Chance1/Prompts IA/Analista-Correos-Proyecto.txt"
+          "Prompts IA/Analista-Correos-Proyecto.txt"
         ],
         "activity": {
           "reads": 0,
@@ -168,7 +168,7 @@
         "auto_learned": true,
         "source": "post_tool_hook",
         "files_touched": [
-          "C:/Chance1/Asistente IA/outlook_bridge.py"
+          "outlook_bridge.py"
         ],
         "activity": {
           "reads": 2,
@@ -240,7 +240,7 @@
       "key": "iter_20260317_123603_i137",
       "solution": {
         "strategy": "auto_iteration_capture",
-        "notes": "Iteracion 137:\n  Ejecuto: cd \"C:/Chance1/Asistente IA\" && tasklist 2>/dev/null | grep -i \"OUTLOOK\" | head -3",
+        "notes": "Iteracion 137:\n  Ejecuto: cd \"\" && tasklist 2>/dev/null | grep -i \"OUTLOOK\" | head -3",
         "auto_learned": true,
         "source": "post_tool_hook",
         "files_touched": [],
@@ -429,7 +429,7 @@
         "auto_learned": true,
         "source": "post_tool_hook",
         "files_touched": [
-          "C:\\Chance1\\Asistente IA\\outlook_bridge.py"
+          "outlook_bridge.py"
         ],
         "activity": {
           "reads": 0,
@@ -663,11 +663,11 @@
       "key": "iter_20260318_074152_i3",
       "solution": {
         "strategy": "auto_iteration_capture",
-        "notes": "Iteracion 3:\n  Ejecuto: cd \"C:/chance1/Asistente IA\" && curl -s -X POST http://localhost:5000/api/chat \\\n  -H \"Content-Type: application/json\" \\\n  Ejecuto: cd \"C:/chance1/Asistente IA\" && grep -n \"compose_email\\|_compose\\|outlook.*compos\\|correo.*redact\" dashboard.py | head -\n  Leyo dashboard.py\n  Leyo dashboard.py",
+        "notes": "Iteracion 3:\n  Ejecuto: cd \"C:/chance1/\" && curl -s -X POST http://localhost:5000/api/chat \\\n  -H \"Content-Type: application/json\" \\\n  Ejecuto: cd \"C:/chance1/\" && grep -n \"compose_email\\|_compose\\|outlook.*compos\\|correo.*redact\" dashboard.py | head -\n  Leyo dashboard.py\n  Leyo dashboard.py",
         "auto_learned": true,
         "source": "post_tool_hook",
         "files_touched": [
-          "C:\\chance1\\Asistente IA\\dashboard.py"
+          "C:\\chance1\\dashboard.py"
         ],
         "activity": {
           "reads": 2,
@@ -702,7 +702,7 @@
       "key": "iter_20260318_130758_i5",
       "solution": {
         "strategy": "auto_iteration_capture",
-        "notes": "Iteracion 5:\n  Ejecuto: grep -n \"def.*extract\\|def.*read\\|def.*parse\\|PDF\\|pdf\\|xlsx\\|docx\\|txt\\|OCR\\|tesseract\\|image\\|jpg\\|png\\|msg\\|outlook\" \n  Ejecuto: grep -n \"\\.jpg\\|\\.jpeg\\|\\.msg\\|\\.eml\\|outlook\\|correo\\|email\\|read_image\\|read_msg\\|read_email\" \"C:/chance1/Asistente IA\n  Ejecuto: grep -n \"enable_ocr\\|OCR.*default\\|ocr.*False\\|ocr.*True\\|scanned\\|escaneado\" \"C:/chance1/Asistente IA/file_search.py\" |",
+        "notes": "Iteracion 5:\n  Ejecuto: grep -n \"def.*extract\\|def.*read\\|def.*parse\\|PDF\\|pdf\\|xlsx\\|docx\\|txt\\|OCR\\|tesseract\\|image\\|jpg\\|png\\|msg\\|outlook\" \n  Ejecuto: grep -n \"\\.jpg\\|\\.jpeg\\|\\.msg\\|\\.eml\\|outlook\\|correo\\|email\\|read_image\\|read_msg\\|read_email\" \"C:/chance1/\n  Ejecuto: grep -n \"enable_ocr\\|OCR.*default\\|ocr.*False\\|ocr.*True\\|scanned\\|escaneado\" \"C:/chance1/file_search.py\" |",
         "auto_learned": true,
         "source": "post_tool_hook",
         "files_touched": [],
@@ -739,11 +739,11 @@
       "key": "iter_20260318_131502_i10",
       "solution": {
         "strategy": "auto_iteration_capture",
-        "notes": "Iteracion 10:\n  Leyo outlook_bridge.py\n  Ejecuto: grep -n \"^import\\|^from\\|import time\\|import random\" \"C:/chance1/Asistente IA/outlook_bridge.py\" | head -15\n  Edito outlook_bridge.py > cambio: import sys import json import os import subprocess as _sp im -> import sys impor\n  Edito outlook_bridge.py > cambio:     results = []     count = 0     query_lower = query.lower ->     results = []\n  Ejecuto: python3 -m py_compile \"C:/chance1/Asistente IA/outlook_bridge.py\" && echo \"OK\"\n  Leyo outlook_bridge.py",
+        "notes": "Iteracion 10:\n  Leyo outlook_bridge.py\n  Ejecuto: grep -n \"^import\\|^from\\|import time\\|import random\" \"C:/chance1/outlook_bridge.py\" | head -15\n  Edito outlook_bridge.py > cambio: import sys import json import os import subprocess as _sp im -> import sys impor\n  Edito outlook_bridge.py > cambio:     results = []     count = 0     query_lower = query.lower ->     results = []\n  Ejecuto: python3 -m py_compile \"C:/chance1/outlook_bridge.py\" && echo \"OK\"\n  Leyo outlook_bridge.py",
         "auto_learned": true,
         "source": "post_tool_hook",
         "files_touched": [
-          "C:/chance1/Asistente IA/outlook_bridge.py"
+          "C:/chance1/outlook_bridge.py"
         ],
         "activity": {
           "reads": 2,
@@ -782,7 +782,7 @@
         "auto_learned": true,
         "source": "post_tool_hook",
         "files_touched": [
-          "C:/chance1/Asistente IA/outlook_bridge.py"
+          "C:/chance1/outlook_bridge.py"
         ],
         "activity": {
           "reads": 2,
@@ -932,7 +932,7 @@
         "auto_learned": true,
         "source": "post_tool_hook",
         "files_touched": [
-          "C:/chance1/Asistente IA/outlook_bridge.py"
+          "C:/chance1/outlook_bridge.py"
         ],
         "activity": {
           "reads": 1,
@@ -971,7 +971,7 @@
         "auto_learned": true,
         "source": "post_tool_hook",
         "files_touched": [
-          "C:/chance1/Asistente IA/outlook_bridge.py"
+          "C:/chance1/outlook_bridge.py"
         ],
         "activity": {
           "reads": 0,
@@ -1080,7 +1080,7 @@
       "key": "iter_20260318_145436_i26",
       "solution": {
         "strategy": "auto_iteration_capture",
-        "notes": "Iteracion 26:\n  Ejecuto: cd \"C:/chance1/Asistente IA\" && python -c \"\nfrom outlook_bridge import search_emails\nr = search_emails('8030027307', max",
+        "notes": "Iteracion 26:\n  Ejecuto: cd \"C:/chance1/\" && python -c \"\nfrom outlook_bridge import search_emails\nr = search_emails('8030027307', max",
         "auto_learned": true,
         "source": "post_tool_hook",
         "files_touched": [],
@@ -1228,7 +1228,7 @@
       "key": "iter_20260318_152411_i49",
       "solution": {
         "strategy": "auto_iteration_capture",
-        "notes": "Iteracion 49:\n  Ejecuto: sleep 3 && cat \"C:\\Users\\ntoledo\\AppData\\Local\\Temp\\claude\\C--chance1-Asistente-IA\\1be24623-3a98-4790-97e2-3ae172404e93\\\n  Ejecuto: cmd /c \"tasklist | findstr /i outlook\"\n  Ejecuto: cmd /c tasklist 2>&1 | head -30",
+        "notes": "Iteracion 49:\n  Ejecuto: sleep 3 && cat \"C:\\Users\\ntoledo\\AppData\\Local\\Temp\\claude\\C--chance1-Hooks-IA\\1be24623-3a98-4790-97e2-3ae172404e93\\\n  Ejecuto: cmd /c \"tasklist | findstr /i outlook\"\n  Ejecuto: cmd /c tasklist 2>&1 | head -30",
         "auto_learned": true,
         "source": "post_tool_hook",
         "files_touched": [],
@@ -1302,7 +1302,7 @@
       "key": "iter_20260318_152652_i54",
       "solution": {
         "strategy": "auto_iteration_capture",
-        "notes": "Iteracion 54:\n  Ejecuto: sleep 5 && python -c \"\nf = open(r'C:\\Users\\ntoledo\\AppData\\Local\\Temp\\claude\\C--chance1-Asistente-IA\\1be24623-3a98-4790-\n  Ejecuto: python -c \"\nimport subprocess\nr = subprocess.run('tasklist /FI \\\"IMAGENAME eq OUTLOOK.EXE\\\"', shell=True, capture_output",
+        "notes": "Iteracion 54:\n  Ejecuto: sleep 5 && python -c \"\nf = open(r'C:\\Users\\ntoledo\\AppData\\Local\\Temp\\claude\\C--chance1-Hooks-IA\\1be24623-3a98-4790-\n  Ejecuto: python -c \"\nimport subprocess\nr = subprocess.run('tasklist /FI \\\"IMAGENAME eq OUTLOOK.EXE\\\"', shell=True, capture_output",
         "auto_learned": true,
         "source": "post_tool_hook",
         "files_touched": [],
@@ -1557,7 +1557,7 @@
       "key": "iter_20260323_204357_i65",
       "solution": {
         "strategy": "differential_capture",
-        "notes": "Iteracion 65:\n[DIFERENCIAL] Complemento a KB existente.\n  Ejecuto: ls \"C:/Chance1/Buscador_IA/\" | grep -i \"outlook\\|email\\|mail\\|imap\\|smtp\" 2>/dev/null\n  Ejecuto: head -60 \"C:/Chance1/Buscador_IA/outlook_bridge.py\" 2>/dev/null",
+        "notes": "Iteracion 65:\n[DIFERENCIAL] Complemento a KB existente.\n  Ejecuto: ls \"Buscador_IA/\" | grep -i \"outlook\\|email\\|mail\\|imap\\|smtp\" 2>/dev/null\n  Ejecuto: head -60 \"Buscador_IA/outlook_bridge.py\" 2>/dev/null",
         "auto_learned": true,
         "source": "post_tool_hook",
         "msg_type": "instruction",
@@ -1637,7 +1637,7 @@
       "key": "iter_20260323_214611_i94",
       "solution": {
         "strategy": "differential_capture",
-        "notes": "Iteracion 94:\n[DIFERENCIAL] Complemento a KB existente.\n  mcp__gbm-kb__buscar_kb\n  Ejecuto: cd \"C:/Chance1/Buscador_IA\" && head -60 outlook_bridge.py",
+        "notes": "Iteracion 94:\n[DIFERENCIAL] Complemento a KB existente.\n  mcp__gbm-kb__buscar_kb\n  Ejecuto: cd \"Buscador_IA\" && head -60 outlook_bridge.py",
         "auto_learned": true,
         "source": "post_tool_hook",
         "msg_type": "informational",
@@ -1677,7 +1677,7 @@
       "key": "iter_20260323_214627_i94",
       "solution": {
         "strategy": "differential_capture",
-        "notes": "Iteracion 94:\n[DIFERENCIAL] Complemento a KB existente.\n  mcp__gbm-kb__buscar_kb\n  Ejecuto: cd \"C:/Chance1/Buscador_IA\" && head -60 outlook_bridge.py\n  Ejecuto: head -30 \"C:/Chance1/Buscador_IA/wsearch_emails.py\" && echo \"---\" && head -30 \"C:/Chance1/Buscador_IA/ost_search.py\"",
+        "notes": "Iteracion 94:\n[DIFERENCIAL] Complemento a KB existente.\n  mcp__gbm-kb__buscar_kb\n  Ejecuto: cd \"Buscador_IA\" && head -60 outlook_bridge.py\n  Ejecuto: head -30 \"Buscador_IA/wsearch_emails.py\" && echo \"---\" && head -30 \"Buscador_IA/ost_search.py\"",
         "auto_learned": true,
         "source": "post_tool_hook",
         "msg_type": "informational",
@@ -1763,7 +1763,7 @@
         "msg_type": "informational",
         "had_kb_match": true,
         "files_touched": [
-          "C:/Chance1/Buscador_IA/dashboard.py"
+          "Buscador_IA/dashboard.py"
         ],
         "activity": {
           "reads": 5,
@@ -1799,13 +1799,13 @@
       "key": "iter_20260323_215304_i100",
       "solution": {
         "strategy": "differential_capture",
-        "notes": "Iteracion 100:\n[DIFERENCIAL] Complemento a KB existente.\n  Edito dashboard.py > cambio:     try:         from outlook_bridge import compose_email_de ->     # Abrir Outl\n  Leyo dashboard.py\n  Leyo dashboard.py\n  Edito dashboard.py > cambio:     # Buscar correo en Outlook     emails = []     try:      ->     # Buscar cor\n  Edito dashboard.py > cambio: - python file_search.py \"texto\" â†’ Busca dentro de archivos -> - python file_se\n  Busco '_com_call_safe|from outlook_bridge' en dashboard.py\n  Ejecuto: wmic process where \"commandline like '%dashboard.py%'\" get processid 2>/dev/null | grep -v ProcessId | grep -v \"^$\" | he\n  Ejecuto: cd C:/Chance1/Buscador_IA && python -c \"\nimport ast\nwith open('dashboard.py', encoding='utf-8') as f:\n    src = f.read()",
+        "notes": "Iteracion 100:\n[DIFERENCIAL] Complemento a KB existente.\n  Edito dashboard.py > cambio:     try:         from outlook_bridge import compose_email_de ->     # Abrir Outl\n  Leyo dashboard.py\n  Leyo dashboard.py\n  Edito dashboard.py > cambio:     # Buscar correo en Outlook     emails = []     try:      ->     # Buscar cor\n  Edito dashboard.py > cambio: - python file_search.py \"texto\" â†’ Busca dentro de archivos -> - python file_se\n  Busco '_com_call_safe|from outlook_bridge' en dashboard.py\n  Ejecuto: wmic process where \"commandline like '%dashboard.py%'\" get processid 2>/dev/null | grep -v ProcessId | grep -v \"^$\" | he\n  Ejecuto: cd Buscador_IA && python -c \"\nimport ast\nwith open('dashboard.py', encoding='utf-8') as f:\n    src = f.read()",
         "auto_learned": true,
         "source": "post_tool_hook",
         "msg_type": "informational",
         "had_kb_match": true,
         "files_touched": [
-          "C:/Chance1/Buscador_IA/dashboard.py"
+          "Buscador_IA/dashboard.py"
         ],
         "activity": {
           "reads": 2,
@@ -1921,13 +1921,13 @@
       "key": "iter_20260324_112329_i180",
       "solution": {
         "strategy": "differential_capture",
-        "notes": "Iteracion 180:\n[DIFERENCIAL] Complemento a KB existente.\n  Ejecuto: ls \"C:/Chance1/Buscador_IA/\" && echo \"---\" && ls \"C:/Chance1/Buscador_IA/dashboard_web/\" 2>/dev/null\n  Ejecuto: cat \"C:/Chance1/Buscador_IA/llm_config.json\" 2>/dev/null; echo \"---\"; ls \"C:/Chance1/Buscador_IA/_backups/\" | head -5; e\n  Creo .gitignore\n  Ejecuto: cd \"C:/Chance1/Buscador_IA\" && git init && git config user.name \"Netocool2006\" && git config user.email \"ntoledo@gbm.net\n  Ejecuto: cd \"C:/Chance1/Buscador_IA\" && git commit -m \"$(cat <<'EOF'\nInitial commit â€” Buscador Advisor DS v1.0\n\nFlask-based AI ",
+        "notes": "Iteracion 180:\n[DIFERENCIAL] Complemento a KB existente.\n  Ejecuto: ls \"Buscador_IA/\" && echo \"---\" && ls \"Buscador_IA/dashboard_web/\" 2>/dev/null\n  Ejecuto: cat \"Buscador_IA/llm_config.json\" 2>/dev/null; echo \"---\"; ls \"Buscador_IA/_backups/\" | head -5; e\n  Creo .gitignore\n  Ejecuto: cd \"Buscador_IA\" && git init && git config user.name \"Netocool2006\" && git config user.email \"ntoledo@gbm.net\n  Ejecuto: cd \"Buscador_IA\" && git commit -m \"$(cat <<'EOF'\nInitial commit â€” Buscador Advisor DS v1.0\n\nFlask-based AI ",
         "auto_learned": true,
         "source": "post_tool_hook",
         "msg_type": "instruction",
         "had_kb_match": true,
         "files_touched": [
-          "C:/Chance1/Buscador_IA/.gitignore"
+          "Buscador_IA/.gitignore"
         ],
         "activity": {
           "reads": 0,
@@ -1963,7 +1963,7 @@
       "key": "iter_20260324_125415_i231",
       "solution": {
         "strategy": "differential_capture",
-        "notes": "Iteracion 231:\n[DIFERENCIAL] Complemento a KB existente.\n  Ejecuto: cd C:/Chance1/Buscador_IA && python -c \"\ntry:\n    from wsearch_emails import search_emails_wsearch\n    results = search_",
+        "notes": "Iteracion 231:\n[DIFERENCIAL] Complemento a KB existente.\n  Ejecuto: cd Buscador_IA && python -c \"\ntry:\n    from wsearch_emails import search_emails_wsearch\n    results = search_",
         "auto_learned": true,
         "source": "post_tool_hook",
         "msg_type": "instruction",
@@ -2003,13 +2003,13 @@
       "key": "iter_20260324_125454_i232",
       "solution": {
         "strategy": "differential_capture",
-        "notes": "Iteracion 232:\n[DIFERENCIAL] Complemento a KB existente.\n  Ejecuto: cd C:/Chance1/Buscador_IA && ls *outlook* *email* *wsearch* 2>/dev/null\n  Busco 'def search_emails_wsearch' en wsearch_emails.py\n  Leyo wsearch_emails.py",
+        "notes": "Iteracion 232:\n[DIFERENCIAL] Complemento a KB existente.\n  Ejecuto: cd Buscador_IA && ls *outlook* *email* *wsearch* 2>/dev/null\n  Busco 'def search_emails_wsearch' en wsearch_emails.py\n  Leyo wsearch_emails.py",
         "auto_learned": true,
         "source": "post_tool_hook",
         "msg_type": "instruction",
         "had_kb_match": true,
         "files_touched": [
-          "C:/Chance1/Buscador_IA/wsearch_emails.py"
+          "Buscador_IA/wsearch_emails.py"
         ],
         "activity": {
           "reads": 1,
@@ -2045,13 +2045,13 @@
       "key": "iter_20260324_125542_i233",
       "solution": {
         "strategy": "differential_capture",
-        "notes": "Iteracion 233:\n[DIFERENCIAL] Complemento a KB existente.\n  Ejecuto: cd C:/Chance1/Buscador_IA && python -c \"\nfrom wsearch_emails import search_emails_wsearch\n# Test broader search\nresults \n  Leyo wsearch_emails.py\n  Edito wsearch_emails.py > cambio:     $sql = \"SELECT TOP {top} System.Subject, System.Message. ->     $sql = \"SELE\n  Ejecuto: cd C:/Chance1/Buscador_IA && python -c \"\nfrom wsearch_emails import search_emails_wsearch\nresults = search_emails_wsearc",
+        "notes": "Iteracion 233:\n[DIFERENCIAL] Complemento a KB existente.\n  Ejecuto: cd Buscador_IA && python -c \"\nfrom wsearch_emails import search_emails_wsearch\n# Test broader search\nresults \n  Leyo wsearch_emails.py\n  Edito wsearch_emails.py > cambio:     $sql = \"SELECT TOP {top} System.Subject, System.Message. ->     $sql = \"SELE\n  Ejecuto: cd Buscador_IA && python -c \"\nfrom wsearch_emails import search_emails_wsearch\nresults = search_emails_wsearc",
         "auto_learned": true,
         "source": "post_tool_hook",
         "msg_type": "instruction",
         "had_kb_match": true,
         "files_touched": [
-          "C:/Chance1/Buscador_IA/wsearch_emails.py"
+          "Buscador_IA/wsearch_emails.py"
         ],
         "activity": {
           "reads": 1,
@@ -2087,13 +2087,13 @@
       "key": "iter_20260324_125621_i234",
       "solution": {
         "strategy": "differential_capture",
-        "notes": "Iteracion 234:\n[DIFERENCIAL] Complemento a KB existente.\n  Ejecuto: cd C:/Chance1/Buscador_IA && powershell -NoProfile -Command \"\n\\$conn = New-Object -ComObject ADODB.Connection\n\\$conn.Ope\n  Leyo wsearch_emails.py\n  Edito wsearch_emails.py > cambio:     $sql = \"SELECT TOP {top} System.Subject, System.Message. ->     $sql = \"SELE",
+        "notes": "Iteracion 234:\n[DIFERENCIAL] Complemento a KB existente.\n  Ejecuto: cd Buscador_IA && powershell -NoProfile -Command \"\n\\$conn = New-Object -ComObject ADODB.Connection\n\\$conn.Ope\n  Leyo wsearch_emails.py\n  Edito wsearch_emails.py > cambio:     $sql = \"SELECT TOP {top} System.Subject, System.Message. ->     $sql = \"SELE",
         "auto_learned": true,
         "source": "post_tool_hook",
         "msg_type": "instruction",
         "had_kb_match": true,
         "files_touched": [
-          "C:/Chance1/Buscador_IA/wsearch_emails.py"
+          "Buscador_IA/wsearch_emails.py"
         ],
         "activity": {
           "reads": 1,
@@ -2129,7 +2129,7 @@
       "key": "iter_20260324_125814_i236",
       "solution": {
         "strategy": "differential_capture",
-        "notes": "Iteracion 236:\n[DIFERENCIAL] Complemento a KB existente.\n  Ejecuto: cd C:/Chance1/Buscador_IA && git add dashboard_web/index.html wsearch_emails.py && git commit -m \"$(cat <<'EOF'\nAdd visi",
+        "notes": "Iteracion 236:\n[DIFERENCIAL] Complemento a KB existente.\n  Ejecuto: cd Buscador_IA && git add dashboard_web/index.html wsearch_emails.py && git commit -m \"$(cat <<'EOF'\nAdd visi",
         "auto_learned": true,
         "source": "post_tool_hook",
         "msg_type": "instruction",
@@ -2169,7 +2169,7 @@
       "key": "iter_20260324_130326_i239",
       "solution": {
         "strategy": "differential_capture",
-        "notes": "Iteracion 239:\n[DIFERENCIAL] Complemento a KB existente.\n  Ejecuto: cd C:/Chance1/Buscador_IA && curl -s -X POST http://localhost:5000/api/ds/search -H \"Content-Type: application/json\" -d \n  Busco 'email_search_enabled' en dashboard.py\n  Busco 'ds_config|DS_CONFIG' en dashboard.py",
+        "notes": "Iteracion 239:\n[DIFERENCIAL] Complemento a KB existente.\n  Ejecuto: cd Buscador_IA && curl -s -X POST http://localhost:5000/api/ds/search -H \"Content-Type: application/json\" -d \n  Busco 'email_search_enabled' en dashboard.py\n  Busco 'ds_config|DS_CONFIG' en dashboard.py",
         "auto_learned": true,
         "source": "post_tool_hook",
         "msg_type": "informational",
@@ -2215,7 +2215,7 @@
         "msg_type": "instruction",
         "had_kb_match": true,
         "files_touched": [
-          "C:/Chance1/Buscador_IA/dashboard_web/index.html"
+          "Buscador_IA/dashboard_web/index.html"
         ],
         "activity": {
           "reads": 2,
@@ -2257,7 +2257,7 @@
         "msg_type": "instruction",
         "had_kb_match": true,
         "files_touched": [
-          "C:/Chance1/Buscador_IA/dashboard_web/index.html"
+          "Buscador_IA/dashboard_web/index.html"
         ],
         "activity": {
           "reads": 3,
@@ -2293,7 +2293,7 @@
       "key": "iter_20260324_131003_i246",
       "solution": {
         "strategy": "differential_capture",
-        "notes": "Iteracion 246:\n[DIFERENCIAL] Complemento a KB existente.\n  Ejecuto: cd C:/Chance1/Buscador_IA && git add dashboard_web/index.html && git commit -m \"$(cat <<'EOF'\nMove emails from sidebar t",
+        "notes": "Iteracion 246:\n[DIFERENCIAL] Complemento a KB existente.\n  Ejecuto: cd Buscador_IA && git add dashboard_web/index.html && git commit -m \"$(cat <<'EOF'\nMove emails from sidebar t",
         "auto_learned": true,
         "source": "post_tool_hook",
         "msg_type": "instruction",
@@ -2339,7 +2339,7 @@
         "msg_type": "informational",
         "had_kb_match": true,
         "files_touched": [
-          "C:/Chance1/Buscador_IA/dashboard.py"
+          "Buscador_IA/dashboard.py"
         ],
         "activity": {
           "reads": 1,
@@ -2381,7 +2381,7 @@
         "msg_type": "informational",
         "had_kb_match": true,
         "files_touched": [
-          "C:/Chance1/Buscador_IA/dashboard_web/index.html"
+          "Buscador_IA/dashboard_web/index.html"
         ],
         "activity": {
           "reads": 0,
@@ -2423,8 +2423,8 @@
         "msg_type": "informational",
         "had_kb_match": true,
         "files_touched": [
-          "C:/Chance1/Buscador_IA/dashboard.py",
-          "C:/Chance1/Buscador_IA/dashboard_web/index.html"
+          "Buscador_IA/dashboard.py",
+          "Buscador_IA/dashboard_web/index.html"
         ],
         "activity": {
           "reads": 1,
@@ -2460,7 +2460,7 @@
       "key": "iter_20260324_131557_i251",
       "solution": {
         "strategy": "differential_capture",
-        "notes": "Iteracion 251:\n[DIFERENCIAL] Complemento a KB existente.\n  Ejecuto: cd C:/Chance1/Buscador_IA && git add dashboard.py dashboard_web/index.html && git commit -m \"$(cat <<'EOF'\nAdd email ope",
+        "notes": "Iteracion 251:\n[DIFERENCIAL] Complemento a KB existente.\n  Ejecuto: cd Buscador_IA && git add dashboard.py dashboard_web/index.html && git commit -m \"$(cat <<'EOF'\nAdd email ope",
         "auto_learned": true,
         "source": "post_tool_hook",
         "msg_type": "informational",
@@ -2500,7 +2500,7 @@
       "key": "iter_20260324_132050_i252",
       "solution": {
         "strategy": "differential_capture",
-        "notes": "Iteracion 252:\n[DIFERENCIAL] Complemento a KB existente.\n  Ejecuto: netstat -ano | findstr \":5000\" | findstr LISTEN\n  Ejecuto: powershell -NoProfile -Command \"Stop-Process -Id 20260 -Force\" 2>/dev/null; sleep 2; cd C:/Chance1/Buscador_IA && nohup \n  Ejecuto: sleep 4 && netstat -ano | findstr \":5000\" | findstr LISTEN\n  Ejecuto: curl -s -X POST http://localhost:5000/api/outlook/open -H \"Content-Type: application/json\" -d '{\"subject\":\"RE: Log - SR3\n  Busco 'dsEmailModeWeb|dsEmailModeDesktop|dsSetEmailMode' en index.html",
+        "notes": "Iteracion 252:\n[DIFERENCIAL] Complemento a KB existente.\n  Ejecuto: netstat -ano | findstr \":5000\" | findstr LISTEN\n  Ejecuto: powershell -NoProfile -Command \"Stop-Process -Id 20260 -Force\" 2>/dev/null; sleep 2; cd Buscador_IA && nohup \n  Ejecuto: sleep 4 && netstat -ano | findstr \":5000\" | findstr LISTEN\n  Ejecuto: curl -s -X POST http://localhost:5000/api/outlook/open -H \"Content-Type: application/json\" -d '{\"subject\":\"RE: Log - SR3\n  Busco 'dsEmailModeWeb|dsEmailModeDesktop|dsSetEmailMode' en index.html",
         "auto_learned": true,
         "source": "post_tool_hook",
         "msg_type": "instruction",
@@ -2540,7 +2540,7 @@
       "key": "iter_20260324_132253_i256",
       "solution": {
         "strategy": "differential_capture",
-        "notes": "Iteracion 256:\n[DIFERENCIAL] Complemento a KB existente.\n  Ejecuto: cd C:/Chance1/Buscador_IA && git add dashboard.py && git commit -m \"$(cat <<'EOF'\nFix: Outlook Web search URL uses offic",
+        "notes": "Iteracion 256:\n[DIFERENCIAL] Complemento a KB existente.\n  Ejecuto: cd Buscador_IA && git add dashboard.py && git commit -m \"$(cat <<'EOF'\nFix: Outlook Web search URL uses offic",
         "auto_learned": true,
         "source": "post_tool_hook",
         "msg_type": "instruction",
@@ -2586,7 +2586,7 @@
         "msg_type": "instruction",
         "had_kb_match": true,
         "files_touched": [
-          "C:/Chance1/Buscador_IA/dashboard.py"
+          "Buscador_IA/dashboard.py"
         ],
         "activity": {
           "reads": 1,
@@ -2668,7 +2668,7 @@
         "msg_type": "instruction",
         "had_kb_match": true,
         "files_touched": [
-          "C:/Chance1/Buscador_IA/dashboard.py"
+          "Buscador_IA/dashboard.py"
         ],
         "activity": {
           "reads": 1,
@@ -2704,13 +2704,13 @@
       "key": "iter_20260324_141341_i288",
       "solution": {
         "strategy": "differential_capture",
-        "notes": "Iteracion 288:\n[DIFERENCIAL] Complemento a KB existente.\n  Edito dashboard.py > cambio: @app.route(\"/api/outlook/open\", methods=[\"POST\"]) -> def _outlook_get_deeplink(s\n  Ejecuto: cd C:/Chance1/Buscador_IA && python -c \"\nfrom dashboard import _outlook_get_deeplink\nurl = _outlook_get_deeplink('RE: Lo",
+        "notes": "Iteracion 288:\n[DIFERENCIAL] Complemento a KB existente.\n  Edito dashboard.py > cambio: @app.route(\"/api/outlook/open\", methods=[\"POST\"]) -> def _outlook_get_deeplink(s\n  Ejecuto: cd Buscador_IA && python -c \"\nfrom dashboard import _outlook_get_deeplink\nurl = _outlook_get_deeplink('RE: Lo",
         "auto_learned": true,
         "source": "post_tool_hook",
         "msg_type": "instruction",
         "had_kb_match": true,
         "files_touched": [
-          "C:/Chance1/Buscador_IA/dashboard.py"
+          "Buscador_IA/dashboard.py"
         ],
         "activity": {
           "reads": 0,
@@ -2746,7 +2746,7 @@
       "key": "iter_20260324_141409_i289",
       "solution": {
         "strategy": "differential_capture",
-        "notes": "Iteracion 289:\n[DIFERENCIAL] Complemento a KB existente.\n  Ejecuto: cd C:/Chance1/Buscador_IA && git add dashboard.py && git commit -m \"$(cat <<'EOF'\nFix: Email deep-link via Outlook COM E\n  Ejecuto: netstat -ano | findstr \":5000\" | findstr LISTEN | awk '{print $5}'",
+        "notes": "Iteracion 289:\n[DIFERENCIAL] Complemento a KB existente.\n  Ejecuto: cd Buscador_IA && git add dashboard.py && git commit -m \"$(cat <<'EOF'\nFix: Email deep-link via Outlook COM E\n  Ejecuto: netstat -ano | findstr \":5000\" | findstr LISTEN | awk '{print $5}'",
         "auto_learned": true,
         "source": "post_tool_hook",
         "msg_type": "instruction",
@@ -2872,7 +2872,7 @@
         "msg_type": "instruction",
         "had_kb_match": true,
         "files_touched": [
-          "C:/Chance1/Buscador_IA/dashboard_web/index.html"
+          "Buscador_IA/dashboard_web/index.html"
         ],
         "activity": {
           "reads": 2,
@@ -2914,7 +2914,7 @@
         "msg_type": "instruction",
         "had_kb_match": true,
         "files_touched": [
-          "C:/Chance1/Buscador_IA/dashboard_web/index.html"
+          "Buscador_IA/dashboard_web/index.html"
         ],
         "activity": {
           "reads": 1,
@@ -2956,7 +2956,7 @@
         "msg_type": "instruction",
         "had_kb_match": true,
         "files_touched": [
-          "C:/Chance1/Buscador_IA/dashboard_web/index.html"
+          "Buscador_IA/dashboard_web/index.html"
         ],
         "activity": {
           "reads": 0,
@@ -2998,8 +2998,8 @@
         "msg_type": "instruction",
         "had_kb_match": true,
         "files_touched": [
-          "C:/Chance1/Buscador_IA/dashboard.py",
-          "C:/Chance1/Buscador_IA/wsearch_emails.py"
+          "Buscador_IA/dashboard.py",
+          "Buscador_IA/wsearch_emails.py"
         ],
         "activity": {
           "reads": 4,
@@ -3035,7 +3035,7 @@
       "key": "iter_20260324_153045_i340",
       "solution": {
         "strategy": "differential_capture",
-        "notes": "Iteracion 340:\n[DIFERENCIAL] Complemento a KB existente.\n  Ejecuto: cd C:/Chance1/Buscador_IA && git add dashboard.py wsearch_emails.py && git commit -m \"$(cat <<'EOF'\nLimit all search res\n  Ejecuto: netstat -ano | findstr \":5000\" | findstr LISTEN | awk '{print $5}'",
+        "notes": "Iteracion 340:\n[DIFERENCIAL] Complemento a KB existente.\n  Ejecuto: cd Buscador_IA && git add dashboard.py wsearch_emails.py && git commit -m \"$(cat <<'EOF'\nLimit all search res\n  Ejecuto: netstat -ano | findstr \":5000\" | findstr LISTEN | awk '{print $5}'",
         "auto_learned": true,
         "source": "post_tool_hook",
         "msg_type": "instruction",
@@ -3081,8 +3081,8 @@
         "msg_type": "instruction",
         "had_kb_match": true,
         "files_touched": [
-          "C:/Chance1/Buscador_IA/wsearch_emails.py",
-          "C:/Chance1/Buscador_IA/dashboard_web/index.html"
+          "Buscador_IA/wsearch_emails.py",
+          "Buscador_IA/dashboard_web/index.html"
         ],
         "activity": {
           "reads": 0,
@@ -3164,7 +3164,7 @@
         "msg_type": "instruction",
         "had_kb_match": true,
         "files_touched": [
-          "C:/Chance1/Buscador_IA/dashboard_web/index.html"
+          "Buscador_IA/dashboard_web/index.html"
         ],
         "activity": {
           "reads": 2,
@@ -3200,7 +3200,7 @@
       "key": "iter_20260324_163142_i390",
       "solution": {
         "strategy": "differential_capture",
-        "notes": "Iteracion 390:\n[DIFERENCIAL] Complemento a KB existente.\n  Ejecuto: cd C:/Chance1/Buscador_IA && git add dashboard.py && git commit -m \"$(cat <<'EOF'\nPerf: Parallel email+file search, redu\n  Ejecuto: netstat -ano | findstr \":5000\" | findstr LISTEN | awk '{print $5}'\n  Ejecuto: powershell -NoProfile -Command \"Stop-Process -Id 27488 -Force\" 2>/dev/null; sleep 2; cd C:/Chance1/Buscador_IA && start ",
+        "notes": "Iteracion 390:\n[DIFERENCIAL] Complemento a KB existente.\n  Ejecuto: cd Buscador_IA && git add dashboard.py && git commit -m \"$(cat <<'EOF'\nPerf: Parallel email+file search, redu\n  Ejecuto: netstat -ano | findstr \":5000\" | findstr LISTEN | awk '{print $5}'\n  Ejecuto: powershell -NoProfile -Command \"Stop-Process -Id 27488 -Force\" 2>/dev/null; sleep 2; cd Buscador_IA && start ",
         "auto_learned": true,
         "source": "post_tool_hook",
         "msg_type": "instruction",
@@ -3246,7 +3246,7 @@
         "msg_type": "instruction",
         "had_kb_match": true,
         "files_touched": [
-          "C:/Chance1/Buscador_IA/wsearch_emails.py"
+          "Buscador_IA/wsearch_emails.py"
         ],
         "activity": {
           "reads": 1,
@@ -3288,7 +3288,7 @@
         "msg_type": "instruction",
         "had_kb_match": true,
         "files_touched": [
-          "C:/Chance1/Buscador_IA/wsearch_emails.py"
+          "Buscador_IA/wsearch_emails.py"
         ],
         "activity": {
           "reads": 0,
@@ -3324,7 +3324,7 @@
       "key": "iter_20260324_164618_i414",
       "solution": {
         "strategy": "differential_capture",
-        "notes": "Iteracion 414:\n[DIFERENCIAL] Complemento a KB existente.\n  Ejecuto: cd C:/Chance1/Buscador_IA && git add dashboard.py wsearch_emails.py && git commit -m \"$(cat <<'EOF'\nPerf: Remove date fi",
+        "notes": "Iteracion 414:\n[DIFERENCIAL] Complemento a KB existente.\n  Ejecuto: cd Buscador_IA && git add dashboard.py wsearch_emails.py && git commit -m \"$(cat <<'EOF'\nPerf: Remove date fi",
         "auto_learned": true,
         "source": "post_tool_hook",
         "msg_type": "instruction",
@@ -3450,7 +3450,7 @@
         "msg_type": "instruction",
         "had_kb_match": true,
         "files_touched": [
-          "C:/Chance1/Buscador_IA/dashboard_web/index.html"
+          "Buscador_IA/dashboard_web/index.html"
         ],
         "activity": {
           "reads": 1,
@@ -3492,7 +3492,7 @@
         "msg_type": "instruction",
         "had_kb_match": true,
         "files_touched": [
-          "C:/Chance1/Buscador_IA/wsearch_emails.py"
+          "Buscador_IA/wsearch_emails.py"
         ],
         "activity": {
           "reads": 0,
@@ -3528,7 +3528,7 @@
       "key": "iter_20260325_095408_i611",
       "solution": {
         "strategy": "differential_capture",
-        "notes": "Iteracion 611:\n[DIFERENCIAL] Complemento a KB existente.\n  Ejecuto: cd C:/Chance1/Buscador_IA && git add dashboard.py wsearch_emails.py && git commit -m \"$(cat <<'EOF'\nFix email issues: CO\n  Ejecuto: netstat -ano | findstr \":5000\" | findstr LISTEN | awk '{print $5}' | head -1",
+        "notes": "Iteracion 611:\n[DIFERENCIAL] Complemento a KB existente.\n  Ejecuto: cd Buscador_IA && git add dashboard.py wsearch_emails.py && git commit -m \"$(cat <<'EOF'\nFix email issues: CO\n  Ejecuto: netstat -ano | findstr \":5000\" | findstr LISTEN | awk '{print $5}' | head -1",
         "auto_learned": true,
         "source": "post_tool_hook",
         "msg_type": "instruction",
@@ -3568,14 +3568,14 @@
       "key": "iter_20260325_100123_i614",
       "solution": {
         "strategy": "differential_capture",
-        "notes": "Iteracion 614:\n[DIFERENCIAL] Complemento a KB existente.\n  Edito dashboard.py > cambio: def _ds_expand_client_aliases(term: str) -> list[str]:     \" -> def _ds_expand_c\n  Edito dashboard.py > cambio:     # Expandir aliases de clientes: si el tÃ©rmino coincide  ->     # Expandir a\n  Edito wsearch_emails.py > cambio:     # Para tÃ©rminos cortos (<=3 chars como \"BI\"), buscar SO ->     # Buscar sie\n  Leyo wsearch_emails.py\n  Busco '_ds_expand_client_aliases|_orig_is_abbrev|_alias_terms_cliente' en dashboard.py\n  Ejecuto: cd C:\\Chance1\\Buscador_IA && taskkill /F /IM python.exe /FI \"WINDOWTITLE eq dashboard*\" 2>nul; Start-Sleep -Seconds 1; n\n  Ejecuto: powershell -Command \"Stop-Process -Id (netstat -ano | Select-String ':5000' | ForEach-Object { ($_ -split '\\s+')[-1] } |\n  Ejecuto: powershell -Command \"Get-Process python -ErrorAction SilentlyContinue | Stop-Process -Force; Write-Output 'Python proces\n  Ejecuto: powershell -Command \"Start-Process python -ArgumentList 'C:\\Chance1\\Buscador_IA\\dashboard.py' -WindowStyle Minimized; St\n  Ejecuto: powershell -NoProfile -Command \"Start-Process python -ArgumentList 'C:\\Chance1\\Buscador_IA\\dashboard.py' -WindowStyle Mi",
+        "notes": "Iteracion 614:\n[DIFERENCIAL] Complemento a KB existente.\n  Edito dashboard.py > cambio: def _ds_expand_client_aliases(term: str) -> list[str]:     \" -> def _ds_expand_c\n  Edito dashboard.py > cambio:     # Expandir aliases de clientes: si el tÃ©rmino coincide  ->     # Expandir a\n  Edito wsearch_emails.py > cambio:     # Para tÃ©rminos cortos (<=3 chars como \"BI\"), buscar SO ->     # Buscar sie\n  Leyo wsearch_emails.py\n  Busco '_ds_expand_client_aliases|_orig_is_abbrev|_alias_terms_cliente' en dashboard.py\n  Ejecuto: cd Buscador_IA && taskkill /F /IM python.exe /FI \"WINDOWTITLE eq dashboard*\" 2>nul; Start-Sleep -Seconds 1; n\n  Ejecuto: powershell -Command \"Stop-Process -Id (netstat -ano | Select-String ':5000' | ForEach-Object { ($_ -split '\\s+')[-1] } |\n  Ejecuto: powershell -Command \"Get-Process python -ErrorAction SilentlyContinue | Stop-Process -Force; Write-Output 'Python proces\n  Ejecuto: powershell -Command \"Start-Process python -ArgumentList 'Buscador_IA\\dashboard.py' -WindowStyle Minimized; St\n  Ejecuto: powershell -NoProfile -Command \"Start-Process python -ArgumentList 'Buscador_IA\\dashboard.py' -WindowStyle Mi",
         "auto_learned": true,
         "source": "post_tool_hook",
         "msg_type": "instruction",
         "had_kb_match": true,
         "files_touched": [
-          "C:\\Chance1\\Buscador_IA\\wsearch_emails.py",
-          "C:\\Chance1\\Buscador_IA\\dashboard.py"
+          "Buscador_IA\\wsearch_emails.py",
+          "Buscador_IA\\dashboard.py"
         ],
         "activity": {
           "reads": 1,
@@ -3611,13 +3611,13 @@
       "key": "iter_20260325_135923_i655",
       "solution": {
         "strategy": "differential_capture",
-        "notes": "Iteracion 655:\n[DIFERENCIAL] Complemento a KB existente.\n  Ejecuto: curl -s -o /dev/null -w \"%{time_total}s\\n\" http://localhost:5000/ && curl -s -o /dev/null -w \"%{time_total}s\\n\" http://l\n  Ejecuto: grep -n \"outlook/recent\\|outlookRecent\\|recent.*outlook\" \"C:/Chance1/Buscador_IA/dashboard_web/index.html\" | head -10\n  Leyo index.html\n  Ejecuto: grep -n \"gbmLoadRecentEmails\\|LoadRecentEmails\" \"C:/Chance1/Buscador_IA/dashboard_web/index.html\" | head -10\n  Leyo index.html\n  Ejecuto: grep -n \"DOMContentLoaded\\|window.onload\\|gbmGet\\|gbmPost\" \"C:/Chance1/Buscador_IA/dashboard_web/index.html\" | grep -v \"\n  Ejecuto: grep -n \"gbmLoadStats\\|gbmInit\\|init()\\|stats()\\|\\.call\\|immediately\\|auto\" \"C:/Chance1/Buscador_IA/dashboard_web/index.",
+        "notes": "Iteracion 655:\n[DIFERENCIAL] Complemento a KB existente.\n  Ejecuto: curl -s -o /dev/null -w \"%{time_total}s\\n\" http://localhost:5000/ && curl -s -o /dev/null -w \"%{time_total}s\\n\" http://l\n  Ejecuto: grep -n \"outlook/recent\\|outlookRecent\\|recent.*outlook\" \"Buscador_IA/dashboard_web/index.html\" | head -10\n  Leyo index.html\n  Ejecuto: grep -n \"gbmLoadRecentEmails\\|LoadRecentEmails\" \"Buscador_IA/dashboard_web/index.html\" | head -10\n  Leyo index.html\n  Ejecuto: grep -n \"DOMContentLoaded\\|window.onload\\|gbmGet\\|gbmPost\" \"Buscador_IA/dashboard_web/index.html\" | grep -v \"\n  Ejecuto: grep -n \"gbmLoadStats\\|gbmInit\\|init()\\|stats()\\|\\.call\\|immediately\\|auto\" \"Buscador_IA/dashboard_web/index.",
         "auto_learned": true,
         "source": "post_tool_hook",
         "msg_type": "instruction",
         "had_kb_match": true,
         "files_touched": [
-          "C:/Chance1/Buscador_IA/dashboard_web/index.html"
+          "Buscador_IA/dashboard_web/index.html"
         ],
         "activity": {
           "reads": 2,
@@ -3653,14 +3653,14 @@
       "key": "iter_20260325_140024_i657",
       "solution": {
         "strategy": "differential_capture",
-        "notes": "Iteracion 657:\n[DIFERENCIAL] Complemento a KB existente.\n  Ejecuto: grep -n \"_ds_search_emails_for_term\\|def _ds_search_emails\" \"C:/Chance1/Buscador_IA/dashboard.py\" | head -10\n  Leyo dashboard.py\n  Ejecuto: grep -n \"def search_emails_wsearch\\|sql_where\\|LIKE\\|CONTAINS\" \"C:/Chance1/Buscador_IA/wsearch_emails.py\" | head -20\n  Leyo wsearch_emails.py",
+        "notes": "Iteracion 657:\n[DIFERENCIAL] Complemento a KB existente.\n  Ejecuto: grep -n \"_ds_search_emails_for_term\\|def _ds_search_emails\" \"Buscador_IA/dashboard.py\" | head -10\n  Leyo dashboard.py\n  Ejecuto: grep -n \"def search_emails_wsearch\\|sql_where\\|LIKE\\|CONTAINS\" \"Buscador_IA/wsearch_emails.py\" | head -20\n  Leyo wsearch_emails.py",
         "auto_learned": true,
         "source": "post_tool_hook",
         "msg_type": "instruction",
         "had_kb_match": true,
         "files_touched": [
-          "C:/Chance1/Buscador_IA/dashboard.py",
-          "C:/Chance1/Buscador_IA/wsearch_emails.py"
+          "Buscador_IA/dashboard.py",
+          "Buscador_IA/wsearch_emails.py"
         ],
         "activity": {
           "reads": 2,
@@ -3696,14 +3696,14 @@
       "key": "iter_20260325_140235_i660",
       "solution": {
         "strategy": "differential_capture",
-        "notes": "Iteracion 660:\n[DIFERENCIAL] Complemento a KB existente.\n  Edito wsearch_emails.py > cambio: if __name__ == \"__main__\": -> def search_emails_wsearch_multi(terms: list, max_r\n  Leyo dashboard.py\n  Edito dashboard.py > cambio:         # Emails (serial â€” COM no es thread-safe) â€” busc ->         # Emails\n  Ejecuto: cd \"C:/Chance1/Buscador_IA\" && python -c \"from wsearch_emails import search_emails_wsearch_multi; print('OK')\" 2>&1",
+        "notes": "Iteracion 660:\n[DIFERENCIAL] Complemento a KB existente.\n  Edito wsearch_emails.py > cambio: if __name__ == \"__main__\": -> def search_emails_wsearch_multi(terms: list, max_r\n  Leyo dashboard.py\n  Edito dashboard.py > cambio:         # Emails (serial â€” COM no es thread-safe) â€” busc ->         # Emails\n  Ejecuto: cd \"Buscador_IA\" && python -c \"from wsearch_emails import search_emails_wsearch_multi; print('OK')\" 2>&1",
         "auto_learned": true,
         "source": "post_tool_hook",
         "msg_type": "instruction",
         "had_kb_match": true,
         "files_touched": [
-          "C:/Chance1/Buscador_IA/wsearch_emails.py",
-          "C:/Chance1/Buscador_IA/dashboard.py"
+          "Buscador_IA/wsearch_emails.py",
+          "Buscador_IA/dashboard.py"
         ],
         "activity": {
           "reads": 1,
@@ -3739,7 +3739,7 @@
       "key": "iter_20260325_140607_i664",
       "solution": {
         "strategy": "differential_capture",
-        "notes": "Iteracion 664:\n[DIFERENCIAL] Complemento a KB existente.\n  Ejecuto: netstat -ano 2>/dev/null | grep \":5000\" | head -3\n  Ejecuto: cd \"C:/Chance1/Buscador_IA\" && powershell -NoProfile -Command \"Start-Process pythonw -ArgumentList 'dashboard.py' -Worki\n  Ejecuto: cd \"C:/Chance1/Buscador_IA\" && python -c \"\nimport time\nfrom wsearch_emails import search_emails_wsearch_multi\nt = time.t",
+        "notes": "Iteracion 664:\n[DIFERENCIAL] Complemento a KB existente.\n  Ejecuto: netstat -ano 2>/dev/null | grep \":5000\" | head -3\n  Ejecuto: cd \"Buscador_IA\" && powershell -NoProfile -Command \"Start-Process pythonw -ArgumentList 'dashboard.py' -Worki\n  Ejecuto: cd \"Buscador_IA\" && python -c \"\nimport time\nfrom wsearch_emails import search_emails_wsearch_multi\nt = time.t",
         "auto_learned": true,
         "source": "post_tool_hook",
         "msg_type": "instruction",
@@ -3779,16 +3779,16 @@
       "key": "iter_20260325_152028_i691",
       "solution": {
         "strategy": "differential_capture",
-        "notes": "Iteracion 691:\n[DIFERENCIAL] Complemento a KB existente.\n  Leyo file_search.py\n  Leyo ingest_documents.py\n  Glob: C:/Chance1/Buscador_IA/wsearch_emails.py\n  Leyo dashboard.py\n  Leyo wsearch_emails.py\n  Leyo dashboard.py\n  Busco '^def _ds_build_path_index|^def _ds_search_files|^def _ds_extract_virtual|^def _ds_find_client|^def api_ds_search' en dashboard.py\n  Leyo dashboard.py\n  Leyo dashboard.py\n  Leyo dashboard.py\n  Leyo dashboard.py\n  Leyo dashboard.py\n  Ejecuto: grep -n \"extract_excel\\|extract_docx\\|extract_pdf\" Buscador_IA/ingest_documents.py | head -20\n  Ejecuto: wc -l Buscador_IA/dashboard.py\n  Ejecuto: grep -n \"extract_excel\\|extract_xlsx\" Buscador_IA/dashboard.py",
+        "notes": "Iteracion 691:\n[DIFERENCIAL] Complemento a KB existente.\n  Leyo file_search.py\n  Leyo ingest_documents.py\n  Glob: Buscador_IA/wsearch_emails.py\n  Leyo dashboard.py\n  Leyo wsearch_emails.py\n  Leyo dashboard.py\n  Busco '^def _ds_build_path_index|^def _ds_search_files|^def _ds_extract_virtual|^def _ds_find_client|^def api_ds_search' en dashboard.py\n  Leyo dashboard.py\n  Leyo dashboard.py\n  Leyo dashboard.py\n  Leyo dashboard.py\n  Leyo dashboard.py\n  Ejecuto: grep -n \"extract_excel\\|extract_docx\\|extract_pdf\" Buscador_IA/ingest_documents.py | head -20\n  Ejecuto: wc -l Buscador_IA/dashboard.py\n  Ejecuto: grep -n \"extract_excel\\|extract_xlsx\" Buscador_IA/dashboard.py",
         "auto_learned": true,
         "source": "post_tool_hook",
         "msg_type": "informational",
         "had_kb_match": true,
         "files_touched": [
-          "C:/Chance1/Buscador_IA/ingest_documents.py",
-          "C:/Chance1/Buscador_IA/file_search.py",
-          "C:/Chance1/Buscador_IA/wsearch_emails.py",
-          "C:/Chance1/Buscador_IA/dashboard.py"
+          "Buscador_IA/ingest_documents.py",
+          "Buscador_IA/file_search.py",
+          "Buscador_IA/wsearch_emails.py",
+          "Buscador_IA/dashboard.py"
         ],
         "activity": {
           "reads": 13,
@@ -3828,7 +3828,7 @@
         "auto_learned": true,
         "source": "hook_stop_auto_extract",
         "files_touched": [
-          "C:/Chance1/Buscador_IA/dashboard.py"
+          "Buscador_IA/dashboard.py"
         ],
         "domain_detected": "outlook"
       },
@@ -3858,7 +3858,7 @@
         "auto_learned": true,
         "source": "hook_stop_auto_extract",
         "files_touched": [
-          "C:/Chance1/Buscador_IA/dashboard.py"
+          "Buscador_IA/dashboard.py"
         ],
         "domain_detected": "outlook"
       },
@@ -3888,7 +3888,7 @@
         "auto_learned": true,
         "source": "hook_stop_auto_extract",
         "files_touched": [
-          "C:/Chance1/Buscador_IA/dashboard.py"
+          "Buscador_IA/dashboard.py"
         ],
         "domain_detected": "outlook"
       },
@@ -3918,7 +3918,7 @@
         "auto_learned": true,
         "source": "hook_stop_auto_extract",
         "files_touched": [
-          "C:/Chance1/Buscador_IA/dashboard.py"
+          "Buscador_IA/dashboard.py"
         ],
         "domain_detected": "outlook"
       },
@@ -3944,11 +3944,11 @@
       "key": "session_auto_20260326_185528",
       "solution": {
         "strategy": "auto_captured_from_session",
-        "notes": "Resumen: recuerdas lo ultimo que estabas haciendo → te pedi algo sobre un test de proyectos lo recuerdas busca en tu memoria claude y en kb local tambien? → era esto:  1. test_proyecto_filtro.py — Prueba 15 pr\nEditados: test_proyecto_filtro.py\nErrores resueltos: File does not exist. Note: your current working directory is C:\\Chance1\\Buscador",
+        "notes": "Resumen: recuerdas lo ultimo que estabas haciendo → te pedi algo sobre un test de proyectos lo recuerdas busca en tu memoria claude y en kb local tambien? → era esto:  1. test_proyecto_filtro.py — Prueba 15 pr\nEditados: test_proyecto_filtro.py\nErrores resueltos: File does not exist. Note: your current working directory is Buscador",
         "auto_learned": true,
         "source": "hook_stop_auto_extract",
         "files_touched": [
-          "C:\\Chance1\\Buscador_IA\\test_proyecto_filtro.py"
+          "Buscador_IA\\test_proyecto_filtro.py"
         ],
         "domain_detected": "outlook"
       },
@@ -3974,11 +3974,11 @@
       "key": "session_auto_20260326_185630",
       "solution": {
         "strategy": "auto_captured_from_session",
-        "notes": "Resumen: recuerdas lo ultimo que estabas haciendo → te pedi algo sobre un test de proyectos lo recuerdas busca en tu memoria claude y en kb local tambien? → era esto:  1. test_proyecto_filtro.py — Prueba 15 pr\nEditados: test_proyecto_filtro.py\nErrores resueltos: File does not exist. Note: your current working directory is C:\\Chance1\\Buscador; Exit code 1\nC:\\Users\\ntoledo\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-pa",
+        "notes": "Resumen: recuerdas lo ultimo que estabas haciendo → te pedi algo sobre un test de proyectos lo recuerdas busca en tu memoria claude y en kb local tambien? → era esto:  1. test_proyecto_filtro.py — Prueba 15 pr\nEditados: test_proyecto_filtro.py\nErrores resueltos: File does not exist. Note: your current working directory is Buscador; Exit code 1\nC:\\Users\\ntoledo\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-pa",
         "auto_learned": true,
         "source": "hook_stop_auto_extract",
         "files_touched": [
-          "C:\\Chance1\\Buscador_IA\\test_proyecto_filtro.py"
+          "Buscador_IA\\test_proyecto_filtro.py"
         ],
         "domain_detected": "outlook"
       },
@@ -4004,11 +4004,11 @@
       "key": "session_auto_20260326_185913",
       "solution": {
         "strategy": "auto_captured_from_session",
-        "notes": "Resumen: recuerdas lo ultimo que estabas haciendo → te pedi algo sobre un test de proyectos lo recuerdas busca en tu memoria claude y en kb local tambien? → era esto:  1. test_proyecto_filtro.py — Prueba 15 pr\nEditados: test_proyecto_filtro.py\nErrores resueltos: File does not exist. Note: your current working directory is C:\\Chance1\\Buscador; Exit code 1\nC:\\Users\\ntoledo\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-pa",
+        "notes": "Resumen: recuerdas lo ultimo que estabas haciendo → te pedi algo sobre un test de proyectos lo recuerdas busca en tu memoria claude y en kb local tambien? → era esto:  1. test_proyecto_filtro.py — Prueba 15 pr\nEditados: test_proyecto_filtro.py\nErrores resueltos: File does not exist. Note: your current working directory is Buscador; Exit code 1\nC:\\Users\\ntoledo\\AppData\\Local\\Programs\\Python\\Python312\\Lib\\site-pa",
         "auto_learned": true,
         "source": "hook_stop_auto_extract",
         "files_touched": [
-          "C:\\Chance1\\Buscador_IA\\test_proyecto_filtro.py"
+          "Buscador_IA\\test_proyecto_filtro.py"
         ],
         "domain_detected": "outlook"
       },
@@ -4034,15 +4034,15 @@
       "key": "iter_20260329_123430_i5",
       "solution": {
         "strategy": "differential_capture",
-        "notes": "Iteracion 5:\n[DIFERENCIAL] Complemento a KB existente.\n  Leyo b21ptlb6m.output\n  Ejecuto: find \"C:/Chance1/Asistente IA\" -type f -not -path '*/__pycache__/*' -not -path '*/.git/*' -not -name '*.pyc' -not -name \n  Ejecuto: find \"C:/Chance1/Motor_Inteligente_IA\" -type f -not -path '*/__pycache__/*' -not -path '*/.git/*' -not -name '*.pyc' 2>&\n  Ejecuto: \"/c/Program Files/GitHub CLI/gh.exe\" repo create Netocool2006/Asistente-IA-Motor-Claude-CLI --public --description \"Moto\n  Ejecuto: \"/c/Program Files/GitHub CLI/gh.exe\" repo create Netocool2006/Motor-Inteligente-IA-CLI-Generico --public --description \"\n  Ejecuto: cd \"C:/Chance1/Asistente IA\" && git init && git remote add origin https://github.com/Netocool2006/Asistente-IA-Motor-Cla\n  Ejecuto: cd \"C:/Chance1/Motor_Inteligente_IA\" && git init && git remote add origin https://github.com/Netocool2006/Motor-Intelige\n  Creo .gitignore\n  Creo .gitignore\n  Ejecuto: cd \"C:/Chance1/Asistente IA\" && git config user.name \"Netocool2006\" && git config user.email \"netocool2006@users.noreply\n  Ejecuto: cd \"C:/Chance1/Motor_Inteligente_IA\" && git config user.name \"Netocool2006\" && git config user.email \"netocool2006@users",
+        "notes": "Iteracion 5:\n[DIFERENCIAL] Complemento a KB existente.\n  Leyo b21ptlb6m.output\n  Ejecuto: find \"\" -type f -not -path '*/__pycache__/*' -not -path '*/.git/*' -not -name '*.pyc' -not -name \n  Ejecuto: find \"Motor_Inteligente_IA\" -type f -not -path '*/__pycache__/*' -not -path '*/.git/*' -not -name '*.pyc' 2>&\n  Ejecuto: \"/c/Program Files/GitHub CLI/gh.exe\" repo create Netocool2006/-Motor-Claude-CLI --public --description \"Moto\n  Ejecuto: \"/c/Program Files/GitHub CLI/gh.exe\" repo create Netocool2006/Motor-Inteligente-IA-CLI-Generico --public --description \"\n  Ejecuto: cd \"\" && git init && git remote add origin https://github.com/Netocool2006/-Motor-Cla\n  Ejecuto: cd \"Motor_Inteligente_IA\" && git init && git remote add origin https://github.com/Netocool2006/Motor-Intelige\n  Creo .gitignore\n  Creo .gitignore\n  Ejecuto: cd \"\" && git config user.name \"Netocool2006\" && git config user.email \"netocool2006@users.noreply\n  Ejecuto: cd \"Motor_Inteligente_IA\" && git config user.name \"Netocool2006\" && git config user.email \"netocool2006@users",
         "auto_learned": true,
         "source": "post_tool_hook",
         "msg_type": "instruction",
         "had_kb_match": true,
         "files_touched": [
-          "C:/Chance1/Asistente IA/.gitignore",
-          "C:/Chance1/Motor_Inteligente_IA/.gitignore",
-          "C:\\Users\\ntoledo\\AppData\\Local\\Temp\\claude\\C--Chance1\\4eb2ed9c-2816-42ed-9f46-6a02212b2ced\\tasks\\b21ptlb6m.output"
+          ".gitignore",
+          "Motor_Inteligente_IA/.gitignore",
+          "C:\\Users\\ntoledo\\AppData\\Local\\Temp\\claude\\C--Hooks_IA\\4eb2ed9c-2816-42ed-9f46-6a02212b2ced\\tasks\\b21ptlb6m.output"
         ],
         "activity": {
           "reads": 1,
@@ -4078,7 +4078,7 @@
       "key": "iter_20260329_132305_i21",
       "solution": {
         "strategy": "differential_capture",
-        "notes": "Iteracion 21:\n[DIFERENCIAL] Complemento a KB existente.\n  Agente: Build support modules + iteration_learn\n  Ejecuto: cd \"C:/Chance1/Motor_IA\" && find . -name \"*.py\" -not -path './__pycache__/*' | sort\n  Ejecuto: cd \"C:/Chance1/Motor_IA\" && python -c \"\nimport py_compile, sys, os\nerrors = []\nfor root, dirs, files in os.walk('.'):\n  \n  Ejecuto: cd \"C:/Chance1/Motor_IA\" && git init && git config user.name \"Netocool2006\" && git config user.email \"netocool2006@users",
+        "notes": "Iteracion 21:\n[DIFERENCIAL] Complemento a KB existente.\n  Agente: Build support modules + iteration_learn\n  Ejecuto: cd \"Motor_IA\" && find . -name \"*.py\" -not -path './__pycache__/*' | sort\n  Ejecuto: cd \"Motor_IA\" && python -c \"\nimport py_compile, sys, os\nerrors = []\nfor root, dirs, files in os.walk('.'):\n  \n  Ejecuto: cd \"Motor_IA\" && git init && git config user.name \"Netocool2006\" && git config user.email \"netocool2006@users",
         "auto_learned": true,
         "source": "post_tool_hook",
         "msg_type": "informational",
@@ -4122,15 +4122,15 @@
         "auto_learned": true,
         "source": "hook_stop_auto_extract",
         "files_touched": [
-          "C:/Chance1/IA_Correos/src/outlook_com.py",
-          "C:/Chance1/IA_Correos/tests/test_outlook.py",
-          "C:/Chance1/IA_Correos/src/constants.py",
-          "C:/Chance1/IA_Correos/src/__init__.py",
-          "C:/Chance1/IA_Correos/tests/__init__.py",
-          "C:/Chance1/IA_Correos/src/outlook_com.py",
-          "C:/Chance1/IA_Correos/tests/test_outlook.py",
-          "C:/Chance1/IA_Correos/requirements.txt",
-          "C:/Chance1/IA_Correos/.gitignore"
+          "IA_Correos/src/outlook_com.py",
+          "IA_Correos/tests/test_outlook.py",
+          "IA_Correos/src/constants.py",
+          "IA_Correos/src/__init__.py",
+          "IA_Correos/tests/__init__.py",
+          "IA_Correos/src/outlook_com.py",
+          "IA_Correos/tests/test_outlook.py",
+          "IA_Correos/requirements.txt",
+          "IA_Correos/.gitignore"
         ],
         "domain_detected": "outlook"
       },
@@ -4160,16 +4160,16 @@
         "auto_learned": true,
         "source": "hook_stop_auto_extract",
         "files_touched": [
-          "C:/Chance1/IA_Correos/src/outlook_com.py",
-          "C:/Chance1/IA_Correos/tests/test_outlook.py",
-          "C:/Chance1/IA_Correos/src/constants.py",
-          "C:/Chance1/IA_Correos/src/__init__.py",
-          "C:/Chance1/IA_Correos/tests/__init__.py",
-          "C:/Chance1/IA_Correos/src/outlook_com.py",
-          "C:/Chance1/IA_Correos/tests/test_outlook.py",
-          "C:/Chance1/IA_Correos/requirements.txt",
-          "C:/Chance1/IA_Correos/.gitignore",
-          "C:/Chance1/IA_Correos/CLAUDE.md"
+          "IA_Correos/src/outlook_com.py",
+          "IA_Correos/tests/test_outlook.py",
+          "IA_Correos/src/constants.py",
+          "IA_Correos/src/__init__.py",
+          "IA_Correos/tests/__init__.py",
+          "IA_Correos/src/outlook_com.py",
+          "IA_Correos/tests/test_outlook.py",
+          "IA_Correos/requirements.txt",
+          "IA_Correos/.gitignore",
+          "IA_Correos/CLAUDE.md"
         ],
         "domain_detected": "outlook"
       },
@@ -4199,16 +4199,16 @@
         "auto_learned": true,
         "source": "hook_stop_auto_extract",
         "files_touched": [
-          "C:/Chance1/IA_Correos/src/outlook_com.py",
-          "C:/Chance1/IA_Correos/tests/test_outlook.py",
-          "C:/Chance1/IA_Correos/src/constants.py",
-          "C:/Chance1/IA_Correos/src/__init__.py",
-          "C:/Chance1/IA_Correos/tests/__init__.py",
-          "C:/Chance1/IA_Correos/src/outlook_com.py",
-          "C:/Chance1/IA_Correos/tests/test_outlook.py",
-          "C:/Chance1/IA_Correos/requirements.txt",
-          "C:/Chance1/IA_Correos/.gitignore",
-          "C:/Chance1/IA_Correos/CLAUDE.md"
+          "IA_Correos/src/outlook_com.py",
+          "IA_Correos/tests/test_outlook.py",
+          "IA_Correos/src/constants.py",
+          "IA_Correos/src/__init__.py",
+          "IA_Correos/tests/__init__.py",
+          "IA_Correos/src/outlook_com.py",
+          "IA_Correos/tests/test_outlook.py",
+          "IA_Correos/requirements.txt",
+          "IA_Correos/.gitignore",
+          "IA_Correos/CLAUDE.md"
         ],
         "domain_detected": "outlook"
       },
@@ -4238,16 +4238,16 @@
         "auto_learned": true,
         "source": "hook_stop_auto_extract",
         "files_touched": [
-          "C:/Chance1/IA_Correos/src/outlook_com.py",
-          "C:/Chance1/IA_Correos/tests/test_outlook.py",
-          "C:/Chance1/IA_Correos/src/constants.py",
-          "C:/Chance1/IA_Correos/src/__init__.py",
-          "C:/Chance1/IA_Correos/tests/__init__.py",
-          "C:/Chance1/IA_Correos/src/outlook_com.py",
-          "C:/Chance1/IA_Correos/tests/test_outlook.py",
-          "C:/Chance1/IA_Correos/requirements.txt",
-          "C:/Chance1/IA_Correos/.gitignore",
-          "C:/Chance1/IA_Correos/CLAUDE.md"
+          "IA_Correos/src/outlook_com.py",
+          "IA_Correos/tests/test_outlook.py",
+          "IA_Correos/src/constants.py",
+          "IA_Correos/src/__init__.py",
+          "IA_Correos/tests/__init__.py",
+          "IA_Correos/src/outlook_com.py",
+          "IA_Correos/tests/test_outlook.py",
+          "IA_Correos/requirements.txt",
+          "IA_Correos/.gitignore",
+          "IA_Correos/CLAUDE.md"
         ],
         "domain_detected": "outlook"
       },
@@ -4277,16 +4277,16 @@
         "auto_learned": true,
         "source": "hook_stop_auto_extract",
         "files_touched": [
-          "C:/Chance1/IA_Correos/src/outlook_com.py",
-          "C:/Chance1/IA_Correos/tests/test_outlook.py",
-          "C:/Chance1/IA_Correos/src/constants.py",
-          "C:/Chance1/IA_Correos/src/__init__.py",
-          "C:/Chance1/IA_Correos/tests/__init__.py",
-          "C:/Chance1/IA_Correos/src/outlook_com.py",
-          "C:/Chance1/IA_Correos/tests/test_outlook.py",
-          "C:/Chance1/IA_Correos/requirements.txt",
-          "C:/Chance1/IA_Correos/.gitignore",
-          "C:/Chance1/IA_Correos/CLAUDE.md"
+          "IA_Correos/src/outlook_com.py",
+          "IA_Correos/tests/test_outlook.py",
+          "IA_Correos/src/constants.py",
+          "IA_Correos/src/__init__.py",
+          "IA_Correos/tests/__init__.py",
+          "IA_Correos/src/outlook_com.py",
+          "IA_Correos/tests/test_outlook.py",
+          "IA_Correos/requirements.txt",
+          "IA_Correos/.gitignore",
+          "IA_Correos/CLAUDE.md"
         ],
         "domain_detected": "outlook"
       },
@@ -4316,16 +4316,16 @@
         "auto_learned": true,
         "source": "hook_stop_auto_extract",
         "files_touched": [
-          "C:/Chance1/IA_Correos/src/outlook_com.py",
-          "C:/Chance1/IA_Correos/tests/test_outlook.py",
-          "C:/Chance1/IA_Correos/src/constants.py",
-          "C:/Chance1/IA_Correos/src/__init__.py",
-          "C:/Chance1/IA_Correos/tests/__init__.py",
-          "C:/Chance1/IA_Correos/src/outlook_com.py",
-          "C:/Chance1/IA_Correos/tests/test_outlook.py",
-          "C:/Chance1/IA_Correos/requirements.txt",
-          "C:/Chance1/IA_Correos/.gitignore",
-          "C:/Chance1/IA_Correos/CLAUDE.md"
+          "IA_Correos/src/outlook_com.py",
+          "IA_Correos/tests/test_outlook.py",
+          "IA_Correos/src/constants.py",
+          "IA_Correos/src/__init__.py",
+          "IA_Correos/tests/__init__.py",
+          "IA_Correos/src/outlook_com.py",
+          "IA_Correos/tests/test_outlook.py",
+          "IA_Correos/requirements.txt",
+          "IA_Correos/.gitignore",
+          "IA_Correos/CLAUDE.md"
         ],
         "domain_detected": "outlook"
       },
@@ -4355,16 +4355,16 @@
         "auto_learned": true,
         "source": "hook_stop_auto_extract",
         "files_touched": [
-          "C:/Chance1/IA_Correos/src/outlook_com.py",
-          "C:/Chance1/IA_Correos/tests/test_outlook.py",
-          "C:/Chance1/IA_Correos/src/constants.py",
-          "C:/Chance1/IA_Correos/src/__init__.py",
-          "C:/Chance1/IA_Correos/tests/__init__.py",
-          "C:/Chance1/IA_Correos/src/outlook_com.py",
-          "C:/Chance1/IA_Correos/tests/test_outlook.py",
-          "C:/Chance1/IA_Correos/requirements.txt",
-          "C:/Chance1/IA_Correos/.gitignore",
-          "C:/Chance1/IA_Correos/CLAUDE.md"
+          "IA_Correos/src/outlook_com.py",
+          "IA_Correos/tests/test_outlook.py",
+          "IA_Correos/src/constants.py",
+          "IA_Correos/src/__init__.py",
+          "IA_Correos/tests/__init__.py",
+          "IA_Correos/src/outlook_com.py",
+          "IA_Correos/tests/test_outlook.py",
+          "IA_Correos/requirements.txt",
+          "IA_Correos/.gitignore",
+          "IA_Correos/CLAUDE.md"
         ],
         "domain_detected": "outlook"
       },
@@ -4394,16 +4394,16 @@
         "auto_learned": true,
         "source": "hook_stop_auto_extract",
         "files_touched": [
-          "C:/Chance1/IA_Correos/src/outlook_com.py",
-          "C:/Chance1/IA_Correos/tests/test_outlook.py",
-          "C:/Chance1/IA_Correos/src/constants.py",
-          "C:/Chance1/IA_Correos/src/__init__.py",
-          "C:/Chance1/IA_Correos/tests/__init__.py",
-          "C:/Chance1/IA_Correos/src/outlook_com.py",
-          "C:/Chance1/IA_Correos/tests/test_outlook.py",
-          "C:/Chance1/IA_Correos/requirements.txt",
-          "C:/Chance1/IA_Correos/.gitignore",
-          "C:/Chance1/IA_Correos/CLAUDE.md"
+          "IA_Correos/src/outlook_com.py",
+          "IA_Correos/tests/test_outlook.py",
+          "IA_Correos/src/constants.py",
+          "IA_Correos/src/__init__.py",
+          "IA_Correos/tests/__init__.py",
+          "IA_Correos/src/outlook_com.py",
+          "IA_Correos/tests/test_outlook.py",
+          "IA_Correos/requirements.txt",
+          "IA_Correos/.gitignore",
+          "IA_Correos/CLAUDE.md"
         ],
         "domain_detected": "outlook"
       },
@@ -4433,16 +4433,16 @@
         "auto_learned": true,
         "source": "hook_stop_auto_extract",
         "files_touched": [
-          "C:/Chance1/IA_Correos/src/outlook_com.py",
-          "C:/Chance1/IA_Correos/tests/test_outlook.py",
-          "C:/Chance1/IA_Correos/src/constants.py",
-          "C:/Chance1/IA_Correos/src/__init__.py",
-          "C:/Chance1/IA_Correos/tests/__init__.py",
-          "C:/Chance1/IA_Correos/src/outlook_com.py",
-          "C:/Chance1/IA_Correos/tests/test_outlook.py",
-          "C:/Chance1/IA_Correos/requirements.txt",
-          "C:/Chance1/IA_Correos/.gitignore",
-          "C:/Chance1/IA_Correos/CLAUDE.md"
+          "IA_Correos/src/outlook_com.py",
+          "IA_Correos/tests/test_outlook.py",
+          "IA_Correos/src/constants.py",
+          "IA_Correos/src/__init__.py",
+          "IA_Correos/tests/__init__.py",
+          "IA_Correos/src/outlook_com.py",
+          "IA_Correos/tests/test_outlook.py",
+          "IA_Correos/requirements.txt",
+          "IA_Correos/.gitignore",
+          "IA_Correos/CLAUDE.md"
         ],
         "domain_detected": "outlook"
       },
@@ -4472,16 +4472,16 @@
         "auto_learned": true,
         "source": "hook_stop_auto_extract",
         "files_touched": [
-          "C:/Chance1/IA_Correos/src/outlook_com.py",
-          "C:/Chance1/IA_Correos/tests/test_outlook.py",
-          "C:/Chance1/IA_Correos/src/constants.py",
-          "C:/Chance1/IA_Correos/src/__init__.py",
-          "C:/Chance1/IA_Correos/tests/__init__.py",
-          "C:/Chance1/IA_Correos/src/outlook_com.py",
-          "C:/Chance1/IA_Correos/tests/test_outlook.py",
-          "C:/Chance1/IA_Correos/requirements.txt",
-          "C:/Chance1/IA_Correos/.gitignore",
-          "C:/Chance1/IA_Correos/CLAUDE.md"
+          "IA_Correos/src/outlook_com.py",
+          "IA_Correos/tests/test_outlook.py",
+          "IA_Correos/src/constants.py",
+          "IA_Correos/src/__init__.py",
+          "IA_Correos/tests/__init__.py",
+          "IA_Correos/src/outlook_com.py",
+          "IA_Correos/tests/test_outlook.py",
+          "IA_Correos/requirements.txt",
+          "IA_Correos/.gitignore",
+          "IA_Correos/CLAUDE.md"
         ],
         "domain_detected": "outlook"
       },
@@ -4511,16 +4511,16 @@
         "auto_learned": true,
         "source": "hook_stop_auto_extract",
         "files_touched": [
-          "C:/Chance1/IA_Correos/src/outlook_com.py",
-          "C:/Chance1/IA_Correos/tests/test_outlook.py",
-          "C:/Chance1/IA_Excel/tests/test_excel_features.py",
-          "C:/Chance1/IA_Correos/src/constants.py",
-          "C:/Chance1/IA_Correos/src/__init__.py",
-          "C:/Chance1/IA_Correos/tests/__init__.py",
-          "C:/Chance1/IA_Correos/src/outlook_com.py",
-          "C:/Chance1/IA_Correos/tests/test_outlook.py",
-          "C:/Chance1/IA_Correos/requirements.txt",
-          "C:/Chance1/IA_Correos/.gitignore"
+          "IA_Correos/src/outlook_com.py",
+          "IA_Correos/tests/test_outlook.py",
+          "IA_Excel/tests/test_excel_features.py",
+          "IA_Correos/src/constants.py",
+          "IA_Correos/src/__init__.py",
+          "IA_Correos/tests/__init__.py",
+          "IA_Correos/src/outlook_com.py",
+          "IA_Correos/tests/test_outlook.py",
+          "IA_Correos/requirements.txt",
+          "IA_Correos/.gitignore"
         ],
         "domain_detected": "outlook"
       },
@@ -4550,16 +4550,16 @@
         "auto_learned": true,
         "source": "hook_stop_auto_extract",
         "files_touched": [
-          "C:/Chance1/IA_Correos/src/outlook_com.py",
-          "C:/Chance1/IA_Correos/tests/test_outlook.py",
-          "C:/Chance1/IA_Excel/tests/test_excel_features.py",
-          "C:/Chance1/IA_Correos/src/constants.py",
-          "C:/Chance1/IA_Correos/src/__init__.py",
-          "C:/Chance1/IA_Correos/tests/__init__.py",
-          "C:/Chance1/IA_Correos/src/outlook_com.py",
-          "C:/Chance1/IA_Correos/tests/test_outlook.py",
-          "C:/Chance1/IA_Correos/requirements.txt",
-          "C:/Chance1/IA_Correos/.gitignore"
+          "IA_Correos/src/outlook_com.py",
+          "IA_Correos/tests/test_outlook.py",
+          "IA_Excel/tests/test_excel_features.py",
+          "IA_Correos/src/constants.py",
+          "IA_Correos/src/__init__.py",
+          "IA_Correos/tests/__init__.py",
+          "IA_Correos/src/outlook_com.py",
+          "IA_Correos/tests/test_outlook.py",
+          "IA_Correos/requirements.txt",
+          "IA_Correos/.gitignore"
         ],
         "domain_detected": "outlook"
       },
@@ -4589,16 +4589,16 @@
         "auto_learned": true,
         "source": "hook_stop_auto_extract",
         "files_touched": [
-          "C:/Chance1/IA_Correos/src/outlook_com.py",
-          "C:/Chance1/IA_Correos/tests/test_outlook.py",
-          "C:/Chance1/IA_Excel/tests/test_excel_features.py",
-          "C:/Chance1/IA_Correos/src/constants.py",
-          "C:/Chance1/IA_Correos/src/__init__.py",
-          "C:/Chance1/IA_Correos/tests/__init__.py",
-          "C:/Chance1/IA_Correos/src/outlook_com.py",
-          "C:/Chance1/IA_Correos/tests/test_outlook.py",
-          "C:/Chance1/IA_Correos/requirements.txt",
-          "C:/Chance1/IA_Correos/.gitignore"
+          "IA_Correos/src/outlook_com.py",
+          "IA_Correos/tests/test_outlook.py",
+          "IA_Excel/tests/test_excel_features.py",
+          "IA_Correos/src/constants.py",
+          "IA_Correos/src/__init__.py",
+          "IA_Correos/tests/__init__.py",
+          "IA_Correos/src/outlook_com.py",
+          "IA_Correos/tests/test_outlook.py",
+          "IA_Correos/requirements.txt",
+          "IA_Correos/.gitignore"
         ],
         "domain_detected": "outlook"
       },
@@ -4628,16 +4628,16 @@
         "auto_learned": true,
         "source": "hook_stop_auto_extract",
         "files_touched": [
-          "C:/Chance1/IA_Correos/src/outlook_com.py",
-          "C:/Chance1/IA_Correos/tests/test_outlook.py",
-          "C:/Chance1/IA_Excel/tests/test_excel_features.py",
-          "C:/Chance1/IA_Correos/src/constants.py",
-          "C:/Chance1/IA_Correos/src/__init__.py",
-          "C:/Chance1/IA_Correos/tests/__init__.py",
-          "C:/Chance1/IA_Correos/src/outlook_com.py",
-          "C:/Chance1/IA_Correos/tests/test_outlook.py",
-          "C:/Chance1/IA_Correos/requirements.txt",
-          "C:/Chance1/IA_Correos/.gitignore"
+          "IA_Correos/src/outlook_com.py",
+          "IA_Correos/tests/test_outlook.py",
+          "IA_Excel/tests/test_excel_features.py",
+          "IA_Correos/src/constants.py",
+          "IA_Correos/src/__init__.py",
+          "IA_Correos/tests/__init__.py",
+          "IA_Correos/src/outlook_com.py",
+          "IA_Correos/tests/test_outlook.py",
+          "IA_Correos/requirements.txt",
+          "IA_Correos/.gitignore"
         ],
         "domain_detected": "outlook"
       },
@@ -4667,16 +4667,16 @@
         "auto_learned": true,
         "source": "hook_stop_auto_extract",
         "files_touched": [
-          "C:/Chance1/IA_Correos/src/outlook_com.py",
-          "C:/Chance1/IA_Correos/tests/test_outlook.py",
-          "C:/Chance1/IA_Excel/tests/test_excel_features.py",
-          "C:/Chance1/IA_Correos/src/constants.py",
-          "C:/Chance1/IA_Correos/src/__init__.py",
-          "C:/Chance1/IA_Correos/tests/__init__.py",
-          "C:/Chance1/IA_Correos/src/outlook_com.py",
-          "C:/Chance1/IA_Correos/tests/test_outlook.py",
-          "C:/Chance1/IA_Correos/requirements.txt",
-          "C:/Chance1/IA_Correos/.gitignore"
+          "IA_Correos/src/outlook_com.py",
+          "IA_Correos/tests/test_outlook.py",
+          "IA_Excel/tests/test_excel_features.py",
+          "IA_Correos/src/constants.py",
+          "IA_Correos/src/__init__.py",
+          "IA_Correos/tests/__init__.py",
+          "IA_Correos/src/outlook_com.py",
+          "IA_Correos/tests/test_outlook.py",
+          "IA_Correos/requirements.txt",
+          "IA_Correos/.gitignore"
         ],
         "domain_detected": "outlook"
       },
@@ -4706,16 +4706,16 @@
         "auto_learned": true,
         "source": "hook_stop_auto_extract",
         "files_touched": [
-          "C:/Chance1/IA_Correos/src/outlook_com.py",
-          "C:/Chance1/IA_Correos/tests/test_outlook.py",
-          "C:/Chance1/IA_Excel/tests/test_excel_features.py",
-          "C:/Chance1/IA_Correos/src/constants.py",
-          "C:/Chance1/IA_Correos/src/__init__.py",
-          "C:/Chance1/IA_Correos/tests/__init__.py",
-          "C:/Chance1/IA_Correos/src/outlook_com.py",
-          "C:/Chance1/IA_Correos/tests/test_outlook.py",
-          "C:/Chance1/IA_Correos/requirements.txt",
-          "C:/Chance1/IA_Correos/.gitignore"
+          "IA_Correos/src/outlook_com.py",
+          "IA_Correos/tests/test_outlook.py",
+          "IA_Excel/tests/test_excel_features.py",
+          "IA_Correos/src/constants.py",
+          "IA_Correos/src/__init__.py",
+          "IA_Correos/tests/__init__.py",
+          "IA_Correos/src/outlook_com.py",
+          "IA_Correos/tests/test_outlook.py",
+          "IA_Correos/requirements.txt",
+          "IA_Correos/.gitignore"
         ],
         "domain_detected": "outlook"
       },
@@ -4745,16 +4745,16 @@
         "auto_learned": true,
         "source": "hook_stop_auto_extract",
         "files_touched": [
-          "C:/Chance1/IA_Correos/src/outlook_com.py",
-          "C:/Chance1/IA_Correos/tests/test_outlook.py",
-          "C:/Chance1/IA_Excel/tests/test_excel_features.py",
-          "C:/Chance1/IA_Excel/requirements.txt",
-          "C:/Chance1/IA_Correos/src/constants.py",
-          "C:/Chance1/IA_Correos/src/__init__.py",
-          "C:/Chance1/IA_Correos/tests/__init__.py",
-          "C:/Chance1/IA_Correos/src/outlook_com.py",
-          "C:/Chance1/IA_Correos/tests/test_outlook.py",
-          "C:/Chance1/IA_Correos/requirements.txt"
+          "IA_Correos/src/outlook_com.py",
+          "IA_Correos/tests/test_outlook.py",
+          "IA_Excel/tests/test_excel_features.py",
+          "IA_Excel/requirements.txt",
+          "IA_Correos/src/constants.py",
+          "IA_Correos/src/__init__.py",
+          "IA_Correos/tests/__init__.py",
+          "IA_Correos/src/outlook_com.py",
+          "IA_Correos/tests/test_outlook.py",
+          "IA_Correos/requirements.txt"
         ],
         "domain_detected": "outlook"
       },
@@ -4784,16 +4784,16 @@
         "auto_learned": true,
         "source": "hook_stop_auto_extract",
         "files_touched": [
-          "C:/Chance1/IA_Correos/src/outlook_com.py",
-          "C:/Chance1/IA_Correos/tests/test_outlook.py",
-          "C:/Chance1/IA_Excel/tests/test_excel_features.py",
-          "C:/Chance1/IA_Excel/requirements.txt",
-          "C:/Chance1/IA_Correos/src/constants.py",
-          "C:/Chance1/IA_Correos/src/__init__.py",
-          "C:/Chance1/IA_Correos/tests/__init__.py",
-          "C:/Chance1/IA_Correos/src/outlook_com.py",
-          "C:/Chance1/IA_Correos/tests/test_outlook.py",
-          "C:/Chance1/IA_Correos/requirements.txt"
+          "IA_Correos/src/outlook_com.py",
+          "IA_Correos/tests/test_outlook.py",
+          "IA_Excel/tests/test_excel_features.py",
+          "IA_Excel/requirements.txt",
+          "IA_Correos/src/constants.py",
+          "IA_Correos/src/__init__.py",
+          "IA_Correos/tests/__init__.py",
+          "IA_Correos/src/outlook_com.py",
+          "IA_Correos/tests/test_outlook.py",
+          "IA_Correos/requirements.txt"
         ],
         "domain_detected": "outlook"
       },
@@ -4823,16 +4823,16 @@
         "auto_learned": true,
         "source": "hook_stop_auto_extract",
         "files_touched": [
-          "C:/Chance1/IA_Correos/src/outlook_com.py",
-          "C:/Chance1/IA_Correos/tests/test_outlook.py",
-          "C:/Chance1/IA_Excel/tests/test_excel_features.py",
-          "C:/Chance1/IA_Excel/requirements.txt",
-          "C:/Chance1/IA_Correos/src/constants.py",
-          "C:/Chance1/IA_Correos/src/__init__.py",
-          "C:/Chance1/IA_Correos/tests/__init__.py",
-          "C:/Chance1/IA_Correos/src/outlook_com.py",
-          "C:/Chance1/IA_Correos/tests/test_outlook.py",
-          "C:/Chance1/IA_Correos/requirements.txt"
+          "IA_Correos/src/outlook_com.py",
+          "IA_Correos/tests/test_outlook.py",
+          "IA_Excel/tests/test_excel_features.py",
+          "IA_Excel/requirements.txt",
+          "IA_Correos/src/constants.py",
+          "IA_Correos/src/__init__.py",
+          "IA_Correos/tests/__init__.py",
+          "IA_Correos/src/outlook_com.py",
+          "IA_Correos/tests/test_outlook.py",
+          "IA_Correos/requirements.txt"
         ],
         "domain_detected": "outlook"
       },
@@ -4862,16 +4862,16 @@
         "auto_learned": true,
         "source": "hook_stop_auto_extract",
         "files_touched": [
-          "C:/Chance1/IA_Correos/src/outlook_com.py",
-          "C:/Chance1/IA_Correos/tests/test_outlook.py",
-          "C:/Chance1/IA_Excel/tests/test_excel_features.py",
-          "C:/Chance1/IA_Excel/requirements.txt",
-          "C:/Chance1/IA_Correos/src/constants.py",
-          "C:/Chance1/IA_Correos/src/__init__.py",
-          "C:/Chance1/IA_Correos/tests/__init__.py",
-          "C:/Chance1/IA_Correos/src/outlook_com.py",
-          "C:/Chance1/IA_Correos/tests/test_outlook.py",
-          "C:/Chance1/IA_Correos/requirements.txt"
+          "IA_Correos/src/outlook_com.py",
+          "IA_Correos/tests/test_outlook.py",
+          "IA_Excel/tests/test_excel_features.py",
+          "IA_Excel/requirements.txt",
+          "IA_Correos/src/constants.py",
+          "IA_Correos/src/__init__.py",
+          "IA_Correos/tests/__init__.py",
+          "IA_Correos/src/outlook_com.py",
+          "IA_Correos/tests/test_outlook.py",
+          "IA_Correos/requirements.txt"
         ],
         "domain_detected": "outlook"
       },
@@ -4901,16 +4901,16 @@
         "auto_learned": true,
         "source": "hook_stop_auto_extract",
         "files_touched": [
-          "C:/Chance1/IA_Correos/src/outlook_com.py",
-          "C:/Chance1/IA_Correos/tests/test_outlook.py",
-          "C:/Chance1/IA_Excel/tests/test_excel_features.py",
-          "C:/Chance1/IA_Excel/requirements.txt",
-          "C:/Chance1/IA_Correos/src/constants.py",
-          "C:/Chance1/IA_Correos/src/__init__.py",
-          "C:/Chance1/IA_Correos/tests/__init__.py",
-          "C:/Chance1/IA_Correos/src/outlook_com.py",
-          "C:/Chance1/IA_Correos/tests/test_outlook.py",
-          "C:/Chance1/IA_Correos/requirements.txt"
+          "IA_Correos/src/outlook_com.py",
+          "IA_Correos/tests/test_outlook.py",
+          "IA_Excel/tests/test_excel_features.py",
+          "IA_Excel/requirements.txt",
+          "IA_Correos/src/constants.py",
+          "IA_Correos/src/__init__.py",
+          "IA_Correos/tests/__init__.py",
+          "IA_Correos/src/outlook_com.py",
+          "IA_Correos/tests/test_outlook.py",
+          "IA_Correos/requirements.txt"
         ],
         "domain_detected": "outlook"
       },
@@ -4940,16 +4940,16 @@
         "auto_learned": true,
         "source": "hook_stop_auto_extract",
         "files_touched": [
-          "C:/Chance1/IA_Correos/src/outlook_com.py",
-          "C:/Chance1/IA_Correos/tests/test_outlook.py",
-          "C:/Chance1/IA_Excel/tests/test_excel_features.py",
-          "C:/Chance1/IA_Excel/requirements.txt",
-          "C:/Chance1/IA_Excel/src/excel_com.py",
-          "C:/Chance1/IA_Excel/tests/test_stress_complex.py",
-          "C:/Chance1/IA_Correos/src/constants.py",
-          "C:/Chance1/IA_Correos/src/__init__.py",
-          "C:/Chance1/IA_Correos/tests/__init__.py",
-          "C:/Chance1/IA_Correos/src/outlook_com.py"
+          "IA_Correos/src/outlook_com.py",
+          "IA_Correos/tests/test_outlook.py",
+          "IA_Excel/tests/test_excel_features.py",
+          "IA_Excel/requirements.txt",
+          "IA_Excel/src/excel_com.py",
+          "IA_Excel/tests/test_stress_complex.py",
+          "IA_Correos/src/constants.py",
+          "IA_Correos/src/__init__.py",
+          "IA_Correos/tests/__init__.py",
+          "IA_Correos/src/outlook_com.py"
         ],
         "domain_detected": "outlook"
       },
@@ -4979,16 +4979,16 @@
         "auto_learned": true,
         "source": "hook_stop_auto_extract",
         "files_touched": [
-          "C:/Chance1/IA_Correos/src/outlook_com.py",
-          "C:/Chance1/IA_Correos/tests/test_outlook.py",
-          "C:/Chance1/IA_Excel/tests/test_excel_features.py",
-          "C:/Chance1/IA_Excel/requirements.txt",
-          "C:/Chance1/IA_Excel/src/excel_com.py",
-          "C:/Chance1/IA_Excel/tests/test_stress_complex.py",
-          "C:/Chance1/IA_Correos/src/constants.py",
-          "C:/Chance1/IA_Correos/src/__init__.py",
-          "C:/Chance1/IA_Correos/tests/__init__.py",
-          "C:/Chance1/IA_Correos/src/outlook_com.py"
+          "IA_Correos/src/outlook_com.py",
+          "IA_Correos/tests/test_outlook.py",
+          "IA_Excel/tests/test_excel_features.py",
+          "IA_Excel/requirements.txt",
+          "IA_Excel/src/excel_com.py",
+          "IA_Excel/tests/test_stress_complex.py",
+          "IA_Correos/src/constants.py",
+          "IA_Correos/src/__init__.py",
+          "IA_Correos/tests/__init__.py",
+          "IA_Correos/src/outlook_com.py"
         ],
         "domain_detected": "outlook"
       },
@@ -5018,16 +5018,16 @@
         "auto_learned": true,
         "source": "hook_stop_auto_extract",
         "files_touched": [
-          "C:/Chance1/IA_Correos/src/outlook_com.py",
-          "C:/Chance1/IA_Correos/tests/test_outlook.py",
-          "C:/Chance1/IA_Excel/tests/test_excel_features.py",
-          "C:/Chance1/IA_Excel/requirements.txt",
-          "C:/Chance1/IA_Excel/src/excel_com.py",
-          "C:/Chance1/IA_Excel/tests/test_stress_complex.py",
-          "C:/Chance1/IA_Correos/src/constants.py",
-          "C:/Chance1/IA_Correos/src/__init__.py",
-          "C:/Chance1/IA_Correos/tests/__init__.py",
-          "C:/Chance1/IA_Correos/src/outlook_com.py"
+          "IA_Correos/src/outlook_com.py",
+          "IA_Correos/tests/test_outlook.py",
+          "IA_Excel/tests/test_excel_features.py",
+          "IA_Excel/requirements.txt",
+          "IA_Excel/src/excel_com.py",
+          "IA_Excel/tests/test_stress_complex.py",
+          "IA_Correos/src/constants.py",
+          "IA_Correos/src/__init__.py",
+          "IA_Correos/tests/__init__.py",
+          "IA_Correos/src/outlook_com.py"
         ],
         "domain_detected": "outlook"
       },
@@ -5057,16 +5057,16 @@
         "auto_learned": true,
         "source": "hook_stop_auto_extract",
         "files_touched": [
-          "C:/Chance1/IA_Correos/src/outlook_com.py",
-          "C:/Chance1/IA_Correos/tests/test_outlook.py",
-          "C:/Chance1/IA_Excel/tests/test_excel_features.py",
-          "C:/Chance1/IA_Excel/requirements.txt",
-          "C:/Chance1/IA_Excel/src/excel_com.py",
-          "C:/Chance1/IA_Excel/tests/test_stress_complex.py",
-          "C:/Chance1/IA_Correos/src/constants.py",
-          "C:/Chance1/IA_Correos/src/__init__.py",
-          "C:/Chance1/IA_Correos/tests/__init__.py",
-          "C:/Chance1/IA_Correos/src/outlook_com.py"
+          "IA_Correos/src/outlook_com.py",
+          "IA_Correos/tests/test_outlook.py",
+          "IA_Excel/tests/test_excel_features.py",
+          "IA_Excel/requirements.txt",
+          "IA_Excel/src/excel_com.py",
+          "IA_Excel/tests/test_stress_complex.py",
+          "IA_Correos/src/constants.py",
+          "IA_Correos/src/__init__.py",
+          "IA_Correos/tests/__init__.py",
+          "IA_Correos/src/outlook_com.py"
         ],
         "domain_detected": "outlook"
       },
@@ -5096,16 +5096,16 @@
         "auto_learned": true,
         "source": "hook_stop_auto_extract",
         "files_touched": [
-          "C:/Chance1/IA_Correos/src/outlook_com.py",
-          "C:/Chance1/IA_Correos/tests/test_outlook.py",
-          "C:/Chance1/IA_Excel/tests/test_excel_features.py",
-          "C:/Chance1/IA_Excel/requirements.txt",
-          "C:/Chance1/IA_Excel/src/excel_com.py",
-          "C:/Chance1/IA_Excel/tests/test_stress_complex.py",
-          "C:/Chance1/IA_Correos/src/constants.py",
-          "C:/Chance1/IA_Correos/src/__init__.py",
-          "C:/Chance1/IA_Correos/tests/__init__.py",
-          "C:/Chance1/IA_Correos/src/outlook_com.py"
+          "IA_Correos/src/outlook_com.py",
+          "IA_Correos/tests/test_outlook.py",
+          "IA_Excel/tests/test_excel_features.py",
+          "IA_Excel/requirements.txt",
+          "IA_Excel/src/excel_com.py",
+          "IA_Excel/tests/test_stress_complex.py",
+          "IA_Correos/src/constants.py",
+          "IA_Correos/src/__init__.py",
+          "IA_Correos/tests/__init__.py",
+          "IA_Correos/src/outlook_com.py"
         ],
         "domain_detected": "outlook"
       },
@@ -5135,16 +5135,16 @@
         "auto_learned": true,
         "source": "hook_stop_auto_extract",
         "files_touched": [
-          "C:/Chance1/IA_Correos/src/outlook_com.py",
-          "C:/Chance1/IA_Correos/tests/test_outlook.py",
-          "C:/Chance1/IA_Excel/tests/test_excel_features.py",
-          "C:/Chance1/IA_Excel/requirements.txt",
-          "C:/Chance1/IA_Excel/src/excel_com.py",
-          "C:/Chance1/IA_Excel/tests/test_stress_complex.py",
-          "C:/Chance1/IA_Correos/src/constants.py",
-          "C:/Chance1/IA_Correos/src/__init__.py",
-          "C:/Chance1/IA_Correos/tests/__init__.py",
-          "C:/Chance1/IA_Correos/src/outlook_com.py"
+          "IA_Correos/src/outlook_com.py",
+          "IA_Correos/tests/test_outlook.py",
+          "IA_Excel/tests/test_excel_features.py",
+          "IA_Excel/requirements.txt",
+          "IA_Excel/src/excel_com.py",
+          "IA_Excel/tests/test_stress_complex.py",
+          "IA_Correos/src/constants.py",
+          "IA_Correos/src/__init__.py",
+          "IA_Correos/tests/__init__.py",
+          "IA_Correos/src/outlook_com.py"
         ],
         "domain_detected": "outlook"
       },
@@ -5174,16 +5174,16 @@
         "auto_learned": true,
         "source": "hook_stop_auto_extract",
         "files_touched": [
-          "C:/Chance1/IA_Correos/src/outlook_com.py",
-          "C:/Chance1/IA_Correos/tests/test_outlook.py",
-          "C:/Chance1/IA_Excel/tests/test_excel_features.py",
-          "C:/Chance1/IA_Excel/requirements.txt",
-          "C:/Chance1/IA_Excel/src/excel_com.py",
-          "C:/Chance1/IA_Excel/tests/test_stress_complex.py",
-          "C:/Chance1/IA_Correos/src/constants.py",
-          "C:/Chance1/IA_Correos/src/__init__.py",
-          "C:/Chance1/IA_Correos/tests/__init__.py",
-          "C:/Chance1/IA_Correos/src/outlook_com.py"
+          "IA_Correos/src/outlook_com.py",
+          "IA_Correos/tests/test_outlook.py",
+          "IA_Excel/tests/test_excel_features.py",
+          "IA_Excel/requirements.txt",
+          "IA_Excel/src/excel_com.py",
+          "IA_Excel/tests/test_stress_complex.py",
+          "IA_Correos/src/constants.py",
+          "IA_Correos/src/__init__.py",
+          "IA_Correos/tests/__init__.py",
+          "IA_Correos/src/outlook_com.py"
         ],
         "domain_detected": "outlook"
       },
@@ -5213,16 +5213,16 @@
         "auto_learned": true,
         "source": "hook_stop_auto_extract",
         "files_touched": [
-          "C:/Chance1/IA_Correos/src/outlook_com.py",
-          "C:/Chance1/IA_Correos/tests/test_outlook.py",
-          "C:/Chance1/IA_Excel/tests/test_excel_features.py",
-          "C:/Chance1/IA_Excel/requirements.txt",
-          "C:/Chance1/IA_Excel/src/excel_com.py",
-          "C:/Chance1/IA_Excel/tests/test_stress_complex.py",
-          "C:/Chance1/Asesoria_IA/src/auth.py",
-          "C:/Chance1/IA_Correos/src/constants.py",
-          "C:/Chance1/IA_Correos/src/__init__.py",
-          "C:/Chance1/IA_Correos/tests/__init__.py"
+          "IA_Correos/src/outlook_com.py",
+          "IA_Correos/tests/test_outlook.py",
+          "IA_Excel/tests/test_excel_features.py",
+          "IA_Excel/requirements.txt",
+          "IA_Excel/src/excel_com.py",
+          "IA_Excel/tests/test_stress_complex.py",
+          "Asesoria_IA/src/auth.py",
+          "IA_Correos/src/constants.py",
+          "IA_Correos/src/__init__.py",
+          "IA_Correos/tests/__init__.py"
         ],
         "domain_detected": "outlook"
       },
@@ -5252,16 +5252,16 @@
         "auto_learned": true,
         "source": "hook_stop_auto_extract",
         "files_touched": [
-          "C:/Chance1/IA_Correos/src/outlook_com.py",
-          "C:/Chance1/IA_Correos/tests/test_outlook.py",
-          "C:/Chance1/IA_Excel/tests/test_excel_features.py",
-          "C:/Chance1/IA_Excel/requirements.txt",
-          "C:/Chance1/IA_Excel/src/excel_com.py",
-          "C:/Chance1/IA_Excel/tests/test_stress_complex.py",
-          "C:/Chance1/Asesoria_IA/src/auth.py",
-          "C:/Chance1/IA_Correos/src/constants.py",
-          "C:/Chance1/IA_Correos/src/__init__.py",
-          "C:/Chance1/IA_Correos/tests/__init__.py"
+          "IA_Correos/src/outlook_com.py",
+          "IA_Correos/tests/test_outlook.py",
+          "IA_Excel/tests/test_excel_features.py",
+          "IA_Excel/requirements.txt",
+          "IA_Excel/src/excel_com.py",
+          "IA_Excel/tests/test_stress_complex.py",
+          "Asesoria_IA/src/auth.py",
+          "IA_Correos/src/constants.py",
+          "IA_Correos/src/__init__.py",
+          "IA_Correos/tests/__init__.py"
         ],
         "domain_detected": "outlook"
       },
@@ -5291,16 +5291,16 @@
         "auto_learned": true,
         "source": "hook_stop_auto_extract",
         "files_touched": [
-          "C:/Chance1/IA_Correos/src/outlook_com.py",
-          "C:/Chance1/IA_Correos/tests/test_outlook.py",
-          "C:/Chance1/IA_Excel/tests/test_excel_features.py",
-          "C:/Chance1/IA_Excel/requirements.txt",
-          "C:/Chance1/IA_Excel/src/excel_com.py",
-          "C:/Chance1/IA_Excel/tests/test_stress_complex.py",
-          "C:/Chance1/Asesoria_IA/src/auth.py",
-          "C:/Chance1/Asesoria_IA/templates/index.html",
-          "C:/Chance1/Asesoria_IA/src/server.py",
-          "C:/Chance1/IA_Correos/src/constants.py"
+          "IA_Correos/src/outlook_com.py",
+          "IA_Correos/tests/test_outlook.py",
+          "IA_Excel/tests/test_excel_features.py",
+          "IA_Excel/requirements.txt",
+          "IA_Excel/src/excel_com.py",
+          "IA_Excel/tests/test_stress_complex.py",
+          "Asesoria_IA/src/auth.py",
+          "Asesoria_IA/templates/index.html",
+          "Asesoria_IA/src/server.py",
+          "IA_Correos/src/constants.py"
         ],
         "domain_detected": "outlook"
       },
@@ -5330,16 +5330,16 @@
         "auto_learned": true,
         "source": "hook_stop_auto_extract",
         "files_touched": [
-          "C:/Chance1/IA_Correos/src/outlook_com.py",
-          "C:/Chance1/IA_Correos/tests/test_outlook.py",
-          "C:/Chance1/IA_Excel/tests/test_excel_features.py",
-          "C:/Chance1/IA_Excel/requirements.txt",
-          "C:/Chance1/IA_Excel/src/excel_com.py",
-          "C:/Chance1/IA_Excel/tests/test_stress_complex.py",
-          "C:/Chance1/Asesoria_IA/src/auth.py",
-          "C:/Chance1/Asesoria_IA/templates/index.html",
-          "C:/Chance1/Asesoria_IA/src/server.py",
-          "C:/Chance1/IA_Correos/src/constants.py"
+          "IA_Correos/src/outlook_com.py",
+          "IA_Correos/tests/test_outlook.py",
+          "IA_Excel/tests/test_excel_features.py",
+          "IA_Excel/requirements.txt",
+          "IA_Excel/src/excel_com.py",
+          "IA_Excel/tests/test_stress_complex.py",
+          "Asesoria_IA/src/auth.py",
+          "Asesoria_IA/templates/index.html",
+          "Asesoria_IA/src/server.py",
+          "IA_Correos/src/constants.py"
         ],
         "domain_detected": "outlook"
       },
@@ -5369,16 +5369,16 @@
         "auto_learned": true,
         "source": "hook_stop_auto_extract",
         "files_touched": [
-          "C:/Chance1/IA_Correos/src/outlook_com.py",
-          "C:/Chance1/IA_Correos/tests/test_outlook.py",
-          "C:/Chance1/IA_Excel/tests/test_excel_features.py",
-          "C:/Chance1/IA_Excel/requirements.txt",
-          "C:/Chance1/IA_Excel/src/excel_com.py",
-          "C:/Chance1/IA_Excel/tests/test_stress_complex.py",
-          "C:/Chance1/Asesoria_IA/src/auth.py",
-          "C:/Chance1/Asesoria_IA/templates/index.html",
-          "C:/Chance1/Asesoria_IA/src/server.py",
-          "C:/Chance1/Asesoria_IA/src/ai_gateway.py"
+          "IA_Correos/src/outlook_com.py",
+          "IA_Correos/tests/test_outlook.py",
+          "IA_Excel/tests/test_excel_features.py",
+          "IA_Excel/requirements.txt",
+          "IA_Excel/src/excel_com.py",
+          "IA_Excel/tests/test_stress_complex.py",
+          "Asesoria_IA/src/auth.py",
+          "Asesoria_IA/templates/index.html",
+          "Asesoria_IA/src/server.py",
+          "Asesoria_IA/src/ai_gateway.py"
         ],
         "domain_detected": "outlook"
       },
@@ -5408,16 +5408,16 @@
         "auto_learned": true,
         "source": "hook_stop_auto_extract",
         "files_touched": [
-          "C:/Chance1/IA_Correos/src/outlook_com.py",
-          "C:/Chance1/IA_Correos/tests/test_outlook.py",
-          "C:/Chance1/IA_Excel/tests/test_excel_features.py",
-          "C:/Chance1/IA_Excel/requirements.txt",
-          "C:/Chance1/IA_Excel/src/excel_com.py",
-          "C:/Chance1/IA_Excel/tests/test_stress_complex.py",
-          "C:/Chance1/Asesoria_IA/src/auth.py",
-          "C:/Chance1/Asesoria_IA/templates/index.html",
-          "C:/Chance1/Asesoria_IA/src/server.py",
-          "C:/Chance1/Asesoria_IA/src/ai_gateway.py"
+          "IA_Correos/src/outlook_com.py",
+          "IA_Correos/tests/test_outlook.py",
+          "IA_Excel/tests/test_excel_features.py",
+          "IA_Excel/requirements.txt",
+          "IA_Excel/src/excel_com.py",
+          "IA_Excel/tests/test_stress_complex.py",
+          "Asesoria_IA/src/auth.py",
+          "Asesoria_IA/templates/index.html",
+          "Asesoria_IA/src/server.py",
+          "Asesoria_IA/src/ai_gateway.py"
         ],
         "domain_detected": "outlook"
       },
@@ -5447,16 +5447,16 @@
         "auto_learned": true,
         "source": "hook_stop_auto_extract",
         "files_touched": [
-          "C:/Chance1/IA_Correos/src/outlook_com.py",
-          "C:/Chance1/IA_Correos/tests/test_outlook.py",
-          "C:/Chance1/IA_Excel/tests/test_excel_features.py",
-          "C:/Chance1/IA_Excel/requirements.txt",
-          "C:/Chance1/IA_Excel/src/excel_com.py",
-          "C:/Chance1/IA_Excel/tests/test_stress_complex.py",
-          "C:/Chance1/Asesoria_IA/src/auth.py",
-          "C:/Chance1/Asesoria_IA/templates/index.html",
-          "C:/Chance1/Asesoria_IA/src/server.py",
-          "C:/Chance1/Asesoria_IA/src/ai_gateway.py"
+          "IA_Correos/src/outlook_com.py",
+          "IA_Correos/tests/test_outlook.py",
+          "IA_Excel/tests/test_excel_features.py",
+          "IA_Excel/requirements.txt",
+          "IA_Excel/src/excel_com.py",
+          "IA_Excel/tests/test_stress_complex.py",
+          "Asesoria_IA/src/auth.py",
+          "Asesoria_IA/templates/index.html",
+          "Asesoria_IA/src/server.py",
+          "Asesoria_IA/src/ai_gateway.py"
         ],
         "domain_detected": "outlook"
       },

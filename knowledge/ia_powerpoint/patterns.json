@@ -9,7 +9,7 @@
       "fact": {
         "rule": "# -*- coding: utf-8 -*-\n\"\"\"\nCOM Automation engine for Microsoft PowerPoint.\n\nUses win32com.client.Dispatch(\"PowerPoint.Application\") to control PowerPoint.\n\nIMPORTANT:\n    - Always call CoInitialize() before Dispatch\n    - Always set DisplayAlerts = False (ppAlertsNone = 0) to avoid popups\n    - Close presentation before Quit: Close() -> Quit() -> CoUninitialize()\n    - Shapes are 1-indexed in COM\n    - TextFrame.HasText must be checked before accessing TextRange\n\"\"\"\n\nfrom __future__ import annotations\n\nimport functools\nimport os\nimport re\nimport time\nfrom dataclasses import dataclass, field\nfrom typing import Any, Callable, Optional, TypeVar\n\nimport pythoncom\nimport win32com.client\nfrom pywintypes import com_error\n\nfrom .constants import (\n",
         "applies_to": "ia_powerpoint",
-        "source": "C:\\Chance1\\IA\\IA_PowerPoint\\src\\powerpoint_com.py",
+        "source": "IA_PowerPoint\\src\\powerpoint_com.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -34,7 +34,7 @@
       "fact": {
         "rule": "\nimport pythoncom\nimport win32com.client\nfrom pywintypes import com_error\n\nfrom .constants import (\n    SHAPE_TYPE_NAMES, PLACEHOLDER_TYPE_NAMES, LAYOUT_NAMES,\n    MSO_PLACEHOLDER, MSO_TABLE, MSO_PICTURE, MSO_CHART,\n    MSO_TEXT_BOX, MSO_GROUP, MSO_AUTO_SHAPE, MSO_GRAPHIC,\n    PP_SAVE_AS_PPTX, PP_SAVE_AS_PDF, PP_SAVE_AS_PNG, PP_SAVE_AS_JPG,\n    PP_LAYOUT_TITLE, PP_LAYOUT_TEXT, PP_LAYOUT_BLANK,\n    PP_LAYOUT_TITLE_ONLY, PP_LAYOUT_TWO_OBJECTS,\n    MSO_TRUE, MSO_FALSE,\n    PROPOSAL_SLIDE_TYPES, IVA_RATES,\n)\n\nT = TypeVar(\"T\")\n\ndef com_retry(\n    max_retries: int = 3,\n    delay: float = 1.0,\n    backoff: float = 2.0,\n) -> Callable:\n    \"\"\"Retry COM calls on transient failures with exponential backoff.\"\"\"\n    RETRYABLE_HRESULTS = {-2147418111, -2147352567}\n",
         "applies_to": "ia_powerpoint",
-        "source": "C:\\Chance1\\IA\\IA_PowerPoint\\src\\powerpoint_com.py",
+        "source": "IA_PowerPoint\\src\\powerpoint_com.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -59,7 +59,7 @@
       "fact": {
         "rule": "transient failures with exponential backoff.\"\"\"\n    RETRYABLE_HRESULTS = {-2147418111, -2147352567}\n    RETRYABLE_CODES = {'0x800706be', '0x800706ba', '0x80010001', '0x80020009'}\n\n    def decorator(func: Callable[..., T]) -> Callable[..., T]:\n        @functools.wraps(func)\n        def wrapper(*args: Any, **kwargs: Any) -> T:\n            last_error = None\n            for attempt in range(max_retries + 1):\n                try:\n                    return func(*args, **kwargs)\n                except com_error as e:\n                    last_error = e\n                    hresult = e.args[0] if e.args else 0\n                    err_str = str(e).lower()\n                    is_retryable = (\n                        hresult in RETRYABLE_HRESULTS\n",
         "applies_to": "ia_powerpoint",
-        "source": "C:\\Chance1\\IA\\IA_PowerPoint\\src\\powerpoint_com.py",
+        "source": "IA_PowerPoint\\src\\powerpoint_com.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -84,7 +84,7 @@
       "fact": {
         "rule": ".lower()\n                    is_retryable = (\n                        hresult in RETRYABLE_HRESULTS\n                        or any(code in err_str for code in RETRYABLE_CODES)\n                        or 'rejected' in err_str\n                    )\n                    if is_retryable and attempt < max_retries:\n                        time.sleep(delay * (backoff ** attempt))\n                        continue\n                    raise\n            raise last_error  # type: ignore\n        return wrapper\n    return decorator\n\nclass PowerPointCOMError(Exception):\n    \"\"\"Raised when a COM operation on PowerPoint fails.\"\"\"\n\n@dataclass\nclass ValidationResult:\n    passed: bool\n    issues: list = field(default_factory=list)\n\n    def to_dict(self) -> dict:\n",
         "applies_to": "ia_powerpoint",
-        "source": "C:\\Chance1\\IA\\IA_PowerPoint\\src\\powerpoint_com.py",
+        "source": "IA_PowerPoint\\src\\powerpoint_com.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -109,7 +109,7 @@
       "fact": {
         "rule": "lt:\n    passed: bool\n    issues: list = field(default_factory=list)\n\n    def to_dict(self) -> dict:\n        return {\"passed\": self.passed, \"issues\": self.issues}\n\nclass PowerPointCOM:\n    \"\"\"\n    Wrapper around Microsoft PowerPoint COM Automation.\n\n    Provides high-level methods for presentation manipulation while ensuring\n    proper cleanup of COM resources.\n\n    Example:\n        with PowerPointCOM() as ppt:\n            ppt.open_presentation(\"C:/docs/proposal.pptx\")\n            ppt.find_replace(\"2024\", \"2025\")\n            ppt.save_as(\"C:/docs/proposal_updated.pptx\")\n    \"\"\"\n\n    def __init__(self, visible: bool = False) -> None:\n        self._app: Any = None\n        self._prs: Any = None\n        self._visible = visible\n        self._initialized = False\n\n",
         "applies_to": "ia_powerpoint",
-        "source": "C:\\Chance1\\IA\\IA_PowerPoint\\src\\powerpoint_com.py",
+        "source": "IA_PowerPoint\\src\\powerpoint_com.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -134,7 +134,7 @@
       "fact": {
         "rule": "ne\n        self._prs: Any = None\n        self._visible = visible\n        self._initialized = False\n\n    # HRESULTs that indicate PowerPoint is busy (modal dialog, initializing)\n    _BUSY_HRESULTS = frozenset({-2147418111, -2147417846})\n    _RETRY_MAX = 5\n    _RETRY_INTERVAL = 3\n\n    def _ensure_app(self) -> None:\n        \"\"\"\n        Ensure PowerPoint COM connection is alive.\n\n        Strategy (from ykuwai/ppt-mcp best practices):\n        1. Health-check existing reference via .Name\n        2. Try GetActiveObject() to attach to running instance\n        3. Fall back to Dispatch() to create new instance\n        4. Retry on busy HRESULTs (modal dialog, initializing)\n        \"\"\"\n        if self._app is not None:\n            try:\n                _ = self._app.Name  # Health check\n",
         "applies_to": "ia_powerpoint",
-        "source": "C:\\Chance1\\IA\\IA_PowerPoint\\src\\powerpoint_com.py",
+        "source": "IA_PowerPoint\\src\\powerpoint_com.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -159,7 +159,7 @@
       "fact": {
         "rule": "      if self._app is not None:\n            try:\n                _ = self._app.Name  # Health check\n                return\n            except com_error as e:\n                if e.hresult in self._BUSY_HRESULTS:\n                    raise\n                self._app = None\n            except (AttributeError, Exception):\n                self._app = None  # Stale/broken COM reference\n\n        if not self._initialized:\n            try:\n                pythoncom.CoInitialize()\n            except Exception:\n                pass\n\n        # Step 1: Try to attach to existing PowerPoint instance\n        try:\n            self._app = win32com.client.GetActiveObject(\"PowerPoint.Application\")\n            _ = self._app.Name\n            try:\n                self._app.DisplayAlerts = 0\n",
         "applies_to": "ia_powerpoint",
-        "source": "C:\\Chance1\\IA\\IA_PowerPoint\\src\\powerpoint_com.py",
+        "source": "IA_PowerPoint\\src\\powerpoint_com.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -184,7 +184,7 @@
       "fact": {
         "rule": "ation\")\n            _ = self._app.Name\n            try:\n                self._app.DisplayAlerts = 0\n            except (com_error, AttributeError):\n                pass\n            self._initialized = True\n            return\n        except com_error:\n            pass  # No running instance, create one\n\n        # Step 2: Create new instance with retry",
         "applies_to": "ia_powerpoint",
-        "source": "C:\\Chance1\\IA\\IA_PowerPoint\\src\\powerpoint_com.py",
+        "source": "IA_PowerPoint\\src\\powerpoint_com.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -209,7 +209,7 @@
       "fact": {
         "rule": "# -*- coding: utf-8 -*-\n\"\"\"\nTest suite for PowerPointCOM.\n\nUses python-pptx to create test files (no COM needed for setup).\nUses PowerPointCOM for the actual operations being tested.\nPowerPoint instance is kept alive throughout all tests.\nTests run ONE AT A TIME sequentially by class order.\n\"\"\"\n\nimport os\nimport sys\nimport tempfile\nimport time\nimport unittest\n\nfrom pptx import Presentation\nfrom pptx.util import Inches, Pt, Emu\nfrom pptx.enum.text import PP_ALIGN\n\nsys.path.insert(0, os.path.join(os.path.dirname(__file__), \"..\"))\nfrom src.powerpoint_com import PowerPointCOM, PowerPointCOMError\n\nTEST_PREFIX = \"[IA_PPT_TEST]\"\nclient: PowerPointCOM = None\ntest_pptx_path: str = None\n\ndef _create_test_pptx(path):\n    \"\"\"Create a test presentation using python-pptx (no COM needed).\"\"\"\n",
         "applies_to": "ia_powerpoint",
-        "source": "C:\\Chance1\\IA\\IA_PowerPoint\\tests\\test_powerpoint_features.py",
+        "source": "IA_PowerPoint\\tests\\test_powerpoint_features.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -234,7 +234,7 @@
       "fact": {
         "rule": "ef _create_test_pptx(path):\n    \"\"\"Create a test presentation using python-pptx (no COM needed).\"\"\"\n    prs = Presentation()\n    prs.slide_width = Inches(13.333)\n    prs.slide_height = Inches(7.5)\n\n    # Slide 1: Title\n    slide1 = prs.slides.add_slide(prs.slide_layouts[0])\n    slide1.shapes.title.text = \"Propuesta Comercial GBM 2026\"\n    slide1.placeholders[1].text = \"Servicios Cloud para Banco Nacional\"\n\n    # Slide 2: Agenda\n    slide2 = prs.slides.add_slide(prs.slide_layouts[1])\n    slide2.shapes.title.text = \"Agenda\"\n    slide2.placeholders[1].text = (\n        \"1. Quienes Somos\\n\"\n        \"2. Propuesta Tecnica\\n\"\n        \"3. Propuesta Economica\\n\"\n        \"4. Cronograma\\n\"\n        \"5. Terminos y Condiciones\"\n    )\n\n    # Slide 3: About GBM\n",
         "applies_to": "ia_powerpoint",
-        "source": "C:\\Chance1\\IA\\IA_PowerPoint\\tests\\test_powerpoint_features.py",
+        "source": "IA_PowerPoint\\tests\\test_powerpoint_features.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -259,7 +259,7 @@
       "fact": {
         "rule": "ca\\n\"\n        \"4. Cronograma\\n\"\n        \"5. Terminos y Condiciones\"\n    )\n\n    # Slide 3: About GBM\n    slide3 = prs.slides.add_slide(prs.slide_layouts[1])\n    slide3.shapes.title.text = \"Mision GBM\"\n    slide3.placeholders[1].text = (\n        \"GBM es el integrador de soluciones de TI \"\n        \"mas grande de Centroamerica con mas de 40 anios \"\n        \"de experiencia en servicios cloud.\"\n    )\n    # Add a text box\n    txBox = slide3.shapes.add_textbox(Inches(0.5), Inches(5), Inches(4), Inches(0.5))\n    txBox.text_frame.text = \"Confidencial - GBM 2026\"\n\n    # Slide 4: Technical (with table)\n    slide4 = prs.slides.add_slide(prs.slide_layouts[1])\n    slide4.shapes.title.text = \"Arquitectura de Solucion\"\n    slide4.placeholders[1].text = (\n        \"La solucion propuesta incluye:\\n\"\n",
         "applies_to": "ia_powerpoint",
-        "source": "C:\\Chance1\\IA\\IA_PowerPoint\\tests\\test_powerpoint_features.py",
+        "source": "IA_PowerPoint\\tests\\test_powerpoint_features.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -284,7 +284,7 @@
       "fact": {
         "rule": "tectura de Solucion\"\n    slide4.placeholders[1].text = (\n        \"La solucion propuesta incluye:\\n\"\n        \"- Red Hat OpenShift Container Platform\\n\"\n        \"- IBM Cloud Pak for Data\\n\"\n        \"- Servicios de implementacion y soporte 24x7\"\n    )\n    # Add table\n    tbl = slide4.shapes.add_table(4, 4, Inches(0.5), Inches(3.5), Inches(9), Inches(2.5)).table\n    headers = [\"Componente\", \"Cantidad\", \"Precio Unit.\", \"Total\"]\n    for c, h in enumerate(headers):\n        tbl.cell(0, c).text = h\n    data = [\n        [\"OpenShift License\", \"5\", \"$4,950.00\", \"$24,750.00\"],\n        [\"Implementacion\", \"120 hrs\", \"$80.00\", \"$9,600.00\"],\n        [\"Soporte 24x7\", \"12 meses\", \"$1,500.00\", \"$18,000.00\"],\n    ]\n    for r, row in enumerate(data):\n        for c, val in enumerate(row):\n",
         "applies_to": "ia_powerpoint",
-        "source": "C:\\Chance1\\IA\\IA_PowerPoint\\tests\\test_powerpoint_features.py",
+        "source": "IA_PowerPoint\\tests\\test_powerpoint_features.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -309,7 +309,7 @@
       "fact": {
         "rule": ".00\", \"$18,000.00\"],\n    ]\n    for r, row in enumerate(data):\n        for c, val in enumerate(row):\n            tbl.cell(r + 1, c).text = val\n\n    # Slide 5: Financial\n    slide5 = prs.slides.add_slide(prs.slide_layouts[1])\n    slide5.shapes.title.text = \"Propuesta Economica\"\n    slide5.placeholders[1].text = \"Detalle de inversion\"\n    ft = slide5.shapes.add_table(4, 2, Inches(1.5), Inches(2.5), Inches(6), Inches(2.5)).table\n    ft.cell(0, 0).text = \"Concepto\"\n    ft.cell(0, 1).text = \"Monto\"\n    ft.cell(1, 0).text = \"Sub-Total\"\n    ft.cell(1, 1).text = \"$52,350.00\"\n    ft.cell(2, 0).text = \"IVA\"\n    ft.cell(2, 1).text = \"$6,282.00\"\n    ft.cell(3, 0).text = \"Gran Total\"\n    ft.cell(3, 1).text = \"$58,632.00\"\n\n    # Slide 6: Timeline\n    slide6 = prs.slides.add_slide(prs.slide_layouts[1])\n",
         "applies_to": "ia_powerpoint",
-        "source": "C:\\Chance1\\IA\\IA_PowerPoint\\tests\\test_powerpoint_features.py",
+        "source": "IA_PowerPoint\\tests\\test_powerpoint_features.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -334,7 +334,7 @@
       "fact": {
         "rule": "ext = \"$58,632.00\"\n\n    # Slide 6: Timeline\n    slide6 = prs.slides.add_slide(prs.slide_layouts[1])\n    slide6.shapes.title.text = \"Cronograma de Implementacion\"\n    slide6.placeholders[1].text = (\n        \"Fase 1: Instalacion (2 semanas)\\n\"\n        \"Fase 2: Configuracion (3 semanas)\\n\"\n        \"Fase 3: Migracion (4 semanas)\\n\"\n        \"Fase 4: Capacitacion (1 semana)\"\n    )\n\n    # Add notes to slides 1 and 5\n    slide1.notes_slide.notes_text_frame.text = \"Notas del presentador: mencionar certificaciones\"\n    slide5.notes_slide.notes_text_frame.text = \"Recordar descuento del 5% si firman antes de fin de mes\"\n\n    prs.save(path)\n\ndef setUpModule():\n    \"\"\"Create test file with python-pptx, then open PowerPoint COM once.\"\"\"\n    global client, test_pptx_path\n\n",
         "applies_to": "ia_powerpoint",
-        "source": "C:\\Chance1\\IA\\IA_PowerPoint\\tests\\test_powerpoint_features.py",
+        "source": "IA_PowerPoint\\tests\\test_powerpoint_features.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -359,7 +359,7 @@
       "fact": {
         "rule": "te test file with python-pptx, then open PowerPoint COM once.\"\"\"\n    global client, test_pptx_path\n\n    # Create test file with python-pptx (no COM needed)\n    test_pptx_path = os.path.join(tempfile.gettempdir(), \"ia_ppt_test.pptx\")\n    _create_test_pptx(test_pptx_path)\n    print(f\"\\n{TEST_PREFIX} Test file created with python-pptx: {test_pptx_path}\")\n\n    # Start PowerPoint COM and open the file\n    client = PowerPointCOM(visible=False)\n    client._ensure_app()\n    time.sleep(2)\n    client.open_presentation(test_pptx_path, read_only=True)\n    print(f\"{TEST_PREFIX} PowerPoint COM connected, presentation open\")\n\ndef tearDownModule():\n    global client, test_pptx_path\n    if client:\n        try:\n            client.quit()\n        except Exception:\n            pass\n",
         "applies_to": "ia_powerpoint",
-        "source": "C:\\Chance1\\IA\\IA_PowerPoint\\tests\\test_powerpoint_features.py",
+        "source": "IA_PowerPoint\\tests\\test_powerpoint_features.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -384,7 +384,7 @@
       "fact": {
         "rule": "th\n    if client:\n        try:\n            client.quit()\n        except Exception:\n            pass\n    if test_pptx_path and os.path.exists(test_pptx_path):\n        time.sleep(1)\n        try:\n            os.unlink(test_pptx_path)\n        except Exc",
         "applies_to": "ia_powerpoint",
-        "source": "C:\\Chance1\\IA\\IA_PowerPoint\\tests\\test_powerpoint_features.py",
+        "source": "IA_PowerPoint\\tests\\test_powerpoint_features.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -409,7 +409,7 @@
       "fact": {
         "rule": "\"\"\"\nMCP Server for PowerPoint Automation.\n\nExposes tools to any LLM for controlling Microsoft PowerPoint via COM Automation.\nEach tool performs a specific presentation operation and returns structured JSON.\n\nRun with:\n    python -m src.mcp_server\n\"\"\"\n\nfrom __future__ import annotations\n\nimport json\nimport logging\nimport sys\nimport traceback\nfrom typing import Any, Optional\n\nfrom mcp.server import Server\nfrom mcp.server.stdio import stdio_server\nfrom mcp.types import TextContent, Tool\n\nfrom .powerpoint_com import PowerPointCOM, PowerPointCOMError\n\nlogging.basicConfig(\n    level=logging.INFO,\n    format=\"%(asctime)s [%(levelname)s] %(name)s: %(message)s\",\n    handlers=[logging.StreamHandler(sys.stderr)],\n)\nlogger = logging.getLogger(\"ia_powerpoint\")\n\n_ppt: Optional[PowerPointCOM] = None\n\n",
         "applies_to": "ia_powerpoint",
-        "source": "C:\\Chance1\\IA\\IA_PowerPoint\\src\\mcp_server.py",
+        "source": "IA_PowerPoint\\src\\mcp_server.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -434,7 +434,7 @@
       "fact": {
         "rule": "(sys.stderr)],\n)\nlogger = logging.getLogger(\"ia_powerpoint\")\n\n_ppt: Optional[PowerPointCOM] = None\n\ndef get_ppt() -> PowerPointCOM:\n    global _ppt\n    if _ppt is None:\n        _ppt = PowerPointCOM(visible=False)\n        _ppt._ensure_app()\n    return _ppt\n\ndef result_json(data: Any) -> list[TextContent]:\n    return [TextContent(type=\"text\", text=json.dumps(data, ensure_ascii=False, indent=2, default=str))]\n\ndef error_json(message: str, details: str = \"\") -> list[TextContent]:\n    payload = {\"error\": message}\n    if details:\n        payload[\"details\"] = details\n    return [TextContent(type=\"text\", text=json.dumps(payload, ensure_ascii=False, indent=2))]\n\napp = Server(\"ia_powerpoint\")\n\n@app.list_tools()\nasync def list_tools() -> list[Tool]:\n    return [\n        Tool(\n",
         "applies_to": "ia_powerpoint",
-        "source": "C:\\Chance1\\IA\\IA_PowerPoint\\src\\mcp_server.py",
+        "source": "IA_PowerPoint\\src\\mcp_server.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -459,7 +459,7 @@
       "fact": {
         "rule": "ia_powerpoint\")\n\n@app.list_tools()\nasync def list_tools() -> list[Tool]:\n    return [\n        Tool(\n            name=\"open_presentation\",\n            description=\"Open a PowerPoint file (.pptx/.ppt). Must be called before any other operation.\",\n            inputSchema={\n                \"type\": \"object\",\n                \"properties\": {\n                    \"path\": {\"type\": \"string\", \"description\": \"Absolute path to the PowerPoint file.\"},\n                    \"read_only\": {\"type\": \"boolean\", \"description\": \"Open in read-only mode. Default: false.\", \"default\": False},\n                },\n                \"required\": [\"path\"],\n            },\n        ),\n        Tool(\n            name=\"analyze_presentation\",\n            description=(\n",
         "applies_to": "ia_powerpoint",
-        "source": "C:\\Chance1\\IA\\IA_PowerPoint\\src\\mcp_server.py",
+        "source": "IA_PowerPoint\\src\\mcp_server.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -484,7 +484,7 @@
       "fact": {
         "rule": "     },\n        ),\n        Tool(\n            name=\"analyze_presentation\",\n            description=(\n                \"Full analysis of the open presentation: slides, shapes, tables, \"\n                \"charts, images, notes, transitions, animations, layouts. \"\n                \"Use this first to understand the presentation structure.\"\n            ),\n            inputSchema={\"type\": \"object\", \"properties\": {}},\n        ),\n        Tool(\n            name=\"get_slide_text\",\n            description=\"Get all text content from a specific slide.\",\n            inputSchema={\n                \"type\": \"object\",\n                \"properties\": {\n                    \"slide_number\": {\"type\": \"integer\", \"description\": \"1-based slide number.\"},\n                },\n                \"required\": [\"slide_number\"],\n",
         "applies_to": "ia_powerpoint",
-        "source": "C:\\Chance1\\IA\\IA_PowerPoint\\src\\mcp_server.py",
+        "source": "IA_PowerPoint\\src\\mcp_server.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -509,7 +509,7 @@
       "fact": {
         "rule": "iption\": \"1-based slide number.\"},\n                },\n                \"required\": [\"slide_number\"],\n            },\n        ),\n        Tool(\n            name=\"get_all_slides_text\",\n            description=\"Get text content from all slides. Good for understanding the full presentation.\",\n            inputSchema={\"type\": \"object\", \"properties\": {}},\n        ),\n        Tool(\n            name=\"find_replace\",\n            description=(\n                \"Find and replace text across all slides, notes, tables, and masters. \"\n                \"Works on rendered text, handles grouped shapes and table cells.\"\n            ),\n            inputSchema={\n                \"type\": \"object\",\n                \"properties\": {\n                    \"old_text\": {\"type\": \"string\", \"description\": \"Text to find.\"},\n",
         "applies_to": "ia_powerpoint",
-        "source": "C:\\Chance1\\IA\\IA_PowerPoint\\src\\mcp_server.py",
+        "source": "IA_PowerPoint\\src\\mcp_server.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -534,7 +534,7 @@
       "fact": {
         "rule": "\"properties\": {\n                    \"old_text\": {\"type\": \"string\", \"description\": \"Text to find.\"},\n                    \"new_text\": {\"type\": \"string\", \"description\": \"Replacement text.\"},\n                    \"match_case\": {\"type\": \"boolean\", \"description\": \"Case-sensitive. Default: false.\", \"default\": False},\n                },\n                \"required\": [\"old_text\", \"new_text\"],\n            },\n        ),\n        Tool(\n            name=\"find_text\",\n            description=\"Search for text across all slides. Returns slide numbers and shape info.\",\n            inputSchema={\n                \"type\": \"object\",\n                \"properties\": {\n                    \"text\": {\"type\": \"string\", \"description\": \"Text to search for.\"},\n",
         "applies_to": "ia_powerpoint",
-        "source": "C:\\Chance1\\IA\\IA_PowerPoint\\src\\mcp_server.py",
+        "source": "IA_PowerPoint\\src\\mcp_server.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -559,7 +559,7 @@
       "fact": {
         "rule": "roperties\": {\n                    \"text\": {\"type\": \"string\", \"description\": \"Text to search for.\"},\n                    \"match_case\": {\"type\": \"boolean\", \"description\": \"Case-sensitive. Default: false.\", \"default\": False},\n                },\n                \"required\": [\"text\"],\n            },\n        ),\n        Tool(\n            name=\"manage_slide\",\n            description=\"Add, delete, duplicate, or move slides.\",\n            inputSchema={\n                \"type\": \"object\",\n                \"properties\": {\n                    \"action\": {\n                        \"type\": \"string\",\n                        \"enum\": [\"add\", \"delete\", \"duplicate\", \"move\"],\n                        \"description\": \"Action to perform.\",\n                    },\n",
         "applies_to": "ia_powerpoint",
-        "source": "C:\\Chance1\\IA\\IA_PowerPoint\\src\\mcp_server.py",
+        "source": "IA_PowerPoint\\src\\mcp_server.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -584,7 +584,7 @@
       "fact": {
         "rule": "cate\", \"move\"],\n                        \"description\": \"Action to perform.\",\n                    },\n                    \"slide_number\": {\"type\": \"integer\", \"description\": \"Target slide number.\"},\n                    \"layout\": {\"type\": \"integer\", \"description\": \"Layout index for add action. Default: 2 (Title and Content).\"",
         "applies_to": "ia_powerpoint",
-        "source": "C:\\Chance1\\IA\\IA_PowerPoint\\src\\mcp_server.py",
+        "source": "IA_PowerPoint\\src\\mcp_server.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -609,7 +609,7 @@
       "fact": {
         "rule": "# -*- coding: utf-8 -*-\n\"\"\"PowerPoint COM enumeration constants.\"\"\"\n\n# MsoShapeType\nMSO_AUTO_SHAPE = 1\nMSO_CALLOUT = 2\nMSO_CHART = 3\nMSO_COMMENT = 4\nMSO_FREEFORM = 5\nMSO_GROUP = 6\nMSO_EMBEDDED_OLE_OBJECT = 7\nMSO_FORM_CONTROL = 8\nMSO_LINE = 9\nMSO_LINKED_OLE_OBJECT = 10\nMSO_LINKED_PICTURE = 11\nMSO_OLE_CONTROL_OBJECT = 12\nMSO_PICTURE = 13\nMSO_PLACEHOLDER = 14\nMSO_TEXT_EFFECT = 15\nMSO_MEDIA = 16\nMSO_TEXT_BOX = 17\nMSO_TABLE = 19\nMSO_CONTENT_APP = 22\nMSO_GRAPHIC = 28\n\nSHAPE_TYPE_NAMES = {\n    MSO_AUTO_SHAPE: \"AutoShape\",\n    MSO_CALLOUT: \"Callout\",\n    MSO_CHART: \"Chart\",\n    MSO_COMMENT: \"Comment\",\n    MSO_FREEFORM: \"Freeform\",\n    MSO_GROUP: \"Group\",\n    MSO_EMBEDDED_OLE_OBJECT: \"EmbeddedOLE\",\n    MSO_FORM_CONTROL: \"FormControl\",\n    MSO_LINE: \"Line\",\n    MSO_LINKED_OLE_OBJECT: \"LinkedOLE\",\n",
         "applies_to": "ia_powerpoint",
-        "source": "C:\\Chance1\\IA\\IA_PowerPoint\\src\\constants.py",
+        "source": "IA_PowerPoint\\src\\constants.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -634,7 +634,7 @@
       "fact": {
         "rule": "\n    MSO_FORM_CONTROL: \"FormControl\",\n    MSO_LINE: \"Line\",\n    MSO_LINKED_OLE_OBJECT: \"LinkedOLE\",\n    MSO_LINKED_PICTURE: \"LinkedPicture\",\n    MSO_OLE_CONTROL_OBJECT: \"OLEControl\",\n    MSO_PICTURE: \"Picture\",\n    MSO_PLACEHOLDER: \"Placeholder\",\n    MSO_TEXT_EFFECT: \"TextEffect\",\n    MSO_MEDIA: \"Media\",\n    MSO_TEXT_BOX: \"TextBox\",\n    MSO_TABLE: \"Table\",\n    MSO_CONTENT_APP: \"ContentApp\",\n    MSO_GRAPHIC: \"Graphic\",\n}\n\n# PpPlaceholderType\nPP_PLACEHOLDER_TITLE = 1\nPP_PLACEHOLDER_BODY = 2\nPP_PLACEHOLDER_CENTER_TITLE = 3\nPP_PLACEHOLDER_SUBTITLE = 4\nPP_PLACEHOLDER_DATE = 10\nPP_PLACEHOLDER_SLIDE_NUMBER = 12\nPP_PLACEHOLDER_FOOTER = 11\nPP_PLACEHOLDER_HEADER = 14\nPP_PLACEHOLDER_OBJECT = 7\n\nPLACEHOLDER_TYPE_NAMES = {\n    PP_PLACEHOLDER_TITLE: \"Title\",\n    PP_PLACEHOLDER_BODY: \"Body\",\n",
         "applies_to": "ia_powerpoint",
-        "source": "C:\\Chance1\\IA\\IA_PowerPoint\\src\\constants.py",
+        "source": "IA_PowerPoint\\src\\constants.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -659,7 +659,7 @@
       "fact": {
         "rule": "= 7\n\nPLACEHOLDER_TYPE_NAMES = {\n    PP_PLACEHOLDER_TITLE: \"Title\",\n    PP_PLACEHOLDER_BODY: \"Body\",\n    PP_PLACEHOLDER_CENTER_TITLE: \"CenterTitle\",\n    PP_PLACEHOLDER_SUBTITLE: \"Subtitle\",\n    PP_PLACEHOLDER_DATE: \"Date\",\n    PP_PLACEHOLDER_SLIDE_NUMBER: \"SlideNumber\",\n    PP_PLACEHOLDER_FOOTER: \"Footer\",\n    PP_PLACEHOLDER_HEADER: \"Header\",\n    PP_PLACEHOLDER_OBJECT: \"Object\",\n}\n\n# PpSlideLayout\nPP_LAYOUT_TITLE = 1\nPP_LAYOUT_TEXT = 2\nPP_LAYOUT_TWO_COLUMN_TEXT = 3\nPP_LAYOUT_TABLE = 4\nPP_LAYOUT_TEXT_AND_CHART = 5\nPP_LAYOUT_CHART_AND_TEXT = 6\nPP_LAYOUT_ORG_CHART = 7\nPP_LAYOUT_CHART = 8\nPP_LAYOUT_TEXT_AND_CLIP_ART = 9\nPP_LAYOUT_CLIP_ART_AND_TEXT = 10\nPP_LAYOUT_TITLE_ONLY = 11\nPP_LAYOUT_BLANK = 12\nPP_LAYOUT_CONTENT_WITH_CAPTION = 13\nPP_LAYOUT_PICTURE_WITH_CAPTION = 14\n",
         "applies_to": "ia_powerpoint",
-        "source": "C:\\Chance1\\IA\\IA_PowerPoint\\src\\constants.py",
+        "source": "IA_PowerPoint\\src\\constants.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -684,7 +684,7 @@
       "fact": {
         "rule": "Y = 11\nPP_LAYOUT_BLANK = 12\nPP_LAYOUT_CONTENT_WITH_CAPTION = 13\nPP_LAYOUT_PICTURE_WITH_CAPTION = 14\nPP_LAYOUT_TWO_OBJECTS = 15\nPP_LAYOUT_OBJECT_AND_TWO_OBJECTS = 16\nPP_LAYOUT_TWO_OBJECTS_AND_TEXT = 17\nPP_LAYOUT_CUSTOM = 32\n\nLAYOUT_NAMES = {\n    PP_LAYOUT_TITLE: \"Title Slide\",\n    PP_LAYOUT_TEXT: \"Title and Content\",\n    PP_LAYOUT_TWO_COLUMN_TEXT: \"Two Column Text\",\n    PP_LAYOUT_TABLE: \"Table\",\n    PP_LAYOUT_TITLE_ONLY: \"Title Only\",\n    PP_LAYOUT_BLANK: \"Blank\",\n    PP_LAYOUT_CONTENT_WITH_CAPTION: \"Content with Caption\",\n    PP_LAYOUT_PICTURE_WITH_CAPTION: \"Picture with Caption\",\n    PP_LAYOUT_TWO_OBJECTS: \"Two Objects\",\n    PP_LAYOUT_CUSTOM: \"Custom\",\n}\n\n# PpSaveAsFileType\nPP_SAVE_AS_PPTX = 24\nPP_SAVE_AS_PPT = 1\nPP_SAVE_AS_PDF = 32\nPP_SAVE_AS_PNG = 18\nPP_SAVE_AS_JPG = 17\n",
         "applies_to": "ia_powerpoint",
-        "source": "C:\\Chance1\\IA\\IA_PowerPoint\\src\\constants.py",
+        "source": "IA_PowerPoint\\src\\constants.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -709,7 +709,7 @@
       "fact": {
         "rule": "PP_SAVE_AS_PPTX = 24\nPP_SAVE_AS_PPT = 1\nPP_SAVE_AS_PDF = 32\nPP_SAVE_AS_PNG = 18\nPP_SAVE_AS_JPG = 17\nPP_SAVE_AS_GIF = 16\nPP_SAVE_AS_BMP = 19\nPP_SAVE_AS_TIF = 21\nPP_SAVE_AS_HTML = 12\nPP_SAVE_AS_MP4 = 39\nPP_SAVE_AS_XPS = 33\n\n# PpViewType\nPP_VIEW_NORMAL = 9\nPP_VIEW_SLIDE_SORTER = 5\nPP_VIEW_NOTES_PAGE = 10\nPP_VIEW_OUTLINE = 6\n\n# MsoTriState\nMSO_TRUE = -1\nMSO_FALSE = 0\nMSO_CTrue = 1\n\n# PpSlideShowAdvanceMode\nPP_ADVANCE_ON_CLICK = 1\nPP_ADVANCE_ON_TIME = 2\nPP_ADVANCE_ON_CLICK_OR_TIME = 3\n\n# MsoTextOrientation\nMSO_TEXT_ORIENT_HORIZONTAL = 1\nMSO_TEXT_ORIENT_VERTICAL = 5\n\n# PpEntryEffect (common ones)\nPP_EFFECT_NONE = 0\nPP_EFFECT_FADE = 3844\nPP_EFFECT_PUSH = 3845\nPP_EFFECT_WIPE = 3841\nPP_EFFECT_APPEAR = 3846\n\n# Financial (inherited for GBM context)\nIVA_RATES = {\n",
         "applies_to": "ia_powerpoint",
-        "source": "C:\\Chance1\\IA\\IA_PowerPoint\\src\\constants.py",
+        "source": "IA_PowerPoint\\src\\constants.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -734,7 +734,7 @@
       "fact": {
         "rule": "P_EFFECT_WIPE = 3841\nPP_EFFECT_APPEAR = 3846\n\n# Financial (inherited for GBM context)\nIVA_RATES = {\n    \"GT\": 0.12, \"CR\": 0.13, \"PA\": 0.07,\n    \"SV\": 0.13, \"HN\": 0.15, \"NI\": 0.15,\n    \"DO\": 0.18,\n}\n\n# GBM proposal slide categories\nPROPOSAL_SLIDE_TYPES = {\n    \"cover\": [\"portada\", \"cover\", \"titulo\"],\n    \"agenda\": [\"agenda\", \"contenido\", \"indice\"],\n    \"about\": [\"gbm\", \"quienes somos\", \"mision\", \"vision\", \"nosotros\"],\n    \"technical\": [\"tecnic\", \"arquitectura\", \"solucion\", \"infraestructura\"],\n    \"financial\": [\"economic\", \"financier\", \"precio\", \"costo\", \"inversion\",\n                  \"propuesta economica\", \"cotizacion\"],\n    \"services\": [\"servicio\", \"alcance\", \"implementacion\", \"soporte\",\n                 \"capacitacion\", \"migracion\"],\n",
         "applies_to": "ia_powerpoint",
-        "source": "C:\\Chance1\\IA\\IA_PowerPoint\\src\\constants.py",
+        "source": "IA_PowerPoint\\src\\constants.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -759,7 +759,7 @@
       "fact": {
         "rule": "[\"servicio\", \"alcance\", \"implementacion\", \"soporte\",\n                 \"capacitacion\", \"migracion\"],\n    \"timeline\": [\"cronograma\", \"timeline\", \"plan\", \"calendario\", \"fases\"],\n    \"terms\": [\"terminos\", \"condiciones\", \"legal\", \"garantia\"],\n    \"closing\": [\"cierre\", \"contacto\", \"gracias\", \"siguiente\"],\n}",
         "applies_to": "ia_powerpoint",
-        "source": "C:\\Chance1\\IA\\IA_PowerPoint\\src\\constants.py",
+        "source": "IA_PowerPoint\\src\\constants.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -784,7 +784,7 @@
       "fact": {
         "rule": "# IA_PowerPoint - PowerPoint COM Automation Library\n\n## Reglas criticas\n\n1. PowerPoint COM requiere `pythoncom.CoInitialize()` antes de `Dispatch`\n2. Siempre cerrar presentacion antes de quit: Close() -> Quit() -> CoUninitialize()\n3. `DisplayAlerts = 0` (ppAlertsNone) para evitar popups que bloquean COM\n4. PowerPoint puede requerir `WithWindow=0` (msoFalse) al abrir sin ventana\n5. Shapes son 1-indexed en COM\n6. TextFrame.HasText debe verificarse antes de acceder TextRange\n7. Grouped shapes requieren iterar GroupItems recursivamente\n8. Table cells se acceden via Cell(row, col).Shape.TextFrame.TextRange.Text\n\n## Uso basico\n\n```python\nfrom src.powerpoint_com import PowerPointCOM\n\nwith PowerPointCOM() as ppt:\n    ppt.open_presentation(\"archivo.pptx\")\n    analysis = ppt.analyze()\n",
         "applies_to": "ia_powerpoint",
-        "source": "C:\\Chance1\\IA\\IA_PowerPoint\\CLAUDE.md",
+        "source": "IA_PowerPoint\\CLAUDE.md",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -808,7 +808,7 @@
       "fact": {
         "rule": "with PowerPointCOM() as ppt:\n    ppt.open_presentation(\"archivo.pptx\")\n    analysis = ppt.analyze()\n    ppt.find_replace(\"2024\", \"2025\")\n    ppt.export_to_html(\"output.html\")\n```\n\n## Estructura del proyecto\n\n- `src/constants.py` - Constantes COM de PowerPoint\n- `src/powerpoint_com.py` - Motor COM principal\n- `src/mcp_server.py` - Servidor MCP para Claude\n- `tests/test_powerpoint_features.py` - Suite de tests (60 tests)",
         "applies_to": "ia_powerpoint",
-        "source": "C:\\Chance1\\IA\\IA_PowerPoint\\CLAUDE.md",
+        "source": "IA_PowerPoint\\CLAUDE.md",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -832,7 +832,7 @@
       "fact": {
         "rule": "# pytest cache directory #\n\nThis directory contains data from the pytest's cache plugin,\nwhich provides the `--lf` and `--ff` options, as well as the `cache` fixture.\n\n**Do not** commit this to version control.\n\nSee [the docs](https://docs.pytest.org/en/stable/how-to/cache.html) for more information.",
         "applies_to": "ia_powerpoint",
-        "source": "C:\\Chance1\\IA\\IA_PowerPoint\\.pytest_cache\\README.md",
+        "source": "IA_PowerPoint\\.pytest_cache\\README.md",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -856,7 +856,7 @@
       "fact": {
         "rule": "# -*- coding: utf-8 -*-\n\"\"\"Tests for IA_PowerPoint.\"\"\"",
         "applies_to": "ia_powerpoint",
-        "source": "C:\\Chance1\\IA\\IA_PowerPoint\\tests\\__init__.py",
+        "source": "IA_PowerPoint\\tests\\__init__.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""

@@ -9,7 +9,7 @@
       "fact": {
         "rule": "r o Controller según corresponda>\nServices Sales Representative\nGBM de <País>\nGBM <País>\nContenidos\n1.¿Por qué GBM?4\n2.Información inicial5\n2.1.Antecedentes5\n2.2.Descripción5\n3.Descripción de la Solución5\n3.1.Requerimientos para cubrir para el cliente5\n3.2.Alcance del servicio6\n3.3.Descripción de los componentes del servicio7\n3.4.Servicios Incluidos8\n3.5.Exclusiones8\n3.6.Supuestos y Restricciones:9\n4.Acuerdos de Nivel de Servicio9\n5.Propuesta Económica9\n6.Términos y Condiciones10\n7.Aceptación de la Propuesta15\n8.Anexos16\n8.1.Procedimiento y Reporte de Llamadas16\n8.2.Detalles del mantenimiento Preventivo17\n8.3.Términos y definiciones17\n¿Por qué GBM?\nVisión:\n",
         "applies_to": "plantillas_sow",
-        "source": "C:\\Chance1\\Plantillas SOW\\Soporte_LUKA.docx",
+        "source": "Plantillas SOW\\Soporte_LUKA.docx",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -34,7 +34,7 @@
       "fact": {
         "rule": "import sys\nfrom docx import Document\n\nPLACEHOLDERS = {\n    \"<ingresar el número de oportunidad de SAP>\": \"OPOR_VALUE\",\n    \"<colocar el monto total mensual en dólares>\": \"DOLAR_VALUE\",\n    \"<colocar el # de versión>\": \"VER_VALUE\",\n    \"<anotar aquí la descripción de beneficio principal del servicio para el cliente>\": \"DESC_VALUE\",\n    \"<Realice una breve descripción de los antecedentes del servicio y del problema>\": \"PROBLEM_VALUE\",\n    \"<verificar si es anual el periodo de este contrato, de lo contrario, cambiar>\": \"ANUAL_VALUE\",\n    \"<Anexo: “Detalles del mantenimiento Preventivo”>.\": \"ANEXO_VALUE\",\n}\n\ndef replace_in_paragraph(paragraph, replacements):\n    \"\"\"\n    Reemplaza texto aunque esté fragmentado en múltiples runs.\n    Mantiene el formato lo mejor posible.\n    \"\"\"\n",
         "applies_to": "plantillas_sow",
-        "source": "C:\\Chance1\\Plantillas SOW\\Opor - copia.py",
+        "source": "Plantillas SOW\\Opor - copia.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -59,7 +59,7 @@
       "fact": {
         "rule": " texto aunque esté fragmentado en múltiples runs.\n    Mantiene el formato lo mejor posible.\n    \"\"\"\n    if not paragraph.runs:\n        return 0\n\n    full_text = \"\".join(r.text for r in paragraph.runs)\n    if not full_text:\n        return 0\n\n    new_text = full_text\n    changed = 0\n    for old, new in replacements.items():\n        if old in new_text:\n            new_text = new_text.replace(old, new)\n            changed = 1\n\n    if not changed:\n        return 0\n\n    # Deja el texto reemplazado en el primer run y limpia el resto\n    paragraph.runs[0].text = new_text\n    for r in paragraph.runs[1:]:\n        r.text = \"\"\n    return 1\n\ndef replace_in_table(table, replacements):\n    count = 0\n    for row in table.rows:\n        for cell in row.cells:\n            for p in cell.paragraphs:\n",
         "applies_to": "plantillas_sow",
-        "source": "C:\\Chance1\\Plantillas SOW\\Opor - copia.py",
+        "source": "Plantillas SOW\\Opor - copia.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -84,7 +84,7 @@
       "fact": {
         "rule": "= 0\n    for row in table.rows:\n        for cell in row.cells:\n            for p in cell.paragraphs:\n                count += replace_in_paragraph(p, replacements)\n            for t in cell.tables:\n                count += replace_in_table(t, replacements)\n    return count\n\ndef replace_in_header_footer(hf, replacements):\n    count = 0\n    for p in hf.paragraphs:\n        count += replace_in_paragraph(p, replacements)\n    for t in hf.tables:\n        count += replace_in_table(t, replacements)\n    return count\n\ndef main():\n    # Uso:\n    # python Opor.py <input.docx> <output.docx> <OporValue> <DolarValue> <VerValue> <desc> <problem> <anual> <anexo>\n    if len(sys.argv) < 10:\n",
         "applies_to": "plantillas_sow",
-        "source": "C:\\Chance1\\Plantillas SOW\\Opor - copia.py",
+        "source": "Plantillas SOW\\Opor - copia.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -109,7 +109,7 @@
       "fact": {
         "rule": "cx> <OporValue> <DolarValue> <VerValue> <desc> <problem> <anual> <anexo>\n    if len(sys.argv) < 10:\n        print(\"Uso: python Opor.py <input.docx> <output.docx> <OporValue> <DolarValue> <VerValue> <desc> <problem> <anual> <anexo>\")\n        sys.exit(2)\n\n    in_path = sys.argv[1]\n    out_path = sys.argv[2]\n\n    opor_value = sys.argv[3]\n    dolar_value = sys.argv[4]\n    ver_value = sys.argv[5]\n    desc_value = sys.argv[6]\n    problem_value = sys.argv[7]\n    anual_value = sys.argv[8]\n    anexo_value = sys.argv[9]\n\n    replacements = {\n        \"<ingresar el número de oportunidad de SAP>\": opor_value,\n        \"<colocar el monto total mensual en dólares>\": dolar_value,\n        \"<colocar el # de versión>\": ver_value,\n",
         "applies_to": "plantillas_sow",
-        "source": "C:\\Chance1\\Plantillas SOW\\Opor - copia.py",
+        "source": "Plantillas SOW\\Opor - copia.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -134,7 +134,7 @@
       "fact": {
         "rule": "r el monto total mensual en dólares>\": dolar_value,\n        \"<colocar el # de versión>\": ver_value,\n        \"<anotar aquí la descripción de beneficio principal del servicio para el cliente>\": desc_value,\n        \"<Realice una breve descripción de los antecedentes del servicio y del problema>\": problem_value,\n        \"<verificar si es anual el periodo de este contrato, de lo contrario, cambiar>\": anual_value,\n        \"<Anexo: “Detalles del mantenimiento Preventivo”>.\": anexo_value,\n    }\n\n    doc = Document(in_path)\n    total = 0\n\n    # 1) Cuerpo\n    for p in doc.paragraphs:\n        total += replace_in_paragraph(p, replacements)\n    for t in doc.tables:\n        total += replace_in_table(t, replacements)\n\n    # 2) Headers/Footers por sección\n    for sec in doc.sections:\n",
         "applies_to": "plantillas_sow",
-        "source": "C:\\Chance1\\Plantillas SOW\\Opor - copia.py",
+        "source": "Plantillas SOW\\Opor - copia.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -159,7 +159,7 @@
       "fact": {
         "rule": "eplace_in_table(t, replacements)\n\n    # 2) Headers/Footers por sección\n    for sec in doc.sections:\n        total += replace_in_header_footer(sec.header, replacements)\n        total += replace_in_header_footer(sec.footer, replacements)\n\n    doc.save(out_path)\n    print(f\"Reemplazos realizados: {total}\")\n\nif __name__ == \"__main__\":\n    main()",
         "applies_to": "plantillas_sow",
-        "source": "C:\\Chance1\\Plantillas SOW\\Opor - copia.py",
+        "source": "Plantillas SOW\\Opor - copia.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""

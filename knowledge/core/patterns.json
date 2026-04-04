@@ -9,7 +9,7 @@
       "fact": {
         "rule": "\"\"\"\nscanner.py — 4-Level Intelligent Scanner for FormFiller_IA\n==========================================================\nProvides MICRO, ZONA, FRAME, and FULL scan levels with auto-escalation.\nUses collector.js injected via Playwright to snapshot DOM state.\n\"\"\"\nimport hashlib\nimport time\nfrom datetime import datetime\nfrom enum import Enum, auto\nfrom pathlib import Path\nfrom typing import Optional\n\nfrom config import JS_DIR, SCREENSHOTS_DIR, SCANNER_MAX_FIELDS\n\ndef _load_js(filename: str) -> str:\n    return (JS_DIR / filename).read_text(encoding=\"utf-8\")\n\n# ---------------------------------------------------------------------------\n# Enums & Data Classes\n# ---------------------------------------------------------------------------\n\nclass ScanLevel(Enum):\n",
         "applies_to": "core",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\core\\scanner.py",
+        "source": "FormFiller_IA\\core\\scanner.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -34,7 +34,7 @@
       "fact": {
         "rule": "---------------------------------------------------------------------------\n\nclass ScanLevel(Enum):\n    MICRO = auto()   # ~5ms  - single element\n    ZONA  = auto()   # ~30ms - parent container\n    FRAME = auto()   # ~80ms - one frame\n    FULL  = auto()   # ~500ms - all frames\n\nclass ScanResult:\n    \"\"\"Immutable snapshot of a scan at a given point in time.\"\"\"\n\n    def __init__(\n        self,\n        level: ScanLevel,\n        timestamp: float,\n        dom_hash: str,\n        fields: list,\n        elements: list,\n        iframes: list,\n        url: str,\n        raw: dict,\n    ):\n        self.level = level\n        self.timestamp = timestamp\n        self.dom_hash = dom_hash\n        self.fields = fields\n        self.elements = elements\n        self.iframes = iframes\n        self.url = url\n",
         "applies_to": "core",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\core\\scanner.py",
+        "source": "FormFiller_IA\\core\\scanner.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -59,7 +59,7 @@
       "fact": {
         "rule": "lds = fields\n        self.elements = elements\n        self.iframes = iframes\n        self.url = url\n        self.raw = raw\n\n    # -- helpers -------------------------------------------------------------\n\n    def diff(self, other: \"ScanResult\") -> dict:\n        \"\"\"Return fields that changed between *self* and *other*.\"\"\"\n        if other is None:\n            return {\"added\": self.fields, \"removed\": [], \"changed\": []}\n        my_map = {_field_key(f): f for f in self.fields}\n        other_map = {_field_key(f): f for f in other.fields}\n        added = [f for k, f in my_map.items() if k not in other_map]\n        removed = [f for k, f in other_map.items() if k not in my_map]\n        changed = []\n        for k, f in my_map.items():\n",
         "applies_to": "core",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\core\\scanner.py",
+        "source": "FormFiller_IA\\core\\scanner.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -84,7 +84,7 @@
       "fact": {
         "rule": "f in other_map.items() if k not in my_map]\n        changed = []\n        for k, f in my_map.items():\n            if k in other_map and f.get(\"value\") != other_map[k].get(\"value\"):\n                changed.append({\"field\": f, \"old_value\": other_map[k].get(\"value\")})\n        return {\"added\": added, \"removed\": removed, \"changed\": changed}\n\n    def find_field(self, name: str) -> Optional[dict]:\n        \"\"\"Find a field by logical name, id, or label text (case-insensitive).\"\"\"\n        name_lower = name.lower()\n        for f in self.fields:\n            if (f.get(\"id\", \"\").lower() == name_lower\n                    or f.get(\"name\", \"\").lower() == name_lower\n                    or name_lower in f.get(\"ariaLabel\", \"\").lower()\n                    or name_lower in f.get(\"placeholder\", \"\").lower()):\n",
         "applies_to": "core",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\core\\scanner.py",
+        "source": "FormFiller_IA\\core\\scanner.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -109,7 +109,7 @@
       "fact": {
         "rule": "et(\"ariaLabel\", \"\").lower()\n                    or name_lower in f.get(\"placeholder\", \"\").lower()):\n                return f\n        return None\n\n    def find_by_selector(self, selector: str) -> Optional[dict]:\n        \"\"\"Find element whose cssPath or xpath matches *selector*.\"\"\"\n        for el in self.elements:\n            if el.get(\"cssPath\") == selector or el.get(\"xpath\") == selector:\n                return el\n        return None\n\n    def __repr__(self) -> str:\n        return (\n            f\"<ScanResult level={self.level.name} fields={len(self.fields)} \"\n            f\"elements={len(self.elements)} iframes={len(self.iframes)} \"\n            f\"dom_hash={self.dom_hash[:8]}>\"\n        )\n\ndef _field_key(f: dict) -> str:\n    \"\"\"Stable key for a field dict.\"\"\"\n",
         "applies_to": "core",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\core\\scanner.py",
+        "source": "FormFiller_IA\\core\\scanner.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -134,7 +134,7 @@
       "fact": {
         "rule": "f.dom_hash[:8]}>\"\n        )\n\ndef _field_key(f: dict) -> str:\n    \"\"\"Stable key for a field dict.\"\"\"\n    return f.get(\"cssPath\") or f.get(\"xpath\") or f.get(\"id\") or f.get(\"name\") or str(f)\n\n# ---------------------------------------------------------------------------\n# Scanner\n# ---------------------------------------------------------------------------\n\nclass Scanner:\n    \"\"\"4-level intelligent DOM scanner backed by Playwright.\n\n    Improvements:\n    - Frame Memory: remembers which frame contained which field\n    - Click Verification: detects if page changed after click\n    - Adaptive Polling: starts fast, slows down\n    - Auto Diff: tracks changes between scans\n    \"\"\"\n\n    def __init__(self, page):\n        self.page = page\n        self._collector_js: Optional[str] = None\n",
         "applies_to": "core",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\core\\scanner.py",
+        "source": "FormFiller_IA\\core\\scanner.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -159,7 +159,7 @@
       "fact": {
         "rule": "def __init__(self, page):\n        self.page = page\n        self._collector_js: Optional[str] = None\n        self._last_scan: Optional[ScanResult] = None\n        # MEJORA 1: Frame Memory — {field_name: frame_index}\n        self._frame_memory: dict = {}\n        # MEJORA 5: Last scan for auto-diff\n        self._prev_scan: Optional[ScanResult] = None\n        # Cache de iframes con error — no reintentar\n        self._skip_frames: set = set()  # indices de frames que fallan\n        self._skip_frames_url: str = \"\"  # URL cuando se cacheo (reset on nav)\n        # Framework scan — ejecutar 1 vez por página\n        self._framework: Optional[dict] = None\n        self._framework_url: str = \"\"  # URL cuando se escaneo\n\n    @property\n    def last_scan(self) -> Optional[\"ScanResult\"]:\n",
         "applies_to": "core",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\core\\scanner.py",
+        "source": "FormFiller_IA\\core\\scanner.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -184,7 +184,7 @@
       "fact": {
         "rule": "str = \"\"  # URL cuando se escaneo\n\n    @property\n    def last_scan(self) -> Optional[\"ScanResult\"]:\n        \"\"\"Return the most recent scan result. Auto-refreshes if stale (>5s old).\"\"\"\n        import time as _t\n        if self._last_scan and (_t.time() - self._last_scan.times",
         "applies_to": "core",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\core\\scanner.py",
+        "source": "FormFiller_IA\\core\\scanner.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -209,7 +209,7 @@
       "fact": {
         "rule": "\"\"\"\nfiller.py — Form Filling Engine for FormFiller_IA\n===================================================\nFills form fields using a 5-strategy cascade:\n1. JS inject (direct value + event dispatch)\n2. Learned selector (from selector memory)\n3. Partial ID match\n4. Label search\n5. ML fallback (Ollama adapter)\n\"\"\"\nimport time\nfrom typing import Optional\n\nfrom config import JS_DIR\nfrom core.scanner import Scanner, ScanResult, ScanLevel\nfrom core.waiter import AdaptiveWaiter\n\ndef _load_js(filename: str) -> str:\n    return (JS_DIR / filename).read_text(encoding=\"utf-8\")\n\n# ---------------------------------------------------------------------------\n# FillResult\n# ---------------------------------------------------------------------------\n\nclass FillResult:\n",
         "applies_to": "core",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\core\\filler.py",
+        "source": "FormFiller_IA\\core\\filler.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -234,7 +234,7 @@
       "fact": {
         "rule": "lt\n# ---------------------------------------------------------------------------\n\nclass FillResult:\n    \"\"\"Outcome of a single field fill attempt.\"\"\"\n\n    def __init__(\n        self,\n        success: bool = False,\n        strategy_used: str = \"\",\n        attempts: int = 0,\n        value_before: str = \"\",\n        value_after: str = \"\",\n        selector_used: str = \"\",\n        duration_ms: float = 0.0,\n    ):\n        self.success = success\n        self.strategy_used = strategy_used\n        self.attempts = attempts\n        self.value_before = value_before\n        self.value_after = value_after\n        self.selector_used = selector_used\n        self.duration_ms = duration_ms\n\n    def __repr__(self) -> str:\n        return (\n",
         "applies_to": "core",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\core\\filler.py",
+        "source": "FormFiller_IA\\core\\filler.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -259,7 +259,7 @@
       "fact": {
         "rule": "lector_used\n        self.duration_ms = duration_ms\n\n    def __repr__(self) -> str:\n        return (\n            f\"<FillResult success={self.success} strategy='{self.strategy_used}' \"\n            f\"attempts={self.attempts} duration={self.duration_ms:.0f}ms>\"\n        )\n\n# ---------------------------------------------------------------------------\n# Filler\n# ---------------------------------------------------------------------------\n\nclass Filler:\n    \"\"\"Form-filling engine with cascading strategy selection.\n\n    Automatically detects site type (SAP CRM, Fiori, Salesforce, standard HTML)\n    and adjusts fill strategy accordingly:\n    - SAP CRM/Fiori: Uses Playwright real keystrokes (type with delay)\n    - Salesforce/Dynamics: Uses Playwright type (frameworks need real events)\n",
         "applies_to": "core",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\core\\filler.py",
+        "source": "FormFiller_IA\\core\\filler.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -284,7 +284,7 @@
       "fact": {
         "rule": "kes (type with delay)\n    - Salesforce/Dynamics: Uses Playwright type (frameworks need real events)\n    - Standard HTML: Uses JS inject (fastest, works for normal forms)\n    \"\"\"\n\n    def __init__(\n        self,\n        scanner: Scanner,\n        waiter: AdaptiveWaiter,\n        selector_memory=None,\n        ollama_adapter=None,\n    ):\n        self.scanner = scanner\n        self.waiter = waiter\n        self.selector_memory = selector_memory\n        self.ollama_adapter = ollama_adapter\n        self._site_info = None  # Cached site detection result\n        self._site_url = \"\"    # URL when detection ran (FIX 6)\n\n    @property\n    def site_info(self) -> dict:\n        \"\"\"Lazy-loaded site type detection with cache by domain.\n        MEJORA 5: Only re-detect when the domain changes, not on every\n",
         "applies_to": "core",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\core\\filler.py",
+        "source": "FormFiller_IA\\core\\filler.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -309,7 +309,7 @@
       "fact": {
         "rule": "ection with cache by domain.\n        MEJORA 5: Only re-detect when the domain changes, not on every\n        sub-page navigation (SAP changes URL constantly but site type stays same).\n        \"\"\"\n        try:\n            current_url = self.scanner.page.url\n            # Extract domain for comparison (ignore path/query changes)\n            from urllib.parse import urlparse\n            current_domain = urlparse(current_url).netloc\n        except:\n            current_domain = \"\"\n        cached_domain = \"\"\n        if self._site_url:\n            try:\n                from urllib.parse import urlparse\n                cached_domain = urlparse(self._site_url).netloc\n            except:\n                pass\n        if self._site_info is None or current_domain != cached_domain:\n",
         "applies_to": "core",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\core\\filler.py",
+        "source": "FormFiller_IA\\core\\filler.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -334,7 +334,7 @@
       "fact": {
         "rule": "except:\n                pass\n        if self._site_info is None or current_domain != cached_domain:\n            self._site_info = self.scanner.detect_site_type()\n            self._site_url = current_url\n        return self._site_info\n\n    def reset_site_detection(self):\n        \"\"\"Reset cached site detection (call after navigation).\"\"\"\n        self._site_info = None\n        self._site_url = \"\"\n\n    # -- main fill method ----------------------------------------------------\n\n    def fill(\n        self,\n        page,\n        scan: ScanResult,\n        field_info: dict,\n        value: str,\n        site_key: str = \"\",\n    ) -> FillResult:\n        \"\"\"\n        Fill a field using a cascading strategy.\n        Strategy order adapts based on detected site type:\n\n",
         "applies_to": "core",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\core\\filler.py",
+        "source": "FormFiller_IA\\core\\filler.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -359,7 +359,7 @@
       "fact": {
         "rule": "ill a field using a cascading strategy.\n        Strategy order adapts based on detected site type:\n\n        SAP CRM/Fiori mode (playwright_type):\n          0. SAP real keystroke (Playwright type with delay)\n          1. SAP label search (TD sibling pattern)\n          2. Learned selector\n          3. Partial ID match\n          4. JS inject (fallback)\n          5. ML fallback\n\n        Standard mode (js_inject):\n          1. JS inject (fastest)\n          2. Learned selector\n          3. Partial ID match\n          4. Label search\n          5. ML fallback\n        \"\"\"\n        t0 = time.time()\n        field_name = field_info.get(\"name\") or field_info.get(\"id\") or field_info.get(\"ariaLabel\") or \"unknown\"\n        frame = self._resolve_frame(page, field_info)\n        attempts = 0\n\n",
         "applies_to": "core",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\core\\filler.py",
+        "source": "FormFiller_IA\\core\\filler.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -384,7 +384,7 @@
       "fact": {
         "rule": "riaLabel\") or \"unknown\"\n        frame = self._resolve_frame(page, field_info)\n        attempts = 0\n\n        fill_mode = self.site_info.get(\"fill_mode\", \"js_inject\")\n\n        # MEJORA 1: If we already know the frame (from scan), try fill_direct FIRST\n        # This is the fastest path — getElementById in k",
         "applies_to": "core",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\core\\filler.py",
+        "source": "FormFiller_IA\\core\\filler.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -409,7 +409,7 @@
       "fact": {
         "rule": "\"\"\"\nsap_crm.py — SAP CRM WebUI Knowledge Module for FormFiller_IA Motor\n====================================================================\nBased on SAP official documentation and real-world testing.\n\nThis module encapsulates EVERYTHING the motor needs to know about SAP CRM WebUI:\n- Frame hierarchy and navigation\n- HTMLB/THTMLB/CHTMLB control model\n- Event system (ur.js framework)\n- CSS classes for element detection\n- Dropdown/popup/search help handling\n- Dynamic ID patterns\n- Section-aware operations\n\nSources:\n- SAP Help Portal: CRM Web Client UI Framework\n- SAP Community: BSP In-Depth: Using the HTMLB Event System\n- SAP CRM UI Cookbook\n- Playwright-SAP automation patterns\n- Real testing against SAP CRM 7.0 WebUI (March 2026)\n\"\"\"\n\n",
         "applies_to": "core",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\core\\sap_crm.py",
+        "source": "FormFiller_IA\\core\\sap_crm.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -434,7 +434,7 @@
       "fact": {
         "rule": "ook\n- Playwright-SAP automation patterns\n- Real testing against SAP CRM 7.0 WebUI (March 2026)\n\"\"\"\n\n# =========================================================================\n# SAP CRM FRAME HIERARCHY\n# =========================================================================\n# SAP CRM WebUI uses a fixed frame hierarchy:\n#\n# main page (login page or redirect)\n#   └── frame[0]: \"CRMApplicationFrame\" or similar\n#       ├── frame[1]: Header/NavBar area (navigation links, breadcrumbs)\n#       ├── frame[2]: NavBar left panel (Home, Activities, Sales Cycle...)\n#       └── frame[3]: WorkArea (main content - forms, tables, results)\n#           └── sometimes frame[3+]: Popup/modal dialogs\n#\n# After login, the URL contains a session token like:\n",
         "applies_to": "core",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\core\\sap_crm.py",
+        "source": "FormFiller_IA\\core\\sap_crm.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -459,7 +459,7 @@
       "fact": {
         "rule": "── sometimes frame[3+]: Popup/modal dialogs\n#\n# After login, the URL contains a session token like:\n# /sap(ZT1UbFJQ...)/bc/bsp/sap/crm_ui_start/default.htm\n#\n# The WorkArea frame (usually index 3) is where ALL form interactions happen.\n# Navigation links are in frame 2-3 (left nav bar).\n# The frame indices can shift — always identify by URL pattern or content.\n\nFRAME_DETECTION = {\n    # URL patterns to identify each frame type\n    \"login\": [\"crm_logon\", \"sap-client=\"],\n    \"main\": [\"crm_ui_start\", \"default.htm\"],\n    \"navbar\": [\"NavBarFrame\", \"navbar\"],\n    \"workarea\": [\"WorkAreaFrame\", \"workarea\", \"CRMApplicationFrame\"],\n    \"header\": [\"HeaderFrame\", \"header\"],\n    \"popup\": [\"crm_thtmlb_util\", \"F4Frameset\", \"popup\", \"modal\"],\n}\n\n",
         "applies_to": "core",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\core\\sap_crm.py",
+        "source": "FormFiller_IA\\core\\sap_crm.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -484,7 +484,7 @@
       "fact": {
         "rule": "r\": [\"HeaderFrame\", \"header\"],\n    \"popup\": [\"crm_thtmlb_util\", \"F4Frameset\", \"popup\", \"modal\"],\n}\n\n# =========================================================================\n# HTMLB / THTMLB / CHTMLB CONTROL MODEL\n# =========================================================================\n# SAP CRM does NOT use standard HTML controls. It uses BSP extensions:\n#\n# HTMLB = HyperText Markup Language Business (base layer)\n#   <htmlb:inputField id=\"...\" value=\"...\" />\n#   Renders as: <input id=\"C29_W81_V82_...\" class=\"urEdf2TxtEnbl\" ...>\n#\n# THTMLB = Technical HTMLB (enhanced controls for CRM)\n#   <thtmlb:inputField id=\"...\" />\n#   Adds: search help buttons, value help (F4), formatting\n#\n# CHTMLB = Configurable HTMLB (runtime-configurable by UI config tool)\n#   <chtmlb:config ... />\n",
         "applies_to": "core",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\core\\sap_crm.py",
+        "source": "FormFiller_IA\\core\\sap_crm.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -509,7 +509,7 @@
       "fact": {
         "rule": "\n#\n# CHTMLB = Configurable HTMLB (runtime-configurable by UI config tool)\n#   <chtmlb:config ... />\n#   Rendered based on UI configuration, not hardcoded in BSP\n#\n# Key insight: ALL these render to standard HTML with SAP-specific CSS classes\n# and JavaScript event handlers attached via ur.js framework.\n\n# CSS classes used by SAP CRM for different element states\nSAP_CSS_CLASSES = {\n    # Input fields\n    \"input_enabled\": [\"urEdf2TxtEnbl\", \"urEdfTxtEnbl\", \"sapEdfTxtEnbl\"],\n    \"input_disabled\": [\"urEdf2TxtDsbl\", \"urEdfTxtDsbl\"],\n    \"input_readonly\": [\"urEdf2TxtRdOn\", \"urEdfTxtRdOn\"],\n    \"input_error\": [\"urEdf2TxtErr\", \"urEdfTxtErr\"],\n    \"input_required\": [\"urEdf2TxtReq\"],\n\n    # Buttons and links\n    \"button\": [\"urBtnStd\", \"urBtnEmph\", \"urBtnStdSmall\"],\n",
         "applies_to": "core",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\core\\sap_crm.py",
+        "source": "FormFiller_IA\\core\\sap_crm.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -534,7 +534,7 @@
       "fact": {
         "rule": "\"urEdf2TxtReq\"],\n\n    # Buttons and links\n    \"button\": [\"urBtnStd\", \"urBtnEmph\", \"urBtnStdSmall\"],\n    \"toolbar_button\": [\"urTbBtnStd\", \"urTbBtnDsbl\"],\n    \"link\": [\"urLnkStd\", \"urLnkNav\"],\n\n    # Tables\n    \"table\": [\"urST\", \"urSTTblBdr\"],\n    \"table_row\": [\"urSTTblRow\", \"urSTSelRow\"],\n    \"table_cell\": [\"urSTTblDat\"],\n    \"table_header\": [\"urSTTblHdr\"],\n\n    # Messages (error/warning/info bar at top-right)\n    \"message_error\": [\"urMsgBarErr\", \"urMsgBarCrit\"],\n    \"message_warning\": [\"urMsgBarWrn\"],\n    \"message_info\": [\"urMsgBarInf\", \"urMsgBarSuc\"],\n    \"message_bar\": [\"urMessageBar\", \"urMsgBar\"],\n\n    # Dropdowns and listboxes\n    \"dropdown\": [\"urDDLstBox\", \"urDDBtn\"],\n    \"listbox\": [\"lsListbox\", \"urLbxLst\"],\n    \"listbox_item\": [\"lsListbox__item\", \"urLbxItm\"],\n\n",
         "applies_to": "core",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\core\\sap_crm.py",
+        "source": "FormFiller_IA\\core\\sap_crm.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -559,7 +559,7 @@
       "fact": {
         "rule": "\"],\n    \"listbox\": [\"lsListbox\", \"urLbxLst\"],\n    \"listbox_item\": [\"lsListbox__item\", \"urLbxItm\"],\n\n    # Popups and modals\n    \"popup_overlay\": [\"urPopOverlay\", \"urPop\"],\n    \"popup_content\": [\"urPopCnt\"],\n\n    # Loading indicators\n    \"loading\": [\"urBusyInd\", \"urLoadInd\"],\n\n    # Tabs and assignment blocks\n    \"tab\": [\"urTbsTab\", \"urTabStripTab\"],\n    \"assignment_block\": [\"urGrp\", \"urGrpTitle\"],\n}\n\n# =========================================================================\n# SAP CRM DYNAMIC ID PATTERNS\n# =========================================================================\n# SAP generates IDs with this pattern:\n#   C{component}_{W{window}_{V{view}_{field_name}\n#\n# Examples:\n#   C29_W81_V82_V83_search_parameters[1].VALUE1\n#   C36_W96_V97_ztab00003l_table[1].zzfld00001f\n",
         "applies_to": "core",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\core\\sap_crm.py",
+        "source": "FormFiller_IA\\core\\sap_crm.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -584,7 +584,7 @@
       "fact": {
         "rule": "es:\n#   C29_W81_V82_V83_search_parameters[1].VALUE1\n#   C36_W96_V97_ztab00003l_table[1].zzfld00001f\n#   C14_W43_V44_SavedSearches\n#\n# The prefix (C29_W81_V82_V83_) changes EVERY session.\n# The suffix (search_parameters[1].VALUE1) is STABLE.\n#\n# Strategy: ALWAYS use suffix-based matching, never full ID matching.\n\n# Known stable ID suffixes in SAP CRM\nK",
         "applies_to": "core",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\core\\sap_crm.py",
+        "source": "FormFiller_IA\\core\\sap_crm.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -609,7 +609,7 @@
       "fact": {
         "rule": "\"\"\"\norchestrator.py — Main Scan-Fill-Scan Cycle for FormFiller_IA\n===============================================================\nCoordinates all core modules into the complete form-filling pipeline:\nNavigate -> wait_ready -> scan -> load/record map -> fill fields -> verify.\n\"\"\"\nimport time\nimport uuid\nfrom typing import Optional\n\nfrom config import CDP_PORT, CDP_HOST, SESSIONS_DIR\nfrom core.scanner import Scanner, ScanLevel\nfrom core.waiter import AdaptiveWaiter\nfrom core.filler import Filler, FillResult\nfrom core.recorder import FormRecorder\nfrom core.dropdown import DropdownHandler\nfrom core.popup import PopupHandler\nfrom core.error_handler import ErrorHandler, ErrorType\nfrom core.anti_loop import AntiLoop, AntiLoopAction\n\n",
         "applies_to": "core",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\core\\orchestrator.py",
+        "source": "FormFiller_IA\\core\\orchestrator.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -634,7 +634,7 @@
       "fact": {
         "rule": "e.error_handler import ErrorHandler, ErrorType\nfrom core.anti_loop import AntiLoop, AntiLoopAction\n\n# ---------------------------------------------------------------------------\n# FillFormResult\n# ---------------------------------------------------------------------------\n\nclass FillFormResult:\n    \"\"\"Final outcome of a complete form-filling session.\"\"\"\n\n    def __init__(\n        self,\n        success: bool = False,\n        fields_filled: int = 0,\n        fields_failed: int = 0,\n        fields_skipped: int = 0,\n        total_fields: int = 0,\n        accuracy: float = 0.0,\n        duration_ms: float = 0.0,\n        details: list = None,\n        session_id: str = \"\",\n        screenshot_path: str = \"\",\n        errors: list = None,\n    ):\n        self.success = success\n",
         "applies_to": "core",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\core\\orchestrator.py",
+        "source": "FormFiller_IA\\core\\orchestrator.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -659,7 +659,7 @@
       "fact": {
         "rule": "      screenshot_path: str = \"\",\n        errors: list = None,\n    ):\n        self.success = success\n        self.fields_filled = fields_filled\n        self.fields_failed = fields_failed\n        self.fields_skipped = fields_skipped\n        self.total_fields = total_fields\n        self.accuracy = accuracy\n        self.duration_ms = duration_ms\n        self.details = details or []\n        self.session_id = session_id\n        self.screenshot_path = screenshot_path\n        self.errors = errors or []\n\n    def __repr__(self) -> str:\n        return (\n            f\"<FillFormResult success={self.success} \"\n            f\"filled={self.fields_filled}/{self.total_fields} \"\n            f\"accuracy={self.accuracy:.1%} \"\n            f\"duration={self.duration_ms:.0f}ms>\"\n        )\n\n",
         "applies_to": "core",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\core\\orchestrator.py",
+        "source": "FormFiller_IA\\core\\orchestrator.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -684,7 +684,7 @@
       "fact": {
         "rule": "      f\"accuracy={self.accuracy:.1%} \"\n            f\"duration={self.duration_ms:.0f}ms>\"\n        )\n\n# ---------------------------------------------------------------------------\n# Orchestrator\n# ---------------------------------------------------------------------------\n\nclass Orchestrator:\n    \"\"\"\n    Main orchestrator that drives the scan-fill-scan cycle.\n\n    Coordinates Scanner, Filler, Waiter, Recorder, DropdownHandler,\n    PopupHandler, ErrorHandler, and AntiLoop into a cohesive pipeline.\n    \"\"\"\n\n    def __init__(\n        self,\n        page=None,\n        scanner: Scanner = None,\n        filler: Filler = None,\n        waiter: AdaptiveWaiter = None,\n        recorder: FormRecorder = None,\n        dropdown_handler: DropdownHandler = None,\n        popup_handler: PopupHandler = None,\n",
         "applies_to": "core",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\core\\orchestrator.py",
+        "source": "FormFiller_IA\\core\\orchestrator.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -709,7 +709,7 @@
       "fact": {
         "rule": "None,\n        dropdown_handler: DropdownHandler = None,\n        popup_handler: PopupHandler = None,\n        error_handler: ErrorHandler = None,\n        anti_loop: AntiLoop = None,\n        selector_memory=None,\n        session_log=None,\n    ):\n        self.page = page\n        self.scanner = scanner\n        self.filler = filler\n        self.waiter = waiter\n        self.recorder = recorder\n        self.dropdown_handler = dropdown_handler\n        self.popup_handler = popup_handler\n        self.error_handler = error_handler\n        self.anti_loop = anti_loop\n        self.selector_memory = selector_memory\n        self.session_log = session_log\n\n    # -- main pipeline -------------------------------------------------------\n\n    def fill_form(\n        self,\n        form_name: str,\n",
         "applies_to": "core",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\core\\orchestrator.py",
+        "source": "FormFiller_IA\\core\\orchestrator.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -734,7 +734,7 @@
       "fact": {
         "rule": "-----------------------------------------\n\n    def fill_form(\n        self,\n        form_name: str,\n        data: dict,\n        url: str = None,\n        record_if_new: bool = True,\n    ) -> FillFormResult:\n        \"\"\"\n        Execute the complete form-filling pipeline.\n\n        Steps:\n        1. Navigate if url provided\n        2. wait_ready()\n        3. scan_full()\n        4. Load or record form map\n        5. For each field:\n           a. wait_ready()\n           b. filler.fill() with cascading strategy\n           c. error_handler.check() -> classify -> react\n           d. anti_loop.check() -> protect against infinite loops\n           e. scanner.scan(decidir_nivel()) -- intelligent re-scan\n           f. handle_changes() -- new fields, popups\n        6. Final scan_full() to verify\n",
         "applies_to": "core",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\core\\orchestrator.py",
+        "source": "FormFiller_IA\\core\\orchestrator.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -759,7 +759,7 @@
       "fact": {
         "rule": "re-scan\n           f. handle_changes() -- new fields, popups\n        6. Final scan_full() to verify\n        7. take_screenshot()\n        8. Return FillFormResult\n        \"\"\"\n        self._ensure_components()\n\n        session_id = str(uuid.uuid4())[:8]\n        t0 = time.time()\n        details = []\n        errors_list = []\n        fields_filled = 0\n        fields_failed = 0\n        fields_skipped = 0\n\n        print(f\"\\n{'='*60}\")\n        print(f\"[Orchestrator] Session {session_id}: Filling form '{form_name}'\")\n        print(f\"[Orchestrator] Data fields: {list(data.keys())}\")\n        print(f\"{'='*60}\")\n\n        # Reset anti-loop for this form\n        self.anti_loop.reset()\n\n        # Step 1: Navigate if url provided\n        if url:\n            try:\n",
         "applies_to": "core",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\core\\orchestrator.py",
+        "source": "FormFiller_IA\\core\\orchestrator.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -784,7 +784,7 @@
       "fact": {
         "rule": "self.anti_loop.reset()\n\n        # Step 1: Navigate if url provided\n        if url:\n            try:\n                print(f\"[Orchestrator] Navigating to: {url}\")\n                self.page.goto(url, wait_until=\"domcontentloaded\", timeout=30000)\n            except Exception as e:",
         "applies_to": "core",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\core\\orchestrator.py",
+        "source": "FormFiller_IA\\core\\orchestrator.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -809,7 +809,7 @@
       "fact": {
         "rule": "\"\"\"\nwaiter.py — Adaptive Polling for FormFiller_IA\n===============================================\nWaits for page readiness, field presence, and value stability\nusing an adaptive polling strategy (50ms / 100ms / 200ms).\n\"\"\"\nimport time\nfrom typing import Optional\n\nfrom config import POLL_BASE_MS, WAIT_TIMEOUT_S\nfrom core.scanner import ScanLevel\nfrom core.scanner import Scanner, ScanResult\n\nclass AdaptiveWaiter:\n    \"\"\"Adaptive wait engine that increases poll intervals over time.\"\"\"\n\n    def __init__(\n        self,\n        scanner: Scanner,\n        base_ms: int = POLL_BASE_MS,\n        max_wait_s: float = WAIT_TIMEOUT_S,\n        stability_checks: int = 3,\n    ):\n        self.scanner = scanner\n        self.base_ms = base_ms\n        self.max_wait_s = max_wait_s\n",
         "applies_to": "core",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\core\\waiter.py",
+        "source": "FormFiller_IA\\core\\waiter.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -834,7 +834,7 @@
       "fact": {
         "rule": "\n        self.scanner = scanner\n        self.base_ms = base_ms\n        self.max_wait_s = max_wait_s\n        self.stability_checks = stability_checks\n\n    # -- public API ----------------------------------------------------------\n\n    def wait_ready(self, page, timeout_s: float = None) -> ScanResult:\n        \"\"\"\n        Wait for the page DOM to stabilize across ALL frames.\n\n        Uses scan_full (all frames) instead of scan_frame (main only).\n        SAP CRM processes changes in sub-frames — scanning only the main\n        frame always returns stable immediately (false positive).\n\n        Also checks for SAP loading indicators before considering stable.\n\n        Returns the final ScanResult once stable, or the last result on timeout.\n        \"\"\"\n",
         "applies_to": "core",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\core\\waiter.py",
+        "source": "FormFiller_IA\\core\\waiter.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -859,7 +859,7 @@
       "fact": {
         "rule": "able.\n\n        Returns the final ScanResult once stable, or the last result on timeout.\n        \"\"\"\n        timeout = timeout_s or self.max_wait_s\n        t0 = time.time()\n        last_hash = None\n        stable_count = 0\n        last_result: Optional[ScanResult] = None\n\n        while (time.time() - t0) < timeout:\n            elapsed = time.time() - t0\n            interval_ms = self._get_poll_interval_ms(elapsed)\n\n            try:\n                # scan_full scans ALL frames, not just main\n                result = self.scanner.scan_full()\n            except Exception as e:\n                print(f\"[Waiter] scan error during wait_ready: {e}\")\n                time.sleep(interval_ms / 1000.0)\n                continue\n\n            last_result = result\n\n",
         "applies_to": "core",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\core\\waiter.py",
+        "source": "FormFiller_IA\\core\\waiter.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -884,7 +884,7 @@
       "fact": {
         "rule": "       time.sleep(interval_ms / 1000.0)\n                continue\n\n            last_result = result\n\n            # Check for SAP loading indicators in any frame\n            loading = False\n            try:\n                for fr in page.frames:\n                    try:\n                        is_loading = fr.evaluate(\"\"\"() => {\n                            var sels = ['.urBusyInd', '.urLoadInd', '#_LoadingPlaceholder_',\n                                        '.sapUiLocalBusyIndicator', '[id*=\"LOADING\"]'];\n                            for (var s of sels) {\n                                var el = document.querySelector(s);\n                                if (el && el.offsetWidth > 0) return true;\n                            }\n                            return false;\n",
         "applies_to": "core",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\core\\waiter.py",
+        "source": "FormFiller_IA\\core\\waiter.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -909,7 +909,7 @@
       "fact": {
         "rule": "fsetWidth > 0) return true;\n                            }\n                            return false;\n                        }\"\"\")\n                        if is_loading:\n                            loading = True\n                            break\n                    except:\n                        continue\n            except:\n                pass\n\n            if loading:\n                # SAP is loading — reset stability counter\n                stable_count = 0\n                last_hash = None\n                time.sleep(interval_ms / 1000.0)\n                continue\n\n            if result.dom_hash == last_hash:\n                stable_count += 1\n                if stable_count >= self.stability_checks:\n                    print(\n",
         "applies_to": "core",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\core\\waiter.py",
+        "source": "FormFiller_IA\\core\\waiter.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -934,7 +934,7 @@
       "fact": {
         "rule": "ble_count += 1\n                if stable_count >= self.stability_checks:\n                    print(\n                        f\"[Waiter] Page stable after {elapsed:.2f}s \"\n                        f\"(hash={result.dom_hash[:8]}, checks={stable_count})\"\n                    )\n                    return result\n            else:\n                stable_count = 1\n                last_hash = result.dom_hash\n\n            time.sleep(interval_ms / 1000.0)\n\n        print(f\"[Waiter] wait_ready timeout after {timeout}s\")\n        return last_result or ScanResult(\n            level=ScanLevel.FULL,\n            timestamp=time.time(),\n            dom_hash=\"timeout\",\n            fields=[],\n            elements=[],\n            iframes=[],\n            url=\"\",\n            raw={\"timeout\": True},\n        )\n\n",
         "applies_to": "core",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\core\\waiter.py",
+        "source": "FormFiller_IA\\core\\waiter.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -959,7 +959,7 @@
       "fact": {
         "rule": "ments=[],\n            iframes=[],\n            url=\"\",\n            raw={\"timeout\": True},\n        )\n\n    def wait_for_row_change(self, page, field_id: str, timeout_s: float = 8.0) -> bool:\n        \"\"\"Wait until SAP finishes processing a field (e.g., product lookup).\n\n        After filling a product ID and pressing Enter, SAP does a server roundtrip\n        to look up the product. This method waits until:\n        1. The row containing the field has MORE filled inputs than before, OR\n        2. The DOM hash changes at least TWICE (initial change + stabilize), OR\n        3. Timeout\n\n        This is NOT a simple DOM stability check — it specifically waits for SAP\n        to populate additional fields in the same row.\n        \"\"\"\n        t0 = time.time()\n        initial_hash = None\n",
         "applies_to": "core",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\core\\waiter.py",
+        "source": "FormFiller_IA\\core\\waiter.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -984,7 +984,7 @@
       "fact": {
         "rule": "additional fields in the same row.\n        \"\"\"\n        t0 = time.time()\n        initial_hash = None\n        hash_changes = 0\n\n        # Get initial state: count filled inputs in the row\n        initial_filled = self._count_filled_in_row(page, field_id)\n        print(f\"[Waiter] wait_for_row_change: initial filled={initial_fill",
         "applies_to": "core",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\core\\waiter.py",
+        "source": "FormFiller_IA\\core\\waiter.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -1009,7 +1009,7 @@
       "fact": {
         "rule": "\"\"\"\nrecorder.py — Record & Replay for FormFiller_IA\n=================================================\nRecords user interactions with a form to build a form_map,\nthen saves/loads maps for later automated replay.\n\"\"\"\nimport json\nimport time\nfrom pathlib import Path\nfrom typing import Optional\n\nfrom config import FORM_MAPS_DIR\nfrom core.file_lock import file_lock\nfrom core.scanner import Scanner\n\nclass FormRecorder:\n    \"\"\"Records form interactions and manages form maps for replay.\"\"\"\n\n    def __init__(self, scanner: Scanner):\n        self.scanner = scanner\n        self._recording = False\n        self._form_name: Optional[str] = None\n        self._recorded_events: list = []\n        self._recording_start: float = 0.0\n\n",
         "applies_to": "core",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\core\\recorder.py",
+        "source": "FormFiller_IA\\core\\recorder.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -1034,7 +1034,7 @@
       "fact": {
         "rule": "al[str] = None\n        self._recorded_events: list = []\n        self._recording_start: float = 0.0\n\n    # -- recording -----------------------------------------------------------\n\n    def start_recording(self, page, form_name: str):\n        \"\"\"\n        Start recording user interactions on the current page.\n\n        Injects a MutationObserver and event listeners that capture\n        field changes, clicks, and form structure.\n        \"\"\"\n        self._form_name = form_name\n        self._recorded_events = []\n        self._recording_start = time.time()\n        self._recording = True\n\n        try:\n            page.evaluate(\"\"\"\n            (() => {\n                if (window.__formfiller_recording) return;\n                window.__formfiller_recording = true;\n",
         "applies_to": "core",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\core\\recorder.py",
+        "source": "FormFiller_IA\\core\\recorder.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -1059,7 +1059,7 @@
       "fact": {
         "rule": "   if (window.__formfiller_recording) return;\n                window.__formfiller_recording = true;\n                window.__formfiller_events = [];\n\n                // Track value changes on inputs\n                document.addEventListener('change', (e) => {\n                    const el = e.target;\n                    if (!el || !el.tagName) return;\n                    const tag = el.tagName.toLowerCase();\n                    if (['input', 'select', 'textarea'].includes(tag)) {\n                        window.__formfiller_events.push({\n                            type: 'change',\n                            timestamp: Date.now(),\n                            tag: tag,\n                            id: el.id || '',\n                            name: el.name || '',\n",
         "applies_to": "core",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\core\\recorder.py",
+        "source": "FormFiller_IA\\core\\recorder.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -1084,7 +1084,7 @@
       "fact": {
         "rule": " tag,\n                            id: el.id || '',\n                            name: el.name || '',\n                            inputType: el.type || '',\n                            value: (el.value || '').substring(0, 500),\n                            checked: el.checked || false,\n                            cssPath: _buildCssPath(el),\n                        });\n                    }\n                }, true);\n\n                // Track focus (to capture field order)\n                document.addEventListener('focus', (e) => {\n                    const el = e.target;\n                    if (!el || !el.tagName) return;\n                    const tag = el.tagName.toLowerCase();\n                    if (['input', 'select', 'textarea'].includes(tag)) {\n",
         "applies_to": "core",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\core\\recorder.py",
+        "source": "FormFiller_IA\\core\\recorder.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -1109,7 +1109,7 @@
       "fact": {
         "rule": " el.tagName.toLowerCase();\n                    if (['input', 'select', 'textarea'].includes(tag)) {\n                        window.__formfiller_events.push({\n                            type: 'focus',\n                            timestamp: Date.now(),\n                            tag: tag,\n                            id: el.id || '',\n                            name: el.name || '',\n                            cssPath: _buildCssPath(el),\n                        });\n                    }\n                }, true);\n\n                // Track clicks on buttons/links\n                document.addEventListener('click', (e) => {\n                    const el = e.target;\n                    if (!el || !el.tagName) return;\n                    const tag = el.tagName.toLowerCase();\n",
         "applies_to": "core",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\core\\recorder.py",
+        "source": "FormFiller_IA\\core\\recorder.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -1134,7 +1134,7 @@
       "fact": {
         "rule": "          if (!el || !el.tagName) return;\n                    const tag = el.tagName.toLowerCase();\n                    if (['button', 'a', 'input'].includes(tag) || el.getAttribute('role') === 'button') {\n                        window.__formfiller_events.push({\n                            type: 'click',\n                            timestamp: Date.now(),\n                            tag: tag,\n                            id: el.id || '',\n                            text: (el.textContent || '').trim().substring(0, 100),\n                            cssPath: _buildCssPath(el),\n                        });\n                    }\n                }, true);\n\n                // MutationObserver to detect new fields\n                const observer = new MutationObserver((mutations) => {\n",
         "applies_to": "core",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\core\\recorder.py",
+        "source": "FormFiller_IA\\core\\recorder.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -1159,7 +1159,7 @@
       "fact": {
         "rule": "bserver to detect new fields\n                const observer = new MutationObserver((mutations) => {\n                    for (const m of mutations) {\n                        for (const node of m.addedNodes) {\n                            if (node.nodeType === 1) {\n                                const inputs = node.querySelectorAll ?\n                                    node.querySelectorAll('input, select, textarea') : [];\n                                if (inputs.length > 0) {\n                                    window.__formfiller_events.push({\n                                        type: 'dom_change',\n                                        timestamp: Date.now(),\n                                        added_fields: inputs.length,\n                                    });\n",
         "applies_to": "core",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\core\\recorder.py",
+        "source": "FormFiller_IA\\core\\recorder.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -1184,7 +1184,7 @@
       "fact": {
         "rule": "                               added_fields: inputs.length,\n                                    });\n                                }\n                            }\n                        }\n                    }\n                });\n                observer.observe(document.body, { childList: true, subtree: true });\n                window.",
         "applies_to": "core",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\core\\recorder.py",
+        "source": "FormFiller_IA\\core\\recorder.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -1209,7 +1209,7 @@
       "fact": {
         "rule": "\"\"\"\nerror_handler.py — Error Detection & Reaction for FormFiller_IA\n================================================================\nDetects on-page error messages (duplicate, required field, invalid value, etc.),\nclassifies them, and provides a reaction strategy.\n\"\"\"\nimport re\nfrom enum import Enum, auto\nfrom typing import Optional\n\nfrom config import JS_DIR\nfrom core.scanner import Scanner\n\ndef _load_js(filename: str) -> str:\n    return (JS_DIR / filename).read_text(encoding=\"utf-8\")\n\n# ---------------------------------------------------------------------------\n# Enums & Data Classes\n# ---------------------------------------------------------------------------\n\nclass ErrorType(Enum):\n    DUPLICADO = auto()\n    CAMPO_REQUERIDO = auto()\n    VALOR_INVALIDO = auto()\n",
         "applies_to": "core",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\core\\error_handler.py",
+        "source": "FormFiller_IA\\core\\error_handler.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -1234,7 +1234,7 @@
       "fact": {
         "rule": "ss ErrorType(Enum):\n    DUPLICADO = auto()\n    CAMPO_REQUERIDO = auto()\n    VALOR_INVALIDO = auto()\n    SESION_EXPIRADA = auto()\n    SIN_PERMISO = auto()\n    BLOQUEADO = auto()\n    DESCONOCIDO = auto()\n\nclass ErrorInfo:\n    \"\"\"Describes a detected on-page error.\"\"\"\n\n    def __init__(\n        self,\n        error_type: ErrorType,\n        message: str,\n        selector: str = \"\",\n        raw_messages: list = None,\n    ):\n        self.type = error_type\n        self.message = message\n        self.selector = selector\n        self.raw_messages = raw_messages or []\n\n    def __repr__(self) -> str:\n        return f\"<ErrorInfo type={self.type.name} message='{self.message[:60]}'>\"\n\nclass ErrorReaction:\n    \"\"\"Prescribes how to react to a detected error.\"\"\"\n\n    def __init__(\n        self,\n",
         "applies_to": "core",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\core\\error_handler.py",
+        "source": "FormFiller_IA\\core\\error_handler.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -1259,7 +1259,7 @@
       "fact": {
         "rule": "orReaction:\n    \"\"\"Prescribes how to react to a detected error.\"\"\"\n\n    def __init__(\n        self,\n        action: str,\n        continuar: bool,\n        max_retries: int = 0,\n        log_message: str = \"\",\n    ):\n        self.action = action          # SKIP, RETRY, ABORT, PAUSE\n        self.continuar = continuar    # Can the form continue filling?\n        self.max_retries = max_retries\n        self.log_message = log_message\n\n    def __repr__(self) -> str:\n        return f\"<ErrorReaction action={self.action} continuar={self.continuar}>\"\n\n# ---------------------------------------------------------------------------\n# Default reaction table\n# ---------------------------------------------------------------------------\n\nREACTIONS = {\n    ErrorType.DUPLICADO: ErrorReaction(\n",
         "applies_to": "core",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\core\\error_handler.py",
+        "source": "FormFiller_IA\\core\\error_handler.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -1284,7 +1284,7 @@
       "fact": {
         "rule": "--------------------------------------------\n\nREACTIONS = {\n    ErrorType.DUPLICADO: ErrorReaction(\n        action=\"SKIP\", continuar=True, max_retries=0,\n        log_message=\"Registro duplicado detectado, saltando\",\n    ),\n    ErrorType.CAMPO_REQUERIDO: ErrorReaction(\n        action=\"RETRY\", continuar=True, max_retries=3,\n        log_message=\"Campo requerido vacio, reintentando\",\n    ),\n    ErrorType.VALOR_INVALIDO: ErrorReaction(\n        action=\"SKIP\", continuar=True, max_retries=0,\n        log_message=\"Valor invalido, saltando campo\",\n    ),\n    ErrorType.SESION_EXPIRADA: ErrorReaction(\n        action=\"ABORT\", continuar=False, max_retries=0,\n        log_message=\"Sesion expirada, abortando\",\n    ),\n    ErrorType.SIN_PERMISO: ErrorReaction(\n",
         "applies_to": "core",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\core\\error_handler.py",
+        "source": "FormFiller_IA\\core\\error_handler.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -1309,7 +1309,7 @@
       "fact": {
         "rule": "\n        log_message=\"Sesion expirada, abortando\",\n    ),\n    ErrorType.SIN_PERMISO: ErrorReaction(\n        action=\"ABORT\", continuar=False, max_retries=0,\n        log_message=\"Sin permisos, abortando\",\n    ),\n    ErrorType.BLOQUEADO: ErrorReaction(\n        action=\"ABORT\", continuar=False, max_retries=0,\n        log_message=\"Cuenta/recurso bloqueado, abortando\",\n    ),\n    ErrorType.DESCONOCIDO: ErrorReaction(\n        action=\"ABORT\", continuar=False, max_retries=0,\n        log_message=\"Error desconocido, abortando por seguridad\",\n    ),\n}\n\n# ---------------------------------------------------------------------------\n# Keyword patterns for classification (Spanish + English)\n# ---------------------------------------------------------------------------\n\n_PATTERNS = {\n",
         "applies_to": "core",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\core\\error_handler.py",
+        "source": "FormFiller_IA\\core\\error_handler.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -1334,7 +1334,7 @@
       "fact": {
         "rule": "glish)\n# ---------------------------------------------------------------------------\n\n_PATTERNS = {\n    ErrorType.DUPLICADO: [\n        r\"duplicad[oa]\", r\"already\\s+exists\", r\"duplicate\", r\"ya\\s+existe\",\n        r\"registro\\s+existente\", r\"clave\\s+duplicada\",\n    ],\n    ErrorType.CAMPO_REQUERIDO: [\n        r\"requerid[oa]\", r\"obligatori[oa]\", r\"required\", r\"campo\\s+vac[ií]o\",\n        r\"must\\s+not\\s+be\\s+empty\", r\"no\\s+puede\\s+estar\\s+vac[ií]o\",\n        r\"is\\s+required\", r\"fill\\s+in\\s+this\\s+field\",\n    ],\n    ErrorType.VALOR_INVALIDO: [\n        r\"inv[aá]lid[oa]\", r\"invalid\", r\"formato\\s+incorrecto\",\n        r\"no\\s+v[aá]lid[oa]\", r\"incorrect\\s+format\", r\"out\\s+of\\s+range\",\n        r\"must\\s+be\\s+a\\s+number\", r\"valor\\s+fuera\\s+de\\s+rango\",\n    ],\n    ErrorType.SESION_EXPIRADA: [\n",
         "applies_to": "core",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\core\\error_handler.py",
+        "source": "FormFiller_IA\\core\\error_handler.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -1359,7 +1359,7 @@
       "fact": {
         "rule": "  r\"must\\s+be\\s+a\\s+number\", r\"valor\\s+fuera\\s+de\\s+rango\",\n    ],\n    ErrorType.SESION_EXPIRADA: [\n        r\"sesi[oó]n\\s+expirada\", r\"session\\s+expired\", r\"timed?\\s*out\",\n        r\"log\\s*in\\s+again\", r\"inicie\\s+sesi[oó]n\", r\"token\\s+expired\",\n    ],\n    ErrorType.SIN_PERMISO: [\n        r\"sin\\s+permiso\", r\"no\\s+autorizado\", r\"not\\s+authorized\", r\"unauthorized\", r\"forbidden\",\n        r\"access\\s+denied\", r\"403\", r\"permiso\\s+denegado\",\n    ],\n    ErrorType.BLOQUEADO: [\n        r\"bloqueado\", r\"blocked\", r\"locked\", r\"suspendid[oa]\",\n        r\"cuenta\\s+bloqueada\", r\"account\\s+locked\", r\"en\\s+uso\\s+por\\s+otro\",\n    ],\n}\n\n# Compile once\n_COMPILED = {\n    etype: [re.compile(p, re.IGNORECASE) for p in patterns]\n    for etype, patterns in _PATTERNS.items()\n}\n\n",
         "applies_to": "core",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\core\\error_handler.py",
+        "source": "FormFiller_IA\\core\\error_handler.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -1384,7 +1384,7 @@
       "fact": {
         "rule": "e: [re.compile(p, re.IGNORECASE) for p in patterns]\n    for etype, patterns in _PATTERNS.items()\n}\n\n# ---------------------------------------------------------------------------\n# Inline JS for error detection (fallback if error_detector.js missing)\n# -----------------------------",
         "applies_to": "core",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\core\\error_handler.py",
+        "source": "FormFiller_IA\\core\\error_handler.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -1409,7 +1409,7 @@
       "fact": {
         "rule": "\"\"\"\ndropdown.py — Custom Dropdown Handler for FormFiller_IA\n========================================================\nHandles non-native dropdowns (custom components, comboboxes, etc.)\nusing a 4-step approach: click trigger, wait for list, scan options, click match.\n\"\"\"\nimport time\nfrom typing import Optional\n\nfrom core.scanner import Scanner\nfrom core.waiter import AdaptiveWaiter\n\nclass DropdownHandler:\n    \"\"\"Detects and interacts with custom dropdown/combobox components.\"\"\"\n\n    def __init__(self, scanner: Scanner, waiter: AdaptiveWaiter):\n        self.scanner = scanner\n        self.waiter = waiter\n\n    # -- public API ----------------------------------------------------------\n\n    def detect(self, page, frame=None) -> list:\n        \"\"\"Detect custom dropdown elements on the page.\"\"\"\n",
         "applies_to": "core",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\core\\dropdown.py",
+        "source": "FormFiller_IA\\core\\dropdown.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -1434,7 +1434,7 @@
       "fact": {
         "rule": " detect(self, page, frame=None) -> list:\n        \"\"\"Detect custom dropdown elements on the page.\"\"\"\n        target = frame or page\n        try:\n            dropdowns = target.evaluate(\"\"\"\n            (() => {\n                const results = [];\n                // Role-based dropdowns\n                const comboboxes = document.querySelectorAll(\n                    '[role=\"combobox\"], [role=\"listbox\"], [aria-haspopup=\"listbox\"], ' +\n                    '[aria-haspopup=\"true\"], .custom-select, .dropdown, .select2-container, ' +\n                    '.chosen-container, .selectize-control, .vs__dropdown-toggle, ' +\n                    '[class*=\"dropdown\"], [class*=\"Dropdown\"]'\n                );\n                const seen = new Set();\n                for (const el of comboboxes) {\n",
         "applies_to": "core",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\core\\dropdown.py",
+        "source": "FormFiller_IA\\core\\dropdown.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -1459,7 +1459,7 @@
       "fact": {
         "rule": "          );\n                const seen = new Set();\n                for (const el of comboboxes) {\n                    const id = el.id || el.className || '';\n                    if (seen.has(id) && id) continue;\n                    if (id) seen.add(id);\n                    const rect = el.getBoundingClientRect();\n                    if (rect.width === 0 || rect.height === 0) continue;\n                    results.push({\n                        tag: el.tagName.toLowerCase(),\n                        id: el.id || '',\n                        classes: String(el.className || '').substring(0, 200),\n                        role: el.getAttribute('role') || '',\n                        ariaExpanded: el.getAttribute('aria-expanded'),\n",
         "applies_to": "core",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\core\\dropdown.py",
+        "source": "FormFiller_IA\\core\\dropdown.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -1484,7 +1484,7 @@
       "fact": {
         "rule": "getAttribute('role') || '',\n                        ariaExpanded: el.getAttribute('aria-expanded'),\n                        ariaLabel: el.getAttribute('aria-label') || '',\n                        text: (el.textContent || '').trim().substring(0, 100),\n                        boundingRect: {\n                            x: Math.round(rect.x),\n                            y: Math.round(rect.y),\n                            width: Math.round(rect.width),\n                            height: Math.round(rect.height),\n                        },\n                    });\n                }\n                return results;\n            })()\n            \"\"\")\n            print(f\"[Dropdown] Detected {len(dropdowns)} custom dropdowns\")\n            return dropdowns\n        except Exception as e:\n",
         "applies_to": "core",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\core\\dropdown.py",
+        "source": "FormFiller_IA\\core\\dropdown.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -1509,7 +1509,7 @@
       "fact": {
         "rule": "ted {len(dropdowns)} custom dropdowns\")\n            return dropdowns\n        except Exception as e:\n            print(f\"[Dropdown] detect error: {e}\")\n            return []\n\n    def select_value(\n        self,\n        page,\n        frame,\n        trigger_selector: str,\n        value: str,\n        list_selector: str = None,\n    ) -> bool:\n        \"\"\"\n        Select a value from a custom dropdown using 4 steps:\n        1. Click the trigger to open the dropdown\n        2. Wait for the options list to appear\n        3. Scan options to find the match\n        4. Click the matching option\n        \"\"\"\n        target = frame or page\n        escaped_trigger = _js_escape(trigger_selector)\n\n        # Step 1: Click the trigger to open the dropdown\n",
         "applies_to": "core",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\core\\dropdown.py",
+        "source": "FormFiller_IA\\core\\dropdown.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -1534,7 +1534,7 @@
       "fact": {
         "rule": "ed_trigger = _js_escape(trigger_selector)\n\n        # Step 1: Click the trigger to open the dropdown\n        if not self._is_dropdown_open(page, frame, trigger_selector):\n            try:\n                target.evaluate(f\"\"\"\n                (() => {{\n                    const el = document.querySelector('{escaped_trigger}');\n                    if (el) {{ el.click(); return true; }}\n                    return false;\n                }})()\n                \"\"\")\n                print(f\"[Dropdown] Clicked trigger: {trigger_selector}\")\n            except Exception as e:\n                print(f\"[Dropdown] Click trigger error: {e}\")\n                return False\n\n        # Step 2: Wait for the options list to appear\n        time.sleep(0.3)  # Brief pause for animation\n",
         "applies_to": "core",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\core\\dropdown.py",
+        "source": "FormFiller_IA\\core\\dropdown.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -1559,7 +1559,7 @@
       "fact": {
         "rule": " # Step 2: Wait for the options list to appear\n        time.sleep(0.3)  # Brief pause for animation\n        list_sel = list_selector or self._guess_list_selector(page, frame, trigger_selector)\n        if list_sel:\n            self.waiter.wait_for_field(page, list_sel, timeout_s=3.0)\n\n        # Step 3: Find the matching option\n        option_selector = self._find_option(page, frame, list_sel, value)\n        if not option_selector:\n            print(f\"[Dropdown] Option not found: '{value}'\")\n            # Close the dropdown\n            try:\n                target.evaluate(\"document.body.click()\")\n            except Exception:\n                pass\n            return False\n\n        # Step 4: Click the matching option\n        try:\n            escaped_opt = _js_escape(option_selector)\n",
         "applies_to": "core",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\core\\dropdown.py",
+        "source": "FormFiller_IA\\core\\dropdown.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -1584,7 +1584,7 @@
       "fact": {
         "rule": "tep 4: Click the matching option\n        try:\n            escaped_opt = _js_escape(option_selector)\n            clicked = target.evaluate(f\"\"\"\n            (() => {{\n                const el = document.querySelector('{escaped_opt}');\n                if (el) {{ el.click(); return true; }}",
         "applies_to": "core",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\core\\dropdown.py",
+        "source": "FormFiller_IA\\core\\dropdown.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -1609,7 +1609,7 @@
       "fact": {
         "rule": "\"\"\"\npopup.py — Popup/Dialog Handler for FormFiller_IA\n===================================================\nDetects and handles browser popups, modal dialogs, and JS alert/confirm/prompt.\n\"\"\"\nimport time\nfrom typing import Optional\n\nfrom core.scanner import Scanner, ScanResult, ScanLevel\nfrom core.waiter import AdaptiveWaiter\n\nclass PopupHandler:\n    \"\"\"Detects popups, modals, and dialogs and provides interaction methods.\"\"\"\n\n    def __init__(self, scanner: Scanner, waiter: AdaptiveWaiter):\n        self.scanner = scanner\n        self.waiter = waiter\n\n    # -- public API ----------------------------------------------------------\n\n    def detect_popups(self, page) -> list:\n        \"\"\"\n        Detect all active popups/dialogs:\n        - New browser pages/tabs (page.context.pages)\n",
         "applies_to": "core",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\core\\popup.py",
+        "source": "FormFiller_IA\\core\\popup.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -1634,7 +1634,7 @@
       "fact": {
         "rule": "\"\"\"\n        Detect all active popups/dialogs:\n        - New browser pages/tabs (page.context.pages)\n        - Modal overlays (role=dialog, .modal, etc.)\n        - JS dialogs (tracked via page.on('dialog'))\n        \"\"\"\n        popups = []\n\n        # 1. Check for new browser pages/tabs\n        try:\n            context_pages = page.context.pages\n            for p in context_pages:\n                if p != page:\n                    try:\n                        popup_url = p.url\n                        popups.append({\n                            \"type\": \"browser_popup\",\n                            \"url\": popup_url,\n                            \"title\": p.title,\n                            \"page\": p,\n                        })\n                    except Exception:\n                        pass\n",
         "applies_to": "core",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\core\\popup.py",
+        "source": "FormFiller_IA\\core\\popup.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -1659,7 +1659,7 @@
       "fact": {
         "rule": "\": p,\n                        })\n                    except Exception:\n                        pass\n        except Exception as e:\n            print(f\"[Popup] Error checking context pages: {e}\")\n\n        # 2. Check for modal overlays on the current page\n        try:\n            modals = page.evaluate(\"\"\"\n            (() => {\n                const results = [];\n                const selectors = [\n                    '[role=\"dialog\"]', '[role=\"alertdialog\"]',\n                    '.modal.show', '.modal.in', '.modal[style*=\"display: block\"]',\n                    '.overlay.active', '.popup.active', '.dialog.open',\n                    '[aria-modal=\"true\"]',\n                    '.ant-modal-wrap:not([style*=\"display: none\"])',\n                    '.MuiDialog-root', '.v-dialog__content--active',\n",
         "applies_to": "core",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\core\\popup.py",
+        "source": "FormFiller_IA\\core\\popup.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -1684,7 +1684,7 @@
       "fact": {
         "rule": "ot([style*=\"display: none\"])',\n                    '.MuiDialog-root', '.v-dialog__content--active',\n                ];\n                for (const sel of selectors) {\n                    const els = document.querySelectorAll(sel);\n                    for (const el of els) {\n                        if (el.offsetWidth > 0 && el.offsetHeight > 0) {\n                            results.push({\n                                type: 'modal',\n                                selector: sel,\n                                id: el.id || '',\n                                title: (el.querySelector('h1, h2, h3, h4, .modal-title, [class*=\"title\"]') || {}).textContent || '',\n                                text: (el.textContent || '').trim().substring(0, 300),\n",
         "applies_to": "core",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\core\\popup.py",
+        "source": "FormFiller_IA\\core\\popup.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -1709,7 +1709,7 @@
       "fact": {
         "rule": "ntent || '',\n                                text: (el.textContent || '').trim().substring(0, 300),\n                                hasCloseButton: !!el.querySelector('.close, .btn-close, [aria-label=\"Close\"], [class*=\"close\"]'),\n                                hasForm: !!el.querySelector('input, select, textarea'),\n                            });\n                        }\n                    }\n                }\n                return results;\n            })()\n            \"\"\")\n            popups.extend(modals)\n        except Exception as e:\n            print(f\"[Popup] Error checking modals: {e}\")\n\n        print(f\"[Popup] Detected {len(popups)} popups/dialogs\")\n        return popups\n\n    def handle_dialog(self, page, popup: dict, action: str = \"accept\") -> bool:\n        \"\"\"\n",
         "applies_to": "core",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\core\\popup.py",
+        "source": "FormFiller_IA\\core\\popup.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -1734,7 +1734,7 @@
       "fact": {
         "rule": "popups\n\n    def handle_dialog(self, page, popup: dict, action: str = \"accept\") -> bool:\n        \"\"\"\n        Handle a detected popup/dialog.\n\n        Args:\n            page: The Playwright page.\n            popup: Dict from detect_popups().\n            action: 'accept', 'dismiss', or 'close'.\n        \"\"\"\n        popup_type = popup.get(\"type\", \"\")\n\n        # Browser popup (new tab/page)\n        if popup_type == \"browser_popup\":\n            popup_page = popup.get(\"page\")\n            if popup_page:\n                try:\n                    if action == \"dismiss\":\n                        popup_page.close()\n                        print(\"[Popup] Browser popup closed (dismissed)\")\n                    else:\n",
         "applies_to": "core",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\core\\popup.py",
+        "source": "FormFiller_IA\\core\\popup.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -1759,7 +1759,7 @@
       "fact": {
         "rule": "                        print(\"[Popup] Browser popup closed (dismissed)\")\n                    else:\n                        print(f\"[Popup] Browser popup accepted (url={popup.get('url', '')})\")\n                    return True\n                except Exception as e:\n                    print(f\"[Popup] Error handling browser popup: {e}\")\n            return False\n\n        # Modal overlay\n        if popup_type == \"modal\":\n            selector = popup.get(\"selector\", \"\")\n            if action in (\"dismiss\", \"close\"):\n                return self._close_modal(page, selector)\n            elif action == \"accept\":\n                return self._accept_modal(page, selector)\n            return False\n\n        # JS dialog (alert/confirm/prompt)\n        if popup_type == \"js_dialog\":\n",
         "applies_to": "core",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\core\\popup.py",
+        "source": "FormFiller_IA\\core\\popup.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -1784,7 +1784,7 @@
       "fact": {
         "rule": "     return False\n\n        # JS dialog (alert/confirm/prompt)\n        if popup_type == \"js_dialog\":\n            # JS dialogs are handled via page.on('dialog') event listener\n            print(f\"[Popup] JS dialog should be handled via event listener (action={action})\")\n            return True",
         "applies_to": "core",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\core\\popup.py",
+        "source": "FormFiller_IA\\core\\popup.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -1809,7 +1809,7 @@
       "fact": {
         "rule": "\"\"\"\nanti_loop.py — Loop Protection for FormFiller_IA\n==================================================\nPrevents the form-filling engine from entering infinite loops\nby tracking consecutive errors, per-field retries, and total time.\n\"\"\"\nimport time\nfrom enum import Enum, auto\n\nclass AntiLoopAction(Enum):\n    CONTINUE = auto()\n    SKIP_CAMPO = auto()\n    ABORT_FORMULARIO = auto()\n    TIMEOUT = auto()\n\nclass AntiLoop:\n    \"\"\"Tracks errors and enforces limits to prevent infinite loops.\"\"\"\n\n    def __init__(\n        self,\n        max_errores: int = 5,\n        max_reintentos_campo: int = 3,\n        max_tiempo_total: int = 300,\n    ):\n        self.max_errores = max_errores\n        self.max_reintentos_campo = max_reintentos_campo\n        self.max_tiempo_total = max_tiempo_total\n\n",
         "applies_to": "core",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\core\\anti_loop.py",
+        "source": "FormFiller_IA\\core\\anti_loop.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -1834,7 +1834,7 @@
       "fact": {
         "rule": " self.max_reintentos_campo = max_reintentos_campo\n        self.max_tiempo_total = max_tiempo_total\n\n        self._errores_consecutivos = 0\n        self._reintentos_por_campo: dict[str, int] = {}\n        self._campos_exitosos = 0\n        self._campos_saltados = 0\n        self._t0 = time.time()\n\n    # -- public API ----------------------------------------------------------\n\n    def registrar_exito(self):\n        \"\"\"Register a successful field fill. Resets consecutive error counter.\"\"\"\n        self._errores_consecutivos = 0\n        self._campos_exitosos += 1\n\n    def registrar_error(self, campo: str) -> AntiLoopAction:\n        \"\"\"\n        Register an error for a specific field.\n\n        Returns the action to take based on current state.\n        \"\"\"\n        self._errores_consecutivos += 1\n",
         "applies_to": "core",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\core\\anti_loop.py",
+        "source": "FormFiller_IA\\core\\anti_loop.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -1859,7 +1859,7 @@
       "fact": {
         "rule": "urns the action to take based on current state.\n        \"\"\"\n        self._errores_consecutivos += 1\n        self._reintentos_por_campo[campo] = self._reintentos_por_campo.get(campo, 0) + 1\n\n        # Check per-field retry limit\n        if self._reintentos_por_campo[campo] >= self.max_reintentos_campo:\n            print(\n                f\"[AntiLoop] Campo '{campo}' alcanzo max reintentos \"\n                f\"({self.max_reintentos_campo}), saltando\"\n            )\n            self._campos_saltados += 1\n            return AntiLoopAction.SKIP_CAMPO\n\n        # Check consecutive error limit\n        if self._errores_consecutivos >= self.max_errores:\n            print(\n                f\"[AntiLoop] {self._errores_consecutivos} errores consecutivos, \"\n                f\"abortando formulario\"\n",
         "applies_to": "core",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\core\\anti_loop.py",
+        "source": "FormFiller_IA\\core\\anti_loop.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -1884,7 +1884,7 @@
       "fact": {
         "rule": "iLoop] {self._errores_consecutivos} errores consecutivos, \"\n                f\"abortando formulario\"\n            )\n            return AntiLoopAction.ABORT_FORMULARIO\n\n        # Check total timeout\n        timeout_action = self._check_timeout()\n        if timeout_action != AntiLoopAction.CONTINUE:\n            return timeout_action\n\n        return AntiLoopAction.CONTINUE\n\n    def check(self) -> AntiLoopAction:\n        \"\"\"Check global constraints (timeout) without registering an event.\"\"\"\n        return self._check_timeout()\n\n    def get_stats(self) -> dict:\n        \"\"\"Return current statistics.\"\"\"\n        elapsed = time.time() - self._t0\n        return {\n            \"errores_consecutivos\": self._errores_consecutivos,\n            \"reintentos_por_campo\": dict(self._reintentos_por_campo),\n",
         "applies_to": "core",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\core\\anti_loop.py",
+        "source": "FormFiller_IA\\core\\anti_loop.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -1909,7 +1909,7 @@
       "fact": {
         "rule": ": self._errores_consecutivos,\n            \"reintentos_por_campo\": dict(self._reintentos_por_campo),\n            \"campos_exitosos\": self._campos_exitosos,\n            \"campos_saltados\": self._campos_saltados,\n            \"tiempo_transcurrido_s\": round(elapsed, 2),\n            \"tiempo_restante_s\": round(max(0, self.max_tiempo_total - elapsed), 2),\n        }\n\n    def reset(self):\n        \"\"\"Reset all counters and timers for a new form.\"\"\"\n        self._errores_consecutivos = 0\n        self._reintentos_por_campo.clear()\n        self._campos_exitosos = 0\n        self._campos_saltados = 0\n        self._t0 = time.time()\n        print(\"[AntiLoop] Counters reset\")\n\n    # -- internal ------------------------------------------------------------\n\n    def _check_timeout(self) -> AntiLoopAction:\n",
         "applies_to": "core",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\core\\anti_loop.py",
+        "source": "FormFiller_IA\\core\\anti_loop.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -1934,7 +1934,7 @@
       "fact": {
         "rule": "--------------------------------------------------\n\n    def _check_timeout(self) -> AntiLoopAction:\n        elapsed = time.time() - self._t0\n        if elapsed >= self.max_tiempo_total:\n            print(\n                f\"[AntiLoop] Timeout total alcanzado: {elapsed:.1f}s >= \"\n                f\"{self.max_tiempo_total}s\"\n            )\n            return AntiLoopAction.TIMEOUT\n        return AntiLoopAction.CONTINUE\n\n    def __repr__(self) -> str:\n        stats = self.get_stats()\n        return (\n            f\"<AntiLoop errores={stats['errores_consecutivos']} \"\n            f\"exitosos={stats['campos_exitosos']} \"\n            f\"saltados={stats['campos_saltados']} \"\n            f\"tiempo={stats['tiempo_transcurrido_s']}s>\"\n        )",
         "applies_to": "core",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\core\\anti_loop.py",
+        "source": "FormFiller_IA\\core\\anti_loop.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -1959,7 +1959,7 @@
       "fact": {
         "rule": "\"\"\"file_lock.py — File locking cross-platform para FormFiller_IA\"\"\"\nimport sys\nimport time\nfrom contextlib import contextmanager\nfrom pathlib import Path\n\ndef _get_lock_dir() -> Path:\n    try:\n        from config import LOCK_DIR\n        return LOCK_DIR\n    except ImportError:\n        return Path.home() / \".formfiller_ia\" / \"locks\"\n\n@contextmanager\ndef file_lock(name: str, timeout: float = 5.0):\n    lock_dir = _get_lock_dir()\n    lock_dir.mkdir(parents=True, exist_ok=True)\n    lockfile = lock_dir / f\"{name}.lock\"\n    fd = None\n    acquired = False\n    try:\n        fd = open(lockfile, \"w\")\n        deadline = time.monotonic() + timeout\n        while time.monotonic() < deadline:\n            try:\n                if sys.platform == \"win32\":\n                    import msvcrt\n",
         "applies_to": "core",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\core\\file_lock.py",
+        "source": "FormFiller_IA\\core\\file_lock.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -1984,7 +1984,7 @@
       "fact": {
         "rule": "ine:\n            try:\n                if sys.platform == \"win32\":\n                    import msvcrt\n                    msvcrt.locking(fd.fileno(), msvcrt.LK_NBLCK, 1)\n                else:\n                    import fcntl\n                    fcntl.flock(fd.fileno(), fcntl.LOCK_EX | fcntl.LOCK_NB)\n                acquired = True\n                break\n            except (OSError, IOError):\n                time.sleep(0.05)\n        yield acquired\n    finally:\n        if fd:\n            try:\n                if acquired:\n                    if sys.platform == \"win32\":\n                        import msvcrt\n                        msvcrt.locking(fd.fileno(), msvcrt.LK_UNLCK, 1)\n                    else:\n                        import fcntl\n",
         "applies_to": "core",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\core\\file_lock.py",
+        "source": "FormFiller_IA\\core\\file_lock.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -2009,7 +2009,7 @@
       "fact": {
         "rule": "ing(fd.fileno(), msvcrt.LK_UNLCK, 1)\n                    else:\n                        import fcntl\n                        fcntl.flock(fd.fileno(), fcntl.LOCK_UN)\n            except (OSError, IOError):\n                pass\n            fd.close()",
         "applies_to": "core",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\core\\file_lock.py",
+        "source": "FormFiller_IA\\core\\file_lock.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -2034,7 +2034,7 @@
       "fact": {
         "rule": "\"\"\"\ncore — FormFiller_IA engine modules\n\"\"\"\nfrom core.scanner import Scanner, ScanLevel, ScanResult\nfrom core.waiter import AdaptiveWaiter\nfrom core.filler import Filler, FillResult\nfrom core.error_handler import ErrorHandler, ErrorType, ErrorInfo, ErrorReaction\nfrom core.anti_loop import AntiLoop, AntiLoopAction\nfrom core.dropdown import DropdownHandler\nfrom core.popup import PopupHandler\nfrom core.recorder import FormRecorder\nfrom core.orchestrator import Orchestrator, FillFormResult\n\n__all__ = [\n    \"Scanner\", \"ScanLevel\", \"ScanResult\",\n    \"AdaptiveWaiter\",\n    \"Filler\", \"FillResult\",\n    \"ErrorHandler\", \"ErrorType\", \"ErrorInfo\", \"ErrorReaction\",\n    \"AntiLoop\", \"AntiLoopAction\",\n    \"DropdownHandler\",\n    \"PopupHandler\",\n    \"FormRecorder\",\n    \"Orchestrator\", \"FillFormResult\",\n]",
         "applies_to": "core",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\core\\__init__.py",
+        "source": "FormFiller_IA\\core\\__init__.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
