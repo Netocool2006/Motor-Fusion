@@ -57,7 +57,7 @@
     "description": "Knowledge domain: general",
     "file": "patterns.json",
     "entry_type": "pattern",
-    "num_entries": 45
+    "num_entries": 168
   },
   "monday": {
     "description": "Knowledge domain: monday",
@@ -117,7 +117,7 @@
     "description": "Knowledge domain: sessions",
     "file": "patterns.json",
     "entry_type": "pattern",
-    "num_entries": 501
+    "num_entries": 534
   },
   "sow": {
     "description": "Knowledge domain: sow",
@@ -204,7 +204,8 @@
       "tmcontainer00000000000000000001",
       "tmcontainer00000000000000000002",
       "true"
-    ]
+    ],
+    "num_entries": 0
   },
   "hooks_ia": {
     "description": "Dominio auto-creado: hooks_ia",
@@ -457,7 +458,8 @@
       "press",
       "text",
       "type"
-    ]
+    ],
+    "num_entries": 0
   },
   "formfiller_ia": {
     "description": "Dominio auto-creado: formfiller_ia",
@@ -1575,7 +1577,8 @@
       "team",
       "version",
       "word"
-    ]
+    ],
+    "num_entries": 0
   },
   "sap_capturas_output": {
     "description": "Dominio auto-creado: sap_capturas_output",
@@ -2093,7 +2096,8 @@
       "time",
       "users",
       "utf"
-    ]
+    ],
+    "num_entries": 0
   },
   "manuales": {
     "description": "Dominio auto-creado: manuales",
@@ -2367,6 +2371,7 @@
       "rules",
       "state",
       "xyz"
-    ]
+    ],
+    "num_entries": 0
   }
 }
