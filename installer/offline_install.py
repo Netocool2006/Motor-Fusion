@@ -58,7 +58,7 @@ MOTOR_FILES = [
     "ENV_SETUP.md",
     "TEST_PLAN.md",
 ]
-MOTOR_DIRS = ["core", "adapters", "hooks"]
+MOTOR_DIRS = ["core", "adapters", "hooks", "dashboard", "knowledge"]
 HOOK_EVENTS = ["PreToolUse", "UserPromptSubmit", "PostToolUse", "Stop"]
 HOOK_SCRIPTS = {
     "PreToolUse":       "session_start.py",
@@ -254,6 +254,122 @@ def copy_embedded_python(bundle_python: Path, dest: Path) -> Path:
 
 
 # ---------------------------------------------------------------------------
+# Paso 2b: Instalar dependencias pip desde wheels offline
+# ---------------------------------------------------------------------------
+
+def _install_wheels_offline(install_dir: Path, python_exe: Path):
+    """
+    Instala dependencias pip desde wheels pre-descargados.
+    Los wheels estan en installer/bundle/wheels/.
+    Si no hay wheels, se salta silenciosamente (instalacion minima).
+    """
+    installer_dir = Path(__file__).resolve().parent
+    wheels_dir = installer_dir / "bundle" / "wheels"
+    getpip = installer_dir / "bundle" / "get-pip.py"
+
+    if not wheels_dir.exists() or not any(wheels_dir.glob("*.whl")):
+        _info("No se encontraron wheels offline. Saltando instalacion de dependencias.")
+        _info("Las dependencias se instalaran cuando haya internet disponible.")
+        return
+
+    wheel_count = len(list(wheels_dir.glob("*.whl")))
+    _info(f"Encontrados {wheel_count} wheels offline")
+
+    # Paso 1: Instalar pip si no existe
+    try:
+        import subprocess
+        result = subprocess.run(
+            [str(python_exe), "-m", "pip", "--version"],
+            capture_output=True, text=True, timeout=30,
+        )
+        if result.returncode != 0:
+            if getpip.exists():
+                _info("Instalando pip...")
+                subprocess.run(
+                    [str(python_exe), str(getpip),
+                     "--no-index", "--find-links", str(wheels_dir)],
+                    capture_output=True, text=True, timeout=120,
+                )
+    except Exception as e:
+        _warn(f"pip check: {e}")
+
+    # Paso 2: Instalar todos los wheels
+    _PACKAGES = [
+        "rich", "chromadb", "sentence-transformers", "torch",
+        "transformers", "huggingface-hub", "tokenizers",
+        "numpy", "scipy", "scikit-learn", "tqdm",
+        "onnxruntime", "httpx", "pydantic", "tenacity",
+        "typing_extensions", "duckduckgo-search",
+    ]
+
+    _info("Instalando dependencias (esto tarda ~2 minutos)...")
+    try:
+        import subprocess
+        result = subprocess.run(
+            [str(python_exe), "-m", "pip", "install",
+             "--no-index", "--find-links", str(wheels_dir),
+             "--quiet", "--disable-pip-version-check"] + _PACKAGES,
+            capture_output=True, text=True, timeout=300,
+        )
+        if result.returncode == 0:
+            _ok(f"Todas las dependencias instaladas correctamente")
+        else:
+            # Intentar una por una
+            _warn("Instalacion masiva fallo. Intentando una por una...")
+            installed = 0
+            for pkg in _PACKAGES:
+                r = subprocess.run(
+                    [str(python_exe), "-m", "pip", "install",
+                     "--no-index", "--find-links", str(wheels_dir),
+                     "--quiet", "--disable-pip-version-check", pkg],
+                    capture_output=True, text=True, timeout=120,
+                )
+                if r.returncode == 0:
+                    installed += 1
+                else:
+                    _warn(f"  {pkg}: fallo")
+            _ok(f"{installed}/{len(_PACKAGES)} paquetes instalados")
+    except Exception as e:
+        _err(f"Error instalando dependencias: {e}")
+
+
+# ---------------------------------------------------------------------------
+# Paso 2c: Pre-cargar modelo de embeddings
+# ---------------------------------------------------------------------------
+
+def _install_model_offline(install_dir: Path, python_exe: Path):
+    """
+    Copia el modelo all-MiniLM-L6-v2 al cache de huggingface.
+    El modelo esta en installer/bundle/model/all-MiniLM-L6-v2/.
+    """
+    installer_dir = Path(__file__).resolve().parent
+    model_src = installer_dir / "bundle" / "model" / "all-MiniLM-L6-v2"
+
+    if not model_src.exists() or not (model_src / "config.json").exists():
+        _info("Modelo no incluido en el paquete. Se descargara en primer uso (requiere internet).")
+        return
+
+    # Determinar cache destino
+    hf_cache = Path.home() / ".cache" / "huggingface" / "hub"
+    model_dest = hf_cache / "models--sentence-transformers--all-MiniLM-L6-v2" / "snapshots" / "offline"
+
+    if model_dest.exists() and (model_dest / "config.json").exists():
+        _ok("Modelo ya instalado en cache")
+        return
+
+    try:
+        model_dest.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copytree(str(model_src), str(model_dest))
+        model_size = sum(
+            f.stat().st_size for f in model_dest.rglob("*") if f.is_file()
+        ) / (1024 * 1024)
+        _ok(f"Modelo instalado ({model_size:.0f} MB): {model_dest}")
+    except Exception as e:
+        _warn(f"No se pudo copiar el modelo: {e}")
+        _info("Se descargara automaticamente en primer uso (requiere internet).")
+
+
+# ---------------------------------------------------------------------------
 # Paso 3: Crear directorio de datos
 # ---------------------------------------------------------------------------
 
@@ -436,6 +552,14 @@ def main() -> int:
         else:
             python_exe = Path(sys.executable)
             _warn(f"Usando Python del sistema: {python_exe}")
+
+        # ---- Paso 2b: Instalar dependencias desde wheels offline ----
+        _sep("Paso 2b/5: Instalando dependencias offline")
+        _install_wheels_offline(install_dir, python_exe)
+
+        # ---- Paso 2c: Pre-cargar modelo de embeddings ----
+        _sep("Paso 2c/5: Configurando modelo de embeddings")
+        _install_model_offline(install_dir, python_exe)
 
         # ---- Paso 3: Crear directorio de datos ----
         _sep("Paso 3/5: Creando directorio de datos")
