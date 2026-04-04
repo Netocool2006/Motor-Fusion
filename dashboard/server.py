@@ -193,6 +193,7 @@ def _run_mass_ingest(scan_path, depth=3, min_files=3, max_files_per_domain=50):
 
                         # -- DEDUP CHECK via ChromaDB similarity --
                         is_duplicate = False
+                        emb = None
                         if dedup_collection and dedup_embedder:
                             try:
                                 emb = dedup_embedder.encode(
@@ -234,6 +235,28 @@ def _run_mass_ingest(scan_path, depth=3, min_files=3, max_files_per_domain=50):
                         try:
                             add_fact(domain_name, fact_key, fact, tags=tags)
                             domain_facts += 1
+
+                            # Index directly into ChromaDB for real-time dedup
+                            if dedup_collection and dedup_embedder:
+                                try:
+                                    doc_id = f"ingest_{domain_name}_{fact_key}"
+                                    if not emb:
+                                        emb = dedup_embedder.encode(
+                                            [chunk[:500]], show_progress_bar=False
+                                        ).tolist()
+                                    dedup_collection.add(
+                                        ids=[doc_id],
+                                        embeddings=emb,
+                                        documents=[chunk[:500]],
+                                        metadatas=[{
+                                            "domain": domain_name,
+                                            "type": "fact",
+                                            "key": fact_key,
+                                            "source": "mass_ingest",
+                                        }],
+                                    )
+                                except Exception:
+                                    pass
                         except Exception:
                             pass
 
