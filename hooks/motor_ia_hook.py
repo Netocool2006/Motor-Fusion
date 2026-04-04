@@ -103,6 +103,13 @@ def search_kb(query):
         answer_len = len(answer)
         similarity = result.get("similarity", 0.5)
 
+        # THRESHOLD MINIMO: si la similitud es menor a 0.55, el KB NO encontro nada real
+        # Esto evita falsos positivos donde ChromaDB retorna algo semi-relacionado
+        # (ej: pregunta sobre nginx y devuelve algo de websockets generico con sim=0.53)
+        if similarity < 0.55:
+            log.info(f"PASO1-KB: found pero similarity={similarity:.3f} < 0.55 threshold -> descartado")
+            return "", 0, similarity
+
         # Cobertura = largo x calidad (similitud)
         if answer_len > 500:
             base_pct = 85
@@ -113,13 +120,18 @@ def search_kb(query):
         else:
             base_pct = 20
 
-        # Factor de similitud: penaliza resultados de baja calidad
-        if similarity >= 0.75:
-            sim_factor = 1.0
+        # Factor de similitud: escala mas agresiva para premiar matches exactos
+        # y penalizar mas los matches mediocres
+        if similarity >= 0.80:
+            sim_factor = 1.0   # Match excelente -> peso completo
+        elif similarity >= 0.70:
+            sim_factor = 0.85  # Match bueno
+        elif similarity >= 0.60:
+            sim_factor = 0.65  # Match aceptable
         elif similarity >= 0.55:
-            sim_factor = 0.5 + (similarity - 0.55) * 2.5
+            sim_factor = 0.45  # Match marginal -> peso reducido
         else:
-            sim_factor = max(0.3, similarity / 0.55 * 0.5)
+            sim_factor = 0.25  # No deberia llegar aqui (threshold 0.55)
 
         kb_pct = int(base_pct * sim_factor)
         kb_pct = max(5, min(90, kb_pct))  # Max 90% - siempre deja espacio para Internet+ML
