@@ -303,6 +303,70 @@
       "properties": {},
       "created_at": "2026-04-04T20:19:08.391555+00:00",
       "updated_at": "2026-04-04T20:19:08.391555+00:00"
+    },
+    "ruta": {
+      "id": "ruta",
+      "type": "concept",
+      "name": "ruta",
+      "properties": {},
+      "created_at": "2026-04-04T20:22:34.089080+00:00",
+      "updated_at": "2026-04-04T20:22:34.089080+00:00"
+    },
+    "de/settings.loca": {
+      "id": "de/settings.loca",
+      "type": "file",
+      "name": "de/settings.loca",
+      "properties": {},
+      "created_at": "2026-04-04T20:40:06.643466+00:00",
+      "updated_at": "2026-04-04T20:40:06.643466+00:00"
+    },
+    "l.json": {
+      "id": "l.json",
+      "type": "file",
+      "name": "l.json",
+      "properties": {},
+      "created_at": "2026-04-04T20:40:06.649352+00:00",
+      "updated_at": "2026-04-04T20:40:06.649352+00:00"
+    },
+    "ClaudeCode/.clau": {
+      "id": "ClaudeCode/.clau",
+      "type": "file",
+      "name": "ClaudeCode/.clau",
+      "properties": {},
+      "created_at": "2026-04-04T20:40:06.656232+00:00",
+      "updated_at": "2026-04-04T20:40:06.656232+00:00"
+    },
+    "Hooks_IA/.clau": {
+      "id": "Hooks_IA/.clau",
+      "type": "file",
+      "name": "Hooks_IA/.clau",
+      "properties": {},
+      "created_at": "2026-04-04T20:40:06.681808+00:00",
+      "updated_at": "2026-04-04T20:40:06.681808+00:00"
+    },
+    "Code/User/settings.json": {
+      "id": "Code/User/settings.json",
+      "type": "file",
+      "name": "Code/User/settings.json",
+      "properties": {},
+      "created_at": "2026-04-04T20:40:06.691000+00:00",
+      "updated_at": "2026-04-04T20:40:06.694918+00:00"
+    },
+    "Hooks_IA/.vsco": {
+      "id": "Hooks_IA/.vsco",
+      "type": "file",
+      "name": "Hooks_IA/.vsco",
+      "properties": {},
+      "created_at": "2026-04-04T20:40:06.699662+00:00",
+      "updated_at": "2026-04-04T20:40:06.699662+00:00"
+    },
+    "settings.loca": {
+      "id": "settings.loca",
+      "type": "file",
+      "name": "settings.loca",
+      "properties": {},
+      "created_at": "2026-04-04T20:40:06.714190+00:00",
+      "updated_at": "2026-04-04T20:40:06.714190+00:00"
     }
   },
   "relations": [
@@ -796,10 +860,10 @@
       "source": "settings.json",
       "target": "de/settings.json",
       "type": "used_with",
-      "weight": 0.5,
-      "context": "ya lo ejecute valida si el mcp esta activo?",
+      "weight": 1.0,
+      "context": "ahora quita que por cada cambio que haces me pidas confirmacion a nivel de los setting tanto de clau",
       "created_at": "2026-04-04T20:16:29.026037+00:00",
-      "updated_at": "2026-04-04T20:16:29.026037+00:00"
+      "updated_at": "2026-04-04T20:26:36.236064+00:00"
     },
     {
       "source": "/Users/ntoledo/.clau",
@@ -832,28 +896,28 @@
       "source": "/.clau",
       "target": "de/settings.json",
       "type": "used_with",
-      "weight": 0.5,
-      "context": "valida de nuevo",
+      "weight": 1.5,
+      "context": "valida de nuevo visual studio sigue pidiendo permisos despues del Developer: Reload Window",
       "created_at": "2026-04-04T20:19:08.376085+00:00",
-      "updated_at": "2026-04-04T20:19:08.376085+00:00"
+      "updated_at": "2026-04-04T20:40:06.634796+00:00"
     },
     {
       "source": "/.clau",
       "target": "/.clau",
       "type": "used_with",
-      "weight": 0.5,
-      "context": "valida de nuevo",
+      "weight": 1.0,
+      "context": "valida de nuevo visual studio sigue pidiendo permisos despues del Developer: Reload Window",
       "created_at": "2026-04-04T20:19:08.378233+00:00",
-      "updated_at": "2026-04-04T20:19:08.378233+00:00"
+      "updated_at": "2026-04-04T20:40:06.637456+00:00"
     },
     {
       "source": "de/settings.json",
       "target": "/.clau",
       "type": "used_with",
-      "weight": 0.5,
-      "context": "valida de nuevo",
+      "weight": 1.0,
+      "context": "valida de nuevo visual studio sigue pidiendo permisos despues del Developer: Reload Window",
       "created_at": "2026-04-04T20:19:08.382247+00:00",
-      "updated_at": "2026-04-04T20:19:08.382247+00:00"
+      "updated_at": "2026-04-04T20:40:06.641645+00:00"
     },
     {
       "source": "de/settings.json",
@@ -908,11 +972,272 @@
       "context": "valida de nuevo",
       "created_at": "2026-04-04T20:19:08.398081+00:00",
       "updated_at": "2026-04-04T20:19:08.398081+00:00"
+    },
+    {
+      "source": "porque",
+      "target": "ruta",
+      "type": "used_with",
+      "weight": 0.7,
+      "context": "valida",
+      "created_at": "2026-04-04T20:22:34.091084+00:00",
+      "updated_at": "2026-04-04T20:22:34.091084+00:00"
+    },
+    {
+      "source": "settings.json",
+      "target": "/.clau",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "ahora quita que por cada cambio que haces me pidas confirmacion a nivel de los setting tanto de clau",
+      "created_at": "2026-04-04T20:26:36.233556+00:00",
+      "updated_at": "2026-04-04T20:26:36.233556+00:00"
+    },
+    {
+      "source": "/.clau",
+      "target": "settings.json",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "ahora quita que por cada cambio que haces me pidas confirmacion a nivel de los setting tanto de clau",
+      "created_at": "2026-04-04T20:26:36.241491+00:00",
+      "updated_at": "2026-04-04T20:26:36.241491+00:00"
+    },
+    {
+      "source": "de/settings.json",
+      "target": "settings.json",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "ahora quita que por cada cambio que haces me pidas confirmacion a nivel de los setting tanto de clau",
+      "created_at": "2026-04-04T20:26:36.243491+00:00",
+      "updated_at": "2026-04-04T20:26:36.243491+00:00"
+    },
+    {
+      "source": "de/settings.json",
+      "target": "de/settings.loca",
+      "type": "used_with",
+      "weight": 1.0,
+      "context": "valida de nuevo visual studio sigue pidiendo permisos despues del Developer: Reload Window",
+      "created_at": "2026-04-04T20:40:06.643466+00:00",
+      "updated_at": "2026-04-04T20:40:06.672490+00:00"
+    },
+    {
+      "source": "/.clau",
+      "target": "de/settings.loca",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "valida de nuevo visual studio sigue pidiendo permisos despues del Developer: Reload Window",
+      "created_at": "2026-04-04T20:40:06.643466+00:00",
+      "updated_at": "2026-04-04T20:40:06.643466+00:00"
+    },
+    {
+      "source": "/.clau",
+      "target": "l.json",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "valida de nuevo visual studio sigue pidiendo permisos despues del Developer: Reload Window",
+      "created_at": "2026-04-04T20:40:06.651721+00:00",
+      "updated_at": "2026-04-04T20:40:06.651721+00:00"
+    },
+    {
+      "source": "de/settings.loca",
+      "target": "l.json",
+      "type": "used_with",
+      "weight": 1.0,
+      "context": "valida de nuevo visual studio sigue pidiendo permisos despues del Developer: Reload Window",
+      "created_at": "2026-04-04T20:40:06.654231+00:00",
+      "updated_at": "2026-04-04T20:40:06.679808+00:00"
+    },
+    {
+      "source": "de/settings.loca",
+      "target": "ClaudeCode/.clau",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "valida de nuevo visual studio sigue pidiendo permisos despues del Developer: Reload Window",
+      "created_at": "2026-04-04T20:40:06.659231+00:00",
+      "updated_at": "2026-04-04T20:40:06.659231+00:00"
+    },
+    {
+      "source": "l.json",
+      "target": "ClaudeCode/.clau",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "valida de nuevo visual studio sigue pidiendo permisos despues del Developer: Reload Window",
+      "created_at": "2026-04-04T20:40:06.661231+00:00",
+      "updated_at": "2026-04-04T20:40:06.661231+00:00"
+    },
+    {
+      "source": "l.json",
+      "target": "de/settings.json",
+      "type": "used_with",
+      "weight": 1.0,
+      "context": "valida de nuevo visual studio sigue pidiendo permisos despues del Developer: Reload Window",
+      "created_at": "2026-04-04T20:40:06.663230+00:00",
+      "updated_at": "2026-04-04T20:40:06.688996+00:00"
+    },
+    {
+      "source": "ClaudeCode/.clau",
+      "target": "de/settings.json",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "valida de nuevo visual studio sigue pidiendo permisos despues del Developer: Reload Window",
+      "created_at": "2026-04-04T20:40:06.665230+00:00",
+      "updated_at": "2026-04-04T20:40:06.665230+00:00"
+    },
+    {
+      "source": "ClaudeCode/.clau",
+      "target": "ClaudeCode/.clau",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "valida de nuevo visual studio sigue pidiendo permisos despues del Developer: Reload Window",
+      "created_at": "2026-04-04T20:40:06.667489+00:00",
+      "updated_at": "2026-04-04T20:40:06.667489+00:00"
+    },
+    {
+      "source": "de/settings.json",
+      "target": "ClaudeCode/.clau",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "valida de nuevo visual studio sigue pidiendo permisos despues del Developer: Reload Window",
+      "created_at": "2026-04-04T20:40:06.670490+00:00",
+      "updated_at": "2026-04-04T20:40:06.670490+00:00"
+    },
+    {
+      "source": "ClaudeCode/.clau",
+      "target": "de/settings.loca",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "valida de nuevo visual studio sigue pidiendo permisos despues del Developer: Reload Window",
+      "created_at": "2026-04-04T20:40:06.674809+00:00",
+      "updated_at": "2026-04-04T20:40:06.674809+00:00"
+    },
+    {
+      "source": "ClaudeCode/.clau",
+      "target": "l.json",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "valida de nuevo visual studio sigue pidiendo permisos despues del Developer: Reload Window",
+      "created_at": "2026-04-04T20:40:06.677808+00:00",
+      "updated_at": "2026-04-04T20:40:06.677808+00:00"
+    },
+    {
+      "source": "de/settings.loca",
+      "target": "Hooks_IA/.clau",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "valida de nuevo visual studio sigue pidiendo permisos despues del Developer: Reload Window",
+      "created_at": "2026-04-04T20:40:06.684949+00:00",
+      "updated_at": "2026-04-04T20:40:06.684949+00:00"
+    },
+    {
+      "source": "l.json",
+      "target": "Hooks_IA/.clau",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "valida de nuevo visual studio sigue pidiendo permisos despues del Developer: Reload Window",
+      "created_at": "2026-04-04T20:40:06.686991+00:00",
+      "updated_at": "2026-04-04T20:40:06.686991+00:00"
+    },
+    {
+      "source": "Hooks_IA/.clau",
+      "target": "de/settings.json",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "valida de nuevo visual studio sigue pidiendo permisos despues del Developer: Reload Window",
+      "created_at": "2026-04-04T20:40:06.691000+00:00",
+      "updated_at": "2026-04-04T20:40:06.691000+00:00"
+    },
+    {
+      "source": "Hooks_IA/.clau",
+      "target": "Code/User/settings.json",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "valida de nuevo visual studio sigue pidiendo permisos despues del Developer: Reload Window",
+      "created_at": "2026-04-04T20:40:06.696924+00:00",
+      "updated_at": "2026-04-04T20:40:06.696924+00:00"
+    },
+    {
+      "source": "de/settings.json",
+      "target": "Code/User/settings.json",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "valida de nuevo visual studio sigue pidiendo permisos despues del Developer: Reload Window",
+      "created_at": "2026-04-04T20:40:06.697657+00:00",
+      "updated_at": "2026-04-04T20:40:06.697657+00:00"
+    },
+    {
+      "source": "de/settings.json",
+      "target": "Hooks_IA/.vsco",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "valida de nuevo visual studio sigue pidiendo permisos despues del Developer: Reload Window",
+      "created_at": "2026-04-04T20:40:06.704728+00:00",
+      "updated_at": "2026-04-04T20:40:06.704728+00:00"
+    },
+    {
+      "source": "Code/User/settings.json",
+      "target": "Hooks_IA/.vsco",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "valida de nuevo visual studio sigue pidiendo permisos despues del Developer: Reload Window",
+      "created_at": "2026-04-04T20:40:06.707727+00:00",
+      "updated_at": "2026-04-04T20:40:06.707727+00:00"
+    },
+    {
+      "source": "Code/User/settings.json",
+      "target": "de/settings.json",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "valida de nuevo visual studio sigue pidiendo permisos despues del Developer: Reload Window",
+      "created_at": "2026-04-04T20:40:06.709726+00:00",
+      "updated_at": "2026-04-04T20:40:06.709726+00:00"
+    },
+    {
+      "source": "Hooks_IA/.vsco",
+      "target": "de/settings.json",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "valida de nuevo visual studio sigue pidiendo permisos despues del Developer: Reload Window",
+      "created_at": "2026-04-04T20:40:06.711879+00:00",
+      "updated_at": "2026-04-04T20:40:06.711879+00:00"
+    },
+    {
+      "source": "Hooks_IA/.vsco",
+      "target": "settings.loca",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "valida de nuevo visual studio sigue pidiendo permisos despues del Developer: Reload Window",
+      "created_at": "2026-04-04T20:40:06.716463+00:00",
+      "updated_at": "2026-04-04T20:40:06.716463+00:00"
+    },
+    {
+      "source": "de/settings.json",
+      "target": "settings.loca",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "valida de nuevo visual studio sigue pidiendo permisos despues del Developer: Reload Window",
+      "created_at": "2026-04-04T20:40:06.719957+00:00",
+      "updated_at": "2026-04-04T20:40:06.719957+00:00"
+    },
+    {
+      "source": "de/settings.json",
+      "target": "l.json",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "valida de nuevo visual studio sigue pidiendo permisos despues del Developer: Reload Window",
+      "created_at": "2026-04-04T20:40:06.723047+00:00",
+      "updated_at": "2026-04-04T20:40:06.723047+00:00"
+    },
+    {
+      "source": "settings.loca",
+      "target": "l.json",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "valida de nuevo visual studio sigue pidiendo permisos despues del Developer: Reload Window",
+      "created_at": "2026-04-04T20:40:06.725053+00:00",
+      "updated_at": "2026-04-04T20:40:06.725053+00:00"
     }
   ],
-  "updated_at": "2026-04-04T20:19:08.398081+00:00",
+  "updated_at": "2026-04-04T20:40:06.725053+00:00",
   "stats": {
-    "entities": 38,
-    "relations": 67
+    "entities": 46,
+    "relations": 96
   }
 }
