@@ -51,15 +51,53 @@ body { font-family:'Segoe UI',system-ui,sans-serif; background:var(--bg); color:
 .comp-item .comp-label { font-size:11px; color:var(--text2); margin-top:2px; }
 footer { text-align:center; padding:16px; color:var(--text2); font-size:11px; }
 @media(max-width:700px) { .grid{grid-template-columns:1fr;} .wide{grid-column:span 1;} }
+
+/* Ingest Button */
+.btn-ingest { background:linear-gradient(135deg,var(--blue),var(--purple)); color:#fff; border:none; padding:8px 18px; border-radius:8px; font-size:13px; font-weight:600; cursor:pointer; transition:all 0.2s; letter-spacing:0.5px; }
+.btn-ingest:hover { transform:translateY(-1px); box-shadow:0 4px 15px rgba(59,130,246,0.4); }
+.btn-ingest:disabled { opacity:0.5; cursor:not-allowed; transform:none; box-shadow:none; }
+
+/* Modal */
+.modal-overlay { display:none; position:fixed; top:0; left:0; right:0; bottom:0; background:rgba(0,0,0,0.7); z-index:1000; justify-content:center; align-items:center; }
+.modal-overlay.active { display:flex; }
+.modal { background:var(--surface); border:1px solid var(--border); border-radius:16px; padding:28px; width:90%; max-width:600px; max-height:85vh; overflow-y:auto; }
+.modal h2 { font-size:18px; margin-bottom:16px; display:flex; align-items:center; gap:10px; }
+.modal-close { background:none; border:none; color:var(--text2); font-size:22px; cursor:pointer; margin-left:auto; padding:0 4px; }
+.modal-close:hover { color:var(--red); }
+.input-group { margin-bottom:16px; }
+.input-group label { display:block; font-size:12px; color:var(--text2); margin-bottom:6px; text-transform:uppercase; letter-spacing:0.5px; }
+.input-group input { width:100%; background:var(--bg); border:1px solid var(--border); border-radius:8px; padding:10px 14px; color:var(--text); font-size:14px; outline:none; }
+.input-group input:focus { border-color:var(--blue); }
+.input-row { display:grid; grid-template-columns:1fr 1fr 1fr; gap:12px; }
+
+/* Progress bar */
+.progress-container { display:none; margin-top:16px; }
+.progress-container.active { display:block; }
+.progress-bar-bg { background:var(--surface2); border-radius:6px; height:10px; overflow:hidden; margin-bottom:8px; }
+.progress-bar-fill { height:100%; background:linear-gradient(90deg,var(--blue),var(--green)); border-radius:6px; transition:width 0.3s; width:0%; }
+.progress-msg { font-size:12px; color:var(--text2); margin-bottom:4px; }
+.progress-stats { display:grid; grid-template-columns:repeat(4,1fr); gap:8px; margin-top:12px; }
+.progress-stat { background:var(--bg); border-radius:8px; padding:8px; text-align:center; }
+.progress-stat .ps-num { font-size:20px; font-weight:700; }
+.progress-stat .ps-label { font-size:10px; color:var(--text2); margin-top:2px; }
+
+/* Results table */
+.results-table { width:100%; border-collapse:collapse; margin-top:16px; font-size:12px; }
+.results-table th { text-align:left; padding:8px; border-bottom:2px solid var(--border); color:var(--text2); text-transform:uppercase; font-size:11px; letter-spacing:0.5px; }
+.results-table td { padding:6px 8px; border-bottom:1px solid var(--border); }
+.results-table tr:hover td { background:rgba(59,130,246,0.05); }
+.badge-new { background:rgba(16,185,129,0.15); color:var(--green); padding:2px 8px; border-radius:4px; font-size:10px; font-weight:600; }
+.badge-skip { background:rgba(245,158,11,0.15); color:var(--yellow); padding:2px 8px; border-radius:4px; font-size:10px; font-weight:600; }
 </style>
 </head>
 <body>
 
 <div class="header">
   <h1><span>Motor_IA</span> System Monitor</h1>
-  <div>
+  <div style="display:flex;align-items:center;gap:12px">
+    <button class="btn-ingest" onclick="openIngestModal()">+ Ingesta Masiva</button>
     <span id="health" class="health-badge">Loading...</span>
-    <span class="ts" id="ts" style="margin-left:12px"></span>
+    <span class="ts" id="ts"></span>
   </div>
 </div>
 
@@ -141,7 +179,81 @@ footer { text-align:center; padding:16px; color:var(--text2); font-size:11px; }
   </div>
 </div>
 
-<footer>Motor_IA v2.0 | RAG: ChromaDB + DuckDuckGo + Claude | Auto-refresh 5s</footer>
+<footer>Motor_IA v2.1 | RAG: ChromaDB + DuckDuckGo + Claude | Auto-refresh 5s</footer>
+
+<!-- Mass Ingest Modal -->
+<div class="modal-overlay" id="ingest-modal">
+  <div class="modal">
+    <h2>
+      Ingesta Masiva de Conocimiento
+      <button class="modal-close" onclick="closeIngestModal()">&times;</button>
+    </h2>
+    <p style="font-size:13px;color:var(--text2);margin-bottom:16px">
+      Escanea un disco o carpeta, detecta dominios automaticamente, crea los que no existen,
+      e ingiere toda la informacion al KB. Duplicados se descartan automaticamente.
+    </p>
+
+    <div class="input-group">
+      <label>Ruta a escanear</label>
+      <input type="text" id="ingest-path" placeholder="Ej: D:\ o C:\Users\mi_usuario\Documents" />
+    </div>
+
+    <div class="input-row">
+      <div class="input-group">
+        <label>Profundidad</label>
+        <input type="number" id="ingest-depth" value="3" min="1" max="10" />
+      </div>
+      <div class="input-group">
+        <label>Min. archivos por dominio</label>
+        <input type="number" id="ingest-min-files" value="3" min="1" max="50" />
+      </div>
+      <div class="input-group">
+        <label>Max. archivos por dominio</label>
+        <input type="number" id="ingest-max-files" value="50" min="5" max="500" />
+      </div>
+    </div>
+
+    <button class="btn-ingest" id="btn-start-ingest" onclick="startIngest()" style="width:100%;padding:12px;font-size:15px">
+      Iniciar Escaneo e Ingesta
+    </button>
+
+    <div class="progress-container" id="ingest-progress">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px">
+        <span class="progress-msg" id="ingest-msg">Preparando...</span>
+        <span style="font-size:13px;font-weight:700" id="ingest-pct">0%</span>
+      </div>
+      <div class="progress-bar-bg">
+        <div class="progress-bar-fill" id="ingest-bar"></div>
+      </div>
+
+      <div class="progress-stats">
+        <div class="progress-stat">
+          <div class="ps-num" id="ig-domains">0</div>
+          <div class="ps-label">Dominios</div>
+        </div>
+        <div class="progress-stat">
+          <div class="ps-num" id="ig-files">0</div>
+          <div class="ps-label">Archivos</div>
+        </div>
+        <div class="progress-stat">
+          <div class="ps-num" id="ig-facts">0</div>
+          <div class="ps-label">Facts</div>
+        </div>
+        <div class="progress-stat">
+          <div class="ps-num" id="ig-dupes">0</div>
+          <div class="ps-label">Duplicados</div>
+        </div>
+      </div>
+
+      <div id="ingest-results" style="margin-top:16px"></div>
+
+      <button class="btn-ingest" id="btn-stop-ingest" onclick="stopIngest()"
+              style="width:100%;padding:10px;margin-top:12px;background:linear-gradient(135deg,var(--red),#b91c1c);display:none">
+        Detener
+      </button>
+    </div>
+  </div>
+</div>
 
 <script>
 function setDot(id, status) {
@@ -237,6 +349,130 @@ async function refresh() {
 
 refresh();
 setInterval(refresh, 5000);
+
+// ---- Mass Ingest Modal ----
+let ingestPolling = null;
+
+function openIngestModal() {
+  document.getElementById('ingest-modal').classList.add('active');
+  // Check if there's an ongoing ingest
+  checkIngestStatus();
+}
+
+function closeIngestModal() {
+  document.getElementById('ingest-modal').classList.remove('active');
+}
+
+// Close modal on overlay click
+document.getElementById('ingest-modal').addEventListener('click', function(e) {
+  if (e.target === this) closeIngestModal();
+});
+
+async function startIngest() {
+  const path = document.getElementById('ingest-path').value.trim();
+  if (!path) { alert('Ingresa una ruta valida'); return; }
+
+  const depth = parseInt(document.getElementById('ingest-depth').value) || 3;
+  const minFiles = parseInt(document.getElementById('ingest-min-files').value) || 3;
+  const maxFiles = parseInt(document.getElementById('ingest-max-files').value) || 50;
+
+  document.getElementById('btn-start-ingest').disabled = true;
+  document.getElementById('ingest-progress').classList.add('active');
+  document.getElementById('btn-stop-ingest').style.display = 'block';
+  document.getElementById('ingest-results').innerHTML = '';
+
+  try {
+    const r = await fetch('/api/ingest/start', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({path, depth, min_files: minFiles, max_files_per_domain: maxFiles}),
+    });
+    const data = await r.json();
+    if (data.error) {
+      document.getElementById('ingest-msg').textContent = 'Error: ' + data.error;
+      document.getElementById('btn-start-ingest').disabled = false;
+      document.getElementById('btn-stop-ingest').style.display = 'none';
+      return;
+    }
+    // Start polling
+    startIngestPolling();
+  } catch(e) {
+    document.getElementById('ingest-msg').textContent = 'Error de conexion';
+    document.getElementById('btn-start-ingest').disabled = false;
+  }
+}
+
+async function stopIngest() {
+  try {
+    await fetch('/api/ingest/stop', {method: 'POST'});
+  } catch(e) {}
+}
+
+function startIngestPolling() {
+  if (ingestPolling) clearInterval(ingestPolling);
+  ingestPolling = setInterval(checkIngestStatus, 2000);
+}
+
+async function checkIngestStatus() {
+  try {
+    const r = await fetch('/api/ingest/status');
+    const s = await r.json();
+
+    // Update progress UI
+    document.getElementById('ingest-bar').style.width = s.progress + '%';
+    document.getElementById('ingest-pct').textContent = s.progress + '%';
+    document.getElementById('ingest-msg').textContent = s.message || '';
+    document.getElementById('ig-domains').textContent = s.domains_found || 0;
+    document.getElementById('ig-files').textContent = s.files_processed || 0;
+    document.getElementById('ig-facts').textContent = s.facts_ingested || 0;
+    document.getElementById('ig-dupes').textContent = s.duplicates_skipped || 0;
+
+    if (s.running) {
+      document.getElementById('ingest-progress').classList.add('active');
+      document.getElementById('btn-start-ingest').disabled = true;
+      document.getElementById('btn-stop-ingest').style.display = 'block';
+      if (!ingestPolling) startIngestPolling();
+    }
+
+    if (!s.running && s.phase && s.phase !== '' && s.progress >= 100) {
+      // Done
+      if (ingestPolling) { clearInterval(ingestPolling); ingestPolling = null; }
+      document.getElementById('btn-start-ingest').disabled = false;
+      document.getElementById('btn-stop-ingest').style.display = 'none';
+
+      // Change bar color to green on success
+      if (s.phase === 'done') {
+        document.getElementById('ingest-bar').style.background = 'var(--green)';
+      } else if (s.phase === 'error') {
+        document.getElementById('ingest-bar').style.background = 'var(--red)';
+      }
+
+      // Show results table
+      if (s.results && Object.keys(s.results).length > 0) {
+        let html = '<table class="results-table"><tr><th>Dominio</th><th>Archivos</th><th>Facts</th><th>Dupes</th><th>Conf.</th><th>Estado</th></tr>';
+        const sorted = Object.entries(s.results).sort((a,b) => (b[1].facts_ingested||0) - (a[1].facts_ingested||0));
+        for (const [name, info] of sorted) {
+          const badge = info.saved
+            ? '<span class="badge-new">NUEVO</span>'
+            : '<span class="badge-skip">SKIP</span>';
+          html += '<tr>'
+            + '<td><strong>' + name + '</strong></td>'
+            + '<td>' + (info.files_found||0) + '</td>'
+            + '<td>' + (info.facts_ingested||0) + '</td>'
+            + '<td>' + (info.duplicates_skipped||0) + '</td>'
+            + '<td>' + ((info.confidence||0)*100).toFixed(0) + '%</td>'
+            + '<td>' + badge + '</td>'
+            + '</tr>';
+        }
+        html += '</table>';
+        document.getElementById('ingest-results').innerHTML = html;
+      }
+    }
+
+  } catch(e) {
+    // Server offline, ignore
+  }
+}
 </script>
 </body>
 </html>

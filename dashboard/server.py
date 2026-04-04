@@ -6,12 +6,270 @@ import json
 import os
 import subprocess
 import time
+import threading
 from http.server import HTTPServer, BaseHTTPRequestHandler
 from pathlib import Path
 from datetime import datetime
 
 _PROJECT = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(_PROJECT))
 HTML_FILE = Path(__file__).parent / "index.html"
+
+# -- Mass Ingest State (shared between thread and handler) --------------------
+_ingest_state = {
+    "running": False,
+    "progress": 0,
+    "message": "Idle",
+    "phase": "",
+    "domains_found": 0,
+    "files_processed": 0,
+    "facts_ingested": 0,
+    "duplicates_skipped": 0,
+    "errors": [],
+    "results": {},
+    "started_at": None,
+    "finished_at": None,
+}
+_ingest_lock = threading.Lock()
+
+
+def _update_ingest_state(**kwargs):
+    with _ingest_lock:
+        _ingest_state.update(kwargs)
+
+
+def _get_ingest_state():
+    with _ingest_lock:
+        return dict(_ingest_state)
+
+
+def _run_mass_ingest(scan_path, depth=3, min_files=3, max_files_per_domain=50):
+    """Runs mass ingest in a background thread with deduplication."""
+    try:
+        _update_ingest_state(
+            running=True, progress=0, message="Iniciando escaneo...",
+            phase="scan", domains_found=0, files_processed=0,
+            facts_ingested=0, duplicates_skipped=0, errors=[],
+            results={}, started_at=datetime.now().isoformat(),
+            finished_at=None,
+        )
+
+        from core.disk_scanner import scan, _cluster_by_folder, \
+            _extract_file_keywords, _suggest_domain_name, _calculate_confidence, \
+            STOP_WORDS as SCAN_STOP_WORDS
+        from core.domain_detector import learn_domain_keywords
+        from core.file_extractor import extract_text, can_extract, chunk_text
+        from core.knowledge_base import add_fact
+
+        # Dedup via ChromaDB similarity check
+        dedup_collection = None
+        dedup_embedder = None
+        try:
+            from core.vector_kb import _get_collection, _get_embedder
+            dedup_collection = _get_collection()
+            dedup_embedder = _get_embedder()
+        except Exception:
+            pass  # If ChromaDB unavailable, skip dedup
+
+        scan_paths = [scan_path]
+
+        # Phase 1: Scan
+        _update_ingest_state(progress=5, message=f"Escaneando {scan_path}...", phase="scan")
+
+        results = scan(scan_paths, depth=depth, min_files=min_files)
+        if not results:
+            _update_ingest_state(
+                running=False, progress=100,
+                message="No se encontraron dominios en la ruta indicada.",
+                phase="done", finished_at=datetime.now().isoformat(),
+            )
+            return
+
+        _update_ingest_state(
+            progress=15, domains_found=len(results),
+            message=f"{len(results)} dominios descubiertos. Creando dominios...",
+            phase="create_domains",
+        )
+
+        # Phase 2: Create domains
+        valid_domains = {}
+        for domain_name, info in results.items():
+            if info["confidence"] >= 0.4 and info["keywords"]:
+                try:
+                    learn_domain_keywords(domain_name, info["keywords"])
+                    info["saved"] = True
+                    valid_domains[domain_name] = info
+                except Exception as e:
+                    info["saved"] = False
+                    _ingest_state["errors"].append(f"Domain {domain_name}: {e}")
+
+        _update_ingest_state(
+            progress=20,
+            message=f"{len(valid_domains)} dominios creados. Ingiriendo archivos...",
+            phase="ingest",
+        )
+
+        # Phase 3: Ingest files with dedup
+        # Re-scan to get file lists (scan() doesn't return files, need clusters)
+        clusters = _cluster_by_folder(scan_paths, depth)
+
+        total_files = 0
+        total_facts = 0
+        total_dupes = 0
+        domain_idx = 0
+        total_domains = max(len(valid_domains), 1)
+
+        for domain_name, info in valid_domains.items():
+            domain_idx += 1
+            pct = 20 + int((domain_idx / total_domains) * 75)
+            _update_ingest_state(
+                progress=pct,
+                message=f"[{domain_idx}/{total_domains}] Ingiriendo: {domain_name}",
+            )
+
+            # Find matching cluster
+            cluster_files = []
+            for folder_name, cluster in clusters.items():
+                suggested = _suggest_domain_name(folder_name, cluster["keywords"])
+                if suggested == domain_name:
+                    cluster_files = cluster["files"]
+                    break
+
+            if not cluster_files:
+                continue
+
+            # Filter extractable files
+            extractable = [f for f in cluster_files if can_extract(f)]
+            extractable.sort(
+                key=lambda f: f.stat().st_size if f.exists() else 0,
+                reverse=True,
+            )
+            extractable = extractable[:max_files_per_domain]
+
+            domain_facts = 0
+            domain_dupes = 0
+
+            for fpath in extractable:
+                try:
+                    text = extract_text(fpath, max_chars=5000)
+                    if not text or len(text.strip()) < 50:
+                        continue
+
+                    chunks = chunk_text(text, chunk_size=800, overlap=100)
+                    total_files += 1
+
+                    for c_idx, chunk in enumerate(chunks):
+                        if not chunk.strip() or len(chunk.strip()) < 30:
+                            continue
+
+                        # -- DEDUP CHECK via ChromaDB similarity --
+                        is_duplicate = False
+                        if dedup_collection and dedup_embedder:
+                            try:
+                                emb = dedup_embedder.encode(
+                                    [chunk[:500]], show_progress_bar=False
+                                ).tolist()
+                                hits = dedup_collection.query(
+                                    query_embeddings=emb, n_results=1,
+                                )
+                                if (hits["distances"] and hits["distances"][0]
+                                        and hits["distances"][0][0] < 0.08):
+                                    # cosine distance < 0.08 means similarity > 0.92
+                                    is_duplicate = True
+                                    domain_dupes += 1
+                            except Exception:
+                                pass
+
+                        if is_duplicate:
+                            continue
+
+                        # Save to KB
+                        fact_key = f"{fpath.stem}_{c_idx}"
+                        tags = []
+                        ext = fpath.suffix.lower()
+                        from core.disk_scanner import EXT_CATEGORIES
+                        if ext in EXT_CATEGORIES:
+                            tags.append(EXT_CATEGORIES[ext])
+                        tags.append(ext.lstrip('.'))
+
+                        fact = {
+                            "rule": chunk,
+                            "applies_to": domain_name,
+                            "source": str(fpath),
+                            "confidence": "observed",
+                            "examples": [],
+                            "exceptions": "",
+                        }
+
+                        try:
+                            add_fact(domain_name, fact_key, fact, tags=tags)
+                            domain_facts += 1
+                        except Exception:
+                            pass
+
+                except Exception:
+                    continue
+
+            total_facts += domain_facts
+            total_dupes += domain_dupes
+
+            info["files_ingested"] = total_files
+            info["facts_ingested"] = domain_facts
+            info["duplicates_skipped"] = domain_dupes
+
+            _update_ingest_state(
+                files_processed=total_files,
+                facts_ingested=total_facts,
+                duplicates_skipped=total_dupes,
+            )
+
+        # Phase 4: Index new content into ChromaDB
+        _update_ingest_state(
+            progress=96,
+            message="Indexando en ChromaDB...",
+            phase="index",
+        )
+        try:
+            from core.vector_kb import index_knowledge_base
+            idx_result = index_knowledge_base()
+            indexed = idx_result.get("indexed", 0)
+        except Exception:
+            indexed = 0
+
+        _update_ingest_state(
+            running=False, progress=100,
+            message=(
+                f"Completo: {len(valid_domains)} dominios, "
+                f"{total_files} archivos, {total_facts} facts, "
+                f"{total_dupes} duplicados omitidos, "
+                f"{indexed} indexados en ChromaDB"
+            ),
+            phase="done", results=_serialize_results(results),
+            finished_at=datetime.now().isoformat(),
+        )
+
+    except Exception as e:
+        _update_ingest_state(
+            running=False, progress=100,
+            message=f"Error fatal: {e}",
+            phase="error",
+            finished_at=datetime.now().isoformat(),
+        )
+
+
+def _serialize_results(results):
+    """Convert results to JSON-safe dict."""
+    safe = {}
+    for name, info in results.items():
+        safe[name] = {
+            "keywords": info.get("keywords", [])[:10],
+            "files_found": info.get("files_found", 0),
+            "confidence": info.get("confidence", 0),
+            "saved": info.get("saved", False),
+            "facts_ingested": info.get("facts_ingested", 0),
+            "duplicates_skipped": info.get("duplicates_skipped", 0),
+        }
+    return safe
 
 
 def _read_log_tail(filepath, n=30):
@@ -29,7 +287,6 @@ def _read_log_tail(filepath, n=30):
 def _check_chromadb():
     """Verifica estado de ChromaDB."""
     try:
-        sys.path.insert(0, str(_PROJECT))
         from core.vector_kb import get_stats
         stats = get_stats()
         return {
@@ -169,6 +426,71 @@ class Handler(BaseHTTPRequestHandler):
     def log_message(self, *args):
         pass
 
+    def _send_json(self, data, status=200):
+        self.send_response(status)
+        self.send_header("Content-Type", "application/json")
+        self.send_header("Access-Control-Allow-Origin", "*")
+        self.end_headers()
+        self.wfile.write(json.dumps(data, ensure_ascii=False, default=str).encode())
+
+    def do_OPTIONS(self):
+        self.send_response(200)
+        self.send_header("Access-Control-Allow-Origin", "*")
+        self.send_header("Access-Control-Allow-Methods", "GET, POST, OPTIONS")
+        self.send_header("Access-Control-Allow-Headers", "Content-Type")
+        self.end_headers()
+
+    def do_POST(self):
+        if self.path == "/api/ingest/start":
+            try:
+                content_length = int(self.headers.get("Content-Length", 0))
+                body = self.rfile.read(content_length)
+                params = json.loads(body) if body else {}
+            except Exception:
+                params = {}
+
+            scan_path = params.get("path", "").strip()
+            if not scan_path:
+                self._send_json({"error": "Se requiere un path"}, 400)
+                return
+
+            # Validate path exists
+            if not Path(scan_path).exists():
+                self._send_json({"error": f"Path no existe: {scan_path}"}, 400)
+                return
+
+            # Check if already running
+            state = _get_ingest_state()
+            if state["running"]:
+                self._send_json({"error": "Ya hay una ingestion en curso"}, 409)
+                return
+
+            depth = int(params.get("depth", 3))
+            min_files = int(params.get("min_files", 3))
+            max_files = int(params.get("max_files_per_domain", 50))
+
+            # Launch in background thread
+            t = threading.Thread(
+                target=_run_mass_ingest,
+                args=(scan_path, depth, min_files, max_files),
+                daemon=True,
+            )
+            t.start()
+
+            self._send_json({"status": "started", "path": scan_path})
+            return
+
+        elif self.path == "/api/ingest/stop":
+            _update_ingest_state(
+                running=False, message="Detenido por el usuario",
+                phase="stopped", finished_at=datetime.now().isoformat(),
+            )
+            self._send_json({"status": "stopped"})
+            return
+
+        self.send_response(404)
+        self.end_headers()
+
     def do_GET(self):
         if self.path == "/":
             try:
@@ -180,6 +502,9 @@ class Handler(BaseHTTPRequestHandler):
             self.send_header("Access-Control-Allow-Origin", "*")
             self.end_headers()
             self.wfile.write(html.encode("utf-8"))
+
+        elif self.path == "/api/ingest/status":
+            self._send_json(_get_ingest_state())
 
         elif self.path == "/api/status":
             now = datetime.now()
@@ -235,11 +560,7 @@ class Handler(BaseHTTPRequestHandler):
                 "log_tail": _read_log_tail(_PROJECT / "core" / "motor_ia_hook.log", 15),
             }
 
-            self.send_response(200)
-            self.send_header("Content-Type", "application/json")
-            self.send_header("Access-Control-Allow-Origin", "*")
-            self.end_headers()
-            self.wfile.write(json.dumps(status, ensure_ascii=False, default=str).encode())
+            self._send_json(status)
 
         else:
             self.send_response(404)
