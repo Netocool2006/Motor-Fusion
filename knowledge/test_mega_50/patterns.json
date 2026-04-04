@@ -1,0 +1,146 @@
+{
+  "domain": "test_mega_50",
+  "description": "Dominio auto-creado: test_mega_50",
+  "entries": {
+    "efe2fd15a21f": {
+      "id": "efe2fd15a21f",
+      "type": "pattern",
+      "key": "test_pattern_1775335923",
+      "solution": {
+        "notes": "Test mega 50 pattern",
+        "strategy": "test"
+      },
+      "tags": [
+        "test",
+        "mega50"
+      ],
+      "error_context": null,
+      "created_at": "2026-04-04T20:52:03.643556+00:00",
+      "updated_at": "2026-04-04T20:52:03.643556+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-04-04T20:52:03.643556+00:00",
+        "access_count": 0
+      }
+    },
+    "210b51bfaa87": {
+      "id": "210b51bfaa87",
+      "type": "fact",
+      "key": "test_fact_1775335923",
+      "fact": {
+        "rule": "Test fact for mega 50",
+        "source": "test"
+      },
+      "tags": [],
+      "created_at": "2026-04-04T20:52:03.679807+00:00",
+      "updated_at": "2026-04-04T20:52:03.679807+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T20:52:03.679807+00:00",
+        "access_count": 0
+      }
+    },
+    "52bb6ca94f9b": {
+      "id": "52bb6ca94f9b",
+      "type": "pattern",
+      "key": "test_pattern_1775336090",
+      "solution": {
+        "notes": "Test mega 50 pattern",
+        "strategy": "test"
+      },
+      "tags": [
+        "test",
+        "mega50"
+      ],
+      "error_context": null,
+      "created_at": "2026-04-04T20:54:50.430917+00:00",
+      "updated_at": "2026-04-04T20:54:50.430917+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-04-04T20:54:50.430917+00:00",
+        "access_count": 0
+      }
+    },
+    "b6e6329e100c": {
+      "id": "b6e6329e100c",
+      "type": "fact",
+      "key": "test_fact_1775336090",
+      "fact": {
+        "rule": "Test fact for mega 50",
+        "source": "test"
+      },
+      "tags": [],
+      "created_at": "2026-04-04T20:54:50.470900+00:00",
+      "updated_at": "2026-04-04T20:54:50.470900+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T20:54:50.470900+00:00",
+        "access_count": 0
+      }
+    },
+    "c68d0618e55d": {
+      "id": "c68d0618e55d",
+      "type": "pattern",
+      "key": "test_pattern_1775336116",
+      "solution": {
+        "notes": "Test mega 50 pattern",
+        "strategy": "test"
+      },
+      "tags": [
+        "test",
+        "mega50"
+      ],
+      "error_context": null,
+      "created_at": "2026-04-04T20:55:16.464627+00:00",
+      "updated_at": "2026-04-04T20:55:16.464627+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-04-04T20:55:16.464627+00:00",
+        "access_count": 0
+      }
+    },
+    "83230eeaa494": {
+      "id": "83230eeaa494",
+      "type": "fact",
+      "key": "test_fact_1775336116",
+      "fact": {
+        "rule": "Test fact for mega 50",
+        "source": "test"
+      },
+      "tags": [],
+      "created_at": "2026-04-04T20:55:16.501477+00:00",
+      "updated_at": "2026-04-04T20:55:16.501477+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T20:55:16.501477+00:00",
+        "access_count": 0
+      }
+    }
+  },
+  "tag_index": {
+    "test": [
+      "efe2fd15a21f",
+      "52bb6ca94f9b",
+      "c68d0618e55d"
+    ],
+    "mega50": [
+      "efe2fd15a21f",
+      "52bb6ca94f9b",
+      "c68d0618e55d"
+    ]
+  },
+  "stats": {
+    "total_entries": 6,
+    "total_lookups": 5,
+    "total_hits": 0
+  }
+}

@@ -43,13 +43,68 @@
       "last_access": "2026-04-04T20:40:06.626412+00:00",
       "access_count": 0,
       "promotion_count": 0
+    },
+    {
+      "key": "valida los archivos nuevamente",
+      "value": "Resultado de la validaciÃ³n completa:\n\n| # | Archivo | Permisos | Modo | Skip Prompt | Status |\n|---|---------|----------|------|-------------|--------|\n| 1 | `~/.claude/settings.json` | `[\"*\"]` | permissive | true | **OK** |\n| 2 | `~/.claude/settings.local.json` | `[\"*\"]` | - | - | **OK** |\n| 3 | `ClaudeCode/.claude/settings.json` | `[\"*\"]` | permissive | true | **OK** |\n| 4 | `ClaudeCode/.claude/settings.local.json` | `[\"*\"]` | - | - | **OK** |\n| 5 | `Hooks_IA/.claude/settings.json` | `[\"*\"]` | permissive | true | **OK** |\n| 6 | `Code/User/settings.json` | bypassPermissions | - | allowDangerously: true | **OK** |\n| 7 | `Hooks_IA/.vscode/settings.json` | bypassPermissions | - | allowDangerously: true | **OK** |\n\n**7 de 7 archivos correctos.** Todos tienen permisos abiertos, sin entradas granulares.\n\nResumen de lo que estÃ¡ configurado:\n- **3 archivos Claude CLI** con `allow: [\"*\"]` + `mode: \"permissive\"` + `skipDangerousModePermissionPrompt: true`\n- **2 archivos local** con `allow: [\"",
+      "domain": "ML",
+      "source": "auto_save",
+      "tier": "hot",
+      "created_at": "2026-04-04T20:44:40.112627+00:00",
+      "last_access": "2026-04-04T20:44:40.112627+00:00",
+      "access_count": 0,
+      "promotion_count": 0
+    },
+    {
+      "key": "mega50_test_1775335932",
+      "value": "valor de prueba mega50",
+      "domain": "test",
+      "source": "unknown",
+      "tier": "hot",
+      "created_at": "2026-04-04T20:52:12.448878+00:00",
+      "last_access": "2026-04-04T20:52:12.451882+00:00",
+      "access_count": 1,
+      "promotion_count": 0
+    },
+    {
+      "key": "mega50_test_1775336092",
+      "value": "valor de prueba mega50",
+      "domain": "test",
+      "source": "unknown",
+      "tier": "hot",
+      "created_at": "2026-04-04T20:54:52.173550+00:00",
+      "last_access": "2026-04-04T20:54:52.173550+00:00",
+      "access_count": 1,
+      "promotion_count": 0
+    },
+    {
+      "key": "mega50_test_1775336125",
+      "value": "valor de prueba mega50",
+      "domain": "test",
+      "source": "unknown",
+      "tier": "hot",
+      "created_at": "2026-04-04T20:55:25.913917+00:00",
+      "last_access": "2026-04-04T20:55:25.921044+00:00",
+      "access_count": 1,
+      "promotion_count": 0
+    },
+    {
+      "key": "creo que ya lo habias construido valida",
+      "value": "## **0 ERRORES - PLAN DE PRUEBAS EXITOSO**\n\n### Resumen de los 3 ciclos:\n\n| Ciclo | PASS | FAIL | CRASH | WARN | Tiempo |\n|-------|------|------|-------|------|--------|\n| CICLO 1 | 144 | 5 | 1 | 3 | 13.1s |\n| CICLO 2 | 141 | 1 | 3 | 2 | 6.0s |\n| **CICLO 3** | **150** | **0** | **0** | **3** | **13.6s** |\n\n### 50 casos de uso probados (153 sub-tests):\n\n- **Casos 01-04:** config.py, KB import, search, add pattern/fact\n- **Casos 05-06:** web_search optimizer, relevancia, busqueda real DuckDuckGo\n- **Casos 07-09:** semantic_search embeddings, cache, busqueda semantica\n- **Casos 10-11:** memory_tiers HOT/WARM/COLD, degradacion\n- **Casos 12-13:** session_harvest, funciones de extraccion\n- **Casos 14-15:** typed_graph entidades, relaciones, inferencia\n- **Caso 16:** domain_graph build, query, export\n- **Casos 17-19:** learning_memory patterns, registro, error detection\n- **Caso 20:** episodic_index SQLite FTS\n- **Caso 21:** dashboard_metrics compute\n- **Caso 22:** async_memory queue\n- **Caso",
+      "domain": "ML",
+      "source": "auto_save",
+      "tier": "hot",
+      "created_at": "2026-04-04T20:56:04.762996+00:00",
+      "last_access": "2026-04-04T20:56:04.762996+00:00",
+      "access_count": 0,
+      "promotion_count": 0
     }
   ],
   "warm": [],
   "cold": [],
-  "updated_at": "2026-04-04T20:40:06.626412+00:00",
+  "updated_at": "2026-04-04T20:56:04.762996+00:00",
   "counts": {
-    "hot": 4,
+    "hot": 9,
     "warm": 0,
     "cold": 0
   }

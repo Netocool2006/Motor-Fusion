@@ -1,0 +1,140 @@
+{
+  "timestamp": "2026-04-04T20:55:27.576010+00:00",
+  "kb_hit_rate": {
+    "hit_rate": 0,
+    "total_queries": 0,
+    "hits": 0
+  },
+  "top_domains": [
+    {
+      "domain": "files",
+      "count": 3034
+    },
+    {
+      "domain": "sessions",
+      "count": 534
+    },
+    {
+      "domain": "ia_word",
+      "count": 411
+    },
+    {
+      "domain": "formfiller_ia",
+      "count": 410
+    },
+    {
+      "domain": "buscador_ia",
+      "count": 389
+    },
+    {
+      "domain": "users",
+      "count": 385
+    },
+    {
+      "domain": "chance1",
+      "count": 366
+    },
+    {
+      "domain": "sap_tierra",
+      "count": 354
+    },
+    {
+      "domain": "ejemplos_de_sow",
+      "count": 353
+    },
+    {
+      "domain": "hooks_ia",
+      "count": 287
+    },
+    {
+      "domain": "sapautomata_ia",
+      "count": 272
+    },
+    {
+      "domain": "hooks_ia_backup_20260331_22050",
+      "count": 244
+    },
+    {
+      "domain": "backup_asistente",
+      "count": 230
+    },
+    {
+      "domain": "sap_tierra_ia",
+      "count": 218
+    },
+    {
+      "domain": "sow",
+      "count": 209
+    }
+  ],
+  "top_patterns": [],
+  "unresolved_errors": [],
+  "temporal_trend": [],
+  "benchmark": {
+    "score": 0,
+    "message": "No hay benchmark ejecutado"
+  },
+  "graph_stats": {
+    "nodes": 104,
+    "edges": 6,
+    "density": 0.0011,
+    "connected_components": 101,
+    "top_connected": [
+      {
+        "domain": "bom",
+        "connections": 3
+      },
+      {
+        "domain": "files",
+        "connections": 3
+      },
+      {
+        "domain": "sap_tierra",
+        "connections": 3
+      },
+      {
+        "domain": "sow",
+        "connections": 3
+      },
+      {
+        "domain": "bpm_bau",
+        "connections": 0
+      },
+      {
+        "domain": "business_rules",
+        "connections": 0
+      },
+      {
+        "domain": "catalog",
+        "connections": 0
+      },
+      {
+        "domain": "claude_chrome",
+        "connections": 0
+      },
+      {
+        "domain": "clients",
+        "connections": 0
+      },
+      {
+        "domain": "contabilidad",
+        "connections": 0
+      }
+    ]
+  },
+  "token_stats": {
+    "avg_efficiency": 0.77,
+    "total_saved": 11600,
+    "measurements": 10,
+    "avg_original": 2892,
+    "avg_final": 1732
+  },
+  "sync_status": {
+    "last_sync": "2026-04-04T20:40:18.404796+00:00",
+    "last_commit": "auto-sync: 5 changes in auto_save",
+    "total_syncs": 4,
+    "errors": [],
+    "pending_changes": 4,
+    "should_sync": false
+  }
+}

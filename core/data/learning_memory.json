@@ -1,0 +1,45 @@
+{
+  "version": "1.0",
+  "patterns": {
+    "59f5dfa3fccd": {
+      "id": "59f5dfa3fccd",
+      "task_type": "test",
+      "context_key": "mega50_test_pattern",
+      "solution": {
+        "method": "test",
+        "notes": "mega50"
+      },
+      "tags": [
+        "test"
+      ],
+      "error_context": null,
+      "mem_type": "manual",
+      "scope": "project",
+      "topic_key": "test/mega50_test_pattern",
+      "project": "",
+      "normalized_hash": "0d1aae2036671779",
+      "revision_count": 3,
+      "duplicate_count": 1,
+      "created_at": "2026-04-04T20:52:12.674381+00:00",
+      "updated_at": "2026-04-04T20:55:26.128639+00:00",
+      "deleted_at": null,
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_lookup": null,
+        "last_reuse": null
+      }
+    }
+  },
+  "tag_index": {
+    "test": [
+      "59f5dfa3fccd"
+    ]
+  },
+  "stats": {
+    "total_patterns": 1,
+    "total_reuses": 0,
+    "total_ai_calls_saved": 0
+  }
+}
