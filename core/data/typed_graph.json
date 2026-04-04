@@ -127,6 +127,126 @@
       "properties": {},
       "created_at": "2026-04-04T19:28:12.641215+00:00",
       "updated_at": "2026-04-04T19:28:12.641215+00:00"
+    },
+    "0.65": {
+      "id": "0.65",
+      "type": "file",
+      "name": "0.65",
+      "properties": {},
+      "created_at": "2026-04-04T19:46:04.738526+00:00",
+      "updated_at": "2026-04-04T19:46:04.738526+00:00"
+    },
+    "0.60": {
+      "id": "0.60",
+      "type": "file",
+      "name": "0.60",
+      "properties": {},
+      "created_at": "2026-04-04T19:46:04.740529+00:00",
+      "updated_at": "2026-04-04T19:46:04.740529+00:00"
+    },
+    "0.53": {
+      "id": "0.53",
+      "type": "file",
+      "name": "0.53",
+      "properties": {},
+      "created_at": "2026-04-04T19:46:04.740529+00:00",
+      "updated_at": "2026-04-04T19:46:04.740529+00:00"
+    },
+    "0.43": {
+      "id": "0.43",
+      "type": "file",
+      "name": "0.43",
+      "properties": {},
+      "created_at": "2026-04-04T19:46:04.748248+00:00",
+      "updated_at": "2026-04-04T19:46:04.748248+00:00"
+    },
+    "0.00": {
+      "id": "0.00",
+      "type": "file",
+      "name": "0.00",
+      "properties": {},
+      "created_at": "2026-04-04T19:46:04.755710+00:00",
+      "updated_at": "2026-04-04T19:46:04.755710+00:00"
+    },
+    "0.69": {
+      "id": "0.69",
+      "type": "file",
+      "name": "0.69",
+      "properties": {},
+      "created_at": "2026-04-04T19:46:04.759798+00:00",
+      "updated_at": "2026-04-04T19:46:04.759798+00:00"
+    },
+    "0.61": {
+      "id": "0.61",
+      "type": "file",
+      "name": "0.61",
+      "properties": {},
+      "created_at": "2026-04-04T19:46:04.765813+00:00",
+      "updated_at": "2026-04-04T19:46:04.765813+00:00"
+    },
+    "0.76": {
+      "id": "0.76",
+      "type": "file",
+      "name": "0.76",
+      "properties": {},
+      "created_at": "2026-04-04T19:46:04.771851+00:00",
+      "updated_at": "2026-04-04T19:46:04.771851+00:00"
+    },
+    "Monday.com": {
+      "id": "Monday.com",
+      "type": "file",
+      "name": "Monday.com",
+      "properties": {},
+      "created_at": "2026-04-04T19:46:04.777167+00:00",
+      "updated_at": "2026-04-04T19:46:04.777167+00:00"
+    },
+    "0.48": {
+      "id": "0.48",
+      "type": "file",
+      "name": "0.48",
+      "properties": {},
+      "created_at": "2026-04-04T19:46:04.788331+00:00",
+      "updated_at": "2026-04-04T19:46:04.788331+00:00"
+    },
+    "web_search.py": {
+      "id": "web_search.py",
+      "type": "file",
+      "name": "web_search.py",
+      "properties": {},
+      "created_at": "2026-04-04T19:46:04.793244+00:00",
+      "updated_at": "2026-04-04T19:46:04.793244+00:00"
+    },
+    "motor_ia_hook.py": {
+      "id": "motor_ia_hook.py",
+      "type": "file",
+      "name": "motor_ia_hook.py",
+      "properties": {},
+      "created_at": "2026-04-04T19:46:04.798237+00:00",
+      "updated_at": "2026-04-04T19:46:04.798237+00:00"
+    },
+    "0.55": {
+      "id": "0.55",
+      "type": "file",
+      "name": "0.55",
+      "properties": {},
+      "created_at": "2026-04-04T19:46:04.805857+00:00",
+      "updated_at": "2026-04-04T19:46:04.805857+00:00"
+    },
+    "porque": {
+      "id": "porque",
+      "type": "concept",
+      "name": "porque",
+      "properties": {},
+      "created_at": "2026-04-04T19:51:22.017349+00:00",
+      "updated_at": "2026-04-04T19:51:22.017349+00:00"
+    },
+    "filtro": {
+      "id": "filtro",
+      "type": "concept",
+      "name": "filtro",
+      "properties": {},
+      "created_at": "2026-04-04T19:51:22.020349+00:00",
+      "updated_at": "2026-04-04T19:51:22.020349+00:00"
     }
   },
   "relations": [
@@ -372,11 +492,245 @@
       "context": "realiza commit y luego procedes con los 5 mencionados",
       "created_at": "2026-04-04T19:28:12.647215+00:00",
       "updated_at": "2026-04-04T19:28:12.647215+00:00"
+    },
+    {
+      "source": "0.65",
+      "target": "0.60",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "ahora realmente valida cada paso si realmente busca en el KB y si lo encuentra el LM usa la solucion",
+      "created_at": "2026-04-04T19:46:04.740529+00:00",
+      "updated_at": "2026-04-04T19:46:04.740529+00:00"
+    },
+    {
+      "source": "0.65",
+      "target": "0.53",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "ahora realmente valida cada paso si realmente busca en el KB y si lo encuentra el LM usa la solucion",
+      "created_at": "2026-04-04T19:46:04.746487+00:00",
+      "updated_at": "2026-04-04T19:46:04.746487+00:00"
+    },
+    {
+      "source": "0.60",
+      "target": "0.53",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "ahora realmente valida cada paso si realmente busca en el KB y si lo encuentra el LM usa la solucion",
+      "created_at": "2026-04-04T19:46:04.746997+00:00",
+      "updated_at": "2026-04-04T19:46:04.746997+00:00"
+    },
+    {
+      "source": "0.60",
+      "target": "0.43",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "ahora realmente valida cada paso si realmente busca en el KB y si lo encuentra el LM usa la solucion",
+      "created_at": "2026-04-04T19:46:04.751486+00:00",
+      "updated_at": "2026-04-04T19:46:04.751486+00:00"
+    },
+    {
+      "source": "0.53",
+      "target": "0.43",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "ahora realmente valida cada paso si realmente busca en el KB y si lo encuentra el LM usa la solucion",
+      "created_at": "2026-04-04T19:46:04.752491+00:00",
+      "updated_at": "2026-04-04T19:46:04.752491+00:00"
+    },
+    {
+      "source": "0.53",
+      "target": "0.00",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "ahora realmente valida cada paso si realmente busca en el KB y si lo encuentra el LM usa la solucion",
+      "created_at": "2026-04-04T19:46:04.757793+00:00",
+      "updated_at": "2026-04-04T19:46:04.757793+00:00"
+    },
+    {
+      "source": "0.43",
+      "target": "0.00",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "ahora realmente valida cada paso si realmente busca en el KB y si lo encuentra el LM usa la solucion",
+      "created_at": "2026-04-04T19:46:04.757793+00:00",
+      "updated_at": "2026-04-04T19:46:04.757793+00:00"
+    },
+    {
+      "source": "0.43",
+      "target": "0.69",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "ahora realmente valida cada paso si realmente busca en el KB y si lo encuentra el LM usa la solucion",
+      "created_at": "2026-04-04T19:46:04.761804+00:00",
+      "updated_at": "2026-04-04T19:46:04.761804+00:00"
+    },
+    {
+      "source": "0.00",
+      "target": "0.69",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "ahora realmente valida cada paso si realmente busca en el KB y si lo encuentra el LM usa la solucion",
+      "created_at": "2026-04-04T19:46:04.763810+00:00",
+      "updated_at": "2026-04-04T19:46:04.763810+00:00"
+    },
+    {
+      "source": "0.00",
+      "target": "0.61",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "ahora realmente valida cada paso si realmente busca en el KB y si lo encuentra el LM usa la solucion",
+      "created_at": "2026-04-04T19:46:04.769033+00:00",
+      "updated_at": "2026-04-04T19:46:04.769033+00:00"
+    },
+    {
+      "source": "0.69",
+      "target": "0.61",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "ahora realmente valida cada paso si realmente busca en el KB y si lo encuentra el LM usa la solucion",
+      "created_at": "2026-04-04T19:46:04.771273+00:00",
+      "updated_at": "2026-04-04T19:46:04.771273+00:00"
+    },
+    {
+      "source": "0.69",
+      "target": "0.76",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "ahora realmente valida cada paso si realmente busca en el KB y si lo encuentra el LM usa la solucion",
+      "created_at": "2026-04-04T19:46:04.774497+00:00",
+      "updated_at": "2026-04-04T19:46:04.774497+00:00"
+    },
+    {
+      "source": "0.61",
+      "target": "0.76",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "ahora realmente valida cada paso si realmente busca en el KB y si lo encuentra el LM usa la solucion",
+      "created_at": "2026-04-04T19:46:04.774497+00:00",
+      "updated_at": "2026-04-04T19:46:04.774497+00:00"
+    },
+    {
+      "source": "0.61",
+      "target": "Monday.com",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "ahora realmente valida cada paso si realmente busca en el KB y si lo encuentra el LM usa la solucion",
+      "created_at": "2026-04-04T19:46:04.779505+00:00",
+      "updated_at": "2026-04-04T19:46:04.779505+00:00"
+    },
+    {
+      "source": "0.76",
+      "target": "Monday.com",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "ahora realmente valida cada paso si realmente busca en el KB y si lo encuentra el LM usa la solucion",
+      "created_at": "2026-04-04T19:46:04.781692+00:00",
+      "updated_at": "2026-04-04T19:46:04.781692+00:00"
+    },
+    {
+      "source": "0.76",
+      "target": "0.60",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "ahora realmente valida cada paso si realmente busca en el KB y si lo encuentra el LM usa la solucion",
+      "created_at": "2026-04-04T19:46:04.783529+00:00",
+      "updated_at": "2026-04-04T19:46:04.783529+00:00"
+    },
+    {
+      "source": "Monday.com",
+      "target": "0.60",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "ahora realmente valida cada paso si realmente busca en el KB y si lo encuentra el LM usa la solucion",
+      "created_at": "2026-04-04T19:46:04.785568+00:00",
+      "updated_at": "2026-04-04T19:46:04.785568+00:00"
+    },
+    {
+      "source": "Monday.com",
+      "target": "0.48",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "ahora realmente valida cada paso si realmente busca en el KB y si lo encuentra el LM usa la solucion",
+      "created_at": "2026-04-04T19:46:04.790490+00:00",
+      "updated_at": "2026-04-04T19:46:04.790490+00:00"
+    },
+    {
+      "source": "0.60",
+      "target": "0.48",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "ahora realmente valida cada paso si realmente busca en el KB y si lo encuentra el LM usa la solucion",
+      "created_at": "2026-04-04T19:46:04.790490+00:00",
+      "updated_at": "2026-04-04T19:46:04.790490+00:00"
+    },
+    {
+      "source": "0.60",
+      "target": "web_search.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "ahora realmente valida cada paso si realmente busca en el KB y si lo encuentra el LM usa la solucion",
+      "created_at": "2026-04-04T19:46:04.796232+00:00",
+      "updated_at": "2026-04-04T19:46:04.796232+00:00"
+    },
+    {
+      "source": "0.48",
+      "target": "web_search.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "ahora realmente valida cada paso si realmente busca en el KB y si lo encuentra el LM usa la solucion",
+      "created_at": "2026-04-04T19:46:04.798237+00:00",
+      "updated_at": "2026-04-04T19:46:04.798237+00:00"
+    },
+    {
+      "source": "0.48",
+      "target": "motor_ia_hook.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "ahora realmente valida cada paso si realmente busca en el KB y si lo encuentra el LM usa la solucion",
+      "created_at": "2026-04-04T19:46:04.800629+00:00",
+      "updated_at": "2026-04-04T19:46:04.800629+00:00"
+    },
+    {
+      "source": "web_search.py",
+      "target": "motor_ia_hook.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "ahora realmente valida cada paso si realmente busca en el KB y si lo encuentra el LM usa la solucion",
+      "created_at": "2026-04-04T19:46:04.803211+00:00",
+      "updated_at": "2026-04-04T19:46:04.803211+00:00"
+    },
+    {
+      "source": "web_search.py",
+      "target": "0.55",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "ahora realmente valida cada paso si realmente busca en el KB y si lo encuentra el LM usa la solucion",
+      "created_at": "2026-04-04T19:46:04.807860+00:00",
+      "updated_at": "2026-04-04T19:46:04.807860+00:00"
+    },
+    {
+      "source": "motor_ia_hook.py",
+      "target": "0.55",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "ahora realmente valida cada paso si realmente busca en el KB y si lo encuentra el LM usa la solucion",
+      "created_at": "2026-04-04T19:46:04.809861+00:00",
+      "updated_at": "2026-04-04T19:46:04.809861+00:00"
+    },
+    {
+      "source": "porque",
+      "target": "filtro",
+      "type": "used_with",
+      "weight": 0.7,
+      "context": "pre-hook query",
+      "created_at": "2026-04-04T19:51:22.022352+00:00",
+      "updated_at": "2026-04-04T19:51:22.022352+00:00"
     }
   ],
-  "updated_at": "2026-04-04T19:28:12.647215+00:00",
+  "updated_at": "2026-04-04T19:51:22.022352+00:00",
   "stats": {
-    "entities": 16,
-    "relations": 27
+    "entities": 31,
+    "relations": 53
   }
 }
