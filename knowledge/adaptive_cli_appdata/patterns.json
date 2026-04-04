@@ -1,0 +1,2118 @@
+{
+  "domain": "adaptive_cli_appdata",
+  "description": "Dominio auto-creado: adaptive_cli_appdata",
+  "entries": {
+    "dbcab0fdaa3c": {
+      "id": "dbcab0fdaa3c",
+      "type": "fact",
+      "key": "patterns_0",
+      "fact": {
+        "rule": "{\n  \"domain\": \"clients\",\n  \"description\": \"Domain clients\",\n  \"entries\": {},\n  \"tag_index\": {},\n  \"stats\": {\n    \"total_entries\": 0,\n    \"total_lookups\": 3,\n    \"total_hits\": 0\n  }\n}",
+        "applies_to": "adaptive_cli_appdata",
+        "source": "C:\\Chance1\\IA\\Backup_IA\\adaptive_cli_AppData\\knowledge\\clients\\patterns.json",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "json",
+        "json"
+      ],
+      "created_at": "2026-04-04T04:33:08.998640+00:00",
+      "updated_at": "2026-04-04T04:33:08.998640+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:33:08.998640+00:00",
+        "access_count": 0
+      }
+    },
+    "37ce332b7258": {
+      "id": "37ce332b7258",
+      "type": "fact",
+      "key": "patterns_1",
+      "fact": {
+        "rule": "t\": \"2026-03-21T00:21:58.595665+00:00\",\n      \"stats\": {\n        \"lookups\": 0,\n        \"reuses\": 0,\n        \"success_rate\": 1.0,\n        \"last_accessed\": \"2026-03-21T00:21:58.595665+00:00\",\n        \"access_count\": 0\n      }\n    },\n    \"486d7bf74268\": {\n      \"id\": \"486d7bf74268\",\n      \"type\": \"pattern\",\n      \"key\": \"iter_20260317_111159_i84\",\n      \"solution\": {\n        \"strategy\": \"auto_iteration_capture\",\n        \"notes\": \"Iteracion 84:\\n  Creo Preparador-Monday-Pipeline.txt\",\n        \"auto_learned\": true,\n        \"source\": \"post_tool_hook\",\n        \"files_touched\": [\n          \"C:/Chance1/Prompts IA/Preparador-Monday-Pipeline.txt\"\n        ],\n        \"activity\": {\n          \"reads\": 0,\n          \"edits\": 0,\n          \"writes\": 1,\n          \"commands\": 0,\n          \"searches\": 0,\n",
+        "applies_to": "adaptive_cli_appdata",
+        "source": "C:\\Chance1\\IA\\Backup_IA\\adaptive_cli_AppData\\knowledge\\monday\\patterns.json",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "json",
+        "json"
+      ],
+      "created_at": "2026-04-04T04:33:05.987579+00:00",
+      "updated_at": "2026-04-04T04:33:05.987579+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:33:05.987579+00:00",
+        "access_count": 0
+      }
+    },
+    "1d4dfd929c11": {
+      "id": "1d4dfd929c11",
+      "type": "fact",
+      "key": "patterns_2",
+      "fact": {
+        "rule": ": 0,\n          \"edits\": 0,\n          \"writes\": 1,\n          \"commands\": 0,\n          \"searches\": 0,\n          \"browser\": 0,\n          \"total\": 1\n        },\n        \"iteration\": 84\n      },\n      \"tags\": [\n        \"auto-learned\",\n        \"iteration\",\n        \"monday\"\n      ],\n      \"error_context\": null,\n      \"created_at\": \"2026-03-17T17:11:59.827013+00:00\",\n      \"updated_at\": \"2026-03-17T17:11:59.827013+00:00\",\n      \"stats\": {\n        \"lookups\": 0,\n        \"reuses\": 0,\n        \"success_rate\": 1.0,\n        \"last_accessed\": \"2026-03-20T20:19:48.809214+00:00\",\n        \"access_count\": 3\n      }\n    }\n  },\n  \"tag_index\": {\n    \"monday\": [\n      \"5dd511847498\",\n      \"486d7bf74268\",\n      \"5dd511847498\"\n    ],\n    \"pipeline\": [\n      \"5dd511847498\",\n      \"5dd511847498\"\n    ],\n",
+        "applies_to": "adaptive_cli_appdata",
+        "source": "C:\\Chance1\\IA\\Backup_IA\\adaptive_cli_AppData\\knowledge\\monday\\patterns.json",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "json",
+        "json"
+      ],
+      "created_at": "2026-04-04T04:33:06.063821+00:00",
+      "updated_at": "2026-04-04T04:33:06.063821+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:33:06.063821+00:00",
+        "access_count": 0
+      }
+    },
+    "72cf36894082": {
+      "id": "72cf36894082",
+      "type": "fact",
+      "key": "patterns_3",
+      "fact": {
+        "rule": "8\",\n      \"5dd511847498\"\n    ],\n    \"pipeline\": [\n      \"5dd511847498\",\n      \"5dd511847498\"\n    ],\n    \"propuesta\": [\n      \"5dd511847498\",\n      \"5dd511847498\"\n    ],\n    \"seguimiento\": [\n      \"5dd511847498\",\n      \"5dd511847498\"\n    ],\n    \"auto-learned\": [\n      \"486d7bf74268\"\n    ],\n    \"iteration\": [\n      \"486d7bf74268\"\n    ]\n  },\n  \"stats\": {\n    \"total_entries\": 3,\n    \"total_lookups\": 668,\n    \"total_hits\": 29\n  }\n}",
+        "applies_to": "adaptive_cli_appdata",
+        "source": "C:\\Chance1\\IA\\Backup_IA\\adaptive_cli_AppData\\knowledge\\monday\\patterns.json",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "json",
+        "json"
+      ],
+      "created_at": "2026-04-04T04:33:06.141285+00:00",
+      "updated_at": "2026-04-04T04:33:06.141285+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:33:06.141285+00:00",
+        "access_count": 0
+      }
+    },
+    "0dcc78115763": {
+      "id": "0dcc78115763",
+      "type": "fact",
+      "key": "patterns_4",
+      "fact": {
+        "rule": "NSTANA_RN\"\n        ],\n        \"source\": \"IBM Price List\",\n        \"confidence\": \"verified\"\n      },\n      \"tags\": [\n        \"ibm\",\n        \"instana\",\n        \"observabilidad\",\n        \"apm\",\n        \"licencia\",\n        \"producto\"\n      ],\n      \"created_at\": \"2026-03-21T00:21:58.413907+00:00\",\n      \"updated_at\": \"2026-03-21T00:21:58.413907+00:00\",\n      \"stats\": {\n        \"lookups\": 0,\n        \"cited_in_tasks\": 0,\n        \"last_accessed\": \"2026-03-21T00:21:58.413907+00:00\",\n        \"access_count\": 0\n      }\n    }\n  },\n  \"tag_index\": {\n    \"ibm\": [\n      \"0fbf55a36e5e\",\n      \"0c651edb35b0\",\n      \"9ff99cb9d871\",\n      \"8b4b46c7e66d\"\n    ],\n    \"db2\": [\n      \"0fbf55a36e5e\"\n    ],\n    \"base_datos\": [\n      \"0fbf55a36e5e\"\n    ],\n    \"licencia\": [\n      \"0fbf55a36e5e\",\n      \"0c651edb35b0\",\n",
+        "applies_to": "adaptive_cli_appdata",
+        "source": "C:\\Chance1\\IA\\Backup_IA\\adaptive_cli_AppData\\knowledge\\catalog\\patterns.json",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "json",
+        "json"
+      ],
+      "created_at": "2026-04-04T04:33:04.455983+00:00",
+      "updated_at": "2026-04-04T04:33:04.455983+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:33:04.455983+00:00",
+        "access_count": 0
+      }
+    },
+    "7b622c94e9b4": {
+      "id": "7b622c94e9b4",
+      "type": "fact",
+      "key": "patterns_5",
+      "fact": {
+        "rule": "datos\": [\n      \"0fbf55a36e5e\"\n    ],\n    \"licencia\": [\n      \"0fbf55a36e5e\",\n      \"0c651edb35b0\",\n      \"9ff99cb9d871\",\n      \"8b4b46c7e66d\"\n    ],\n    \"producto\": [\n      \"0fbf55a36e5e\",\n      \"0c651edb35b0\",\n      \"9ff99cb9d871\",\n      \"8b4b46c7e66d\"\n    ],\n    \"websphere\": [\n      \"0c651edb35b0\"\n    ],\n    \"java\": [\n      \"0c651edb35b0\"\n    ],\n    \"mq\": [\n      \"9ff99cb9d871\"\n    ],\n    \"mensajeria\": [\n      \"9ff99cb9d871\"\n    ],\n    \"instana\": [\n      \"8b4b46c7e66d\"\n    ],\n    \"observabilidad\": [\n      \"8b4b46c7e66d\"\n    ],\n    \"apm\": [\n      \"8b4b46c7e66d\"\n    ]\n  },\n  \"stats\": {\n    \"total_entries\": 4,\n    \"total_lookups\": 4,\n    \"total_hits\": 0\n  }\n}",
+        "applies_to": "adaptive_cli_appdata",
+        "source": "C:\\Chance1\\IA\\Backup_IA\\adaptive_cli_AppData\\knowledge\\catalog\\patterns.json",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "json",
+        "json"
+      ],
+      "created_at": "2026-04-04T04:33:04.544779+00:00",
+      "updated_at": "2026-04-04T04:33:04.544779+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:33:04.544779+00:00",
+        "access_count": 0
+      }
+    },
+    "1f34ce24d90b": {
+      "id": "1f34ce24d90b",
+      "type": "fact",
+      "key": "patterns_6",
+      "fact": {
+        "rule": "ce1/Motor_Inteligente_IA/hooks/\\\" 2>/dev/null\\n  Ejecuto: python \\\"C:/Chance1/Asistente IA/.claude/hooks/session_start_kb.py\\\" 2>&1 | tail -20\\n  Ejecuto: python \\\"C:/Chance1/Motor_Inteligente_IA/hooks/session_start.py\\\" 2>&1 | tail -20\\n  Leyo auto_learn_hook.py\\n  Leyo session_end.py\\n  Ejecuto: ls \\\"C:/Users/ntoledo/.adaptive_cli/session_history.json\\\" 2>/dev/null && echo \\\"EXISTE\\\" || echo \\\"NO EXISTE\\\"\\n  Ejecuto: echo \\\"=== Node.js ===\\\" && where node 2>&1 && node --version 2>&1 && echo \\\"\\\" && echo \\\"=== Claude Code ===\\\" && where claud\\n  Ejecuto: echo \\\"=== Ollama ===\\\" && where ollama 2>&1 && ollama --version 2>&1 && echo \\\"\\\" && echo \\\"=== Modelo qwen3 ===\\\" && ls \\\"$US\\n  Ejecuto: ls \\\"C:/Users/ntoledo/.ollama/models/\\\" 2>&1 && echo \\\"---\\\" && ls -R \\\"C:/Users/ntoledo/.ollama/m",
+        "applies_to": "adaptive_cli_appdata",
+        "source": "C:\\Chance1\\IA\\Backup_IA\\adaptive_cli_AppData\\knowledge\\sessions\\patterns.json",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "json",
+        "json"
+      ],
+      "created_at": "2026-04-04T04:33:04.003944+00:00",
+      "updated_at": "2026-04-04T04:33:04.003944+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:33:04.003944+00:00",
+        "access_count": 0
+      }
+    },
+    "d4d22ba0bc02": {
+      "id": "d4d22ba0bc02",
+      "type": "fact",
+      "key": "patterns_7",
+      "fact": {
+        "rule": ": ls \\\"C:/Users/ntoledo/.ollama/models/\\\" 2>&1 && echo \\\"---\\\" && ls -R \\\"C:/Users/ntoledo/.ollama/models/manifests/\\\" 2>&1 | he\\n  Ejecuto: ollama list 2>&1\",\n        \"auto_learned\": true,\n        \"source\": \"post_tool_hook\",\n        \"msg_type",
+        "applies_to": "adaptive_cli_appdata",
+        "source": "C:\\Chance1\\IA\\Backup_IA\\adaptive_cli_AppData\\knowledge\\sessions\\patterns.json",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "json",
+        "json"
+      ],
+      "created_at": "2026-04-04T04:33:04.081653+00:00",
+      "updated_at": "2026-04-04T04:33:04.081653+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:33:04.081653+00:00",
+        "access_count": 0
+      }
+    },
+    "a8d6b3af0afb": {
+      "id": "a8d6b3af0afb",
+      "type": "fact",
+      "key": "hook_debug_0",
+      "fact": {
+        "rule": "[2026-03-14T22:55:42.616106] Hook Stop fired. Fields: ['session_id', 'transcript_path', 'cwd', 'permission_mode', 'hook_event_name', 'stop_hook_active', 'last_assistant_message']\n[2026-03-14T22:55:42.620342] session_id=2fc19811-edf3-49c3-8546-f24c78a75b53\n[2026-03-14T22:55:42.621350] transcript_path=C:\\Users\\ntoledo\\AppData\\Local\\ClaudeCode\\.claude\\projects\\C--Chance1-Asistente-IA\\2fc19811-edf3-49c3-8546-f24c78a75b53.jsonl\n[2026-03-14T22:55:42.624926] last_message length=762\n[2026-03-14T22:55:42.659816] Transcript: 231 messages loaded\n[2026-03-14T22:55:42.661840] Extracted: 0 user msgs, 0 errors, 0 decisions\n[2026-03-14T22:55:42.667625] Tools: 0 reads, 0 edits, 0 creates, 0 commands\n[2026-03-14T22:55:42.688895] Session saved. History now has 1 sessions\n",
+        "applies_to": "adaptive_cli_appdata",
+        "source": "C:\\Chance1\\IA\\Backup_IA\\adaptive_cli_AppData\\.adaptive_cli\\hook_debug.log",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "log"
+      ],
+      "created_at": "2026-04-04T04:32:54.938118+00:00",
+      "updated_at": "2026-04-04T04:32:54.938118+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:32:54.938118+00:00",
+        "access_count": 0
+      }
+    },
+    "0a2a2486b752": {
+      "id": "0a2a2486b752",
+      "type": "fact",
+      "key": "hook_debug_1",
+      "fact": {
+        "rule": "edits, 0 creates, 0 commands\n[2026-03-14T22:55:42.688895] Session saved. History now has 1 sessions\n[2026-03-14T22:55:42.691924] Hook Stop completed successfully\n[2026-03-14T22:59:12.744550] Hook Stop fired. Fields: ['session_id', 'transcript_path', 'cwd', 'permission_mode', 'hook_event_name', 'stop_hook_active', 'last_assistant_message']\n[2026-03-14T22:59:12.748144] session_id=2fc19811-edf3-49c3-8546-f24c78a75b53\n[2026-03-14T22:59:12.749185] transcript_path=C:\\Users\\ntoledo\\AppData\\Local\\ClaudeCode\\.claude\\projects\\C--Chance1-Asistente-IA\\2fc19811-edf3-49c3-8546-f24c78a75b53.jsonl\n[2026-03-14T22:59:12.749185] last_message length=572\n[2026-03-14T22:59:12.769859] Transcript: 244 messages loaded\n[2026-03-14T22:59:12.774406] Extracted: 0 user msgs, 0 errors, 0 decisions\n",
+        "applies_to": "adaptive_cli_appdata",
+        "source": "C:\\Chance1\\IA\\Backup_IA\\adaptive_cli_AppData\\.adaptive_cli\\hook_debug.log",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "log"
+      ],
+      "created_at": "2026-04-04T04:32:55.032485+00:00",
+      "updated_at": "2026-04-04T04:32:55.032485+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:32:55.032485+00:00",
+        "access_count": 0
+      }
+    },
+    "a8f10029286c": {
+      "id": "a8f10029286c",
+      "type": "fact",
+      "key": "hook_debug_2",
+      "fact": {
+        "rule": "ipt: 244 messages loaded\n[2026-03-14T22:59:12.774406] Extracted: 0 user msgs, 0 errors, 0 decisions\n[2026-03-14T22:59:12.782174] Tools: 0 reads, 0 edits, 0 creates, 0 commands\n[2026-03-14T22:59:12.804444] Session saved. History now has 3 sessions\n[2026-03-14T22:59:12.808028] Hook Stop completed successfully\n[2026-03-14T23:02:29.128300] New session added. History now has 1 sessions\n[2026-03-14T23:02:29.152669] Session merged with existing at index 0 (merge_count=2)\n[2026-03-14T23:03:41.656431] New session added. History now has 1 sessions\n[2026-03-14T23:04:22.445549] Hook Stop fired. Fields: ['session_id', 'transcript_path', 'cwd', 'permission_mode', 'hook_event_name', 'stop_hook_active', 'last_assistant_message']\n[2026-03-14T23:04:22.447134] session_id=2fc19811-edf3-49c3-8546-f24c78a75b53\n",
+        "applies_to": "adaptive_cli_appdata",
+        "source": "C:\\Chance1\\IA\\Backup_IA\\adaptive_cli_AppData\\.adaptive_cli\\hook_debug.log",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "log"
+      ],
+      "created_at": "2026-04-04T04:32:55.115792+00:00",
+      "updated_at": "2026-04-04T04:32:55.115792+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:32:55.115792+00:00",
+        "access_count": 0
+      }
+    },
+    "0637b761a0aa": {
+      "id": "0637b761a0aa",
+      "type": "fact",
+      "key": "hook_debug_3",
+      "fact": {
+        "rule": "st_assistant_message']\n[2026-03-14T23:04:22.447134] session_id=2fc19811-edf3-49c3-8546-f24c78a75b53\n[2026-03-14T23:04:22.447134] transcript_path=C:\\Users\\ntoledo\\AppData\\Local\\ClaudeCode\\.claude\\projects\\C--Chance1-Asistente-IA\\2fc19811-edf3-49c3-8546-f24c78a75b53.jsonl\n[2026-03-14T23:04:22.448136] last_message length=430\n[2026-03-14T23:04:22.491208] Transcript: 291 messages loaded\n[2026-03-14T23:04:22.493246] Extracted: 0 user msgs, 0 errors, 0 decisions\n[2026-03-14T23:04:22.498358] Tools: 0 reads, 0 edits, 0 creates, 0 commands\n[2026-03-14T23:04:22.506511] New session added. History now has 2 sessions\n[2026-03-14T23:04:22.523749] Hook Stop completed successfully\n[2026-03-14T23:05:08.668679] Hook Stop fired. ",
+        "applies_to": "adaptive_cli_appdata",
+        "source": "C:\\Chance1\\IA\\Backup_IA\\adaptive_cli_AppData\\.adaptive_cli\\hook_debug.log",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "log"
+      ],
+      "created_at": "2026-04-04T04:32:55.204902+00:00",
+      "updated_at": "2026-04-04T04:32:55.204902+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:32:55.204902+00:00",
+        "access_count": 0
+      }
+    },
+    "1625a75e4d21": {
+      "id": "1625a75e4d21",
+      "type": "fact",
+      "key": "hook_debug_5",
+      "fact": {
+        "rule": ", 0 errors, 0 decisions\n[2026-03-14T23:05:08.724570] Tools: 0 reads, 0 edits, 0 creates, 0 commands\n[2026-03-14T23:05:08.727233] Session merged with existing at index 1 (merge_count=2)\n[2026-03-14T23:05:08.743356] Hook Stop completed successfully\n[2026-03-15T10:58:26.583188] Hook Stop fired. Fields: ['session_id', 'transcript_path', 'cwd', 'permission_mode', 'hook_event_name', 'stop_hook_active', 'last_assistant_message']\n[2026-03-15T10:58:26.588269] session_id=c89ea9c8-24f0-43fc-9fa5-ded1689ba790\n[2026-03-15T10:58:26.593296] transcript_path=C:\\Users\\ntoledo\\AppData\\Local\\ClaudeCode\\.claude\\projects\\C--Chance1-Asistente-IA\\c89ea9c8-24f0-43fc-9fa5-ded1689ba790.jsonl\n[2026-03-15T10:58:26.597902] last_message length=186\n[2026-03-15T10:58:26.605636] Transcript: 18 messages loaded\n",
+        "applies_to": "adaptive_cli_appdata",
+        "source": "C:\\Chance1\\IA\\Backup_IA\\adaptive_cli_AppData\\.adaptive_cli\\hook_debug.log",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "log"
+      ],
+      "created_at": "2026-04-04T04:32:55.334595+00:00",
+      "updated_at": "2026-04-04T04:32:55.334595+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:32:55.334595+00:00",
+        "access_count": 0
+      }
+    },
+    "95a6d18ea30d": {
+      "id": "95a6d18ea30d",
+      "type": "fact",
+      "key": "hook_debug_6",
+      "fact": {
+        "rule": "0:58:26.597902] last_message length=186\n[2026-03-15T10:58:26.605636] Transcript: 18 messages loaded\n[2026-03-15T10:58:26.613197] Extracted: 0 user msgs, 0 errors, 0 decisions\n[2026-03-15T10:58:26.616772] Tools: 0 reads, 0 edits, 0 creates, 0 commands\n[2026-03-15T10:58:26.622415] New session added. History now has 3 sessions\n[2026-03-15T10:58:26.640815] Hook Stop completed successfully\n[2026-03-15T11:29:38.800533] Hook Stop fired. Fields: ['session_id', 'transcript_path', 'cwd', 'permission_mode', 'hook_event_name', 'stop_hook_active', 'last_assistant_message']\n[2026-03-15T11:29:38.801545] session_id=7cf55ca7-8409-4bd6-83a9-d99d7dafc781\n",
+        "applies_to": "adaptive_cli_appdata",
+        "source": "C:\\Chance1\\IA\\Backup_IA\\adaptive_cli_AppData\\.adaptive_cli\\hook_debug.log",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "log"
+      ],
+      "created_at": "2026-04-04T04:32:55.428963+00:00",
+      "updated_at": "2026-04-04T04:32:55.428963+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:32:55.428963+00:00",
+        "access_count": 0
+      }
+    },
+    "9b45009fa85e": {
+      "id": "9b45009fa85e",
+      "type": "fact",
+      "key": "session_history_0",
+      "fact": {
+        "rule": "[\n  {\n    \"session_id\": \"2fdcd6ec-5158-4178-86b2-c67af844132c\",\n    \"date\": \"2026-03-16\",\n    \"time\": \"15:42:45 UTC\",\n    \"cwd\": \"C:\\\\Chance1\\\\Asistente IA\",\n    \"summary\": \"revisa el motor de memoria para recordar todo lo que hemos tratado en sesiones anteriores → vi que salian unos errores como estos: ⎿  Error: Exit code 1      Traceback (most recent call last):        File \\\"<string>\\\", line 9, in <module>       → puedes reparar para que no salga ese error da impresion de fallo al ejecutar recordar la informacion → ok guarda esto en la memoria del motor local que se construyo → pregunta puedo tener 2 cli claude abiertos en terminal simultaneo? → si evita agrega algo para que no entren en conflicto → ok ahora en base a esto necesito correciones en la pagina web re\",\n",
+        "applies_to": "adaptive_cli_appdata",
+        "source": "C:\\Chance1\\IA\\Backup_IA\\adaptive_cli_AppData\\.adaptive_cli\\session_history.json",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "json",
+        "json"
+      ],
+      "created_at": "2026-04-04T04:32:55.878953+00:00",
+      "updated_at": "2026-04-04T04:32:55.878953+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:32:55.878953+00:00",
+        "access_count": 0
+      }
+    },
+    "290835a7ccdf": {
+      "id": "290835a7ccdf",
+      "type": "fact",
+      "key": "session_history_1",
+      "fact": {
+        "rule": "ara que no entren en conflicto → ok ahora en base a esto necesito correciones en la pagina web re\",\n    \"user_messages\": [\n      \"revisa el motor de memoria para recordar todo lo que hemos tratado en sesiones anteriores\",\n      \"vi que salian unos errores como estos: ⎿  Error: Exit code 1\\n     Traceback (most recent call last):\\n       File \\\"<string>\\\", line 9, in <module>\\n     AttributeError: 'str' object has no attribute 'get'\\n     Learning Memory: 4 patrones que son?\",\n      \"puedes reparar para que no salga ese error da impresion de fallo al ejecutar recordar la informacion\",\n      \"ok guarda esto en la memoria del motor local que se construyo\",\n      \"pregunta puedo tener 2 cli claude abiertos en terminal simultaneo?\",\n      \"si evita agrega algo para que no entren en conflicto\",\n",
+        "applies_to": "adaptive_cli_appdata",
+        "source": "C:\\Chance1\\IA\\Backup_IA\\adaptive_cli_AppData\\.adaptive_cli\\session_history.json",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "json",
+        "json"
+      ],
+      "created_at": "2026-04-04T04:32:55.958168+00:00",
+      "updated_at": "2026-04-04T04:32:55.958168+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:32:55.958168+00:00",
+        "access_count": 0
+      }
+    },
+    "38cb5e45de34": {
+      "id": "38cb5e45de34",
+      "type": "fact",
+      "key": "session_history_2",
+      "fact": {
+        "rule": "de abiertos en terminal simultaneo?\",\n      \"si evita agrega algo para que no entren en conflicto\",\n      \"ok ahora en base a esto necesito correciones en la pagina web realizada 1. no esta buscando saca un error 2. cuando busca algo que que no esta en el local trata de ir al ML pero dice que la sesion esta ocupada con otro cli (parte de lo que te pedi ahorit)  3. agrega un boton en tools para que yo pueda grabar manualmente lo aprendido y que se grabe en si disparar el o los hooks  para que guarda lo aprendido manualmente.\",\n      \"cuando buscaste que es gbm su salida su estilo de letra es el basico no esta homologado con las mejoras de presentacion de letras y que hiciste antes\",\n",
+        "applies_to": "adaptive_cli_appdata",
+        "source": "C:\\Chance1\\IA\\Backup_IA\\adaptive_cli_AppData\\.adaptive_cli\\session_history.json",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "json",
+        "json"
+      ],
+      "created_at": "2026-04-04T04:32:56.039101+00:00",
+      "updated_at": "2026-04-04T04:32:56.039101+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:32:56.039101+00:00",
+        "access_count": 0
+      }
+    },
+    "5097e19e3dee": {
+      "id": "5097e19e3dee",
+      "type": "fact",
+      "key": "session_history_3",
+      "fact": {
+        "rule": "tra es el basico no esta homologado con las mejoras de presentacion de letras y que hiciste antes\",\n      \"la parte de tools desaparecio tomarlas del backup y realiza el tema de de agregar el boton de guardar manual el auto conocimiento, realiza tu validacion visual.\",\n      \"This session is being continued from a previous conversation that ran out of context. The summary below covers the earlier portion of the conversation.\\n\\nSummary:\\n1. Primary Request and Intent:\\n   - Review the memory engine to recall all previous session work\\n   - Fix a diagnostic error (`AttributeError: 'str' object has no attribute 'get'`) that appeared when inspecting learned_patterns.json\\n   - Save diagnostic feedback to the local KB\\n   - Add file locking to prevent conflicts when running 2 C\",\n",
+        "applies_to": "adaptive_cli_appdata",
+        "source": "C:\\Chance1\\IA\\Backup_IA\\adaptive_cli_AppData\\.adaptive_cli\\session_history.json",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "json",
+        "json"
+      ],
+      "created_at": "2026-04-04T04:32:56.117031+00:00",
+      "updated_at": "2026-04-04T04:32:56.117031+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:32:56.117031+00:00",
+        "access_count": 0
+      }
+    },
+    "1f344c708da4": {
+      "id": "1f344c708da4",
+      "type": "fact",
+      "key": "session_history_4",
+      "fact": {
+        "rule": " diagnostic feedback to the local KB\\n   - Add file locking to prevent conflicts when running 2 C\",\n      \"te soy honesto yo a nivel visual no veo cambios es decir sigo sin ver tools toma una foto y valida a nivel visual\",\n      \"añade todo esto en la base de conocimientos local\",\n      \"en la pagina me voy a buscar abre el apartado de Asistente GBM, escribo \\\"que conocimientos guardaste reciente?\\\" y salio claude tardo mas de 2 minutos, intenta con una consulta mas especifica.  la idea es que la web funcione como el cli atado a clau es decir  la idea final es que sustituya el uso de la terminal usando el front de la pagina para usar cli clau pero por el momento no fuciona igual  y 2 muy importante toda la busqueda local debe ser rapida y toda busqueda que implique ML debe usar el\"\n    ],\n",
+        "applies_to": "adaptive_cli_appdata",
+        "source": "C:\\Chance1\\IA\\Backup_IA\\adaptive_cli_AppData\\.adaptive_cli\\session_history.json",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "json",
+        "json"
+      ],
+      "created_at": "2026-04-04T04:32:56.197204+00:00",
+      "updated_at": "2026-04-04T04:32:56.197204+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:32:56.197204+00:00",
+        "access_count": 0
+      }
+    },
+    "8da4e62e84f0": {
+      "id": "8da4e62e84f0",
+      "type": "fact",
+      "key": "session_history_5",
+      "fact": {
+        "rule": "ortante toda la busqueda local debe ser rapida y toda busqueda que implique ML debe usar el\"\n    ],\n    \"files_read\": [\n      \"C:\\\\Chance1\\\\Asistente IA\\\\.claude\\\\hooks\\\\on_user_message.py\",\n      \"C:\\\\Chance1\\\\Asistente IA\\\\.claude\\\\hooks\\\\session_start_kb.py\",\n      \"C:\\\\Users\\\\ntoledo\\\\AppData\\\\Local\\\\ClaudeCode\\\\.claude\\\\projects\\\\C--Chance1-Asistente-IA\\\\memory\\\\MEMORY.md\",\n      \"C:\\\\Chance1\\\\Asistente IA\\\\knowledge_base.py\",\n      \"C:\\\\Chance1\\\\Asistente IA\\\\learning_memory.py\",\n      \"C:\\\\Chance1\\\\Asistente IA\\\\.claude\\\\hooks\\\\auto_learn_hook.py\",\n      \"C:\\\\Chance1\\\\Asistente IA\\\\.claude\\\\hooks\\\\iteration_learn.py\",\n      \"C:\\\\Chance1\\\\Asistente IA\\\\brand_mirror.py\",\n      \"C:\\\\Chance1\\\\Asistente IA\\\\dashboard.py\",\n      \"C:\\\\Chance1\\\\backup_Asistente\\\\brand_mirror.py\"\n    ],\n",
+        "applies_to": "adaptive_cli_appdata",
+        "source": "C:\\Chance1\\IA\\Backup_IA\\adaptive_cli_AppData\\.adaptive_cli\\session_history.json",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "json",
+        "json"
+      ],
+      "created_at": "2026-04-04T04:32:56.292886+00:00",
+      "updated_at": "2026-04-04T04:32:56.292886+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:32:56.292886+00:00",
+        "access_count": 0
+      }
+    },
+    "fe93cfe5f18d": {
+      "id": "fe93cfe5f18d",
+      "type": "fact",
+      "key": "session_history_6",
+      "fact": {
+        "rule": "Chance1\\\\Asistente IA\\\\dashboard.py\",\n      \"C:\\\\Chance1\\\\backup_Asistente\\\\brand_mirror.py\"\n    ],\n    \"files_edited\": [\n      \"C:\\\\Users\\\\ntoledo\\\\AppData\\\\Local\\\\ClaudeCode\\\\.claude\\\\projects\\\\C--Chance1-Asistente-IA\\\\memory\\\\MEMORY.md\",\n      \"C:\\\\Chance1\\\\Asistente IA\\\\knowledge_base.py\",\n      \"C:\\\\Chance1\\\\Asistente IA\\\\learning_memory.py\",\n      \"C:\\\\Chance1\\\\Asistente IA\\\\.claude\\\\hooks\\\\auto_learn_hook.py\",\n      \"C:\\\\Chance1\\\\Asistente IA\\\\.claude\\\\hooks\\\\iteration_learn.py\",\n      \"C:\\\\Chance1\\\\Asistente IA\\\\brand_mirror.py\",\n      \"C:\\\\Chance1\\\\Asistente IA\\\\dashboard.py\"\n    ],\n    \"files_created\": [\n      \"C:\\\\Users\\\\ntoledo\\\\AppData\\\\Local\\\\ClaudeCode\\\\.claude\\\\projects\\\\C--Chance1-Asistente-IA\\\\memory\\\\feedback_no_errors_in_diagnostics.md\"\n    ],\n    \"commands_run\": [\n",
+        "applies_to": "adaptive_cli_appdata",
+        "source": "C:\\Chance1\\IA\\Backup_IA\\adaptive_cli_AppData\\.adaptive_cli\\session_history.json",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "json",
+        "json"
+      ],
+      "created_at": "2026-04-04T04:32:56.388739+00:00",
+      "updated_at": "2026-04-04T04:32:56.388739+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:32:56.388739+00:00",
+        "access_count": 0
+      }
+    },
+    "2cfb74b1576d": {
+      "id": "2cfb74b1576d",
+      "type": "fact",
+      "key": "session_history_7",
+      "fact": {
+        "rule": "C--Chance1-Asistente-IA\\\\memory\\\\feedback_no_errors_in_diagnostics.md\"\n    ],\n    \"commands_run\": [\n      \"tail -1 ~/.adaptive_cli/last_learning.txt\",\n      \"ls -la ~/.adaptive_cli/session_history.json 2>/dev/null && PYTHONIOENCODING=utf-8 python -c \\",
+        "applies_to": "adaptive_cli_appdata",
+        "source": "C:\\Chance1\\IA\\Backup_IA\\adaptive_cli_AppData\\.adaptive_cli\\session_history.json",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "json",
+        "json"
+      ],
+      "created_at": "2026-04-04T04:32:56.465313+00:00",
+      "updated_at": "2026-04-04T04:32:56.465313+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:32:56.465313+00:00",
+        "access_count": 0
+      }
+    },
+    "e7764c1a9085": {
+      "id": "e7764c1a9085",
+      "type": "fact",
+      "key": "learned_patterns_0",
+      "fact": {
+        "rule": "{\n  \"version\": \"1.0\",\n  \"patterns\": {\n    \"fcf0ad3db318\": {\n      \"id\": \"fcf0ad3db318\",\n      \"task_type\": \"css_fix\",\n      \"context_key\": \"devin_pointer_events_disabled\",\n      \"solution\": {\n        \"strategy\": \"css_override_important\",\n        \"selector_chain\": [\n          \".site-header__nav-item\",\n          \"pointer-events: none\",\n          \"pointer-events: auto !important\"\n        ],\n        \"code_snippet\": \".site-header__nav-item, .site-header__nav-item a { pointer-events: auto !important; }\",\n        \"notes\": \"Devin desactiva clicks en nav con pointer-events:none. Root cause tras 4 intentos.\",\n        \"attempts_to_solve\": 4,\n        \"time_to_solve_seconds\": 600\n      },\n      \"tags\": [\n        \"css\",\n        \"devin\",\n        \"pointer-events\",\n        \"fix\"\n      ],\n",
+        "applies_to": "adaptive_cli_appdata",
+        "source": "C:\\Chance1\\IA\\Backup_IA\\adaptive_cli_AppData\\.adaptive_cli\\learned_patterns.json",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "json",
+        "json"
+      ],
+      "created_at": "2026-04-04T04:32:56.762251+00:00",
+      "updated_at": "2026-04-04T04:32:56.762251+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:32:56.762251+00:00",
+        "access_count": 0
+      }
+    },
+    "ac9aa64f7ca0": {
+      "id": "ac9aa64f7ca0",
+      "type": "fact",
+      "key": "learned_patterns_1",
+      "fact": {
+        "rule": "},\n      \"tags\": [\n        \"css\",\n        \"devin\",\n        \"pointer-events\",\n        \"fix\"\n      ],\n      \"error_context\": {\n        \"symptom\": \"Nav buttons not responding to clicks\",\n        \"misdiagnosis\": [\n          \"z-index\",\n          \"event listener conflict\"\n        ],\n        \"root_cause\": \"Devin CSS pointer-events: none on nav items\"\n      },\n      \"created_at\": \"2026-03-15T04:00:56.273984+00:00\",\n      \"updated_at\": \"2026-03-15T04:00:56.273984+00:00\",\n      \"stats\": {\n        \"lookups\": 0,\n        \"reuses\": 0,\n        \"success_rate\": 1.0,\n        \"last_lookup\": null,\n        \"last_reuse\": null\n      }\n    },\n    \"d597fe84166f\": {\n      \"id\": \"d597fe84166f\",\n      \"task_type\": \"overlay_management\",\n      \"context_key\": \"gbm_overlay_close_on_home\",\n      \"solution\": {\n",
+        "applies_to": "adaptive_cli_appdata",
+        "source": "C:\\Chance1\\IA\\Backup_IA\\adaptive_cli_AppData\\.adaptive_cli\\learned_patterns.json",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "json",
+        "json"
+      ],
+      "created_at": "2026-04-04T04:32:56.855918+00:00",
+      "updated_at": "2026-04-04T04:32:56.855918+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:32:56.855918+00:00",
+        "access_count": 0
+      }
+    },
+    "a7d8d0ab81fc": {
+      "id": "a7d8d0ab81fc",
+      "type": "fact",
+      "key": "learned_patterns_2",
+      "fact": {
+        "rule": "_type\": \"overlay_management\",\n      \"context_key\": \"gbm_overlay_close_on_home\",\n      \"solution\": {\n        \"strategy\": \"capture_phase_stopImmediate\",\n        \"code_snippet\": \"addEventListener('click', handler, true) + stopImmediatePropagation()\",\n        \"notes\": \"Capture phase intercepta antes que Devin. stopImmediatePropagation evita doble proceso.\",\n        \"attempts_to_solve\": 2,\n        \"time_to_solve_seconds\": 300\n      },\n      \"tags\": [\n        \"javascript\",\n        \"events\",\n        \"capture\",\n        \"overlay\"\n      ],\n      \"error_context\": null,\n      \"created_at\": \"2026-03-15T04:00:56.299871+00:00\",\n      \"updated_at\": \"2026-03-15T04:00:56.299871+00:00\",\n      \"stats\": {\n        \"lookups\": 0,\n        \"reuses\": 0,\n        \"success_rate\": 1.0,\n        \"last_lookup\": null,\n",
+        "applies_to": "adaptive_cli_appdata",
+        "source": "C:\\Chance1\\IA\\Backup_IA\\adaptive_cli_AppData\\.adaptive_cli\\learned_patterns.json",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "json",
+        "json"
+      ],
+      "created_at": "2026-04-04T04:32:56.930333+00:00",
+      "updated_at": "2026-04-04T04:32:56.930333+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:32:56.930333+00:00",
+        "access_count": 0
+      }
+    },
+    "9f406810fbce": {
+      "id": "9f406810fbce",
+      "type": "fact",
+      "key": "learned_patterns_3",
+      "fact": {
+        "rule": "       \"lookups\": 0,\n        \"reuses\": 0,\n        \"success_rate\": 1.0,\n        \"last_lookup\": null,\n        \"last_reuse\": null\n      }\n    },\n    \"51624e2ef956\": {\n      \"id\": \"51624e2ef956\",\n      \"task_type\": \"flask_api\",\n      \"context_key\": \"tools_whitelist_endpoint\",\n      \"solution\": {\n        \"strategy\": \"subprocess_with_whitelist\",\n        \"code_snippet\": \"subprocess.run([sys.executable, script] + args, capture_output=True, text=True, timeout=120)\",\n        \"notes\": \"Ejecutar scripts desde Flask con whitelist. Timeout 120s.\",\n        \"attempts_to_solve\": 1,\n        \"time_to_solve_seconds\": 120\n      },\n      \"tags\": [\n        \"flask\",\n        \"api\",\n        \"subprocess\",\n        \"security\"\n      ],\n      \"error_context\": null,\n",
+        "applies_to": "adaptive_cli_appdata",
+        "source": "C:\\Chance1\\IA\\Backup_IA\\adaptive_cli_AppData\\.adaptive_cli\\learned_patterns.json",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "json",
+        "json"
+      ],
+      "created_at": "2026-04-04T04:32:57.006864+00:00",
+      "updated_at": "2026-04-04T04:32:57.006864+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:32:57.006864+00:00",
+        "access_count": 0
+      }
+    },
+    "56e6aee31e8d": {
+      "id": "56e6aee31e8d",
+      "type": "fact",
+      "key": "learned_patterns_4",
+      "fact": {
+        "rule": "ask\",\n        \"api\",\n        \"subprocess\",\n        \"security\"\n      ],\n      \"error_context\": null,\n      \"created_at\": \"2026-03-15T04:00:56.340745+00:00\",\n      \"updated_at\": \"2026-03-15T04:00:56.340745+00:00\",\n      \"stats\": {\n        \"lookups\": 0,\n        \"reuses\": 0,\n        \"success_rate\": 1.0,\n        \"last_lookup\": null,\n        \"last_reuse\": null\n      }\n    },\n    \"82e9c8cc9b0d\": {\n      \"id\": \"82e9c8cc9b0d\",\n      \"task_type\": \"font_update\",\n      \"context_key\": \"devin_mirror_font_replacement\",\n      \"solution\": {\n        \"strategy\": \"replace_monospace_with_native\",\n        \"code_snippet\": \"IBM Plex Mono -> neue-haas-grotesk-text/display\",\n        \"notes\": \"Reemplazar monospace por fuentes nativas de devin.ai en todos los .gbm-* components.\",\n        \"attempts_to_solve\": 1,\n",
+        "applies_to": "adaptive_cli_appdata",
+        "source": "C:\\Chance1\\IA\\Backup_IA\\adaptive_cli_AppData\\.adaptive_cli\\learned_patterns.json",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "json",
+        "json"
+      ],
+      "created_at": "2026-04-04T04:32:57.092373+00:00",
+      "updated_at": "2026-04-04T04:32:57.092373+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:32:57.092373+00:00",
+        "access_count": 0
+      }
+    },
+    "a555acf9c9d7": {
+      "id": "a555acf9c9d7",
+      "type": "fact",
+      "key": "learned_patterns_5",
+      "fact": {
+        "rule": "e por fuentes nativas de devin.ai en todos los .gbm-* components.\",\n        \"attempts_to_solve\": 1,\n        \"time_to_solve_seconds\": 180\n      },\n      \"tags\": [\n        \"css\",\n        \"fonts\",\n        \"design\",\n        \"devin\"\n      ],\n      \"error_context\": null,\n      \"created_at\": \"2026-03-15T04:00:56.386090+00:00\",\n      \"updated_at\": \"2026-03-15T04:00:56.386090+00:00\",\n      \"stats\": {\n        \"lookups\": 0,\n        \"reuses\": 0,\n        \"success_rate\": 1.0,\n        \"last_lookup\": null,\n        \"last_reuse\": null\n      }\n    },\n    \"567069c47b0b\": {\n      \"id\": \"567069c47b0b\",\n      \"task_type\": \"dashboard_build\",\n      \"context_key\": \"brand_mirror_rebuild\",\n      \"solution\": {\n        \"strategy\": \"python_brand_mirror_script\",\n        \"code_snippet\": \"python brand_mirror.py\",\n",
+        "applies_to": "adaptive_cli_appdata",
+        "source": "C:\\Chance1\\IA\\Backup_IA\\adaptive_cli_AppData\\.adaptive_cli\\learned_patterns.json",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "json",
+        "json"
+      ],
+      "created_at": "2026-04-04T04:32:57.169362+00:00",
+      "updated_at": "2026-04-04T04:32:57.169362+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:32:57.169362+00:00",
+        "access_count": 0
+      }
+    },
+    "ade41e2e7e57": {
+      "id": "ade41e2e7e57",
+      "type": "fact",
+      "key": "learned_patterns_6",
+      "fact": {
+        "rule": "        \"strategy\": \"python_brand_mirror_script\",\n        \"code_snippet\": \"python brand_mirror.py\",\n        \"notes\": \"brand_mirror.py regenera index.html. Si se modifica index.html directamente, actualizar brand_mirror.py tambien.\",\n        \"attempts_to_solve\": 1,\n        \"time_to_solve_seconds\": 60\n      },\n      \"tags\": [\n        \"build\",\n        \"brand\",\n        \"mirror\",\n        \"rebuild\"\n      ],\n      \"error_context\": null,\n      \"created_at\": \"2026-03-15T04:00:56.434956+00:00\",\n      \"updated_at\": \"2026-03-15T04:00:56.434956+00:00\",\n      \"stats\": {\n        \"lookups\": 0,\n        \"reuses\": 0,\n        \"success_rate\": 1.0,\n        \"last_lookup\": null,\n        \"last_reuse\": null\n      }\n    },\n    \"a67edfeb5f3b\": {\n      \"id\": \"a67edfeb5f3b\",\n      \"task_type\": \"web_mirror\",\n",
+        "applies_to": "adaptive_cli_appdata",
+        "source": "C:\\Chance1\\IA\\Backup_IA\\adaptive_cli_AppData\\.adaptive_cli\\learned_patterns.json",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "json",
+        "json"
+      ],
+      "created_at": "2026-04-04T04:32:57.247494+00:00",
+      "updated_at": "2026-04-04T04:32:57.247494+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:32:57.247494+00:00",
+        "access_count": 0
+      }
+    },
+    "3f57ccb28067": {
+      "id": "3f57ccb28067",
+      "type": "fact",
+      "key": "learned_patterns_7",
+      "fact": {
+        "rule": "l\n      }\n    },\n    \"a67edfeb5f3b\": {\n      \"id\": \"a67edfeb5f3b\",\n      \"task_type\": \"web_mirror\",\n      \"context_key\": \"download_and_adapt_website\",\n      \"solution\": {\n        \"strategy\": \"wget_mirror_plus_brand_",
+        "applies_to": "adaptive_cli_appdata",
+        "source": "C:\\Chance1\\IA\\Backup_IA\\adaptive_cli_AppData\\.adaptive_cli\\learned_patterns.json",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "json",
+        "json"
+      ],
+      "created_at": "2026-04-04T04:32:57.318960+00:00",
+      "updated_at": "2026-04-04T04:32:57.318960+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:32:57.318960+00:00",
+        "access_count": 0
+      }
+    },
+    "f4f4614de1f4": {
+      "id": "f4f4614de1f4",
+      "type": "fact",
+      "key": "facts_0",
+      "fact": {
+        "rule": "{\n  \"domain\": \"clients\",\n  \"description\": \"Proyectos por cliente: SOWs, BoMs, propuestas, docs de Bantrab, etc.\",\n  \"entries\": {},\n  \"tag_index\": {},\n  \"stats\": {\n    \"total_entries\": 0,\n    \"total_lookups\": 663,\n    \"total_hits\": 0\n  }\n}",
+        "applies_to": "adaptive_cli_appdata",
+        "source": "C:\\Chance1\\IA\\Backup_IA\\adaptive_cli_AppData\\knowledge\\clients\\facts.json",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "json",
+        "json"
+      ],
+      "created_at": "2026-04-04T04:33:08.358142+00:00",
+      "updated_at": "2026-04-04T04:33:08.358142+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:33:08.358142+00:00",
+        "access_count": 0
+      }
+    },
+    "22bd011de554": {
+      "id": "22bd011de554",
+      "type": "fact",
+      "key": "facts_1",
+      "fact": {
+        "rule": "26-03-13T21:47:52.568023+00:00\",\n      \"stats\": {\n        \"lookups\": 0,\n        \"cited_in_tasks\": 0\n      }\n    },\n    \"69a889d2b92d\": {\n      \"id\": \"69a889d2b92d\",\n      \"type\": \"fact\",\n      \"key\": \"gbm_css_variables\",\n      \"fact\": {\n        \"rule\": \"Variables CSS: --gbm-bg:#0a0a0f, --gbm-surface:#16161e, --gbm-accent:#1DC19C, --gbm-accent2:#2A6DCE, --gbm-radius:16px\",\n        \"source\": \"index.html\",\n        \"confidence\": \"verified\"\n      },\n      \"tags\": [\n        \"css\",\n        \"variables\",\n        \"design\"\n      ],\n      \"created_at\": \"2026-03-15T04:00:57.828076+00:00\",\n      \"updated_at\": \"2026-03-15T04:00:57.828076+00:00\",\n      \"stats\": {\n        \"lookups\": 0,\n        \"cited_in_tasks\": 0,\n        \"last_accessed\": \"2026-03-20T22:39:06.822628+00:00\",\n        \"access_count\": 1\n",
+        "applies_to": "adaptive_cli_appdata",
+        "source": "C:\\Chance1\\IA\\Backup_IA\\adaptive_cli_AppData\\knowledge\\catalog\\facts.json",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "json",
+        "json"
+      ],
+      "created_at": "2026-04-04T04:33:04.713557+00:00",
+      "updated_at": "2026-04-04T04:33:04.713557+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:33:04.713557+00:00",
+        "access_count": 0
+      }
+    },
+    "3966394e46ea": {
+      "id": "3966394e46ea",
+      "type": "fact",
+      "key": "facts_2",
+      "fact": {
+        "rule": "n_tasks\": 0,\n        \"last_accessed\": \"2026-03-20T22:39:06.822628+00:00\",\n        \"access_count\": 1\n      }\n    },\n    \"55b89f9ac780\": {\n      \"id\": \"55b89f9ac780\",\n      \"type\": \"fact\",\n      \"key\": \"gbm_z_index_hierarchy\",\n      \"fact\": {\n        \"rule\": \"Z-index hierarchy: header=9500, overlays=9000, contenido devin=default\",\n        \"applies_to\": \"Nuevos elementos flotantes\",\n        \"source\": \"Session 2026-03-14\",\n        \"confidence\": \"verified\"\n      },\n      \"tags\": [\n        \"css\",\n        \"z-index\",\n        \"layout\"\n      ],\n      \"created_at\": \"2026-03-15T04:00:57.889455+00:00\",\n      \"updated_at\": \"2026-03-15T04:00:57.889455+00:00\",\n      \"stats\": {\n        \"lookups\": 0,\n        \"cited_in_tasks\": 0,\n        \"last_accessed\": \"2026-03-20T22:39:06.822628+00:00\",\n",
+        "applies_to": "adaptive_cli_appdata",
+        "source": "C:\\Chance1\\IA\\Backup_IA\\adaptive_cli_AppData\\knowledge\\catalog\\facts.json",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "json",
+        "json"
+      ],
+      "created_at": "2026-04-04T04:33:04.792572+00:00",
+      "updated_at": "2026-04-04T04:33:04.792572+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:33:04.792572+00:00",
+        "access_count": 0
+      }
+    },
+    "84d4d54a47ea": {
+      "id": "84d4d54a47ea",
+      "type": "fact",
+      "key": "facts_3",
+      "fact": {
+        "rule": "kups\": 0,\n        \"cited_in_tasks\": 0,\n        \"last_accessed\": \"2026-03-20T22:39:06.822628+00:00\",\n        \"access_count\": 2\n      }\n    }\n  },\n  \"tag_index\": {\n    \"ibm\": [\n      \"0fbf55a36e5e\",\n      \"0c651edb35b0\",\n      \"9ff99cb9d871\",\n      \"8b4b46c7e66d\"\n    ],\n    \"db2\": [\n      \"0fbf55a36e5e\"\n    ],\n    \"base_datos\": [\n      \"0fbf55a36e5e\"\n    ],\n    \"licencia\": [\n      \"0fbf55a36e5e\",\n      \"0c651edb35b0\",\n      \"9ff99cb9d871\",\n      \"8b4b46c7e66d\"\n    ],\n    \"producto\": [\n      \"0fbf55a36e5e\",\n      \"0c651edb35b0\",\n      \"9ff99cb9d871\",\n      \"8b4b46c7e66d\"\n    ],\n    \"websphere\": [\n      \"0c651edb35b0\"\n    ],\n    \"java\": [\n      \"0c651edb35b0\"\n    ],\n    \"mq\": [\n      \"9ff99cb9d871\"\n    ],\n    \"mensajeria\": [\n      \"9ff99cb9d871\"\n    ],\n    \"instana\": [\n      \"8b4b46c7e66d\"\n",
+        "applies_to": "adaptive_cli_appdata",
+        "source": "C:\\Chance1\\IA\\Backup_IA\\adaptive_cli_AppData\\knowledge\\catalog\\facts.json",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "json",
+        "json"
+      ],
+      "created_at": "2026-04-04T04:33:04.877613+00:00",
+      "updated_at": "2026-04-04T04:33:04.877613+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:33:04.877613+00:00",
+        "access_count": 0
+      }
+    },
+    "548d11c5071a": {
+      "id": "548d11c5071a",
+      "type": "fact",
+      "key": "facts_4",
+      "fact": {
+        "rule": "9d871\"\n    ],\n    \"mensajeria\": [\n      \"9ff99cb9d871\"\n    ],\n    \"instana\": [\n      \"8b4b46c7e66d\"\n    ],\n    \"observabilidad\": [\n      \"8b4b46c7e66d\"\n    ],\n    \"apm\": [\n      \"8b4b46c7e66d\"\n    ],\n    \"css\": [\n      \"69a889d2b92d\",\n      \"55b89f9ac780\"\n    ],\n    \"variables\": [\n      \"69a889d2b92d\"\n    ],\n    \"design\": [\n      \"69a889d2b92d\"\n    ],\n    \"z-index\": [\n      \"55b89f9ac780\"\n    ],\n    \"layout\": [\n      \"55b89f9ac780\"\n    ]\n  },\n  \"stats\": {\n    \"total_entries\": 6,\n    \"total_lookups\": 667,\n    \"total_hits\": 53\n  }\n}",
+        "applies_to": "adaptive_cli_appdata",
+        "source": "C:\\Chance1\\IA\\Backup_IA\\adaptive_cli_AppData\\knowledge\\catalog\\facts.json",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "json",
+        "json"
+      ],
+      "created_at": "2026-04-04T04:33:04.966012+00:00",
+      "updated_at": "2026-04-04T04:33:04.966012+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:33:04.966012+00:00",
+        "access_count": 0
+      }
+    },
+    "3b78569a83c4": {
+      "id": "3b78569a83c4",
+      "type": "fact",
+      "key": "facts_6",
+      "fact": {
+        "rule": "ashboard Flask funcional en puerto 5000\\n- 14 agentes en C:/Chance1/Prompts IA/ (8 nuevos creados esta sesion)\\n- RAG Nivel 1 extrae tablas DOCX correctamente\\n\\nPENDIENTE:\\n- Completar testing casos 4-6, 17\\n- Fix auto-load overlays\\n- Fix Limpiar chat overlap\\n- Fix KB leaking en chat\"\n      },\n      \"tags\": [\n        \"session\",\n        \"visual-testing\",\n        \"bugs\",\n        \"knowledge-dump\"\n      ],\n      \"error_context\": null,\n      \"created_at\": \"2026-03-17T20:13:18.342966+00:00\",\n      \"updated_at\": \"2026-03-17T20:13:18.342966+00:00\",\n      \"stats\": {\n        \"lookups\": 0,\n        \"reuses\": 0,\n        \"success_rate\": 1.0,\n        \"last_accessed\": \"2026-03-20T22:48:09.434983+00:00\",\n        \"access_count\": 15\n      }\n    },\n    \"ee4e81636a34\": {\n      \"id\": \"ee4e81636a34\",\n",
+        "applies_to": "adaptive_cli_appdata",
+        "source": "C:\\Chance1\\IA\\Backup_IA\\adaptive_cli_AppData\\knowledge\\sessions\\facts.json",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "json",
+        "json"
+      ],
+      "created_at": "2026-04-04T04:33:00.610942+00:00",
+      "updated_at": "2026-04-04T04:33:00.610942+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:33:00.610942+00:00",
+        "access_count": 0
+      }
+    },
+    "620237abb21b": {
+      "id": "620237abb21b",
+      "type": "fact",
+      "key": "facts_7",
+      "fact": {
+        "rule": "00:00\",\n        \"access_count\": 15\n      }\n    },\n    \"ee4e81636a34\": {\n      \"id\": \"ee4e81636a34\",\n      \"type\": \"pattern\",\n      \"key\": \"compacted_context_20260317_sessions\",\n      \"solution\": {",
+        "applies_to": "adaptive_cli_appdata",
+        "source": "C:\\Chance1\\IA\\Backup_IA\\adaptive_cli_AppData\\knowledge\\sessions\\facts.json",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "json",
+        "json"
+      ],
+      "created_at": "2026-04-04T04:33:00.682415+00:00",
+      "updated_at": "2026-04-04T04:33:00.682415+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:33:00.682415+00:00",
+        "access_count": 0
+      }
+    },
+    "47fa71ecf03a": {
+      "id": "47fa71ecf03a",
+      "type": "fact",
+      "key": "facts_5",
+      "fact": {
+        "rule": "visual_testing_v2\",\n      \"solution\": {\n        \"strategy\": \"systematic_visual_testing_with_fixes\",\n        \"note\": \"Sesion 2026-03-17 (continuacion tras compactacion).\\nTRABAJO REALIZADO:\\n- Testing visual sistematico de 17 casos de uso del dashboard\\n- 10 casos OK, 3 parciales (bugs identificados), 1 bloqueado (IT), 3 pendientes\\n- Guardado completo de conocimiento en KB (8 entries nuevas)\\n\\nBUGS IDENTIFICADOS (3):\\n1. Overlays no auto-load: Stats/Agentes/Skills muestran Cargando... permanente\\n2. Boton Limpiar chat tapado por timestamp auto-save\\n3. KB interna visible en chat (viola kb_internal_only)\\n\\nCONFIRMADO:\\n- Outlook COM bloqueado por IT security (no es regresion de codigo)\\n- Dashboard Flask funcional en puerto 5000\\n- 14 agentes en C:/Chance1/Prompts IA/ (8 nuevos creados es",
+        "applies_to": "adaptive_cli_appdata",
+        "source": "C:\\Chance1\\IA\\Backup_IA\\adaptive_cli_AppData\\knowledge\\sessions\\facts.json",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "json",
+        "json"
+      ],
+      "created_at": "2026-04-04T04:33:00.538983+00:00",
+      "updated_at": "2026-04-04T04:33:00.538983+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:33:00.538983+00:00",
+        "access_count": 0
+      }
+    },
+    "15c17d8dcd6c": {
+      "id": "15c17d8dcd6c",
+      "type": "fact",
+      "key": "hint_effectiveness_0",
+      "fact": {
+        "rule": "{\"history\": [{\"ts\": \"2026-03-20T10:56:56.111564\", \"usage_rate\": 0.8, \"used_kw\": [\"usado\", \"gemini\", \"cli\", \"user\"], \"ignored_dom\": [], \"intent\": \"general\", \"had_lm\": false, \"had_kb\": true, \"had_ep\": true}, {\"ts\": \"2026-03-20T11:12:18.939433\", \"usage_rate\": 0.8, \"used_kw\": [\"usado\", \"gemini\", \"cli\", \"user\"], \"ignored_dom\": [], \"intent\": \"general\", \"had_lm\": false, \"had_kb\": true, \"had_ep\": true}, {\"ts\": \"2026-03-20T11:36:12.131404\", \"usage_rate\": 0.8, \"used_kw\": [\"usado\", \"gemini\", \"cli\", \"user\"], \"ignored_dom\": [], \"intent\": \"general\", \"had_lm\": false, \"had_kb\": true, \"had_ep\": true}, {\"ts\": \"2026-03-20T11:54:00.677500\", \"usage_rate\": 0.8, \"used_kw\": [\"puedes\", \"cambios\", \"proyecto\", \"original\"], \"ignored_dom\": [], \"intent\": \"crear\", \"had_lm\": false, \"had_kb\": true, \"had_ep\": true}, {\"ts\":",
+        "applies_to": "adaptive_cli_appdata",
+        "source": "C:\\Chance1\\IA\\Backup_IA\\adaptive_cli_AppData\\.adaptive_cli\\hint_effectiveness.json",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "json",
+        "json"
+      ],
+      "created_at": "2026-04-04T04:33:00.769030+00:00",
+      "updated_at": "2026-04-04T04:33:00.769030+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:33:00.769030+00:00",
+        "access_count": 0
+      }
+    },
+    "b1380477e827": {
+      "id": "b1380477e827",
+      "type": "fact",
+      "key": "hint_effectiveness_1",
+      "fact": {
+        "rule": "al\"], \"ignored_dom\": [], \"intent\": \"crear\", \"had_lm\": false, \"had_kb\": true, \"had_ep\": true}, {\"ts\": \"2026-03-20T11:57:52.426404\", \"usage_rate\": 0.4, \"used_kw\": [\"sow\", \"propuesta\"], \"ignored_dom\": [], \"intent\": \"crear\", \"had_lm\": false, \"had_kb\": true, \"had_ep\": true}, {\"ts\": \"2026-03-20T12:05:59.846749\", \"usage_rate\": 0.4, \"used_kw\": [\"sow\", \"propuesta\"], \"ignored_dom\": [], \"intent\": \"crear\", \"had_lm\": false, \"had_kb\": true, \"had_ep\": true}, {\"ts\": \"2026-03-20T12:06:06.234096\", \"usage_rate\": 0.4, \"used_kw\": [\"sow\", \"propuesta\"], \"ignored_dom\": [], \"intent\": \"crear\", \"had_lm\": false, \"had_kb\": true, \"had_ep\": true}, {\"ts\": \"2026-03-20T12:07:45.544972\", \"usage_rate\": 1.0, \"used_kw\": [\"genera\", \"sow\", \"propuesta\", \"contrato\", \"alcance\"], \"ignored_dom\": [], \"intent\": \"crear\", \"had_lm\": false",
+        "applies_to": "adaptive_cli_appdata",
+        "source": "C:\\Chance1\\IA\\Backup_IA\\adaptive_cli_AppData\\.adaptive_cli\\hint_effectiveness.json",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "json",
+        "json"
+      ],
+      "created_at": "2026-04-04T04:33:00.859888+00:00",
+      "updated_at": "2026-04-04T04:33:00.859888+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:33:00.859888+00:00",
+        "access_count": 0
+      }
+    },
+    "cb77ec174cdb": {
+      "id": "cb77ec174cdb",
+      "type": "fact",
+      "key": "hint_effectiveness_3",
+      "fact": {
+        "rule": "_kb\": true, \"had_ep\": true}, {\"ts\": \"2026-03-20T12:18:34.467413\", \"usage_rate\": 0.8, \"used_kw\": [\"porque\", \"tiene\", \"pedi\", \"proyecto\"], \"ignored_dom\": [], \"intent\": \"depurar\", \"had_lm\": false, \"had_kb\": true, \"had_ep\": true}, {\"ts\": \"2026-03-20T12:19:48.219532\", \"usage_rate\": 0.8, \"used_kw\": [\"puede\", \"usar\", \"script\", \"carga\"], \"ignored_dom\": [], \"intent\": \"automatizar\", \"had_lm\": true, \"had_kb\": true, \"had_ep\": true}, {\"ts\": \"2026-03-20T12:21:02.100655\", \"usage_rate\": 0.8, \"used_kw\": [\"puede\", \"usar\", \"script\", \"carga\"], \"ignored_dom\": [], \"intent\": \"automatizar\", \"had_lm\": true, \"had_kb\": true, \"had_ep\": true}, {\"ts\": \"2026-03-20T12:24:27.948436\", \"usage_rate\": 0.8, \"used_kw\": [\"puede\", \"usar\", \"script\", \"carga\"], \"ignored_dom\": [], \"intent\": \"automatizar\", \"had_lm\": true, \"had_kb\": tr",
+        "applies_to": "adaptive_cli_appdata",
+        "source": "C:\\Chance1\\IA\\Backup_IA\\adaptive_cli_AppData\\.adaptive_cli\\hint_effectiveness.json",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "json",
+        "json"
+      ],
+      "created_at": "2026-04-04T04:33:01.007086+00:00",
+      "updated_at": "2026-04-04T04:33:01.007086+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:33:01.007086+00:00",
+        "access_count": 0
+      }
+    },
+    "41155cc5bfea": {
+      "id": "41155cc5bfea",
+      "type": "fact",
+      "key": "iter_fingerprints_0",
+      "fact": {
+        "rule": "{\"Busco 'KNOWLEDGE_DIR|BASE_DIR' en knowledge_base.py|Ejecuto: cat \\\"C:/Users/ntoledo/AppData/Local/ClaudeCode/.adaptive_cli/knowledge/|Ejecuto: ls \\\"C:/Users/ntoledo/AppData/Local/ClaudeCode/.adaptive_cli/knowledge/\\\"|Ejecuto: python -c \\\"from pathlib import Path; print(Path.home())\\\" 2>&1\": 1774052514.1927838, \"Ejecuto: cd \\\"C:/Chance1/Asistente IA\\\" && python -c \\\"\\nimport json\\nfrom pathlib im|Ejecuto: cd \\\"C:/Chance1/Asistente IA\\\" && python seed_gbm_knowledge.py 2>&1|Ejecuto: ls \\\"C:/Users/ntoledo/AppData/Local/ClaudeCode/.adaptive_cli/session_his\": 1774052539.953437, \"Glob: 1.*|Leyo 1.png\": 1774052728.3396833, \"Ejecuto: cat \\\"C:/Users/ntoledo/.claude/settings.json\\\" 2>&1|Ejecuto: ls -la \\\"C:/Users/ntoledo/AppData/Local/ClaudeCode/.adaptive_cli/\\\" 2>&1|Ejecuto: python -c \\\"from pathl",
+        "applies_to": "adaptive_cli_appdata",
+        "source": "C:\\Chance1\\IA\\Backup_IA\\adaptive_cli_AppData\\.adaptive_cli\\iter_fingerprints.json",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "json",
+        "json"
+      ],
+      "created_at": "2026-04-04T04:33:02.582887+00:00",
+      "updated_at": "2026-04-04T04:33:02.582887+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:33:02.582887+00:00",
+        "access_count": 0
+      }
+    },
+    "f02f788a1593": {
+      "id": "f02f788a1593",
+      "type": "fact",
+      "key": "iter_fingerprints_1",
+      "fact": {
+        "rule": "la \\\"C:/Users/ntoledo/AppData/Local/ClaudeCode/.adaptive_cli/\\\" 2>&1|Ejecuto: python -c \\\"from pathlib import Path; print('Home:', Path.home()); print\": 1774052805.5656424, \"Ejecuto: echo \\\"=== 1. HOOKS REGISTRADOS ===\\\" && powershell -c \\\"(Get-Content 'C:\\\\|Ejecuto: echo \\\"=== 2. HOOK FILES EXIST? ===\\\" && for f in \\\"C:/Chance1/Asistente I|Ejecuto: echo \\\"=== 3. KB DOMAINS ===\\\" && ls \\\"C:/Users/ntoledo/AppData/Local/Clau\": 1774052827.3051882, \"Ejecuto: echo \\\"=== 11. KB PATTERN COUNTS ===\\\" && python -c \\\"\\nimport json\\nfrom pa|Ejecuto: echo \\\"=== 13b. EPISODIC INDEX - tables ===\\\" && python -c \\\"\\nimport sqlit|Ejecuto: echo \\\"=== 14. MOTOR_INTELIGENTE HOOKS ===\\\" && echo \\\"No hooks del Motor |Ejecuto: echo \\\"=== 9. ",
+        "applies_to": "adaptive_cli_appdata",
+        "source": "C:\\Chance1\\IA\\Backup_IA\\adaptive_cli_AppData\\.adaptive_cli\\iter_fingerprints.json",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "json",
+        "json"
+      ],
+      "created_at": "2026-04-04T04:33:02.671157+00:00",
+      "updated_at": "2026-04-04T04:33:02.671157+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:33:02.671157+00:00",
+        "access_count": 0
+      }
+    },
+    "a11ca3b054ed": {
+      "id": "a11ca3b054ed",
+      "type": "fact",
+      "key": "iter_fingerprints_2",
+      "fact": {
+        "rule": ": echo \\\"=== 14. MOTOR_INTELIGENTE HOOKS ===\\\" && echo \\\"No hooks del Motor |Ejecuto: echo \\\"=== 9. HOOK LIVE TEST - PostToolUse ===\\\" && echo '{\\\"session_id\\\":\\\"|Ejecuto: powershell -c \\\"\\n\\\\$s = Get-Content 'C:\\\\Users\\\\ntoledo\\\\.claude\\\\settings.js|Glob: **/*.md\": 1774052905.4399924, \"Creo _restore_hooks.py|Ejecuto: echo \\\"=== VERIFICACION FINAL ===\\\" && powershell -c \\\"\\n\\\\$s = Get-Content |Ejecuto: ls \\\"C:/Chance1/\\\"|Ejecuto: ls \\\"C:/Chance1/Asistente IA/\\\"|Ejecuto: ls \\\"C:/Chance1/Asistente IA/installer/\\\"|Ejecuto: ls \\\"C:/Chance1/Motor_Inteligente_IA/\\\"|Ejecuto: ls \\\"C:/Chance1/Motor_Inteligente_IA/installer/\\\"|Ejecuto: ls -R \\\"C:/Chance1/Asistente IA/installer/assets/\\\" 2>/dev/null || echo \\\"|Ejecuto: ls -R \\\"C:/Chance1/Motor_Inteligente_IA/installer/assets/\\\" 2>/dev/null ||Ejecuto:",
+        "applies_to": "adaptive_cli_appdata",
+        "source": "C:\\Chance1\\IA\\Backup_IA\\adaptive_cli_AppData\\.adaptive_cli\\iter_fingerprints.json",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "json",
+        "json"
+      ],
+      "created_at": "2026-04-04T04:33:02.761992+00:00",
+      "updated_at": "2026-04-04T04:33:02.761992+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:33:02.761992+00:00",
+        "access_count": 0
+      }
+    },
+    "995c953ae823": {
+      "id": "995c953ae823",
+      "type": "fact",
+      "key": "iter_fingerprints_3",
+      "fact": {
+        "rule": " echo \\\"|Ejecuto: ls -R \\\"C:/Chance1/Motor_Inteligente_IA/installer/assets/\\\" 2>/dev/null ||Ejecuto: mkdir -p \\\"C:/Users/ntoledo/.motor_inteligente\\\" && python -c \\\"\\nimport js|Ejecuto: python \\\"C:/Chance1/_restore_hooks.py\\\" 2>&1|Ejecuto: rm \\\"C:/Chance1/_restore_hooks.py\\\"|Leyo install.ps1|Leyo install.ps1|Leyo uninstall.ps1|Leyo uninstall.ps1\": 1774052989.085992, \"Ejecuto: cat \\\"C:/Users/ntoledo/.claude/settings.json\\\" 2>&1 | head -80|Ejecuto: cat \\\"C:/Users/ntoledo/.motor_inteligente/adapter.json\\\" 2>&1 && echo \\\"\\\" |Ejecuto: echo \\\"=== ASISTENTE IA ===\\\" && ls \\\"C:/Chance1/_test_install/asistente_t|Ejecuto: echo \\\"========== VERIFICACION ASISTENTE IA ==========\\\" && echo \\\"\\\" && ec|Ejecuto: echo \\\"========== VERIFICACION MOTOR IA ==========\\\" && echo \\\"\\\" && echo \\\"|Ejecuto: mkdir -p ",
+        "applies_to": "adaptive_cli_appdata",
+        "source": "C:\\Chance1\\IA\\Backup_IA\\adaptive_cli_AppData\\.adaptive_cli\\iter_fingerprints.json",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "json",
+        "json"
+      ],
+      "created_at": "2026-04-04T04:33:02.849163+00:00",
+      "updated_at": "2026-04-04T04:33:02.849163+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:33:02.849163+00:00",
+        "access_count": 0
+      }
+    },
+    "623ae4be5726": {
+      "id": "623ae4be5726",
+      "type": "fact",
+      "key": "iter_fingerprints_4",
+      "fact": {
+        "rule": "uto: echo \\\"========== VERIFICACION MOTOR IA ==========\\\" && echo \\\"\\\" && echo \\\"|Ejecuto: mkdir -p \\\"C:/Chance1/_pretest/asistente\\\" \\\"C:/Chance1/_pretest/motor\\\"|Ejecuto: mkdir -p \\\"C:/Chance1/_test_install/asistente_test\\\" \\\"C:/Chance1/_test_in|Ejecuto: powershell -ExecutionPolicy Bypass -File \\\"C:/Chance1/Asistente IA/insta|Ejecuto: powershell -ExecutionPolicy Bypass -File \\\"C:/Chance1/Asistente IA/insta|Ejecuto: powershell -ExecutionPolicy Bypass -File \\\"C:/Chance1/Asistente IA/insta|Ejecuto: powershell -ExecutionPolicy Bypass -File \\\"C:/Chance1/Motor_Inteligente_|Ejecuto: powershell -ExecutionPolicy Bypass -File \\\"C:/Chance1/Motor_Inteligente_|Ejecuto: powershell -ExecutionPolicy Bypass -File \\\"C:/Chance1/Motor_Inteligente_\": 1774053079.789849, \"Creo _check_hooks.py|Edito uninstall.p",
+        "applies_to": "adaptive_cli_appdata",
+        "source": "C:\\Chance1\\IA\\Backup_IA\\adaptive_cli_AppData\\.adaptive_cli\\iter_fingerprints.json",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "json",
+        "json"
+      ],
+      "created_at": "2026-04-04T04:33:02.934600+00:00",
+      "updated_at": "2026-04-04T04:33:02.934600+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:33:02.934600+00:00",
+        "access_count": 0
+      }
+    },
+    "2e96ba423cb1": {
+      "id": "2e96ba423cb1",
+      "type": "fact",
+      "key": "iter_fingerprints_5",
+      "fact": {
+        "rule": "s -File \\\"C:/Chance1/Motor_Inteligente_\": 1774053079.789849, \"Creo _check_hooks.py|Edito uninstall.ps1|Edito uninstall.ps1|Ejecuto: echo \\\"=== Dirs test eliminados? ===\\\" && ls \\\"C:/Chance1/_pretest/\\\" 2>&1 |Ejecuto: echo \\\"=== Test dir exists? ===\\\" && ls \\\"C:/Chance1/_test_install/\\\" 2>&1 |Ejecuto: mkdir -p \\\"C:/Chance1/_test_install/asistente_test2\\\" \\\"C:/Chance1/_test_i|Ejecuto: powershell -ExecutionPolicy Bypass -File \\\"C:/Chance1/Asistente IA/insta|Ejecuto: powershell -ExecutionPolicy Bypass -File \\\"C:/Chance1/Asistente IA/insta|Ejecuto: powershell -ExecutionPolicy Bypass -File \\\"C:/Chance1/Motor_Inteligente_|Ejecuto: powershell -ExecutionPolicy Bypass -File \\\"C:/Chance1/Motor_Inteligente_|Ejecuto: python \\\"C:/Chance1/_check_hooks.py\\\" 2>&1|Ejecuto: python \\\"C:/Chance1/_check_hooks.p",
+        "applies_to": "adaptive_cli_appdata",
+        "source": "C:\\Chance1\\IA\\Backup_IA\\adaptive_cli_AppData\\.adaptive_cli\\iter_fingerprints.json",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "json",
+        "json"
+      ],
+      "created_at": "2026-04-04T04:33:03.027849+00:00",
+      "updated_at": "2026-04-04T04:33:03.027849+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:33:03.027849+00:00",
+        "access_count": 0
+      }
+    },
+    "8bcc0dd1a3a5": {
+      "id": "8bcc0dd1a3a5",
+      "type": "fact",
+      "key": "iter_fingerprints_6",
+      "fact": {
+        "rule": "nte_|Ejecuto: python \\\"C:/Chance1/_check_hooks.py\\\" 2>&1|Ejecuto: python \\\"C:/Chance1/_check_hooks.py\\\" 2>&1|Ejecuto: rm -rf \\\"C:/Chance1/_pretest\\\" \\\"C:/Chance1/_check_hooks.py\\\" 2>&1 && echo |Leyo uninstall.ps1\": 1774053141.0568483, \"Creo MEMORY.md|Creo feedback_testing_isolation.md|Ejecuto: powershell -ExecutionPolicy Bypass -File \\\"C:/Chance1/Motor_Inteligente_|Ejecuto: rm -rf \\\"C:/Chance1/_test_install\\\" 2>&1 && echo \\\"Cleanup OK\\\"\": 1774053410.750873, \"Ejecuto: echo \\\"=== Node.js ===\\\" && where node 2>&1 && node --version 2>&1 && ech|Ejecuto: echo \\\"=== Ollama ===\\\" && where ollama 2>&1 && ollama --version 2>&1 && |Ejecuto: ls \\\"C:/Chance1/Asistente IA/.claude/hooks/\\\" 2>/dev/null|Ejecuto: ls \\\"C:/Chance1/Motor_Inteligente_IA/hooks/\\\" 2>/dev/null|Ejecuto: ls \\\"C:/Users/ntoledo/.adapt",
+        "applies_to": "adaptive_cli_appdata",
+        "source": "C:\\Chance1\\IA\\Backup_IA\\adaptive_cli_AppData\\.adaptive_cli\\iter_fingerprints.json",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "json",
+        "json"
+      ],
+      "created_at": "2026-04-04T04:33:03.139739+00:00",
+      "updated_at": "2026-04-04T04:33:03.139739+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:33:03.139739+00:00",
+        "access_count": 0
+      }
+    },
+    "71ddbb5a927b": {
+      "id": "71ddbb5a927b",
+      "type": "fact",
+      "key": "iter_fingerprints_7",
+      "fact": {
+        "rule": "uto: ls \\\"C:/Chance1/Motor_Inteligente_IA/hooks/\\\" 2>/dev/null|Ejecuto: ls \\\"C:/Users/ntoledo/.adaptive_cli/execution_log.jsonl\\\" 2>/dev/null && |Ejecuto: ls \\\"C:/Users/nto",
+        "applies_to": "adaptive_cli_appdata",
+        "source": "C:\\Chance1\\IA\\Backup_IA\\adaptive_cli_AppData\\.adaptive_cli\\iter_fingerprints.json",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "json",
+        "json"
+      ],
+      "created_at": "2026-04-04T04:33:03.206754+00:00",
+      "updated_at": "2026-04-04T04:33:03.206754+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:33:03.206754+00:00",
+        "access_count": 0
+      }
+    },
+    "fe737d115e9e": {
+      "id": "fe737d115e9e",
+      "type": "fact",
+      "key": "pattern_failures_0",
+      "fact": {
+        "rule": "{\"fix_86603\": [{\"ts\": \"2026-03-20T10:09:24.747243\", \"file_ext\": \"none\", \"hour\": 10, \"weekday\": 4, \"error\": \"modulenotfounderror: no module named pytesseract\\ntraceback (most recent call las\"}], \"fix_94048\": [{\"ts\": \"2026-03-20T14:37:28.299159\", \"file_ext\": \"none\", \"hour\": 14, \"weekday\": 4, \"error\": \"traceback modulenotfounderror importerror failed\"}, {\"ts\": \"2026-03-20T14:37:29.188519\", \"file_ext\": \"none\", \"hour\": 14, \"weekday\": 4, \"error\": \"traceback modulenotfounderror playwright not installed failed\"}, {\"ts\": \"2026-03-20T14:38:30.839255\", \"file_ext\": \"none\", \"hour\": 14, \"weekday\": 4, \"error\": \"traceback modulenotfounderror importerror failed\"}, {\"ts\": \"2026-03-20T14:38:31.769094\", \"file_ext\": \"none\", \"hour\": 14, \"weekday\": 4, \"error\": \"traceback modulenotfounderror playwright not instal",
+        "applies_to": "adaptive_cli_appdata",
+        "source": "C:\\Chance1\\IA\\Backup_IA\\adaptive_cli_AppData\\.adaptive_cli\\pattern_failures.json",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "json",
+        "json"
+      ],
+      "created_at": "2026-04-04T04:33:05.049900+00:00",
+      "updated_at": "2026-04-04T04:33:05.049900+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:33:05.049900+00:00",
+        "access_count": 0
+      }
+    },
+    "be5f874b3f6b": {
+      "id": "be5f874b3f6b",
+      "type": "fact",
+      "key": "pattern_failures_1",
+      "fact": {
+        "rule": "xt\": \"none\", \"hour\": 14, \"weekday\": 4, \"error\": \"traceback modulenotfounderror playwright not installed failed\"}, {\"ts\": \"2026-03-20T14:39:33.189917\", \"file_ext\": \"none\", \"hour\": 14, \"weekday\": 4, \"error\": \"traceback modulenotfounderror importerror failed\"}, {\"ts\": \"2026-03-20T14:39:34.098861\", \"file_ext\": \"none\", \"hour\": 14, \"weekday\": 4, \"error\": \"traceback modulenotfounderror playwright not installed failed\"}, {\"ts\": \"2026-03-20T14:40:00.417925\", \"file_ext\": \"none\", \"hour\": 14, \"weekday\": 4, \"error\": \"traceback modulenotfounderror importerror failed\"}, {\"ts\": \"2026-03-20T14:40:01.536482\", \"file_ext\": \"none\", \"hour\": 14, \"weekday\": 4, \"error\": \"traceback modulenotfounderror playwright not installed failed\"}, {\"ts\": \"2026-03-20T14:40:34.168879\", \"file_ext\": \"none\", \"hour\": 14, \"weekday\": ",
+        "applies_to": "adaptive_cli_appdata",
+        "source": "C:\\Chance1\\IA\\Backup_IA\\adaptive_cli_AppData\\.adaptive_cli\\pattern_failures.json",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "json",
+        "json"
+      ],
+      "created_at": "2026-04-04T04:33:05.141935+00:00",
+      "updated_at": "2026-04-04T04:33:05.141935+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:33:05.141935+00:00",
+        "access_count": 0
+      }
+    },
+    "d362e06968bd": {
+      "id": "d362e06968bd",
+      "type": "fact",
+      "key": "pattern_failures_2",
+      "fact": {
+        "rule": "installed failed\"}, {\"ts\": \"2026-03-20T14:40:34.168879\", \"file_ext\": \"none\", \"hour\": 14, \"weekday\": 4, \"error\": \"traceback modulenotfounderror importerror failed\"}, {\"ts\": \"2026-03-20T14:40:35.395373\", \"file_ext\": \"none\", \"hour\": 14, \"weekday\": 4, \"error\": \"traceback modulenotfounderror playwright not installed failed\"}, {\"ts\": \"2026-03-20T14:41:16.558375\", \"file_ext\": \"none\", \"hour\": 14, \"weekday\": 4, \"error\": \"traceback modulenotfounderror importerror failed\"}, {\"ts\": \"2026-03-20T14:41:17.468374\", \"file_ext\": \"none\", \"hour\": 14, \"weekday\": 4, \"error\": \"traceback modulenotfounderror playwright not installed failed\"}, {\"ts\": \"2026-03-20T14:41:53.902130\", \"file_ext\": \"none\", \"hour\": 14, \"weekday\": 4, \"error\": \"traceback modulenotfounderror importerror failed\"}, {\"ts\": \"2026-03-20T14:41:54.9",
+        "applies_to": "adaptive_cli_appdata",
+        "source": "C:\\Chance1\\IA\\Backup_IA\\adaptive_cli_AppData\\.adaptive_cli\\pattern_failures.json",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "json",
+        "json"
+      ],
+      "created_at": "2026-04-04T04:33:05.229184+00:00",
+      "updated_at": "2026-04-04T04:33:05.229184+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:33:05.229184+00:00",
+        "access_count": 0
+      }
+    },
+    "23eaaa6cc502": {
+      "id": "23eaaa6cc502",
+      "type": "fact",
+      "key": "last_learning_0",
+      "fact": {
+        "rule": "[2026-03-20 18:29:49] GUARDADO iter 2 | KB/files | 16 acciones | Leyo: install.ps1, uninstall.ps1 | Creo _restore_hooks.py: import json from pathlib import Path  sf = Path(r\"C:\\Users\\nt\n[2026-03-20 18:30:26] DEDUP-SKIP iter 2 | KB/files | 16 acciones |\n[2026-03-20 18:31:19] GUARDADO iter 3 | KB/files | 13 acciones | Ejecuto: mkdir -p \"C:/Chance1/_test_install/asistente_test\" \"C:/Chance1/_test_install/motor_test\" | Ejecuto: powershell\n[2026-03-20 18:32:21] GUARDADO iter 4 | KB/files | 14 acciones | Leyo: uninstall.ps1 | Edito uninstall.ps1:     if (Test-Path $dataDir) {         try {             Remo ->     if (Test-\n[2026-03-20 18:33:43] DEDUP-SKIP iter 4 | KB/files | 14 acciones |\n[2026-03-20 18:34:42] DEDUP-SKIP iter 4 | KB/files | 14 acciones |\n",
+        "applies_to": "adaptive_cli_appdata",
+        "source": "C:\\Chance1\\IA\\Backup_IA\\adaptive_cli_AppData\\.adaptive_cli\\last_learning.txt",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "txt"
+      ],
+      "created_at": "2026-04-04T04:33:06.232785+00:00",
+      "updated_at": "2026-04-04T04:33:06.232785+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:33:06.232785+00:00",
+        "access_count": 0
+      }
+    },
+    "f4819e94fbb5": {
+      "id": "f4819e94fbb5",
+      "type": "fact",
+      "key": "last_learning_1",
+      "fact": {
+        "rule": "ter 4 | KB/files | 14 acciones |\n[2026-03-20 18:34:42] DEDUP-SKIP iter 4 | KB/files | 14 acciones |\n[2026-03-20 18:36:32] DEDUP-SKIP iter 4 | KB/files | 14 acciones |\n[2026-03-20 18:36:50] GUARDADO iter 5 | KB/files | 4 acciones | Creo feedback_testing_isolation.md: --- name: testing_isolation description: NUNCA tocar datos/motores existentes al | C\n[2026-03-20 18:37:09] GUARDADO iter 6 | KB/sessions | 15 acciones | Leyo: session_end.py, auto_learn_hook.py | Ejecuto: ls \"C:/Users/ntoledo/.adaptive_cli/knowledge/\" 2>/dev/null || echo \"\n[2026-03-20 18:41:10] DEDUP-SKIP iter 6 | KB/sessions | 15 acciones |\n[2026-03-20 18:42:21] GUARDADO iter 1 | KB/sessions | 13 acciones | Ejecuto: echo \"=== 9. HOOK LIVE TEST - PostToolUse ===\" && echo '{\"session_id\":\"test_health\",\"hook_event_name\":\"PostTool\n",
+        "applies_to": "adaptive_cli_appdata",
+        "source": "C:\\Chance1\\IA\\Backup_IA\\adaptive_cli_AppData\\.adaptive_cli\\last_learning.txt",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "txt"
+      ],
+      "created_at": "2026-04-04T04:33:06.313513+00:00",
+      "updated_at": "2026-04-04T04:33:06.313513+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:33:06.313513+00:00",
+        "access_count": 0
+      }
+    },
+    "206ed0618cf4": {
+      "id": "206ed0618cf4",
+      "type": "fact",
+      "key": "last_learning_2",
+      "fact": {
+        "rule": " HOOK LIVE TEST - PostToolUse ===\" && echo '{\"session_id\":\"test_health\",\"hook_event_name\":\"PostTool\n[2026-03-20 18:42:59] DEDUP-SKIP iter 1 | KB/sessions | 13 acciones |\n[2026-03-20 18:43:39] GUARDADO iter 2 | KB/files | 24 acciones | Leyo: uninstall.ps1, install.ps1 | Creo _restore_hooks.py: import json from pathlib import Path  sf = Path(r\"C:\\Users\\nt\n[2026-03-20 18:44:25] GUARDADO iter 3 | KB/files | 17 acciones | Leyo: settings.json, settings.local.json | Edito settings.json:     \"hooks\":  {                   \"PostToolUse\":  [\n[2026-03-20 19:17:12] GUARDADO iter 4 | KB/files | 15 acciones | Leyo: uninstall.ps1 | Edito uninstall.ps1:     if (Test-Path $dataDir) {         try {             Remo ->     if (Test-\n[2026-03-20 19:19:38] DEDUP-SKIP iter 4 | KB/files | 15 acciones |\n",
+        "applies_to": "adaptive_cli_appdata",
+        "source": "C:\\Chance1\\IA\\Backup_IA\\adaptive_cli_AppData\\.adaptive_cli\\last_learning.txt",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "txt"
+      ],
+      "created_at": "2026-04-04T04:33:06.396738+00:00",
+      "updated_at": "2026-04-04T04:33:06.396738+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:33:06.396738+00:00",
+        "access_count": 0
+      }
+    },
+    "d6c9457a8108": {
+      "id": "d6c9457a8108",
+      "type": "fact",
+      "key": "last_learning_3",
+      "fact": {
+        "rule": "           Remo ->     if (Test-\n[2026-03-20 19:19:38] DEDUP-SKIP iter 4 | KB/files | 15 acciones |\n[2026-03-20 19:21:00] DEDUP-SKIP iter 4 | KB/files | 15 acciones |\n[2026-03-20 19:30:28] DEDUP-SKIP iter 4 | KB/files | 15 acciones |\n[2026-03-20 19:30:59] DEDUP-SKIP iter 4 | KB/files | 15 acciones |\n[2026-03-20 19:35:13] DEDUP-SKIP iter 4 | KB/files | 15 acciones |",
+        "applies_to": "adaptive_cli_appdata",
+        "source": "C:\\Chance1\\IA\\Backup_IA\\adaptive_cli_AppData\\.adaptive_cli\\last_learning.txt",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "txt"
+      ],
+      "created_at": "2026-04-04T04:33:06.480500+00:00",
+      "updated_at": "2026-04-04T04:33:06.480500+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:33:06.480500+00:00",
+        "access_count": 0
+      }
+    },
+    "8806f676b39e": {
+      "id": "8806f676b39e",
+      "type": "fact",
+      "key": "domains_0",
+      "fact": {
+        "rule": "{\n  \"contabilidad\": {\n    \"description\": \"Facturas, IVA, balance, cuentas contables\",\n    \"file\": \"patterns.json\",\n    \"entry_type\": \"pattern\",\n    \"auto_created\": true\n  },\n  \"finanzas\": {\n    \"description\": \"Presupuesto, flujo de caja, ROI, inversiones\",\n    \"file\": \"patterns.json\",\n    \"entry_type\": \"pattern\",\n    \"auto_created\": true\n  },\n  \"general\": {\n    \"description\": \"Dominio auto-creado: general\",\n    \"file\": \"patterns.json\",\n    \"entry_type\": \"pattern\",\n    \"auto_created\": true\n  },\n  \"bom\": {\n    \"description\": \"Domain bom\",\n    \"file\": \"patterns.json\",\n    \"entry_type\": \"pattern\",\n    \"auto_created\": true\n  },\n  \"bpm_bau\": {\n    \"description\": \"Domain bpm_bau\",\n    \"file\": \"patterns.json\",\n    \"entry_type\": \"pattern\",\n    \"auto_created\": true\n  },\n  \"business_rules\": {\n",
+        "applies_to": "adaptive_cli_appdata",
+        "source": "C:\\Chance1\\IA\\Backup_IA\\adaptive_cli_AppData\\.adaptive_cli\\knowledge\\domains.json",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "json",
+        "json"
+      ],
+      "created_at": "2026-04-04T04:33:06.686154+00:00",
+      "updated_at": "2026-04-04T04:33:06.686154+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:33:06.686154+00:00",
+        "access_count": 0
+      }
+    },
+    "1be0cdc7323f": {
+      "id": "1be0cdc7323f",
+      "type": "fact",
+      "key": "domains_1",
+      "fact": {
+        "rule": ": \"patterns.json\",\n    \"entry_type\": \"pattern\",\n    \"auto_created\": true\n  },\n  \"business_rules\": {\n    \"description\": \"Domain business_rules\",\n    \"file\": \"patterns.json\",\n    \"entry_type\": \"pattern\",\n    \"auto_created\": true\n  },\n  \"catalog\": {\n    \"description\": \"Domain catalog\",\n    \"file\": \"patterns.json\",\n    \"entry_type\": \"pattern\",\n    \"auto_created\": true\n  },\n  \"clients\": {\n    \"description\": \"Domain clients\",\n    \"file\": \"patterns.json\",\n    \"entry_type\": \"pattern\",\n    \"auto_created\": true\n  },\n  \"files\": {\n    \"description\": \"Domain files\",\n    \"file\": \"patterns.json\",\n    \"entry_type\": \"pattern\",\n    \"auto_created\": true\n  },\n  \"monday\": {\n    \"description\": \"Domain monday\",\n    \"file\": \"patterns.json\",\n    \"entry_type\": \"pattern\",\n    \"auto_created\": true\n  },\n",
+        "applies_to": "adaptive_cli_appdata",
+        "source": "C:\\Chance1\\IA\\Backup_IA\\adaptive_cli_AppData\\.adaptive_cli\\knowledge\\domains.json",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "json",
+        "json"
+      ],
+      "created_at": "2026-04-04T04:33:06.763293+00:00",
+      "updated_at": "2026-04-04T04:33:06.763293+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:33:06.763293+00:00",
+        "access_count": 0
+      }
+    },
+    "3ce22510540c": {
+      "id": "3ce22510540c",
+      "type": "fact",
+      "key": "domains_2",
+      "fact": {
+        "rule": "in monday\",\n    \"file\": \"patterns.json\",\n    \"entry_type\": \"pattern\",\n    \"auto_created\": true\n  },\n  \"outlook\": {\n    \"description\": \"Domain outlook\",\n    \"file\": \"patterns.json\",\n    \"entry_type\": \"pattern\",\n    \"auto_created\": true\n  },\n  \"pptx\": {\n    \"description\": \"Domain pptx\",\n    \"file\": \"patterns.json\",\n    \"entry_type\": \"pattern\",\n    \"auto_created\": true\n  },\n  \"sap_nube\": {\n    \"description\": \"Domain sap_nube\",\n    \"file\": \"patterns.json\",\n    \"entry_type\": \"pattern\",\n    \"auto_created\": true\n  },\n  \"sap_tierra\": {\n    \"description\": \"Domain sap_tierra\",\n    \"file\": \"patterns.json\",\n    \"entry_type\": \"pattern\",\n    \"auto_created\": true\n  },\n  \"sessions\": {\n    \"description\": \"Domain sessions\",\n    \"file\": \"patterns.json\",\n    \"entry_type\": \"pattern\",\n    \"auto_created\": true\n",
+        "applies_to": "adaptive_cli_appdata",
+        "source": "C:\\Chance1\\IA\\Backup_IA\\adaptive_cli_AppData\\.adaptive_cli\\knowledge\\domains.json",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "json",
+        "json"
+      ],
+      "created_at": "2026-04-04T04:33:06.843282+00:00",
+      "updated_at": "2026-04-04T04:33:06.843282+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:33:06.843282+00:00",
+        "access_count": 0
+      }
+    },
+    "722970ee3094": {
+      "id": "722970ee3094",
+      "type": "fact",
+      "key": "domains_3",
+      "fact": {
+        "rule": "omain sessions\",\n    \"file\": \"patterns.json\",\n    \"entry_type\": \"pattern\",\n    \"auto_created\": true\n  },\n  \"sow\": {\n    \"description\": \"Domain sow\",\n    \"file\": \"patterns.json\",\n    \"entry_type\": \"pattern\",\n    \"auto_created\": true\n  }\n}",
+        "applies_to": "adaptive_cli_appdata",
+        "source": "C:\\Chance1\\IA\\Backup_IA\\adaptive_cli_AppData\\.adaptive_cli\\knowledge\\domains.json",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "json",
+        "json"
+      ],
+      "created_at": "2026-04-04T04:33:06.913289+00:00",
+      "updated_at": "2026-04-04T04:33:06.913289+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:33:06.913289+00:00",
+        "access_count": 0
+      }
+    },
+    "0a9227855e39": {
+      "id": "0a9227855e39",
+      "type": "fact",
+      "key": "domain_hints_0",
+      "fact": {
+        "rule": "{\n  \"sap_tierra\": {\n    \"sap\": 2,\n    \"crm\": 2,\n    \"tierra\": 2,\n    \"playwright\": 2,\n    \"selector\": 2,\n    \"oportunidad\": 1,\n    \"quote\": 2,\n    \"iframe\": 2,\n    \"aria\": 2,\n    \"login\": 1,\n    \"logon\": 2,\n    \"webclient\": 2\n  },\n  \"sap_nube\": {\n    \"nube\": 2,\n    \"cloud\": 2,\n    \"formulario\": 1,\n    \"s4hana\": 2,\n    \"fiori\": 2\n  },\n  \"sow\": {\n    \"sow\": 3,\n    \"propuesta\": 2,\n    \"contrato\": 2,\n    \"practica\": 2,\n    \"servicio\": 1,\n    \"alcance\": 2,\n    \"entregable\": 2,\n    \"cliente\": 1\n  },\n  \"bom\": {\n    \"bom\": 3,\n    \"listado\": 2,\n    \"material\": 2,\n    \"partnum\": 2,\n    \"producto\": 1,\n    \"precio\": 1,\n    \"cantidad\": 2,\n    \"sku\": 2\n  },\n  \"monday\": {\n    \"monday\": 3,\n    \"pipeline\": 2,\n    \"bitacora\": 2,\n    \"tablero\": 2,\n    \"item\": 1\n  },\n  \"outlook\": {\n    \"outlook\": 3,\n",
+        "applies_to": "adaptive_cli_appdata",
+        "source": "C:\\Chance1\\IA\\Backup_IA\\adaptive_cli_AppData\\.adaptive_cli\\knowledge\\domain_hints.json",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "json",
+        "json"
+      ],
+      "created_at": "2026-04-04T04:33:07.100426+00:00",
+      "updated_at": "2026-04-04T04:33:07.100426+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:33:07.100426+00:00",
+        "access_count": 0
+      }
+    },
+    "d8e0c6d3808f": {
+      "id": "d8e0c6d3808f",
+      "type": "fact",
+      "key": "domain_hints_1",
+      "fact": {
+        "rule": "eline\": 2,\n    \"bitacora\": 2,\n    \"tablero\": 2,\n    \"item\": 1\n  },\n  \"outlook\": {\n    \"outlook\": 3,\n    \"correo\": 2,\n    \"email\": 2,\n    \"adjunto\": 2,\n    \"bandeja\": 2,\n    \"smtp\": 2,\n    \"mensaje\": 1\n  },\n  \"files\": {\n    \"pdf\": 2,\n    \"excel\": 2,\n    \"docx\": 2,\n    \"xlsx\": 2,\n    \"word\": 2,\n    \"archivo\": 1,\n    \"documento\": 1,\n    \"convertir\": 1,\n    \"python\": 1,\n    \"script\": 1,\n    \"hook\": 2,\n    \"json\": 1\n  },\n  \"business_rules\": {\n    \"regla\": 2,\n    \"nomenclatura\": 3,\n    \"sufijo\": 2,\n    \"prefijo\": 2,\n    \"_ps\": 3,\n    \"_rn\": 3,\n    \"codigo\": 1,\n    \"formato\": 1,\n    \"convencion\": 2\n  },\n  \"catalog\": {\n    \"catalogo\": 2,\n    \"sku\": 3,\n    \"licencia\": 2,\n    \"ibm\": 2,\n    \"partnumber\": 2,\n    \"modelo\": 1,\n    \"fabricante\": 2\n  },\n  \"contabilidad\": {\n    \"factura\": 2,\n    \"iva\": 2,\n",
+        "applies_to": "adaptive_cli_appdata",
+        "source": "C:\\Chance1\\IA\\Backup_IA\\adaptive_cli_AppData\\.adaptive_cli\\knowledge\\domain_hints.json",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "json",
+        "json"
+      ],
+      "created_at": "2026-04-04T04:33:07.189514+00:00",
+      "updated_at": "2026-04-04T04:33:07.189514+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:33:07.189514+00:00",
+        "access_count": 0
+      }
+    },
+    "fc97418d10b4": {
+      "id": "fc97418d10b4",
+      "type": "fact",
+      "key": "domain_hints_2",
+      "fact": {
+        "rule": "\": 2,\n    \"modelo\": 1,\n    \"fabricante\": 2\n  },\n  \"contabilidad\": {\n    \"factura\": 2,\n    \"iva\": 2,\n    \"balance\": 2,\n    \"debe\": 2,\n    \"haber\": 2,\n    \"cuenta\": 2,\n    \"asiento\": 2\n  },\n  \"finanzas\": {\n    \"presupuesto\": 2,\n    \"flujo\": 2,\n    \"inversion\": 2,\n    \"roi\": 2,\n    \"capital\": 2,\n    \"rendimiento\": 2,\n    \"caja\": 2\n  },\n  \"test_dd_direct_J\": {\n    \"kw_j_unico_alpha\": 1,\n    \"kw_j_unico_beta\": 1,\n    \"kw_j_unico_gamma\": 1,\n    \"texto\": 1,\n    \"largo\": 1,\n    \"otras\": 1,\n    \"palabras\": 1,\n    \"contexto\": 1,\n    \"negocio\": 1\n  },\n  \"test_kb_direct_exhaustivo\": {\n    \"kw_k9_process_file_unico\": 1,\n    \"contenido\": 1,\n    \"prueba\": 1,\n    \"process_file\": 1,\n    \"exhaustivo\": 1,\n    \"archivo\": 1,\n    \"contiene\": 1,\n    \"informacion\": 1,\n    \"verificar\": 1,\n    \"pipeline\": 1,\n",
+        "applies_to": "adaptive_cli_appdata",
+        "source": "C:\\Chance1\\IA\\Backup_IA\\adaptive_cli_AppData\\.adaptive_cli\\knowledge\\domain_hints.json",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "json",
+        "json"
+      ],
+      "created_at": "2026-04-04T04:33:07.273076+00:00",
+      "updated_at": "2026-04-04T04:33:07.273076+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:33:07.273076+00:00",
+        "access_count": 0
+      }
+    },
+    "343ce0989b31": {
+      "id": "343ce0989b31",
+      "type": "fact",
+      "key": "domain_hints_3",
+      "fact": {
+        "rule": ",\n    \"archivo\": 1,\n    \"contiene\": 1,\n    \"informacion\": 1,\n    \"verificar\": 1,\n    \"pipeline\": 1,\n    \"completo\": 1,\n    \"ingestion\": 1\n  }\n}",
+        "applies_to": "adaptive_cli_appdata",
+        "source": "C:\\Chance1\\IA\\Backup_IA\\adaptive_cli_AppData\\.adaptive_cli\\knowledge\\domain_hints.json",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "json",
+        "json"
+      ],
+      "created_at": "2026-04-04T04:33:07.344859+00:00",
+      "updated_at": "2026-04-04T04:33:07.344859+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:33:07.344859+00:00",
+        "access_count": 0
+      }
+    },
+    "4b40ace9eeb9": {
+      "id": "4b40ace9eeb9",
+      "type": "fact",
+      "key": "domains_builtin_0",
+      "fact": {
+        "rule": "{\n  \"sow\": {\n    \"description\": \"SOWs: generación, revisión, fusión (hasta 6 prácticas), propuesta económica\",\n    \"file\": \"patterns.json\",\n    \"entry_type\": \"pattern\"\n  },\n  \"bom\": {\n    \"description\": \"BoMs: validación math, part numbers, clasificación, fusión, pricing, tipo de cambio\",\n    \"file\": \"patterns.json\",\n    \"entry_type\": \"pattern\"\n  },\n  \"pptx\": {\n    \"description\": \"Presentaciones: resumen propuestas, offering productos/servicios\",\n    \"file\": \"patterns.json\",\n    \"entry_type\": \"pattern\"\n  },\n  \"sap_tierra\": {\n    \"description\": \"SAP CRM Web (Tierra): quotes, items, oportunidades, Playwright automation\",\n    \"file\": \"patterns.json\",\n    \"entry_type\": \"pattern\"\n  },\n  \"sap_nube\": {\n    \"description\": \"SAP CRM Nube: formularios cloud, oportunidades\",\n",
+        "applies_to": "adaptive_cli_appdata",
+        "source": "C:\\Chance1\\IA\\Backup_IA\\adaptive_cli_AppData\\.adaptive_cli\\knowledge\\domains_builtin.json",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "json",
+        "json"
+      ],
+      "created_at": "2026-04-04T04:33:07.534815+00:00",
+      "updated_at": "2026-04-04T04:33:07.534815+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:33:07.534815+00:00",
+        "access_count": 0
+      }
+    },
+    "a2afd56f759c": {
+      "id": "a2afd56f759c",
+      "type": "fact",
+      "key": "domains_builtin_1",
+      "fact": {
+        "rule": "\"pattern\"\n  },\n  \"sap_nube\": {\n    \"description\": \"SAP CRM Nube: formularios cloud, oportunidades\",\n    \"file\": \"patterns.json\",\n    \"entry_type\": \"pattern\"\n  },\n  \"monday\": {\n    \"description\": \"Monday.com: pipeline propuestas, bitácora, seguimiento\",\n    \"file\": \"patterns.json\",\n    \"entry_type\": \"pattern\"\n  },\n  \"bpm_bau\": {\n    \"description\": \"BPM BAU: procesos autorización, forms, pestañas\",\n    \"file\": \"patterns.json\",\n    \"entry_type\": \"pattern\"\n  },\n  \"outlook\": {\n    \"description\": \"Outlook: correos, adjuntos, integración SAP\",\n    \"file\": \"patterns.json\",\n    \"entry_type\": \"pattern\"\n  },\n  \"files\": {\n    \"description\": \"Archivos multi-formato: PDF, Excel, DOCX, JPG, conversiones\",\n    \"file\": \"patterns.json\",\n    \"entry_type\": \"pattern\"\n  },\n  \"sessions\": {\n",
+        "applies_to": "adaptive_cli_appdata",
+        "source": "C:\\Chance1\\IA\\Backup_IA\\adaptive_cli_AppData\\.adaptive_cli\\knowledge\\domains_builtin.json",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "json",
+        "json"
+      ],
+      "created_at": "2026-04-04T04:33:07.623217+00:00",
+      "updated_at": "2026-04-04T04:33:07.623217+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:33:07.623217+00:00",
+        "access_count": 0
+      }
+    },
+    "91e0607836a5": {
+      "id": "91e0607836a5",
+      "type": "fact",
+      "key": "domains_builtin_2",
+      "fact": {
+        "rule": ", JPG, conversiones\",\n    \"file\": \"patterns.json\",\n    \"entry_type\": \"pattern\"\n  },\n  \"sessions\": {\n    \"description\": \"Sesiones: cliente (upsell), internas (preventa, AMs), nuevos productos\",\n    \"file\": \"facts.json\",\n    \"entry_type\": \"fact\"\n  },\n  \"clients\": {\n    \"description\": \"Proyectos por cliente: SOWs, BoMs, propuestas, docs de Bantrab, etc.\",\n    \"file\": \"facts.json\",\n    \"entry_type\": \"fact\"\n  },\n  \"business_rules\": {\n    \"description\": \"Reglas negocio GBM: nomenclatura (_PS, _RN), tarifas, cláusulas, SLAs, procesos\",\n    \"file\": \"facts.json\",\n    \"entry_type\": \"fact\"\n  },\n  \"catalog\": {\n    \"description\": \"Catálogo productos: IBM, SAP, servicios GBM, códigos, precios, SKUs\",\n    \"file\": \"facts.json\",\n    \"entry_type\": \"fact\"\n  }\n}",
+        "applies_to": "adaptive_cli_appdata",
+        "source": "C:\\Chance1\\IA\\Backup_IA\\adaptive_cli_AppData\\.adaptive_cli\\knowledge\\domains_builtin.json",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "json",
+        "json"
+      ],
+      "created_at": "2026-04-04T04:33:07.709386+00:00",
+      "updated_at": "2026-04-04T04:33:07.709386+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:33:07.709386+00:00",
+        "access_count": 0
+      }
+    },
+    "155ce94466ed": {
+      "id": "155ce94466ed",
+      "type": "fact",
+      "key": "iteration_state_0",
+      "fact": {
+        "rule": "{\"sid\": \"b8f39c43-ea7a-4aa3-8cbc-6972efe3400a\", \"iteration\": 4, \"last_ts\": 1774053865.7802713, \"explore_streak\": 0, \"explored_files\": [\"C:\\\\Chance1\\\\Motor_Inteligente_IA\\\\adapters\\\\ollama.py\", \"C:\\\\Chance1\\\\Buscador_IA\\\\dashboard.py\", \"C:\\\\Chance1\\\\Buscador_IA\\\\llm_config.json\", \"C:\\\\Chance1\\\\Buscador_IA\\\\dashboard_web\\\\devin_mirror\\\\index.html\", \"C:\\\\Chance1\\\\Motor_Inteligente_IA\\\\hooks\\\\user_prompt_submit.py\", \"C:\\\\Chance1\\\\Motor_Inteligente_IA\\\\core\\\\iteration_learn.py\", \"C:\\\\Chance1\\\\Asistente IA\\\\.claude\\\\hooks\\\\post_action_learn.py\", \"C:\\\\Chance1\\\\Asistente IA\\\\.claude\\\\hooks\\\\iteration_learn.py\", \"C:/Chance1/Motor_Inteligente_IA/installer/install.ps1\", \"C:\\\\Chance1\\\\Motor_Inteligente_IA\\\\installer\\\\install.ps1\", \"C:\\\\Chance1\\\\Asistente IA\\\\installer\\\\install.ps1\", \"C:\\\\Users\\\\ntoled",
+        "applies_to": "adaptive_cli_appdata",
+        "source": "C:\\Chance1\\IA\\Backup_IA\\adaptive_cli_AppData\\.adaptive_cli\\iteration_state.json",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "json",
+        "json"
+      ],
+      "created_at": "2026-04-04T04:33:07.890532+00:00",
+      "updated_at": "2026-04-04T04:33:07.890532+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:33:07.890532+00:00",
+        "access_count": 0
+      }
+    },
+    "66f6e4f5d7b4": {
+      "id": "66f6e4f5d7b4",
+      "type": "fact",
+      "key": "iteration_state_1",
+      "fact": {
+        "rule": "IA\\\\installer\\\\install.ps1\", \"C:\\\\Chance1\\\\Asistente IA\\\\installer\\\\install.ps1\", \"C:\\\\Users\\\\ntoledo\\\\.claude\\\\settings.json\", \"C:\\\\Chance1\\\\Motor_Inteligente_IA\\\\installer\\\\uninstall.ps1\", \"C:\\\\Chance1\\\\Asistente IA\\\\installer\\\\uninstall.ps1\", \"C:\\\\Chance1\\\\Asistente IA\\\\.claude\\\\hooks\\\\auto_learn_hook.py\", \"C:\\\\Chance1\\\\Motor_Inteligente_IA\\\\hooks\\\\session_end.py\", \"C:\\\\Chance1\\\\Asistente IA\\\\knowledge_base.py\", \"C:\\\\Chance1\\\\Asistente IA\\\\seed_gbm_knowledge.py\", \"C:\\\\Chance1\\\\1.png\", \"C:\\\\Chance1\\\\.claude\\\\settings.local.json\"], \"last_read_ts\": 0, \"territory_searched\": false, \"exp_count\": 4, \"_recovered\": true}",
+        "applies_to": "adaptive_cli_appdata",
+        "source": "C:\\Chance1\\IA\\Backup_IA\\adaptive_cli_AppData\\.adaptive_cli\\iteration_state.json",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "json",
+        "json"
+      ],
+      "created_at": "2026-04-04T04:33:07.982784+00:00",
+      "updated_at": "2026-04-04T04:33:07.982784+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:33:07.982784+00:00",
+        "access_count": 0
+      }
+    },
+    "b58dc4c36929": {
+      "id": "b58dc4c36929",
+      "type": "fact",
+      "key": "classify_cache_0",
+      "fact": {
+        "rule": "{\"domains\": [\"files\"], \"keywords\": [\"valida\", \"cierto\", \"reporte\", \"dice\", \"realidad\", \"149\", \"patrones\", \"existen\", \"patrones\", \"knowledge\", \"manuales\", \"141\", \"auto\", \"capturados\", \"falso\", \"task_attempts\", \"json\", \"pending_errors\", \"json\", \"existen\", \"disco\", \"sesiones\", \"registradas\", \"falso\", \"session_history\"], \"ts\": \"2026-03-20T19:34:44.989864\"}",
+        "applies_to": "adaptive_cli_appdata",
+        "source": "C:\\Chance1\\IA\\Backup_IA\\adaptive_cli_AppData\\.adaptive_cli\\classify_cache.json",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "json",
+        "json"
+      ],
+      "created_at": "2026-04-04T04:33:08.144297+00:00",
+      "updated_at": "2026-04-04T04:33:08.144297+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:33:08.144297+00:00",
+        "access_count": 0
+      }
+    },
+    "ff6058cea665": {
+      "id": "ff6058cea665",
+      "type": "fact",
+      "key": "msg_type_0",
+      "fact": {
+        "rule": "{\"type\": \"informing\", \"prompt\": \"valida si esto es cierto Reporte dice    Realidad\\n\\\"149 patrones de cÃ³digo\\\"    NO existen. 0 patrones en knowledge/\\n\\\"8 manuales + 141 auto-capturados\\\"    Falso. task_attempts.json y pending_errors.jso\", \"domains\": [\"files\"], \"has_kb\": true, \"ts\": \"2026-03-20T19:34:45.315436\"}",
+        "applies_to": "adaptive_cli_appdata",
+        "source": "C:\\Chance1\\IA\\Backup_IA\\adaptive_cli_AppData\\.adaptive_cli\\hook_state\\msg_type.json",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "json",
+        "json"
+      ],
+      "created_at": "2026-04-04T04:33:08.264384+00:00",
+      "updated_at": "2026-04-04T04:33:08.264384+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:33:08.264384+00:00",
+        "access_count": 0
+      }
+    },
+    "a96c4bc27b20": {
+      "id": "a96c4bc27b20",
+      "type": "fact",
+      "key": "last_injection_0",
+      "fact": {
+        "rule": "{\"ts\": \"2026-03-20T19:34:45.319620\", \"domains\": [\"files\"], \"keywords\": [\"valida\", \"cierto\", \"reporte\", \"dice\", \"realidad\"], \"has_lm\": false, \"has_kb\": true, \"has_ep\": true, \"intent\": \"depurar\"}",
+        "applies_to": "adaptive_cli_appdata",
+        "source": "C:\\Chance1\\IA\\Backup_IA\\adaptive_cli_AppData\\.adaptive_cli\\last_injection.json",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "json",
+        "json"
+      ],
+      "created_at": "2026-04-04T04:33:08.903745+00:00",
+      "updated_at": "2026-04-04T04:33:08.903745+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:33:08.903745+00:00",
+        "access_count": 0
+      }
+    },
+    "aa26a60e265a": {
+      "id": "aa26a60e265a",
+      "type": "fact",
+      "key": "domain_cooccurrence_0",
+      "fact": {
+        "rule": "{\"sow\": {\"bom\": 84}, \"bom\": {\"sow\": 84, \"sap_tierra\": 1}, \"sap_tierra\": {\"bom\": 1}}",
+        "applies_to": "adaptive_cli_appdata",
+        "source": "C:\\Chance1\\IA\\Backup_IA\\adaptive_cli_AppData\\.adaptive_cli\\domain_cooccurrence.json",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "json",
+        "json"
+      ],
+      "created_at": "2026-04-04T04:33:09.077212+00:00",
+      "updated_at": "2026-04-04T04:33:09.077212+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:33:09.077212+00:00",
+        "access_count": 0
+      }
+    }
+  },
+  "tag_index": {
+    "json": [
+      "dbcab0fdaa3c",
+      "dbcab0fdaa3c",
+      "37ce332b7258",
+      "37ce332b7258",
+      "1d4dfd929c11",
+      "1d4dfd929c11",
+      "72cf36894082",
+      "72cf36894082",
+      "0dcc78115763",
+      "0dcc78115763",
+      "7b622c94e9b4",
+      "7b622c94e9b4",
+      "1f34ce24d90b",
+      "1f34ce24d90b",
+      "d4d22ba0bc02",
+      "d4d22ba0bc02",
+      "9b45009fa85e",
+      "9b45009fa85e",
+      "290835a7ccdf",
+      "290835a7ccdf",
+      "38cb5e45de34",
+      "38cb5e45de34",
+      "5097e19e3dee",
+      "5097e19e3dee",
+      "1f344c708da4",
+      "1f344c708da4",
+      "8da4e62e84f0",
+      "8da4e62e84f0",
+      "fe93cfe5f18d",
+      "fe93cfe5f18d",
+      "2cfb74b1576d",
+      "2cfb74b1576d",
+      "e7764c1a9085",
+      "e7764c1a9085",
+      "ac9aa64f7ca0",
+      "ac9aa64f7ca0",
+      "a7d8d0ab81fc",
+      "a7d8d0ab81fc",
+      "9f406810fbce",
+      "9f406810fbce",
+      "56e6aee31e8d",
+      "56e6aee31e8d",
+      "a555acf9c9d7",
+      "a555acf9c9d7",
+      "ade41e2e7e57",
+      "ade41e2e7e57",
+      "3f57ccb28067",
+      "3f57ccb28067",
+      "dbcab0fdaa3c",
+      "dbcab0fdaa3c",
+      "37ce332b7258",
+      "37ce332b7258",
+      "1d4dfd929c11",
+      "1d4dfd929c11",
+      "72cf36894082",
+      "72cf36894082",
+      "0dcc78115763",
+      "0dcc78115763",
+      "7b622c94e9b4",
+      "7b622c94e9b4",
+      "1f34ce24d90b",
+      "1f34ce24d90b",
+      "d4d22ba0bc02",
+      "d4d22ba0bc02",
+      "f4f4614de1f4",
+      "f4f4614de1f4",
+      "22bd011de554",
+      "22bd011de554",
+      "3966394e46ea",
+      "3966394e46ea",
+      "84d4d54a47ea",
+      "84d4d54a47ea",
+      "548d11c5071a",
+      "548d11c5071a",
+      "3b78569a83c4",
+      "3b78569a83c4",
+      "620237abb21b",
+      "620237abb21b",
+      "dbcab0fdaa3c",
+      "dbcab0fdaa3c",
+      "37ce332b7258",
+      "37ce332b7258",
+      "1d4dfd929c11",
+      "1d4dfd929c11",
+      "72cf36894082",
+      "72cf36894082",
+      "0dcc78115763",
+      "0dcc78115763",
+      "7b622c94e9b4",
+      "7b622c94e9b4",
+      "1f34ce24d90b",
+      "1f34ce24d90b",
+      "d4d22ba0bc02",
+      "d4d22ba0bc02",
+      "dbcab0fdaa3c",
+      "dbcab0fdaa3c",
+      "37ce332b7258",
+      "37ce332b7258",
+      "1d4dfd929c11",
+      "1d4dfd929c11",
+      "72cf36894082",
+      "72cf36894082",
+      "0dcc78115763",
+      "0dcc78115763",
+      "7b622c94e9b4",
+      "7b622c94e9b4",
+      "1f34ce24d90b",
+      "1f34ce24d90b",
+      "d4d22ba0bc02",
+      "d4d22ba0bc02",
+      "f4f4614de1f4",
+      "f4f4614de1f4",
+      "22bd011de554",
+      "22bd011de554",
+      "3966394e46ea",
+      "3966394e46ea",
+      "84d4d54a47ea",
+      "84d4d54a47ea",
+      "548d11c5071a",
+      "548d11c5071a",
+      "47fa71ecf03a",
+      "47fa71ecf03a",
+      "3b78569a83c4",
+      "3b78569a83c4",
+      "620237abb21b",
+      "620237abb21b",
+      "15c17d8dcd6c",
+      "15c17d8dcd6c",
+      "b1380477e827",
+      "b1380477e827",
+      "cb77ec174cdb",
+      "cb77ec174cdb",
+      "37ce332b7258",
+      "37ce332b7258",
+      "0dcc78115763",
+      "0dcc78115763",
+      "7b622c94e9b4",
+      "7b622c94e9b4",
+      "d4d22ba0bc02",
+      "d4d22ba0bc02",
+      "dbcab0fdaa3c",
+      "dbcab0fdaa3c",
+      "37ce332b7258",
+      "37ce332b7258",
+      "72cf36894082",
+      "72cf36894082",
+      "0dcc78115763",
+      "0dcc78115763",
+      "7b622c94e9b4",
+      "7b622c94e9b4",
+      "1f34ce24d90b",
+      "1f34ce24d90b",
+      "d4d22ba0bc02",
+      "d4d22ba0bc02",
+      "41155cc5bfea",
+      "41155cc5bfea",
+      "f02f788a1593",
+      "f02f788a1593",
+      "a11ca3b054ed",
+      "a11ca3b054ed",
+      "995c953ae823",
+      "995c953ae823",
+      "623ae4be5726",
+      "623ae4be5726",
+      "2e96ba423cb1",
+      "2e96ba423cb1",
+      "8bcc0dd1a3a5",
+      "8bcc0dd1a3a5",
+      "71ddbb5a927b",
+      "71ddbb5a927b",
+      "dbcab0fdaa3c",
+      "dbcab0fdaa3c",
+      "37ce332b7258",
+      "37ce332b7258",
+      "72cf36894082",
+      "72cf36894082",
+      "0dcc78115763",
+      "0dcc78115763",
+      "7b622c94e9b4",
+      "7b622c94e9b4",
+      "1f34ce24d90b",
+      "1f34ce24d90b",
+      "d4d22ba0bc02",
+      "d4d22ba0bc02",
+      "dbcab0fdaa3c",
+      "dbcab0fdaa3c",
+      "37ce332b7258",
+      "37ce332b7258",
+      "72cf36894082",
+      "72cf36894082",
+      "0dcc78115763",
+      "0dcc78115763",
+      "7b622c94e9b4",
+      "7b622c94e9b4",
+      "f4f4614de1f4",
+      "f4f4614de1f4",
+      "22bd011de554",
+      "22bd011de554",
+      "3966394e46ea",
+      "3966394e46ea",
+      "84d4d54a47ea",
+      "84d4d54a47ea",
+      "548d11c5071a",
+      "548d11c5071a",
+      "fe737d115e9e",
+      "fe737d115e9e",
+      "be5f874b3f6b",
+      "be5f874b3f6b",
+      "d362e06968bd",
+      "d362e06968bd",
+      "dbcab0fdaa3c",
+      "dbcab0fdaa3c",
+      "37ce332b7258",
+      "37ce332b7258",
+      "1d4dfd929c11",
+      "1d4dfd929c11",
+      "72cf36894082",
+      "72cf36894082",
+      "dbcab0fdaa3c",
+      "dbcab0fdaa3c",
+      "37ce332b7258",
+      "37ce332b7258",
+      "1d4dfd929c11",
+      "1d4dfd929c11",
+      "72cf36894082",
+      "72cf36894082",
+      "8806f676b39e",
+      "8806f676b39e",
+      "1be0cdc7323f",
+      "1be0cdc7323f",
+      "3ce22510540c",
+      "3ce22510540c",
+      "722970ee3094",
+      "722970ee3094",
+      "0a9227855e39",
+      "0a9227855e39",
+      "d8e0c6d3808f",
+      "d8e0c6d3808f",
+      "fc97418d10b4",
+      "fc97418d10b4",
+      "343ce0989b31",
+      "343ce0989b31",
+      "4b40ace9eeb9",
+      "4b40ace9eeb9",
+      "a2afd56f759c",
+      "a2afd56f759c",
+      "91e0607836a5",
+      "91e0607836a5",
+      "155ce94466ed",
+      "155ce94466ed",
+      "66f6e4f5d7b4",
+      "66f6e4f5d7b4",
+      "b58dc4c36929",
+      "b58dc4c36929",
+      "ff6058cea665",
+      "ff6058cea665",
+      "f4f4614de1f4",
+      "f4f4614de1f4",
+      "dbcab0fdaa3c",
+      "dbcab0fdaa3c",
+      "dbcab0fdaa3c",
+      "dbcab0fdaa3c",
+      "dbcab0fdaa3c",
+      "dbcab0fdaa3c",
+      "dbcab0fdaa3c",
+      "dbcab0fdaa3c",
+      "dbcab0fdaa3c",
+      "dbcab0fdaa3c",
+      "a96c4bc27b20",
+      "a96c4bc27b20",
+      "dbcab0fdaa3c",
+      "dbcab0fdaa3c",
+      "aa26a60e265a",
+      "aa26a60e265a"
+    ],
+    "log": [
+      "a8d6b3af0afb",
+      "0a2a2486b752",
+      "a8f10029286c",
+      "0637b761a0aa",
+      "1625a75e4d21",
+      "95a6d18ea30d"
+    ],
+    "txt": [
+      "23eaaa6cc502",
+      "f4819e94fbb5",
+      "206ed0618cf4",
+      "d6c9457a8108"
+    ]
+  },
+  "stats": {
+    "total_entries": 147,
+    "total_lookups": 0,
+    "total_hits": 0
+  }
+}

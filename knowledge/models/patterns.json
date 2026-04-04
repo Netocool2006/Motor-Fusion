@@ -1,0 +1,368 @@
+{
+  "domain": "models",
+  "description": "Dominio auto-creado: models",
+  "entries": {
+    "acd9ecff88bd": {
+      "id": "acd9ecff88bd",
+      "type": "fact",
+      "key": "tokenizer_0",
+      "fact": {
+        "rule": "{\"version\":\"1.0\",\"truncation\":{\"max_length\":128,\"strategy\":\"LongestFirst\",\"stride\":0},\"padding\":{\"strategy\":\"BatchLongest\",\"direction\":\"Right\",\"pad_to_multiple_of\":null,\"pad_id\":1,\"pad_type_id\":0,\"pad_token\":\"<pad>\"},\"added_tokens\":[{\"id\":0,\"special\":true,\"content\":\"<s>\",\"single_word\":false,\"lstrip\":false,\"rstrip\":false,\"normalized\":false},{\"id\":1,\"special\":true,\"content\":\"<pad>\",\"single_word\":false,\"lstrip\":false,\"rstrip\":false,\"normalized\":false},{\"id\":2,\"special\":true,\"content\":\"</s>\",\"single_word\":false,\"lstrip\":false,\"rstrip\":false,\"normalized\":false},{\"id\":3,\"special\":true,\"content\":\"<unk>\",\"single_word\":false,\"lstrip\":false,\"rstrip\":false,\"normalized\":false},{\"id\":250001,\"special\":true,\"content\":\"<mask>\",\"single_word\":false,\"lstrip\":true,\"rstrip\":false,\"normalized\":false}],\"normaliz",
+        "applies_to": "models",
+        "source": "C:\\Chance1\\models\\multilingual\\tokenizer.json",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "json",
+        "json"
+      ],
+      "created_at": "2026-04-04T04:41:44.646058+00:00",
+      "updated_at": "2026-04-04T04:41:44.646058+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:41:44.646058+00:00",
+        "access_count": 0
+      }
+    },
+    "fed0db06450a": {
+      "id": "fed0db06450a",
+      "type": "fact",
+      "key": "tokenizer_1",
+      "fact": {
+        "rule": "e,\"content\":\"<mask>\",\"single_word\":false,\"lstrip\":true,\"rstrip\":false,\"normalized\":false}],\"normalizer\":{\"type\":\"Precompiled\",\"precompiled_charsmap\":\"ALQCAACEAAAAAACAAQAAgMz8AgC4BQAAhyIAgMzkAgC4PQAAeyIAgMzsAgC4BQAAiyIAgMw8AADNvAAAmwkAgJ4JAIChCQCAgx0AAIAZAACBGQAAPR0AgDUdAIBNHQCARR0AgIAxAACBMQAApAkAgIkxAAA9WAMAPEgDAEAKAIA+aAMAAYUAAIQBAQADjQAAAokAAAWVAAAEkQAAB50AAAaZAAAJqQAACKEAAAutAAAKpQAADbkAAAy9AAAPvQAADrkAABHFAAAQwQAAE80AABLJAAAV1QAAFNEAABfdAAAW2QAAGeUAABjhAAAb7QAAGukAAB31AAAc8QAAH/0AAB75AABhOAkAZR0AgGNADgBi8AgAZSgPAGSADgBn2A8AZvAPAGlwDABoMAwAa/AMAGrYDABtSA0AbBwNAG8QEgBubA0ARgoAgHAMEwBzqBMAcuwTAHUoEAB0TBAAd9ARAHYUEAB50BYAePQQAF0dAIB69BYAdR0AgG0dAIB/fQEAhgwAgEGAAgDeCwCAQxgAAELAAABFSAAARGAAAEeQBgBGhAEASSgGAEhsAQBLOAcASvAHAE1wBwBMRAcAT/AEAE7MBACnCQCAUCwFAFOgCgBSEAUAVQAKAFRQCgBX0AgAVhALAFlICA",
+        "applies_to": "models",
+        "source": "C:\\Chance1\\models\\multilingual\\tokenizer.json",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "json",
+        "json"
+      ],
+      "created_at": "2026-04-04T04:41:44.713607+00:00",
+      "updated_at": "2026-04-04T04:41:44.713607+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:41:44.713607+00:00",
+        "access_count": 0
+      }
+    },
+    "3b8c81e37d98": {
+      "id": "3b8c81e37d98",
+      "type": "fact",
+      "key": "tokenizer_2",
+      "fact": {
+        "rule": "eQBgBGhAEASSgGAEhsAQBLOAcASvAHAE1wBwBMRAcAT/AEAE7MBACnCQCAUCwFAFOgCgBSEAUAVQAKAFRQCgBX0AgAVhALAFlICABYuAgAhBEAAFo8CACA9QAAgZ0AANgLAIAtHQCAg2kCAIJFAgCBNQIAgDUCAIdtAwCGVQMAgTkAAIRlAgAXDACAigEEAInVAwCI7QMAjwkAAKgLAIApDACAjAkAAC8MAICJMQMAkQkAAMzYAABVHQCAfR0AgL0aAIBMCgCAgGUDAIENAwCGPQAAgx0DAMwQAgDNhAEAgikAAMx0AwCjgQYAxRoAgICxAgCBsQIAzRoAgIEpAAClwQAA1RoAgMzoAwDNYAIAUgoAgKjxAABYCgCAXgoAgGQKAIDdGgCAgWkAAMzcBACCEQEA5RoAgGoKAIDtGgCA/RoAgAUbAID1GgCAswkAgMygBADN3AQAzAgBALYJAIClHQCAhhEBAOEAKwDgfCcA44hIAuIMOAKdHQCAh5EBALUdAICtHQCAgNkBAIE1AADMxAIA6kRkApUdAIANGwCA72hkAoERBwCC8QEA8NCLAolVAACB5QEAFRsAgIfhAQCAbQAAgQ0AAIN5AAB2CgCAgXkAAICVAQDMOAEAzRQBAIzBAQB8CgCAvAkAgKMVAQDDlBcAwpwUAMWEFwDEUBcAx+wXAMaAEgCNHQCAiAoAgMvQFgDK4BYAzRQWADUMAIDPvCAAzpwZANHMJADQ2CUA0+gkALFRAQA7DACAp90HAL0dAIDWvCQA2cgnANjUIgDb+CcALRsAgI",
+        "applies_to": "models",
+        "source": "C:\\Chance1\\models\\multilingual\\tokenizer.json",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "json",
+        "json"
+      ],
+      "created_at": "2026-04-04T04:41:44.777006+00:00",
+      "updated_at": "2026-04-04T04:41:44.777006+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:41:44.777006+00:00",
+        "access_count": 0
+      }
+    },
+    "e3e2445d40b2": {
+      "id": "e3e2445d40b2",
+      "type": "fact",
+      "key": "tokenizer_3",
+      "fact": {
+        "rule": "oAgMvQFgDK4BYAzRQWADUMAIDPvCAAzpwZANHMJADQ2CUA0+gkALFRAQA7DACAp90HAL0dAIDWvCQA2cgnANjUIgDb+CcALRsAgIftBwCCCgCAzPgEAB0bAIAlHQCAh8kGALAJAICR3QcAuQkAgCUbAIBwCgCANRsAgIUdAICMDACAjPkGAAsMAICA1QYAgcEGAMzEAgDNBAUAglEAAIN1BwCArQYAgbkGAIY1BwCHKQcAhEEAAI4KAICn7QAAPRsAgIjpBwCJzQcAlAoAgI/BBwCM3QcAmgoAgOoLAICnXQYAsJ0AAKAKAICmCgCAo0EGAEUbAIBVGwCAfQwAgE0bAIBdGwCArXEGAGUbAIC/CQCAzPgDAM0sAwDCCQCAo+UAAMUJAICMTQAAsgoAgKfxAAC4CgCAsT0GAIedAACGlQAAqB0HAISJAAC+CgCAgqkAAIHVAACtAQcAygoAgJE9AACCmQEAyAkAgM0MBQDMCAUAgT0AAIeFAQCIvQEAdRsAgMUdAICuCwCAjJEBAEEMAIBHDACAzR0AgID1AQCBhQEAgoEBAIOdAQCEiQEAxAoAgIapAQCHXQAAiG0AAIlNAABtGwCAzBACAIxdAACCDQAA0AoAgI9JAACw6QAAfRsAgPALAICjKQEAgCUBAIFVAQCFGwCApzUBAMykAQDNEAIA1goAgI0bAICBNQAA3AoAgK4JAQDoCgCAzOgBAM0oAgCVGwCAo/EAAIQFAACdGwCA4goAgK0bAICotQAApRsAgIFdAAC1GwCAzPwBAM3AAQC9GwCAxR",
+        "applies_to": "models",
+        "source": "C:\\Chance1\\models\\multilingual\\tokenizer.json",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "json",
+        "json"
+      ],
+      "created_at": "2026-04-04T04:41:44.860639+00:00",
+      "updated_at": "2026-04-04T04:41:44.860639+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:41:44.860639+00:00",
+        "access_count": 0
+      }
+    },
+    "f6219e5824a5": {
+      "id": "f6219e5824a5",
+      "type": "fact",
+      "key": "tokenizer_4",
+      "fact": {
+        "rule": "AA3AoAgK4JAQDoCgCAzOgBAM0oAgCVGwCAo/EAAIQFAACdGwCA4goAgK0bAICotQAApRsAgIFdAAC1GwCAzPwBAM3AAQC9GwCAxRsAgIGFAwARDACAgeUDAO4KAICH6QMAywkAgIylAwDNGwCA+goAgKoJAIDVGwCAgZkDAIHdAwCMvQMAzSQBAMwgAQDMEAIAzTACAIH5AACHUQAAgFUAAIFZAAD0CgCAg0kAAIxBAADlGwCA3RsAgM4JAICBfQAAgHEAAMwgAwDNsAMAo30DANEJAICjEQMA7R0AgIEtAQCx/QAApzEDAK1BAwDlHQCAo20DAP0dAID1HQCA7RsAgKdtAwCANQAAgR0AALFtAwCILQAAmAwAgKeVAACBcQAAgFkAAINxAACj9QAAgVEAAK2BAAD1GwCAsQkDAIldAACEPQAAzDgBAISdAQCBGQAAgAkAAIRlAAD9GwCAzNAHAMzwBwAFHACAkYkAAMxMBgDNBAYAzHAGAM10BgDMQAcAmy0PAMyoBwDNrAcAhg0AAIdVDwCEQQ8ACQsAgIIBDACDVQ8AgDUBAIHZAQCkDACAj+kAAIztAACSDACA3R0AgIv1AACIbQ8AiQ0AAA8LAIC0CwCAgiUAAE0MAICBQQAAUwwAgBUeAIANHgCAJR4AgB0eAIAtHgCABR4AgIApAACBKQAA/AsAgA0cAICEeQAAFRwAgIFNAQCAoQEAGAsAgKP9DwDMOAIAzUgDAB0cAICBWQAAzXwCAMykDQAkCwCAWQwAgKjJDwCHOQAA1wkAgImhDwADCw",
+        "applies_to": "models",
+        "source": "C:\\Chance1\\models\\multilingual\\tokenizer.json",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "json",
+        "json"
+      ],
+      "created_at": "2026-04-04T04:41:44.923428+00:00",
+      "updated_at": "2026-04-04T04:41:44.923428+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:41:44.923428+00:00",
+        "access_count": 0
+      }
+    },
+    "6a823b45bf86": {
+      "id": "6a823b45bf86",
+      "type": "fact",
+      "key": "tokenizer_5",
+      "fact": {
+        "rule": "CEeQAAFRwAgIFNAQCAoQEAGAsAgKP9DwDMOAIAzUgDAB0cAICBWQAAzXwCAMykDQAkCwCAWQwAgKjJDwCHOQAA1wkAgImhDwADCwCAkREAAJ4MAIDaCQCAmQsAgF8MAICAuQ8AgbkPANUdAICDjQ8A9gsAgCUcAICEBQAALRwAgB4LAIA1HACAKgsAgIGdDwCHIQAAh7UPAMyoAgDN6AIAzLQMAM3cDACmzQAAp8UAAE0cAICPgQ8AjIkPAKPlAAAwCwCAPRwAgDwLAICxyQAAhwUAAFUcAIBFHACAhz0AAF0cAIBxDACANgsAgKMFDwCB+QAAzKgDAGUcAIBICwCAjEkAAKPxAABtHACAdwwAgEILAICnlQAAfRwAgHUcAIDMrAMAzcgAAN0JAICHaQAA4AkAgIG9AACCeQAA4wkAgIe5AQBOCwCAkaUAAIEdAACdHACAVAsAgIgFAAClHACAm5EAAFoLAIDmCQCAjJEBANILAIDGCwCAwAsAgMwLAICDRQAAgrkBAIG5AQCApQEAPR4AgIZxAABgCwCAhEkAAIsVAACKPQAAiTkAAIhFAACP+QAAZgsAgLoLAICMBQAAp1EBAKZJAQBlDACAsHkAAKNZAQCMqQAAgKkAAIGpAACBlQAAgJUAAK1xAQBrDACAogsAgISNAABNHgCARR4AgKMhAABdHgCAVR4AgGUeAICBbQAAgG0AALEFAQCkOQAANR4AgIUcAIBsCwCAqAUAAJUcAICNHACArQkAAMywAQCBvQMAgL0DAIPNAwCtHACAtRwAgL0cAI",
+        "applies_to": "models",
+        "source": "C:\\Chance1\\models\\multilingual\\tokenizer.json",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "json",
+        "json"
+      ],
+      "created_at": "2026-04-04T04:41:44.990916+00:00",
+      "updated_at": "2026-04-04T04:41:44.990916+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:41:44.990916+00:00",
+        "access_count": 0
+      }
+    },
+    "90b330624527": {
+      "id": "90b330624527",
+      "type": "fact",
+      "key": "tokenizer_6",
+      "fact": {
+        "rule": "UeAICBbQAAgG0AALEFAQCkOQAANR4AgIUcAIBsCwCAqAUAAJUcAICNHACArQkAAMywAQCBvQMAgL0DAIPNAwCtHACAtRwAgL0cAIDMvAEAzYQBAInpAwDMHAEAgdkCAIDFAgDNOAEAzDwBAMxoAgDNRAIAg00AAMUcAICH2QAAhy0AAIBFAACBEQAAggUAAHILAIDVHACAzRwAgN0cAIDMOAIAiBUAAIjhAACAbQAAgTkAAMyEAgDNUAEAo0UDAIQ5AQDlHACA7RwAgMzcAwDNSAIAbR4AgOkJAIB4CwCAhR4AgKoMAICBbQAA9RwAgH4LAICj0QAAfR4AgHUeAIDMiAQAgXUAAIB1AACBCwCAo7UAAMwABADNVAIA/RwAgIcLAICETQEAjQsAgAUdAIANHQCAzNAOAMwsAQDMAAUAzVwFAOwJAIDvCQCAzJgOAIHBAADMzA8AzDwOAMwIAQDNnA4AzNQPAM14DwDMPA4AzTgOAIHlAQCA5QEAg+UBAILlAQDUCQCAhOUBAIfhAQBBHQCAiaUBAIjZAQCByQcAOR0AgFEdAIBJHQCAzDQBAPUJAICA3QAAgekAAEMKAICD/QAAgM0AAIH5AACBEQcAaR0AgGEdAICJ0QAAzCgBAHkdAIBxHQCA4QsAgMw0AQDbCwCAgF0AAIFlAACjAQEAg2EAAIFxAACASQAAMR0AgBoMAICrCwCAiVUAACwMAIAyDACAWR0AgIEdAIDBGgCATwoAgIIdAACDeQcAgBkHAIEZBwCGIQAAhykAAISRBwDyCQCAimkAAL",
+        "applies_to": "models",
+        "source": "C:\\Chance1\\models\\multilingual\\tokenizer.json",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "json",
+        "json"
+      ],
+      "created_at": "2026-04-04T04:41:45.050912+00:00",
+      "updated_at": "2026-04-04T04:41:45.050912+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:41:45.050912+00:00",
+        "access_count": 0
+      }
+    },
+    "7588ddcce313": {
+      "id": "7588ddcce313",
+      "type": "fact",
+      "key": "config_0",
+      "fact": {
+        "rule": "{\n  \"word_embedding_dimension\": 384,\n  \"pooling_mode_cls_token\": false,\n  \"pooling_mode_mean_tokens\": true,\n  \"pooling_mode_max_tokens\": false,\n  \"pooling_mode_mean_sqrt_len_tokens\": false\n}",
+        "applies_to": "models",
+        "source": "C:\\Chance1\\models\\multilingual\\1_Pooling\\config.json",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "json",
+        "json"
+      ],
+      "created_at": "2026-04-04T04:41:45.442740+00:00",
+      "updated_at": "2026-04-04T04:41:45.442740+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:41:45.442740+00:00",
+        "access_count": 0
+      }
+    },
+    "04e0790c148c": {
+      "id": "04e0790c148c",
+      "type": "fact",
+      "key": "tokenizer_config_0",
+      "fact": {
+        "rule": "{\"do_lower_case\": true, \"unk_token\": \"<unk>\", \"sep_token\": \"</s>\", \"pad_token\": \"<pad>\", \"cls_token\": \"<s>\", \"mask_token\": {\"content\": \"<mask>\", \"single_word\": false, \"lstrip\": true, \"rstrip\": false, \"normalized\": true, \"__type\": \"AddedToken\"}, \"tokenize_chinese_chars\": true, \"strip_accents\": null, \"bos_token\": \"<s>\", \"eos_token\": \"</s>\", \"model_max_length\": 512, \"special_tokens_map_file\": null, \"name_or_path\": \"old_models/paraphrase-multilingual-MiniLM-L12-v2/0_Transformer\", \"tokenizer_class\": \"PreTrainedTokenizerFast\"}",
+        "applies_to": "models",
+        "source": "C:\\Chance1\\models\\multilingual\\tokenizer_config.json",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "json",
+        "json"
+      ],
+      "created_at": "2026-04-04T04:41:45.228696+00:00",
+      "updated_at": "2026-04-04T04:41:45.228696+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:41:45.228696+00:00",
+        "access_count": 0
+      }
+    },
+    "b8ea3e46c067": {
+      "id": "b8ea3e46c067",
+      "type": "fact",
+      "key": "special_tokens_map_0",
+      "fact": {
+        "rule": "{\"bos_token\": \"<s>\", \"eos_token\": \"</s>\", \"unk_token\": \"<unk>\", \"sep_token\": \"</s>\", \"pad_token\": \"<pad>\", \"cls_token\": \"<s>\", \"mask_token\": {\"content\": \"<mask>\", \"single_word\": false, \"lstrip\": true, \"rstrip\": false, \"normalized\": false}}",
+        "applies_to": "models",
+        "source": "C:\\Chance1\\models\\multilingual\\special_tokens_map.json",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "json",
+        "json"
+      ],
+      "created_at": "2026-04-04T04:41:45.302811+00:00",
+      "updated_at": "2026-04-04T04:41:45.302811+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:41:45.302811+00:00",
+        "access_count": 0
+      }
+    },
+    "b5a136f6ea6d": {
+      "id": "b5a136f6ea6d",
+      "type": "fact",
+      "key": "modules_0",
+      "fact": {
+        "rule": "[\n  {\n    \"idx\": 0,\n    \"name\": \"0\",\n    \"path\": \"\",\n    \"type\": \"sentence_transformers.models.Transformer\"\n  },\n  {\n    \"idx\": 1,\n    \"name\": \"1\",\n    \"path\": \"1_Pooling\",\n    \"type\": \"sentence_transformers.models.Pooling\"\n  }\n]",
+        "applies_to": "models",
+        "source": "C:\\Chance1\\models\\multilingual\\modules.json",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "json",
+        "json"
+      ],
+      "created_at": "2026-04-04T04:41:45.368620+00:00",
+      "updated_at": "2026-04-04T04:41:45.368620+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:41:45.368620+00:00",
+        "access_count": 0
+      }
+    },
+    "36dd7cbfd9b4": {
+      "id": "36dd7cbfd9b4",
+      "type": "fact",
+      "key": "config_sentence_transformers_0",
+      "fact": {
+        "rule": "{\n  \"__version__\": {\n    \"sentence_transformers\": \"2.0.0\",\n    \"transformers\": \"4.7.0\",\n    \"pytorch\": \"1.9.0+cu102\"\n  }\n}",
+        "applies_to": "models",
+        "source": "C:\\Chance1\\models\\multilingual\\config_sentence_transformers.json",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "json",
+        "json"
+      ],
+      "created_at": "2026-04-04T04:41:45.511583+00:00",
+      "updated_at": "2026-04-04T04:41:45.511583+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:41:45.511583+00:00",
+        "access_count": 0
+      }
+    },
+    "064810bad1b6": {
+      "id": "064810bad1b6",
+      "type": "fact",
+      "key": "sentence_bert_config_0",
+      "fact": {
+        "rule": "{\n  \"max_seq_length\": 128,\n  \"do_lower_case\": false\n}",
+        "applies_to": "models",
+        "source": "C:\\Chance1\\models\\multilingual\\sentence_bert_config.json",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "json",
+        "json"
+      ],
+      "created_at": "2026-04-04T04:41:45.586558+00:00",
+      "updated_at": "2026-04-04T04:41:45.586558+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:41:45.586558+00:00",
+        "access_count": 0
+      }
+    }
+  },
+  "tag_index": {
+    "json": [
+      "acd9ecff88bd",
+      "acd9ecff88bd",
+      "fed0db06450a",
+      "fed0db06450a",
+      "3b8c81e37d98",
+      "3b8c81e37d98",
+      "e3e2445d40b2",
+      "e3e2445d40b2",
+      "f6219e5824a5",
+      "f6219e5824a5",
+      "6a823b45bf86",
+      "6a823b45bf86",
+      "90b330624527",
+      "90b330624527",
+      "7588ddcce313",
+      "7588ddcce313",
+      "04e0790c148c",
+      "04e0790c148c",
+      "b8ea3e46c067",
+      "b8ea3e46c067",
+      "b5a136f6ea6d",
+      "b5a136f6ea6d",
+      "7588ddcce313",
+      "7588ddcce313",
+      "36dd7cbfd9b4",
+      "36dd7cbfd9b4",
+      "064810bad1b6",
+      "064810bad1b6"
+    ]
+  },
+  "stats": {
+    "total_entries": 14,
+    "total_lookups": 0,
+    "total_hits": 0
+  }
+}

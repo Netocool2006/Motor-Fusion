@@ -7,9 +7,9 @@
       "type": "fact",
       "key": "test_stress_0",
       "fact": {
-        "rule": "\"\"\"\ntest_stress.py — Suite profesional de stress testing para FormFiller_IA\n======================================================================\nPruebas de:\n  1. Timing de componentes individuales (scanner, waiter, filler)\n  2. Fiabilidad de llenado en 8 formularios diferentes\n  3. Deteccion de errores SAP-like\n  4. Anti-loop protection bajo condiciones extremas\n  5. Learning engine persistencia y recall\n  6. Edge cases (campos vacios, unicode, HTML malformado)\n  7. Concurrencia de archivos (file_lock)\n\nUso:\n  python tests/test_stress.py              # todas las pruebas\n  python tests/test_stress.py --quick      # solo unit + timing (sin browser)\n  python tests/test_stress.py --browser    # solo tests con browser real\n\"\"\"\n\nimport sys, os, time, json, uuid, threading, unittest, traceback\n",
+        "rule": "\"\"\"\nStress test suite for WordCOM engine.\nUses a SINGLE Word instance to avoid COM RPC crashes between test classes.\n\"\"\"\n\nimport os\nimport re\nimport shutil\nimport sys\nimport unittest\n\nsys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', 'src'))\nfrom word_com import WordCOM, WordCOMError\n\nINPUT = r'C:\\Chance1\\temp2\\Propuesta de PostgreSQL CE On Prem Horas - Banco GyT 30032026 (1).docx'\nWORK = r'C:\\Chance1\\temp2\\TEST_STRESS.docx'\n\n# Single shared Word instance\n_word = None\n\ndef get_word():\n    global _word\n    if _word is None:\n        _word = WordCOM(visible=False)\n    return _word\n\ndef reload_doc():\n    \"\"\"Fresh copy + open.\"\"\"\n    w = get_word()\n    try:\n        w.close_document(save=False)\n    except Exception:\n        pass\n    shutil.copy2(INPUT, WORK)\n",
         "applies_to": "tests",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\tests\\test_stress.py",
+        "source": "C:\\Chance1\\IA\\IA_Word\\tests\\test_stress.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -18,12 +18,12 @@
         "python",
         "py"
       ],
-      "created_at": "2026-04-04T03:54:01.472596+00:00",
-      "updated_at": "2026-04-04T03:54:01.472596+00:00",
+      "created_at": "2026-04-04T04:34:03.691910+00:00",
+      "updated_at": "2026-04-04T04:34:03.691910+00:00",
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T03:54:01.472596+00:00",
+        "last_accessed": "2026-04-04T04:34:03.691910+00:00",
         "access_count": 0
       }
     },
@@ -32,9 +32,9 @@
       "type": "fact",
       "key": "test_stress_1",
       "fact": {
-        "rule": "# solo tests con browser real\n\"\"\"\n\nimport sys, os, time, json, uuid, threading, unittest, traceback\nfrom pathlib import Path\nfrom datetime import datetime\n\n# Asegurar imports del proyecto\nsys.path.insert(0, str(Path(__file__).parent.parent))\n\nfrom config import DATA_DIR, FORM_MAPS_DIR, SESSIONS_DIR, SCREENSHOTS_DIR\n\n# ══════════════════════════════════════════════════════════════\n#  HELPERS\n# ══════════════════════════════════════════════════════════════\n\nclass TimingResult:\n    def __init__(self, name):\n        self.name = name\n        self.times = []\n    def add(self, ms):\n        self.times.append(ms)\n    @property\n    def avg(self):\n        return sum(self.times) / len(self.times) if self.times else 0\n    @property\n    def min_t(self):\n",
+        "rule": "      w.close_document(save=False)\n    except Exception:\n        pass\n    shutil.copy2(INPUT, WORK)\n    return w.open_document(WORK)\n\nclass Test01_FindReplace(unittest.TestCase):\n    \"\"\"Find/Replace edge cases.\"\"\"\n\n    @classmethod\n    def setUpClass(cls):\n        if not os.path.exists(INPUT):\n            raise unittest.SkipTest(f\"Input not found\")\n        reload_doc()\n\n    def test_unicode_accents(self):\n        \"\"\"Spanish accented characters don't crash.\"\"\"\n        w = get_word()\n        w.find_replace('Información inicial', 'Información inicial')\n\n    def test_currency_in_tables(self):\n        \"\"\"Dollar signs exist in document tables.\"\"\"\n        w = get_word()\n        tables = w.get_tables()\n        all_text = ' '.join(cell for t in tables for row in t['data'] for cell in row)\n",
         "applies_to": "tests",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\tests\\test_stress.py",
+        "source": "C:\\Chance1\\IA\\IA_Word\\tests\\test_stress.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -43,12 +43,12 @@
         "python",
         "py"
       ],
-      "created_at": "2026-04-04T03:54:01.510211+00:00",
-      "updated_at": "2026-04-04T03:54:01.510211+00:00",
+      "created_at": "2026-04-04T04:34:03.767305+00:00",
+      "updated_at": "2026-04-04T04:34:03.767305+00:00",
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T03:54:01.510211+00:00",
+        "last_accessed": "2026-04-04T04:34:03.767305+00:00",
         "access_count": 0
       }
     },
@@ -57,9 +57,9 @@
       "type": "fact",
       "key": "test_stress_2",
       "fact": {
-        "rule": "   return sum(self.times) / len(self.times) if self.times else 0\n    @property\n    def min_t(self):\n        return min(self.times) if self.times else 0\n    @property\n    def max_t(self):\n        return max(self.times) if self.times else 0\n    @property\n    def p95(self):\n        if not self.times: return 0\n        s = sorted(self.times)\n        idx = int(len(s) * 0.95)\n        return s[min(idx, len(s)-1)]\n    def report(self):\n        return (f\"  {self.name:40s} | avg={self.avg:7.1f}ms | \"\n                f\"min={self.min_t:7.1f}ms | max={self.max_t:7.1f}ms | \"\n                f\"p95={self.p95:7.1f}ms | n={len(self.times)}\")\n\ndef timed(func, *args, **kwargs):\n    \"\"\"Ejecuta func y retorna (result, elapsed_ms).\"\"\"\n    t0 = time.perf_counter()\n    result = func(*args, **kwargs)\n",
+        "rule": "get_tables()\n        all_text = ' '.join(cell for t in tables for row in t['data'] for cell in row)\n        self.assertIn('$', all_text)\n\n    def test_find_nonexistent(self):\n        \"\"\"Finding non-existent text returns 0.\"\"\"\n        self.assertEqual(get_word().find_replace('ZZZNOTEXIST999', 'x'), 0)\n\n    def test_empty_replacement(self):\n        \"\"\"Replace with empty string doesn't crash.\"\"\"\n        get_word().find_replace('NONEXIST123', '')\n\n    def test_smart_replace_structure(self):\n        \"\"\"smart_replace returns dict with all 3 areas.\"\"\"\n        r = get_word().smart_replace('NONEXIST', 'x')\n        self.assertIn('body', r)\n        self.assertIn('footer_shapes', r)\n        self.assertIn('tables', r)\n\n    def test_long_text_search(self):\n",
         "applies_to": "tests",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\tests\\test_stress.py",
+        "source": "C:\\Chance1\\IA\\IA_Word\\tests\\test_stress.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -68,12 +68,12 @@
         "python",
         "py"
       ],
-      "created_at": "2026-04-04T03:54:01.554152+00:00",
-      "updated_at": "2026-04-04T03:54:01.554152+00:00",
+      "created_at": "2026-04-04T04:34:03.846207+00:00",
+      "updated_at": "2026-04-04T04:34:03.846207+00:00",
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T03:54:01.554152+00:00",
+        "last_accessed": "2026-04-04T04:34:03.846207+00:00",
         "access_count": 0
       }
     },
@@ -82,9 +82,9 @@
       "type": "fact",
       "key": "test_stress_3",
       "fact": {
-        "rule": " y retorna (result, elapsed_ms).\"\"\"\n    t0 = time.perf_counter()\n    result = func(*args, **kwargs)\n    elapsed = (time.perf_counter() - t0) * 1000\n    return result, elapsed\n\n# ══════════════════════════════════════════════════════════════\n#  TEST 1: TIMING DE COMPONENTES (sin browser)\n# ══════════════════════════════════════════════════════════════\n\nclass TestComponentTiming(unittest.TestCase):\n    \"\"\"Mide tiempos de operaciones criticas sin browser.\"\"\"\n\n    def test_scan_result_diff_timing(self):\n        \"\"\"ScanResult.diff() debe ser <1ms para 50 campos.\"\"\"\n        from core.scanner import ScanResult, ScanLevel\n        fields_a = [{\"id\": f\"field_{i}\", \"name\": f\"f{i}\", \"value\": f\"v{i}\",\n                      \"logical_name\": f\"f{i}\"} for i in range(50)]\n",
+        "rule": "sertIn('footer_shapes', r)\n        self.assertIn('tables', r)\n\n    def test_long_text_search(self):\n        \"\"\"Very long search string doesn't crash.\"\"\"\n        get_word().find_replace('x' * 200, 'short')\n\n    def test_footer_shape_replace_nonexistent(self):\n        \"\"\"Footer shape replace with non-existent text returns 0.\"\"\"\n        self.assertEqual(get_word().replace_in_footer_shapes('NONEXIST', 'x'), 0)\n\nclass Test02_HeadingDetection(unittest.TestCase):\n    \"\"\"Heading level detection patterns.\"\"\"\n\n    @classmethod\n    def setUpClass(cls):\n        reload_doc()\n\n    def test_level_1(self):\n        self.assertEqual(get_word()._detect_heading_level('1.  Something'), 1)\n\n    def test_level_2(self):\n        self.assertEqual(get_word()._detect_heading_level('2.1.  Something'), 2)\n\n",
         "applies_to": "tests",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\tests\\test_stress.py",
+        "source": "C:\\Chance1\\IA\\IA_Word\\tests\\test_stress.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -93,12 +93,12 @@
         "python",
         "py"
       ],
-      "created_at": "2026-04-04T03:54:01.596334+00:00",
-      "updated_at": "2026-04-04T03:54:01.596334+00:00",
+      "created_at": "2026-04-04T04:34:03.930222+00:00",
+      "updated_at": "2026-04-04T04:34:03.930222+00:00",
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T03:54:01.596334+00:00",
+        "last_accessed": "2026-04-04T04:34:03.930222+00:00",
         "access_count": 0
       }
     },
@@ -107,9 +107,9 @@
       "type": "fact",
       "key": "test_stress_4",
       "fact": {
-        "rule": "ame\": f\"f{i}\", \"value\": f\"v{i}\",\n                      \"logical_name\": f\"f{i}\"} for i in range(50)]\n        fields_b = [{\"id\": f\"field_{i}\", \"name\": f\"f{i}\",\n                      \"value\": f\"v{i}\" if i % 5 != 0 else f\"changed_{i}\",\n                      \"logical_name\": f\"f{i}\"} for i in range(50)]\n\n        scan_a = ScanResult(\n            level=ScanLevel.FULL, timestamp=time.time(), dom_hash=\"aaa\",\n            fields=fields_a, elements=[], iframes=[], url=\"\", raw={},\n        )\n        scan_b = ScanResult(\n            level=ScanLevel.FULL, timestamp=time.time(), dom_hash=\"bbb\",\n            fields=fields_b, elements=[], iframes=[], url=\"\", raw={},\n        )\n\n        timing = TimingResult(\"ScanResult.diff (50 campos)\")\n        for _ in range(1000):\n",
+        "rule": "st_level_2(self):\n        self.assertEqual(get_word()._detect_heading_level('2.1.  Something'), 2)\n\n    def test_level_3(self):\n        self.assertEqual(get_word()._detect_heading_level('3.1.2.  Something'), 3)\n\n    def test_not_heading(self):\n        self.assertEqual(get_word()._detect_heading_level('Normal text'), 0)\n\n    def test_empty(self):\n        self.assertEqual(get_word()._detect_heading_level(''), 0)\n\n    def test_no_space_after_dot(self):\n        \"\"\"'1.Something' without space is not a heading.\"\"\"\n        self.assertEqual(get_word()._detect_heading_level('1.Something'), 0)\n\n    def test_deep_nesting(self):\n        self.assertEqual(get_word()._detect_heading_level('1.2.3.4.  Deep'), 4)\n\nclass Test03_Sections(unittest.TestCase):\n    \"\"\"Section listing and properties.\"\"\"\n\n",
         "applies_to": "tests",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\tests\\test_stress.py",
+        "source": "C:\\Chance1\\IA\\IA_Word\\tests\\test_stress.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -118,12 +118,12 @@
         "python",
         "py"
       ],
-      "created_at": "2026-04-04T03:54:01.644085+00:00",
-      "updated_at": "2026-04-04T03:54:01.644085+00:00",
+      "created_at": "2026-04-04T04:34:04.011654+00:00",
+      "updated_at": "2026-04-04T04:34:04.011654+00:00",
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T03:54:01.644085+00:00",
+        "last_accessed": "2026-04-04T04:34:04.011654+00:00",
         "access_count": 0
       }
     },
@@ -132,9 +132,9 @@
       "type": "fact",
       "key": "test_stress_5",
       "fact": {
-        "rule": "      )\n\n        timing = TimingResult(\"ScanResult.diff (50 campos)\")\n        for _ in range(1000):\n            _, ms = timed(scan_a.diff, scan_b)\n            timing.add(ms)\n\n        print(f\"\\n{timing.report()}\")\n        self.assertLess(timing.avg, 1.0, \"diff() debe ser <1ms promedio\")\n\n    def test_scan_result_find_field_timing(self):\n        \"\"\"find_field() debe ser <0.5ms con 100 campos.\"\"\"\n        from core.scanner import ScanResult, ScanLevel\n        fields = [{\"id\": f\"C42_W{i}_btrequest_{chr(65+i%26)}\",\n                    \"name\": f\"field_{i}\", \"value\": \"\",\n                    \"logical_name\": f\"field_{i}\",\n                    \"label_text\": f\"Label {i}\",\n                    \"placeholder\": f\"Enter {i}\",\n                    \"ariaLabel\": f\"aria_{i}\"} for i in range(100)]\n",
+        "rule": ".  Deep'), 4)\n\nclass Test03_Sections(unittest.TestCase):\n    \"\"\"Section listing and properties.\"\"\"\n\n    @classmethod\n    def setUpClass(cls):\n        reload_doc()\n\n    def test_sections_nonempty(self):\n        sections = get_word().get_sections()\n        self.assertGreater(len(sections), 10)\n\n    def test_section_fields(self):\n        for s in get_word().get_sections():\n            self.assertIn('text', s)\n            self.assertIn('level', s)\n            self.assertIn('page', s)\n\n    def test_levels_valid(self):\n        for s in get_word().get_sections():\n            self.assertGreaterEqual(s['level'], 1)\n            self.assertLessEqual(s['level'], 4)\n\n    def test_pages_positive(self):\n        for s in get_word().get_sections():\n            self.assertGreater(s['page'], 0)\n\n",
         "applies_to": "tests",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\tests\\test_stress.py",
+        "source": "C:\\Chance1\\IA\\IA_Word\\tests\\test_stress.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -143,12 +143,12 @@
         "python",
         "py"
       ],
-      "created_at": "2026-04-04T03:54:01.689383+00:00",
-      "updated_at": "2026-04-04T03:54:01.689383+00:00",
+      "created_at": "2026-04-04T04:34:04.087292+00:00",
+      "updated_at": "2026-04-04T04:34:04.087292+00:00",
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T03:54:01.689383+00:00",
+        "last_accessed": "2026-04-04T04:34:04.087292+00:00",
         "access_count": 0
       }
     },
@@ -157,9 +157,9 @@
       "type": "fact",
       "key": "test_stress_6",
       "fact": {
-        "rule": "    \"placeholder\": f\"Enter {i}\",\n                    \"ariaLabel\": f\"aria_{i}\"} for i in range(100)]\n        scan = ScanResult(\n            level=ScanLevel.FULL, timestamp=time.time(), dom_hash=\"x\",\n            fields=fields, elements=[], iframes=[], url=\"\", raw={},\n        )\n\n        timing = TimingResult(\"find_field (100 campos)\")\n        for _ in range(1000):\n            _, ms = timed(scan.find_field, \"field_73\")\n            timing.add(ms)\n\n        print(f\"\\n{timing.report()}\")\n        self.assertLess(timing.avg, 0.5, \"find_field debe ser <0.5ms promedio\")\n\n    def test_decidir_nivel_timing(self):\n        \"\"\"decidir_nivel() debe ser <0.1ms.\"\"\"\n        from core.scanner import Scanner\n        scanner = Scanner.__new__(Scanner)  # sin __init__ (no necesita page)\n\n",
+        "rule": "ve(self):\n        for s in get_word().get_sections():\n            self.assertGreater(s['page'], 0)\n\n    def test_no_toc_entries(self):\n        for s in get_word().get_sections():\n            self.assertNotIn('...', s['text'])\n\n    def test_known_sections_exist(self):\n        texts = ' '.join(s['text'] for s in get_word().get_sections())\n        for pat in ['Por qu', 'Alcance', 'Propuesta', 'rminos', 'Aceptaci', 'Anexos']:\n            self.assertIn(pat, texts, f\"'{pat}' not found in sections\")\n\nclass Test04_Tables(unittest.TestCase):\n    \"\"\"Table reading.\"\"\"\n\n    @classmethod\n    def setUpClass(cls):\n        reload_doc()\n\n    def test_tables_exist(self):\n        tables = get_word().get_tables()\n        self.assertGreater(len(tables), 0)\n\n    def test_table_fields(self):\n",
         "applies_to": "tests",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\tests\\test_stress.py",
+        "source": "C:\\Chance1\\IA\\IA_Word\\tests\\test_stress.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -168,12 +168,12 @@
         "python",
         "py"
       ],
-      "created_at": "2026-04-04T03:54:01.732422+00:00",
-      "updated_at": "2026-04-04T03:54:01.732422+00:00",
+      "created_at": "2026-04-04T04:34:04.180374+00:00",
+      "updated_at": "2026-04-04T04:34:04.180374+00:00",
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T03:54:01.732422+00:00",
+        "last_accessed": "2026-04-04T04:34:04.180374+00:00",
         "access_count": 0
       }
     },
@@ -182,9 +182,9 @@
       "type": "fact",
       "key": "test_stress_7",
       "fact": {
-        "rule": "anner import Scanner\n        scanner = Scanner.__new__(Scanner)  # sin __init__ (no necesita page)\n\n        timing = TimingResult(\"decidir_nivel()\")\n        actions = [\"fill\", \"click\", \"select\", \"navigate\", \"submit\", \"check_value\"]\n        types = [\"text\", \"email\", \"select\", \"radio\"",
+        "rule": "et_word().get_tables()\n        self.assertGreater(len(tables), 0)\n\n    def test_table_fields(self):\n        for t in get_word().get_tables():\n            self.assertIn('rows', t)\n            self.assertIn('columns', t)",
         "applies_to": "tests",
-        "source": "C:\\Chance1\\IA\\FormFiller_IA\\tests\\test_stress.py",
+        "source": "C:\\Chance1\\IA\\IA_Word\\tests\\test_stress.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -193,12 +193,12 @@
         "python",
         "py"
       ],
-      "created_at": "2026-04-04T03:54:01.768253+00:00",
-      "updated_at": "2026-04-04T03:54:01.768253+00:00",
+      "created_at": "2026-04-04T04:34:04.245548+00:00",
+      "updated_at": "2026-04-04T04:34:04.245548+00:00",
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T03:54:01.768253+00:00",
+        "last_accessed": "2026-04-04T04:34:04.245548+00:00",
         "access_count": 0
       }
     },
@@ -218,12 +218,12 @@
         "python",
         "py"
       ],
-      "created_at": "2026-04-04T03:54:01.818155+00:00",
-      "updated_at": "2026-04-04T03:54:01.818155+00:00",
+      "created_at": "2026-04-04T04:30:36.403692+00:00",
+      "updated_at": "2026-04-04T04:30:36.403692+00:00",
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T03:54:01.818155+00:00",
+        "last_accessed": "2026-04-04T04:30:36.403692+00:00",
         "access_count": 0
       }
     },
@@ -243,12 +243,12 @@
         "python",
         "py"
       ],
-      "created_at": "2026-04-04T03:54:01.867472+00:00",
-      "updated_at": "2026-04-04T03:54:01.867472+00:00",
+      "created_at": "2026-04-04T04:30:36.482418+00:00",
+      "updated_at": "2026-04-04T04:30:36.482418+00:00",
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T03:54:01.867472+00:00",
+        "last_accessed": "2026-04-04T04:30:36.482418+00:00",
         "access_count": 0
       }
     },
@@ -268,12 +268,12 @@
         "python",
         "py"
       ],
-      "created_at": "2026-04-04T03:54:01.915212+00:00",
-      "updated_at": "2026-04-04T03:54:01.915212+00:00",
+      "created_at": "2026-04-04T04:30:36.575807+00:00",
+      "updated_at": "2026-04-04T04:30:36.575807+00:00",
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T03:54:01.915212+00:00",
+        "last_accessed": "2026-04-04T04:30:36.575807+00:00",
         "access_count": 0
       }
     },
@@ -293,12 +293,12 @@
         "python",
         "py"
       ],
-      "created_at": "2026-04-04T03:54:01.956061+00:00",
-      "updated_at": "2026-04-04T03:54:01.956061+00:00",
+      "created_at": "2026-04-04T04:30:36.649960+00:00",
+      "updated_at": "2026-04-04T04:30:36.649960+00:00",
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T03:54:01.956061+00:00",
+        "last_accessed": "2026-04-04T04:30:36.649960+00:00",
         "access_count": 0
       }
     },
@@ -318,12 +318,12 @@
         "python",
         "py"
       ],
-      "created_at": "2026-04-04T03:54:02.000880+00:00",
-      "updated_at": "2026-04-04T03:54:02.000880+00:00",
+      "created_at": "2026-04-04T04:30:36.729125+00:00",
+      "updated_at": "2026-04-04T04:30:36.729125+00:00",
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T03:54:02.000880+00:00",
+        "last_accessed": "2026-04-04T04:30:36.729125+00:00",
         "access_count": 0
       }
     },
@@ -343,12 +343,12 @@
         "python",
         "py"
       ],
-      "created_at": "2026-04-04T03:54:02.048086+00:00",
-      "updated_at": "2026-04-04T03:54:02.048086+00:00",
+      "created_at": "2026-04-04T04:30:36.818629+00:00",
+      "updated_at": "2026-04-04T04:30:36.818629+00:00",
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T03:54:02.048086+00:00",
+        "last_accessed": "2026-04-04T04:30:36.818629+00:00",
         "access_count": 0
       }
     },
@@ -368,12 +368,12 @@
         "python",
         "py"
       ],
-      "created_at": "2026-04-04T03:54:02.101710+00:00",
-      "updated_at": "2026-04-04T03:54:02.101710+00:00",
+      "created_at": "2026-04-04T04:30:36.904449+00:00",
+      "updated_at": "2026-04-04T04:30:36.904449+00:00",
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T03:54:02.101710+00:00",
+        "last_accessed": "2026-04-04T04:30:36.904449+00:00",
         "access_count": 0
       }
     },
@@ -393,12 +393,12 @@
         "python",
         "py"
       ],
-      "created_at": "2026-04-04T03:54:02.135176+00:00",
-      "updated_at": "2026-04-04T03:54:02.135176+00:00",
+      "created_at": "2026-04-04T04:30:36.976754+00:00",
+      "updated_at": "2026-04-04T04:30:36.976754+00:00",
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T03:54:02.135176+00:00",
+        "last_accessed": "2026-04-04T04:30:36.976754+00:00",
         "access_count": 0
       }
     },
@@ -418,12 +418,12 @@
         "python",
         "py"
       ],
-      "created_at": "2026-04-04T03:54:02.183046+00:00",
-      "updated_at": "2026-04-04T03:54:02.183046+00:00",
+      "created_at": "2026-04-04T04:30:37.062394+00:00",
+      "updated_at": "2026-04-04T04:30:37.062394+00:00",
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T03:54:02.183046+00:00",
+        "last_accessed": "2026-04-04T04:30:37.062394+00:00",
         "access_count": 0
       }
     },
@@ -443,12 +443,12 @@
         "python",
         "py"
       ],
-      "created_at": "2026-04-04T03:54:02.229312+00:00",
-      "updated_at": "2026-04-04T03:54:02.229312+00:00",
+      "created_at": "2026-04-04T04:30:37.142019+00:00",
+      "updated_at": "2026-04-04T04:30:37.142019+00:00",
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T03:54:02.229312+00:00",
+        "last_accessed": "2026-04-04T04:30:37.142019+00:00",
         "access_count": 0
       }
     },
@@ -468,12 +468,12 @@
         "python",
         "py"
       ],
-      "created_at": "2026-04-04T03:54:02.276445+00:00",
-      "updated_at": "2026-04-04T03:54:02.276445+00:00",
+      "created_at": "2026-04-04T04:30:37.228305+00:00",
+      "updated_at": "2026-04-04T04:30:37.228305+00:00",
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T03:54:02.276445+00:00",
+        "last_accessed": "2026-04-04T04:30:37.228305+00:00",
         "access_count": 0
       }
     },
@@ -493,12 +493,12 @@
         "python",
         "py"
       ],
-      "created_at": "2026-04-04T03:54:02.321789+00:00",
-      "updated_at": "2026-04-04T03:54:02.321789+00:00",
+      "created_at": "2026-04-04T04:30:37.316325+00:00",
+      "updated_at": "2026-04-04T04:30:37.316325+00:00",
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T03:54:02.321789+00:00",
+        "last_accessed": "2026-04-04T04:30:37.316325+00:00",
         "access_count": 0
       }
     },
@@ -518,12 +518,12 @@
         "python",
         "py"
       ],
-      "created_at": "2026-04-04T03:54:02.369283+00:00",
-      "updated_at": "2026-04-04T03:54:02.369283+00:00",
+      "created_at": "2026-04-04T04:30:37.402732+00:00",
+      "updated_at": "2026-04-04T04:30:37.402732+00:00",
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T03:54:02.369283+00:00",
+        "last_accessed": "2026-04-04T04:30:37.402732+00:00",
         "access_count": 0
       }
     },
@@ -543,12 +543,12 @@
         "python",
         "py"
       ],
-      "created_at": "2026-04-04T03:54:02.412112+00:00",
-      "updated_at": "2026-04-04T03:54:02.412112+00:00",
+      "created_at": "2026-04-04T04:30:37.485154+00:00",
+      "updated_at": "2026-04-04T04:30:37.485154+00:00",
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T03:54:02.412112+00:00",
+        "last_accessed": "2026-04-04T04:30:37.485154+00:00",
         "access_count": 0
       }
     },
@@ -568,12 +568,12 @@
         "python",
         "py"
       ],
-      "created_at": "2026-04-04T03:54:02.458629+00:00",
-      "updated_at": "2026-04-04T03:54:02.458629+00:00",
+      "created_at": "2026-04-04T04:30:37.570395+00:00",
+      "updated_at": "2026-04-04T04:30:37.570395+00:00",
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T03:54:02.458629+00:00",
+        "last_accessed": "2026-04-04T04:30:37.570395+00:00",
         "access_count": 0
       }
     },
@@ -593,12 +593,12 @@
         "python",
         "py"
       ],
-      "created_at": "2026-04-04T03:54:02.492907+00:00",
-      "updated_at": "2026-04-04T03:54:02.492907+00:00",
+      "created_at": "2026-04-04T04:30:37.640295+00:00",
+      "updated_at": "2026-04-04T04:30:37.640295+00:00",
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T03:54:02.492907+00:00",
+        "last_accessed": "2026-04-04T04:30:37.640295+00:00",
         "access_count": 0
       }
     },
@@ -618,12 +618,12 @@
         "python",
         "py"
       ],
-      "created_at": "2026-04-04T03:54:02.544526+00:00",
-      "updated_at": "2026-04-04T03:54:02.544526+00:00",
+      "created_at": "2026-04-04T04:30:37.728474+00:00",
+      "updated_at": "2026-04-04T04:30:37.728474+00:00",
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T03:54:02.544526+00:00",
+        "last_accessed": "2026-04-04T04:30:37.728474+00:00",
         "access_count": 0
       }
     },
@@ -643,12 +643,12 @@
         "python",
         "py"
       ],
-      "created_at": "2026-04-04T03:54:02.595667+00:00",
-      "updated_at": "2026-04-04T03:54:02.595667+00:00",
+      "created_at": "2026-04-04T04:30:37.811347+00:00",
+      "updated_at": "2026-04-04T04:30:37.811347+00:00",
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T03:54:02.595667+00:00",
+        "last_accessed": "2026-04-04T04:30:37.811347+00:00",
         "access_count": 0
       }
     },
@@ -668,12 +668,12 @@
         "python",
         "py"
       ],
-      "created_at": "2026-04-04T03:54:02.632981+00:00",
-      "updated_at": "2026-04-04T03:54:02.632981+00:00",
+      "created_at": "2026-04-04T04:30:37.892608+00:00",
+      "updated_at": "2026-04-04T04:30:37.892608+00:00",
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T03:54:02.632981+00:00",
+        "last_accessed": "2026-04-04T04:30:37.892608+00:00",
         "access_count": 0
       }
     },
@@ -693,12 +693,12 @@
         "python",
         "py"
       ],
-      "created_at": "2026-04-04T03:54:02.680344+00:00",
-      "updated_at": "2026-04-04T03:54:02.680344+00:00",
+      "created_at": "2026-04-04T04:30:37.972755+00:00",
+      "updated_at": "2026-04-04T04:30:37.972755+00:00",
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T03:54:02.680344+00:00",
+        "last_accessed": "2026-04-04T04:30:37.972755+00:00",
         "access_count": 0
       }
     },
@@ -718,12 +718,12 @@
         "python",
         "py"
       ],
-      "created_at": "2026-04-04T03:54:02.720567+00:00",
-      "updated_at": "2026-04-04T03:54:02.720567+00:00",
+      "created_at": "2026-04-04T04:30:38.051802+00:00",
+      "updated_at": "2026-04-04T04:30:38.051802+00:00",
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T03:54:02.720567+00:00",
+        "last_accessed": "2026-04-04T04:30:38.051802+00:00",
         "access_count": 0
       }
     },
@@ -743,12 +743,12 @@
         "python",
         "py"
       ],
-      "created_at": "2026-04-04T03:54:02.757274+00:00",
-      "updated_at": "2026-04-04T03:54:02.757274+00:00",
+      "created_at": "2026-04-04T04:30:38.125427+00:00",
+      "updated_at": "2026-04-04T04:30:38.125427+00:00",
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T03:54:02.757274+00:00",
+        "last_accessed": "2026-04-04T04:30:38.125427+00:00",
         "access_count": 0
       }
     },
@@ -768,12 +768,12 @@
         "python",
         "py"
       ],
-      "created_at": "2026-04-04T03:54:02.806514+00:00",
-      "updated_at": "2026-04-04T03:54:02.806514+00:00",
+      "created_at": "2026-04-04T04:30:38.208667+00:00",
+      "updated_at": "2026-04-04T04:30:38.208667+00:00",
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T03:54:02.806514+00:00",
+        "last_accessed": "2026-04-04T04:30:38.208667+00:00",
         "access_count": 0
       }
     },
@@ -793,12 +793,12 @@
         "python",
         "py"
       ],
-      "created_at": "2026-04-04T03:54:02.840958+00:00",
-      "updated_at": "2026-04-04T03:54:02.840958+00:00",
+      "created_at": "2026-04-04T04:30:38.280173+00:00",
+      "updated_at": "2026-04-04T04:30:38.280173+00:00",
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T03:54:02.840958+00:00",
+        "last_accessed": "2026-04-04T04:30:38.280173+00:00",
         "access_count": 0
       }
     },
@@ -818,12 +818,12 @@
         "python",
         "py"
       ],
-      "created_at": "2026-04-04T03:54:02.890675+00:00",
-      "updated_at": "2026-04-04T03:54:02.890675+00:00",
+      "created_at": "2026-04-04T04:30:38.370815+00:00",
+      "updated_at": "2026-04-04T04:30:38.370815+00:00",
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T03:54:02.890675+00:00",
+        "last_accessed": "2026-04-04T04:30:38.370815+00:00",
         "access_count": 0
       }
     },
@@ -843,12 +843,12 @@
         "python",
         "py"
       ],
-      "created_at": "2026-04-04T03:54:02.932551+00:00",
-      "updated_at": "2026-04-04T03:54:02.932551+00:00",
+      "created_at": "2026-04-04T04:30:38.439844+00:00",
+      "updated_at": "2026-04-04T04:30:38.439844+00:00",
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T03:54:02.932551+00:00",
+        "last_accessed": "2026-04-04T04:30:38.439844+00:00",
         "access_count": 0
       }
     },
@@ -868,12 +868,12 @@
         "python",
         "py"
       ],
-      "created_at": "2026-04-04T03:54:02.973827+00:00",
-      "updated_at": "2026-04-04T03:54:02.973827+00:00",
+      "created_at": "2026-04-04T04:30:38.514389+00:00",
+      "updated_at": "2026-04-04T04:30:38.514389+00:00",
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T03:54:02.973827+00:00",
+        "last_accessed": "2026-04-04T04:30:38.514389+00:00",
         "access_count": 0
       }
     },
@@ -893,12 +893,12 @@
         "python",
         "py"
       ],
-      "created_at": "2026-04-04T03:54:03.013418+00:00",
-      "updated_at": "2026-04-04T03:54:03.013418+00:00",
+      "created_at": "2026-04-04T04:30:38.595891+00:00",
+      "updated_at": "2026-04-04T04:30:38.595891+00:00",
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T03:54:03.013418+00:00",
+        "last_accessed": "2026-04-04T04:30:38.595891+00:00",
         "access_count": 0
       }
     },
@@ -918,12 +918,12 @@
         "python",
         "py"
       ],
-      "created_at": "2026-04-04T03:54:03.052749+00:00",
-      "updated_at": "2026-04-04T03:54:03.052749+00:00",
+      "created_at": "2026-04-04T04:30:38.669141+00:00",
+      "updated_at": "2026-04-04T04:30:38.669141+00:00",
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T03:54:03.052749+00:00",
+        "last_accessed": "2026-04-04T04:30:38.669141+00:00",
         "access_count": 0
       }
     },
@@ -943,12 +943,12 @@
         "python",
         "py"
       ],
-      "created_at": "2026-04-04T03:54:03.092424+00:00",
-      "updated_at": "2026-04-04T03:54:03.092424+00:00",
+      "created_at": "2026-04-04T04:30:38.744014+00:00",
+      "updated_at": "2026-04-04T04:30:38.744014+00:00",
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T03:54:03.092424+00:00",
+        "last_accessed": "2026-04-04T04:30:38.744014+00:00",
         "access_count": 0
       }
     },
@@ -968,12 +968,12 @@
         "python",
         "py"
       ],
-      "created_at": "2026-04-04T03:54:03.132843+00:00",
-      "updated_at": "2026-04-04T03:54:03.132843+00:00",
+      "created_at": "2026-04-04T04:30:38.826416+00:00",
+      "updated_at": "2026-04-04T04:30:38.826416+00:00",
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T03:54:03.132843+00:00",
+        "last_accessed": "2026-04-04T04:30:38.826416+00:00",
         "access_count": 0
       }
     },
@@ -993,12 +993,12 @@
         "python",
         "py"
       ],
-      "created_at": "2026-04-04T03:54:03.170417+00:00",
-      "updated_at": "2026-04-04T03:54:03.170417+00:00",
+      "created_at": "2026-04-04T04:30:38.904553+00:00",
+      "updated_at": "2026-04-04T04:30:38.904553+00:00",
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T03:54:03.170417+00:00",
+        "last_accessed": "2026-04-04T04:30:38.904553+00:00",
         "access_count": 0
       }
     },
@@ -1018,12 +1018,12 @@
         "python",
         "py"
       ],
-      "created_at": "2026-04-04T03:54:03.221500+00:00",
-      "updated_at": "2026-04-04T03:54:03.221500+00:00",
+      "created_at": "2026-04-04T04:30:38.990669+00:00",
+      "updated_at": "2026-04-04T04:30:38.990669+00:00",
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T03:54:03.221500+00:00",
+        "last_accessed": "2026-04-04T04:30:38.990669+00:00",
         "access_count": 0
       }
     },
@@ -1043,12 +1043,12 @@
         "python",
         "py"
       ],
-      "created_at": "2026-04-04T03:54:03.266586+00:00",
-      "updated_at": "2026-04-04T03:54:03.266586+00:00",
+      "created_at": "2026-04-04T04:30:39.072372+00:00",
+      "updated_at": "2026-04-04T04:30:39.072372+00:00",
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T03:54:03.266586+00:00",
+        "last_accessed": "2026-04-04T04:30:39.072372+00:00",
         "access_count": 0
       }
     },
@@ -1068,12 +1068,12 @@
         "python",
         "py"
       ],
-      "created_at": "2026-04-04T03:54:03.312516+00:00",
-      "updated_at": "2026-04-04T03:54:03.312516+00:00",
+      "created_at": "2026-04-04T04:30:39.158909+00:00",
+      "updated_at": "2026-04-04T04:30:39.158909+00:00",
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T03:54:03.312516+00:00",
+        "last_accessed": "2026-04-04T04:30:39.158909+00:00",
         "access_count": 0
       }
     },
@@ -1093,12 +1093,12 @@
         "python",
         "py"
       ],
-      "created_at": "2026-04-04T03:54:03.361612+00:00",
-      "updated_at": "2026-04-04T03:54:03.361612+00:00",
+      "created_at": "2026-04-04T04:30:39.240050+00:00",
+      "updated_at": "2026-04-04T04:30:39.240050+00:00",
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T03:54:03.361612+00:00",
+        "last_accessed": "2026-04-04T04:30:39.240050+00:00",
         "access_count": 0
       }
     },
@@ -1118,12 +1118,12 @@
         "python",
         "py"
       ],
-      "created_at": "2026-04-04T03:54:03.411823+00:00",
-      "updated_at": "2026-04-04T03:54:03.411823+00:00",
+      "created_at": "2026-04-04T04:30:39.323696+00:00",
+      "updated_at": "2026-04-04T04:30:39.323696+00:00",
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T03:54:03.411823+00:00",
+        "last_accessed": "2026-04-04T04:30:39.323696+00:00",
         "access_count": 0
       }
     },
@@ -1143,12 +1143,12 @@
         "python",
         "py"
       ],
-      "created_at": "2026-04-04T03:54:03.456352+00:00",
-      "updated_at": "2026-04-04T03:54:03.456352+00:00",
+      "created_at": "2026-04-04T04:30:39.412054+00:00",
+      "updated_at": "2026-04-04T04:30:39.412054+00:00",
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T03:54:03.456352+00:00",
+        "last_accessed": "2026-04-04T04:30:39.412054+00:00",
         "access_count": 0
       }
     },
@@ -1168,12 +1168,12 @@
         "python",
         "py"
       ],
-      "created_at": "2026-04-04T03:54:03.496550+00:00",
-      "updated_at": "2026-04-04T03:54:03.496550+00:00",
+      "created_at": "2026-04-04T04:30:39.488053+00:00",
+      "updated_at": "2026-04-04T04:30:39.488053+00:00",
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T03:54:03.496550+00:00",
+        "last_accessed": "2026-04-04T04:30:39.488053+00:00",
         "access_count": 0
       }
     },
@@ -1193,12 +1193,12 @@
         "python",
         "py"
       ],
-      "created_at": "2026-04-04T03:54:03.532032+00:00",
-      "updated_at": "2026-04-04T03:54:03.532032+00:00",
+      "created_at": "2026-04-04T04:30:39.558340+00:00",
+      "updated_at": "2026-04-04T04:30:39.558340+00:00",
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T03:54:03.532032+00:00",
+        "last_accessed": "2026-04-04T04:30:39.558340+00:00",
         "access_count": 0
       }
     },
@@ -1218,12 +1218,12 @@
         "python",
         "py"
       ],
-      "created_at": "2026-04-04T03:54:03.584406+00:00",
-      "updated_at": "2026-04-04T03:54:03.584406+00:00",
+      "created_at": "2026-04-04T04:30:39.638452+00:00",
+      "updated_at": "2026-04-04T04:30:39.638452+00:00",
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T03:54:03.584406+00:00",
+        "last_accessed": "2026-04-04T04:30:39.638452+00:00",
         "access_count": 0
       }
     },
@@ -1243,12 +1243,12 @@
         "python",
         "py"
       ],
-      "created_at": "2026-04-04T03:54:03.624927+00:00",
-      "updated_at": "2026-04-04T03:54:03.624927+00:00",
+      "created_at": "2026-04-04T04:30:39.713577+00:00",
+      "updated_at": "2026-04-04T04:30:39.713577+00:00",
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T03:54:03.624927+00:00",
+        "last_accessed": "2026-04-04T04:30:39.713577+00:00",
         "access_count": 0
       }
     },
@@ -1268,12 +1268,12 @@
         "python",
         "py"
       ],
-      "created_at": "2026-04-04T03:54:03.663799+00:00",
-      "updated_at": "2026-04-04T03:54:03.663799+00:00",
+      "created_at": "2026-04-04T04:30:39.796268+00:00",
+      "updated_at": "2026-04-04T04:30:39.796268+00:00",
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T03:54:03.663799+00:00",
+        "last_accessed": "2026-04-04T04:30:39.796268+00:00",
         "access_count": 0
       }
     },
@@ -1293,12 +1293,12 @@
         "python",
         "py"
       ],
-      "created_at": "2026-04-04T03:54:03.700987+00:00",
-      "updated_at": "2026-04-04T03:54:03.700987+00:00",
+      "created_at": "2026-04-04T04:30:39.876878+00:00",
+      "updated_at": "2026-04-04T04:30:39.876878+00:00",
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T03:54:03.700987+00:00",
+        "last_accessed": "2026-04-04T04:30:39.876878+00:00",
         "access_count": 0
       }
     },
@@ -1318,12 +1318,12 @@
         "python",
         "py"
       ],
-      "created_at": "2026-04-04T03:54:03.740820+00:00",
-      "updated_at": "2026-04-04T03:54:03.740820+00:00",
+      "created_at": "2026-04-04T04:30:39.946420+00:00",
+      "updated_at": "2026-04-04T04:30:39.946420+00:00",
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T03:54:03.740820+00:00",
+        "last_accessed": "2026-04-04T04:30:39.946420+00:00",
         "access_count": 0
       }
     },
@@ -1343,12 +1343,12 @@
         "python",
         "py"
       ],
-      "created_at": "2026-04-04T03:54:03.795936+00:00",
-      "updated_at": "2026-04-04T03:54:03.795936+00:00",
+      "created_at": "2026-04-04T04:30:40.043348+00:00",
+      "updated_at": "2026-04-04T04:30:40.043348+00:00",
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T03:54:03.795936+00:00",
+        "last_accessed": "2026-04-04T04:30:40.043348+00:00",
         "access_count": 0
       }
     },
@@ -1368,12 +1368,12 @@
         "python",
         "py"
       ],
-      "created_at": "2026-04-04T03:54:03.834931+00:00",
-      "updated_at": "2026-04-04T03:54:03.834931+00:00",
+      "created_at": "2026-04-04T04:30:40.115138+00:00",
+      "updated_at": "2026-04-04T04:30:40.115138+00:00",
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T03:54:03.834931+00:00",
+        "last_accessed": "2026-04-04T04:30:40.115138+00:00",
         "access_count": 0
       }
     },
@@ -1393,12 +1393,12 @@
         "python",
         "py"
       ],
-      "created_at": "2026-04-04T03:54:03.882950+00:00",
-      "updated_at": "2026-04-04T03:54:03.882950+00:00",
+      "created_at": "2026-04-04T04:30:40.211568+00:00",
+      "updated_at": "2026-04-04T04:30:40.211568+00:00",
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T03:54:03.882950+00:00",
+        "last_accessed": "2026-04-04T04:30:40.211568+00:00",
         "access_count": 0
       }
     },
@@ -1418,12 +1418,12 @@
         "python",
         "py"
       ],
-      "created_at": "2026-04-04T03:54:03.937273+00:00",
-      "updated_at": "2026-04-04T03:54:03.937273+00:00",
+      "created_at": "2026-04-04T04:30:40.294506+00:00",
+      "updated_at": "2026-04-04T04:30:40.294506+00:00",
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T03:54:03.937273+00:00",
+        "last_accessed": "2026-04-04T04:30:40.294506+00:00",
         "access_count": 0
       }
     },
@@ -1443,12 +1443,12 @@
         "python",
         "py"
       ],
-      "created_at": "2026-04-04T03:54:03.978850+00:00",
-      "updated_at": "2026-04-04T03:54:03.978850+00:00",
+      "created_at": "2026-04-04T04:30:40.375684+00:00",
+      "updated_at": "2026-04-04T04:30:40.375684+00:00",
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T03:54:03.978850+00:00",
+        "last_accessed": "2026-04-04T04:30:40.375684+00:00",
         "access_count": 0
       }
     },
@@ -1468,12 +1468,12 @@
         "python",
         "py"
       ],
-      "created_at": "2026-04-04T03:54:04.023228+00:00",
-      "updated_at": "2026-04-04T03:54:04.023228+00:00",
+      "created_at": "2026-04-04T04:30:40.464755+00:00",
+      "updated_at": "2026-04-04T04:30:40.464755+00:00",
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T03:54:04.023228+00:00",
+        "last_accessed": "2026-04-04T04:30:40.464755+00:00",
         "access_count": 0
       }
     },
@@ -1493,12 +1493,12 @@
         "python",
         "py"
       ],
-      "created_at": "2026-04-04T03:54:04.062992+00:00",
-      "updated_at": "2026-04-04T03:54:04.062992+00:00",
+      "created_at": "2026-04-04T04:30:40.548539+00:00",
+      "updated_at": "2026-04-04T04:30:40.548539+00:00",
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T03:54:04.062992+00:00",
+        "last_accessed": "2026-04-04T04:30:40.548539+00:00",
         "access_count": 0
       }
     },
@@ -1518,12 +1518,12 @@
         "python",
         "py"
       ],
-      "created_at": "2026-04-04T03:54:04.108084+00:00",
-      "updated_at": "2026-04-04T03:54:04.108084+00:00",
+      "created_at": "2026-04-04T04:30:40.623120+00:00",
+      "updated_at": "2026-04-04T04:30:40.623120+00:00",
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T03:54:04.108084+00:00",
+        "last_accessed": "2026-04-04T04:30:40.623120+00:00",
         "access_count": 0
       }
     },
@@ -1543,12 +1543,12 @@
         "python",
         "py"
       ],
-      "created_at": "2026-04-04T03:54:04.150928+00:00",
-      "updated_at": "2026-04-04T03:54:04.150928+00:00",
+      "created_at": "2026-04-04T04:30:40.702240+00:00",
+      "updated_at": "2026-04-04T04:30:40.702240+00:00",
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T03:54:04.150928+00:00",
+        "last_accessed": "2026-04-04T04:30:40.702240+00:00",
         "access_count": 0
       }
     },
@@ -1568,12 +1568,12 @@
         "python",
         "py"
       ],
-      "created_at": "2026-04-04T03:54:04.191952+00:00",
-      "updated_at": "2026-04-04T03:54:04.191952+00:00",
+      "created_at": "2026-04-04T04:30:40.780788+00:00",
+      "updated_at": "2026-04-04T04:30:40.780788+00:00",
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T03:54:04.191952+00:00",
+        "last_accessed": "2026-04-04T04:30:40.780788+00:00",
         "access_count": 0
       }
     },
@@ -1593,12 +1593,12 @@
         "python",
         "py"
       ],
-      "created_at": "2026-04-04T03:54:04.225261+00:00",
-      "updated_at": "2026-04-04T03:54:04.225261+00:00",
+      "created_at": "2026-04-04T04:30:40.848830+00:00",
+      "updated_at": "2026-04-04T04:30:40.848830+00:00",
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T03:54:04.225261+00:00",
+        "last_accessed": "2026-04-04T04:30:40.848830+00:00",
         "access_count": 0
       }
     },
@@ -1618,12 +1618,12 @@
         "python",
         "py"
       ],
-      "created_at": "2026-04-04T03:54:04.273001+00:00",
-      "updated_at": "2026-04-04T03:54:04.273001+00:00",
+      "created_at": "2026-04-04T04:30:40.942101+00:00",
+      "updated_at": "2026-04-04T04:30:40.942101+00:00",
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T03:54:04.273001+00:00",
+        "last_accessed": "2026-04-04T04:30:40.942101+00:00",
         "access_count": 0
       }
     },
@@ -1643,12 +1643,12 @@
         "python",
         "py"
       ],
-      "created_at": "2026-04-04T03:54:04.321213+00:00",
-      "updated_at": "2026-04-04T03:54:04.321213+00:00",
+      "created_at": "2026-04-04T04:30:41.015211+00:00",
+      "updated_at": "2026-04-04T04:30:41.015211+00:00",
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T03:54:04.321213+00:00",
+        "last_accessed": "2026-04-04T04:30:41.015211+00:00",
         "access_count": 0
       }
     },
@@ -1668,12 +1668,12 @@
         "python",
         "py"
       ],
-      "created_at": "2026-04-04T03:54:04.368434+00:00",
-      "updated_at": "2026-04-04T03:54:04.368434+00:00",
+      "created_at": "2026-04-04T04:30:41.098274+00:00",
+      "updated_at": "2026-04-04T04:30:41.098274+00:00",
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T03:54:04.368434+00:00",
+        "last_accessed": "2026-04-04T04:30:41.098274+00:00",
         "access_count": 0
       }
     },
@@ -1693,12 +1693,12 @@
         "python",
         "py"
       ],
-      "created_at": "2026-04-04T03:54:04.418417+00:00",
-      "updated_at": "2026-04-04T03:54:04.418417+00:00",
+      "created_at": "2026-04-04T04:30:41.174726+00:00",
+      "updated_at": "2026-04-04T04:30:41.174726+00:00",
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T03:54:04.418417+00:00",
+        "last_accessed": "2026-04-04T04:30:41.174726+00:00",
         "access_count": 0
       }
     },
@@ -1718,12 +1718,12 @@
         "python",
         "py"
       ],
-      "created_at": "2026-04-04T03:54:04.465497+00:00",
-      "updated_at": "2026-04-04T03:54:04.465497+00:00",
+      "created_at": "2026-04-04T04:30:41.251298+00:00",
+      "updated_at": "2026-04-04T04:30:41.251298+00:00",
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T03:54:04.465497+00:00",
+        "last_accessed": "2026-04-04T04:30:41.251298+00:00",
         "access_count": 0
       }
     },
@@ -1743,12 +1743,12 @@
         "python",
         "py"
       ],
-      "created_at": "2026-04-04T03:54:04.505475+00:00",
-      "updated_at": "2026-04-04T03:54:04.505475+00:00",
+      "created_at": "2026-04-04T04:30:41.329515+00:00",
+      "updated_at": "2026-04-04T04:30:41.329515+00:00",
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T03:54:04.505475+00:00",
+        "last_accessed": "2026-04-04T04:30:41.329515+00:00",
         "access_count": 0
       }
     },
@@ -1768,12 +1768,1787 @@
         "python",
         "py"
       ],
-      "created_at": "2026-04-04T03:54:04.541145+00:00",
-      "updated_at": "2026-04-04T03:54:04.541145+00:00",
+      "created_at": "2026-04-04T04:30:41.395297+00:00",
+      "updated_at": "2026-04-04T04:30:41.395297+00:00",
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T03:54:04.541145+00:00",
+        "last_accessed": "2026-04-04T04:30:41.395297+00:00",
+        "access_count": 0
+      }
+    },
+    "46a86aac2239": {
+      "id": "46a86aac2239",
+      "type": "fact",
+      "key": "test_functional_100_0",
+      "fact": {
+        "rule": "\"\"\"\n100 Functional Tests for WordCOM engine.\n\nEach test copies the source document, performs an operation,\nvalidates the result, and saves to test_results/.\n\nCategories (100 tests):\n  A. Find/Replace operations (15)\n  B. Section deletion combinations (15)\n  C. Heading renumbering (10)\n  D. Section movement (10)\n  E. Table operations (10)\n  F. Footer shape modifications (10)\n  G. Font/format reading (10)\n  H. Document structure queries (10)\n  I. Combined multi-step operations (10)\n\"\"\"\n\nimport os\nimport re\nimport shutil\nimport sys\nimport time\nimport unittest\n\nsys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', 'src'))\nfrom word_com import WordCOM, WordCOMError\n\nINPUT = r'C:\\Chance1\\temp2\\Propuesta de PostgreSQL CE On Prem Horas - Banco GyT 30032026 (1).docx'\n",
+        "applies_to": "tests",
+        "source": "C:\\Chance1\\IA\\IA_Word\\tests\\test_functional_100.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-04T04:34:00.325660+00:00",
+      "updated_at": "2026-04-04T04:34:00.325660+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:34:00.325660+00:00",
+        "access_count": 0
+      }
+    },
+    "c3368a591209": {
+      "id": "c3368a591209",
+      "type": "fact",
+      "key": "test_functional_100_1",
+      "fact": {
+        "rule": "\nINPUT = r'C:\\Chance1\\temp2\\Propuesta de PostgreSQL CE On Prem Horas - Banco GyT 30032026 (1).docx'\nRESULTS = r'C:\\Chance1\\IA_Word\\test_results'\n\nos.makedirs(RESULTS, exist_ok=True)\n\n_word = None\n\ndef get_word():\n    global _word\n    if _word is None:\n        _word = WordCOM(visible=False)\n    return _word\n\ndef fresh_doc(test_name):\n    \"\"\"Copy source to test_results and open.\"\"\"\n    w = get_word()\n    try:\n        w.close_document(save=False)\n    except Exception:\n        pass\n    dest = os.path.join(RESULTS, f'{test_name}.docx')\n    shutil.copy2(INPUT, dest)\n    w.open_document(dest)\n    return dest\n\n# ============================================================\n# A. FIND/REPLACE OPERATIONS (15 tests)\n# ============================================================\n\n",
+        "applies_to": "tests",
+        "source": "C:\\Chance1\\IA\\IA_Word\\tests\\test_functional_100.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-04T04:34:00.402346+00:00",
+      "updated_at": "2026-04-04T04:34:00.402346+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:34:00.402346+00:00",
+        "access_count": 0
+      }
+    },
+    "b77d03dcaa49": {
+      "id": "b77d03dcaa49",
+      "type": "fact",
+      "key": "test_functional_100_2",
+      "fact": {
+        "rule": " FIND/REPLACE OPERATIONS (15 tests)\n# ============================================================\n\nclass TestA_FindReplace(unittest.TestCase):\n\n    def test_A01_replace_client_name(self):\n        fresh_doc('A01_replace_client')\n        w = get_word()\n        n = w.find_replace('Banco GyT Continental', 'Banco Ficticius')\n        self.assertGreater(n, 0)\n        w.save()\n\n    def test_A02_replace_date_body(self):\n        fresh_doc('A02_replace_date')\n        w = get_word()\n        n = w.find_replace('30 de marzo de 2026', '15 de abril de 2026')\n        w.save()\n\n    def test_A03_replace_currency_amount(self):\n        fresh_doc('A03_replace_currency')\n        w = get_word()\n        n = w.replace_in_tables('400.00', '500.00')\n        self.assertGreater(n, 0)\n        w.save()\n\n",
+        "applies_to": "tests",
+        "source": "C:\\Chance1\\IA\\IA_Word\\tests\\test_functional_100.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-04T04:34:00.496974+00:00",
+      "updated_at": "2026-04-04T04:34:00.496974+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:34:00.496974+00:00",
+        "access_count": 0
+      }
+    },
+    "8edb48161692": {
+      "id": "8edb48161692",
+      "type": "fact",
+      "key": "test_functional_100_3",
+      "fact": {
+        "rule": "     n = w.replace_in_tables('400.00', '500.00')\n        self.assertGreater(n, 0)\n        w.save()\n\n    def test_A04_replace_product_name(self):\n        fresh_doc('A04_replace_product')\n        w = get_word()\n        n = w.find_replace('PostgreSQL Community Edition', 'MySQL Enterprise')\n        self.assertGreater(n, 0)\n        w.save()\n\n    def test_A05_replace_coverage_hours(self):\n        fresh_doc('A05_replace_coverage')\n        w = get_word()\n        n = w.find_replace('24x7', '8x5')\n        w.save()\n\n    def test_A06_replace_version(self):\n        fresh_doc('A06_replace_version')\n        w = get_word()\n        n = w.replace_in_footer_shapes('v1.0', 'v2.0')\n        w.save()\n\n    def test_A07_replace_opportunity_number(self):\n        fresh_doc('A07_replace_opp')\n        w = get_word()\n",
+        "applies_to": "tests",
+        "source": "C:\\Chance1\\IA\\IA_Word\\tests\\test_functional_100.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-04T04:34:00.591963+00:00",
+      "updated_at": "2026-04-04T04:34:00.591963+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:34:00.591963+00:00",
+        "access_count": 0
+      }
+    },
+    "17157f0ec248": {
+      "id": "17157f0ec248",
+      "type": "fact",
+      "key": "test_functional_100_4",
+      "fact": {
+        "rule": "t_A07_replace_opportunity_number(self):\n        fresh_doc('A07_replace_opp')\n        w = get_word()\n        r = w.smart_replace('227334', '999999')\n        self.assertGreater(sum(r.values()), 0)\n        w.save()\n\n    def test_A08_replace_multiple_dates(self):\n        fresh_doc('A08_replace_multi_dates')\n        w = get_word()\n        w.smart_replace('04 de febrero de 2025', '01 de enero de 2027')\n        w.smart_replace('04 de febrero de 2024', '01 de enero de 2027')\n        w.save()\n\n    def test_A09_replace_company_GBM(self):\n        fresh_doc('A09_replace_GBM_count')\n        w = get_word()\n        n = w.find_replace('GBM', 'GBM')  # Count occurrences\n        self.assertGreater(n, 20, \"GBM should appear 20+ times\")\n\n    def test_A10_replace_email_domain(self):\n",
+        "applies_to": "tests",
+        "source": "C:\\Chance1\\IA\\IA_Word\\tests\\test_functional_100.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-04T04:34:00.669976+00:00",
+      "updated_at": "2026-04-04T04:34:00.669976+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:34:00.669976+00:00",
+        "access_count": 0
+      }
+    },
+    "10d5c049961e": {
+      "id": "10d5c049961e",
+      "type": "fact",
+      "key": "test_functional_100_5",
+      "fact": {
+        "rule": "f.assertGreater(n, 20, \"GBM should appear 20+ times\")\n\n    def test_A10_replace_email_domain(self):\n        fresh_doc('A10_replace_email')\n        w = get_word()\n        n = w.find_replace('gbm.net', 'empresa.com')\n        w.save()\n\n    def test_A11_replace_phone_numbers(self):\n        fresh_doc('A11_replace_phone')\n        w = get_word()\n        n = w.find_replace('ext. 3911', 'ext. 5000')\n        w.save()\n\n    def test_A12_replace_payment_terms(self):\n        fresh_doc('A12_replace_payment')\n        w = get_word()\n        n = w.find_replace('100% anticipado', '50% anticipo, 50% entrega')\n        w.save()\n\n    def test_A13_replace_validity_period(self):\n        fresh_doc('A13_replace_validity')\n        w = get_word()\n        n = w.find_replace('treinta (30)', 'quince (15)')\n",
+        "applies_to": "tests",
+        "source": "C:\\Chance1\\IA\\IA_Word\\tests\\test_functional_100.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-04T04:34:00.758823+00:00",
+      "updated_at": "2026-04-04T04:34:00.758823+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:34:00.758823+00:00",
+        "access_count": 0
+      }
+    },
+    "164e8847eaaa": {
+      "id": "164e8847eaaa",
+      "type": "fact",
+      "key": "test_functional_100_6",
+      "fact": {
+        "rule": "replace_validity')\n        w = get_word()\n        n = w.find_replace('treinta (30)', 'quince (15)')\n        w.save()\n\n    def test_A14_replace_service_type(self):\n        fresh_doc('A14_replace_service')\n        w = get_word()\n        n = w.find_replace('Soporte', 'Soporte Premium')\n        w.save()\n\n    def test_A15_smart_replace_all_areas(self):\n        fresh_doc('A15_smart_replace_all')\n        w = get_word()\n        r = w.smart_replace('227334', '111111')\n        self.assertIn('body', r)\n        self.assertIn('footer_shapes', r)\n        self.assertIn('tables', r)\n        w.save()\n\n# ============================================================\n# B. SECTION DELETION COMBINATIONS (15 tests)\n# ============================================================\n\n",
+        "applies_to": "tests",
+        "source": "C:\\Chance1\\IA\\IA_Word\\tests\\test_functional_100.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-04T04:34:00.845544+00:00",
+      "updated_at": "2026-04-04T04:34:00.845544+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:34:00.845544+00:00",
+        "access_count": 0
+      }
+    },
+    "e8dd17579be4": {
+      "id": "e8dd17579be4",
+      "type": "fact",
+      "key": "test_functional_100_7",
+      "fact": {
+        "rule": "ON DELETION COMBINATIONS (15 tests)\n# ============================================================\n\nclass TestB_DeleteSections(unittest.TestCase):\n\n    def test_B01_delete_strategy(self):\n        fresh_doc('B01_del_strategy')",
+        "applies_to": "tests",
+        "source": "C:\\Chance1\\IA\\IA_Word\\tests\\test_functional_100.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-04T04:34:00.920348+00:00",
+      "updated_at": "2026-04-04T04:34:00.920348+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:34:00.920348+00:00",
+        "access_count": 0
+      }
+    },
+    "f83f92f19e4c": {
+      "id": "f83f92f19e4c",
+      "type": "fact",
+      "key": "test_word_features_0",
+      "fact": {
+        "rule": "\"\"\"\nComprehensive Word feature tests organized by ribbon tabs.\nTests all COM-accessible operations: Inicio, Insertar, Disposicion, Referencias.\n59 test cases covering sub-cases for each Word feature category.\n\"\"\"\n\nimport os\nimport shutil\nimport sys\nimport unittest\n\nsys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', 'src'))\nfrom word_com import WordCOM, WordCOMError\n\nINPUT = r'C:\\Chance1\\temp2\\Propuesta de PostgreSQL CE On Prem Horas - Banco GyT 30032026 (1).docx'\nWORK = r'C:\\Chance1\\temp2\\TEST_FEATURES.docx'\n\n_word = None\n\ndef get_word():\n    global _word\n    if _word is None:\n        _word = WordCOM(visible=False)\n    return _word\n\ndef reload_doc():\n    w = get_word()\n    try:\n        w.close_document(save=False)\n    except Exception:\n        pass\n",
+        "applies_to": "tests",
+        "source": "C:\\Chance1\\IA\\IA_Word\\tests\\test_word_features.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-04T04:34:01.000930+00:00",
+      "updated_at": "2026-04-04T04:34:01.000930+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:34:01.000930+00:00",
+        "access_count": 0
+      }
+    },
+    "ebb7bd40a1c3": {
+      "id": "ebb7bd40a1c3",
+      "type": "fact",
+      "key": "test_word_features_1",
+      "fact": {
+        "rule": "    w = get_word()\n    try:\n        w.close_document(save=False)\n    except Exception:\n        pass\n    shutil.copy2(INPUT, WORK)\n    return w.open_document(WORK)\n\n# ============================================================\n# INICIO (HOME)\n# ============================================================\n\nclass Test_Home_01_Clipboard(unittest.TestCase):\n    \"\"\"Portapapeles: copy, cut, paste operations.\"\"\"\n\n    @classmethod\n    def setUpClass(cls):\n        if not os.path.exists(INPUT):\n            raise unittest.SkipTest(\"Input not found\")\n        reload_doc()\n\n    def test_copy_text_between_paragraphs(self):\n        \"\"\"Copy text from one paragraph range to another.\"\"\"\n        doc = get_word().doc\n        source = doc.Paragraphs(70).Range  # \"1.  Por que GBM?\"\n",
+        "applies_to": "tests",
+        "source": "C:\\Chance1\\IA\\IA_Word\\tests\\test_word_features.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-04T04:34:01.089271+00:00",
+      "updated_at": "2026-04-04T04:34:01.089271+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:34:01.089271+00:00",
+        "access_count": 0
+      }
+    },
+    "3aa14ca9bf61": {
+      "id": "3aa14ca9bf61",
+      "type": "fact",
+      "key": "test_word_features_2",
+      "fact": {
+        "rule": "er.\"\"\"\n        doc = get_word().doc\n        source = doc.Paragraphs(70).Range  # \"1.  Por que GBM?\"\n        source_text = source.Text.strip()\n        # FormattedText copy preserves formatting\n        formatted = source.FormattedText\n        self.assertIsNotNone(formatted)\n        self.assertGreater(len(source_text), 0)\n\n    def test_cut_paste_preserves_format(self):\n        \"\"\"Cut and paste via FormattedText preserves font info.\"\"\"\n        doc = get_word().doc\n        source = doc.Paragraphs(70).Range\n        fmt = source.FormattedText\n        font_before = source.Font.Name\n        # FormattedText carries formatting\n        self.assertIsNotNone(font_before)\n\n    def test_paste_text_only(self):\n        \"\"\"Can set Range.Text (plain text, no formatting).\"\"\"\n        doc = get_word().doc\n",
+        "applies_to": "tests",
+        "source": "C:\\Chance1\\IA\\IA_Word\\tests\\test_word_features.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-04T04:34:01.165662+00:00",
+      "updated_at": "2026-04-04T04:34:01.165662+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:34:01.165662+00:00",
+        "access_count": 0
+      }
+    },
+    "958e356dbf59": {
+      "id": "958e356dbf59",
+      "type": "fact",
+      "key": "test_word_features_3",
+      "fact": {
+        "rule": "y(self):\n        \"\"\"Can set Range.Text (plain text, no formatting).\"\"\"\n        doc = get_word().doc\n        # Setting .Text strips formatting (paste as text)\n        test_range = doc.Range(0, 0)\n        # Just verify the property is settable without crash\n        self.assertTrue(hasattr(test_range, 'Text'))\n\n    def test_format_painter_read(self):\n        \"\"\"Can read formatting from one range to apply to another.\"\"\"\n        doc = get_word().doc\n        rng = doc.Paragraphs(70).Range\n        font_name = rng.Font.Name\n        font_size = rng.Font.Size\n        bold = rng.Font.Bold\n        self.assertIsInstance(font_name, str)\n        self.assertIsInstance(font_size, float)\n\nclass Test_Home_02_Font(unittest.TestCase):\n    \"\"\"Fuente: read/write font properties.\"\"\"\n\n    @classmethod\n",
+        "applies_to": "tests",
+        "source": "C:\\Chance1\\IA\\IA_Word\\tests\\test_word_features.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-04T04:34:01.239158+00:00",
+      "updated_at": "2026-04-04T04:34:01.239158+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:34:01.239158+00:00",
+        "access_count": 0
+      }
+    },
+    "02b4383e40c3": {
+      "id": "02b4383e40c3",
+      "type": "fact",
+      "key": "test_word_features_4",
+      "fact": {
+        "rule": "st_Home_02_Font(unittest.TestCase):\n    \"\"\"Fuente: read/write font properties.\"\"\"\n\n    @classmethod\n    def setUpClass(cls):\n        reload_doc()\n\n    def test_read_font_name(self):\n        doc = get_word().doc\n        name = doc.Paragraphs(70).Range.Font.Name\n        self.assertIsInstance(name, str)\n        self.assertGreater(len(name), 0)\n\n    def test_read_font_size(self):\n        doc = get_word().doc\n        size = doc.Paragraphs(70).Range.Font.Size\n        self.assertGreater(size, 0)\n\n    def test_detect_bold_italic_underline(self):\n        doc = get_word().doc\n        font = doc.Paragraphs(70).Range.Font\n        # These return 0 (False), -1 (True), or 9999999 (mixed)\n        self.assertIn(font.Bold, [0, -1, 9999999])\n        self.assertIn(font.Italic, [0, -1, 9999999])\n",
+        "applies_to": "tests",
+        "source": "C:\\Chance1\\IA\\IA_Word\\tests\\test_word_features.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-04T04:34:01.426237+00:00",
+      "updated_at": "2026-04-04T04:34:01.426237+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:34:01.426237+00:00",
+        "access_count": 0
+      }
+    },
+    "a1463bfe9e9b": {
+      "id": "a1463bfe9e9b",
+      "type": "fact",
+      "key": "test_word_features_5",
+      "fact": {
+        "rule": "    self.assertIn(font.Bold, [0, -1, 9999999])\n        self.assertIn(font.Italic, [0, -1, 9999999])\n        self.assertIn(font.Underline, [0, -1, 9999999, 1])\n\n    def test_read_font_color(self):\n        doc = get_word().doc\n        color = doc.Paragraphs(70).Range.Font.Color\n        self.assertIsInstance(color, int)\n\n    def test_change_font_name(self):\n        doc = get_word().doc\n        para = doc.Paragraphs(doc.Paragraphs.Count)  # last paragraph\n        para.Range.Font.Name = \"Calibri\"\n        self.assertEqual(para.Range.Font.Name, \"Calibri\")\n\n    def test_change_font_size(self):\n        doc = get_word().doc\n        para = doc.Paragraphs(doc.Paragraphs.Count)\n        para.Range.Font.Size = 14\n        self.assertEqual(para.Range.Font.Size, 14.0)\n\n    def test_apply_bold_italic(self):\n",
+        "applies_to": "tests",
+        "source": "C:\\Chance1\\IA\\IA_Word\\tests\\test_word_features.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-04T04:34:01.507713+00:00",
+      "updated_at": "2026-04-04T04:34:01.507713+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:34:01.507713+00:00",
+        "access_count": 0
+      }
+    },
+    "3d0e1e5718d9": {
+      "id": "3d0e1e5718d9",
+      "type": "fact",
+      "key": "test_word_features_6",
+      "fact": {
+        "rule": "ze = 14\n        self.assertEqual(para.Range.Font.Size, 14.0)\n\n    def test_apply_bold_italic(self):\n        doc = get_word().doc\n        para = doc.Paragraphs(doc.Paragraphs.Count)\n        para.Range.Font.Bold = -1  # True in COM\n        para.Range.Font.Italic = -1\n        self.assertEqual(para.Range.Font.Bold, -1)\n        self.assertEqual(para.Range.Font.Italic, -1)\n\n    def test_change_color(self):\n        doc = get_word().doc\n        para = doc.Paragraphs(doc.Paragraphs.Count)\n        para.Range.Font.Color = 255  # Red\n        self.assertEqual(para.Range.Font.Color, 255)\n\n    def test_detect_strikethrough(self):\n        doc = get_word().doc\n        strike = doc.Paragraphs(70).Range.Font.StrikeThrough\n        self.assertIn(strike, [0, -1, 9999999])\n\n",
+        "applies_to": "tests",
+        "source": "C:\\Chance1\\IA\\IA_Word\\tests\\test_word_features.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-04T04:34:01.583372+00:00",
+      "updated_at": "2026-04-04T04:34:01.583372+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:34:01.583372+00:00",
+        "access_count": 0
+      }
+    },
+    "fd2e76706640": {
+      "id": "fd2e76706640",
+      "type": "fact",
+      "key": "test_word_features_7",
+      "fact": {
+        "rule": "rike = doc.Paragraphs(70).Range.Font.StrikeThrough\n        self.assertIn(strike, [0, -1, 9999999])\n\nclass Test_Home_03_Paragraph(unittest.TestCase):\n    \"\"\"Parrafo: alignment, spacing, indentation.\"\"\"\n\n    @classmethod\n    d",
+        "applies_to": "tests",
+        "source": "C:\\Chance1\\IA\\IA_Word\\tests\\test_word_features.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-04T04:34:01.654468+00:00",
+      "updated_at": "2026-04-04T04:34:01.654468+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:34:01.654468+00:00",
+        "access_count": 0
+      }
+    },
+    "0a3c684e725e": {
+      "id": "0a3c684e725e",
+      "type": "fact",
+      "key": "test_postgresql_proposal_0",
+      "fact": {
+        "rule": "\"\"\"\nTest case: PostgreSQL Proposal Document.\n\nThis test replicates the manual editing workflow that was previously done\nby hand. It opens a PostgreSQL proposal template, removes irrelevant\nsections (installation/setup), updates dates and metadata, validates the\nresult, and saves a clean copy.\n\nPrerequisites:\n    - Microsoft Word installed\n    - A PostgreSQL proposal template document available\n\nUsage:\n    pytest tests/test_postgresql_proposal.py -v\n    python -m pytest tests/test_postgresql_proposal.py -v\n\"\"\"\n\nfrom __future__ import annotations\n\nimport os\nimport shutil\nimport tempfile\nfrom typing import Generator\n\nimport pytest\n\n# Adjust these paths to match your environment\nTEMPLATE_DIR = os.path.join(os.path.dirname(__file__), \"..\", \"templates\")\n",
+        "applies_to": "tests",
+        "source": "C:\\Chance1\\IA\\IA_Word\\tests\\test_postgresql_proposal.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-04T04:34:01.730388+00:00",
+      "updated_at": "2026-04-04T04:34:01.730388+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:34:01.730388+00:00",
+        "access_count": 0
+      }
+    },
+    "28e36e10820e": {
+      "id": "28e36e10820e",
+      "type": "fact",
+      "key": "test_postgresql_proposal_1",
+      "fact": {
+        "rule": "to match your environment\nTEMPLATE_DIR = os.path.join(os.path.dirname(__file__), \"..\", \"templates\")\nPOSTGRESQL_TEMPLATE = os.path.join(TEMPLATE_DIR, \"propuesta_postgresql.docx\")\nOUTPUT_DIR = os.path.join(os.path.dirname(__file__), \"..\", \"output\")\n\ndef template_exists() -> bool:\n    \"\"\"Check if the PostgreSQL template document exists.\"\"\"\n    return os.path.exists(POSTGRESQL_TEMPLATE)\n\nskip_if_no_template = pytest.mark.skipif(\n    not template_exists(),\n    reason=f\"Template not found: {POSTGRESQL_TEMPLATE}\",\n)\n\nskip_if_no_word = pytest.mark.skipif(\n    os.name != \"nt\",\n    reason=\"COM Automation requires Windows with Microsoft Word installed.\",\n)\n\n@pytest.fixture\ndef working_copy() -> Generator[str, None, None]:\n    \"\"\"\n    Create a temporary working copy of the template document.\n\n",
+        "applies_to": "tests",
+        "source": "C:\\Chance1\\IA\\IA_Word\\tests\\test_postgresql_proposal.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-04T04:34:01.812374+00:00",
+      "updated_at": "2026-04-04T04:34:01.812374+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:34:01.812374+00:00",
+        "access_count": 0
+      }
+    },
+    "8ca71b6291ca": {
+      "id": "8ca71b6291ca",
+      "type": "fact",
+      "key": "test_postgresql_proposal_2",
+      "fact": {
+        "rule": " Generator[str, None, None]:\n    \"\"\"\n    Create a temporary working copy of the template document.\n\n    Yields the path to the temporary file. Cleans up after the test.\n    \"\"\"\n    if not template_exists():\n        pytest.skip(\"Template document not available\")\n\n    temp_dir = tempfile.mkdtemp(prefix=\"ia_word_test_\")\n    temp_path = os.path.join(temp_dir, \"test_postgresql.docx\")\n    shutil.copy2(POSTGRESQL_TEMPLATE, temp_path)\n\n    yield temp_path\n\n    # Cleanup\n    try:\n        shutil.rmtree(temp_dir)\n    except Exception:\n        pass\n\n@pytest.fixture\ndef word_com():\n    \"\"\"\n    Create a WordCOM instance for testing.\n\n    Ensures Word is properly closed even if a test fails.\n    \"\"\"\n    from src.word_com import WordCOM\n\n    word = WordCOM(visible=False)\n    word._ensure_app()\n\n",
+        "applies_to": "tests",
+        "source": "C:\\Chance1\\IA\\IA_Word\\tests\\test_postgresql_proposal.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-04T04:34:01.889307+00:00",
+      "updated_at": "2026-04-04T04:34:01.889307+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:34:01.889307+00:00",
+        "access_count": 0
+      }
+    },
+    "907df8e63230": {
+      "id": "907df8e63230",
+      "type": "fact",
+      "key": "test_postgresql_proposal_3",
+      "fact": {
+        "rule": "\"\"\"\n    from src.word_com import WordCOM\n\n    word = WordCOM(visible=False)\n    word._ensure_app()\n\n    yield word\n\n    # Always cleanup\n    word.quit()\n\n@skip_if_no_word\n@skip_if_no_template\nclass TestPostgreSQLProposal:\n    \"\"\"\n    Test suite for PostgreSQL proposal document manipulation.\n\n    These tests replicate the workflow that was previously done manually\n    and that broke when using python-docx due to XML run splitting.\n    \"\"\"\n\n    def test_open_document(self, word_com, working_copy: str) -> None:\n        \"\"\"Test that the document opens successfully and has expected structure.\"\"\"\n        info = word_com.open_document(working_copy)\n\n        assert info[\"name\"] == \"test_postgresql.docx\"\n        assert info[\"page_count\"] > 0\n        assert info[\"paragraph_count\"] > 0\n\n",
+        "applies_to": "tests",
+        "source": "C:\\Chance1\\IA\\IA_Word\\tests\\test_postgresql_proposal.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-04T04:34:01.965557+00:00",
+      "updated_at": "2026-04-04T04:34:01.965557+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:34:01.965557+00:00",
+        "access_count": 0
+      }
+    },
+    "74395c95f019": {
+      "id": "74395c95f019",
+      "type": "fact",
+      "key": "test_postgresql_proposal_4",
+      "fact": {
+        "rule": "_postgresql.docx\"\n        assert info[\"page_count\"] > 0\n        assert info[\"paragraph_count\"] > 0\n\n    def test_get_sections(self, word_com, working_copy: str) -> None:\n        \"\"\"Test that we can extract section headings.\"\"\"\n        word_com.open_document(working_copy)\n        sections = word_com.get_sections()\n\n        assert len(sections) > 0\n        for section in sections:\n            assert \"text\" in section\n            assert \"level\" in section\n            assert \"page\" in section\n\n    def test_get_tables(self, word_com, working_copy: str) -> None:\n        \"\"\"Test that we can extract table contents.\"\"\"\n        word_com.open_document(working_copy)\n        tables = word_com.get_tables()\n\n        assert len(tables) > 0\n        for table in tables:\n            assert \"data\" in table\n",
+        "applies_to": "tests",
+        "source": "C:\\Chance1\\IA\\IA_Word\\tests\\test_postgresql_proposal.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-04T04:34:02.040575+00:00",
+      "updated_at": "2026-04-04T04:34:02.040575+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:34:02.040575+00:00",
+        "access_count": 0
+      }
+    },
+    "069cc9d7ffcb": {
+      "id": "069cc9d7ffcb",
+      "type": "fact",
+      "key": "test_postgresql_proposal_5",
+      "fact": {
+        "rule": "s()\n\n        assert len(tables) > 0\n        for table in tables:\n            assert \"data\" in table\n            assert \"rows\" in table\n            assert \"columns\" in table\n\n    def test_find_replace_dates(self, word_com, working_copy: str) -> None:\n        \"\"\"\n        Test find/replace on dates.\n\n        This is the operation that FAILED with python-docx because \"2025\"\n        was stored as \"202\"+\"5\" in the XML. COM automation handles this\n        correctly because it operates on the rendered text.\n        \"\"\"\n        word_com.open_document(working_copy)\n\n        # Replace year - this should work even if XML has split runs\n        count = word_com.find_replace(\"2025\", \"2026\")\n\n        # We expect at least some replacements (dates appear multiple times)\n",
+        "applies_to": "tests",
+        "source": "C:\\Chance1\\IA\\IA_Word\\tests\\test_postgresql_proposal.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-04T04:34:02.125936+00:00",
+      "updated_at": "2026-04-04T04:34:02.125936+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:34:02.125936+00:00",
+        "access_count": 0
+      }
+    },
+    "79d8cd6c4cf5": {
+      "id": "79d8cd6c4cf5",
+      "type": "fact",
+      "key": "test_postgresql_proposal_6",
+      "fact": {
+        "rule": "place(\"2025\", \"2026\")\n\n        # We expect at least some replacements (dates appear multiple times)\n        # If the document uses 2025, count > 0; otherwise the template\n        # might already use a different year\n        assert count >= 0  # At minimum, no error occurred\n\n        # Replace month names\n        month_replacements = word_com.find_replace(\"Enero\", \"Marzo\")\n        assert month_replacements >= 0\n\n    def test_delete_installation_section(self, word_com, working_copy: str) -> None:\n        \"\"\"\n        Test deleting the installation/setup section.\n\n        For a services-only PostgreSQL proposal, installation sections\n        should be removed.\n        \"\"\"\n        word_com.open_document(working_copy)\n\n        sections_before = word_com.get_sections()\n",
+        "applies_to": "tests",
+        "source": "C:\\Chance1\\IA\\IA_Word\\tests\\test_postgresql_proposal.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-04T04:34:02.205680+00:00",
+      "updated_at": "2026-04-04T04:34:02.205680+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:34:02.205680+00:00",
+        "access_count": 0
+      }
+    },
+    "2bc8944b0ab5": {
+      "id": "2bc8944b0ab5",
+      "type": "fact",
+      "key": "test_postgresql_proposal_7",
+      "fact": {
+        "rule": "\"\"\"\n        word_com.open_document(working_copy)\n\n        sections_before = word_com.get_sections()\n        section_count_before = len(sections_before)\n\n        # Try to delete installation section (may or may not exist in template)",
+        "applies_to": "tests",
+        "source": "C:\\Chance1\\IA\\IA_Word\\tests\\test_postgresql_proposal.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-04T04:34:02.273518+00:00",
+      "updated_at": "2026-04-04T04:34:02.273518+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:34:02.273518+00:00",
+        "access_count": 0
+      }
+    },
+    "14a85ca15e7b": {
+      "id": "14a85ca15e7b",
+      "type": "fact",
+      "key": "run_5_advanced_0",
+      "fact": {
+        "rule": "\"\"\"\n5 Pruebas Avanzadas de Certificacion - Escenarios Complejos.\nBasado en edge cases reales de la industria:\n  ADV1: Merge 2 secciones de docs diferentes en uno solo\n  ADV2: Campos Word (IF, DATE, NUMPAGES) + actualizar todos\n  ADV3: Proteccion de documento + desproteger + modificar\n  ADV4: Track Changes - aceptar/rechazar cambios\n  ADV5: Documento complejo: nested tables, cross-refs, bookmarks, TOC update\n\"\"\"\nimport sys, os, shutil, time, re\nsys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', 'src'))\nfrom word_com import WordCOM\n\nINPUT = r'C:\\Chance1\\temp2\\Propuesta de PostgreSQL CE On Prem Horas - Banco GyT 30032026 (1).docx'\nOUT = r'C:\\Chance1\\IA_Word\\pruebas_reales'\nos.makedirs(OUT, exist_ok=True)\n\npassed = 0\nfailed = 0\nresults = []\n\ndef run_test(num, name, func):\n",
+        "applies_to": "tests",
+        "source": "C:\\Chance1\\IA\\IA_Word\\tests\\run_5_advanced.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-04T04:34:02.357852+00:00",
+      "updated_at": "2026-04-04T04:34:02.357852+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:34:02.357852+00:00",
+        "access_count": 0
+      }
+    },
+    "626a3dcc48ec": {
+      "id": "626a3dcc48ec",
+      "type": "fact",
+      "key": "run_5_advanced_1",
+      "fact": {
+        "rule": "os.makedirs(OUT, exist_ok=True)\n\npassed = 0\nfailed = 0\nresults = []\n\ndef run_test(num, name, func):\n    global passed, failed\n    print(f'\\n{\"=\" * 70}')\n    print(f'ADV{num}: {name}')\n    print(\"=\" * 70)\n    try:\n        func()\n        passed += 1\n        results.append((num, name, 'PASS'))\n        print(f'  >>> PASS')\n    except Exception as e:\n        failed += 1\n        results.append((num, name, f'FAIL: {e}'))\n        print(f'  >>> FAIL: {e}')\n        import traceback\n        traceback.print_exc()\n\nw = WordCOM(visible=False)\n\ndef fresh(name):\n    try: w.close_document(save=False)\n    except: pass\n    time.sleep(1)\n    dest = os.path.join(OUT, f'{name}.docx')\n    for attempt in range(5):\n        try:\n            if os.path.exists(dest): os.remove(dest)\n            break\n",
+        "applies_to": "tests",
+        "source": "C:\\Chance1\\IA\\IA_Word\\tests\\run_5_advanced.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-04T04:34:02.438918+00:00",
+      "updated_at": "2026-04-04T04:34:02.438918+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:34:02.438918+00:00",
+        "access_count": 0
+      }
+    },
+    "e6ac5459b244": {
+      "id": "e6ac5459b244",
+      "type": "fact",
+      "key": "run_5_advanced_2",
+      "fact": {
+        "rule": "pt in range(5):\n        try:\n            if os.path.exists(dest): os.remove(dest)\n            break\n        except PermissionError:\n            time.sleep(2)\n    # Copy via bytes to avoid metadata lock issues\n    with open(INPUT, 'rb') as f:\n        data = f.read()\n    with open(dest, 'wb') as f:\n        f.write(data)\n    time.sleep(1)\n    w.open_document(dest)\n    return dest\n\n# ============================================================\ndef test_adv1():\n    \"\"\"Merge: extraer secciones de un doc y componer doc nuevo.\"\"\"\n    fresh('ADV1_Merge_Compose')\n    doc = w.doc\n\n    # Simula: tomar seccion \"Horas de Soporte\" y duplicarla\n    # (como si viniera de otro documento)\n    # 1. Find the Horas section\n    horas_start = horas_end = None\n    for i in range(1, doc.Paragraphs.Count + 1):\n",
+        "applies_to": "tests",
+        "source": "C:\\Chance1\\IA\\IA_Word\\tests\\run_5_advanced.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-04T04:34:02.523481+00:00",
+      "updated_at": "2026-04-04T04:34:02.523481+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:34:02.523481+00:00",
+        "access_count": 0
+      }
+    },
+    "58a498870101": {
+      "id": "58a498870101",
+      "type": "fact",
+      "key": "run_5_advanced_3",
+      "fact": {
+        "rule": "e Horas section\n    horas_start = horas_end = None\n    for i in range(1, doc.Paragraphs.Count + 1):\n        text = doc.Paragraphs(i).Range.Text.strip()\n        if '3.1.1.' in text and 'Horas de Soporte' in text and '...' not in text:\n            horas_start = doc.Paragraphs(i).Range.Start\n        if horas_start and '3.1.2.' in text and '...' not in text:\n            horas_end = doc.Paragraphs(i).Range.Start\n            break\n\n    assert horas_start and horas_end, \"Horas section not found\"\n\n    # 2. Copy section content via FormattedText\n    source = doc.Range(horas_start, horas_end)\n    formatted = source.FormattedText\n\n    # 3. Insert a copy at the end (before Anexos) as \"3.1.3. Horas Premium\"\n    for i in range(1, doc.Paragraphs.Count + 1):\n",
+        "applies_to": "tests",
+        "source": "C:\\Chance1\\IA\\IA_Word\\tests\\run_5_advanced.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-04T04:34:02.604066+00:00",
+      "updated_at": "2026-04-04T04:34:02.604066+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:34:02.604066+00:00",
+        "access_count": 0
+      }
+    },
+    "c0cb48b41e21": {
+      "id": "c0cb48b41e21",
+      "type": "fact",
+      "key": "run_5_advanced_4",
+      "fact": {
+        "rule": " the end (before Anexos) as \"3.1.3. Horas Premium\"\n    for i in range(1, doc.Paragraphs.Count + 1):\n        text = doc.Paragraphs(i).Range.Text.strip()\n        if text.startswith('7.') and 'Anexos' in text and '...' not in text:\n            target = doc.Range(doc.Paragraphs(i).Range.Start, doc.Paragraphs(i).Range.Start)\n            target.FormattedText = formatted\n            print('  Seccion copiada antes de Anexos')\n            break\n\n    # 4. Rename the copy\n    w.find_then_set('3.1.1.    Horas de Soporte, Asistencia y Preventivo', '3.1.3.    Horas Premium de Soporte')\n\n    # 5. Verify both sections exist\n    secs = w.get_sections()\n    texts = ' '.join(s['text'] for s in secs)\n    assert 'Horas de Soporte, Asistencia' in texts, \"Original section missing\"\n",
+        "applies_to": "tests",
+        "source": "C:\\Chance1\\IA\\IA_Word\\tests\\run_5_advanced.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-04T04:34:02.684958+00:00",
+      "updated_at": "2026-04-04T04:34:02.684958+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:34:02.684958+00:00",
+        "access_count": 0
+      }
+    },
+    "bc1e2e0a8190": {
+      "id": "bc1e2e0a8190",
+      "type": "fact",
+      "key": "run_5_advanced_5",
+      "fact": {
+        "rule": "ext'] for s in secs)\n    assert 'Horas de Soporte, Asistencia' in texts, \"Original section missing\"\n    # The renamed one might be found by find_then_set\n    w.save()\n    print(f'  Secciones: {len(secs)}')\n\nrun_test(1, 'Merge: copiar seccion y componer documento', test_adv1)\n\n# ============================================================\ndef test_adv2():\n    \"\"\"Campos Word: insertar DATE, NUMPAGES, IF y actualizar.\"\"\"\n    fresh('ADV2_Campos_Word')\n    doc = w.doc\n\n    # 1. Insert a DATE field at end of document\n    end_range = doc.Range(doc.Content.End - 1, doc.Content.End - 1)\n    end_range.Text = \"\\rFecha de generacion: \"\n    # Move to after the text we just inserted\n    insert_pos = doc.Content.End - 1\n    field_range = doc.Range(insert_pos, insert_pos)\n",
+        "applies_to": "tests",
+        "source": "C:\\Chance1\\IA\\IA_Word\\tests\\run_5_advanced.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-04T04:34:02.773602+00:00",
+      "updated_at": "2026-04-04T04:34:02.773602+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:34:02.773602+00:00",
+        "access_count": 0
+      }
+    },
+    "35787932f8aa": {
+      "id": "35787932f8aa",
+      "type": "fact",
+      "key": "run_5_advanced_6",
+      "fact": {
+        "rule": "t inserted\n    insert_pos = doc.Content.End - 1\n    field_range = doc.Range(insert_pos, insert_pos)\n    doc.Fields.Add(field_range, 31, r'\\@ \"dd/MM/yyyy\"', True)  # wdFieldDate=31\n    print('  Campo DATE insertado')\n\n    # 2. Insert NUMPAGES field\n    end2 = doc.Content.End - 1\n    doc.Range(end2, end2).Text = \"\\rTotal paginas: \"\n    end3 = doc.Content.End - 1\n    doc.Fields.Add(doc.Range(end3, end3), 26, '', True)  # wdFieldNumPages=26\n    print('  Campo NUMPAGES insertado')\n\n    # 3. Count all fields\n    field_count = doc.Fields.Count\n    print(f'  Total campos en documento: {field_count}')\n    assert field_count >= 2, f\"Should have at least 2 fields, got {field_count}\"\n\n    # 4. Update all fields\n    for f in doc.Fields:\n        try:\n            f.Update()\n        except:\n",
+        "applies_to": "tests",
+        "source": "C:\\Chance1\\IA\\IA_Word\\tests\\run_5_advanced.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-04T04:34:02.858173+00:00",
+      "updated_at": "2026-04-04T04:34:02.858173+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:34:02.858173+00:00",
+        "access_count": 0
+      }
+    },
+    "27a62d06dd63": {
+      "id": "27a62d06dd63",
+      "type": "fact",
+      "key": "run_5_advanced_7",
+      "fact": {
+        "rule": "# 4. Update all fields\n    for f in doc.Fields:\n        try:\n            f.Update()\n        except:\n            pass\n    print('  Todos los campos actualizados')\n\n    # 5. Read field results\n    for f in doc.Fields:\n        try:\n            result = f",
+        "applies_to": "tests",
+        "source": "C:\\Chance1\\IA\\IA_Word\\tests\\run_5_advanced.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-04T04:34:02.927493+00:00",
+      "updated_at": "2026-04-04T04:34:02.927493+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:34:02.927493+00:00",
+        "access_count": 0
+      }
+    },
+    "3824d086044b": {
+      "id": "3824d086044b",
+      "type": "fact",
+      "key": "run_10_real_tests_0",
+      "fact": {
+        "rule": "\"\"\"\n10 Pruebas Reales de Certificacion.\nCada prueba genera un documento Word real en pruebas_reales/.\nTodas las validaciones son sobre el documento resultante abierto en Word.\n\"\"\"\nimport sys, os, shutil, re, time\nsys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', 'src'))\nfrom word_com import WordCOM\n\nINPUT = r'C:\\Chance1\\temp2\\Propuesta de PostgreSQL CE On Prem Horas - Banco GyT 30032026 (1).docx'\nOUT = r'C:\\Chance1\\IA_Word\\pruebas_reales'\nos.makedirs(OUT, exist_ok=True)\n\n# Clean old files\nfor f in os.listdir(OUT):\n    fp = os.path.join(OUT, f)\n    try:\n        os.remove(fp)\n    except:\n        pass\n\npassed = 0\nfailed = 0\nresults = []\n\ndef run_test(num, name, func):\n    global passed, failed\n    print(f'\\n{\"=\" * 70}')\n    print(f'PRUEBA {num}: {name}')\n    print(\"=\" * 70)\n",
+        "applies_to": "tests",
+        "source": "C:\\Chance1\\IA\\IA_Word\\tests\\run_10_real_tests.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-04T04:34:03.012610+00:00",
+      "updated_at": "2026-04-04T04:34:03.012610+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:34:03.012610+00:00",
+        "access_count": 0
+      }
+    },
+    "0f0dd295cabc": {
+      "id": "0f0dd295cabc",
+      "type": "fact",
+      "key": "run_10_real_tests_1",
+      "fact": {
+        "rule": "al passed, failed\n    print(f'\\n{\"=\" * 70}')\n    print(f'PRUEBA {num}: {name}')\n    print(\"=\" * 70)\n    try:\n        func()\n        passed += 1\n        results.append((num, name, 'PASS'))\n        print(f'  >>> PASS')\n    except Exception as e:\n        failed += 1\n        results.append((num, name, f'FAIL: {e}'))\n        print(f'  >>> FAIL: {e}')\n\nw = WordCOM(visible=False)\n\ndef fresh(name):\n    try:\n        w.close_document(save=False)\n    except:\n        pass\n    time.sleep(0.5)\n    dest = os.path.join(OUT, f'{name}.docx')\n    if os.path.exists(dest):\n        os.remove(dest)\n    shutil.copy2(INPUT, dest)\n    w.open_document(dest)\n    return dest\n\n# ============================================================\ndef test_01():\n",
+        "applies_to": "tests",
+        "source": "C:\\Chance1\\IA\\IA_Word\\tests\\run_10_real_tests.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-04T04:34:03.091432+00:00",
+      "updated_at": "2026-04-04T04:34:03.091432+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:34:03.091432+00:00",
+        "access_count": 0
+      }
+    },
+    "25f60df12828": {
+      "id": "25f60df12828",
+      "type": "fact",
+      "key": "run_10_real_tests_2",
+      "fact": {
+        "rule": "est)\n    return dest\n\n# ============================================================\ndef test_01():\n    \"\"\"Solo Soporte: quitar install, renumerar, mover, fix math\"\"\"\n    fresh('P01_Solo_Soporte')\n    for h in ['3.1.1.           Servicios', 'Estrategia de implementaci',\n              'Equipo requerido', 'Servicios de Setup']:\n        assert w.delete_section_by_heading(h), f'No se elimino: {h}'\n    for old, new in [('3.4.','3.2.'),('3.5.','3.3.'),('4.2.','4.1.'),('4.3.','4.2.')]:\n        w.renumber_heading(old, new)\n    w.move_section_before('Resumen de la Inversi', 'rminos y Condiciones')\n    w.smart_replace('227334', '300001')\n    for old, new in [('15,405.08','12,720.00'),('1,848.61','1,526.40'),('17,253.69','14,246.40')]:\n        w.replace_in_tables(old, new)\n    w.save()\n    # Validar\n",
+        "applies_to": "tests",
+        "source": "C:\\Chance1\\IA\\IA_Word\\tests\\run_10_real_tests.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-04T04:34:03.188038+00:00",
+      "updated_at": "2026-04-04T04:34:03.188038+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:34:03.188038+00:00",
+        "access_count": 0
+      }
+    },
+    "93f88a212a8e": {
+      "id": "93f88a212a8e",
+      "type": "fact",
+      "key": "run_10_real_tests_3",
+      "fact": {
+        "rule": "6.40'),('17,253.69','14,246.40')]:\n        w.replace_in_tables(old, new)\n    w.save()\n    # Validar\n    secs = w.get_sections()\n    texts = ' '.join(s['text'] for s in secs)\n    assert 'Estrategia' not in texts\n    assert 'Setup' not in texts\n    for r in ['Por qu','Alcance','Horas de Soporte','rminos','Aceptaci','Anexos']:\n        assert r in texts, f'Falta: {r}'\n    amounts = re.findall(r'[\\d,]+\\.\\d+', w.doc.Tables(2).Range.Text)\n    assert '12,720.00' in amounts and '1,526.40' in amounts and '14,246.40' in amounts\n    print('  Validado: estructura, math, secciones eliminadas')\n\nrun_test(1, 'Solo Soporte - quitar install, renumerar, mover, fix math', test_01)\n\n# ============================================================\ndef test_02():\n    \"\"\"Cambio total de cliente y producto\"\"\"\n",
+        "applies_to": "tests",
+        "source": "C:\\Chance1\\IA\\IA_Word\\tests\\run_10_real_tests.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-04T04:34:03.274520+00:00",
+      "updated_at": "2026-04-04T04:34:03.274520+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:34:03.274520+00:00",
+        "access_count": 0
+      }
+    },
+    "e7f3aa8392a8": {
+      "id": "e7f3aa8392a8",
+      "type": "fact",
+      "key": "run_10_real_tests_4",
+      "fact": {
+        "rule": "=======================================\ndef test_02():\n    \"\"\"Cambio total de cliente y producto\"\"\"\n    fresh('P02_Nuevo_Cliente')\n    w.smart_replace('Banco GyT Continental', 'Corporacion Acme SA')\n    w.smart_replace('227334', '400500')\n    w.smart_replace('04 de febrero de 2025', '01 de agosto de 2026')\n    w.smart_replace('04 de febrero de 2024', '01 de agosto de 2026')\n    w.find_replace('PostgreSQL Community Edition', 'Oracle Database Enterprise')\n    w.replace_in_body_paragraphs('PostgreSQL', 'Oracle')\n    w.replace_in_body_paragraphs('Postgres', 'Oracle')\n    w.save()\n    body = w.doc.Content.Text\n    assert body.count('Acme') > 3, f'Acme solo {body.count(\"Acme\")} veces'\n    assert body.count('Oracle') > 3, f'Oracle solo {body.count(\"Oracle\")} veces'\n",
+        "applies_to": "tests",
+        "source": "C:\\Chance1\\IA\\IA_Word\\tests\\run_10_real_tests.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-04T04:34:03.361983+00:00",
+      "updated_at": "2026-04-04T04:34:03.361983+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:34:03.361983+00:00",
+        "access_count": 0
+      }
+    },
+    "0a4f0d9067f0": {
+      "id": "0a4f0d9067f0",
+      "type": "fact",
+      "key": "run_10_real_tests_5",
+      "fact": {
+        "rule": "nt(\"Acme\")} veces'\n    assert body.count('Oracle') > 3, f'Oracle solo {body.count(\"Oracle\")} veces'\n    print(f'  Acme:{body.count(\"Acme\")} Oracle:{body.count(\"Oracle\")}')\n\nrun_test(2, 'Cambio total de cliente (Acme) y producto (Oracle)', test_02)\n\n# ============================================================\ndef test_03():\n    \"\"\"Reestructuracion: quitar 5 secciones + agregar fila tabla\"\"\"\n    fresh('P03_Reestructuracion')\n    deleted = sum(1 for h in ['3.1.1.           Servicios','Estrategia','Equipo requerido',\n                               'Servicios de Setup','Exclusiones']\n                  if w.delete_section_by_heading(h))\n    assert deleted >= 4, f'Solo {deleted} eliminadas'\n    table = w.doc.Tables(1)\n    rb = table.Rows.Count\n    table.Rows.Add()\n    try:\n",
+        "applies_to": "tests",
+        "source": "C:\\Chance1\\IA\\IA_Word\\tests\\run_10_real_tests.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-04T04:34:03.447874+00:00",
+      "updated_at": "2026-04-04T04:34:03.447874+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:34:03.447874+00:00",
+        "access_count": 0
+      }
+    },
+    "8a7b56f2a8ce": {
+      "id": "8a7b56f2a8ce",
+      "type": "fact",
+      "key": "run_10_real_tests_6",
+      "fact": {
+        "rule": "ed} eliminadas'\n    table = w.doc.Tables(1)\n    rb = table.Rows.Count\n    table.Rows.Add()\n    try:\n        table.Cell(table.Rows.Count, 1).Range.Text = 'Consultoria\\r'\n        table.Cell(table.Rows.Count, 6).Range.Text = '$1,000.00\\r'\n    except: pass\n    assert table.Rows.Count == rb + 1\n    w.save()\n    print(f'  {deleted} secciones eliminadas, fila agregada ({rb}->{table.Rows.Count})')\n\nrun_test(3, 'Reestructuracion: quitar 5 secciones + agregar fila tabla', test_03)\n\n# ============================================================\ndef test_04():\n    \"\"\"Montos x2: duplicar todos los precios\"\"\"\n    fresh('P04_Montos_x2')\n    w.find_then_set('$80', '$160')\n    w.find_then_set('$60', '$120')\n    w.find_then_set('400.00', '800.00')\n    w.find_then_set('300.00', '600.00')\n",
+        "applies_to": "tests",
+        "source": "C:\\Chance1\\IA\\IA_Word\\tests\\run_10_real_tests.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-04T04:34:03.537386+00:00",
+      "updated_at": "2026-04-04T04:34:03.537386+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:34:03.537386+00:00",
+        "access_count": 0
+      }
+    },
+    "4941962f3168": {
+      "id": "4941962f3168",
+      "type": "fact",
+      "key": "run_10_real_tests_7",
+      "fact": {
+        "rule": "_set('$60', '$120')\n    w.find_then_set('400.00', '800.00')\n    w.find_then_set('300.00', '600.00')\n    w.find_then_set('360.00', '720.00')\n    w.find_then_set('1,060.00', '2,120.00')\n    w.find_then_set('127.20', '254.40')\n    w.find_then_set",
+        "applies_to": "tests",
+        "source": "C:\\Chance1\\IA\\IA_Word\\tests\\run_10_real_tests.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-04T04:34:03.613974+00:00",
+      "updated_at": "2026-04-04T04:34:03.613974+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:34:03.613974+00:00",
+        "access_count": 0
+      }
+    },
+    "8a75306cb4b7": {
+      "id": "8a75306cb4b7",
+      "type": "fact",
+      "key": "test_e2e_postgresql_0",
+      "fact": {
+        "rule": "\"\"\"\nEnd-to-end test: Transform PostgreSQL CE proposal.\n\nTakes the original document with installation + support services,\nremoves installation sections, updates dates/numbers, and validates\nthe result matches all GBM business rules.\n\"\"\"\n\nimport os\nimport re\nimport shutil\nimport sys\nimport unittest\n\nsys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', 'src'))\nfrom word_com import WordCOM\n\nINPUT = r'C:\\Chance1\\temp2\\Propuesta de PostgreSQL CE On Prem Horas - Banco GyT 30032026 (1).docx'\nOUTPUT = r'C:\\Chance1\\temp2\\TEST_E2E_PostgreSQL.docx'\n\nclass TestPostgreSQLE2E(unittest.TestCase):\n    \"\"\"End-to-end test for PostgreSQL proposal transformation.\"\"\"\n\n    @classmethod\n    def setUpClass(cls):\n        if not os.path.exists(INPUT):\n",
+        "applies_to": "tests",
+        "source": "C:\\Chance1\\IA\\IA_Word\\tests\\test_e2e_postgresql.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-04T04:34:04.321311+00:00",
+      "updated_at": "2026-04-04T04:34:04.321311+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:34:04.321311+00:00",
+        "access_count": 0
+      }
+    },
+    "724552bcc79b": {
+      "id": "724552bcc79b",
+      "type": "fact",
+      "key": "test_e2e_postgresql_1",
+      "fact": {
+        "rule": "transformation.\"\"\"\n\n    @classmethod\n    def setUpClass(cls):\n        if not os.path.exists(INPUT):\n            raise unittest.SkipTest(f\"Input file not found: {INPUT}\")\n        shutil.copy2(INPUT, OUTPUT)\n        cls.word = WordCOM(visible=False)\n        cls.info = cls.word.open_document(OUTPUT)\n\n    @classmethod\n    def tearDownClass(cls):\n        try:\n            cls.word.save()\n            cls.word.quit()\n        except Exception:\n            pass\n\n    def test_01_open(self):\n        \"\"\"Document opens with expected structure.\"\"\"\n        self.assertEqual(self.info['section_count'], 14)\n        self.assertGreater(self.info['page_count'], 15)\n\n    def test_02_delete_installation(self):\n        \"\"\"Remove installation section 3.1.1 Servicios.\"\"\"\n",
+        "applies_to": "tests",
+        "source": "C:\\Chance1\\IA\\IA_Word\\tests\\test_e2e_postgresql.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-04T04:34:04.398758+00:00",
+      "updated_at": "2026-04-04T04:34:04.398758+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:34:04.398758+00:00",
+        "access_count": 0
+      }
+    },
+    "150b77899c07": {
+      "id": "150b77899c07",
+      "type": "fact",
+      "key": "test_e2e_postgresql_2",
+      "fact": {
+        "rule": "  def test_02_delete_installation(self):\n        \"\"\"Remove installation section 3.1.1 Servicios.\"\"\"\n        result = self.word.delete_section_by_heading('3.1.1.           Servicios')\n        self.assertTrue(result)\n\n    def test_03_delete_strategy(self):\n        \"\"\"Remove strategy section.\"\"\"\n        result = self.word.delete_section_by_heading('Estrategia de implementaci')\n        self.assertTrue(result)\n\n    def test_04_delete_team(self):\n        \"\"\"Remove team section.\"\"\"\n        result = self.word.delete_section_by_heading('Equipo requerido')\n        self.assertTrue(result)\n\n    def test_05_delete_setup(self):\n        \"\"\"Remove setup pricing section.\"\"\"\n        result = self.word.delete_section_by_heading('Servicios de Setup')\n        self.assertTrue(result)\n\n",
+        "applies_to": "tests",
+        "source": "C:\\Chance1\\IA\\IA_Word\\tests\\test_e2e_postgresql.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-04T04:34:04.477752+00:00",
+      "updated_at": "2026-04-04T04:34:04.477752+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:34:04.477752+00:00",
+        "access_count": 0
+      }
+    },
+    "079c56ada9e6": {
+      "id": "079c56ada9e6",
+      "type": "fact",
+      "key": "test_e2e_postgresql_3",
+      "fact": {
+        "rule": "result = self.word.delete_section_by_heading('Servicios de Setup')\n        self.assertTrue(result)\n\n    def test_06_update_objective(self):\n        \"\"\"Update objective to focus on support services.\"\"\"\n        doc = self.word.doc\n        updated = False\n        for i in range(1, doc.Paragraphs.Count + 1):\n            text = doc.Paragraphs(i).Range.Text.strip()\n            if 'nstalaci' in text and 'motor' in text:\n                self.word.replace_in_paragraph(\n                    i, text.rstrip('\\r'),\n                    'Servicio de horas de soporte, asistencia y preventivo '\n                    'para la plataforma PostgreSQL Community Edition.'\n                )\n                updated = True\n                break\n        self.assertTrue(updated)\n\n",
+        "applies_to": "tests",
+        "source": "C:\\Chance1\\IA\\IA_Word\\tests\\test_e2e_postgresql.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-04T04:34:04.553737+00:00",
+      "updated_at": "2026-04-04T04:34:04.553737+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:34:04.553737+00:00",
+        "access_count": 0
+      }
+    },
+    "525edef7f661": {
+      "id": "525edef7f661",
+      "type": "fact",
+      "key": "test_e2e_postgresql_4",
+      "fact": {
+        "rule": "           )\n                updated = True\n                break\n        self.assertTrue(updated)\n\n    def test_07_renumber_headings(self):\n        \"\"\"Renumber sections after deletions.\"\"\"\n        self.assertTrue(self.word.renumber_heading('3.4.', '3.2.'))\n        self.assertTrue(self.word.renumber_heading('3.5.', '3.3.'))\n        self.assertTrue(self.word.renumber_heading('4.2.', '4.1.'))\n        self.assertTrue(self.word.renumber_heading('4.3.', '4.2.'))\n\n    def test_08_smart_replace_opp_number(self):\n        \"\"\"Update opportunity number everywhere.\"\"\"\n        r = self.word.smart_replace('227334', '246856')\n        self.assertGreater(r['footer_shapes'], 0, \"Footer shapes should be updated\")\n\n    def test_09_smart_replace_dates(self):\n        \"\"\"Update dates everywhere.\"\"\"\n",
+        "applies_to": "tests",
+        "source": "C:\\Chance1\\IA\\IA_Word\\tests\\test_e2e_postgresql.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-04T04:34:04.635111+00:00",
+      "updated_at": "2026-04-04T04:34:04.635111+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:34:04.635111+00:00",
+        "access_count": 0
+      }
+    },
+    "e568e0fedb24": {
+      "id": "e568e0fedb24",
+      "type": "fact",
+      "key": "test_e2e_postgresql_5",
+      "fact": {
+        "rule": "uld be updated\")\n\n    def test_09_smart_replace_dates(self):\n        \"\"\"Update dates everywhere.\"\"\"\n        r1 = self.word.smart_replace('04 de febrero de 2025', '30 de marzo de 2026')\n        r2 = self.word.smart_replace('04 de febrero de 2024', '30 de marzo de 2026')\n        total = sum(r1.values()) + sum(r2.values())\n        self.assertGreater(total, 0, \"Dates should be updated\")\n\n    def test_10_fix_resumen_table(self):\n        \"\"\"Fix Resumen table totals and remove Setup row.\"\"\"\n        doc = self.word.doc\n        # Delete Setup row\n        table = doc.Tables(2)\n        deleted = False\n        for r in range(1, table.Rows.Count + 1):\n            try:\n                for c in range(1, 8):\n                    try:\n",
+        "applies_to": "tests",
+        "source": "C:\\Chance1\\IA\\IA_Word\\tests\\test_e2e_postgresql.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-04T04:34:04.717955+00:00",
+      "updated_at": "2026-04-04T04:34:04.717955+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:34:04.717955+00:00",
+        "access_count": 0
+      }
+    },
+    "68aa09b9c567": {
+      "id": "68aa09b9c567",
+      "type": "fact",
+      "key": "test_e2e_postgresql_6",
+      "fact": {
+        "rule": "le.Rows.Count + 1):\n            try:\n                for c in range(1, 8):\n                    try:\n                        if 'Servicios Profesionales' in table.Cell(r, c).Range.Text:\n                            table.Rows(r).Delete()\n                            deleted = True\n                            break\n                    except Exception:\n                        pass\n            except Exception:\n                pass\n        self.assertTrue(deleted, \"Setup row should be deleted\")\n\n        # Fix totals\n        for old, new in [('15,405.08', '12,720.00'), ('1,848.61', '1,526.40'), ('17,253.69', '14,246.40')]:\n            n = self.word.replace_in_tables(old, new)\n            self.assertGreater(n, 0, f\"Should replace {old} with {new}\")\n\n",
+        "applies_to": "tests",
+        "source": "C:\\Chance1\\IA\\IA_Word\\tests\\test_e2e_postgresql.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-04T04:34:04.789593+00:00",
+      "updated_at": "2026-04-04T04:34:04.789593+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:34:04.789593+00:00",
+        "access_count": 0
+      }
+    },
+    "3c287b8bac67": {
+      "id": "3c287b8bac67",
+      "type": "fact",
+      "key": "test_e2e_postgresql_7",
+      "fact": {
+        "rule": "place_in_tables(old, new)\n            self.assertGreater(n, 0, f\"Should replace {old} with {new}\")\n\n    def test_10b_move_resumen_before_terminos(self):\n        \"\"\"Move 4.2 Resumen before section 5 Terminos.\"\"\"\n        result = self.word.move_section_before('Resumen de la Inversi', 'rminos y Condiciones')\n        # May return False if already in order (depends on test run order)\n        sect",
+        "applies_to": "tests",
+        "source": "C:\\Chance1\\IA\\IA_Word\\tests\\test_e2e_postgresql.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-04T04:34:04.869022+00:00",
+      "updated_at": "2026-04-04T04:34:04.869022+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:34:04.869022+00:00",
+        "access_count": 0
+      }
+    },
+    "6fbcc4ea8448": {
+      "id": "6fbcc4ea8448",
+      "type": "fact",
+      "key": "run_3_real_tests_1",
+      "fact": {
+        "rule": " de Soporte\")\nprint(\"Cliente: GyT -> Ficticius | Opp: 300001 | Fecha: junio 2026\")\nprint(\"=\" * 70)\n\nout1 = os.path.join(OUT, 'PRUEBA1_Solo_Soporte.docx')\nshutil.copy2(INPUT, out1)\ninfo = w.open_document(out1)\nprint(f'  Abierto: {info[\"page_count\"]} pags')\n\nfor h in ['3.1.1.           Servicios', 'Estrategia de implementaci',\n          'Equipo requerido', 'Servicios de Setup']:\n    print(f'  Eliminar \"{h[:35]}\": {w.delete_section_by_heading(h)}')\n\nfor old, new in [('3.4.', '3.2.'), ('3.5.', '3.3.'), ('4.2.', '4.1.'), ('4.3.', '4.2.')]:\n    w.renumber_heading(old, new)\nprint('  Renumerado')\n\nw.move_section_before('Resumen de la Inversi', 'rminos y Condiciones')\nprint('  Movido 4.2 antes de sec 5')\n\nfor i in range(1, w.doc.Paragraphs.Count + 1):\n",
+        "applies_to": "tests",
+        "source": "C:\\Chance1\\IA\\IA_Word\\tests\\run_3_real_tests.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-04T04:34:05.001897+00:00",
+      "updated_at": "2026-04-04T04:34:05.001897+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:34:05.001897+00:00",
+        "access_count": 0
+      }
+    },
+    "0d637495a61c": {
+      "id": "0d637495a61c",
+      "type": "fact",
+      "key": "run_3_real_tests_2",
+      "fact": {
+        "rule": " Condiciones')\nprint('  Movido 4.2 antes de sec 5')\n\nfor i in range(1, w.doc.Paragraphs.Count + 1):\n    text = w.doc.Paragraphs(i).Range.Text.strip()\n    if 'nstalaci' in text and 'motor' in text:\n        w.replace_in_paragraph(i, text.rstrip('\\r'),\n            'Servicio de horas de soporte, asistencia y preventivo para la plataforma PostgreSQL Community Edition.')\n        break\n\nfor old, new in [('227334', '300001'), ('Banco GyT Continental', 'Banco Ficticius SA'),\n                 ('04 de febrero de 2025', '15 de junio de 2026'),\n                 ('04 de febrero de 2024', '15 de junio de 2026'),\n                 ('30 de marzo de 2026', '15 de junio de 2026')]:\n    w.smart_replace(old, new)\n\n",
+        "applies_to": "tests",
+        "source": "C:\\Chance1\\IA\\IA_Word\\tests\\run_3_real_tests.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-04T04:34:05.089104+00:00",
+      "updated_at": "2026-04-04T04:34:05.089104+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:34:05.089104+00:00",
+        "access_count": 0
+      }
+    },
+    "fd42eae48835": {
+      "id": "fd42eae48835",
+      "type": "fact",
+      "key": "run_3_real_tests_3",
+      "fact": {
+        "rule": "),\n                 ('30 de marzo de 2026', '15 de junio de 2026')]:\n    w.smart_replace(old, new)\n\nfor old, new in [('15,405.08', '12,720.00'), ('1,848.61', '1,526.40'), ('17,253.69', '14,246.40')]:\n    w.replace_in_tables(old, new)\n\ntable = w.doc.Tables(2)\nfor r in range(1, table.Rows.Count + 1):\n    try:\n        for c in range(1, 8):\n            try:\n                if 'Servicios Profesionales' in table.Cell(r, c).Range.Text:\n                    table.Rows(r).Delete()\n                    break\n            except: pass\n    except: pass\n\nw.save()\n\n# VALIDACION\nprint('\\n  --- VALIDACION ---')\nsecs = w.get_sections()\ntexts = ' '.join(s['text'] for s in secs)\npages = w.doc.ComputeStatistics(2)\nprint(f'  Paginas: {info[\"page_count\"]} -> {pages}')\n",
+        "applies_to": "tests",
+        "source": "C:\\Chance1\\IA\\IA_Word\\tests\\run_3_real_tests.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-04T04:34:05.173607+00:00",
+      "updated_at": "2026-04-04T04:34:05.173607+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:34:05.173607+00:00",
+        "access_count": 0
+      }
+    },
+    "c38d286468a4": {
+      "id": "c38d286468a4",
+      "type": "fact",
+      "key": "run_3_real_tests_4",
+      "fact": {
+        "rule": " s in secs)\npages = w.doc.ComputeStatistics(2)\nprint(f'  Paginas: {info[\"page_count\"]} -> {pages}')\nassert 'Estrategia' not in texts, \"Estrategia deberia estar eliminada\"\nassert 'Setup' not in texts, \"Setup deberia estar eliminado\"\nprint('  OK: No hay secciones de instalacion')\nfor req in ['Por qu', 'Alcance', 'Horas de Soporte', 'rminos', 'Aceptaci', 'Anexos']:\n    assert req in texts, f\"Falta: {req}\"\nprint('  OK: Secciones obligatorias presentes')\nt2_text = w.doc.Tables(2).Range.Text\namounts = re.findall(r'[\\d,]+\\.\\d+', t2_text)\nassert '12,720.00' in amounts and '1,526.40' in amounts and '14,246.40' in amounts\nprint('  OK: Matematica $12,720 + IVA $1,526.40 = $14,246.40')\nw.close_document(save=True)\nprint(f'  GUARDADO: {out1}\\n')\n\n",
+        "applies_to": "tests",
+        "source": "C:\\Chance1\\IA\\IA_Word\\tests\\run_3_real_tests.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-04T04:34:05.262610+00:00",
+      "updated_at": "2026-04-04T04:34:05.262610+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:34:05.262610+00:00",
+        "access_count": 0
+      }
+    },
+    "a65e442186ca": {
+      "id": "a65e442186ca",
+      "type": "fact",
+      "key": "run_3_real_tests_5",
+      "fact": {
+        "rule": " $12,720 + IVA $1,526.40 = $14,246.40')\nw.close_document(save=True)\nprint(f'  GUARDADO: {out1}\\n')\n\n# ============================================================\n# PRUEBA 2: Reusar propuesta completa para otro cliente y producto\n# ============================================================\nprint(\"=\" * 70)\nprint(\"PRUEBA 2: Reusar para cliente y producto diferente\")\nprint(\"PostgreSQL -> Oracle | GyT -> Acme | Montos x1.5 | Pago 30/70\")\nprint(\"=\" * 70)\n\nout2 = os.path.join(OUT, 'PRUEBA2_Reuso_Completo.docx')\nshutil.copy2(INPUT, out2)\nw.open_document(out2)\n\nw.smart_replace('Banco GyT Continental', 'Corporacion Acme Guatemala')\nw.find_replace('PostgreSQL Community Edition', 'Oracle Database Enterprise')\nw.find_replace('PostgreSQL', 'Oracle')\nw.find_replace('Postgres', 'Oracle')\n",
+        "applies_to": "tests",
+        "source": "C:\\Chance1\\IA\\IA_Word\\tests\\run_3_real_tests.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-04T04:34:05.359830+00:00",
+      "updated_at": "2026-04-04T04:34:05.359830+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:34:05.359830+00:00",
+        "access_count": 0
+      }
+    },
+    "2d9a9012c1d2": {
+      "id": "2d9a9012c1d2",
+      "type": "fact",
+      "key": "run_3_real_tests_6",
+      "fact": {
+        "rule": "e Database Enterprise')\nw.find_replace('PostgreSQL', 'Oracle')\nw.find_replace('Postgres', 'Oracle')\nw.smart_replace('227334', '400500')\nw.smart_replace('04 de febrero de 2025', '01 de agosto de 2026')\nw.smart_replace('04 de febrero de 2024', '01 de agosto de 2026')\nw.smart_replace('30 de marzo de 2026', '01 de agosto de 2026')\nprint('  Reemplazos: cliente, producto, opp, fechas')\n\nw.replace_in_tables('400.00', '600.00')\nw.replace_in_tables('300.00', '450.00')\nw.replace_in_tables('360.00', '540.00')\nw.replace_in_tables('1,060.00', '1,590.00')\nw.replace_in_tables('127.20', '190.80')\nw.replace_in_tables('1,187.20', '1,780.80')\nw.find_replace('100% anticipado', '30% anticipo, 70% a 30 dias')\nprint('  Montos x1.5, forma de pago cambiada')\n\nw.save()\n\nprint('\\n  --- VALIDACION ---')\n",
+        "applies_to": "tests",
+        "source": "C:\\Chance1\\IA\\IA_Word\\tests\\run_3_real_tests.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-04T04:34:05.451947+00:00",
+      "updated_at": "2026-04-04T04:34:05.451947+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:34:05.451947+00:00",
+        "access_count": 0
+      }
+    },
+    "a998c1bb25fe": {
+      "id": "a998c1bb25fe",
+      "type": "fact",
+      "key": "run_3_real_tests_7",
+      "fact": {
+        "rule": "30 dias')\nprint('  Montos x1.5, forma de pago cambiada')\n\nw.save()\n\nprint('\\n  --- VALIDACION ---')\nbody = w.doc.Content.Text\nacme = body.count('Acme')\noracle = body.count('Oracle')\ngyt_remaining = body.count('GyT')\nprint(f'  \"Acme\" en doc: {acme}')\nprint(f'  \"Oracle\" en doc: {oracle}')\nprint(f'  \"GyT\" restante: {gyt_remaining}')\nassert acme > 5, \"Acme deberia aparecer multiples veces\"\nassert oracle > 5, \"Ora",
+        "applies_to": "tests",
+        "source": "C:\\Chance1\\IA\\IA_Word\\tests\\run_3_real_tests.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-04T04:34:05.553461+00:00",
+      "updated_at": "2026-04-04T04:34:05.553461+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:34:05.553461+00:00",
+        "access_count": 0
+      }
+    },
+    "7538b00d277c": {
+      "id": "7538b00d277c",
+      "type": "fact",
+      "key": "test_stress_complex_0",
+      "fact": {
+        "rule": "# -*- coding: utf-8 -*-\n\"\"\"\nStress tests de alta complejidad basados en escenarios reales de internet.\nCada test crea su propio workbook con el escenario problematico.\n\nSources:\n- Microsoft Support: circular references, broken formulas\n- Corporate Finance Institute: financial model stress testing\n- DataCamp: circular reference detection\n- Analytics Vidhya: merged cells, pivot tables edge cases\n\"\"\"\n\nimport os\nimport sys\nimport time\nimport tempfile\nimport unittest\nimport datetime\n\nsys.path.insert(0, os.path.join(os.path.dirname(__file__), \"..\"))\nfrom src.excel_com import ExcelCOM, ExcelCOMError, ValidationResult\n\nTMP = tempfile.gettempdir()\nxl: ExcelCOM = None\n\ndef setUpModule():\n    global xl\n    xl = ExcelCOM(visible=False)\n    xl._ensure_app()\n\ndef tearDownModule():\n    global xl\n",
+        "applies_to": "tests",
+        "source": "C:\\Chance1\\IA\\IA_Excel\\tests\\test_stress_complex.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-04T04:35:13.998268+00:00",
+      "updated_at": "2026-04-04T04:35:13.998268+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:35:13.998268+00:00",
+        "access_count": 0
+      }
+    },
+    "8d43b118eceb": {
+      "id": "8d43b118eceb",
+      "type": "fact",
+      "key": "test_stress_complex_1",
+      "fact": {
+        "rule": "lobal xl\n    xl = ExcelCOM(visible=False)\n    xl._ensure_app()\n\ndef tearDownModule():\n    global xl\n    try:\n        xl.close_workbook(save=False)\n    except Exception:\n        pass\n    if xl:\n        xl.quit()\n\ndef create_workbook(name):\n    \"\"\"Helper: create a new workbook, return path.\"\"\"\n    wb = xl.app.Workbooks.Add()\n    path = os.path.join(TMP, f\"stress_{name}.xlsx\")\n    wb.SaveAs(os.path.abspath(path), FileFormat=51)\n    return wb, path\n\ndef close_and_reopen(path, read_only=True):\n    \"\"\"Close current, reopen for testing.\"\"\"\n    try:\n        xl.close_workbook(save=False)\n    except Exception:\n        pass\n    xl.open_workbook(path, read_only=read_only)\n\n# ═══════════════════════════════════════════════════════════\n# 1. MERGED CELLS COMPLEJAS\n",
+        "applies_to": "tests",
+        "source": "C:\\Chance1\\IA\\IA_Excel\\tests\\test_stress_complex.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-04T04:35:14.084040+00:00",
+      "updated_at": "2026-04-04T04:35:14.084040+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:35:14.084040+00:00",
+        "access_count": 0
+      }
+    },
+    "2183df73263e": {
+      "id": "2183df73263e",
+      "type": "fact",
+      "key": "test_stress_complex_2",
+      "fact": {
+        "rule": "ad_only)\n\n# ═══════════════════════════════════════════════════════════\n# 1. MERGED CELLS COMPLEJAS\n# Escenario: headers merged en multiples niveles, celdas\n# merged verticales y horizontales, valores solo en primera celda\n# ═══════════════════════════════════════════════════════════\nclass TestMergedCellsComplex(unittest.TestCase):\n\n    @classmethod\n    def setUpClass(cls):\n        wb, cls.path = create_workbook(\"merged\")\n        sh = wb.ActiveSheet\n        sh.Name = \"MergedComplex\"\n\n        # Header merged horizontal (A1:E1)\n        sh.Range(\"A1:E1\").Merge()\n        sh.Range(\"A1\").Value = \"PROPUESTA ECONOMICA CONSOLIDADA\"\n\n        # Sub-headers merged (A2:B2, C2:E2)\n        sh.Range(\"A2:B2\").Merge()\n        sh.Range(\"A2\").Value = \"Informacion del Item\"\n        sh.Range(\"C2:E2\").Merge()\n",
+        "applies_to": "tests",
+        "source": "C:\\Chance1\\IA\\IA_Excel\\tests\\test_stress_complex.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-04T04:35:14.160762+00:00",
+      "updated_at": "2026-04-04T04:35:14.160762+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:35:14.160762+00:00",
+        "access_count": 0
+      }
+    },
+    "1e5608e99663": {
+      "id": "1e5608e99663",
+      "type": "fact",
+      "key": "test_stress_complex_3",
+      "fact": {
+        "rule": "2\").Merge()\n        sh.Range(\"A2\").Value = \"Informacion del Item\"\n        sh.Range(\"C2:E2\").Merge()\n        sh.Range(\"C2\").Value = \"Valores Financieros\"\n\n        # Vertical merge (A3:A5)\n        sh.Range(\"A3:A5\").Merge()\n        sh.Range(\"A3\").Value = \"Hardware\"\n\n        # Another vertical merge (A6:A8)\n        sh.Range(\"A6:A8\").Merge()\n        sh.Range(\"A6\").Value = \"Software\"\n\n        # Data\n        for i, (desc, qty, price) in enumerate([\n            (\"Servidor Dell R750\", 2, 15000),\n            (\"Storage NetApp\", 1, 45000),\n            (\"Rack 42U\", 1, 3000),\n            (\"Red Hat OpenShift\", 5, 4950),\n            (\"PostgreSQL License\", 3, 2200),\n            (\"Windows Server\", 4, 1200),\n        ], 3):\n            sh.Cells(i, 2).Value = desc\n            sh.Cells(i, 3).Value = qty\n",
+        "applies_to": "tests",
+        "source": "C:\\Chance1\\IA\\IA_Excel\\tests\\test_stress_complex.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-04T04:35:14.247837+00:00",
+      "updated_at": "2026-04-04T04:35:14.247837+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:35:14.247837+00:00",
+        "access_count": 0
+      }
+    },
+    "05a34489daf2": {
+      "id": "05a34489daf2",
+      "type": "fact",
+      "key": "test_stress_complex_4",
+      "fact": {
+        "rule": "200),\n        ], 3):\n            sh.Cells(i, 2).Value = desc\n            sh.Cells(i, 3).Value = qty\n            sh.Cells(i, 4).Value = price\n            sh.Cells(i, 5).Value = qty * price\n\n        wb.Save()\n        wb.Close()\n\n    def setUp(self):\n        close_and_reopen(self.path)\n\n    def test_01_detect_merged_cells(self):\n        merged = xl.get_merged_cells(sheet=\"MergedComplex\")\n        self.assertGreater(len(merged), 0)\n        # Should find at least the big header merge\n        addresses = [m[\"address\"] for m in merged]\n        has_big_merge = any(\"$A$1\" in a for a in addresses)\n        self.assertTrue(has_big_merge)\n\n    def test_02_read_merged_value(self):\n        val = xl.read_cell(\"A1\", sheet=\"MergedComplex\")\n        self.assertEqual(val, \"PROPUESTA ECONOMICA CONSOLIDADA\")\n\n",
+        "applies_to": "tests",
+        "source": "C:\\Chance1\\IA\\IA_Excel\\tests\\test_stress_complex.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-04T04:35:14.326275+00:00",
+      "updated_at": "2026-04-04T04:35:14.326275+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:35:14.326275+00:00",
+        "access_count": 0
+      }
+    },
+    "3dad76642fc6": {
+      "id": "3dad76642fc6",
+      "type": "fact",
+      "key": "test_stress_complex_5",
+      "fact": {
+        "rule": "cell(\"A1\", sheet=\"MergedComplex\")\n        self.assertEqual(val, \"PROPUESTA ECONOMICA CONSOLIDADA\")\n\n    def test_03_merged_vertical_read(self):\n        val = xl.read_cell(\"A3\", sheet=\"MergedComplex\")\n        self.assertEqual(val, \"Hardware\")\n        # Merged cells B-E should be None\n        val_below = xl.read_cell(\"A4\", sheet=\"MergedComplex\")\n        self.assertIsNone(val_below)\n\n    def test_04_read_range_with_merges(self):\n        data = xl.read_sheet_data(sheet=\"MergedComplex\")\n        self.assertGreater(len(data), 5)\n        # First row should have the merged header\n        self.assertEqual(data[0][0], \"PROPUESTA ECONOMICA CONSOLIDADA\")\n\n    @classmethod\n    def tearDownClass(cls):\n        try:\n            xl.close_workbook(save=False)\n        except Exception:\n            pass\n",
+        "applies_to": "tests",
+        "source": "C:\\Chance1\\IA\\IA_Excel\\tests\\test_stress_complex.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-04T04:35:14.409621+00:00",
+      "updated_at": "2026-04-04T04:35:14.409621+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:35:14.409621+00:00",
+        "access_count": 0
+      }
+    },
+    "f3b1fe44a0ea": {
+      "id": "f3b1fe44a0ea",
+      "type": "fact",
+      "key": "test_stress_complex_6",
+      "fact": {
+        "rule": ":\n        try:\n            xl.close_workbook(save=False)\n        except Exception:\n            pass\n        os.unlink(cls.path)\n\n# ═══════════════════════════════════════════════════════════\n# 2. FORMULAS CON ERRORES (#REF!, #DIV/0!, #N/A, #VALUE!)\n# Escenario: workbook con formulas rotas que deben ser\n# detectadas y reportadas correctamente\n# ═══════════════════════════════════════════════════════════\nclass TestFormulaErrors(unittest.TestCase):\n\n    @classmethod\n    def setUpClass(cls):\n        wb, cls.path = create_workbook(\"errors\")\n        sh = wb.ActiveSheet\n        sh.Name = \"Errors\"\n\n        sh.Cells(1, 1).Value = \"Formula\"\n        sh.Cells(1, 2).Value = \"Tipo Error\"\n\n        # #DIV/0!\n        sh.Cells(2, 1).Formula = \"=1/0\"\n        sh.Cells(2, 2).Value = \"#DIV/0!\"\n\n",
+        "applies_to": "tests",
+        "source": "C:\\Chance1\\IA\\IA_Excel\\tests\\test_stress_complex.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-04T04:35:14.483295+00:00",
+      "updated_at": "2026-04-04T04:35:14.483295+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:35:14.483295+00:00",
+        "access_count": 0
+      }
+    },
+    "ce0846a1ebba": {
+      "id": "ce0846a1ebba",
+      "type": "fact",
+      "key": "test_stress_complex_7",
+      "fact": {
+        "rule": "        # #DIV/0!\n        sh.Cells(2, 1).Formula = \"=1/0\"\n        sh.Cells(2, 2).Value = \"#DIV/0!\"\n\n        # #VALUE!\n        sh.Cells(3, 1).Formula = '=\"texto\"+1'\n        sh.C",
+        "applies_to": "tests",
+        "source": "C:\\Chance1\\IA\\IA_Excel\\tests\\test_stress_complex.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-04T04:35:14.552024+00:00",
+      "updated_at": "2026-04-04T04:35:14.552024+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:35:14.552024+00:00",
+        "access_count": 0
+      }
+    },
+    "355f35980a77": {
+      "id": "355f35980a77",
+      "type": "fact",
+      "key": "test_excel_features_0",
+      "fact": {
+        "rule": "# -*- coding: utf-8 -*-\n\"\"\"Test suite for ExcelCOM - creates temp workbooks for safe testing.\"\"\"\n\nimport os\nimport sys\nimport tempfile\nimport unittest\nimport datetime\n\nsys.path.insert(0, os.path.join(os.path.dirname(__file__), \"..\"))\nfrom src.excel_com import ExcelCOM, ExcelCOMError\n\nTEST_PREFIX = \"[IA_EXCEL_TEST]\"\nclient: ExcelCOM = None\ntest_wb_path: str = None\n\ndef setUpModule():\n    global client, test_wb_path\n    client = ExcelCOM(visible=False)\n    client._ensure_app()\n\n    # Create a test workbook with sample data\n    test_wb_path = os.path.join(tempfile.gettempdir(), \"ia_excel_test.xlsx\")\n    wb = client.app.Workbooks.Add()\n    sh = wb.ActiveSheet\n    sh.Name = \"Datos\"\n\n    # Headers\n    headers = [\"Item\", \"Descripcion\", \"Cantidad\", \"Precio\", \"Total\"]\n",
+        "applies_to": "tests",
+        "source": "C:\\Chance1\\IA\\IA_Excel\\tests\\test_excel_features.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-04T04:35:14.631699+00:00",
+      "updated_at": "2026-04-04T04:35:14.631699+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:35:14.631699+00:00",
+        "access_count": 0
+      }
+    },
+    "a1712f756e78": {
+      "id": "a1712f756e78",
+      "type": "fact",
+      "key": "test_excel_features_1",
+      "fact": {
+        "rule": ".Name = \"Datos\"\n\n    # Headers\n    headers = [\"Item\", \"Descripcion\", \"Cantidad\", \"Precio\", \"Total\"]\n    for c, h in enumerate(headers, 1):\n        sh.Cells(1, c).Value = h\n        sh.Cells(1, c).Font.Bold = True\n\n    # Data rows\n    data = [\n        [\"HW-001\", \"Servidor Dell R750\", 2, 15000.00, 30000.00],\n        [\"SW-001\", \"Red Hat OpenShift License\", 5, 4950.00, 24750.00],\n        [\"SV-001\", \"Servicio Implementacion\", 120, 80.00, 9600.00],\n        [\"HW-002\", \"Storage NetApp\", 1, 45000.00, 45000.00],\n        [\"SW-002\", \"Suscripcion PostgreSQL\", 3, 2200.00, 6600.00],\n    ]\n    for r, row in enumerate(data, 2):\n        for c, val in enumerate(row, 1):\n            sh.Cells(r, c).Value = val\n\n    # Totals\n    sh.Cells(7, 4).Value = \"Subtotal\"\n    sh.Cells(7, 5).Value = 115950.00\n",
+        "applies_to": "tests",
+        "source": "C:\\Chance1\\IA\\IA_Excel\\tests\\test_excel_features.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-04T04:35:14.718351+00:00",
+      "updated_at": "2026-04-04T04:35:14.718351+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:35:14.718351+00:00",
+        "access_count": 0
+      }
+    },
+    "c9783b7c7ef0": {
+      "id": "c9783b7c7ef0",
+      "type": "fact",
+      "key": "test_excel_features_2",
+      "fact": {
+        "rule": "alue = val\n\n    # Totals\n    sh.Cells(7, 4).Value = \"Subtotal\"\n    sh.Cells(7, 5).Value = 115950.00\n    sh.Cells(7, 5).NumberFormat = \"$#,##0.00\"\n    sh.Cells(8, 4).Value = \"IVA 12%\"\n    sh.Cells(8, 5).Value = 13914.00\n    sh.Cells(8, 5).NumberFormat = \"$#,##0.00\"\n    sh.Cells(9, 4).Value = \"Total\"\n    sh.Cells(9, 5).Value = 129864.00\n    sh.Cells(9, 5).NumberFormat = \"$#,##0.00\"\n    sh.Cells(9, 5).Font.Bold = True\n\n    # Formula\n    sh.Cells(10, 5).Formula = \"=SUM(E2:E6)\"\n\n    # Add a second sheet\n    sh2 = wb.Sheets.Add(After=sh)\n    sh2.Name = \"Resumen\"\n    sh2.Cells(1, 1).Value = \"Total General\"\n    sh2.Cells(1, 2).Formula = \"=Datos!E9\"\n\n    # Add a hidden sheet\n    sh3 = wb.Sheets.Add(After=sh2)\n    sh3.Name = \"Oculta\"\n    sh3.Cells(1, 1).Value = \"Datos ocultos\"\n",
+        "applies_to": "tests",
+        "source": "C:\\Chance1\\IA\\IA_Excel\\tests\\test_excel_features.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-04T04:35:14.802391+00:00",
+      "updated_at": "2026-04-04T04:35:14.802391+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:35:14.802391+00:00",
+        "access_count": 0
+      }
+    },
+    "e06450f94ae2": {
+      "id": "e06450f94ae2",
+      "type": "fact",
+      "key": "test_excel_features_3",
+      "fact": {
+        "rule": " sh3 = wb.Sheets.Add(After=sh2)\n    sh3.Name = \"Oculta\"\n    sh3.Cells(1, 1).Value = \"Datos ocultos\"\n    sh3.Visible = 0  # xlSheetHidden\n\n    wb.SaveAs(os.path.abspath(test_wb_path), FileFormat=51)\n    wb.Close()\n    print(f\"\\nTest workbook creado: {test_wb_path}\")\n\ndef tearDownModule():\n    global client, test_wb_path\n    try:\n        client.close_workbook(save=False)\n    except Exception:\n        pass\n    if client:\n        client.quit()\n    if test_wb_path and os.path.exists(test_wb_path):\n        try:\n            os.unlink(test_wb_path)\n        except Exception:\n            pass\n\n# ─── Workbook Operations ─────────────────────────────────\n\nclass TestWorkbook(unittest.TestCase):\n\n    def setUp(self):\n        try:\n            client.close_workbook(save=False)\n        except Exception:\n",
+        "applies_to": "tests",
+        "source": "C:\\Chance1\\IA\\IA_Excel\\tests\\test_excel_features.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-04T04:35:14.888557+00:00",
+      "updated_at": "2026-04-04T04:35:14.888557+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:35:14.888557+00:00",
+        "access_count": 0
+      }
+    },
+    "ae0e904cc98c": {
+      "id": "ae0e904cc98c",
+      "type": "fact",
+      "key": "test_excel_features_4",
+      "fact": {
+        "rule": "f setUp(self):\n        try:\n            client.close_workbook(save=False)\n        except Exception:\n            pass\n        client.open_workbook(test_wb_path, read_only=True)\n\n    def test_01_open_workbook(self):\n        info = client.get_workbook_info()\n        self.assertEqual(info[\"sheet_count\"], 3)\n        self.assertIn(\"Datos\", [s[\"name\"] for s in info[\"sheets\"]])\n\n    def test_02_list_sheets(self):\n        sheets = client.list_sheets()\n        self.assertEqual(len(sheets), 3)\n        names = [s[\"name\"] for s in sheets]\n        self.assertIn(\"Datos\", names)\n        self.assertIn(\"Resumen\", names)\n        self.assertIn(\"Oculta\", names)\n\n    def test_03_list_sheets_visible_only(self):\n        sheets = client.list_sheets(include_hidden=False)\n        self.assertEqual(len(sheets), 2)\n\n",
+        "applies_to": "tests",
+        "source": "C:\\Chance1\\IA\\IA_Excel\\tests\\test_excel_features.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-04T04:35:14.978604+00:00",
+      "updated_at": "2026-04-04T04:35:14.978604+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:35:14.978604+00:00",
+        "access_count": 0
+      }
+    },
+    "037ef98e6607": {
+      "id": "037ef98e6607",
+      "type": "fact",
+      "key": "test_excel_features_5",
+      "fact": {
+        "rule": "        sheets = client.list_sheets(include_hidden=False)\n        self.assertEqual(len(sheets), 2)\n\n    def test_04_workbook_info(self):\n        info = client.get_workbook_info()\n        self.assertIn(\"name\", info)\n        self.assertIn(\"sheets\", info)\n        self.assertEqual(info[\"sheet_count\"], 3)\n\n# ─── Hidden Elements ─────────────────────────────────────\n\nclass TestHidden(unittest.TestCase):\n\n    def setUp(self):\n        try:\n            client.close_workbook(save=False)\n        except Exception:\n            pass\n        client.open_workbook(test_wb_path, read_only=True)\n\n    def test_05_get_hidden_sheets(self):\n        hidden = client.get_hidden_sheets()\n        self.assertEqual(len(hidden), 1)\n        self.assertEqual(hidden[0][\"name\"], \"Oculta\")\n\n",
+        "applies_to": "tests",
+        "source": "C:\\Chance1\\IA\\IA_Excel\\tests\\test_excel_features.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-04T04:35:15.064739+00:00",
+      "updated_at": "2026-04-04T04:35:15.064739+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:35:15.064739+00:00",
+        "access_count": 0
+      }
+    },
+    "7b36fa293ac0": {
+      "id": "7b36fa293ac0",
+      "type": "fact",
+      "key": "test_excel_features_6",
+      "fact": {
+        "rule": "s()\n        self.assertEqual(len(hidden), 1)\n        self.assertEqual(hidden[0][\"name\"], \"Oculta\")\n\n    def test_06_get_hidden_rows(self):\n        hidden = client.get_hidden_rows(sheet=\"Datos\")\n        self.assertIsInstance(hidden, list)\n\n    def test_07_get_hidden_columns(self):\n        hidden = client.get_hidden_columns(sheet=\"Datos\")\n        self.assertIsInstance(hidden, list)\n\n# ─── Cell Operations ─────────────────────────────────────\n\nclass TestCells(unittest.TestCase):\n\n    def setUp(self):\n        try:\n            client.close_workbook(save=False)\n        except Exception:\n            pass\n        client.open_workbook(test_wb_path, read_only=True)\n\n    def test_08_read_cell(self):\n        val = client.read_cell(\"A1\", sheet=\"Datos\")\n        self.assertEqual(val, \"Item\")\n\n",
+        "applies_to": "tests",
+        "source": "C:\\Chance1\\IA\\IA_Excel\\tests\\test_excel_features.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-04T04:35:15.153160+00:00",
+      "updated_at": "2026-04-04T04:35:15.153160+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:35:15.153160+00:00",
+        "access_count": 0
+      }
+    },
+    "78d07c4cbf85": {
+      "id": "78d07c4cbf85",
+      "type": "fact",
+      "key": "test_excel_features_7",
+      "fact": {
+        "rule": "l(self):\n        val = client.read_cell(\"A1\", sheet=\"Datos\")\n        self.assertEqual(val, \"Item\")\n\n    def test_09_read_cell_numeric(self):\n        val = client.read_cell(\"D2\", sheet=\"Datos\")\n        self.ass",
+        "applies_to": "tests",
+        "source": "C:\\Chance1\\IA\\IA_Excel\\tests\\test_excel_features.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-04T04:35:15.229130+00:00",
+      "updated_at": "2026-04-04T04:35:15.229130+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:35:15.229130+00:00",
         "access_count": 0
       }
     }
@@ -1850,7 +3625,157 @@
       "6b582bb7c858",
       "6594c5b2f127",
       "d19e0e9300a6",
-      "a2d5e00ea10a"
+      "a2d5e00ea10a",
+      "31e5099134a1",
+      "b2430ff358ff",
+      "a6cdd1781e94",
+      "e96f58616a79",
+      "55e458fc5d6c",
+      "fec46a9a8aa6",
+      "d1a7f78b8353",
+      "48cdaf62bd80",
+      "729966346ff7",
+      "5d72cf83e9a8",
+      "8ec357da4b3c",
+      "bfb5049c5537",
+      "4540f7db547f",
+      "46a2f456a257",
+      "d99f3a563fb0",
+      "b3b04ab08501",
+      "36c72bfc3dd6",
+      "78d4c60ad0c1",
+      "86dba8393631",
+      "3371a88b83b6",
+      "7ddb7c53be80",
+      "3a39a9702c42",
+      "55d79b94b2af",
+      "ffbd19f487c7",
+      "b86dbfc03795",
+      "69f74a139fe8",
+      "4d8b1e93d7c7",
+      "7105079b3a7f",
+      "46d9af653e8a",
+      "da134110909a",
+      "3bf421353c2a",
+      "5de8dcf5bdfd",
+      "4fd50e27246f",
+      "816d4a1542c7",
+      "5abe3b08df52",
+      "47eb6d58e754",
+      "182984014148",
+      "16195b1c133f",
+      "844b6623f760",
+      "0c3fedccff98",
+      "f461a4dde2ab",
+      "7e38551083cf",
+      "f51b6bde6cc9",
+      "9270ff4f3986",
+      "d6cb4b18db58",
+      "5bb4445c7b1c",
+      "b320edba39f4",
+      "92aef9139d3e",
+      "b9f43916caec",
+      "3ef11e1e8aaf",
+      "7aa15846a8a2",
+      "5758635e72ef",
+      "40172ceeb547",
+      "979a298df7b2",
+      "cff17155eb12",
+      "1887eb6b0124",
+      "d353c8a6787c",
+      "b8bfea1c7a8d",
+      "15b35cca466e",
+      "d6a3b8bc6f88",
+      "fe5142c9cf47",
+      "e0a092d7dfa2",
+      "14c0100f70b4",
+      "9aec5604bb4d",
+      "0a5e4790c4b0",
+      "f7cb9cef8a93",
+      "d7c905b97538",
+      "6b582bb7c858",
+      "6594c5b2f127",
+      "d19e0e9300a6",
+      "a2d5e00ea10a",
+      "46a86aac2239",
+      "c3368a591209",
+      "b77d03dcaa49",
+      "8edb48161692",
+      "17157f0ec248",
+      "10d5c049961e",
+      "164e8847eaaa",
+      "e8dd17579be4",
+      "f83f92f19e4c",
+      "ebb7bd40a1c3",
+      "3aa14ca9bf61",
+      "958e356dbf59",
+      "02b4383e40c3",
+      "a1463bfe9e9b",
+      "3d0e1e5718d9",
+      "fd2e76706640",
+      "0a3c684e725e",
+      "28e36e10820e",
+      "8ca71b6291ca",
+      "907df8e63230",
+      "74395c95f019",
+      "069cc9d7ffcb",
+      "79d8cd6c4cf5",
+      "2bc8944b0ab5",
+      "14a85ca15e7b",
+      "626a3dcc48ec",
+      "e6ac5459b244",
+      "58a498870101",
+      "c0cb48b41e21",
+      "bc1e2e0a8190",
+      "35787932f8aa",
+      "27a62d06dd63",
+      "3824d086044b",
+      "0f0dd295cabc",
+      "25f60df12828",
+      "93f88a212a8e",
+      "e7f3aa8392a8",
+      "0a4f0d9067f0",
+      "8a7b56f2a8ce",
+      "4941962f3168",
+      "31e5099134a1",
+      "b2430ff358ff",
+      "a6cdd1781e94",
+      "e96f58616a79",
+      "55e458fc5d6c",
+      "fec46a9a8aa6",
+      "d1a7f78b8353",
+      "48cdaf62bd80",
+      "8a75306cb4b7",
+      "724552bcc79b",
+      "150b77899c07",
+      "079c56ada9e6",
+      "525edef7f661",
+      "e568e0fedb24",
+      "68aa09b9c567",
+      "3c287b8bac67",
+      "6fbcc4ea8448",
+      "0d637495a61c",
+      "fd42eae48835",
+      "c38d286468a4",
+      "a65e442186ca",
+      "2d9a9012c1d2",
+      "a998c1bb25fe",
+      "7538b00d277c",
+      "8d43b118eceb",
+      "2183df73263e",
+      "1e5608e99663",
+      "05a34489daf2",
+      "3dad76642fc6",
+      "f3b1fe44a0ea",
+      "ce0846a1ebba",
+      "355f35980a77",
+      "a1712f756e78",
+      "c9783b7c7ef0",
+      "e06450f94ae2",
+      "ae0e904cc98c",
+      "037ef98e6607",
+      "7b36fa293ac0",
+      "78d07c4cbf85"
     ],
     "py": [
       "31e5099134a1",
@@ -1923,11 +3848,161 @@
       "6b582bb7c858",
       "6594c5b2f127",
       "d19e0e9300a6",
-      "a2d5e00ea10a"
+      "a2d5e00ea10a",
+      "31e5099134a1",
+      "b2430ff358ff",
+      "a6cdd1781e94",
+      "e96f58616a79",
+      "55e458fc5d6c",
+      "fec46a9a8aa6",
+      "d1a7f78b8353",
+      "48cdaf62bd80",
+      "729966346ff7",
+      "5d72cf83e9a8",
+      "8ec357da4b3c",
+      "bfb5049c5537",
+      "4540f7db547f",
+      "46a2f456a257",
+      "d99f3a563fb0",
+      "b3b04ab08501",
+      "36c72bfc3dd6",
+      "78d4c60ad0c1",
+      "86dba8393631",
+      "3371a88b83b6",
+      "7ddb7c53be80",
+      "3a39a9702c42",
+      "55d79b94b2af",
+      "ffbd19f487c7",
+      "b86dbfc03795",
+      "69f74a139fe8",
+      "4d8b1e93d7c7",
+      "7105079b3a7f",
+      "46d9af653e8a",
+      "da134110909a",
+      "3bf421353c2a",
+      "5de8dcf5bdfd",
+      "4fd50e27246f",
+      "816d4a1542c7",
+      "5abe3b08df52",
+      "47eb6d58e754",
+      "182984014148",
+      "16195b1c133f",
+      "844b6623f760",
+      "0c3fedccff98",
+      "f461a4dde2ab",
+      "7e38551083cf",
+      "f51b6bde6cc9",
+      "9270ff4f3986",
+      "d6cb4b18db58",
+      "5bb4445c7b1c",
+      "b320edba39f4",
+      "92aef9139d3e",
+      "b9f43916caec",
+      "3ef11e1e8aaf",
+      "7aa15846a8a2",
+      "5758635e72ef",
+      "40172ceeb547",
+      "979a298df7b2",
+      "cff17155eb12",
+      "1887eb6b0124",
+      "d353c8a6787c",
+      "b8bfea1c7a8d",
+      "15b35cca466e",
+      "d6a3b8bc6f88",
+      "fe5142c9cf47",
+      "e0a092d7dfa2",
+      "14c0100f70b4",
+      "9aec5604bb4d",
+      "0a5e4790c4b0",
+      "f7cb9cef8a93",
+      "d7c905b97538",
+      "6b582bb7c858",
+      "6594c5b2f127",
+      "d19e0e9300a6",
+      "a2d5e00ea10a",
+      "46a86aac2239",
+      "c3368a591209",
+      "b77d03dcaa49",
+      "8edb48161692",
+      "17157f0ec248",
+      "10d5c049961e",
+      "164e8847eaaa",
+      "e8dd17579be4",
+      "f83f92f19e4c",
+      "ebb7bd40a1c3",
+      "3aa14ca9bf61",
+      "958e356dbf59",
+      "02b4383e40c3",
+      "a1463bfe9e9b",
+      "3d0e1e5718d9",
+      "fd2e76706640",
+      "0a3c684e725e",
+      "28e36e10820e",
+      "8ca71b6291ca",
+      "907df8e63230",
+      "74395c95f019",
+      "069cc9d7ffcb",
+      "79d8cd6c4cf5",
+      "2bc8944b0ab5",
+      "14a85ca15e7b",
+      "626a3dcc48ec",
+      "e6ac5459b244",
+      "58a498870101",
+      "c0cb48b41e21",
+      "bc1e2e0a8190",
+      "35787932f8aa",
+      "27a62d06dd63",
+      "3824d086044b",
+      "0f0dd295cabc",
+      "25f60df12828",
+      "93f88a212a8e",
+      "e7f3aa8392a8",
+      "0a4f0d9067f0",
+      "8a7b56f2a8ce",
+      "4941962f3168",
+      "31e5099134a1",
+      "b2430ff358ff",
+      "a6cdd1781e94",
+      "e96f58616a79",
+      "55e458fc5d6c",
+      "fec46a9a8aa6",
+      "d1a7f78b8353",
+      "48cdaf62bd80",
+      "8a75306cb4b7",
+      "724552bcc79b",
+      "150b77899c07",
+      "079c56ada9e6",
+      "525edef7f661",
+      "e568e0fedb24",
+      "68aa09b9c567",
+      "3c287b8bac67",
+      "6fbcc4ea8448",
+      "0d637495a61c",
+      "fd42eae48835",
+      "c38d286468a4",
+      "a65e442186ca",
+      "2d9a9012c1d2",
+      "a998c1bb25fe",
+      "7538b00d277c",
+      "8d43b118eceb",
+      "2183df73263e",
+      "1e5608e99663",
+      "05a34489daf2",
+      "3dad76642fc6",
+      "f3b1fe44a0ea",
+      "ce0846a1ebba",
+      "355f35980a77",
+      "a1712f756e78",
+      "c9783b7c7ef0",
+      "e06450f94ae2",
+      "ae0e904cc98c",
+      "037ef98e6607",
+      "7b36fa293ac0",
+      "78d07c4cbf85"
     ]
   },
   "stats": {
-    "total_entries": 71,
+    "total_entries": 221,
     "total_lookups": 0,
     "total_hits": 0
   }

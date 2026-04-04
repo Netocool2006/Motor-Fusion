@@ -1,0 +1,125 @@
+{
+  "domain": "hooks",
+  "description": "Dominio auto-creado: hooks",
+  "entries": {
+    "517e39ae3ed1": {
+      "id": "517e39ae3ed1",
+      "type": "fact",
+      "key": "_paths_0",
+      "fact": {
+        "rule": "r\"\"\"\n_paths.py — Discovery automático de HOOKS_HOME\n===============================================\nSistema portable de memoria centralizada.\n\nBusca la ubicación de HOOKS_HOME en este orden:\n  1. HOOKS_HOME declarado en CLAUDE.md (si existe)\n  2. C:\\Hooks_IA (ubicación default)\n  3. ~/.adaptive_cli/ (fallback clásico)\n\nSi mueves C:\\Hooks_IA, el sistema se auto-adapta sin cambios de código.\nSolo actualiza CLAUDE.md si cambias la ruta a otro lugar.\n\"\"\"\nimport os\nimport re\nfrom pathlib import Path\n\ndef _read_hooks_home_from_claude_md():\n    \"\"\"Lee HOOKS_HOME desde CLAUDE.md si existe.\"\"\"\n    claude_md_paths = [\n        Path(r\"C:\\Chance1\\Asistente IA\\CLAUDE.md\"),\n        Path(\"CLAUDE.md\"),\n        Path(r\"..\\CLAUDE.md\"),\n    ]\n\n    for claude_path in claude_md_paths:\n",
+        "applies_to": "hooks",
+        "source": "C:\\Hooks_IA_backup_20260331_220508\\hooks\\_paths.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-04T04:42:49.269702+00:00",
+      "updated_at": "2026-04-04T04:42:49.269702+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:42:49.269702+00:00",
+        "access_count": 0
+      }
+    },
+    "5ceb34b272b4": {
+      "id": "5ceb34b272b4",
+      "type": "fact",
+      "key": "_paths_1",
+      "fact": {
+        "rule": "   Path(\"CLAUDE.md\"),\n        Path(r\"..\\CLAUDE.md\"),\n    ]\n\n    for claude_path in claude_md_paths:\n        if claude_path.exists():\n            try:\n                content = claude_path.read_text(encoding=\"utf-8\")\n                # Buscar: HOOKS_HOME = C:\\Hooks_IA (con espacios flexibles)\n                match = re.search(r'HOOKS_HOME\\s*=\\s*([^\\n]+)', content)\n                if match:\n                    hooks_home = match.group(1).strip()\n                    candidate = Path(hooks_home)\n                    if candidate.exists():\n                        return candidate\n            except Exception:\n                pass\n    return None\n\ndef get_data_dir() -> Path:\n    \"\"\"Discovery automático inteligente de HOOKS_HOME.\n\n    Busca en orden:\n      1. CLAUDE.md (configuración declarativa)\n",
+        "applies_to": "hooks",
+        "source": "C:\\Hooks_IA_backup_20260331_220508\\hooks\\_paths.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-04T04:42:49.350753+00:00",
+      "updated_at": "2026-04-04T04:42:49.350753+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:42:49.350753+00:00",
+        "access_count": 0
+      }
+    },
+    "07cc29ef1f84": {
+      "id": "07cc29ef1f84",
+      "type": "fact",
+      "key": "_paths_2",
+      "fact": {
+        "rule": "tico inteligente de HOOKS_HOME.\n\n    Busca en orden:\n      1. CLAUDE.md (configuración declarativa)\n      2. C:\\Hooks_IA (default)\n      3. ~/.adaptive_cli/ (fallback)\n    \"\"\"\n    # Prioridad 1: CLAUDE.md\n    hooks_home = _read_hooks_home_from_claude_md()\n    if hooks_home:\n        hooks_home.mkdir(parents=True, exist_ok=True)\n        return hooks_home\n\n    # Prioridad 2: C:\\Hooks_IA (default)\n    default_hooks_ia = Path(\"C:\\\\Hooks_IA\")\n    if default_hooks_ia.exists():\n        default_hooks_ia.mkdir(parents=True, exist_ok=True)\n        return default_hooks_ia\n\n    # Prioridad 3: ~/.adaptive_cli/ (fallback)\n    env_home = os.environ.get(\"HOME\")\n    if env_home:\n        candidate = Path(env_home) / \".adaptive_cli\"\n        if candidate.exists():\n            return candidate\n\n",
+        "applies_to": "hooks",
+        "source": "C:\\Hooks_IA_backup_20260331_220508\\hooks\\_paths.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-04T04:42:49.443928+00:00",
+      "updated_at": "2026-04-04T04:42:49.443928+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:42:49.443928+00:00",
+        "access_count": 0
+      }
+    },
+    "a1623a05db98": {
+      "id": "a1623a05db98",
+      "type": "fact",
+      "key": "_paths_3",
+      "fact": {
+        "rule": "ate = Path(env_home) / \".adaptive_cli\"\n        if candidate.exists():\n            return candidate\n\n    local_appdata = os.environ.get(\"LOCALAPPDATA\")\n    if local_appdata:\n        candidate = Path(local_appdata) / \"ClaudeCode\" / \".adaptive_cli\"\n        if candidate.exists():\n            return candidate\n\n    # Último recurso: crear en .adaptive_cli\n    candidate = Path.home() / \".adaptive_cli\"\n    candidate.mkdir(parents=True, exist_ok=True)\n    return candidate\n\n# Ruta resuelta una sola vez al importar\nDATA_DIR = get_data_dir()",
+        "applies_to": "hooks",
+        "source": "C:\\Hooks_IA_backup_20260331_220508\\hooks\\_paths.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-04T04:42:49.527038+00:00",
+      "updated_at": "2026-04-04T04:42:49.527038+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:42:49.527038+00:00",
+        "access_count": 0
+      }
+    }
+  },
+  "tag_index": {
+    "python": [
+      "517e39ae3ed1",
+      "5ceb34b272b4",
+      "07cc29ef1f84",
+      "a1623a05db98"
+    ],
+    "py": [
+      "517e39ae3ed1",
+      "5ceb34b272b4",
+      "07cc29ef1f84",
+      "a1623a05db98"
+    ]
+  },
+  "stats": {
+    "total_entries": 4,
+    "total_lookups": 0,
+    "total_hits": 0
+  }
+}

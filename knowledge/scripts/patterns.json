@@ -1,0 +1,908 @@
+{
+  "domain": "scripts",
+  "description": "Dominio auto-creado: scripts",
+  "entries": {
+    "f52d54e56633": {
+      "id": "f52d54e56633",
+      "type": "fact",
+      "key": "sap_mcp_ops_0",
+      "fact": {
+        "rule": "\"\"\"\nsap_mcp_ops.py — Motor SAP para Claude MCP\n==========================================\nARQUITECTURA: MCP + JS injection = único modo automatizado.\n              Si MCP no disponible → entrada manual por el usuario.\n              No hay Playwright, no hay CDP scripts, no hay fallbacks.\n\nClaude lee este archivo e inyecta los JS via javascript_tool.\nNo se ejecuta directamente — es una biblioteca de snippets JS.\n\nFILOSOFÍA:\n  - MCP es el cerebro y el controlador\n  - JS inyectado = sensores y actuadores dentro del DOM vivo\n  - Selectores por sufijo de ID (estables entre sesiones)\n  - Si un selector falla → sensor DOM → Claude adapta → continúa\n\nSELECTORES ESTABLES (sufijos — nunca cambian por sesión):\n  SLS-CYCLE                     → \"Sales Cycle\" en menú\n",
+        "applies_to": "scripts",
+        "source": "C:\\Chance1\\IA\\SAP_Tierra_IA\\scripts\\sap_mcp_ops.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-04T04:37:48.374408+00:00",
+      "updated_at": "2026-04-04T04:37:48.374408+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:37:48.374408+00:00",
+        "access_count": 0
+      }
+    },
+    "baba4d823591": {
+      "id": "baba4d823591",
+      "type": "fact",
+      "key": "sap_mcp_ops_1",
+      "fact": {
+        "rule": "ABLES (sufijos — nunca cambian por sesión):\n  SLS-CYCLE                     → \"Sales Cycle\" en menú\n  SLS-OPP-SR                    → \"Opportunities\" en menú\n  search_parameters[1].VALUE1   → campo Opportunity ID\n  Searchbtn                     → botón Search\n  result_table[1].description   → primer resultado\n  OG_DESCRIPTION                → Description en opp abierta\n\"\"\"\n\n# ─────────────────────────────────────────────────────────────\n# SELECTORES ESTABLES (sufijos de ID SAP CRM)\n# ─────────────────────────────────────────────────────────────\nSELECTORS = {\n    # Navegación\n    \"sales_cycle\":       \"[id$='SLS-CYCLE']\",\n    \"opportunities\":     \"[id$='SLS-OPP-SR']\",\n    # Búsqueda\n    \"opp_id_field\":      \"[id$='search_parameters[1].VALUE1']\",\n    \"search_btn\":        \"[id$='Searchbtn']\",\n",
+        "applies_to": "scripts",
+        "source": "C:\\Chance1\\IA\\SAP_Tierra_IA\\scripts\\sap_mcp_ops.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-04T04:37:48.453065+00:00",
+      "updated_at": "2026-04-04T04:37:48.453065+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:37:48.453065+00:00",
+        "access_count": 0
+      }
+    },
+    "45a5768ae53f": {
+      "id": "45a5768ae53f",
+      "type": "fact",
+      "key": "sap_mcp_ops_2",
+      "fact": {
+        "rule": "d_field\":      \"[id$='search_parameters[1].VALUE1']\",\n    \"search_btn\":        \"[id$='Searchbtn']\",\n    \"result_desc\":       \"[id$='result_table[1].description']\",\n    # Oportunidad abierta (varía por tipo)\n    \"description_multi\": \"[id$='OG_DESCRIPTION']\",       # Opp Multiservice\n    \"text_lines\":        \"[id$='text_lines']\",            # Opport Standard (notas)\n    \"edit_btn\":          \"[id$='EditButton']\",\n    \"save_btn\":          \"[id$='SaveButton']\",\n    # Items / Edit List\n    \"edit_list_btn\":     \"[id*='EditList']\",\n    \"items_table\":       \"[id*='ItemsTable']\",\n}\n\n# ─────────────────────────────────────────────────────────────\n# JS HELPERS — listos para copiar en javascript_tool\n# ─────────────────────────────────────────────────────────────\n\n",
+        "applies_to": "scripts",
+        "source": "C:\\Chance1\\IA\\SAP_Tierra_IA\\scripts\\sap_mcp_ops.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-04T04:37:48.533726+00:00",
+      "updated_at": "2026-04-04T04:37:48.533726+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:37:48.533726+00:00",
+        "access_count": 0
+      }
+    },
+    "cee4141c649b": {
+      "id": "cee4141c649b",
+      "type": "fact",
+      "key": "sap_mcp_ops_3",
+      "fact": {
+        "rule": "tos para copiar en javascript_tool\n# ─────────────────────────────────────────────────────────────\n\ndef js_universal_click(text: str) -> str:\n    \"\"\"Click en cualquier elemento por texto exacto (busca en todos los frames).\"\"\"\n    return f\"\"\"\n(function() {{\n    function search(win, path) {{\n        try {{\n            for (let el of win.document.querySelectorAll('a, button, td, input')) {{\n                if ((el.innerText || el.value || '').trim() === {repr(text)}) {{\n                    el.click();\n                    return path + ' clicked: ' + el.tagName + '#' + el.id;\n                }}\n            }}\n        }} catch(e) {{}}\n        for (let i = 0; i < win.frames.length; i++) {{\n            let r = search(win.frames[i], path + '[' + i + ']');\n            if (r) return r;\n        }}\n",
+        "applies_to": "scripts",
+        "source": "C:\\Chance1\\IA\\SAP_Tierra_IA\\scripts\\sap_mcp_ops.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-04T04:37:48.619087+00:00",
+      "updated_at": "2026-04-04T04:37:48.619087+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:37:48.619087+00:00",
+        "access_count": 0
+      }
+    },
+    "646426db0969": {
+      "id": "646426db0969",
+      "type": "fact",
+      "key": "sap_mcp_ops_4",
+      "fact": {
+        "rule": "       let r = search(win.frames[i], path + '[' + i + ']');\n            if (r) return r;\n        }}\n        return null;\n    }}\n    return search(window, 'w');\n}})();\n\"\"\"\n\ndef js_fill_by_suffix(id_suffix: str, value: str) -> str:\n    \"\"\"Llenar un input buscando por sufijo de ID (estable entre sesiones).\"\"\"\n    return f\"\"\"\n(function() {{\n    function inFrames(win, fn) {{\n        try {{ let r = fn(win); if (r) return r; }} catch(e) {{}}\n        for (let i = 0; i < win.frames.length; i++) {{\n            let r = inFrames(win.frames[i], fn);\n            if (r) return r;\n        }}\n        return null;\n    }}\n    return inFrames(window, (win) => {{\n        let el = win.document.querySelector(\"input[id$='{id_suffix}'], textarea[id$='{id_suffix}']\");\n        if (!el) return null;\n",
+        "applies_to": "scripts",
+        "source": "C:\\Chance1\\IA\\SAP_Tierra_IA\\scripts\\sap_mcp_ops.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-04T04:37:48.701652+00:00",
+      "updated_at": "2026-04-04T04:37:48.701652+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:37:48.701652+00:00",
+        "access_count": 0
+      }
+    },
+    "a4d1033dba01": {
+      "id": "a4d1033dba01",
+      "type": "fact",
+      "key": "sap_mcp_ops_5",
+      "fact": {
+        "rule": "erySelector(\"input[id$='{id_suffix}'], textarea[id$='{id_suffix}']\");\n        if (!el) return null;\n        el.focus();\n        el.value = {repr(value)};\n        el.dispatchEvent(new Event('input', {{bubbles: true}}));\n        el.dispatchEvent(new Event('change', {{bubbles: true}}));\n        return 'filled ' + el.id + ' = ' + el.value;\n    }});\n}})();\n\"\"\"\n\ndef js_click_by_suffix(id_suffix: str) -> str:\n    \"\"\"Click en elemento por sufijo de ID estable.\"\"\"\n    return f\"\"\"\n(function() {{\n    function inFrames(win, fn) {{\n        try {{ let r = fn(win); if (r) return r; }} catch(e) {{}}\n        for (let i = 0; i < win.frames.length; i++) {{\n            let r = inFrames(win.frames[i], fn);\n            if (r) return r;\n        }}\n        return null;\n    }}\n",
+        "applies_to": "scripts",
+        "source": "C:\\Chance1\\IA\\SAP_Tierra_IA\\scripts\\sap_mcp_ops.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-04T04:37:48.783054+00:00",
+      "updated_at": "2026-04-04T04:37:48.783054+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:37:48.783054+00:00",
+        "access_count": 0
+      }
+    },
+    "1bb37d81bbdb": {
+      "id": "1bb37d81bbdb",
+      "type": "fact",
+      "key": "sap_mcp_ops_6",
+      "fact": {
+        "rule": " = inFrames(win.frames[i], fn);\n            if (r) return r;\n        }}\n        return null;\n    }}\n    return inFrames(window, (win) => {{\n        let el = win.document.querySelector(\"[id$='{id_suffix}']\");\n        if (el) {{ el.click(); return 'clicked: ' + el.id; }}\n        return null;\n    }});\n}})();\n\"\"\"\n\ndef js_sensor_scan() -> str:\n    \"\"\"\n    SENSOR DOM — escanea todos los inputs/botones/links visibles en todos los frames.\n    Usar cuando no sabes qué hay en la página o un selector falla.\n    Retorna JSON con: frame, tag, id, text, value, x, y\n    \"\"\"\n    return \"\"\"\n(function() {\n    function scan(win, path) {\n        let elems = [];\n        try {\n            let nodes = win.document.querySelectorAll(\n",
+        "applies_to": "scripts",
+        "source": "C:\\Chance1\\IA\\SAP_Tierra_IA\\scripts\\sap_mcp_ops.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-04T04:37:48.860996+00:00",
+      "updated_at": "2026-04-04T04:37:48.860996+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:37:48.860996+00:00",
+        "access_count": 0
+      }
+    },
+    "0639746d6658": {
+      "id": "0639746d6658",
+      "type": "fact",
+      "key": "sap_mcp_ops_7",
+      "fact": {
+        "rule": "ath) {\n        let elems = [];\n        try {\n            let nodes = win.document.querySelectorAll(\n                \"input:not([type='hidden']), button, a[id], select, textarea, \" +\n                \"img[title*='Delete'], img[title*='Edit'], img[title*='Insert']\"\n            );\n            for (let el of n",
+        "applies_to": "scripts",
+        "source": "C:\\Chance1\\IA\\SAP_Tierra_IA\\scripts\\sap_mcp_ops.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-04T04:37:48.933420+00:00",
+      "updated_at": "2026-04-04T04:37:48.933420+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:37:48.933420+00:00",
+        "access_count": 0
+      }
+    },
+    "4208539dedcd": {
+      "id": "4208539dedcd",
+      "type": "fact",
+      "key": "buscar_oportunidad_0",
+      "fact": {
+        "rule": "\"\"\"\nbuscar_oportunidad.py\nConecta a SAP CRM on-premise via Playwright CDP, navega a Search Opportunities,\nbusca la oportunidad 245451 y reporta: título, cliente y estado.\n\"\"\"\n\nfrom playwright.sync_api import sync_playwright\nimport subprocess\nimport sys\nimport time\nimport datetime\n\n# ── UTF-8 en Windows ──────────────────────────────────────────────────────────\nif hasattr(sys.stdout, \"reconfigure\"):\n    sys.stdout.reconfigure(encoding=\"utf-8\", errors=\"replace\")\nif hasattr(sys.stderr, \"reconfigure\"):\n    sys.stderr.reconfigure(encoding=\"utf-8\", errors=\"replace\")\n\n# ── Configuración ─────────────────────────────────────────────────────────────\nURL        = \"https://wdp-sap.gbm.net:8105/sap/crm_logon?sap-client=500\"\nBASIC_USER = \"ntoledo\"\nBASIC_PASS = \"Gbmcr2026\"\nSAP_USER   = \"ntoledo\"\n",
+        "applies_to": "scripts",
+        "source": "C:\\Chance1\\IA\\SAP_Tierra_IA\\scripts\\buscar_oportunidad.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-04T04:37:49.023358+00:00",
+      "updated_at": "2026-04-04T04:37:49.023358+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:37:49.023358+00:00",
+        "access_count": 0
+      }
+    },
+    "3925f66bcabb": {
+      "id": "3925f66bcabb",
+      "type": "fact",
+      "key": "buscar_oportunidad_1",
+      "fact": {
+        "rule": "ap/crm_logon?sap-client=500\"\nBASIC_USER = \"ntoledo\"\nBASIC_PASS = \"Gbmcr2026\"\nSAP_USER   = \"ntoledo\"\nSAP_PASS   = \"nB$1240906\"\nCHROME_EXE = r\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\"\nPROFILE    = r\"C:\\Users\\ntoledo\\AppData\\Local\\Google\\Chrome\\User Data\"\nCDP_PORT   = 9222\nOPP_ID     = sys.argv[1] if len(sys.argv) > 1 else \"245451\"\n\n# ── Items a insertar ──────────────────────────────────────────────────────────\nITEMS = [\n    {\"part\": \"E0256LL\", \"qty\": \"2\"},\n    {\"part\": \"E02HKLL\", \"qty\": \"3\"},\n]\n\n# ── Logging ───────────────────────────────────────────────────────────────────\ndef log(msg, level=\"INFO\"):\n    ts = datetime.datetime.now().strftime(\"%H:%M:%S.%f\")[:-3]\n    print(f\"[{ts}] [{level}] {msg}\", flush=True)\n\n",
+        "applies_to": "scripts",
+        "source": "C:\\Chance1\\IA\\SAP_Tierra_IA\\scripts\\buscar_oportunidad.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-04T04:37:49.119476+00:00",
+      "updated_at": "2026-04-04T04:37:49.119476+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:37:49.119476+00:00",
+        "access_count": 0
+      }
+    },
+    "b8a226404eb5": {
+      "id": "b8a226404eb5",
+      "type": "fact",
+      "key": "buscar_oportunidad_2",
+      "fact": {
+        "rule": "etime.datetime.now().strftime(\"%H:%M:%S.%f\")[:-3]\n    print(f\"[{ts}] [{level}] {msg}\", flush=True)\n\n# ── Helpers de frames ─────────────────────────────────────────────────────────\ndef sap_frame(page):\n    \"\"\"Devuelve frame[3] si existe, sino el primer frame con 'crm_u' en la URL.\"\"\"\n    frames = page.frames\n    if len(frames) > 3:\n        return frames[3]\n    for fr in frames:\n        if \"crm_u\" in fr.url or \"bsp\" in fr.url:\n            return fr\n    return None\n\ndef all_frames(page):\n    return page.frames\n\n# ── Items: Edit List, Insert, enter_item_in_row, Save ─────────────────────────\n# Lógica extraída de login_sap_once.py (probada y funcional)\n\ndef scroll_to_items(page):\n    \"\"\"Desplaza frame[3] hasta la sección Items para que Edit List visible sea el correcto.\"\"\"\n    JS = r\"\"\"\n",
+        "applies_to": "scripts",
+        "source": "C:\\Chance1\\IA\\SAP_Tierra_IA\\scripts\\buscar_oportunidad.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-04T04:37:49.213125+00:00",
+      "updated_at": "2026-04-04T04:37:49.213125+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:37:49.213125+00:00",
+        "access_count": 0
+      }
+    },
+    "718d26094d16": {
+      "id": "718d26094d16",
+      "type": "fact",
+      "key": "buscar_oportunidad_3",
+      "fact": {
+        "rule": "splaza frame[3] hasta la sección Items para que Edit List visible sea el correcto.\"\"\"\n    JS = r\"\"\"\n        () => {\n            const prod = document.querySelector('input[id*=\"prodtable_omni_input_cel\"], input[id*=\"prodtable_omni_input_afh\"]');\n            if (prod) { prod.scrollIntoView({behavior:'instant',block:'center'}); return 'prodtable:'+prod.id; }\n            const tbl = document.querySelector('[id*=\"btadmini\"]');\n            if (tbl) { tbl.scrollIntoView({behavior:'instant',block:'center'}); return 'btadmini:'+tbl.id; }\n            const ord = document.querySelector('input[id*=\"orderedprod\"]');\n            if (ord) { ord.scrollIntoView({behavior:'instant',block:'center'}); return 'orderedprod:'+ord.id; }\n",
+        "applies_to": "scripts",
+        "source": "C:\\Chance1\\IA\\SAP_Tierra_IA\\scripts\\buscar_oportunidad.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-04T04:37:49.296334+00:00",
+      "updated_at": "2026-04-04T04:37:49.296334+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:37:49.296334+00:00",
+        "access_count": 0
+      }
+    },
+    "0ea7028c42e2": {
+      "id": "0ea7028c42e2",
+      "type": "fact",
+      "key": "buscar_oportunidad_4",
+      "fact": {
+        "rule": "if (ord) { ord.scrollIntoView({behavior:'instant',block:'center'}); return 'orderedprod:'+ord.id; }\n            for (const el of document.querySelectorAll('span,div,td,th,h1,h2,h3')) {\n                if (el.children.length === 0 && (el.textContent||'').trim() === 'Items') {\n                    el.scrollIntoView({behavior:'instant',block:'start'});\n                    return 'items-header';\n                }\n            }\n            return 'not_found';\n        }\n    \"\"\"\n    for fr in page.frames:\n        try:\n            r = fr.evaluate(JS)\n            if r and r != 'not_found':\n                log(f\"  [scroll_to_items] {r}\", level=\"DEBUG\")\n                return\n        except Exception:\n            pass\n\ndef click_edit_list(page):\n    log(\"click_edit_list: buscando botón 'Edit List'\")\n",
+        "applies_to": "scripts",
+        "source": "C:\\Chance1\\IA\\SAP_Tierra_IA\\scripts\\buscar_oportunidad.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-04T04:37:49.376330+00:00",
+      "updated_at": "2026-04-04T04:37:49.376330+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:37:49.376330+00:00",
+        "access_count": 0
+      }
+    },
+    "cb7ce60a485e": {
+      "id": "cb7ce60a485e",
+      "type": "fact",
+      "key": "buscar_oportunidad_5",
+      "fact": {
+        "rule": "            pass\n\ndef click_edit_list(page):\n    log(\"click_edit_list: buscando botón 'Edit List'\")\n    JS = r\"\"\"\n        () => {\n            const terms = ['Edit List', 'Editar lista', 'Edit list'];\n            const editBtns = [];\n            for (const el of document.querySelectorAll('a, button, input[type=button]')) {\n                const t = (el.textContent || el.value || el.title || '').trim();\n                if (terms.includes(t)) editBtns.push(el);\n            }\n            if (editBtns.length === 0) return 'NOT_FOUND|EditLists:';\n\n            let itemsPrefix = null;\n            const knownItems = document.querySelector(\n                'input[id*=\"prodtable\"], [id*=\"btadmini\"], input[id*=\"orderedprod\"]'\n            );\n            if (knownItems) {\n",
+        "applies_to": "scripts",
+        "source": "C:\\Chance1\\IA\\SAP_Tierra_IA\\scripts\\buscar_oportunidad.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-04T04:37:49.458266+00:00",
+      "updated_at": "2026-04-04T04:37:49.458266+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:37:49.458266+00:00",
+        "access_count": 0
+      }
+    },
+    "cea0ab149142": {
+      "id": "cea0ab149142",
+      "type": "fact",
+      "key": "buscar_oportunidad_6",
+      "fact": {
+        "rule": "odtable\"], [id*=\"btadmini\"], input[id*=\"orderedprod\"]'\n            );\n            if (knownItems) {\n                const m = knownItems.id.match(/^(C\\d+_W\\d+_V\\d+)/);\n                if (m) itemsPrefix = m[1];\n            }\n            if (itemsPrefix) {\n                for (const el of editBtns) {\n                    if (el.id && el.id.startsWith(itemsPrefix)) {\n                        el.click(); return el.tagName + ':' + el.id + ' [prefix]';\n                    }\n                }\n                const prefix2 = itemsPrefix.split('_').slice(0,2).join('_');\n                for (const el of editBtns) {\n                    if (el.id && el.id.startsWith(prefix2)) {\n                        el.click(); return el.tagName + ':' + el.id + ' [prefix2]';\n                    }\n",
+        "applies_to": "scripts",
+        "source": "C:\\Chance1\\IA\\SAP_Tierra_IA\\scripts\\buscar_oportunidad.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-04T04:37:49.539059+00:00",
+      "updated_at": "2026-04-04T04:37:49.539059+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:37:49.539059+00:00",
+        "access_count": 0
+      }
+    },
+    "5822d283000a": {
+      "id": "5822d283000a",
+      "type": "fact",
+      "key": "buscar_oportunidad_7",
+      "fact": {
+        "rule": "                  el.click(); return el.tagName + ':' + el.id + ' [prefix2]';\n                    }\n                    let p = el.parentElement;\n                    while (p) {\n                        if (p.id && p.id.startsWith(prefix2)) {\n                            el.click(); return el.tagName +",
+        "applies_to": "scripts",
+        "source": "C:\\Chance1\\IA\\SAP_Tierra_IA\\scripts\\buscar_oportunidad.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-04T04:37:49.605194+00:00",
+      "updated_at": "2026-04-04T04:37:49.605194+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:37:49.605194+00:00",
+        "access_count": 0
+      }
+    },
+    "5fd14997de4b": {
+      "id": "5fd14997de4b",
+      "type": "fact",
+      "key": "sap_visual_0",
+      "fact": {
+        "rule": "\"\"\"\nsap_visual.py — Enfoque 100% visual: screenshots + page.mouse.click(x, y)\nReutiliza lógica de login/CDP de login_sap_once_backup_funcional.py\n\"\"\"\n\nfrom playwright.sync_api import sync_playwright\nfrom pathlib import Path\nimport subprocess\nimport sys\nimport time\nimport datetime\nimport base64\n\nif hasattr(sys.stdout, \"reconfigure\"):\n    sys.stdout.reconfigure(encoding=\"utf-8\", errors=\"replace\")\nif hasattr(sys.stderr, \"reconfigure\"):\n    sys.stderr.reconfigure(encoding=\"utf-8\", errors=\"replace\")\n\n# ── Config ────────────────────────────────────────────────────────────────────\nURL        = \"https://wdp-sap.gbm.net:8105/sap/crm_logon?sap-client=500\"\nBASIC_USER = \"ntoledo\"\nBASIC_PASS = \"Gbmcr2026\"\nSAP_USER   = \"ntoledo\"\nSAP_PASS   = \"nB$1240906\"\n",
+        "applies_to": "scripts",
+        "source": "C:\\Chance1\\IA\\SAP_Tierra_IA\\scripts\\sap_visual.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-04T04:37:49.685624+00:00",
+      "updated_at": "2026-04-04T04:37:49.685624+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:37:49.685624+00:00",
+        "access_count": 0
+      }
+    },
+    "d6a176eaf155": {
+      "id": "d6a176eaf155",
+      "type": "fact",
+      "key": "sap_visual_1",
+      "fact": {
+        "rule": "0\"\nBASIC_USER = \"ntoledo\"\nBASIC_PASS = \"Gbmcr2026\"\nSAP_USER   = \"ntoledo\"\nSAP_PASS   = \"nB$1240906\"\nCHROME_EXE = r\"C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe\"\nPROFILE    = r\"C:\\Users\\ntoledo\\AppData\\Local\\Google\\Chrome\\User Data\"\nCDP_PORT   = 9222\nOPP_ID     = \"245451\"\nSHOTS_DIR  = Path(\"scripts\")\n\n# ── Logging ───────────────────────────────────────────────────────────────────\ndef log(msg, level=\"INFO\"):\n    ts = datetime.datetime.now().strftime(\"%H:%M:%S.%f\")[:-3]\n    print(f\"[{ts}] [{level}] {msg}\", flush=True)\n\ndef shot(page, name, label=\"\"):\n    path = SHOTS_DIR / f\"{name}.png\"\n    try:\n        page.screenshot(path=str(path), timeout=5000)\n        tag = f\" — {label}\" if label else \"\"\n        log(f\"📸 {path}{tag}\")\n        return str(path)\n    except Exception as e:\n",
+        "applies_to": "scripts",
+        "source": "C:\\Chance1\\IA\\SAP_Tierra_IA\\scripts\\sap_visual.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-04T04:37:49.779173+00:00",
+      "updated_at": "2026-04-04T04:37:49.779173+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:37:49.779173+00:00",
+        "access_count": 0
+      }
+    },
+    "d9a189d48d6f": {
+      "id": "d9a189d48d6f",
+      "type": "fact",
+      "key": "sap_visual_2",
+      "fact": {
+        "rule": " if label else \"\"\n        log(f\"📸 {path}{tag}\")\n        return str(path)\n    except Exception as e:\n        log(f\"  ⚠️ screenshot error: {e}\", level=\"WARN\")\n        return None\n\n# ── Enfoque visual: buscar elemento → bounding_box → mouse.click ──────────────\nimport json as _json\n\ndef get_frame_offset(page, target_frame):\n    \"\"\"\n    Calcula el offset (x, y) del viewport de un frame respecto al viewport de la página principal.\n    Necesario para convertir coords frame-relativas a coords de viewport.\n    \"\"\"\n    if target_frame == page.main_frame:\n        return 0, 0\n    parent = target_frame.parent_frame\n    if parent is None:\n        return 0, 0\n    # Offset recursivo del frame padre\n    px, py = get_frame_offset(page, parent)\n    # Encontrar el iframe en el DOM del padre\n    try:\n",
+        "applies_to": "scripts",
+        "source": "C:\\Chance1\\IA\\SAP_Tierra_IA\\scripts\\sap_visual.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-04T04:37:49.855452+00:00",
+      "updated_at": "2026-04-04T04:37:49.855452+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:37:49.855452+00:00",
+        "access_count": 0
+      }
+    },
+    "0f80a5806d64": {
+      "id": "0f80a5806d64",
+      "type": "fact",
+      "key": "sap_visual_3",
+      "fact": {
+        "rule": "\n    px, py = get_frame_offset(page, parent)\n    # Encontrar el iframe en el DOM del padre\n    try:\n        result = parent.evaluate(\"\"\"\n            (url) => {\n                const iframes = document.querySelectorAll('iframe');\n                for (const iframe of iframes) {\n                    try {\n                        const cw = iframe.contentWindow;\n                        if (!cw) continue;\n                        const r = iframe.getBoundingClientRect();\n                        if (r.width > 0 && r.height > 0) return {x: r.left, y: r.top, w: r.width, h: r.height};\n                    } catch(e) {}\n                }\n                // Fallback: el iframe más grande\n                let best = null, maxA = 0;\n",
+        "applies_to": "scripts",
+        "source": "C:\\Chance1\\IA\\SAP_Tierra_IA\\scripts\\sap_visual.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-04T04:37:49.926556+00:00",
+      "updated_at": "2026-04-04T04:37:49.926556+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:37:49.926556+00:00",
+        "access_count": 0
+      }
+    },
+    "a96be9e3f592": {
+      "id": "a96be9e3f592",
+      "type": "fact",
+      "key": "sap_visual_4",
+      "fact": {
+        "rule": "     }\n                // Fallback: el iframe más grande\n                let best = null, maxA = 0;\n                for (const iframe of document.querySelectorAll('iframe')) {\n                    const r = iframe.getBoundingClientRect();\n                    const a = r.width * r.height;\n                    if (a > maxA && r.width > 0) { maxA = a; best = {x: r.left, y: r.top, w: r.width, h: r.height}; }\n                }\n                return best;\n            }\n        \"\"\", target_frame.url)\n        if result:\n            return px + result[\"x\"], py + result[\"y\"]\n    except Exception:\n        pass\n    return px, py\n\ndef find_element_coords(page, text, timeout_ms=8000, nav_element=False, max_x=None, min_x=None):\n    \"\"\"\n",
+        "applies_to": "scripts",
+        "source": "C:\\Chance1\\IA\\SAP_Tierra_IA\\scripts\\sap_visual.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-04T04:37:49.998279+00:00",
+      "updated_at": "2026-04-04T04:37:49.998279+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:37:49.998279+00:00",
+        "access_count": 0
+      }
+    },
+    "59318456d986": {
+      "id": "59318456d986",
+      "type": "fact",
+      "key": "sap_visual_5",
+      "fact": {
+        "rule": "ind_element_coords(page, text, timeout_ms=8000, nav_element=False, max_x=None, min_x=None):\n    \"\"\"\n    Busca elemento con el texto dado usando evaluate_handle en todos los frames.\n    - nav_element=True: itera frames FORWARD (nav en frames iniciales)\n    - nav_element=False: itera frames REVERSED (contenido SAP en frame[3])\n    - max_x/min_x: filtro de posición X en viewport (para evitar falsos positivos)\n    Retorna (cx, cy) en coordenadas de viewport o (None, None).\n    \"\"\"\n    deadline = time.time() + timeout_ms / 1000\n    while time.time() < deadline:\n        frames = page.frames\n        ordered = frames if nav_element else list(reversed(frames))\n        for frame in ordered:\n            try:\n                handle = frame.evaluate_handle(f\"\"\"\n                    (target) => {{\n",
+        "applies_to": "scripts",
+        "source": "C:\\Chance1\\IA\\SAP_Tierra_IA\\scripts\\sap_visual.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-04T04:37:50.080704+00:00",
+      "updated_at": "2026-04-04T04:37:50.080704+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:37:50.080704+00:00",
+        "access_count": 0
+      }
+    },
+    "4259c196cbcb": {
+      "id": "4259c196cbcb",
+      "type": "fact",
+      "key": "sap_visual_6",
+      "fact": {
+        "rule": "        try:\n                handle = frame.evaluate_handle(f\"\"\"\n                    (target) => {{\n                        const els = document.querySelectorAll('a, button, input[type=submit], span, li, td');\n                        for (const el of els) {{\n                            const t = (el.textContent || el.value || el.title || '').trim().replace(/\\\\s+/g, ' ');\n                            if (t === target || t.startsWith(target)) {{\n                                const r = el.getBoundingClientRect();\n                                if (r.width > 0 && r.height > 0) return el;\n                            }}\n                        }}\n                        return null;\n                    }}\n                \"\"\", text)\n                el = handle.as_element()\n",
+        "applies_to": "scripts",
+        "source": "C:\\Chance1\\IA\\SAP_Tierra_IA\\scripts\\sap_visual.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-04T04:37:50.155381+00:00",
+      "updated_at": "2026-04-04T04:37:50.155381+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:37:50.155381+00:00",
+        "access_count": 0
+      }
+    },
+    "a17017704d24": {
+      "id": "a17017704d24",
+      "type": "fact",
+      "key": "sap_visual_7",
+      "fact": {
+        "rule": "rn null;\n                    }}\n                \"\"\", text)\n                el = handle.as_element()\n                if el:\n                    bbox = el.bounding_box()\n                    if bbox and bbox[\"width\"] > 0 and bbox[\"height\"] > 0:\n                        cx = bbox[\"x\"] + bbox[\"width\"] / 2\n                        cy = bbox[\"",
+        "applies_to": "scripts",
+        "source": "C:\\Chance1\\IA\\SAP_Tierra_IA\\scripts\\sap_visual.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-04T04:37:50.222705+00:00",
+      "updated_at": "2026-04-04T04:37:50.222705+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:37:50.222705+00:00",
+        "access_count": 0
+      }
+    },
+    "ea58b37412b5": {
+      "id": "ea58b37412b5",
+      "type": "fact",
+      "key": "get_opp_0",
+      "fact": {
+        "rule": "\"\"\"\nget_opp.py — Extrae datos de una oportunidad SAP via CDP\n=========================================================\nUso:\n    python get_opp.py <OPP_ID>\n    python get_opp.py 245372\n\nRequiere: Chrome corriendo con --remote-debugging-port=9222\n    Iniciar con: C:\\Chance1\\SAP_Tierra_IA\\start_chrome_cdp.bat\n\"\"\"\nimport sys, time, datetime\nfrom playwright.sync_api import sync_playwright\n\nif hasattr(sys.stdout, \"reconfigure\"):\n    sys.stdout.reconfigure(encoding=\"utf-8\", errors=\"replace\")\n\nOPP_ID    = sys.argv[1] if len(sys.argv) > 1 else input(\"Numero de oportunidad: \").strip()\nCDP_PORT  = 9222\nSAP_URL   = \"https://wdp-sap.gbm.net:8105/sap/crm_logon?sap-client=500\"\nSAP_USER  = \"ntoledo\"\nSAP_PASS  = \"nB$1240906\"\nHTTP_USER = \"ntoledo\"\nHTTP_PASS = \"Gbmcr2026\"\n\n",
+        "applies_to": "scripts",
+        "source": "C:\\Chance1\\IA\\SAP_Tierra_IA\\scripts\\get_opp.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-04T04:37:50.314041+00:00",
+      "updated_at": "2026-04-04T04:37:50.314041+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:37:50.314041+00:00",
+        "access_count": 0
+      }
+    },
+    "219c1b061298": {
+      "id": "219c1b061298",
+      "type": "fact",
+      "key": "get_opp_1",
+      "fact": {
+        "rule": "=500\"\nSAP_USER  = \"ntoledo\"\nSAP_PASS  = \"nB$1240906\"\nHTTP_USER = \"ntoledo\"\nHTTP_PASS = \"Gbmcr2026\"\n\ndef log(msg): print(f\"  {datetime.datetime.now().strftime('%H:%M:%S')}  {msg}\", flush=True)\n\ndef ensure_sap_logged_in(page):\n    \"\"\"Navega a SAP y hace login si es necesario.\"\"\"\n    url = page.url\n    if \"wdp-sap.gbm.net\" not in url or \"crm_logon\" in url:\n        log(\"Cargando SAP CRM...\")\n        page.goto(SAP_URL, wait_until=\"domcontentloaded\",\n                  timeout=30000)\n        time.sleep(2)\n\n    # Detectar pantalla de login SAP (form con usuario/password)\n    try:\n        user_inp = page.locator(\"input[name='sap-user'], input[id*='User'], input[name='User']\").first\n        if user_inp.is_visible(timeout=3000):\n            log(\"Login SAP requerido — autenticando...\")\n",
+        "applies_to": "scripts",
+        "source": "C:\\Chance1\\IA\\SAP_Tierra_IA\\scripts\\get_opp.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-04T04:37:50.402158+00:00",
+      "updated_at": "2026-04-04T04:37:50.402158+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:37:50.402158+00:00",
+        "access_count": 0
+      }
+    },
+    "0836c5862d46": {
+      "id": "0836c5862d46",
+      "type": "fact",
+      "key": "get_opp_2",
+      "fact": {
+        "rule": "     if user_inp.is_visible(timeout=3000):\n            log(\"Login SAP requerido — autenticando...\")\n            user_inp.fill(SAP_USER)\n            pwd = page.locator(\"input[type='password']\").first\n            pwd.click()\n            for c in SAP_PASS:\n                pwd.type(c, delay=40)\n            page.locator(\"input[type='submit'], button[type='submit'], input[value*='Log']\").first.click()\n            page.wait_for_load_state(\"domcontentloaded\", timeout=15000)\n            time.sleep(3)\n            log(\"Login completado\")\n    except Exception:\n        pass  # Ya estaba logueado\n\ndef find_work_frame(page):\n    for fr in page.frames:\n        if \"bsp\" in fr.url and \"crmcmp_hdr\" not in fr.url and \"blank\" not in fr.url:\n            return fr\n",
+        "applies_to": "scripts",
+        "source": "C:\\Chance1\\IA\\SAP_Tierra_IA\\scripts\\get_opp.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-04T04:37:50.497423+00:00",
+      "updated_at": "2026-04-04T04:37:50.497423+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:37:50.497423+00:00",
+        "access_count": 0
+      }
+    },
+    "aad5f27ae139": {
+      "id": "aad5f27ae139",
+      "type": "fact",
+      "key": "get_opp_3",
+      "fact": {
+        "rule": " if \"bsp\" in fr.url and \"crmcmp_hdr\" not in fr.url and \"blank\" not in fr.url:\n            return fr\n    return page.frames[1] if len(page.frames) > 1 else page.main_frame\n\ndef main():\n    t0 = time.time()\n    with sync_playwright() as p:\n        log(f\"Conectando a Chrome CDP:{CDP_PORT}...\")\n        try:\n            browser = p.chromium.connect_over_cdp(f\"http://localhost:{CDP_PORT}\")\n        except Exception as e:\n            print(f\"\\n  [ERROR] No se pudo conectar a CDP: {e}\")\n            print(\"  Ejecuta primero: C:\\\\Chance1\\\\SAP_Tierra_IA\\\\start_chrome_cdp.bat\\n\")\n            sys.exit(1)\n\n        ctx  = browser.contexts[0]\n        page = ctx.pages[0]\n        log(f\"Chrome conectado. Tabs activos: {len(ctx.pages)}\")\n\n",
+        "applies_to": "scripts",
+        "source": "C:\\Chance1\\IA\\SAP_Tierra_IA\\scripts\\get_opp.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-04T04:37:50.595476+00:00",
+      "updated_at": "2026-04-04T04:37:50.595476+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:37:50.595476+00:00",
+        "access_count": 0
+      }
+    },
+    "ac81a8351990": {
+      "id": "ac81a8351990",
+      "type": "fact",
+      "key": "get_opp_4",
+      "fact": {
+        "rule": "ts[0]\n        page = ctx.pages[0]\n        log(f\"Chrome conectado. Tabs activos: {len(ctx.pages)}\")\n\n        # ── HTTP Basic Auth para SAP ────────────────────────────────────────────\n        import base64\n        auth_b64 = base64.b64encode(f\"{HTTP_USER}:{HTTP_PASS}\".encode()).decode()\n        page.route(\"**/*\", lambda route: route.continue_(\n            headers={**route.request.headers, \"Authorization\": f\"Basic {auth_b64}\"}\n        ))\n\n        # ── Asegurar sesión SAP activa ─────────────────────────────────────────\n        ensure_sap_logged_in(page)\n\n        # ── Navegar a Search: Opportunities ───────────────────────────────────\n        log(\"Navegando: Sales Cycle > Opportunities...\")\n        page.evaluate(\"\"\"\n            () => {\n",
+        "applies_to": "scripts",
+        "source": "C:\\Chance1\\IA\\SAP_Tierra_IA\\scripts\\get_opp.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-04T04:37:50.684613+00:00",
+      "updated_at": "2026-04-04T04:37:50.684613+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:37:50.684613+00:00",
+        "access_count": 0
+      }
+    },
+    "20a128aa0778": {
+      "id": "20a128aa0778",
+      "type": "fact",
+      "key": "get_opp_5",
+      "fact": {
+        "rule": "     log(\"Navegando: Sales Cycle > Opportunities...\")\n        page.evaluate(\"\"\"\n            () => {\n                // Buscar link de Sales Cycle en cualquier frame\n                for (let i = 0; i < window.frames.length; i++) {\n                    try {\n                        let links = window.frames[i].document.querySelectorAll('a');\n                        for (let a of links) {\n                            if (a.textContent.trim() === 'Sales Cycle') { a.click(); return 'clicked'; }\n                        }\n                    } catch(e) {}\n                }\n            }\n        \"\"\")\n        page.wait_for_load_state(\"domcontentloaded\")\n        time.sleep(1)\n\n        # Click Opportunities\n        page.evaluate(\"\"\"\n            () => {\n",
+        "applies_to": "scripts",
+        "source": "C:\\Chance1\\IA\\SAP_Tierra_IA\\scripts\\get_opp.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-04T04:37:50.760903+00:00",
+      "updated_at": "2026-04-04T04:37:50.760903+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:37:50.760903+00:00",
+        "access_count": 0
+      }
+    },
+    "02a553f73365": {
+      "id": "02a553f73365",
+      "type": "fact",
+      "key": "get_opp_6",
+      "fact": {
+        "rule": "\n        time.sleep(1)\n\n        # Click Opportunities\n        page.evaluate(\"\"\"\n            () => {\n                for (let i = 0; i < window.frames.length; i++) {\n                    try {\n                        let links = window.frames[i].document.querySelectorAll('a');\n                        for (let a of links) {\n                            if (a.textContent.trim() === 'Opportunities') { a.click(); return; }\n                        }\n                    } catch(e) {}\n                }\n            }\n        \"\"\")\n        page.wait_for_load_state(\"domcontentloaded\")\n        time.sleep(1.5)\n\n        # ── Llenar campo Opportunity ID ────────────────────────────────────────\n        log(f\"Buscando oportunidad ID: {OPP_ID}\")\n        filled = False\n        for fr in page.frames:\n",
+        "applies_to": "scripts",
+        "source": "C:\\Chance1\\IA\\SAP_Tierra_IA\\scripts\\get_opp.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-04T04:37:50.829156+00:00",
+      "updated_at": "2026-04-04T04:37:50.829156+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:37:50.829156+00:00",
+        "access_count": 0
+      }
+    },
+    "7f56049dccf4": {
+      "id": "7f56049dccf4",
+      "type": "fact",
+      "key": "get_opp_7",
+      "fact": {
+        "rule": "    log(f\"Buscando oportunidad ID: {OPP_ID}\")\n        filled = False\n        for fr in page.frames:\n            try:\n                inp = fr.locator(\"input\").filter(has_not_text=\"\").first\n                # Buscar por contexto: input cerca de texto \"Opportunity ID\"\n                inputs = fr.locator(\"input[id*='Opp'], input[id*='opp'], input[id*='V9']\").all()\n                if not in",
+        "applies_to": "scripts",
+        "source": "C:\\Chance1\\IA\\SAP_Tierra_IA\\scripts\\get_opp.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-04T04:37:50.903519+00:00",
+      "updated_at": "2026-04-04T04:37:50.903519+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:37:50.903519+00:00",
+        "access_count": 0
+      }
+    },
+    "ce7f8f84d7dc": {
+      "id": "ce7f8f84d7dc",
+      "type": "fact",
+      "key": "ver_pantalla_0",
+      "fact": {
+        "rule": "import pyautogui\nimport time\n\nprint(\"Esperando 5 segundos... cambia a Chrome ahora!\")\ntime.sleep(5)\nscreenshot = pyautogui.screenshot()\nscreenshot.save('scripts/pantalla_actual.png')\nprint(\"Screenshot guardado en scripts/pantalla_actual.png\")",
+        "applies_to": "scripts",
+        "source": "C:\\Chance1\\IA\\SAP_Tierra_IA\\scripts\\ver_pantalla.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-04T04:37:50.983805+00:00",
+      "updated_at": "2026-04-04T04:37:50.983805+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:37:50.983805+00:00",
+        "access_count": 0
+      }
+    }
+  },
+  "tag_index": {
+    "python": [
+      "f52d54e56633",
+      "baba4d823591",
+      "45a5768ae53f",
+      "cee4141c649b",
+      "646426db0969",
+      "a4d1033dba01",
+      "1bb37d81bbdb",
+      "0639746d6658",
+      "4208539dedcd",
+      "3925f66bcabb",
+      "b8a226404eb5",
+      "718d26094d16",
+      "0ea7028c42e2",
+      "cb7ce60a485e",
+      "cea0ab149142",
+      "5822d283000a",
+      "5fd14997de4b",
+      "d6a176eaf155",
+      "d9a189d48d6f",
+      "0f80a5806d64",
+      "a96be9e3f592",
+      "59318456d986",
+      "4259c196cbcb",
+      "a17017704d24",
+      "ea58b37412b5",
+      "219c1b061298",
+      "0836c5862d46",
+      "aad5f27ae139",
+      "ac81a8351990",
+      "20a128aa0778",
+      "02a553f73365",
+      "7f56049dccf4",
+      "ce7f8f84d7dc"
+    ],
+    "py": [
+      "f52d54e56633",
+      "baba4d823591",
+      "45a5768ae53f",
+      "cee4141c649b",
+      "646426db0969",
+      "a4d1033dba01",
+      "1bb37d81bbdb",
+      "0639746d6658",
+      "4208539dedcd",
+      "3925f66bcabb",
+      "b8a226404eb5",
+      "718d26094d16",
+      "0ea7028c42e2",
+      "cb7ce60a485e",
+      "cea0ab149142",
+      "5822d283000a",
+      "5fd14997de4b",
+      "d6a176eaf155",
+      "d9a189d48d6f",
+      "0f80a5806d64",
+      "a96be9e3f592",
+      "59318456d986",
+      "4259c196cbcb",
+      "a17017704d24",
+      "ea58b37412b5",
+      "219c1b061298",
+      "0836c5862d46",
+      "aad5f27ae139",
+      "ac81a8351990",
+      "20a128aa0778",
+      "02a553f73365",
+      "7f56049dccf4",
+      "ce7f8f84d7dc"
+    ]
+  },
+  "stats": {
+    "total_entries": 33,
+    "total_lookups": 0,
+    "total_hits": 0
+  }
+}

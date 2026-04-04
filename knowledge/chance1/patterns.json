@@ -8468,6 +8468,672 @@
         "last_accessed": "2026-04-04T03:47:11.813784+00:00",
         "access_count": 0
       }
+    },
+    "bfa24c7109ba": {
+      "id": "bfa24c7109ba",
+      "type": "fact",
+      "key": "BoM_web_0",
+      "fact": {
+        "rule": "<!DOCTYPE html>\n<html lang=\"es\" class=\"theme-dark\">\n<head>\n<meta charset=\"UTF-8\">\n<meta name=\"viewport\" content=\"width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no\">\n<title>GBM | Asistente IA</title>\n<link href=\"https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap\" rel=\"stylesheet\">\n<style>\n*{margin:0;padding:0;box-sizing:border-box}\n:root{--bg:#0F131C;--bg2:#1A2132;--bg3:#202D45;--surface:rgba(26,33,50,.85);--text:#BAD7F5;--text2:#F2F5FA;--text3:#6B84A8;--text4:#3D5573;--accent:#4BB6D3;--accent2:#2A6DCE;--green:#1DC19C;--green-d:rgba(29,193,156,.12);--green-b:rgba(29,193,156,.25);--cyan-d:rgba(75,182,211,.12);--cyan-b:rgba(75,182,211,.25);--danger:#E05252;--r:12px}\nhtml{height:100%}\n",
+        "applies_to": "chance1",
+        "source": "C:\\Chance1\\BoM_web.html",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "web",
+        "html"
+      ],
+      "created_at": "2026-04-04T04:39:36.140627+00:00",
+      "updated_at": "2026-04-04T04:39:36.140627+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:39:36.140627+00:00",
+        "access_count": 0
+      }
+    },
+    "beaf2b2e4aaa": {
+      "id": "beaf2b2e4aaa",
+      "type": "fact",
+      "key": "BoM_web_1",
+      "fact": {
+        "rule": "n-d:rgba(75,182,211,.12);--cyan-b:rgba(75,182,211,.25);--danger:#E05252;--r:12px}\nhtml{height:100%}\nbody{font-family:'Manrope',sans-serif;background:var(--bg);color:var(--text);height:100%;overflow:hidden;font-size:16px;-webkit-font-smoothing:antialiased}\n::selection{background:var(--accent);color:var(--bg)}\n::-webkit-scrollbar{width:3px}\n::-webkit-scrollbar-track{background:transparent}\n::-webkit-scrollbar-thumb{background:rgba(186,215,245,.08);border-radius:8px}\ncanvas#canvas{position:fixed;inset:0;z-index:0}\ncanvas#trail{position:fixed;inset:0;z-index:1;pointer-events:none}\ncanvas#fxOverlay{position:fixed;inset:0;z-index:3;pointer-events:none}\n#ui{position:relative;z-index:2;height:100vh;display:flex;flex-direction:column}\n",
+        "applies_to": "chance1",
+        "source": "C:\\Chance1\\BoM_web.html",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "web",
+        "html"
+      ],
+      "created_at": "2026-04-04T04:39:36.247509+00:00",
+      "updated_at": "2026-04-04T04:39:36.247509+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:39:36.247509+00:00",
+        "access_count": 0
+      }
+    },
+    "f5dbd8d343c6": {
+      "id": "f5dbd8d343c6",
+      "type": "fact",
+      "key": "BoM_web_2",
+      "fact": {
+        "rule": "inter-events:none}\n#ui{position:relative;z-index:2;height:100vh;display:flex;flex-direction:column}\n#site-header{position:fixed;top:0;left:0;right:0;z-index:80;padding:0 32px;height:56px;display:flex;align-items:center;background:linear-gradient(180deg,rgba(15,19,28,.92) 60%,rgba(15,19,28,0))}\n.logo{display:flex;align-items:center;gap:10px}\n.logo-hex{width:28px;height:28px}\n.logo-hex svg{width:100%;height:100%}\n.logo-text{font-size:15px;font-weight:700;color:var(--text2);letter-spacing:-.02em}\n#site-header nav{display:flex;align-items:center;gap:4px;margin-left:40px}\n#site-header nav a{display:flex;align-items:center;gap:7px;padding:8px 14px;border-radius:8px;font-size:13px;font-weight:500;color:var(--text3);text-decoration:none;transition:all .2s}\n",
+        "applies_to": "chance1",
+        "source": "C:\\Chance1\\BoM_web.html",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "web",
+        "html"
+      ],
+      "created_at": "2026-04-04T04:39:36.357447+00:00",
+      "updated_at": "2026-04-04T04:39:36.357447+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:39:36.357447+00:00",
+        "access_count": 0
+      }
+    },
+    "10e944313d6f": {
+      "id": "10e944313d6f",
+      "type": "fact",
+      "key": "BoM_web_3",
+      "fact": {
+        "rule": "dius:8px;font-size:13px;font-weight:500;color:var(--text3);text-decoration:none;transition:all .2s}\n#site-header nav a .hex{width:14px;height:14px;opacity:.4;transition:opacity .2s}\n#site-header nav a .hex svg{width:100%;height:100%;fill:var(--accent)}\n#site-header nav a:hover{color:var(--text)}\n#site-header nav a:hover .hex{opacity:.7}\n#site-header nav a.is-active{color:var(--text2);background:rgba(75,182,211,.06)}\n#site-header nav a.is-active .hex{opacity:1}\n.header-right{margin-left:auto;display:flex;align-items:center;gap:12px}\n.header-status{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--green);display:flex;align-items:center;gap:6px}\n",
+        "applies_to": "chance1",
+        "source": "C:\\Chance1\\BoM_web.html",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "web",
+        "html"
+      ],
+      "created_at": "2026-04-04T04:39:36.466190+00:00",
+      "updated_at": "2026-04-04T04:39:36.466190+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:39:36.466190+00:00",
+        "access_count": 0
+      }
+    },
+    "79fe5bd552ba": {
+      "id": "79fe5bd552ba",
+      "type": "fact",
+      "key": "BoM_web_4",
+      "fact": {
+        "rule": "etBrains Mono',monospace;font-size:10px;color:var(--green);display:flex;align-items:center;gap:6px}\n.header-status::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--green);box-shadow:0 0 8px var(--green);animation:pulse 2s ease infinite}\n@keyframes pulse{0%,100%{opacity:1}50%{opacity:.25}}\n.btn-cta{padding:8px 20px;background:var(--accent2);color:#fff;border:none;border-radius:8px;font-size:13px;font-weight:600;font-family:inherit;cursor:pointer;transition:all .2s;text-decoration:none}\n.btn-cta:hover{background:#3578E0;box-shadow:0 4px 20px rgba(42,109,206,.3)}\n#viewport-wrapper{flex:1;overflow-y:auto;overflow-x:hidden;scroll-behavior:smooth}\n.o-section{min-height:100vh;padding:80px 0 40px;position:relative;display:flex;align-items:center}\n",
+        "applies_to": "chance1",
+        "source": "C:\\Chance1\\BoM_web.html",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "web",
+        "html"
+      ],
+      "created_at": "2026-04-04T04:39:36.576773+00:00",
+      "updated_at": "2026-04-04T04:39:36.576773+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:39:36.576773+00:00",
+        "access_count": 0
+      }
+    },
+    "0994b651b0b6": {
+      "id": "0994b651b0b6",
+      "type": "fact",
+      "key": "BoM_web_5",
+      "fact": {
+        "rule": "\n.o-section{min-height:100vh;padding:80px 0 40px;position:relative;display:flex;align-items:center}\n.o-container{max-width:1200px;margin:0 auto;padding:0 40px;width:100%}\n.o-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}\n.hero-left{display:flex;flex-direction:column;gap:20px}\n.hero-badge{display:inline-flex;align-items:center;gap:8px;padding:5px 14px 5px 6px;background:var(--cyan-d);border:1px solid var(--cyan-b);border-radius:24px;font-size:12px;color:var(--accent);width:fit-content;cursor:pointer;transition:background .2s}\n.hero-badge:hover{background:rgba(75,182,211,.18)}\n.hero-badge-tag{background:var(--accent);color:var(--bg);font-size:10px;font-weight:700;padding:2px 8px;border-radius:12px}\n",
+        "applies_to": "chance1",
+        "source": "C:\\Chance1\\BoM_web.html",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "web",
+        "html"
+      ],
+      "created_at": "2026-04-04T04:39:36.727695+00:00",
+      "updated_at": "2026-04-04T04:39:36.727695+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:39:36.727695+00:00",
+        "access_count": 0
+      }
+    },
+    "82daad96fccf": {
+      "id": "82daad96fccf",
+      "type": "fact",
+      "key": "BoM_web_6",
+      "fact": {
+        "rule": "nd:var(--accent);color:var(--bg);font-size:10px;font-weight:700;padding:2px 8px;border-radius:12px}\n.hero-title{font-size:clamp(36px,4.2vw,64px);font-weight:800;line-height:1.05;letter-spacing:-.04em;color:var(--text2)}\n.o-text-gradient{background:linear-gradient(135deg,var(--accent) 0%,var(--green) 50%,var(--accent2) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}\n.hero-sub{font-size:16px;color:var(--text3);line-height:1.65;max-width:400px}\n.hero-sub span{color:var(--text)}\n.hero-btn{display:inline-flex;padding:12px 28px;background:var(--accent2);color:#fff;border:none;border-radius:10px;font-size:14px;font-weight:600;font-family:inherit;cursor:pointer;transition:all .2s;width:fit-content}\n",
+        "applies_to": "chance1",
+        "source": "C:\\Chance1\\BoM_web.html",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "web",
+        "html"
+      ],
+      "created_at": "2026-04-04T04:39:36.837844+00:00",
+      "updated_at": "2026-04-04T04:39:36.837844+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:39:36.837844+00:00",
+        "access_count": 0
+      }
+    },
+    "cbbc3b6a5189": {
+      "id": "cbbc3b6a5189",
+      "type": "fact",
+      "key": "BoM_web_7",
+      "fact": {
+        "rule": "-size:14px;font-weight:600;font-family:inherit;cursor:pointer;transition:all .2s;width:fit-content}\n.hero-btn:hover{background:#3578E0;box-shadow:0 6px 24px rgba(42,109,206,.25);transform:translateY(-1px)}\n.hero-steps{display:flex;flex-direction:column;gap:0;margin-top:8px}\n.hero-step{display:flex;align-items:flex-start;gap:14px;padding:14px 0;border-top:1px solid rgba(186,215,245,.06);cursor:pointer;transition:all .2s}\n.hero-step:hover{background:rgba(75,182,211,.03);padding-left:8px;borde",
+        "applies_to": "chance1",
+        "source": "C:\\Chance1\\BoM_web.html",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "web",
+        "html"
+      ],
+      "created_at": "2026-04-04T04:39:36.936916+00:00",
+      "updated_at": "2026-04-04T04:39:36.936916+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:39:36.936916+00:00",
+        "access_count": 0
+      }
+    },
+    "2884b88b9a82": {
+      "id": "2884b88b9a82",
+      "type": "fact",
+      "key": "package-lock_0",
+      "fact": {
+        "rule": "{\n  \"name\": \"chance1\",\n  \"version\": \"1.0.0\",\n  \"lockfileVersion\": 3,\n  \"requires\": true,\n  \"packages\": {\n    \"\": {\n      \"name\": \"chance1\",\n      \"version\": \"1.0.0\",\n      \"license\": \"ISC\",\n      \"dependencies\": {\n        \"pptxgenjs\": \"^4.0.1\",\n        \"react\": \"^19.2.4\",\n        \"react-dom\": \"^19.2.4\",\n        \"react-icons\": \"^5.6.0\",\n        \"sharp\": \"^0.34.5\"\n      }\n    },\n    \"node_modules/@emnapi/runtime\": {\n      \"version\": \"1.9.1\",\n      \"resolved\": \"https://registry.npmjs.org/@emnapi/runtime/-/runtime-1.9.1.tgz\",\n      \"integrity\": \"sha512-VYi5+ZVLhpgK4hQ0TAjiQiZ6ol0oe4mBx7mVv7IflsiEp0OWoVsp/+f9Vc1hOhE0TtkORVrI1GvzyreqpgWtkA==\",\n      \"license\": \"MIT\",\n      \"optional\": true,\n      \"dependencies\": {\n        \"tslib\": \"^2.4.0\"\n      }\n    },\n    \"node_modules/@img/colour\": {\n",
+        "applies_to": "chance1",
+        "source": "C:\\Chance1\\package-lock.json",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "json",
+        "json"
+      ],
+      "created_at": "2026-04-04T04:39:37.037287+00:00",
+      "updated_at": "2026-04-04T04:39:37.037287+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:39:37.037287+00:00",
+        "access_count": 0
+      }
+    },
+    "e3671212c138": {
+      "id": "e3671212c138",
+      "type": "fact",
+      "key": "package-lock_1",
+      "fact": {
+        "rule": "\n      \"dependencies\": {\n        \"tslib\": \"^2.4.0\"\n      }\n    },\n    \"node_modules/@img/colour\": {\n      \"version\": \"1.1.0\",\n      \"resolved\": \"https://registry.npmjs.org/@img/colour/-/colour-1.1.0.tgz\",\n      \"integrity\": \"sha512-Td76q7j57o/tLVdgS746cYARfSyxk8iEfRxewL9h4OMzYhbW4TAcppl0mT4eyqXddh6L/jwoM75mo7ixa/pCeQ==\",\n      \"license\": \"MIT\",\n      \"engines\": {\n        \"node\": \">=18\"\n      }\n    },\n    \"node_modules/@img/sharp-darwin-arm64\": {\n      \"version\": \"0.34.5\",\n      \"resolved\": \"https://registry.npmjs.org/@img/sharp-darwin-arm64/-/sharp-darwin-arm64-0.34.5.tgz\",\n      \"integrity\": \"sha512-imtQ3WMJXbMY4fxb/Ndp6HBTNVtWCUI0WdobyheGf5+ad6xX8VIDO8u2xE4qc/fr08CKG/7dDseFtn6M6g/r3w==\",\n      \"cpu\": [\n        \"arm64\"\n      ],\n      \"license\": \"Apache-2.0\",\n      \"optional\": true,\n",
+        "applies_to": "chance1",
+        "source": "C:\\Chance1\\package-lock.json",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "json",
+        "json"
+      ],
+      "created_at": "2026-04-04T04:39:37.139893+00:00",
+      "updated_at": "2026-04-04T04:39:37.139893+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:39:37.139893+00:00",
+        "access_count": 0
+      }
+    },
+    "7487631a3c63": {
+      "id": "7487631a3c63",
+      "type": "fact",
+      "key": "package-lock_2",
+      "fact": {
+        "rule": "==\",\n      \"cpu\": [\n        \"arm64\"\n      ],\n      \"license\": \"Apache-2.0\",\n      \"optional\": true,\n      \"os\": [\n        \"darwin\"\n      ],\n      \"engines\": {\n        \"node\": \"^18.17.0 || ^20.3.0 || >=21.0.0\"\n      },\n      \"funding\": {\n        \"url\": \"https://opencollective.com/libvips\"\n      },\n      \"optionalDependencies\": {\n        \"@img/sharp-libvips-darwin-arm64\": \"1.2.4\"\n      }\n    },\n    \"node_modules/@img/sharp-darwin-x64\": {\n      \"version\": \"0.34.5\",\n      \"resolved\": \"https://registry.npmjs.org/@img/sharp-darwin-x64/-/sharp-darwin-x64-0.34.5.tgz\",\n      \"integrity\": \"sha512-YNEFAF/4KQ/PeW0N+r+aVVsoIY0/qxxikF2SWdp+NRkmMB7y9LBZAVqQ4yhGCm/H3H270OSykqmQMKLBhBJDEw==\",\n      \"cpu\": [\n        \"x64\"\n      ],\n      \"license\": \"Apache-2.0\",\n      \"optional\": true,\n      \"os\": [\n",
+        "applies_to": "chance1",
+        "source": "C:\\Chance1\\package-lock.json",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "json",
+        "json"
+      ],
+      "created_at": "2026-04-04T04:39:37.237032+00:00",
+      "updated_at": "2026-04-04T04:39:37.237032+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:39:37.237032+00:00",
+        "access_count": 0
+      }
+    },
+    "d0b2622dd86e": {
+      "id": "d0b2622dd86e",
+      "type": "fact",
+      "key": "package-lock_4",
+      "fact": {
+        "rule": "    \"cpu\": [\n        \"arm64\"\n      ],\n      \"license\": \"LGPL-3.0-or-later\",\n      \"optional\": true,\n      \"os\": [\n        \"darwin\"\n      ],\n      \"funding\": {\n        \"url\": \"https://opencollective.com/libvips\"\n      }\n    },\n    \"node_modules/@img/sharp-libvips-darwin-x64\": {\n      \"version\": \"1.2.4\",\n      \"resolved\": \"https://registry.npmjs.org/@img/sharp-libvips-darwin-x64/-/sharp-libvips-darwin-x64-1.2.4.tgz\",\n      \"integrity\": \"sha512-1IOd5xfVhlGwX+zXv2N93k0yMONvUlANylbJw1eTah8K/Jtpi15KC+WSiaX/nBmbm2HxRM1gZ0nSdjSsrZbGKg==\",\n      \"cpu\": [\n        \"x64\"\n      ],\n      \"license\": \"LGPL-3.0-or-later\",\n      \"optional\": true,\n      \"os\": [\n        \"darwin\"\n      ],\n      \"funding\": {\n        \"url\": \"https://opencollective.com/libvips\"\n      }\n    },\n",
+        "applies_to": "chance1",
+        "source": "C:\\Chance1\\package-lock.json",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "json",
+        "json"
+      ],
+      "created_at": "2026-04-04T04:39:37.376855+00:00",
+      "updated_at": "2026-04-04T04:39:37.376855+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:39:37.376855+00:00",
+        "access_count": 0
+      }
+    },
+    "4e7afe6c3c7a": {
+      "id": "4e7afe6c3c7a",
+      "type": "fact",
+      "key": "package-lock_5",
+      "fact": {
+        "rule": "win\"\n      ],\n      \"funding\": {\n        \"url\": \"https://opencollective.com/libvips\"\n      }\n    },\n    \"node_modules/@img/sharp-libvips-linux-arm\": {\n      \"version\": \"1.2.4\",\n      \"resolved\": \"https://registry.npmjs.org/@img/sharp-libvips-linux-arm/-/sharp-libvips-linux-arm-1.2.4.tgz\",\n      \"integrity\": \"sha512-bFI7xcKFELdiNCVov8e44Ia4u2byA+l3XtsAj+Q8tfCwO6BQ8iDojYdvoPMqsKDkuoOo+X6HZA0s0q11ANMQ8A==\",\n      \"cpu\": [\n        \"arm\"\n      ],\n      \"libc\": [\n        \"glibc\"\n      ],\n      \"license\": \"LGPL-3.0-or-later\",\n      \"optional\": true,\n      \"os\": [\n        \"linux\"\n      ],\n      \"funding\": {\n        \"url\": \"https://opencollective.com/libvips\"\n      }\n    },\n    \"node_modules/@img/sharp-libvips-linux-arm64\": {\n      \"version\": \"1.2.4\",\n",
+        "applies_to": "chance1",
+        "source": "C:\\Chance1\\package-lock.json",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "json",
+        "json"
+      ],
+      "created_at": "2026-04-04T04:39:37.469101+00:00",
+      "updated_at": "2026-04-04T04:39:37.469101+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:39:37.469101+00:00",
+        "access_count": 0
+      }
+    },
+    "35560c7a98e1": {
+      "id": "35560c7a98e1",
+      "type": "fact",
+      "key": "package-lock_7",
+      "fact": {
+        "rule": " \"https://registry.npmjs.org/@img/sharp-libvips-linux-ppc64/-/sharp-libvips-linux-ppc64-1.2.4.tgz\",\n      \"integrity\": \"sha512-FMuvGijLDYG6lW+b/UvyilUWu5Ayu+3r2d1S8notiGCIyYU/76eig1UfMmkZ7vwgOrzKzlQbFSuQfgm7",
+        "applies_to": "chance1",
+        "source": "C:\\Chance1\\package-lock.json",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "json",
+        "json"
+      ],
+      "created_at": "2026-04-04T04:39:37.600416+00:00",
+      "updated_at": "2026-04-04T04:39:37.600416+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:39:37.600416+00:00",
+        "access_count": 0
+      }
+    },
+    "4fe93adffa1b": {
+      "id": "4fe93adffa1b",
+      "type": "fact",
+      "key": "doc-filtro-DS_0",
+      "fact": {
+        "rule": "No.\tOportunidad\tTipo de Quotes Asociados\tNo. Quotes Asociados\tNo. Contratos Asociados\tNombre Proyecto Asociado\tNombre del Cliente\tBom\tSow\tNo. Parte Implicados en este proyecto\tExiste Special Bid\tProveedor Especial Bid\tTotal MontoPropuesta Economica\tDetalle Propuesta Economica BOM\tDetalle Propuesta Economica SoW\tNo. Ticket BPM BAU\tNo. Orden de Servicio\tContexto Actual de esta Oportunidad\tFecha\n1\t123456\tQuote Manual\t3743749\t837263\tParalell X\tBantrab\tlink del bom\tlink del Sow\tLU4658-Instana (costo $7,364) / L3458- Servicios Mantenimiento (costo x hora $23.50)\tSI\tPuede ser Red Hat o GBM\t$736.456\tAquí  hacer click y mostraras toda la propuesta economica del BoM\tAquí  hacer click y mostraras toda la propuesta economica del SoW\t8374638\t873637\tEste proyecto esta en kick off del proyecto\t46099\n",
+        "applies_to": "chance1",
+        "source": "C:\\Chance1\\doc-filtro-DS.xlsx",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "excel",
+        "xlsx"
+      ],
+      "created_at": "2026-04-04T04:39:37.698758+00:00",
+      "updated_at": "2026-04-04T04:39:37.698758+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:39:37.698758+00:00",
+        "access_count": 0
+      }
+    },
+    "63bf34247535": {
+      "id": "63bf34247535",
+      "type": "fact",
+      "key": "doc-filtro-DS_1",
+      "fact": {
+        "rule": "oda la propuesta economica del SoW\t8374638\t873637\tEste proyecto esta en kick off del proyecto\t46099\n2\t837283\tQuote de Contrato\t8273644\tNo hay Informacion en tu local\tInstalacion Instana\tBanco Industrial\tlink del bom\tlink del Sow\tNo hay Informacion en tu local\tNo\tNo hay Informacion en tu local\t$936.456\tAquí  hacer click y mostraras toda la propuesta economica del BoM\tAquí  hacer click y mostraras toda la propuesta economica del SoW\tNo hay Informacion en tu local\t8273827",
+        "applies_to": "chance1",
+        "source": "C:\\Chance1\\doc-filtro-DS.xlsx",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "excel",
+        "xlsx"
+      ],
+      "created_at": "2026-04-04T04:39:37.794041+00:00",
+      "updated_at": "2026-04-04T04:39:37.794041+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:39:37.794041+00:00",
+        "access_count": 0
+      }
+    },
+    "fb068045eaea": {
+      "id": "fb068045eaea",
+      "type": "fact",
+      "key": "obetivos 2026_0",
+      "fact": {
+        "rule": "Tipo\tPeso\tCuota Anual\tSkew\tDescripción\n02-Compras\t35\t8150000\tNo\tCOMPRAS LICENCIAS NUEVAS SW, SUSCRIPCIONES Y RENOVACIONES (INDUSTRIA ASIGNADA)\n08-New Signing\t25\t1880000\tNo\tNEW SIGNINGS + EXPAND (PAIS)\n01-Facturación\t40\t33750000\tNo\tPUNTOS DE FACTURACIÓN DE SW SERVICES (INDUSTRIA ASIGNADA)",
+        "applies_to": "chance1",
+        "source": "C:\\Chance1\\obetivos 2026.xlsx",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "excel",
+        "xlsx"
+      ],
+      "created_at": "2026-04-04T04:39:37.888507+00:00",
+      "updated_at": "2026-04-04T04:39:37.888507+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:39:37.888507+00:00",
+        "access_count": 0
+      }
+    },
+    "b6d12677a3fe": {
+      "id": "b6d12677a3fe",
+      "type": "fact",
+      "key": "comandos CLI claude_0",
+      "fact": {
+        "rule": "# Claude Code — Referencia Completa de Slash Commands\n\n> Referencia actualizada a marzo 2026. Escribe `/help` dentro de Claude Code para ver todos los comandos disponibles (incluidos los custom).\n\n---\n\n## Gestión de Conversación y Contexto\n\n### `/compact [instrucciones]`\n**Cuándo usarlo:** Cuando llevas mucho rato trabajando y el contexto se está llenando (80%+). Claude empieza a \"olvidar\" cosas del inicio de la conversación. Este comando comprime todo el historial, eliminando lo que ya no importa y conservando lo relevante. Puedes darle instrucciones de qué priorizar, por ejemplo: `/compact conserva el esquema de la base de datos y los patrones de error`.\n\n### `/clear`\n**Cuándo usarlo:** Cuando vas a cambiar completamente de tarea. ",
+        "applies_to": "chance1",
+        "source": "C:\\Chance1\\comandos CLI claude.txt",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "txt"
+      ],
+      "created_at": "2026-04-04T04:39:37.989308+00:00",
+      "updated_at": "2026-04-04T04:39:37.989308+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:39:37.989308+00:00",
+        "access_count": 0
+      }
+    },
+    "5c16ec6eb2b8": {
+      "id": "5c16ec6eb2b8",
+      "type": "fact",
+      "key": "comandos CLI claude_1",
+      "fact": {
+        "rule": "s patrones de error`.\n\n### `/clear`\n**Cuándo usarlo:** Cuando vas a cambiar completamente de tarea. Si estabas debuggeando un API y ahora vas a escribir tests para otro módulo, el contexto viejo solo va a confundir a Claude. A diferencia de `/compact`, este borra TODO el historial. Los archivos que editaste durante la sesión no se pierden.\n\n### `/export [archivo]`\n**Cuándo usarlo:** Cuando quieres guardar la conversación completa — para documentación, para compartir con tu equipo, o para referencia futura. Exporta a archivo o al clipboard.\n\n### `/context`\n**Cuándo usarlo:** Para ver cuánto del contexto has consumido. Te muestra una visualización del uso actual. Si ves que estás arriba de 70-80%, es hora de hacer `/compact`. ",
+        "applies_to": "chance1",
+        "source": "C:\\Chance1\\comandos CLI claude.txt",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "txt"
+      ],
+      "created_at": "2026-04-04T04:39:38.086782+00:00",
+      "updated_at": "2026-04-04T04:39:38.086782+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:39:38.086782+00:00",
+        "access_count": 0
+      }
+    },
+    "a2f290e6df35": {
+      "id": "a2f290e6df35",
+      "type": "fact",
+      "key": "comandos CLI claude_2",
+      "fact": {
+        "rule": "a una visualización del uso actual. Si ves que estás arriba de 70-80%, es hora de hacer `/compact`. También muestra warnings si tienes skills que se están quedando fuera por falta de espacio.\n\n---\n\n## Modelos y Comportamiento\n\n### `/model`\n**Cuándo usarlo:** Para cambiar entre modelos según la tarea. La estrategia recomendada:\n- **Sonnet** → 80% de tu trabajo diario, buen balance costo/calidad\n- **Opus** → bugs complejos, decisiones de arquitectura, razonamiento profundo\n- **Haiku** → tareas mecánicas y rápidas (renombrar variables, formatear código, generar boilerplate)\n\nEjemplo: empiezas con Sonnet, llegas a un bug difícil → `/model opus`, lo resuelves → `/model sonnet` para seguir.\n\n### `/effort`\n**Cuándo usarlo:** Controla qué tan profundo razona Claude antes de responder.\n",
+        "applies_to": "chance1",
+        "source": "C:\\Chance1\\comandos CLI claude.txt",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "txt"
+      ],
+      "created_at": "2026-04-04T04:39:38.188231+00:00",
+      "updated_at": "2026-04-04T04:39:38.188231+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:39:38.188231+00:00",
+        "access_count": 0
+      }
+    },
+    "eddbce47be79": {
+      "id": "eddbce47be79",
+      "type": "fact",
+      "key": "comandos CLI claude_3",
+      "fact": {
+        "rule": "guir.\n\n### `/effort`\n**Cuándo usarlo:** Controla qué tan profundo razona Claude antes de responder.\n- **low** → respuestas rápidas, poca deliberación. Bueno para tareas simples.\n- **medium** → balance por defecto.\n- **high** → máximo razonamiento. Para problemas complejos donde necesitas que piense bien antes de actuar.\n\n### `/fast`\n**Cuándo usarlo:** Atajo para `/effort low`. Cuando necesitas iteración rápida y no necesitas que Claude se ponga filosófico con cada cambio.\n\n---\n\n## Información y Diagnóstico\n\n### `/help`\n**Cuándo usarlo:** El primer comando que deberías conocer. Muestra TODOS los comandos disponibles: los built-in, los custom que hayas creado, y los que vienen de servidores MCP conectados.\n\n### `/cost`\n",
+        "applies_to": "chance1",
+        "source": "C:\\Chance1\\comandos CLI claude.txt",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "txt"
+      ],
+      "created_at": "2026-04-04T04:39:38.294087+00:00",
+      "updated_at": "2026-04-04T04:39:38.294087+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:39:38.294087+00:00",
+        "access_count": 0
+      }
+    },
+    "cf4f07e1e778": {
+      "id": "cf4f07e1e778",
+      "type": "fact",
+      "key": "comandos CLI claude_4",
+      "fact": {
+        "rule": " built-in, los custom que hayas creado, y los que vienen de servidores MCP conectados.\n\n### `/cost`\n**Cuándo usarlo:** Para monitorear cuántos tokens estás quemando y cuánto te está costando la sesión. Especialmente útil si estás en API y pagas por uso. Te ayuda a decidir si es momento de cambiar a un modelo más barato.\n\n### `/doctor`\n**Cuándo usarlo:** Cuando algo no funciona bien — Claude no puede leer archivos, los MCP no conectan, o el comportamiento es raro. Este comando diagnostica la salud de la instalación y te dice qué está mal.\n\n### `/status`\n**Cuándo usarlo:** Para ver el estado general de tu sesión actual: modelo activo, modo, permisos, herramientas disponibles. Diferencia con `/doctor`: `/status` te dice el estado actual, `/doctor` busca problemas.\n\n### `/bug`\n",
+        "applies_to": "chance1",
+        "source": "C:\\Chance1\\comandos CLI claude.txt",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "txt"
+      ],
+      "created_at": "2026-04-04T04:39:38.402736+00:00",
+      "updated_at": "2026-04-04T04:39:38.402736+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:39:38.402736+00:00",
+        "access_count": 0
+      }
+    },
+    "66694d927d02": {
+      "id": "66694d927d02",
+      "type": "fact",
+      "key": "comandos CLI claude_5",
+      "fact": {
+        "rule": "iferencia con `/doctor`: `/status` te dice el estado actual, `/doctor` busca problemas.\n\n### `/bug`\n**Cuándo usarlo:** Cuando encuentras un bug real en Claude Code y quieres reportarlo directamente a Anthropic sin salir de la sesión.\n\n---\n\n## Proyecto y Configuración\n\n### `/init`\n**Cuándo usarlo:** Al abrir un proyecto por primera vez con Claude Code. Crea el archivo `CLAUDE.md` y la estructura base para que Claude entienda tu proyecto. Es lo primero que haces en un repo nuevo.\n\n### `/config`\n**Cuándo usarlo:** Para modificar configuraciones de Claude Code — permisos, herramientas permitidas, variables de entorno, modelo por defecto, etc. Abre una interfaz interactiva.\n\n### `/add-dir`\n",
+        "applies_to": "chance1",
+        "source": "C:\\Chance1\\comandos CLI claude.txt",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "txt"
+      ],
+      "created_at": "2026-04-04T04:39:38.500155+00:00",
+      "updated_at": "2026-04-04T04:39:38.500155+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:39:38.500155+00:00",
+        "access_count": 0
+      }
+    },
+    "2c4ba6d8dab5": {
+      "id": "2c4ba6d8dab5",
+      "type": "fact",
+      "key": "comandos CLI claude_6",
+      "fact": {
+        "rule": "idas, variables de entorno, modelo por defecto, etc. Abre una interfaz interactiva.\n\n### `/add-dir`\n**Cuándo usarlo:** Cuando necesitas que Claude trabaje con archivos de otro directorio además del principal. Por ejemplo, tienes un monorepo y necesitas acceso a `packages/shared/` mientras trabajas en `packages/frontend/`.\n\n### `/ide`\n**Cuándo usarlo:** Para configurar la integración con tu IDE (VS Code, JetBrains, etc.). Permite que los cambios que hace Claude se reflejen en tu editor y viceversa.\n\n### `/hooks`\n**Cuándo usarlo:** Para gestionar hooks de lifecycle — acciones automáticas que se disparan antes o después de que Claude use una herramienta. Ejemplo: correr un linter automáticamente después de que Claude edite un archivo `.py`.\n\n### `/permissions`\n",
+        "applies_to": "chance1",
+        "source": "C:\\Chance1\\comandos CLI claude.txt",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "txt"
+      ],
+      "created_at": "2026-04-04T04:39:38.603535+00:00",
+      "updated_at": "2026-04-04T04:39:38.603535+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:39:38.603535+00:00",
+        "access_count": 0
+      }
+    },
+    "3fd695ae1c3f": {
+      "id": "3fd695ae1c3f",
+      "type": "fact",
+      "key": "comandos CLI claude_7",
+      "fact": {
+        "rule": " correr un linter automáticamente después de que Claude edite un archivo `.py`.\n\n### `/permissions`\n**Cuándo usarlo:** Para gestionar qué herramientas puede usar Claude y con qué restricciones. Puedes bloquear acceso a archivos sensibles como `.env` o limitar qué comandos de bash puede ejecutar.\n\n### `/keybindings`\n**Cuándo usarlo:** Para personalizar atajos de teclado. Edita `~/.claude/keybindings.json`. Los cambios aplican inmediatamente sin reiniciar.\n\n##",
+        "applies_to": "chance1",
+        "source": "C:\\Chance1\\comandos CLI claude.txt",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "txt"
+      ],
+      "created_at": "2026-04-04T04:39:38.687186+00:00",
+      "updated_at": "2026-04-04T04:39:38.687186+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:39:38.687186+00:00",
+        "access_count": 0
+      }
+    },
+    "6e0260c679a7": {
+      "id": "6e0260c679a7",
+      "type": "fact",
+      "key": "claude-fix_0",
+      "fact": {
+        "rule": "﻿$env:HOME = \"$env:LOCALAPPDATA\\ClaudeCode\"\n$env:USERPROFILE = \"$env:LOCALAPPDATA\\ClaudeCode\"\n$env:CLAUDE_CODE_GIT_BASH_PATH = \"C:\\Program Files\\Git\\bin\\bash.exe\"\n\n$claudePath = \"$env:LOCALAPPDATA\\ClaudeCode\\AppData\\Local\\Microsoft\\WinGet\\Packages\\Anthropic.ClaudeCode_Microsoft.Winget.Source_8wekyb3d8bbwe\"\n$env:PATH = \"$claudePath;C:\\Program Files\\Git\\bin;C:\\Program Files\\Git\\cmd;$env:PATH\"\n\nclaude --dangerously-skip-permissions @args",
+        "applies_to": "chance1",
+        "source": "C:\\Chance1\\claude-fix.ps1",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "powershell",
+        "ps1"
+      ],
+      "created_at": "2026-04-04T04:39:38.797007+00:00",
+      "updated_at": "2026-04-04T04:39:38.797007+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:39:38.797007+00:00",
+        "access_count": 0
+      }
+    },
+    "1d038c400c06": {
+      "id": "1d038c400c06",
+      "type": "fact",
+      "key": "CLAUDE_0",
+      "fact": {
+        "rule": "# Session Continuity\n\nWhen the pre-hook injects `<session_anterior>` context, you MUST proactively summarize the previous session at the START of your response and ask if the user wants to continue or work on something new. Do NOT wait for the user to ask. This is mandatory behavior.\n\n# Source Reporting\n\nAlways include source percentages at the end of responses: **Fuentes:** KB X% + Internet Y% + ML Z%",
+        "applies_to": "chance1",
+        "source": "C:\\Chance1\\CLAUDE.md",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "md"
+      ],
+      "created_at": "2026-04-04T04:39:38.887895+00:00",
+      "updated_at": "2026-04-04T04:39:38.887895+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:39:38.887895+00:00",
+        "access_count": 0
+      }
     }
   },
   "tag_index": {
@@ -8485,7 +9151,19 @@
       "d1132a695478",
       "d1132a695478",
       "c7d2e73a7ab9",
-      "c7d2e73a7ab9"
+      "c7d2e73a7ab9",
+      "2884b88b9a82",
+      "2884b88b9a82",
+      "e3671212c138",
+      "e3671212c138",
+      "7487631a3c63",
+      "7487631a3c63",
+      "d0b2622dd86e",
+      "d0b2622dd86e",
+      "4e7afe6c3c7a",
+      "4e7afe6c3c7a",
+      "35560c7a98e1",
+      "35560c7a98e1"
     ],
     "word": [
       "6ffca0eb951c",
@@ -9179,7 +9857,10 @@
       "cc410a9fcdf8",
       "4ae2bb00c389",
       "6e23e360c4a6",
-      "5393f5691933"
+      "5393f5691933",
+      "4fe93adffa1b",
+      "63bf34247535",
+      "fb068045eaea"
     ],
     "xlsx": [
       "ee9cf1fef88b",
@@ -9191,7 +9872,10 @@
       "cc410a9fcdf8",
       "4ae2bb00c389",
       "6e23e360c4a6",
-      "5393f5691933"
+      "5393f5691933",
+      "4fe93adffa1b",
+      "63bf34247535",
+      "fb068045eaea"
     ],
     "log": [
       "00fb51fa4576",
@@ -9202,10 +9886,49 @@
       "5b9dff27f8d7",
       "3dca6b111d70",
       "79e58296f21f"
+    ],
+    "web": [
+      "bfa24c7109ba",
+      "beaf2b2e4aaa",
+      "f5dbd8d343c6",
+      "10e944313d6f",
+      "79fe5bd552ba",
+      "0994b651b0b6",
+      "82daad96fccf",
+      "cbbc3b6a5189"
+    ],
+    "html": [
+      "bfa24c7109ba",
+      "beaf2b2e4aaa",
+      "f5dbd8d343c6",
+      "10e944313d6f",
+      "79fe5bd552ba",
+      "0994b651b0b6",
+      "82daad96fccf",
+      "cbbc3b6a5189"
+    ],
+    "txt": [
+      "b6d12677a3fe",
+      "5c16ec6eb2b8",
+      "a2f290e6df35",
+      "eddbce47be79",
+      "cf4f07e1e778",
+      "66694d927d02",
+      "2c4ba6d8dab5",
+      "3fd695ae1c3f"
+    ],
+    "powershell": [
+      "6e0260c679a7"
+    ],
+    "ps1": [
+      "6e0260c679a7"
+    ],
+    "md": [
+      "1d038c400c06"
     ]
   },
   "stats": {
-    "total_entries": 363,
+    "total_entries": 390,
     "total_lookups": 0,
     "total_hits": 0
   }

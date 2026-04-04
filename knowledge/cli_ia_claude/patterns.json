@@ -1,0 +1,940 @@
+{
+  "domain": "cli_ia_claude",
+  "description": "Dominio auto-creado: cli_ia_claude",
+  "entries": {
+    "ffbb7bdfdcfd": {
+      "id": "ffbb7bdfdcfd",
+      "type": "fact",
+      "key": "merge_sow_v2_0",
+      "fact": {
+        "rule": "#!/usr/bin/env python3\n\"\"\"\nSOW Fusión v2 — Doc1 (DB2) + Doc2 (WAS+MQ) + Guia3.xlsx\nEntregable: SOW_Propuesta_Promerica_v2.docx\n\nDATOS COHERENTES USADOS DEL EXCEL (Guia3.xlsx):\n  Hoja1  → datos del cliente (nombre, contacto, país, período)\n  HOJA2  → tabla Soporte (productos + prácticas correctas: ITP / DATA IA)\n  Hoja4  → tabla Asistencia (productos + prácticas correctas)\n  Hoja5  → propuesta económica con cantidades\n  Hoja6  → tarifas por hora (base de cálculo)\n\nDATOS EXCEL NO USADOS (incoherentes / vacíos):\n  Hoja3  → Mantenimiento Preventivo: tabla vacía, sin datos aplicables\n  F15    → \"Cotización extra\": campo vago, no mapea a sección SOW\n  F12    → Número oportunidad SAP: interno, no va en el SOW al cliente\n\nTODAS LAS MODIFICACIONES → subrayado verde #008000\n\"\"\"\n\nimport sys\n",
+        "applies_to": "cli_ia_claude",
+        "source": "C:\\Chance1\\IA\\CLI_IA_Claude\\merge_sow_v2.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-04T04:12:18.630580+00:00",
+      "updated_at": "2026-04-04T04:12:18.630580+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:12:18.630580+00:00",
+        "access_count": 0
+      }
+    },
+    "c6874382991e": {
+      "id": "c6874382991e",
+      "type": "fact",
+      "key": "merge_sow_v2_1",
+      "fact": {
+        "rule": "rno, no va en el SOW al cliente\n\nTODAS LAS MODIFICACIONES → subrayado verde #008000\n\"\"\"\n\nimport sys\nimport io\nimport copy\nimport openpyxl\nfrom docx import Document\nfrom docx.oxml.ns import qn\nfrom docx.oxml import OxmlElement\nfrom docx.shared import Pt, RGBColor\nfrom lxml import etree\n\nsys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')\n\n# ────────────────────────────────────────────────────────────\n# RUTAS\n# ────────────────────────────────────────────────────────────\nPATH1   = 'C:/Chance1/CLI_IA_Claude/SOW Propuesta Servicios Soporte y Asistencia V1.docx'\nPATH2   = 'C:/Chance1/CLI_IA_Claude/SoW_Promerica_Servicios WAS MQ_v1.0.docx'\nEXCEL   = 'C:/Chance1/CLI_IA_Claude/Guia3.xlsx'\nOUTPUT  = 'C:/Chance1/CLI_IA_Claude/SOW_Propuesta_Promerica_v2.docx'\nGREEN   = '008000'\n\n",
+        "applies_to": "cli_ia_claude",
+        "source": "C:\\Chance1\\IA\\CLI_IA_Claude\\merge_sow_v2.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-04T04:12:18.688277+00:00",
+      "updated_at": "2026-04-04T04:12:18.688277+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:12:18.688277+00:00",
+        "access_count": 0
+      }
+    },
+    "095502761783": {
+      "id": "095502761783",
+      "type": "fact",
+      "key": "merge_sow_v2_2",
+      "fact": {
+        "rule": "uia3.xlsx'\nOUTPUT  = 'C:/Chance1/CLI_IA_Claude/SOW_Propuesta_Promerica_v2.docx'\nGREEN   = '008000'\n\n# ════════════════════════════════════════════════════════════\n# PASO 0 — LEER EXCEL Y CALCULAR VALORES\n# ════════════════════════════════════════════════════════════\nwb = openpyxl.load_workbook(EXCEL)\n\n# Hoja1: datos del cliente\nh1 = wb['Hoja1']\ncliente_data = {}\nfor row in h1.iter_rows(values_only=True):\n    if row[0] and row[1]:\n        cliente_data[str(row[0]).strip()] = str(row[1]).strip()\n\nCLIENTE       = cliente_data.get('<Nombre del Cliente>', 'Banco Promerica, S.A.')\nCONTACTO      = cliente_data.get('<Nombre del contacto>', 'Selvin Morales')\nAPELLIDO      = CONTACTO.split()[-1]                       # \"Morales\"\nPAIS          = cliente_data.get('<País>', 'Guatemala')\n",
+        "applies_to": "cli_ia_claude",
+        "source": "C:\\Chance1\\IA\\CLI_IA_Claude\\merge_sow_v2.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-04T04:12:18.734632+00:00",
+      "updated_at": "2026-04-04T04:12:18.734632+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:12:18.734632+00:00",
+        "access_count": 0
+      }
+    },
+    "05f0db69c382": {
+      "id": "05f0db69c382",
+      "type": "fact",
+      "key": "merge_sow_v2_3",
+      "fact": {
+        "rule": "lit()[-1]                       # \"Morales\"\nPAIS          = cliente_data.get('<País>', 'Guatemala')\nPERIODO       = cliente_data.get('<verificar si es anual el periodo de est', '12 meses')\n\n# Hoja6: tarifas\nh6 = wb['Hoja6']\nRATE_SOPORTE    = int(h6['E3'].value)   # 80\nRATE_ASISTENCIA = int(h6['E4'].value)   # 60\n\n# Hoja5: propuesta económica (evaluar fórmulas manualmente)\nh5 = wb['Hoja5']\necon_rows = []\nfor row in h5.iter_rows(min_row=6, max_row=8, values_only=True):\n    no   = row[1]\n    desc = str(row[2]).strip()\n    serv = str(row[3]).strip()\n    meses = int(row[4])\n    hrs   = int(row[5])\n    # Columna G: precio mensual (puede ser fórmula o número)\n    g_val = row[6]\n    if isinstance(g_val, str) and 'E3' in g_val:\n        precio_mes = hrs * RATE_SOPORTE\n",
+        "applies_to": "cli_ia_claude",
+        "source": "C:\\Chance1\\IA\\CLI_IA_Claude\\merge_sow_v2.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-04T04:12:18.790831+00:00",
+      "updated_at": "2026-04-04T04:12:18.790831+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:12:18.790831+00:00",
+        "access_count": 0
+      }
+    },
+    "5d14165ec273": {
+      "id": "5d14165ec273",
+      "type": "fact",
+      "key": "merge_sow_v2_4",
+      "fact": {
+        "rule": "l = row[6]\n    if isinstance(g_val, str) and 'E3' in g_val:\n        precio_mes = hrs * RATE_SOPORTE\n    elif isinstance(g_val, str) and 'E4' in g_val:\n        precio_mes = hrs * RATE_ASISTENCIA\n    else:\n        precio_mes = int(g_val)\n    precio_total = meses * precio_mes\n    econ_rows.append((no, desc, serv, meses, hrs, precio_mes, precio_total))\n\nTOTAL_MENSUAL = sum(r[5] for r in econ_rows)\nTOTAL_PERIODO = sum(r[6] for r in econ_rows)\n\n# HOJA2: prácticas de Soporte\nh2 = wb['HOJA2']\nsoporte_prods = []\nfor row in h2.iter_rows(min_row=9, max_row=11, values_only=True):\n    prod = [c for c in row if c is not None]\n    if len(prod) >= 3:\n        soporte_prods.append((str(prod[0]).strip(), str(prod[1]).strip(), str(prod[2]).strip()))\n\n# Hoja4: prácticas de Asistencia\nh4 = wb['Hoja4']\n",
+        "applies_to": "cli_ia_claude",
+        "source": "C:\\Chance1\\IA\\CLI_IA_Claude\\merge_sow_v2.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-04T04:12:18.842284+00:00",
+      "updated_at": "2026-04-04T04:12:18.842284+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:12:18.842284+00:00",
+        "access_count": 0
+      }
+    },
+    "ccac1e85c86a": {
+      "id": "ccac1e85c86a",
+      "type": "fact",
+      "key": "merge_sow_v2_5",
+      "fact": {
+        "rule": "(), str(prod[1]).strip(), str(prod[2]).strip()))\n\n# Hoja4: prácticas de Asistencia\nh4 = wb['Hoja4']\nasist_prods = []\nfor row in h4.iter_rows(min_row=9, max_row=11, values_only=True):\n    prod = [c for c in row if c is not None]\n    if len(prod) >= 3:\n        asist_prods.append((str(prod[0]).strip(), str(prod[1]).strip(), str(prod[2]).strip()))\n\nprint(\"=\" * 65)\nprint(\"DATOS EXCEL PROCESADOS:\")\nprint(f\"  Cliente  : {CLIENTE}\")\nprint(f\"  Contacto : {CONTACTO}  (Apellido: {APELLIDO})\")\nprint(f\"  País     : {PAIS}\")\nprint(f\"  Período  : {PERIODO}\")\nprint(f\"  Tarifas  : Soporte=${RATE_SOPORTE}/hr | Asistencia=${RATE_ASISTENCIA}/hr\")\nprint()\nprint(\"  Propuesta Económica:\")\nfor r in econ_rows:\n    print(f\"    {r[0]}. {r[1]:8s} | {r[4]} hrs/mes × ${r[5]/r[4]:.0f} = ${r[5]}/mes → ${r[6]}/período\")\n",
+        "applies_to": "cli_ia_claude",
+        "source": "C:\\Chance1\\IA\\CLI_IA_Claude\\merge_sow_v2.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-04T04:12:18.897855+00:00",
+      "updated_at": "2026-04-04T04:12:18.897855+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:12:18.897855+00:00",
+        "access_count": 0
+      }
+    },
+    "c6a894fb3346": {
+      "id": "c6a894fb3346",
+      "type": "fact",
+      "key": "merge_sow_v2_6",
+      "fact": {
+        "rule": "print(f\"    {r[0]}. {r[1]:8s} | {r[4]} hrs/mes × ${r[5]/r[4]:.0f} = ${r[5]}/mes → ${r[6]}/período\")\nprint(f\"    TOTAL: ${TOTAL_MENSUAL}/mes → ${TOTAL_PERIODO}/período\")\nprint()\nprint(\"  Productos Soporte  (HOJA2):\", soporte_prods)\nprint(\"  Productos Asistencia(Hoja4):\", asist_prods)\nprint(\"=\" * 65)\n\n# ════════════════════════════════════════════════════════════\n# FUNCIONES AUXILIARES\n# ════════════════════════════════════════════════════════════\n\ndef _green_rPr(base_rPr=None):\n    rPr = copy.deepcopy(base_rPr) if base_rPr is not None else OxmlElement('w:rPr')\n    for el in rPr.findall(qn('w:color')):\n        rPr.remove(el)\n    color = OxmlElement('w:color')\n    color.set(qn('w:val'), GREEN)\n    rPr.append(color)\n    for el in rPr.findall(qn('w:u')):\n        rPr.remove(el)\n",
+        "applies_to": "cli_ia_claude",
+        "source": "C:\\Chance1\\IA\\CLI_IA_Claude\\merge_sow_v2.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-04T04:12:18.951242+00:00",
+      "updated_at": "2026-04-04T04:12:18.951242+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:12:18.951242+00:00",
+        "access_count": 0
+      }
+    },
+    "4466680a002c": {
+      "id": "4466680a002c",
+      "type": "fact",
+      "key": "merge_sow_v2_7",
+      "fact": {
+        "rule": "'w:val'), GREEN)\n    rPr.append(color)\n    for el in rPr.findall(qn('w:u')):\n        rPr.remove(el)\n    u = OxmlElement('w:u')\n    u.set(qn('w:val'), 'single')\n    rPr.append(u)\n    return",
+        "applies_to": "cli_ia_claude",
+        "source": "C:\\Chance1\\IA\\CLI_IA_Claude\\merge_sow_v2.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-04T04:12:18.987159+00:00",
+      "updated_at": "2026-04-04T04:12:18.987159+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:12:18.987159+00:00",
+        "access_count": 0
+      }
+    },
+    "7f034d3260b1": {
+      "id": "7f034d3260b1",
+      "type": "fact",
+      "key": "merge_sow_0",
+      "fact": {
+        "rule": "#!/usr/bin/env python3\n\"\"\"\nFusión de documentos SOW:\n  Base   : SOW Propuesta Servicios Soporte y Asistencia V1.docx  (DB2)\n  Fuente : SoW_Promerica_Servicios WAS MQ_v1.0.docx              (WAS + MQ)\n  Salida : SOW_Propuesta_Combinada_DB2_WAS_MQ.docx               (3 productos)\n\nReglas:\n  - No agregar contenido que no esté en ninguno de los dos documentos fuente.\n  - No quitar contenido de ninguno de los documentos.\n  - Toda modificación va subrayada en verde.\n\"\"\"\n\nfrom docx import Document\nfrom docx.shared import RGBColor\nfrom docx.oxml.ns import qn\nfrom docx.oxml import OxmlElement\nfrom lxml import etree\nimport copy\n\n# ────────────────────────────────────────────────\n# CONSTANTES\n# ────────────────────────────────────────────────\n",
+        "applies_to": "cli_ia_claude",
+        "source": "C:\\Chance1\\IA\\CLI_IA_Claude\\merge_sow.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-04T04:12:19.040351+00:00",
+      "updated_at": "2026-04-04T04:12:19.040351+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:12:19.040351+00:00",
+        "access_count": 0
+      }
+    },
+    "e6bde706575f": {
+      "id": "e6bde706575f",
+      "type": "fact",
+      "key": "merge_sow_1",
+      "fact": {
+        "rule": "───────────────────────────────────\n# CONSTANTES\n# ────────────────────────────────────────────────\nPATH1  = 'C:/Chance1/CLI_IA_Claude/SOW Propuesta Servicios Soporte y Asistencia V1.docx'\nPATH2  = 'C:/Chance1/CLI_IA_Claude/SoW_Promerica_Servicios WAS MQ_v1.0.docx'\nOUTPUT = 'C:/Chance1/CLI_IA_Claude/SOW_Propuesta_Combinada_DB2_WAS_MQ.docx'\nGREEN  = '008000'\n\n# ────────────────────────────────────────────────\n# FUNCIONES AUXILIARES\n# ────────────────────────────────────────────────\n\ndef _green_rPr(base_rPr=None):\n    \"\"\"Devuelve un elemento w:rPr con subrayado verde, opcionalmente heredando formato base.\"\"\"\n    if base_rPr is not None:\n        rPr = copy.deepcopy(base_rPr)\n    else:\n        rPr = OxmlElement('w:rPr')\n\n    # Quitar color previo y agregar verde\n",
+        "applies_to": "cli_ia_claude",
+        "source": "C:\\Chance1\\IA\\CLI_IA_Claude\\merge_sow.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-04T04:12:19.097696+00:00",
+      "updated_at": "2026-04-04T04:12:19.097696+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:12:19.097696+00:00",
+        "access_count": 0
+      }
+    },
+    "ea352256de45": {
+      "id": "ea352256de45",
+      "type": "fact",
+      "key": "merge_sow_2",
+      "fact": {
+        "rule": "y(base_rPr)\n    else:\n        rPr = OxmlElement('w:rPr')\n\n    # Quitar color previo y agregar verde\n    for el in rPr.findall(qn('w:color')):\n        rPr.remove(el)\n    color = OxmlElement('w:color')\n    color.set(qn('w:val'), GREEN)\n    rPr.append(color)\n\n    # Quitar subrayado previo y agregar single\n    for el in rPr.findall(qn('w:u')):\n        rPr.remove(el)\n    u = OxmlElement('w:u')\n    u.set(qn('w:val'), 'single')\n    rPr.append(u)\n\n    return rPr\n\ndef _make_run(text, rPr=None):\n    \"\"\"Crea un w:r con el texto dado y rPr opcional.\"\"\"\n    r = OxmlElement('w:r')\n    if rPr is not None:\n        r.append(copy.deepcopy(rPr))\n    t = OxmlElement('w:t')\n    t.text = text\n    if text and (text[0] == ' ' or text[-1] == ' '):\n",
+        "applies_to": "cli_ia_claude",
+        "source": "C:\\Chance1\\IA\\CLI_IA_Claude\\merge_sow.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-04T04:12:19.142420+00:00",
+      "updated_at": "2026-04-04T04:12:19.142420+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:12:19.142420+00:00",
+        "access_count": 0
+      }
+    },
+    "f82bc1cf443b": {
+      "id": "f82bc1cf443b",
+      "type": "fact",
+      "key": "merge_sow_3",
+      "fact": {
+        "rule": ")\n    t = OxmlElement('w:t')\n    t.text = text\n    if text and (text[0] == ' ' or text[-1] == ' '):\n        t.set('{http://www.w3.org/XML/1998/namespace}space', 'preserve')\n    r.append(t)\n    return r\n\ndef _green_run(text, base_rPr=None):\n    \"\"\"Crea un w:r con texto subrayado verde.\"\"\"\n    return _make_run(text, _green_rPr(base_rPr))\n\ndef _get_pPr(para):\n    \"\"\"Devuelve copia del w:pPr del párrafo, o None si no existe.\"\"\"\n    pPr = para._element.find(qn('w:pPr'))\n    return copy.deepcopy(pPr) if pPr is not None else None\n\ndef _get_first_rPr(para):\n    \"\"\"Devuelve copia del w:rPr del primer run con texto, o None.\"\"\"\n    for r in para._element.findall('.//' + qn('w:r')):\n        t = r.find(qn('w:t'))\n        if t is not None and t.text and t.text.strip():\n",
+        "applies_to": "cli_ia_claude",
+        "source": "C:\\Chance1\\IA\\CLI_IA_Claude\\merge_sow.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-04T04:12:19.201848+00:00",
+      "updated_at": "2026-04-04T04:12:19.201848+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:12:19.201848+00:00",
+        "access_count": 0
+      }
+    },
+    "72aec6a6659a": {
+      "id": "72aec6a6659a",
+      "type": "fact",
+      "key": "merge_sow_4",
+      "fact": {
+        "rule": "+ qn('w:r')):\n        t = r.find(qn('w:t'))\n        if t is not None and t.text and t.text.strip():\n            rPr = r.find(qn('w:rPr'))\n            return copy.deepcopy(rPr) if rPr is not None else None\n    return None\n\ndef insert_green_para_after(ref_para, text, template_para=None):\n    \"\"\"\n    Inserta un párrafo con texto subrayado verde inmediatamente después de ref_para.\n    Si template_para se provee, copia su pPr (estilo, sangría, etc.).\n    Devuelve el nuevo elemento XML.\n    \"\"\"\n    new_p = OxmlElement('w:p')\n\n    # Copiar pPr del template o del propio ref_para\n    src = template_para if template_para is not None else ref_para\n    pPr = _get_pPr(src)\n    if pPr is not None:\n        new_p.append(pPr)\n\n    base_rPr = _get_first_rPr(src)\n    new_p.append(_green_run(text, base_rPr))\n",
+        "applies_to": "cli_ia_claude",
+        "source": "C:\\Chance1\\IA\\CLI_IA_Claude\\merge_sow.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-04T04:12:19.253431+00:00",
+      "updated_at": "2026-04-04T04:12:19.253431+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:12:19.253431+00:00",
+        "access_count": 0
+      }
+    },
+    "bd9c4dbf8e0a": {
+      "id": "bd9c4dbf8e0a",
+      "type": "fact",
+      "key": "merge_sow_5",
+      "fact": {
+        "rule": " new_p.append(pPr)\n\n    base_rPr = _get_first_rPr(src)\n    new_p.append(_green_run(text, base_rPr))\n\n    ref_para._element.addnext(new_p)\n    return new_p\n\ndef insert_green_para_before(ref_para, text, template_para=None):\n    \"\"\"Inserta un párrafo con texto subrayado verde inmediatamente ANTES de ref_para.\"\"\"\n    new_p = OxmlElement('w:p')\n    src = template_para if template_para is not None else ref_para\n    pPr = _get_pPr(src)\n    if pPr is not None:\n        new_p.append(pPr)\n    base_rPr = _get_first_rPr(src)\n    new_p.append(_green_run(text, base_rPr))\n    ref_para._element.addprevious(new_p)\n    return new_p\n\ndef find_paras(doc, *keywords, require_all=True):\n    \"\"\"\n    Devuelve lista de párrafos que contienen todas (o alguna) de las keywords.\n    Se ignoran mayúsculas.\n    \"\"\"\n",
+        "applies_to": "cli_ia_claude",
+        "source": "C:\\Chance1\\IA\\CLI_IA_Claude\\merge_sow.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-04T04:12:19.304686+00:00",
+      "updated_at": "2026-04-04T04:12:19.304686+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:12:19.304686+00:00",
+        "access_count": 0
+      }
+    },
+    "0baf1ab725d0": {
+      "id": "0baf1ab725d0",
+      "type": "fact",
+      "key": "merge_sow_6",
+      "fact": {
+        "rule": "ista de párrafos que contienen todas (o alguna) de las keywords.\n    Se ignoran mayúsculas.\n    \"\"\"\n    result = []\n    for p in doc.paragraphs:\n        txt = p.text\n        if require_all:\n            if all(kw.lower() in txt.lower() for kw in keywords):\n                result.append(p)\n        else:\n            if any(kw.lower() in txt.lower() for kw in keywords):\n                result.append(p)\n    return result\n\ndef modify_para_inline(para, old_sub, new_sub):\n    \"\"\"\n    Reemplaza old_sub por new_sub en el texto completo del párrafo.\n    El fragmento sustituido se marca en verde subrayado; el resto conserva\n    el formato original del primer run.\n    Devuelve True si se hizo el cambio.\n    \"\"\"\n    full_text = para.text\n    if old_sub not in full_text:\n        return False\n\n",
+        "applies_to": "cli_ia_claude",
+        "source": "C:\\Chance1\\IA\\CLI_IA_Claude\\merge_sow.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-04T04:12:19.350262+00:00",
+      "updated_at": "2026-04-04T04:12:19.350262+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:12:19.350262+00:00",
+        "access_count": 0
+      }
+    },
+    "c2ec600bc91a": {
+      "id": "c2ec600bc91a",
+      "type": "fact",
+      "key": "merge_sow_7",
+      "fact": {
+        "rule": "el cambio.\n    \"\"\"\n    full_text = para.text\n    if old_sub not in full_text:\n        return False\n\n    idx = full_text.index(old_sub)\n    prefix  = full_text[:idx]\n    suffix  = full_text[idx + len(old_sub):]\n\n    p_xml    = para._element\n    base_rPr = _get_first_rPr(para)\n    pPr      = p_xml.fi",
+        "applies_to": "cli_ia_claude",
+        "source": "C:\\Chance1\\IA\\CLI_IA_Claude\\merge_sow.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-04T04:12:19.396288+00:00",
+      "updated_at": "2026-04-04T04:12:19.396288+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:12:19.396288+00:00",
+        "access_count": 0
+      }
+    },
+    "d0b44278df0d": {
+      "id": "d0b44278df0d",
+      "type": "fact",
+      "key": "Guia3_0",
+      "fact": {
+        "rule": "item a buscar\tDato\n<Nombre del Cliente>\tBanco Promerica, S.A.\n<Nombre del contacto>\tSelvin Morales\n<nombre del servicio>\tIBM MQ, IBM WAS, DB2\n<anotar aquí la descripción de beneficio principal del servicio para el cliente>\tLos servicios de Soporte, Mantenimiento Preventivo y Asistencia especializada para las plataformas IBM MQ, IBM WebSphere Application Server (WAS) y DB2 garantizan alta disponibilidad, continuidad operativa y rendimiento óptimo de los sistemas críticos. Incluyen monitoreo proactivo, actualización y corrección de vulnerabilidades, optimización de desempeño y atención experta ante incidentes, reduciendo riesgos, tiempos de inactividad y costos no planificados.\n<País>\tGuatemala\n<Realice una breve descripción de los antecedentes del servicio y del problema>\tSin antecedentes\n",
+        "applies_to": "cli_ia_claude",
+        "source": "C:\\Chance1\\IA\\CLI_IA_Claude\\Guia3.xlsx",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "excel",
+        "xlsx"
+      ],
+      "created_at": "2026-04-04T04:12:19.464306+00:00",
+      "updated_at": "2026-04-04T04:12:19.464306+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:12:19.464306+00:00",
+        "access_count": 0
+      }
+    },
+    "652cd3ddcd6a": {
+      "id": "652cd3ddcd6a",
+      "type": "fact",
+      "key": "Guia3_1",
+      "fact": {
+        "rule": "la\n<Realice una breve descripción de los antecedentes del servicio y del problema>\tSin antecedentes\n<verificar si es anual el periodo de este contrato...>\t12 meses\n<Anexo: “Detalles del mantenimiento Preventivo”>\n<XXX>\t1 año plazo\tDuracion del servicio\n<Si el servicio es por mes vencido aplicar estas...>\tsin aplicar nada\n<ingresar el número de oportunidad de SAP>\t12345678\n<colocar el # de versión> \t1\n<Agregar en esta sección la oferta económica que se le entregará al cliente>\n<COMPLETAR>\tCotizacion extra\n<colocar el monto total mensual en dólares>\t1540\n(Cualquier cambio a estos niveles de servicio deben ser aprobados por el Gerente General de Digital Solutions).\n<Anexo: “Detalles del mantenimiento Preventivo”>.\n",
+        "applies_to": "cli_ia_claude",
+        "source": "C:\\Chance1\\IA\\CLI_IA_Claude\\Guia3.xlsx",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "excel",
+        "xlsx"
+      ],
+      "created_at": "2026-04-04T04:12:19.521355+00:00",
+      "updated_at": "2026-04-04T04:12:19.521355+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:12:19.521355+00:00",
+        "access_count": 0
+      }
+    },
+    "09fdf2fa059a": {
+      "id": "09fdf2fa059a",
+      "type": "fact",
+      "key": "Guia3_2",
+      "fact": {
+        "rule": "dos por el Gerente General de Digital Solutions).\n<Anexo: “Detalles del mantenimiento Preventivo”>.\n(Únicamente dejar los servicios que serán incluidos en la propuesta)\t•\tSoporte remoto a incidentes de los productos indicados en la presente propuesta.\n\n•\tAsistencia remota a través de solicitudes de servicio para productos indicados en la presente propuesta.\t•\tSoporte remoto a incidentes de los productos indicados en la presente propuesta.\n•\tMantenimiento preventivo remoto de los productos indicados en el punto 3.2 de la presente propuesta. \n•\tAsistencia remota a través de solicitudes de servicio para productos indicados en la presente propuesta.\n<Si el servicio es por mes vencido aplicar estas cláusulas, de lo contrario eliminar el párrafo>",
+        "applies_to": "cli_ia_claude",
+        "source": "C:\\Chance1\\IA\\CLI_IA_Claude\\Guia3.xlsx",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "excel",
+        "xlsx"
+      ],
+      "created_at": "2026-04-04T04:12:19.562960+00:00",
+      "updated_at": "2026-04-04T04:12:19.562960+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:12:19.562960+00:00",
+        "access_count": 0
+      }
+    },
+    "5942237a828d": {
+      "id": "5942237a828d",
+      "type": "fact",
+      "key": "MANUAL_MCP_CLAUDE_CLI_0",
+      "fact": {
+        "rule": "========================================================\n  MANUAL: MCP en Claude Code CLI\n  Que es, para que sirve y como se usa\n  Version: Claude Code 2.1.83\n========================================================\n\nQUE ES MCP\n----------\nMCP (Model Context Protocol) es una forma de darle a Claude\nherramientas extra para hacer cosas que normalmente no puede:\ncontrolar un navegador, leer correos, manejar un calendario,\nconectarse a bases de datos, etc.\n\nSin MCP:   Claude solo responde texto en el chat\nCon MCP:   Claude puede hacer clic en botones, abrir paginas,\n           leer archivos del sistema, hablar con APIs externas\n\nAnalogia: es como darle brazos a Claude para que pueda\ninteractuar con el mundo real, no solo hablar de el.\n\nCOMO FUNCIONA (sin entrar en tecnicismos)\n",
+        "applies_to": "cli_ia_claude",
+        "source": "C:\\Chance1\\IA\\CLI_IA_Claude\\MANUAL_MCP_CLAUDE_CLI.txt",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "txt"
+      ],
+      "created_at": "2026-04-04T04:12:19.735154+00:00",
+      "updated_at": "2026-04-04T04:12:19.735154+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:12:19.735154+00:00",
+        "access_count": 0
+      }
+    },
+    "717e0bf8adc3": {
+      "id": "717e0bf8adc3",
+      "type": "fact",
+      "key": "MANUAL_MCP_CLAUDE_CLI_1",
+      "fact": {
+        "rule": "eda\ninteractuar con el mundo real, no solo hablar de el.\n\nCOMO FUNCIONA (sin entrar en tecnicismos)\n------------------------------------------\n1. Instalas un \"servidor MCP\" (un programa pequeño que\n   expone herramientas a Claude)\n2. Lo registras en Claude CLI con un comando\n3. La proxima vez que abres Claude CLI, el tiene acceso\n   a esas herramientas automaticamente\n4. Le pides a Claude que haga algo y el usa las tools\n   sin que tu tengas que hacer nada mas\n\nTUS MCP CONFIGURADOS AHORA MISMO\n----------------------------------\nEjecuta esto para ver los que tienes:\n\n  claude mcp list\n\nLos que tienes actualmente:\n\n  playwright          -> Controla un navegador Chromium\n                         (navegar, hacer click, escribir, screenshots)\n\n",
+        "applies_to": "cli_ia_claude",
+        "source": "C:\\Chance1\\IA\\CLI_IA_Claude\\MANUAL_MCP_CLAUDE_CLI.txt",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "txt"
+      ],
+      "created_at": "2026-04-04T04:12:19.792709+00:00",
+      "updated_at": "2026-04-04T04:12:19.792709+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:12:19.792709+00:00",
+        "access_count": 0
+      }
+    },
+    "eafa3fb0a2fe": {
+      "id": "eafa3fb0a2fe",
+      "type": "fact",
+      "key": "MANUAL_MCP_CLAUDE_CLI_2",
+      "fact": {
+        "rule": "trola un navegador Chromium\n                         (navegar, hacer click, escribir, screenshots)\n\n  claude.ai Gmail     -> Leer y manejar correos Gmail\n                         (necesita autenticacion pendiente)\n\n  claude.ai Google Calendar -> Manejar calendario Google\n                         (necesita autenticacion pendiente)\n\n  claude.ai monday.com -> Manejar tableros de Monday.com\n                         (necesita autenticacion pendiente)\n\nCOMO USAR MCP EN LA PRACTICA\n------------------------------\nNo necesitas hacer nada especial. Solo:\n\n  1. Abrir Claude CLI normalmente:\n       claude\n\n  2. Pedirle a Claude lo que quieres en lenguaje natural:\n       \"Abre Chrome, ve a google.com y busca SAP CRM\"\n       \"Ve a SAP CRM, haz login y llena el formulario\"\n",
+        "applies_to": "cli_ia_claude",
+        "source": "C:\\Chance1\\IA\\CLI_IA_Claude\\MANUAL_MCP_CLAUDE_CLI.txt",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "txt"
+      ],
+      "created_at": "2026-04-04T04:12:19.835019+00:00",
+      "updated_at": "2026-04-04T04:12:19.835019+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:12:19.835019+00:00",
+        "access_count": 0
+      }
+    },
+    "256130a0557e": {
+      "id": "256130a0557e",
+      "type": "fact",
+      "key": "MANUAL_MCP_CLAUDE_CLI_3",
+      "fact": {
+        "rule": "bre Chrome, ve a google.com y busca SAP CRM\"\n       \"Ve a SAP CRM, haz login y llena el formulario\"\n       \"Toma un screenshot de la pagina actual\"\n\n  3. Claude detecta automaticamente que necesita las tools\n     de Playwright y las usa solo.\n\nNO necesitas escribir comandos especiales.\nNO necesitas saber programacion.\nClaude decide cuando usar cada herramienta.\n\nEJEMPLO REAL CON PLAYWRIGHT MCP\n---------------------------------\nTu escribes en el chat de Claude CLI:\n\n  \"Ve a https://mi-sap-crm.empresa.com, haz login con\n   usuario 'ntoled' y luego navega a Oportunidades\"\n\nClaude hace internamente:\n  [usa browser_navigate] -> abre Chrome con la URL\n  [usa browser_screenshot] -> ve la pagina de login\n  [usa browser_click] -> hace clic en campo usuario\n  [usa browser_type] -> escribe 'ntoled'\n",
+        "applies_to": "cli_ia_claude",
+        "source": "C:\\Chance1\\IA\\CLI_IA_Claude\\MANUAL_MCP_CLAUDE_CLI.txt",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "txt"
+      ],
+      "created_at": "2026-04-04T04:12:19.885747+00:00",
+      "updated_at": "2026-04-04T04:12:19.885747+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:12:19.885747+00:00",
+        "access_count": 0
+      }
+    },
+    "40411acc6b9c": {
+      "id": "40411acc6b9c",
+      "type": "fact",
+      "key": "MANUAL_MCP_CLAUDE_CLI_4",
+      "fact": {
+        "rule": " login\n  [usa browser_click] -> hace clic en campo usuario\n  [usa browser_type] -> escribe 'ntoled'\n  [usa browser_press_key] -> presiona Tab\n  [usa browser_click] -> hace clic en password\n  [usa browser_type] -> escribe la password\n  [usa browser_click] -> hace clic en el boton Login\n  ... y asi hasta completar la tarea\n\nTu ves el Chrome abrirse y hacer todo en tiempo real.\n\nCOMANDOS MCP QUE NECESITAS SABER\n----------------------------------\n\nVER los MCP instalados:\n  claude mcp list\n\nAGREGAR un MCP nuevo (alcance solo para ti, todos los proyectos):\n  claude mcp add NOMBRE --scope user -- COMANDO\n\n  Ejemplo - Playwright:\n  claude mcp add playwright --scope user -- npx @playwright/mcp --browser chromium\n\n  Ejemplo - Filesystem (leer/escribir archivos):\n",
+        "applies_to": "cli_ia_claude",
+        "source": "C:\\Chance1\\IA\\CLI_IA_Claude\\MANUAL_MCP_CLAUDE_CLI.txt",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "txt"
+      ],
+      "created_at": "2026-04-04T04:12:19.940784+00:00",
+      "updated_at": "2026-04-04T04:12:19.940784+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:12:19.940784+00:00",
+        "access_count": 0
+      }
+    },
+    "41d2d575f832": {
+      "id": "41d2d575f832",
+      "type": "fact",
+      "key": "MANUAL_MCP_CLAUDE_CLI_5",
+      "fact": {
+        "rule": "pe user -- npx @playwright/mcp --browser chromium\n\n  Ejemplo - Filesystem (leer/escribir archivos):\n  claude mcp add filesystem --scope user -- npx @modelcontextprotocol/server-filesystem C:/Chance1\n\nAGREGAR un MCP solo para un proyecto especifico:\n  claude mcp add NOMBRE -- COMANDO\n  (sin --scope user, se guarda en el proyecto actual)\n\nQUITAR un MCP:\n  claude mcp remove NOMBRE --scope user\n\nVER detalles de un MCP:\n  claude mcp get NOMBRE\n\nALCANCES (SCOPE): CUAL USAR\n-----------------------------\n--scope user    -> Disponible en TODOS tus proyectos y carpetas\n                   Se guarda en: C:\\Users\\ntoledo\\AppData\\Local\\ClaudeCode\\.claude.json\n                   USA ESTE para herramientas generales (Playwright, Gmail, etc.)\n\n",
+        "applies_to": "cli_ia_claude",
+        "source": "C:\\Chance1\\IA\\CLI_IA_Claude\\MANUAL_MCP_CLAUDE_CLI.txt",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "txt"
+      ],
+      "created_at": "2026-04-04T04:12:19.992329+00:00",
+      "updated_at": "2026-04-04T04:12:19.992329+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:12:19.992329+00:00",
+        "access_count": 0
+      }
+    },
+    "ab9e0a38657c": {
+      "id": "ab9e0a38657c",
+      "type": "fact",
+      "key": "MANUAL_MCP_CLAUDE_CLI_6",
+      "fact": {
+        "rule": "ode\\.claude.json\n                   USA ESTE para herramientas generales (Playwright, Gmail, etc.)\n\nsin --scope     -> Solo disponible en el proyecto actual (la carpeta donde estas)\n                   Se guarda en: .claude/settings.json dentro del proyecto\n                   USA ESTE para herramientas especificas de un proyecto\n\nEL PROBLEMA COMUN: \"LAS TOOLS NO APARECEN\"\n--------------------------------------------\nSi agregas un MCP durante una sesion de Claude CLI,\nNO estara disponible en esa misma sesion.\n\nSOLUCION: Cerrar Claude CLI y volver a abrirlo.\n\n  1. Escribe /exit o presiona Ctrl+C para salir\n  2. Vuelve a abrir: claude\n  3. Las tools nuevas ya estaran disponibles\n\nCOMO SABER QUE LAS TOOLS ESTAN ACTIVAS\n----------------------------------------\n",
+        "applies_to": "cli_ia_claude",
+        "source": "C:\\Chance1\\IA\\CLI_IA_Claude\\MANUAL_MCP_CLAUDE_CLI.txt",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "txt"
+      ],
+      "created_at": "2026-04-04T04:12:20.043329+00:00",
+      "updated_at": "2026-04-04T04:12:20.043329+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:12:20.043329+00:00",
+        "access_count": 0
+      }
+    },
+    "65f242d482c3": {
+      "id": "65f242d482c3",
+      "type": "fact",
+      "key": "MANUAL_MCP_CLAUDE_CLI_7",
+      "fact": {
+        "rule": "staran disponibles\n\nCOMO SABER QUE LAS TOOLS ESTAN ACTIVAS\n----------------------------------------\nAl inicio de una sesion Claude CLI ejecuta:\n\n  /mcp\n\nTe muestra los servidores MCP conectados y sus herramientas.\nSi ves \"Connected\" al lado de playwright, esta listo.\n\nO simplemente preguntale a Claude:\n  \"Que herramientas MC",
+        "applies_to": "cli_ia_claude",
+        "source": "C:\\Chance1\\IA\\CLI_IA_Claude\\MANUAL_MCP_CLAUDE_CLI.txt",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "txt"
+      ],
+      "created_at": "2026-04-04T04:12:20.090495+00:00",
+      "updated_at": "2026-04-04T04:12:20.090495+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:12:20.090495+00:00",
+        "access_count": 0
+      }
+    },
+    "62666b8fe111": {
+      "id": "62666b8fe111",
+      "type": "fact",
+      "key": "MANUAL_MCP_GEMINI_CLI_0",
+      "fact": {
+        "rule": "========================================================\n  MANUAL: MCP en Gemini CLI\n  Como usar Playwright MCP con Gemini para SAP CRM\n  Version: @google/gemini-cli 0.34.0\n========================================================\n\nLO QUE YA TIENES INSTALADO\n----------------------------\n  Gemini CLI v0.34.0       -> ya instalado\n  Playwright MCP           -> ya configurado y Connected\n  Credenciales Google      -> ya cacheadas (tu cuenta Google)\n\nPara abrir Gemini CLI:\n  gemini\n\nPara ver los MCP configurados:\n  gemini mcp list\n\nCOMO ES IGUAL A CLAUDE CLI\n----------------------------\n  - Escribes en lenguaje natural lo que quieres\n  - Gemini usa las tools de Playwright automaticamente\n  - Ves el Chrome abrirse y hacer las cosas en tiempo real\n",
+        "applies_to": "cli_ia_claude",
+        "source": "C:\\Chance1\\IA\\CLI_IA_Claude\\MANUAL_MCP_GEMINI_CLI.txt",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "txt"
+      ],
+      "created_at": "2026-04-04T04:12:20.155983+00:00",
+      "updated_at": "2026-04-04T04:12:20.155983+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:12:20.155983+00:00",
+        "access_count": 0
+      }
+    },
+    "4828455d04e8": {
+      "id": "4828455d04e8",
+      "type": "fact",
+      "key": "MANUAL_MCP_GEMINI_CLI_1",
+      "fact": {
+        "rule": " las tools de Playwright automaticamente\n  - Ves el Chrome abrirse y hacer las cosas en tiempo real\n  - No necesitas escribir codigo ni comandos especiales\n\nEjemplo:\n  \"Ve a SAP CRM, haz login y navega a Oportunidades\"\n  -> Gemini abre Chrome, hace login, navega solo\n\nCOMO ES DIFERENTE A CLAUDE CLI\n--------------------------------\n  AUTENTICACION:\n    Claude  -> cuenta Claude.ai (anthropic)\n    Gemini  -> cuenta Google (ya tienes credenciales cacheadas)\n\n  MODELO:\n    Claude  -> Claude Sonnet / Opus\n    Gemini  -> Gemini 2.0 Flash / Pro\n\n  COMANDO PARA AGREGAR MCP:\n    Claude  -> claude mcp add NOMBRE --scope user -- COMANDO\n    Gemini  -> gemini mcp add NOMBRE COMANDO [argumentos]\n    (Gemini no usa -- ni --scope)\n\n  DONDE GUARDA LA CONFIG:\n",
+        "applies_to": "cli_ia_claude",
+        "source": "C:\\Chance1\\IA\\CLI_IA_Claude\\MANUAL_MCP_GEMINI_CLI.txt",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "txt"
+      ],
+      "created_at": "2026-04-04T04:12:20.208380+00:00",
+      "updated_at": "2026-04-04T04:12:20.208380+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:12:20.208380+00:00",
+        "access_count": 0
+      }
+    },
+    "00c275a746d5": {
+      "id": "00c275a746d5",
+      "type": "fact",
+      "key": "MANUAL_MCP_GEMINI_CLI_2",
+      "fact": {
+        "rule": "ni mcp add NOMBRE COMANDO [argumentos]\n    (Gemini no usa -- ni --scope)\n\n  DONDE GUARDA LA CONFIG:\n    Claude  -> C:\\Users\\ntoledo\\AppData\\Local\\ClaudeCode\\.claude.json\n    Gemini  -> Carpeta del proyecto actual (project settings)\n\nCOMANDOS MCP EN GEMINI CLI\n----------------------------\nVer MCP instalados:\n  gemini mcp list\n\nAgregar MCP:\n  gemini mcp add NOMBRE COMANDO [args]\n\n  Ejemplo Playwright:\n  gemini mcp add playwright npx @playwright/mcp --browser chromium\n\n  Ejemplo Filesystem:\n  gemini mcp add filesystem npx @modelcontextprotocol/server-filesystem \"C:/Chance1\"\n\nQuitar MCP:\n  gemini mcp remove NOMBRE\n\nActivar/Desactivar MCP:\n  gemini mcp enable NOMBRE\n  gemini mcp disable NOMBRE\n\nUSO PRACTICO PARA SAP CRM\n---------------------------\n1. Abrir Gemini CLI:\n     gemini\n\n2. ",
+        "applies_to": "cli_ia_claude",
+        "source": "C:\\Chance1\\IA\\CLI_IA_Claude\\MANUAL_MCP_GEMINI_CLI.txt",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "txt"
+      ],
+      "created_at": "2026-04-04T04:12:20.260006+00:00",
+      "updated_at": "2026-04-04T04:12:20.260006+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:12:20.260006+00:00",
+        "access_count": 0
+      }
+    },
+    "c06f8539d4e6": {
+      "id": "c06f8539d4e6",
+      "type": "fact",
+      "key": "MANUAL_MCP_GEMINI_CLI_3",
+      "fact": {
+        "rule": " NOMBRE\n\nUSO PRACTICO PARA SAP CRM\n---------------------------\n1. Abrir Gemini CLI:\n     gemini\n\n2. Escribir la tarea (igual que con Claude):\n     \"Tienes acceso a Playwright. Ve a https://mi-sap-crm.com,\n      haz login con usuario 'ntoled'. Recuerda:\n      - Escribir password con delay (SAP lo requiere)\n      - Presionar Tab despues de cada campo\n      - SAP usa iFrames anidados, busca WorkAreaFrame\n      Luego abre la oportunidad BKIND-IBMMQ-2026\"\n\n3. Gemini hace todo solo con las tools de Playwright\n\nDIFERENCIA DE CALIDAD CLAUDE vs GEMINI PARA SAP\n--------------------------------------------------\nAmbos pueden controlar el navegador con Playwright MCP.\nLa diferencia esta en el razonamiento:\n\n  Claude Sonnet/Opus:\n    - Mejor siguiendo instrucciones complejas\n",
+        "applies_to": "cli_ia_claude",
+        "source": "C:\\Chance1\\IA\\CLI_IA_Claude\\MANUAL_MCP_GEMINI_CLI.txt",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "txt"
+      ],
+      "created_at": "2026-04-04T04:12:20.316410+00:00",
+      "updated_at": "2026-04-04T04:12:20.316410+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:12:20.316410+00:00",
+        "access_count": 0
+      }
+    },
+    "6e858abff7e0": {
+      "id": "6e858abff7e0",
+      "type": "fact",
+      "key": "MANUAL_MCP_GEMINI_CLI_4",
+      "fact": {
+        "rule": "encia esta en el razonamiento:\n\n  Claude Sonnet/Opus:\n    - Mejor siguiendo instrucciones complejas\n    - Mas preciso con formularios multi-paso\n    - Mejor manejando errores inesperados de SAP\n    - Conoce tus patrones SAP del KB local\n\n  Gemini 2.0 Flash:\n    - Muy rapido\n    - Bueno para tareas simples y directas\n    - Puede confundirse con iFrames anidados complejos\n    - No tiene acceso a tu KB de patrones SAP\n\nRecomendacion: para SAP CRM, Claude es mas confiable\nporque tiene en memoria tus patrones probados.\nGemini es una buena alternativa para tareas web simples.\n\nCONFIGURACION ACTUAL DE PLAYWRIGHT MCP EN GEMINI\n--------------------------------------------------\nEstado actual:\n  playwright: npx @playwright/mcp --browser chromium - Connected\n\nPara verificar en cualquier momento:\n",
+        "applies_to": "cli_ia_claude",
+        "source": "C:\\Chance1\\IA\\CLI_IA_Claude\\MANUAL_MCP_GEMINI_CLI.txt",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "txt"
+      ],
+      "created_at": "2026-04-04T04:12:20.362086+00:00",
+      "updated_at": "2026-04-04T04:12:20.362086+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:12:20.362086+00:00",
+        "access_count": 0
+      }
+    },
+    "62d6d991a18a": {
+      "id": "62d6d991a18a",
+      "type": "fact",
+      "key": "MANUAL_MCP_GEMINI_CLI_5",
+      "fact": {
+        "rule": "laywright: npx @playwright/mcp --browser chromium - Connected\n\nPara verificar en cualquier momento:\n  gemini mcp list\n\nRENOVAR CREDENCIALES GOOGLE (si expiran)\n-----------------------------------------\nSi Gemini pide login:\n  1. Ejecutar: gemini\n  2. Seguir el flujo de autenticacion con tu cuenta Google\n  3. Las credenciales se guardan automaticamente\n\nO directamente:\n  gemini auth   (si existe el subcomando)\n\nRESUMEN: CLAUDE vs GEMINI PARA TU USO\n---------------------------------------\n\n  TAREA                          USAR\n  ---------------------------------\n  SAP CRM formularios complejos  -> Claude CLI + Playwright MCP\n  Tareas web simples             -> Gemini CLI + Playwright MCP\n  Sin reiniciar sesion           -> El que ya tengas abierto\n",
+        "applies_to": "cli_ia_claude",
+        "source": "C:\\Chance1\\IA\\CLI_IA_Claude\\MANUAL_MCP_GEMINI_CLI.txt",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "txt"
+      ],
+      "created_at": "2026-04-04T04:12:20.415993+00:00",
+      "updated_at": "2026-04-04T04:12:20.415993+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:12:20.415993+00:00",
+        "access_count": 0
+      }
+    },
+    "14eed28ca78d": {
+      "id": "14eed28ca78d",
+      "type": "fact",
+      "key": "MANUAL_MCP_GEMINI_CLI_6",
+      "fact": {
+        "rule": "        -> Gemini CLI + Playwright MCP\n  Sin reiniciar sesion           -> El que ya tengas abierto\n  Mas velocidad                  -> Gemini (Flash es rapido)\n  Mas precision SAP              -> Claude (conoce tus patrones)\n\nREFERENCIA RAPIDA GEMINI MCP\n------------------------------\n  Abrir Gemini:    gemini\n  Ver MCP:         gemini mcp list\n  Agregar MCP:     gemini mcp add NOMBRE COMANDO [args]\n  Quitar MCP:      gemini mcp remove NOMBRE\n\n  Playwright ya configurado:\n    playwright: npx @playwright/mcp --browser chromium\n\n========================================================",
+        "applies_to": "cli_ia_claude",
+        "source": "C:\\Chance1\\IA\\CLI_IA_Claude\\MANUAL_MCP_GEMINI_CLI.txt",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "txt"
+      ],
+      "created_at": "2026-04-04T04:12:20.465231+00:00",
+      "updated_at": "2026-04-04T04:12:20.465231+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:12:20.465231+00:00",
+        "access_count": 0
+      }
+    },
+    "a49259f9a11e": {
+      "id": "a49259f9a11e",
+      "type": "fact",
+      "key": "settings.local_0",
+      "fact": {
+        "rule": "{\n  \"permissions\": {\n    \"allow\": [\n      \"Bash(python3:*)\",\n      \"Bash(start:*)\"\n    ]\n  }\n}",
+        "applies_to": "cli_ia_claude",
+        "source": "C:\\Chance1\\IA\\CLI_IA_Claude\\.claude\\settings.local.json",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "json",
+        "json"
+      ],
+      "created_at": "2026-04-04T04:12:20.500687+00:00",
+      "updated_at": "2026-04-04T04:12:20.500687+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:12:20.500687+00:00",
+        "access_count": 0
+      }
+    }
+  },
+  "tag_index": {
+    "python": [
+      "ffbb7bdfdcfd",
+      "c6874382991e",
+      "095502761783",
+      "05f0db69c382",
+      "5d14165ec273",
+      "ccac1e85c86a",
+      "c6a894fb3346",
+      "4466680a002c",
+      "7f034d3260b1",
+      "e6bde706575f",
+      "ea352256de45",
+      "f82bc1cf443b",
+      "72aec6a6659a",
+      "bd9c4dbf8e0a",
+      "0baf1ab725d0",
+      "c2ec600bc91a"
+    ],
+    "py": [
+      "ffbb7bdfdcfd",
+      "c6874382991e",
+      "095502761783",
+      "05f0db69c382",
+      "5d14165ec273",
+      "ccac1e85c86a",
+      "c6a894fb3346",
+      "4466680a002c",
+      "7f034d3260b1",
+      "e6bde706575f",
+      "ea352256de45",
+      "f82bc1cf443b",
+      "72aec6a6659a",
+      "bd9c4dbf8e0a",
+      "0baf1ab725d0",
+      "c2ec600bc91a"
+    ],
+    "excel": [
+      "d0b44278df0d",
+      "652cd3ddcd6a",
+      "09fdf2fa059a"
+    ],
+    "xlsx": [
+      "d0b44278df0d",
+      "652cd3ddcd6a",
+      "09fdf2fa059a"
+    ],
+    "txt": [
+      "5942237a828d",
+      "717e0bf8adc3",
+      "eafa3fb0a2fe",
+      "256130a0557e",
+      "40411acc6b9c",
+      "41d2d575f832",
+      "ab9e0a38657c",
+      "65f242d482c3",
+      "62666b8fe111",
+      "4828455d04e8",
+      "00c275a746d5",
+      "c06f8539d4e6",
+      "6e858abff7e0",
+      "62d6d991a18a",
+      "14eed28ca78d"
+    ],
+    "json": [
+      "a49259f9a11e",
+      "a49259f9a11e"
+    ]
+  },
+  "stats": {
+    "total_entries": 35,
+    "total_lookups": 0,
+    "total_hits": 0
+  }
+}

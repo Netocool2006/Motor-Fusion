@@ -1,0 +1,328 @@
+{
+  "domain": "claude",
+  "description": "Dominio auto-creado: claude",
+  "entries": {
+    "a3bebd6d8531": {
+      "id": "a3bebd6d8531",
+      "type": "fact",
+      "key": "settings.local_0",
+      "fact": {
+        "rule": "{\n  \"permissions\": {\n    \"allow\": [\n      \"Bash(find /c/Chance1 -name on_user_message.py -o -name on_user_message*)\",\n      \"Bash(ls -d /c/Chance1/*/)\",\n      \"Bash(grep -rl 'Chance1/Asistente IA/.claude/hooks' /c/Users/ntoledo/.claude/ --include=*.json)\",\n      \"Bash(cp:*)\",\n      \"Bash(powershell -Command \\\"Copy-Item -Path 'C:\\\\\\\\Hooks_IA\\\\\\\\hooks\\\\\\\\*' -Destination 'C:\\\\\\\\Chance1\\\\\\\\Asistente IA\\\\\\\\.claude\\\\\\\\hooks\\\\\\\\' -Recurse -Force 2>&1; Get-ChildItem 'C:\\\\\\\\Chance1\\\\\\\\Asistente IA\\\\\\\\.claude\\\\\\\\hooks\\\\\\\\' | Select-Object Name\\\")\",\n      \"Bash(powershell -Command \\\"Remove-Item 'C:\\\\\\\\Chance1\\\\\\\\Asistente IA\\\\\\\\.claude\\\\\\\\hooks' -Force -ErrorAction SilentlyContinue; New-Item -ItemType Junction -Path 'C:\\\\\\\\Chance1\\\\\\\\Asistente IA\\\\\\\\.claude\\\\\\\\hooks' -Target 'C:\\\\\\\\Hooks_IA\\\\\\\\hooks'",
+        "applies_to": "claude",
+        "source": "C:\\Chance1\\.claude\\settings.local.json",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "json",
+        "json"
+      ],
+      "created_at": "2026-04-04T04:39:38.992048+00:00",
+      "updated_at": "2026-04-04T04:39:38.992048+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:39:38.992048+00:00",
+        "access_count": 0
+      }
+    },
+    "a16e46948f06": {
+      "id": "a16e46948f06",
+      "type": "fact",
+      "key": "settings.local_1",
+      "fact": {
+        "rule": "Junction -Path 'C:\\\\\\\\Chance1\\\\\\\\Asistente IA\\\\\\\\.claude\\\\\\\\hooks' -Target 'C:\\\\\\\\Hooks_IA\\\\\\\\hooks' -Force\\\")\",\n      \"Bash(powershell -Command \\\"Remove-Item 'C:\\\\\\\\Chance1\\\\\\\\Asistente IA\\\\\\\\.claude\\\\\\\\hooks\\\\\\\\*' -Recurse -Force\\\")\",\n      \"Bash(powershell -Command \\\"New-Item -ItemType Junction -Path 'C:\\\\\\\\Chance1\\\\\\\\Asistente IA\\\\\\\\.claude\\\\\\\\hooks' -Target 'C:\\\\\\\\Hooks_IA\\\\\\\\hooks' -Force\\\")\",\n      \"Bash(powershell -Command \\\"Copy-Item -Path 'C:\\\\\\\\Hooks_IA\\\\\\\\hooks\\\\\\\\*' -Destination 'C:\\\\\\\\Chance1\\\\\\\\Asistente IA\\\\\\\\.claude\\\\\\\\hooks\\\\\\\\' -Recurse -Force\\\")\",\n      \"Bash(powershell -Command \\\"\\n@\\\\(\\n    'C:\\\\\\\\Hooks_IA\\\\\\\\knowledge',\\n    'C:\\\\\\\\Hooks_IA\\\\\\\\knowledge\\\\\\\\sow',\\n    'C:\\\\\\\\Hooks_IA\\\\\\\\knowledge\\\\\\\\bom',\\n    'C:\\\\\\\\Hooks_IA\\\\\\\\knowledge\\\\\\\\sap_tierra',\\n    'C:\\\\\\\\H",
+        "applies_to": "claude",
+        "source": "C:\\Chance1\\.claude\\settings.local.json",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "json",
+        "json"
+      ],
+      "created_at": "2026-04-04T04:39:39.082248+00:00",
+      "updated_at": "2026-04-04T04:39:39.082248+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:39:39.082248+00:00",
+        "access_count": 0
+      }
+    },
+    "eb74a66030fa": {
+      "id": "eb74a66030fa",
+      "type": "fact",
+      "key": "settings.local_2",
+      "fact": {
+        "rule": "C:\\\\\\\\Hooks_IA\\\\\\\\knowledge\\\\\\\\bom',\\n    'C:\\\\\\\\Hooks_IA\\\\\\\\knowledge\\\\\\\\sap_tierra',\\n    'C:\\\\\\\\Hooks_IA\\\\\\\\knowledge\\\\\\\\files',\\n    'C:\\\\\\\\Hooks_IA\\\\\\\\knowledge\\\\\\\\sessions',\\n    'C:\\\\\\\\Hooks_IA\\\\\\\\knowledge\\\\\\\\business_rules',\\n    'C:\\\\\\\\Hooks_IA\\\\\\\\knowledge\\\\\\\\catalog'\\n\\\\) | ForEach-Object { New-Item -ItemType Directory -Path \\\\\\\\$_ -Force | Out-Null }\\nGet-ChildItem -Path 'C:\\\\\\\\Hooks_IA' -Recurse -Directory | Select-Object FullName\\n\\\")\",\n      \"Bash(powershell -Command \\\"\\nCopy-Item -Path 'C:\\\\\\\\Users\\\\\\\\ntoledo\\\\\\\\AppData\\\\\\\\Local\\\\\\\\ClaudeCode\\\\\\\\.adaptive_cli\\\\\\\\*' -Destination 'C:\\\\\\\\Hooks_IA\\\\\\\\' -Recurse -Force\\nGet-ChildItem 'C:\\\\\\\\Hooks_IA' -Recurse | Measure-Object | Select-Object @{Name='Total Files'; Expression={\\\\\\\\$_.Count}}\\nWrite-Host 'Migración completada: dat",
+        "applies_to": "claude",
+        "source": "C:\\Chance1\\.claude\\settings.local.json",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "json",
+        "json"
+      ],
+      "created_at": "2026-04-04T04:39:39.184024+00:00",
+      "updated_at": "2026-04-04T04:39:39.184024+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:39:39.184024+00:00",
+        "access_count": 0
+      }
+    },
+    "733f76b902e2": {
+      "id": "733f76b902e2",
+      "type": "fact",
+      "key": "settings.local_3",
+      "fact": {
+        "rule": "elect-Object @{Name='Total Files'; Expression={\\\\\\\\$_.Count}}\\nWrite-Host 'Migración completada: datos ahora en C:\\\\\\\\Hooks_IA'\\n\\\")\",\n      \"Bash(python3 verify_hooks_system.py)\",\n      \"Bash(python3:*)\",\n      \"Bash(timeout 5 claude --version)\",\n      \"Bash(wc -l C:Hooks_IAknowledge/*.json C:Hooks_IAknowledge/*/*.json)\",\n      \"Bash(find C:Chance1 -name dashboard* -o -name *html* -o -name *server*)\",\n      \"Bash(grep -r \\\"flask\\\\\\\\|http\\\\\\\\|port\\\\\\\\|server\\\" 'C:\\\\\\\\Chance1\\\\\\\\Asistente IA' --include=*.py)\",\n      \"Bash(grep -r \\\"Flask\\\\\\\\|flask\\\\\\\\|@app.route\\\\\\\\|@app.get\\\" 'C:\\\\\\\\Chance1\\\\\\\\Asistente IA' --include=*.py)\",\n      \"Bash(find 'C:\\\\\\\\Chance1\\\\\\\\Asistente IA' -name *.py -type f)\",\n      \"Bash(xargs grep:*)\",\n      \"Bash(ls C:Chance1Asistente IA/*.py)\",\n",
+        "applies_to": "claude",
+        "source": "C:\\Chance1\\.claude\\settings.local.json",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "json",
+        "json"
+      ],
+      "created_at": "2026-04-04T04:39:39.286703+00:00",
+      "updated_at": "2026-04-04T04:39:39.286703+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:39:39.286703+00:00",
+        "access_count": 0
+      }
+    },
+    "cac0ef5b908e": {
+      "id": "cac0ef5b908e",
+      "type": "fact",
+      "key": "settings.local_4",
+      "fact": {
+        "rule": " IA' -name *.py -type f)\",\n      \"Bash(xargs grep:*)\",\n      \"Bash(ls C:Chance1Asistente IA/*.py)\",\n      \"Bash(powershell -Command \\\"\\nCopy-Item -Path 'C:\\\\\\\\Chance1\\\\\\\\IA\\\\\\\\Buscador_IA\\\\\\\\knowledge_base.py' -Destination 'C:\\\\\\\\Hooks_IA\\\\\\\\'\\nCopy-Item -Path 'C:\\\\\\\\Chance1\\\\\\\\IA\\\\\\\\Buscador_IA\\\\\\\\file_search.py' -Destination 'C:\\\\\\\\Hooks_IA\\\\\\\\'\\nGet-Item 'C:\\\\\\\\Hooks_IA\\\\\\\\dashboard.py', 'C:\\\\\\\\Hooks_IA\\\\\\\\knowledge_base.py', 'C:\\\\\\\\Hooks_IA\\\\\\\\file_search.py' | Select-Object Name, Length\\n\\\")\",\n      \"Bash(powershell -Command \\\"\\nif \\\\(Test-Path 'C:\\\\\\\\Chance1\\\\\\\\IA\\\\\\\\Buscador_IA\\\\\\\\dashboard_web'\\\\) {\\n    Copy-Item -Path 'C:\\\\\\\\Chance1\\\\\\\\IA\\\\\\\\Buscador_IA\\\\\\\\dashboard_web' -Destination 'C:\\\\\\\\Hooks_IA\\\\\\\\' -Recurse\\n    Write-Host '[OK] dashboard_web copiada'\\n    Get-ChildItem 'C:",
+        "applies_to": "claude",
+        "source": "C:\\Chance1\\.claude\\settings.local.json",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "json",
+        "json"
+      ],
+      "created_at": "2026-04-04T04:39:39.394532+00:00",
+      "updated_at": "2026-04-04T04:39:39.394532+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:39:39.394532+00:00",
+        "access_count": 0
+      }
+    },
+    "85f09f54171d": {
+      "id": "85f09f54171d",
+      "type": "fact",
+      "key": "settings.local_5",
+      "fact": {
+        "rule": "on 'C:\\\\\\\\Hooks_IA\\\\\\\\' -Recurse\\n    Write-Host '[OK] dashboard_web copiada'\\n    Get-ChildItem 'C:\\\\\\\\Hooks_IA\\\\\\\\dashboard_web' -Recurse | Measure-Object | Select-Object Count\\n} else {\\n    Write-Host '[FAIL] dashboard_web no existe'\\n}\\n\\\")\",\n      \"Bash(pip install:*)\",\n      \"Bash(find C:Chance1IAMotor_IA -name *dashboard* -o -name *monitor*)\",\n      \"Bash(powershell -Command \\\"\\nCopy-Item -Path 'C:\\\\\\\\Chance1\\\\\\\\IA\\\\\\\\Motor_IA\\\\\\\\dashboard' -Destination 'C:\\\\\\\\Hooks_IA\\\\\\\\' -Recurse -Force\\nGet-ChildItem 'C:\\\\\\\\Hooks_IA\\\\\\\\dashboard' | Select-Object Name\\nWrite-Host '[OK] Dashboard Motor_IA copiado a C:\\\\\\\\Hooks_IA'\\n\\\")\",\n      \"Bash(powershell -Command \\\":*)\",\n      \"Bash(netstat -ano)\",\n      \"Read(//c/Hooks_IA/**)\",\n      \"Bash(python hooks/session_start.py)\",\n",
+        "applies_to": "claude",
+        "source": "C:\\Chance1\\.claude\\settings.local.json",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "json",
+        "json"
+      ],
+      "created_at": "2026-04-04T04:39:39.488370+00:00",
+      "updated_at": "2026-04-04T04:39:39.488370+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:39:39.488370+00:00",
+        "access_count": 0
+      }
+    },
+    "3dd0477dfb69": {
+      "id": "3dd0477dfb69",
+      "type": "fact",
+      "key": "settings.local_6",
+      "fact": {
+        "rule": "  \"Bash(netstat -ano)\",\n      \"Read(//c/Hooks_IA/**)\",\n      \"Bash(python hooks/session_start.py)\",\n      \"Bash(python -c \\\"from config import SESSION_HISTORY_FILE, CO_OCCUR_FILE, MARKOV_FILE, INJECTION_FILE, HINT_EFFECT_FILE, DEBUG_LOG, ACTIONS_LOG, LAST_MSG_FILE, DATA_DIR; print\\\\('session_end imports OK'\\\\)\\\")\",\n      \"Bash(python -c \\\"from core.timezone_utils import format_ca_date, format_ca_time, get_ca_time; print\\\\('timezone OK'\\\\)\\\")\",\n      \"Bash(python -c \\\"from core.file_lock import file_lock; print\\\\('file_lock OK'\\\\)\\\")\",\n      \"Bash(grep -v \\\"ERRORES Y\\\\\\\\|tool_error\\\\\\\\|errores$\\\\\\\\|previos\\\")\",\n      \"Bash(echo '{\\\"session_id\\\":\\\"test\\\",\\\"transcript_path\\\":\\\"\\\",\\\"last_assistant_message\\\":\\\"test\\\",\\\"cwd\\\":\\\"C:\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\Chance1\\\"}')\",\n",
+        "applies_to": "claude",
+        "source": "C:\\Chance1\\.claude\\settings.local.json",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "json",
+        "json"
+      ],
+      "created_at": "2026-04-04T04:39:39.588999+00:00",
+      "updated_at": "2026-04-04T04:39:39.588999+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:39:39.588999+00:00",
+        "access_count": 0
+      }
+    },
+    "79b5e76b8466": {
+      "id": "79b5e76b8466",
+      "type": "fact",
+      "key": "settings.local_7",
+      "fact": {
+        "rule": "anscript_path\\\":\\\"\\\",\\\"last_assistant_message\\\":\\\"test\\\",\\\"cwd\\\":\\\"C:\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\Chance1\\\"}')\",\n      \"Bash(python hooks/session_end.py)\",\n      \"Bash(python -m json.tool)",
+        "applies_to": "claude",
+        "source": "C:\\Chance1\\.claude\\settings.local.json",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "json",
+        "json"
+      ],
+      "created_at": "2026-04-04T04:39:39.671475+00:00",
+      "updated_at": "2026-04-04T04:39:39.671475+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:39:39.671475+00:00",
+        "access_count": 0
+      }
+    },
+    "2fa02ddb9b2d": {
+      "id": "2fa02ddb9b2d",
+      "type": "fact",
+      "key": "settings_0",
+      "fact": {
+        "rule": "{\n  \"enabledPlugins\": {\n    \"frontend-design@claude-plugins-official\": true\n  },\n  \"hooks\": {\n    \"PreToolUse\": [\n      {\n        \"hooks\": [\n          {\n            \"type\": \"command\",\n            \"command\": \"\\\"C:/Users/ntoledo/AppData/Local/Programs/Python/Python312/python.exe\\\" \\\"C:/Chance1/Motor_IA/hooks/session_start.py\\\"\"\n          }\n        ]\n      }\n    ],\n    \"UserPromptSubmit\": [\n      {\n        \"hooks\": [\n          {\n            \"type\": \"command\",\n            \"command\": \"\\\"C:/Users/ntoledo/AppData/Local/Programs/Python/Python312/python.exe\\\" \\\"C:/Chance1/Motor_IA/hooks/user_prompt_submit.py\\\"\"\n          }\n        ]\n      }\n    ],\n    \"PostToolUse\": [\n      {\n        \"hooks\": [\n          {\n            \"type\": \"command\",\n",
+        "applies_to": "claude",
+        "source": "C:\\Chance1\\IA\\.claude\\settings.json",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "json",
+        "json"
+      ],
+      "created_at": "2026-04-04T04:11:21.126670+00:00",
+      "updated_at": "2026-04-04T04:11:21.126670+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:11:21.126670+00:00",
+        "access_count": 0
+      }
+    },
+    "2ea9b65581b4": {
+      "id": "2ea9b65581b4",
+      "type": "fact",
+      "key": "settings_1",
+      "fact": {
+        "rule": "}\n    ],\n    \"PostToolUse\": [\n      {\n        \"hooks\": [\n          {\n            \"type\": \"command\",\n            \"command\": \"\\\"C:/Users/ntoledo/AppData/Local/Programs/Python/Python312/python.exe\\\" \\\"C:/Chance1/Motor_IA/hooks/post_tool_use.py\\\"\"\n          }\n        ]\n      }\n    ],\n    \"Stop\": [\n      {\n        \"hooks\": [\n          {\n            \"type\": \"command\",\n            \"command\": \"\\\"C:/Users/ntoledo/AppData/Local/Programs/Python/Python312/python.exe\\\" \\\"C:/Chance1/Motor_IA/hooks/session_end.py\\\"\"\n          }\n        ]\n      }\n    ]\n  }\n}",
+        "applies_to": "claude",
+        "source": "C:\\Chance1\\IA\\.claude\\settings.json",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "json",
+        "json"
+      ],
+      "created_at": "2026-04-04T04:11:21.167912+00:00",
+      "updated_at": "2026-04-04T04:11:21.167912+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:11:21.167912+00:00",
+        "access_count": 0
+      }
+    },
+    "cf74f57d7518": {
+      "id": "cf74f57d7518",
+      "type": "fact",
+      "key": "launch_0",
+      "fact": {
+        "rule": "{\n  \"version\": \"0.0.1\",\n  \"configurations\": [\n    {\n      \"name\": \"cli-web-terminal\",\n      \"runtimeExecutable\": \"python\",\n      \"runtimeArgs\": [\"Cli_web/app.py\"],\n      \"port\": 5050\n    },\n    {\n      \"name\": \"buscador-ia\",\n      \"runtimeExecutable\": \"python\",\n      \"runtimeArgs\": [\"Buscador_IA/dashboard.py\"],\n      \"port\": 5000\n    },\n    {\n      \"name\": \"sap-live-test\",\n      \"runtimeExecutable\": \"python\",\n      \"runtimeArgs\": [\"FormFiller_IA/tests/sap_live_test.py\"],\n      \"port\": 5060\n    }\n  ]\n}",
+        "applies_to": "claude",
+        "source": "C:\\Chance1\\IA\\.claude\\launch.json",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "json",
+        "json"
+      ],
+      "created_at": "2026-04-04T04:11:21.203904+00:00",
+      "updated_at": "2026-04-04T04:11:21.203904+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:11:21.203904+00:00",
+        "access_count": 0
+      }
+    }
+  },
+  "tag_index": {
+    "json": [
+      "a3bebd6d8531",
+      "a3bebd6d8531",
+      "a16e46948f06",
+      "a16e46948f06",
+      "eb74a66030fa",
+      "eb74a66030fa",
+      "733f76b902e2",
+      "733f76b902e2",
+      "cac0ef5b908e",
+      "cac0ef5b908e",
+      "85f09f54171d",
+      "85f09f54171d",
+      "3dd0477dfb69",
+      "3dd0477dfb69",
+      "79b5e76b8466",
+      "79b5e76b8466",
+      "2fa02ddb9b2d",
+      "2fa02ddb9b2d",
+      "2ea9b65581b4",
+      "2ea9b65581b4",
+      "cf74f57d7518",
+      "cf74f57d7518",
+      "a3bebd6d8531",
+      "a3bebd6d8531",
+      "a16e46948f06",
+      "a16e46948f06",
+      "eb74a66030fa",
+      "eb74a66030fa",
+      "733f76b902e2",
+      "733f76b902e2",
+      "cac0ef5b908e",
+      "cac0ef5b908e",
+      "85f09f54171d",
+      "85f09f54171d",
+      "3dd0477dfb69",
+      "3dd0477dfb69",
+      "79b5e76b8466",
+      "79b5e76b8466"
+    ]
+  },
+  "stats": {
+    "total_entries": 19,
+    "total_lookups": 0,
+    "total_hits": 0
+  }
+}

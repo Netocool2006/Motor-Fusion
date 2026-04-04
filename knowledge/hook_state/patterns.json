@@ -1,0 +1,69 @@
+{
+  "domain": "hook_state",
+  "description": "Dominio auto-creado: hook_state",
+  "entries": {
+    "87670bffc1bb": {
+      "id": "87670bffc1bb",
+      "type": "fact",
+      "key": "pending_errors_0",
+      "fact": {
+        "rule": "[\n  {\n    \"tool\": \"Bash\",\n    \"timestamp\": \"2026-03-22T04:31:29.589492+00:00\",\n    \"success\": false,\n    \"command\": \"python bad_script.py\",\n    \"exit_code\": 1,\n    \"errors\": [\n      \"Traceback (most recent call last)\",\n      \"Error:\"\n    ],\n    \"has_success_indicator\": false,\n    \"program\": \"python\",\n    \"script\": \"bad_script.py\"\n  },\n  {\n    \"tool\": \"Bash\",\n    \"timestamp\": \"2026-03-22T17:03:26.546290+00:00\",\n    \"success\": false,\n    \"command\": \"python bad_script.py\",\n    \"exit_code\": 1,\n    \"errors\": [\n      \"Traceback (most recent call last)\",\n      \"Error:\"\n    ],\n    \"has_success_indicator\": false,\n    \"program\": \"python\",\n    \"script\": \"bad_script.py\"\n  }\n]",
+        "applies_to": "hook_state",
+        "source": "C:\\Hooks_IA_backup_20260331_220508\\hook_state\\pending_errors.json",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "json",
+        "json"
+      ],
+      "created_at": "2026-04-04T04:42:49.624446+00:00",
+      "updated_at": "2026-04-04T04:42:49.624446+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:42:49.624446+00:00",
+        "access_count": 0
+      }
+    },
+    "fbba0bec52c0": {
+      "id": "fbba0bec52c0",
+      "type": "fact",
+      "key": "msg_type_0",
+      "fact": {
+        "rule": "{\"type\": \"instruction\", \"prompt\": \"revisa las 2 carpetas lo que quiero es Mudar Motor IA a la carpeta Hooks_IA  revisa las 2 carpetas y mira lo que necesitas para mudarla si es total o es un complemento pero que lo que necesito que el \", \"domains\": [\"files\", \"sap_tierra\"], \"has_kb\": true, \"ts\": \"2026-03-31T22:03:18.599594\"}",
+        "applies_to": "hook_state",
+        "source": "C:\\Hooks_IA_backup_20260331_220508\\hook_state\\msg_type.json",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "json",
+        "json"
+      ],
+      "created_at": "2026-04-04T04:42:49.710144+00:00",
+      "updated_at": "2026-04-04T04:42:49.710144+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:42:49.710144+00:00",
+        "access_count": 0
+      }
+    }
+  },
+  "tag_index": {
+    "json": [
+      "87670bffc1bb",
+      "87670bffc1bb",
+      "fbba0bec52c0",
+      "fbba0bec52c0"
+    ]
+  },
+  "stats": {
+    "total_entries": 2,
+    "total_lookups": 0,
+    "total_hits": 0
+  }
+}

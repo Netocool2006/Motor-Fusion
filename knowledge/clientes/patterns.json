@@ -1,0 +1,435 @@
+{
+  "domain": "clientes",
+  "description": "Dominio auto-creado: clientes",
+  "entries": {
+    "62fea568a09e": {
+      "id": "62fea568a09e",
+      "type": "fact",
+      "key": "Auditoria_Propuestas_0",
+      "fact": {
+        "rule": "No.\tTema de control\tHallazgo\tPestaña BoM\tTexto literal extendido (para ubicar)\tImpacto\tEvaluación Advisor\tEjemplo de valor / redacción explícita esperada\n1\tInventario completo de componentes\tNo se evidencia inventario de librerías, frameworks ni dependencias\tGeneral\tNo existe hoja con listado de componentes técnicos (librerías, frameworks, dependencias)\tAlto\tEl BoM no permite SBOM / control de dependencias\tEjemplo: Hoja “SBOM” con columnas: Componente / Tipo / Versión / Proveedor / Licencia / Hash\n2\tVersiones exactas\tVersiones de software no visibles\tLicenciamiento\t“IBM Instana”, “IBM API Connect” (sin versión explícita)\tAlto\tRiesgo legal y técnico por ambigüedad\tEjemplo: “IBM Instana v245.1 (SaaS)”\n",
+        "applies_to": "clientes",
+        "source": "C:\\Chance1\\Clientes\\Auditoria_Propuestas.xlsx",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "excel",
+        "xlsx"
+      ],
+      "created_at": "2026-04-04T04:38:18.017584+00:00",
+      "updated_at": "2026-04-04T04:38:18.017584+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:38:18.017584+00:00",
+        "access_count": 0
+      }
+    },
+    "d26326c31d79": {
+      "id": "d26326c31d79",
+      "type": "fact",
+      "key": "Auditoria_Propuestas_1",
+      "fact": {
+        "rule": " versión explícita)\tAlto\tRiesgo legal y técnico por ambigüedad\tEjemplo: “IBM Instana v245.1 (SaaS)”\n3\tIdentificación única\tNo se muestran hashes ni IDs técnicos\tTodas\tNo hay columnas de hash, UUID o identificador técnico\tMedio\tTrazabilidad técnica incompleta\tEjemplo: Hash SHA-256 del artefacto o ID del SKU\n4\tOpen Source / Comercial / Propietario\tNo se clasifica tipo de componente\tTodas\tNo existe columna “Tipo de componente”\tMedio\tRiesgo de compliance OSS\tEjemplo: Columna “Tipo”: Open Source / Comercial / Propietario\n5\tCoherencia con build\tNo se puede validar contra artefactos\tN/A\tNo hay referencia a build, pipeline o release\tMedio\tNo hay trazabilidad DevOps\tEjemplo: “Artefacto generado en pipeline X – build #1234”\n",
+        "applies_to": "clientes",
+        "source": "C:\\Chance1\\Clientes\\Auditoria_Propuestas.xlsx",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "excel",
+        "xlsx"
+      ],
+      "created_at": "2026-04-04T04:38:18.092774+00:00",
+      "updated_at": "2026-04-04T04:38:18.092774+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:38:18.092774+00:00",
+        "access_count": 0
+      }
+    },
+    "42d088c6de3f": {
+      "id": "42d088c6de3f",
+      "type": "fact",
+      "key": "Auditoria_Propuestas_2",
+      "fact": {
+        "rule": " release\tMedio\tNo hay trazabilidad DevOps\tEjemplo: “Artefacto generado en pipeline X – build #1234”\n6\tDuración de licencias\tNo se evidencia duración explícita\tLicenciamiento\tNo aparece “12 meses”, “36 meses”, etc.\tAlto\tRiesgo contractual\tEjemplo: “Suscripción SaaS – 12 meses”\n7\tModelo de licenciamiento\tTipo no siempre explícito\tLicenciamiento\t“Instana APM” sin indicar SaaS / Suscripción / Perpetuo\tAlto\tError de interpretación comercial\tEjemplo: “SaaS – Suscripción anual”\n8\tUnidad correcta de licenciamiento\tUnidades no homogéneas\tLicenciamiento\tNo se ve PVU / vCPU / VPC / nodo\tAlto\tRiesgo de sobre/infra-licenciamiento\tEjemplo: “Licencia por vCPU – 16 vCPU”\n",
+        "applies_to": "clientes",
+        "source": "C:\\Chance1\\Clientes\\Auditoria_Propuestas.xlsx",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "excel",
+        "xlsx"
+      ],
+      "created_at": "2026-04-04T04:38:18.178584+00:00",
+      "updated_at": "2026-04-04T04:38:18.178584+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:38:18.178584+00:00",
+        "access_count": 0
+      }
+    },
+    "484e21935da6": {
+      "id": "484e21935da6",
+      "type": "fact",
+      "key": "Auditoria_Propuestas_3",
+      "fact": {
+        "rule": " vCPU / VPC / nodo\tAlto\tRiesgo de sobre/infra-licenciamiento\tEjemplo: “Licencia por vCPU – 16 vCPU”\n9\tCantidades vs alcance\tCantidades no explicadas\tLicenciamiento\tNúmero sin explicación funcional\tMedio\tDificulta auditoría\tEjemplo: “Cantidad = 30 (18 PROD + 12 NON-PROD)”\n10\tServicios – Implementación\tNo se especifica unidad\tServicios\t“Implementación” con cantidad sin unidad\tAlto\tRiesgo de disputa\tEjemplo: “165 horas hombre de implementación”\n11\tServicios – Desarrollo\tNo evidenciado\tServicios\tNo existe ítem de desarrollo\tBajo\tAclarar exclusión\tEjemplo: “Desarrollo: NO incluido”\n12\tServicios – Soporte\tCobertura no clara\tServicios\t“Soporte” sin SLA / horas visibles\tAlto\tRiesgo operativo\tEjemplo: “Soporte 8x5 – 10 h/mes”\n",
+        "applies_to": "clientes",
+        "source": "C:\\Chance1\\Clientes\\Auditoria_Propuestas.xlsx",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "excel",
+        "xlsx"
+      ],
+      "created_at": "2026-04-04T04:38:18.255796+00:00",
+      "updated_at": "2026-04-04T04:38:18.255796+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:38:18.255796+00:00",
+        "access_count": 0
+      }
+    },
+    "9e64e780a17d": {
+      "id": "9e64e780a17d",
+      "type": "fact",
+      "key": "Auditoria_Propuestas_4",
+      "fact": {
+        "rule": "ervicios\t“Soporte” sin SLA / horas visibles\tAlto\tRiesgo operativo\tEjemplo: “Soporte 8x5 – 10 h/mes”\n13\tViáticos\tNo se identifican\tTodas\tNo existe rubro de viáticos\tMedio\tRiesgo de costos ocultos\tEjemplo: “Viáticos estimados: USD 1,200 (sin margen)”\n14\tImpuestos / retenciones\tNo se modelan\tSummary\tNo hay columna de IVA / retención\tAlto\tRiesgo fiscal\tEjemplo: “IVA 12% – calculado sobre costo, sin margen”\n15\tProvisiones / contingencias\tNo existen\tTodas\tNo hay provisiones\tMedio\tNegocio sub-modelado\tEjemplo: “Provisión 3% por contingencias”\n16\tRelación con fabricante\tNo se evidencia BID\tLicenciamiento\tNo aparece “Special Bid / BID”\tAlto\tRiesgo de precio inválido\tEjemplo: “IBM Special Bid #SB-2025-001”\n",
+        "applies_to": "clientes",
+        "source": "C:\\Chance1\\Clientes\\Auditoria_Propuestas.xlsx",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "excel",
+        "xlsx"
+      ],
+      "created_at": "2026-04-04T04:38:18.332346+00:00",
+      "updated_at": "2026-04-04T04:38:18.332346+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:38:18.332346+00:00",
+        "access_count": 0
+      }
+    },
+    "1bacf0a30cdf": {
+      "id": "1bacf0a30cdf",
+      "type": "fact",
+      "key": "Auditoria_Propuestas_5",
+      "fact": {
+        "rule": " aparece “Special Bid / BID”\tAlto\tRiesgo de precio inválido\tEjemplo: “IBM Special Bid #SB-2025-001”\n17\tVigencia de descuentos\tNo indicada\tLicenciamiento\tNo hay fechas de vigencia\tAlto\tRiesgo comercial\tEjemplo: “Descuento válido hasta 31-12-2025”\n18\tDescuentos reflejados\tNo visibles\tPrecios\tNo se ve % descuento\tAlto\tMargen poco claro\tEjemplo: “Descuento fabricante 20%”\n19\tDisclaimers de descuento\tNo existen\tGeneral\tNo se indica “one-time”\tMedio\tRiesgo de renovación\tEjemplo: “Descuento válido una sola vez”\n20\tCosto fabricante\tParcial\tLicenciamiento\tNo se ve costo base vs precio\tAlto\tMargen no auditable\tEjemplo: “Costo IBM: USD 10,000 / Precio: USD 13,000”\n",
+        "applies_to": "clientes",
+        "source": "C:\\Chance1\\Clientes\\Auditoria_Propuestas.xlsx",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "excel",
+        "xlsx"
+      ],
+      "created_at": "2026-04-04T04:38:18.408348+00:00",
+      "updated_at": "2026-04-04T04:38:18.408348+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:38:18.408348+00:00",
+        "access_count": 0
+      }
+    },
+    "62174cab02f3": {
+      "id": "62174cab02f3",
+      "type": "fact",
+      "key": "Auditoria_Propuestas_6",
+      "fact": {
+        "rule": "costo base vs precio\tAlto\tMargen no auditable\tEjemplo: “Costo IBM: USD 10,000 / Precio: USD 13,000”\n21\tProfit (margen)\tNo calculado explícitamente\tSummary\tNo hay columna de margen %\tAlto\tDecisión comercial ciega\tEjemplo: “Margen licencias: 22% / servicios: 35%”\n22\tEscenarios de negocio\tNo modelados\tN/A\tNo hay escenarios\tMedio\tFalta análisis financiero\tEjemplo: Escenario Base / Optimista / Conservador\n23\tCRM / Quote\tNo referenciado\tGeneral\tNo aparece ID CRM\tAlto\tRuptura de trazabilidad\tEjemplo: “CRM Opportunity ID: OP-12345”\n24\tReporte de costos\tNo enlazado\tGeneral\tNo referencia a cost report\tMedio\tAuditoría incompleta\tEjemplo: “Cost report interno v1.2”",
+        "applies_to": "clientes",
+        "source": "C:\\Chance1\\Clientes\\Auditoria_Propuestas.xlsx",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "excel",
+        "xlsx"
+      ],
+      "created_at": "2026-04-04T04:38:18.482084+00:00",
+      "updated_at": "2026-04-04T04:38:18.482084+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:38:18.482084+00:00",
+        "access_count": 0
+      }
+    },
+    "5992994028cd": {
+      "id": "5992994028cd",
+      "type": "fact",
+      "key": "config-claude-chrome-operativo_0",
+      "fact": {
+        "rule": "# Configuración Funcional — Claude CLI + Chrome Extension + SAP CRM\n# Fecha: 12 de marzo de 2026\n# Estado: FUNCIONANDO CORRECTAMENTE\n\n---\n\n## Resumen\n\nClaude Code CLI opera SAP CRM WebUI a través de la extensión Claude in Chrome.\nCLI da las instrucciones, la extensión ejecuta en el navegador.\nTodo funciona sin CDP, sin flags especiales, sin PyAutoGUI, sin Playwright para operar.\nPlaywright solo se usa opcionalmente para abrir Chrome y hacer login automático.\n\n---\n\n## Versiones exactas\n\n| Componente | Versión | Ubicación |\n|---|---|---|\n| Claude Code CLI | 2.1.74 | Winget: `Anthropic.ClaudeCode` |\n| Extensión Chrome (Claude in Chrome) | **1.0.59** | Chrome Web Store ID: `fcoeoabgfenejglbffodgkkbkcdhcgfn` |\n| Claude Desktop App | Activa (Plan Max) | Microsoft Store: `Claude_pzs8sxrjxfijc` |\n",
+        "applies_to": "clientes",
+        "source": "C:\\Chance1\\Clientes\\config-claude-chrome-operativo.txt",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "txt"
+      ],
+      "created_at": "2026-04-04T04:38:18.557660+00:00",
+      "updated_at": "2026-04-04T04:38:18.557660+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:38:18.557660+00:00",
+        "access_count": 0
+      }
+    },
+    "c4886c3f7e40": {
+      "id": "c4886c3f7e40",
+      "type": "fact",
+      "key": "config-claude-chrome-operativo_1",
+      "fact": {
+        "rule": "kkbkcdhcgfn` |\n| Claude Desktop App | Activa (Plan Max) | Microsoft Store: `Claude_pzs8sxrjxfijc` |\n| Chrome | Última estable | `C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe` |\n| Node.js / npm | Instalados | Para npx (chrome-devtools-mcp) |\n| Python | Instalado | Playwright disponible para login automático |\n| Sistema Operativo | Windows 11 | Usuario: ntoledo |\n\n**IMPORTANTE:** La extensión versión 1.0.59 es la que funciona. Versiones anteriores\n(1.0.40 y menores) tenían un bug en el native messaging host que crasheaba con\n\"Bun has crashed - Internal assertion failure\". Si después de una actualización\nde la extensión deja de funcionar, verificar la versión.\n\n---\n\n## Registro de Windows (Native Messaging Hosts)\n\nUbicación: `HKCU:\\Software\\Google\\Chrome\\NativeMessagingHosts\\`\n\n",
+        "applies_to": "clientes",
+        "source": "C:\\Chance1\\Clientes\\config-claude-chrome-operativo.txt",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "txt"
+      ],
+      "created_at": "2026-04-04T04:38:18.634611+00:00",
+      "updated_at": "2026-04-04T04:38:18.634611+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:38:18.634611+00:00",
+        "access_count": 0
+      }
+    },
+    "d09209b6a88d": {
+      "id": "d09209b6a88d",
+      "type": "fact",
+      "key": "config-claude-chrome-operativo_2",
+      "fact": {
+        "rule": " Windows (Native Messaging Hosts)\n\nUbicación: `HKCU:\\Software\\Google\\Chrome\\NativeMessagingHosts\\`\n\n### Entrada 1: Claude Desktop\n```\nNombre: com.anthropic.claude_browser_extension\nValor:  C:\\Users\\ntoledo\\AppData\\Local\\Packages\\Claude_pzs8sxrjxfijc\\LocalCache\\Roaming\\Claude\\ChromeNativeHost\\com.anthropic.claude_browser_extension.json\n```\n\n### Entrada 2: Claude Code CLI\n```\nNombre: com.anthropic.claude_code_browser_extension\nValor:  C:\\Users\\ntoledo\\AppData\\Roaming\\Claude Code\\ChromeNativeHost\\com.anthropic.claude_code_browser_extension.json\n```\n\n**AMBAS entradas deben existir.** No eliminar ninguna.\nDesktop y CLI pueden coexistir sin conflicto en esta configuración.\n\n### Verificar con PowerShell:\n```powershell\n",
+        "applies_to": "clientes",
+        "source": "C:\\Chance1\\Clientes\\config-claude-chrome-operativo.txt",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "txt"
+      ],
+      "created_at": "2026-04-04T04:38:18.706960+00:00",
+      "updated_at": "2026-04-04T04:38:18.706960+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:38:18.706960+00:00",
+        "access_count": 0
+      }
+    },
+    "9ab6125001a6": {
+      "id": "9ab6125001a6",
+      "type": "fact",
+      "key": "config-claude-chrome-operativo_3",
+      "fact": {
+        "rule": " pueden coexistir sin conflicto en esta configuración.\n\n### Verificar con PowerShell:\n```powershell\nGet-ChildItem \"HKCU:\\Software\\Google\\Chrome\\NativeMessagingHosts\\\" | Where-Object { $_.Name -like \"*anthropic*\" } | ForEach-Object { Write-Host \"$($_.PSChildName) = $((Get-ItemProperty $_.PSPath -Name '(default)').'(default)')\" }\n```\n\n---\n\n## Native Host de CLI\n\n### Archivo JSON\n```\nRuta: C:\\Users\\ntoledo\\AppData\\Roaming\\Claude Code\\ChromeNativeHost\\com.anthropic.claude_code_browser_extension.json\n```\n\nContenido:\n```json\n{\n  \"name\": \"com.anthropic.claude_code_browser_extension\",\n  \"description\": \"Claude Code Browser Extension Native Host\",\n  \"path\": \"C:\\\\Users\\\\ntoledo\\\\AppData\\\\Local\\\\ClaudeCode\\\\.claude\\\\chrome\\\\chrome-native-host.bat\",\n  \"type\": \"stdio\",\n  \"allowed_origins\": [\n",
+        "applies_to": "clientes",
+        "source": "C:\\Chance1\\Clientes\\config-claude-chrome-operativo.txt",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "txt"
+      ],
+      "created_at": "2026-04-04T04:38:18.792014+00:00",
+      "updated_at": "2026-04-04T04:38:18.792014+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:38:18.792014+00:00",
+        "access_count": 0
+      }
+    },
+    "cde8cda8dcc8": {
+      "id": "cde8cda8dcc8",
+      "type": "fact",
+      "key": "config-claude-chrome-operativo_4",
+      "fact": {
+        "rule": "al\\\\ClaudeCode\\\\.claude\\\\chrome\\\\chrome-native-host.bat\",\n  \"type\": \"stdio\",\n  \"allowed_origins\": [\n    \"chrome-extension://fcoeoabgfenejglbffodgkkbkcdhcgfn/\"\n  ]\n}\n```\n\n### Archivo BAT\n```\nRuta: C:\\Users\\ntoledo\\AppData\\Local\\ClaudeCode\\.claude\\chrome\\chrome-native-host.bat\n```\n\nContenido:\n```batch\n@echo off\nREM Chrome native host wrapper script\nREM Generated by Claude Code - do not edit manually\n\"C:\\Users\\ntoledo\\AppData\\Local\\ClaudeCode\\AppData\\Local\\Microsoft\\WinGet\\Packages\\Anthropic.ClaudeCode_Microsoft.Winget.Source_8wekyb3d8bbwe\\claude.exe\" --chrome-native-host\n```\n\n### Ejecutable\n```\nRuta: C:\\Users\\ntoledo\\AppData\\Local\\ClaudeCode\\AppData\\Local\\Microsoft\\WinGet\\Packages\\Anthropic.ClaudeCode_Microsoft.Winget.Source_8wekyb3d8bbwe\\claude.exe\n```\n\n---\n\n",
+        "applies_to": "clientes",
+        "source": "C:\\Chance1\\Clientes\\config-claude-chrome-operativo.txt",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "txt"
+      ],
+      "created_at": "2026-04-04T04:38:18.869879+00:00",
+      "updated_at": "2026-04-04T04:38:18.869879+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:38:18.869879+00:00",
+        "access_count": 0
+      }
+    },
+    "58497d808def": {
+      "id": "58497d808def",
+      "type": "fact",
+      "key": "config-claude-chrome-operativo_5",
+      "fact": {
+        "rule": "oft\\WinGet\\Packages\\Anthropic.ClaudeCode_Microsoft.Winget.Source_8wekyb3d8bbwe\\claude.exe\n```\n\n---\n\n## Archivos de configuración de CLI\n\n### settings.json\n```\nRuta: C:\\Users\\ntoledo\\AppData\\Local\\ClaudeCode\\.claude\\settings.json\n```\n\nContenido:\n```json\n{\n  \"skipDangerousModePermissionPrompt\": true,\n  \"defaultMode\": \"bypassPermissions\",\n  \"mcpServers\": {\n    \"chrome-devtools\": {\n      \"command\": \"npx\",\n      \"args\": [\n        \"chrome-devtools-mcp@latest\",\n        \"--browserUrl\",\n        \"http://127.0.0.1:9222\",\n        \"--acceptInsecureCerts\"\n      ]\n    }\n  }\n}\n```\n\nNota: chrome-devtools está configurado pero NO se usa activamente.\nCLI usa claude-in-chrome (extensión) para operar el navegador.\nchrome-devtools queda como respaldo si algún día se necesita CDP.\n\n### .mcp.json (proyecto)\n```\n",
+        "applies_to": "clientes",
+        "source": "C:\\Chance1\\Clientes\\config-claude-chrome-operativo.txt",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "txt"
+      ],
+      "created_at": "2026-04-04T04:38:18.944156+00:00",
+      "updated_at": "2026-04-04T04:38:18.944156+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:38:18.944156+00:00",
+        "access_count": 0
+      }
+    },
+    "2a7e9ea35048": {
+      "id": "2a7e9ea35048",
+      "type": "fact",
+      "key": "config-claude-chrome-operativo_6",
+      "fact": {
+        "rule": "or.\nchrome-devtools queda como respaldo si algún día se necesita CDP.\n\n### .mcp.json (proyecto)\n```\nRuta: C:\\Chance1\\SAP_Tierra_IA\\.mcp.json\n```\n\nContenido:\n```json\n{\n  \"mcpServers\": {\n    \"chrome-devtools\": {\n      \"command\": \"cmd\",\n      \"args\": [\"/c\", \"npx\", \"chrome-devtools-mcp@latest\", \"--browserUrl\", \"http://127.0.0.1:9222\", \"--acceptInsecureCerts\"]\n    }\n  }\n}\n```\n\n---\n\n## Script de inicio de CLI\n\n### claude-fix.ps1\n```\nRuta: C:\\Chance1\\claude-fix.ps1\n```\n\nContenido:\n```powershell\n$env:HOME = \"$env:LOCALAPPDATA\\ClaudeCode\"\n$env:USERPROFILE = \"$env:LOCALAPPDATA\\ClaudeCode\"\n$env:CLAUDE_CODE_GIT_BASH_PATH = \"C:\\Program Files\\Git\\bin\\bash.exe\"\n$claudePath = \"$env:LOCALAPPDATA\\ClaudeCode\\AppData\\Local\\Microsoft\\WinGet\\Packages\\Anthropic.ClaudeCode_Microsoft.Winget.Source_8wekyb3d8bbwe\"\n",
+        "applies_to": "clientes",
+        "source": "C:\\Chance1\\Clientes\\config-claude-chrome-operativo.txt",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "txt"
+      ],
+      "created_at": "2026-04-04T04:38:19.033644+00:00",
+      "updated_at": "2026-04-04T04:38:19.033644+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:38:19.033644+00:00",
+        "access_count": 0
+      }
+    },
+    "3bdb64b60569": {
+      "id": "3bdb64b60569",
+      "type": "fact",
+      "key": "config-claude-chrome-operativo_7",
+      "fact": {
+        "rule": "AppData\\Local\\Microsoft\\WinGet\\Packages\\Anthropic.ClaudeCode_Microsoft.Winget.Source_8wekyb3d8bbwe\"\n$env:PATH = \"$claudePath;C:\\Program Files\\Git\\bin;C:\\Program Files\\Git\\cmd;$env:PATH\"\nclaude --dangerously-skip-permissions @args",
+        "applies_to": "clientes",
+        "source": "C:\\Chance1\\Clientes\\config-claude-chrome-operativo.txt",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "txt"
+      ],
+      "created_at": "2026-04-04T04:38:19.099118+00:00",
+      "updated_at": "2026-04-04T04:38:19.099118+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:38:19.099118+00:00",
+        "access_count": 0
+      }
+    },
+    "a7f56f4a7ccb": {
+      "id": "a7f56f4a7ccb",
+      "type": "fact",
+      "key": "Hoja de control Quotes_0",
+      "fact": {
+        "rule": "No.\tCliente\tServicio y/o Producto\tTipo\tNo. Oportunidad\tTipo Quote\tNo. Quote\tNo. De Cotizaciones realizadas\tNo. Quote Aceptado\tFecha elaboracion\tValor Total $\tValor Total sin IVA\tDetalle\n1\tBanrural\tServicios de Soporte y Asistencia para MQ ACE y WAS\tRenovacion\t245623\tContrato\t8040001574\t1\t8040001574\t46084\t14400\t\n2\tPromerica\tSWS_ITP_ASSI\tAsistencia para WAS & MQ\t245451\tPendiente\tAun no realizado\t0\tPendiente\t46085\t4032\t3600\n3\tSeguros Assa\tIBM Blueworks Live Instance per Annum\tSuscripcion\t245930\tEstándar\t 7330338543\t1\t\t45725\t1063.76\t949.79\tInternal Task\n4\tBantrab\tParallel X (Fase II) Créditos de Consumo sin Codeudo\tDesarrollo\t243050",
+        "applies_to": "clientes",
+        "source": "C:\\Chance1\\Clientes\\Hoja de control Quotes.xlsx",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "excel",
+        "xlsx"
+      ],
+      "created_at": "2026-04-04T04:38:19.178960+00:00",
+      "updated_at": "2026-04-04T04:38:19.178960+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:38:19.178960+00:00",
+        "access_count": 0
+      }
+    }
+  },
+  "tag_index": {
+    "excel": [
+      "62fea568a09e",
+      "d26326c31d79",
+      "42d088c6de3f",
+      "484e21935da6",
+      "9e64e780a17d",
+      "1bacf0a30cdf",
+      "62174cab02f3",
+      "a7f56f4a7ccb"
+    ],
+    "xlsx": [
+      "62fea568a09e",
+      "d26326c31d79",
+      "42d088c6de3f",
+      "484e21935da6",
+      "9e64e780a17d",
+      "1bacf0a30cdf",
+      "62174cab02f3",
+      "a7f56f4a7ccb"
+    ],
+    "txt": [
+      "5992994028cd",
+      "c4886c3f7e40",
+      "d09209b6a88d",
+      "9ab6125001a6",
+      "cde8cda8dcc8",
+      "58497d808def",
+      "2a7e9ea35048",
+      "3bdb64b60569"
+    ]
+  },
+  "stats": {
+    "total_entries": 16,
+    "total_lookups": 0,
+    "total_hits": 0
+  }
+}

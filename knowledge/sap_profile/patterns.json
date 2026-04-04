@@ -1,0 +1,526 @@
+{
+  "domain": "sap_profile",
+  "description": "Dominio auto-creado: sap_profile",
+  "entries": {
+    "843d345ee0ad": {
+      "id": "843d345ee0ad",
+      "type": "fact",
+      "key": "000003_0",
+      "fact": {
+        "rule": "f5\f\u0000\u0001\u0001\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000f5\f\u0000\u0001\u0001\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000f5\f\u0000\u0001\u0001\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000f5\f\u0000\u0001\u0001\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000f5\f\u0000\u0001\u0001\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000f5\f\u0000\u0001\u0001\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000f5\f\u0000\u0001\u0001\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000f5\f\u0000\u0001\u0001\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000f5\f\u0000\u0001\u0001\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000",
+        "applies_to": "sap_profile",
+        "source": "C:\\Chance1\\IA\\SAP_Tierra_IA\\sap_profile\\Default\\Extension Scripts\\000003.log",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "log"
+      ],
+      "created_at": "2026-04-04T04:37:47.327708+00:00",
+      "updated_at": "2026-04-04T04:37:47.327708+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:37:47.327708+00:00",
+        "access_count": 0
+      }
+    },
+    "b676e07dd7d0": {
+      "id": "b676e07dd7d0",
+      "type": "fact",
+      "key": "000003_1",
+      "fact": {
+        "rule": "50905893,245350905893,GCM\u0001c3mLkFI50vU:APA91bHvC6OO0XIeUIRTKalvhyFD84wz1uff8qUfb1Z1YIOjliQX-vbZsIiOq3dJwG43SfMIaB-_wC-1f_h9-zQg9c1SZiJalvUxvK0oVnbWf8B9mtqWKiA#13417283186109929\u0012\u0003\u0000\u0001\n\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0001\u0000\u0000\u0000\u0001Jreg1-iid-com.google.chrome.fcm.invalidations-585406161706,585406161706,GCM\u0001eHfNvRQyDwU:APA91bFhxi7fVpA9bz_aIT_WOfF9h-PXlYEu31qti3JubAzFT0TVDDxIX4ECtkR2DWcaDBKLIMBz4fPjVch4zPOcMItmZRHUGz23W9EFGXo5zDn6vTgbIjo#13417283186138435",
+        "applies_to": "sap_profile",
+        "source": "C:\\Chance1\\IA\\SAP_Tierra_IA\\sap_profile\\Default\\GCM Store\\000003.log",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "log"
+      ],
+      "created_at": "2026-04-04T04:37:47.033928+00:00",
+      "updated_at": "2026-04-04T04:37:47.033928+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:37:47.033928+00:00",
+        "access_count": 0
+      }
+    },
+    "34a05d4fc298": {
+      "id": "34a05d4fc298",
+      "type": "fact",
+      "key": "000003_2",
+      "fact": {
+        "rule": "ntR\u0013\u0012\u0011\b\u0001\u0010\u0004*\u000bvisit_countR\u0015\u0012\u0013\b\u0001\u0010\u0004*\nis_bookmarkedR\u0011\u0012\u000f\b\u0001\u0010\u0004*\tis_pinnedR\u0017\u0012\u0015\b\u0001\u0010\u0004*\u000fis_in_tab_groupR\u0015\u0012\u0013\b\u0001\u0010\u0004*\nis_in_clusterR\u001b\u0012\u0019\b\u0001\u0010\u0004*\u0013has_url_keyed_imageR\u0012\u0012\u0010\b\u0001\u0010\u0004*\nhas_app_idR\u0015\u0012\u0013\b\u0001\u0010\u0004*\nplatform_typeR\u001b\u0012\u0019\b\u0001\u0010\u0004*\u0013seen_count_last_dayR \u0012\u001e\b\u0001\u0010\u0004*\u0018activated_count_last_dayR \u0012\u001e\b\u0001\u0010\u0004*\u0018dismissed_count_last_dayR\u001e\u0012\u001c\b\u0001\u0010\u0004*\u0016seen_count_last_7_daysR#\u0012!\b\u0001\u0010\u0004*\u001bactivated_count_last_7_daysR#\u0012!\b\u0001\u0010\u0004*\u001bdismissed_count_last_7_daysR\u001f\u0012\u001d\b\u0001\u0010\u0004*\u0017seen_count_last_30_daysR$\u0012\"\b\u0001\u0010\u0004*\u001cactivated_count_last_30_daysR$\u0012\"\b\u0001\u0010\u0004*\u001cdismissed_count_last_30_daysR#\u0012!\b\u0001\u0010\u0004*\u001bsame_time_group_visit_countR\"\u0012 \b\u0001\u0010\u0004*\u001asame_day_group_visit_countZ+\n%\n#\n!\b\u0001\u0012\u000eMetadataWriter\u0019\u0017N\bUD~\u0004 \u0001(\u00010\u0001\u0012\u0002\b\u0001h\u0001\u0001!\n\u001f*\u001d\n\u001burl_visit_resumption_ranker \u0002(10\u00027n=\u0001\u0001\u0007\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0001\u0000\u0000\u0000\u0001\n37_DEFAULT_58\u0002\b:\u0012\u0002\u0010\u0004\u0018\u0001 \u001c(\u00000\u0001R4\n2\b\u0003\u0012\u001fBlink.FedCm.AccountsDialogShown\u0019\u001c&Uba \u001c(\u00010\u0001R:\n",
+        "applies_to": "sap_profile",
+        "source": "C:\\Chance1\\IA\\SAP_Tierra_IA\\sap_profile\\Default\\shared_proto_db\\000003.log",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "log"
+      ],
+      "created_at": "2026-04-04T04:37:43.094417+00:00",
+      "updated_at": "2026-04-04T04:37:43.094417+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:37:43.094417+00:00",
+        "access_count": 0
+      }
+    },
+    "77278862d70d": {
+      "id": "77278862d70d",
+      "type": "fact",
+      "key": "000003_3",
+      "fact": {
+        "rule": "n=\u0001\u0001\u0007\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0001\u0000\u0000\u0000\u0001\n37_DEFAULT_58\u0002\b:\u0012\u0002\u0010\u0004\u0018\u0001 \u001c(\u00000\u0001R4\n2\b\u0003\u0012\u001fBlink.FedCm.AccountsDialogShown\u0019\u001c&Uba \u001c(\u00010\u0001R:\n8\b\u0002\u0012!Blink.FedCm.Status.RequestIdToken\u0019\\m \u001c(\u00010\u00018\u00008.R1\n/\b\u0002\u0012\u0018Blink.FedCm.CancelReason\u0019\u001aS\u0004, \u001c(\u00010\u00018\u00028\u0003R/\n-\b\u0002\u0012\u0018Blink.FedCm.IsSignInUser\u0019.~D\\Or \u001c(\u00010\u00018\u0001\u0001.\n&\n$\n\u0000\u0000\u0000?\u0012\nFedCmUserLoud\u001a\u000eFedCmUserQuiet\u0012\u0004\u0010\u0007\u0018\u0004 \u0001(10\u0002U\u0010e6\u0002\u0001\b\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0001\u0000\u0000\u0000\u0001\u000f37_DEFAULT_1001\u0004\b\u0007\u0012\u0004\u0010\u0004\u0018\u0001 \u001c(\u00010\u0001R+\n)\b\u0003\u0012\u0011Sync.DeviceCount2\u0019|u3҉К \u001c(\u00010\nE\u0000\u0000\u0000\u0000R1\n/\b\u0003\u0012\u0017Sync.DeviceCount2.Phone\u0019?fX\u0016C \u001c(\u00010\nE\u0000\u0000\u0000\u0000R3\n1\b\u0003\u0012\u0019Sync.DeviceCount2.Desktop\u0019\u0010P\u0016\u000e \u001c(\u00010\nE\u0000\u0000\u0000\u0000R2\n0\b\u0003\u0012\u0018Sync.DeviceCount2.Tablet\u00193_ \u001c(\u00010\nE\u0000\u0000\u0000\u0000\u0001\u0002\n\u0002\u001a\u0002\n\u0019\n\u0000\u0000?\u0012\u0012NoCrossDeviceUsage\n\u0018\n\u0000\u0000\u0000@\u0012\u0011CrossDeviceMobile\n\u0019\n\u0000\u0000@@\u0012\u0012CrossDeviceDesktop\n\u0018\n\u0000\u0000@\u0012\u0011CrossDeviceTablet\n\"\n\u0000\u0000@\u0012\u001bCrossDeviceMobileAndDesktop\n!\n\u0000\u0000@\u0012\u001aCrossDeviceMobileAndTablet\n\"\n\u0000\u0000@\u0012\u001bCrossDeviceDesktopAndTablet\n \n\u0000\u0000\u0000A\u0012\u0019CrossDeviceAllDeviceTypes\n\u0017\n",
+        "applies_to": "sap_profile",
+        "source": "C:\\Chance1\\IA\\SAP_Tierra_IA\\sap_profile\\Default\\shared_proto_db\\000003.log",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "log"
+      ],
+      "created_at": "2026-04-04T04:37:43.171493+00:00",
+      "updated_at": "2026-04-04T04:37:43.171493+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:37:43.171493+00:00",
+        "access_count": 0
+      }
+    },
+    "4ce94ea63eda": {
+      "id": "4ce94ea63eda",
+      "type": "fact",
+      "key": "000003_4",
+      "fact": {
+        "rule": "\u0012\u001aCrossDeviceMobileAndTablet\n\"\n\u0000\u0000@\u0012\u001bCrossDeviceDesktopAndTablet\n \n\u0000\u0000\u0000A\u0012\u0019CrossDeviceAllDeviceTypes\n\u0017\n\u0000\u0000\u0010A\u0012\u0010CrossDeviceOther\u0012\u0012NoCrossDeviceUsage\u0012\u0004\u0010\u0007\u0018\u0004 \u0002(10\u0002pKXa\u0001\u0001\t\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0001\u0000\u0000\u0000\u0001\u000f37_DEFAULT_1004\u0002\b\u0007\u0012\u0002\u0010\u0004\u0018\u0001 \u000e(\u00070\u0001R.\n,\b\u0001\u0012\u0019MobileBookmarkManagerOpen\u0019>V\u0004'~ \u0007(\u00010\u0001R3\n1\b\u0001\u0012\u001eNewTabPage.MostVisited.Clicked\u0019}э- \u0007(\u00010\u0001R2\n0\b\u0001\u0012\u001dTabGroup.Created.OpenInNewTab\u0019J\t>nC \u0007(\u00010\u0001R1\n/\b\u0001\u0012\u001cAndroid.HistoryPage.OpenItem\u0019ŧK, \u0007(\u00010\u0001R)\n'\b\u0001\u0012\u0014MobileMenuRecentTabs\u0019{\u0007D\u0016 \u0007(\u00010\u0001\u0001.\n&\n$\n\u0000\u0000\u0000?\u0012\u0016ResumeHeavyUserSegment\u001a\u0005Other\u0012\u0004\u0010\u000e\u0018\u0004 \u0002(10\u0002\u001b%\u001cW\u0002\u0001\n\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0001\u0000\u0000\u0000\u0001\u000f37_DEFAULT_1007\u0004\b\u0007\u0012\u0004\u0010\u0004\u0018\u0001 \u001c(\u00070\u0001R>\n<\b\u0002\u0012'PasswordManager.ManagePasswordsReferrer\u0019*MLt \u001c(\u00010\u00018\u0000R[\nY\b\u0003\u0012APasswordManager.ProfileStore.TotalAccountsHiRes3.WithScheme.Https\u0019,\u001flk \u001c(\u00010\nE\u0000\u0000\u0000\u0000R<\n:\b\u0002\u0012!PasswordManager.FillingAssistance\u0019ՑM \u001c(\u00010\u00018\u00008\u00018\u0002R?\n",
+        "applies_to": "sap_profile",
+        "source": "C:\\Chance1\\IA\\SAP_Tierra_IA\\sap_profile\\Default\\shared_proto_db\\000003.log",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "log"
+      ],
+      "created_at": "2026-04-04T04:37:43.241357+00:00",
+      "updated_at": "2026-04-04T04:37:43.241357+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:37:43.241357+00:00",
+        "access_count": 0
+      }
+    },
+    "e15a8641378d": {
+      "id": "e15a8641378d",
+      "type": "fact",
+      "key": "000003_5",
+      "fact": {
+        "rule": "sHiRes3.WithScheme.Https\u0019,\u001flk \u001c(\u00010\nE\u0000\u0000\u0000\u0000R<\n:\b\u0002\u0012!PasswordManager.FillingAssistance\u0019ՑM \u001c(\u00010\u00018\u00008\u00018\u0002R?\n=\b\u0002\u0012(PasswordManager.SavedPasswordIsGenerated\u0019\u0015u\u0006 \u001c(\u00010\u00018\u0001R<\n:\b\u0002\u0012%PasswordManager.SaveUIDismissalReason\u0019w\u0012 \u001c(\u00010\u00018\u0001R@\n>\b\u0002\u0012%PasswordManager.SaveUIDismissalReason\u0019w\u0012 \u001c(\u00010\u00018\u00008\u00028\u0003R@\n>\b\u0002\u0012)IOS.CredentialExtension.IsEnabled.Startup\u0019\u0007u%\t \u001c(\u00010\u00018\u0001\u0001=\n5\n3\n\u0000\u0000\u0000?\u0012\u0013PasswordManagerUser\u001a\u0017Not_PasswordManagerUser\u0012\u0004\u0010\u0007\u0018\u0004 \u0001(10\u0002\u000fh\u0000\u0001\u000b\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0001\u0000\u0000\u0000\u0001\u000f37_DEFAULT_1009\u0001\b\u0007\u0012\u0001\u0010\u0004\u0018\u0001 \u001c(\u00000\u0001R<\u001a:\n\tselect 1;\u0012-\n+\bȎ\u0001\u0010їZ\u0010򖐩\u0001\u0010ɕԺ\u0001R\u001c\u001a\u001a\n\tselect 1;\u0012\n\u000b\bۊ\u0001R\u001b\u001a\u0019\n\tselect 1;\u0012\f\n\n\b˷\u000f\u0001\u0015\n\u0013\n\u0011\n\u0000\u0000\u0000?\u0012\u0003N/A\u001a\u0005Other \u0001(10\u0002\u0019)C\u0000\u0001\f\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0001\u0000\u0000\u0000\u0001\u000f37_DEFAULT_1014\u0001\b\u0007\u0012\u0001\u0010\u0004\u0018\u0001 \u001c(\u001c0\u0001R*\n(\b\u0003\u0012\u0015Session.TotalDuration\u0019T<\u0016A\u0016GO \u001c(\u001c0\u0003\u0001X\nP\u001aN\n\u000b\n\u0000\u0000?\u0012\u0004None\n\n\u0000\u0000\u0000@\u0012\u0006OneDay\n\n\u0000\u0000@@\u0012\u0003Low\n\n\u0000\u0000@\u0012\u0006Medium\n\f\n\u0000\u0000@\u0012\u0005Power\u0012\u0007Unknown\u0012\u0004\u0010\u0001\u0018\u0004 \u0001(10\u0002x1\u0000\u0001\n\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0001\u0000\u0000\u0000\u0001\t39_config\u0019\n",
+        "applies_to": "sap_profile",
+        "source": "C:\\Chance1\\IA\\SAP_Tierra_IA\\sap_profile\\Default\\shared_proto_db\\000003.log",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "log"
+      ],
+      "created_at": "2026-04-04T04:37:43.313493+00:00",
+      "updated_at": "2026-04-04T04:37:43.313493+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:37:43.313493+00:00",
+        "access_count": 0
+      }
+    },
+    "887351419dc6": {
+      "id": "887351419dc6",
+      "type": "fact",
+      "key": "000003_6",
+      "fact": {
+        "rule": "\n\u0000\u0000\u0000@\u0012\u0006OneDay\n\n\u0000\u0000@@\u0012\u0003Low\n\n\u0000\u0000@\u0012\u0006Medium\n\f\n\u0000\u0000@\u0012\u0005Power\u0012\u0007Unknown\u0012\u0004\u0010\u0001\u0018\u0004 \u0001(10\u0002x1\u0000\u0001\n\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0001\u0000\u0000\u0000\u0001\t39_config\u0019\n\u0017\b؈O\u0010\u0003\u0018ԓ\u0001 1Ul~\u0000\u0001\u000e\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0001\u0000\u0000\u0000\u0001\t39_configf\n\u0017\b؈O\u0010\u0003\u0018ԓ\u0001 1\n\u0017\bĄ\u001a\u0010\u0002\u0018ԓ\u0001 1\n\u0018\bٝ\u0001\u0010\u0001\u0018ԓ\u0001 1\n\u0018\bؿ\u0001\u0010\u0003\u0018ԓ\u0001 10V\u0000\u0001\u000f\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0001\u0000\u0000\u0000\u0001\t39_config\u0001\n\u0017\b؈O\u0010\u0003\u0018ԓ\u0001 1\n\u0017\bĄ\u001a\u0010\u0002\u0018ԓ\u0001 1\n\u0018\bٝ\u0001\u0010\u0001\u0018ԓ\u0001 1\n\u0018\bؿ\u0001\u0010\u0003\u0018ԓ\u0001 1\n\u0017\bހ`\u0010\u0002\u0018ԓ\u0001 1\n\"\bd\u0010\u0004\u0018ԓ\u0001 1(ʖ\u0001͠\u0000\u0001\u0010\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0001\u0000\u0000\u0000\u0001\t39_config\u0001\n\u0017\b؈O\u0010\u0003\u0018ԓ\u0001 1\n\u0017\bĄ\u001a\u0010\u0002\u0018ԓ\u0001 1\n\u0018\bٝ\u0001\u0010\u0001\u0018ԓ\u0001 1\n\u0018\bؿ\u0001\u0010\u0003\u0018ԓ\u0001 1\n\u0017\bހ`\u0010\u0002\u0018ԓ\u0001 1\n\"\bd\u0010\u0004\u0018ԓ\u0001 1(ʖ\u0001\n\u0017\bۯЊ\u0004\u0010\u0001\u0018ԓ\u0001 1\u00170wk:\u0001\u0001\u0011\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0001\u0000\u0000\u0000\u0001\t39_config\u0002\n\u0017\b؈O\u0010\u0003\u0018ԓ\u0001 1\n\u0017\bĄ\u001a\u0010\u0002\u0018ԓ\u0001 1\n\u0018\bٝ\u0001\u0010\u0001\u0018ԓ\u0001 1\n\u0018\bؿ\u0001\u0010\u0003\u0018ԓ\u0001 1\n\u0017\bހ`\u0010\u0002\u0018ԓ\u0001 1\n\"\bd\u0010\u0004\u0018ԓ\u0001 1(ʖ\u0001\n\u0017\bۯЊ\u0004\u0010\u0001\u0018ԓ\u0001 1\n\u0017\b̬굱a\u0010\u0003\u0018ԓ\u0001 1\n\u0018\b߾ա\u0001\u0010\u0002\u0018ԓ\u0001 1\n\u0017\b˵Դ,\u0010\u0002\u0018ԓ\u0001 1\n\u0017\b듹\u0010\u0002\u0018ԓ\u0001 1<tU\u0001\u0001\u0012\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0001\u0000\u0000\u0000\u0001\t39_config\u0003\n\u0017\b؈O\u0010\u0003\u0018ԓ\u0001 1\n\u0017\bĄ\u001a\u0010\u0002\u0018ԓ\u0001 1\n\u0018\bٝ\u0001\u0010\u0001\u0018ԓ\u0001 1\n\u0018\bؿ\u0001\u0010\u0003\u0018ԓ\u0001 1\n\u0017\bހ`\u0010\u0002\u0018ԓ\u0001 1\n\"\bd\u0010\u0004\u0018ԓ\u0001 1(ʖ\u0001\n\u0017\bۯЊ\u0004\u0010\u0001\u0018ԓ\u0001 1\n\u0017\b̬굱a\u0010\u0003\u0018ԓ\u0001 1\n\u0018\b߾ա\u0001\u0010\u0002\u0018ԓ\u0001 1\n\u0017\b˵Դ,\u0010\u0002\u0018ԓ\u0001 1\n\u0017\b듹\u0010\u0002\u0018ԓ\u0001 1\n\u0018\b՛\u0001\u0010\u0003\u0018ԓ\u0001 1\n\u0017\bÅօC\u0010\u0003\u0018ԓ\u0001 1\n\u0018\bӅ\u0001\u0010\u0003\u0018ԓ\u0001 1\n",
+        "applies_to": "sap_profile",
+        "source": "C:\\Chance1\\IA\\SAP_Tierra_IA\\sap_profile\\Default\\shared_proto_db\\000003.log",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "log"
+      ],
+      "created_at": "2026-04-04T04:37:43.379976+00:00",
+      "updated_at": "2026-04-04T04:37:43.379976+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:37:43.379976+00:00",
+        "access_count": 0
+      }
+    },
+    "9f4fe3938105": {
+      "id": "9f4fe3938105",
+      "type": "fact",
+      "key": "000003_7",
+      "fact": {
+        "rule": "utes\":0.5,\"scheduledTime\":1.772811442376697e+12}]d\u0003\u001aJ\u0000\u0001\u001a\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0001\u0000\u0000\u0000\u0001'fcoeoabgfenejglbffodgkkbkcdhcgfn.alarmsr[{\"granularity\":\"30000000\",\"name\":\"bridge-keepalive\",\"periodInMinutes\":0.5,\"scheduledTime\":1.772811472376697e+12}]\u001c2Ψ\u0000\u0001\u001b\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0001\u0000\u0000\u0000\u0001'fcoeoabgfenejglbffodgkkbkcdhcgfn.alarmsr[{\"gr",
+        "applies_to": "sap_profile",
+        "source": "C:\\Chance1\\IA\\SAP_Tierra_IA\\sap_profile\\Default\\Extension State\\000003.log",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "log"
+      ],
+      "created_at": "2026-04-04T04:37:46.454879+00:00",
+      "updated_at": "2026-04-04T04:37:46.454879+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:37:46.454879+00:00",
+        "access_count": 0
+      }
+    },
+    "1f0fb30de39e": {
+      "id": "1f0fb30de39e",
+      "type": "fact",
+      "key": "Special-Bid_0",
+      "fact": {
+        "rule": "International Business Machines Corporation\nInternational Business Machines Corporation, 1 North Castle Drive, Armonk, NY 10504\nIBM Cloud Subscription Renewal Quote\nCustomer Information\nCustomer Name: Assa Seguros \nAddress: 7ª. Avenida 12-23 zona 9, Edificio\nCity: Guatemala\nState: GU\nPostal/ZIP Code: 01009\nCountry: GT\nCustomer Set Designation:\nSelect Territory: Yes\nGovernment Entity (GOE): No\nPAE\nIBM Site Number: 4213933\nCurrent PA SVP Level: A\nMEP (Maximum End User Price): No\nValue Seller Quote Information\nQuote Number: 21636810\nQuote Effective Date: 16-Jan-2026\nQuote Expiration Date: 28-Feb-2026\nDate Quote Sent: 16-Jan-2026\nDistributor Name: Miami Direct, Inc.\nDistributor SAP ID: 7000621\nReseller Name: GBM de Guatemala\nReseller ID: 7062480\nSummary\n",
+        "applies_to": "sap_profile",
+        "source": "C:\\Chance1\\IA\\SAP_Tierra_IA\\sap_profile\\Special-Bid.pdf",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "pdf",
+        "pdf"
+      ],
+      "created_at": "2026-04-04T04:37:44.345553+00:00",
+      "updated_at": "2026-04-04T04:37:44.345553+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:37:44.345553+00:00",
+        "access_count": 0
+      }
+    },
+    "a9e12350786f": {
+      "id": "a9e12350786f",
+      "type": "fact",
+      "key": "Special-Bid_1",
+      "fact": {
+        "rule": "rect, Inc.\nDistributor SAP ID: 7000621\nReseller Name: GBM de Guatemala\nReseller ID: 7062480\nSummary\nValue Seller Total Commit Value:            715,20 USD\nPartner Value Seller Total Commit Value:            657,98 USD\nSoftware as a Service\nPage 1 of 3  \nInternational Business Machines Corporation\nInternational Business Machines Corporation, 1 North Castle Drive, Armonk, NY 10504\nIBM Blueworks Live\nProjected Service Start Date: 01-Mar-2026\nIBM Blueworks Live Instance per Annum\nSubscription Part#: D01MWZX\nBilling: Annual\nCustomer Unit Price: 0,00 \nChannel Discount: 8%\nCommitted Term:  12 Months\nRenewal Type: Expires at end of Subscription\nRenewal: Yes\nIBM Opportunity Number: 006gR000000zXC9QAM\nItem Quantity\nCustomer\nEntitled Rate Months\nCustomer Entitled\n",
+        "applies_to": "sap_profile",
+        "source": "C:\\Chance1\\IA\\SAP_Tierra_IA\\sap_profile\\Special-Bid.pdf",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "pdf",
+        "pdf"
+      ],
+      "created_at": "2026-04-04T04:37:44.416864+00:00",
+      "updated_at": "2026-04-04T04:37:44.416864+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:37:44.416864+00:00",
+        "access_count": 0
+      }
+    },
+    "1301a1408f73": {
+      "id": "1301a1408f73",
+      "type": "fact",
+      "key": "Special-Bid_2",
+      "fact": {
+        "rule": "pportunity Number: 006gR000000zXC9QAM\nItem Quantity\nCustomer\nEntitled Rate Months\nCustomer Entitled\nTotal Commit Value Discount %* Quote Rate*\nQuote\nTotal Commit Value*\nQuote\nUnit Price\nPartner\nQuote Rate\nPartner Quote\nTotal Commit Value\n001 1              0,00 1-12              0,00 0,000              0,00              0,00              0,00              0,00              0,00 USD\nIBM Blueworks Live\nProjected Service Start Date: 01-Mar-2026\nIBM Blueworks Live Editor Authorized User\nSubscription Part#: D0PQILL\nBilling: Annual\nCustomer Unit Price: 715,20 \nChannel Discount: 8%\nCommitted Term:  12 Months\nRenewal Type: Expires at end of Subscription\nRenewal: Yes\nIBM Opportunity Number: 006gR000000zXC9QAM\nItem Quantity\nCustomer\nEntitled Rate Months\nCustomer Entitled\n",
+        "applies_to": "sap_profile",
+        "source": "C:\\Chance1\\IA\\SAP_Tierra_IA\\sap_profile\\Special-Bid.pdf",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "pdf",
+        "pdf"
+      ],
+      "created_at": "2026-04-04T04:37:44.488025+00:00",
+      "updated_at": "2026-04-04T04:37:44.488025+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:37:44.488025+00:00",
+        "access_count": 0
+      }
+    },
+    "7cacf8a8ae93": {
+      "id": "7cacf8a8ae93",
+      "type": "fact",
+      "key": "Special-Bid_4",
+      "fact": {
+        "rule": "pportunity Number: 006gR000000zXC9QAM\nItem Quantity\nCustomer\nEntitled Rate Months\nCustomer Entitled\nTotal Commit Value Discount %* Quote Rate*\nQuote\nTotal Commit Value*\nPartner\nQuote Rate\nPartner Quote\nTotal Commit Value\n003 1              0,00 1-12              0,00 0,000              0,00              0,00              0,00              0,00 USD\nPage 2 of 3  \nInternational Business Machines Corporation\nInternational Business Machines Corporation, 1 North Castle Drive, Armonk, NY 10504\nSoftware as a Service Total:            715,20 USD\nThis quote must be ordered between 16-Jan-2026 and 28-Feb-2026.\nNOTES:\nIt is understood that final coverage dates for subscription part numbers will be based upon completion of order provisioning, irrespective of the dates which may appear in\nthis quote.\n",
+        "applies_to": "sap_profile",
+        "source": "C:\\Chance1\\IA\\SAP_Tierra_IA\\sap_profile\\Special-Bid.pdf",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "pdf",
+        "pdf"
+      ],
+      "created_at": "2026-04-04T04:37:44.579082+00:00",
+      "updated_at": "2026-04-04T04:37:44.579082+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:37:44.579082+00:00",
+        "access_count": 0
+      }
+    },
+    "cb65f7122882": {
+      "id": "cb65f7122882",
+      "type": "fact",
+      "key": "Special-Bid_5",
+      "fact": {
+        "rule": "ed upon completion of order provisioning, irrespective of the dates which may appear in\nthis quote.\nQuote pricing is valid for this transaction only.\nThis quote is contingent upon all paperwork being on file with IBM.\n* The channel discount is not included.\nIBM Software Group\nPage 3 of 3  \nInternational Business Machines Corporation\nInternational Business Machines Corporation, 1 North Castle Drive, Armonk, NY 10504\nUseful/Important Web resources:\nPassport Advantage information, customer secure site access, training, etc.: www.ibm.com/software/passportadvantage\nIBM's International Program License Agreement and product License Information documents: www.ibm.com/software/sla\nIBM Software Support Web site: https://www.ibm.com/software/support/handbook.html\nIBM Customer Number: 000385\n",
+        "applies_to": "sap_profile",
+        "source": "C:\\Chance1\\IA\\SAP_Tierra_IA\\sap_profile\\Special-Bid.pdf",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "pdf",
+        "pdf"
+      ],
+      "created_at": "2026-04-04T04:37:44.645215+00:00",
+      "updated_at": "2026-04-04T04:37:44.645215+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:37:44.645215+00:00",
+        "access_count": 0
+      }
+    },
+    "4a3bf7948a8d": {
+      "id": "4a3bf7948a8d",
+      "type": "fact",
+      "key": "Special-Bid_6",
+      "fact": {
+        "rule": "re Support Web site: https://www.ibm.com/software/support/handbook.html\nIBM Customer Number: 000385\nIBM Terms and Conditions\nIBM International Passport Advantage Express Agreement\nThe quote or order to which this document relates is governed by the terms of the Passport Advantage Express Agreement and its\nassociated attachment(s).\nIBM Terms for IBM Cloud Offerings\nThe referenced Cloud Services are governed by the terms of the IBM International Passport Advantage Express Agreement, its\nassociated attachment(s), and the referenced Transaction Documents. Your order and use of the Cloud Services are your acceptance of\nthe prices and terms referenced in this document, except to the extent superseded by a written amendment or agreement signed by both\nof us.\n",
+        "applies_to": "sap_profile",
+        "source": "C:\\Chance1\\IA\\SAP_Tierra_IA\\sap_profile\\Special-Bid.pdf",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "pdf",
+        "pdf"
+      ],
+      "created_at": "2026-04-04T04:37:44.709019+00:00",
+      "updated_at": "2026-04-04T04:37:44.709019+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:37:44.709019+00:00",
+        "access_count": 0
+      }
+    },
+    "8cc4c75ac7e6": {
+      "id": "8cc4c75ac7e6",
+      "type": "fact",
+      "key": "Special-Bid_7",
+      "fact": {
+        "rule": "document, except to the extent superseded by a written amendment or agreement signed by both\nof us.\nFinal coverage dates for offerings listed are provided in your Proof of Entitlement.\nTransaction Documents\nIBM Terms of Use - General Terms for IBM Cloud Offerings at:\nhttp://www.ib",
+        "applies_to": "sap_profile",
+        "source": "C:\\Chance1\\IA\\SAP_Tierra_IA\\sap_profile\\Special-Bid.pdf",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "pdf",
+        "pdf"
+      ],
+      "created_at": "2026-04-04T04:37:44.771589+00:00",
+      "updated_at": "2026-04-04T04:37:44.771589+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:37:44.771589+00:00",
+        "access_count": 0
+      }
+    },
+    "d433066e3f64": {
+      "id": "d433066e3f64",
+      "type": "fact",
+      "key": "metadata_2",
+      "fact": {
+        "rule": "5dbe3850941dd1b73a70\":{\"appid\":\"jamhcnnkihinmdlkakkaopbjbbcngflc\"},\"d708086f5aa6ff459ad732348a6ea7e4f6ff8fc5c019171df85aa8d3431845a7\":{\"appid\":\"bjbcblmdcnggnibecjikpoljcgkbgphl\"},\"f8929f38e4311c5717f1a0d4a0bc4fb0277329557a1a5aecb93317808669ba4f\":{\"appid\":\"ninodabcejpeglfjbkhdplaoglpcbffj\"}}}",
+        "applies_to": "sap_profile",
+        "source": "C:\\Chance1\\IA\\SAP_Tierra_IA\\sap_profile\\component_crx_cache\\metadata.json",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "json",
+        "json"
+      ],
+      "created_at": "2026-04-04T04:37:46.715514+00:00",
+      "updated_at": "2026-04-04T04:37:46.715514+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:37:46.715514+00:00",
+        "access_count": 0
+      }
+    },
+    "eb99c3e85e1b": {
+      "id": "eb99c3e85e1b",
+      "type": "fact",
+      "key": "metadata_0",
+      "fact": {
+        "rule": "{\"hashes\":{\"a6e0e72d2dd6e301ab17d4a39e771f6d72cbc0d09444b4011f8402a5d77deae2\":{\"appid\":\"ljglajjnnkapghbckkcmodicjhacbfhk\"}}}",
+        "applies_to": "sap_profile",
+        "source": "C:\\Chance1\\IA\\SAP_Tierra_IA\\sap_profile\\extensions_crx_cache\\metadata.json",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "json",
+        "json"
+      ],
+      "created_at": "2026-04-04T04:37:47.392989+00:00",
+      "updated_at": "2026-04-04T04:37:47.392989+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:37:47.392989+00:00",
+        "access_count": 0
+      }
+    },
+    "72eed281fee9": {
+      "id": "72eed281fee9",
+      "type": "fact",
+      "key": "manifest_0",
+      "fact": {
+        "rule": "{\n  \"manifest_version\": 2,\n  \"name\": \"zxcvbnData\",\n  \"version\": \"3\"\n}",
+        "applies_to": "sap_profile",
+        "source": "C:\\Chance1\\IA\\SAP_Tierra_IA\\sap_profile\\ZxcvbnData\\3\\manifest.json",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "json",
+        "json"
+      ],
+      "created_at": "2026-04-04T04:37:48.291836+00:00",
+      "updated_at": "2026-04-04T04:37:48.291836+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:37:48.291836+00:00",
+        "access_count": 0
+      }
+    }
+  },
+  "tag_index": {
+    "log": [
+      "843d345ee0ad",
+      "b676e07dd7d0",
+      "34a05d4fc298",
+      "77278862d70d",
+      "4ce94ea63eda",
+      "e15a8641378d",
+      "887351419dc6",
+      "9f4fe3938105",
+      "843d345ee0ad",
+      "9f4fe3938105",
+      "843d345ee0ad",
+      "b676e07dd7d0",
+      "843d345ee0ad",
+      "b676e07dd7d0",
+      "843d345ee0ad",
+      "843d345ee0ad",
+      "843d345ee0ad"
+    ],
+    "pdf": [
+      "1f0fb30de39e",
+      "1f0fb30de39e",
+      "a9e12350786f",
+      "a9e12350786f",
+      "1301a1408f73",
+      "1301a1408f73",
+      "7cacf8a8ae93",
+      "7cacf8a8ae93",
+      "cb65f7122882",
+      "cb65f7122882",
+      "4a3bf7948a8d",
+      "4a3bf7948a8d",
+      "8cc4c75ac7e6",
+      "8cc4c75ac7e6"
+    ],
+    "json": [
+      "d433066e3f64",
+      "d433066e3f64",
+      "eb99c3e85e1b",
+      "eb99c3e85e1b",
+      "72eed281fee9",
+      "72eed281fee9",
+      "72eed281fee9",
+      "72eed281fee9",
+      "72eed281fee9",
+      "72eed281fee9",
+      "72eed281fee9",
+      "72eed281fee9",
+      "72eed281fee9",
+      "72eed281fee9",
+      "72eed281fee9",
+      "72eed281fee9",
+      "72eed281fee9",
+      "72eed281fee9",
+      "72eed281fee9",
+      "72eed281fee9",
+      "72eed281fee9",
+      "72eed281fee9",
+      "72eed281fee9",
+      "72eed281fee9",
+      "72eed281fee9",
+      "72eed281fee9",
+      "72eed281fee9",
+      "72eed281fee9",
+      "72eed281fee9",
+      "72eed281fee9",
+      "72eed281fee9",
+      "72eed281fee9",
+      "72eed281fee9",
+      "72eed281fee9"
+    ]
+  },
+  "stats": {
+    "total_entries": 41,
+    "total_lookups": 0,
+    "total_hits": 0
+  }
+}

@@ -1,0 +1,1357 @@
+{
+  "domain": "ia_correos",
+  "description": "Dominio auto-creado: ia_correos",
+  "entries": {
+    "dce009735a64": {
+      "id": "dce009735a64",
+      "type": "fact",
+      "key": "outlook_com_0",
+      "fact": {
+        "rule": "# -*- coding: utf-8 -*-\n\"\"\"OutlookClient - Outlook desktop automation via COM.\"\"\"\n\nimport os\nimport datetime\nfrom typing import Any, Optional\n\nimport pythoncom\nimport win32com.client\nfrom pywintypes import com_error\n\nfrom .constants import (\n    OL_MAIL_ITEM, OL_APPOINTMENT_ITEM,\n    OL_MEETING, OL_NON_MEETING,\n    OL_TO, OL_CC, OL_BCC,\n    OL_REQUIRED, OL_OPTIONAL,\n    OL_FREE, OL_TENTATIVE, OL_BUSY, OL_OUT_OF_OFFICE,\n    FOLDER_MAP,\n)\n\nclass OutlookError(Exception):\n    \"\"\"Raised when a COM operation on Outlook fails.\"\"\"\n\nclass OutlookClient:\n    \"\"\"Wrapper for Outlook desktop COM automation.\"\"\"\n\n    def __init__(self) -> None:\n        self._app = None\n        self._namespace = None\n\n    def _ensure_app(self) -> None:\n        if self._app is not None:\n            return\n        try:\n",
+        "applies_to": "ia_correos",
+        "source": "C:\\Chance1\\IA\\IA_Correos\\src\\outlook_com.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-04T04:12:47.930894+00:00",
+      "updated_at": "2026-04-04T04:12:47.930894+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:12:47.930894+00:00",
+        "access_count": 0
+      }
+    },
+    "e02c033a8b9b": {
+      "id": "e02c033a8b9b",
+      "type": "fact",
+      "key": "outlook_com_1",
+      "fact": {
+        "rule": "   def _ensure_app(self) -> None:\n        if self._app is not None:\n            return\n        try:\n            pythoncom.CoInitialize()\n            self._app = win32com.client.Dispatch(\"Outlook.Application\")\n            self._namespace = self._app.GetNamespace(\"MAPI\")\n        except com_error as e:\n            raise OutlookError(\n                \"No se pudo conectar a Outlook desktop. \"\n                \"Asegurate de que Outlook clasico este abierto.\"\n            ) from e\n\n    def __enter__(self) -> \"OutlookClient\":\n        self._ensure_app()\n        return self\n\n    def __exit__(self, *args) -> None:\n        self.quit()\n\n    def quit(self) -> None:\n        # NO llamar app.Quit() - Outlook COM es singleton, mataria el proceso del usuario\n        self._namespace = None\n",
+        "applies_to": "ia_correos",
+        "source": "C:\\Chance1\\IA\\IA_Correos\\src\\outlook_com.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-04T04:12:47.981688+00:00",
+      "updated_at": "2026-04-04T04:12:47.981688+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:12:47.981688+00:00",
+        "access_count": 0
+      }
+    },
+    "fa6ec1719025": {
+      "id": "fa6ec1719025",
+      "type": "fact",
+      "key": "outlook_com_2",
+      "fact": {
+        "rule": "pp.Quit() - Outlook COM es singleton, mataria el proceso del usuario\n        self._namespace = None\n        self._app = None\n        try:\n            pythoncom.CoUninitialize()\n        except Exception:\n            pass\n\n    @property\n    def app(self) -> Any:\n        self._ensure_app()\n        return self._app\n\n    @property\n    def namespace(self) -> Any:\n        self._ensure_app()\n        return self._namespace\n\n    # ── Helpers ──────────────────────────────────────────────\n\n    def _get_folder(self, folder_name: str) -> Any:\n        folder_id = FOLDER_MAP.get(folder_name.lower())\n        if folder_id is None:\n            raise OutlookError(f\"Carpeta desconocida: {folder_name}\")\n        return self.namespace.GetDefaultFolder(folder_id)\n\n    def _resolve_smtp(self, addr_entry) -> str:\n",
+        "applies_to": "ia_correos",
+        "source": "C:\\Chance1\\IA\\IA_Correos\\src\\outlook_com.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-04T04:12:48.043189+00:00",
+      "updated_at": "2026-04-04T04:12:48.043189+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:12:48.043189+00:00",
+        "access_count": 0
+      }
+    },
+    "ef6c715f5c01": {
+      "id": "ef6c715f5c01",
+      "type": "fact",
+      "key": "outlook_com_3",
+      "fact": {
+        "rule": " return self.namespace.GetDefaultFolder(folder_id)\n\n    def _resolve_smtp(self, addr_entry) -> str:\n        \"\"\"Extract SMTP email from an AddressEntry (handles Exchange DNs).\"\"\"\n        try:\n            if addr_entry.AddressEntryUserType in (0, 5):  # Exchange user/mailbox\n                exch = addr_entry.GetExchangeUser()\n                if exch:\n                    return str(exch.PrimarySmtpAddress).lower()\n            return str(addr_entry.Address).lower()\n        except Exception:\n            return str(getattr(addr_entry, \"Address\", \"\")) .lower()\n\n    def _mail_to_dict(self, item) -> dict:\n        \"\"\"Convert a MailItem to a serializable dict.\"\"\"\n        try:\n            sender_email = \"\"\n            try:\n                sender = item.Sender\n                if sender:\n",
+        "applies_to": "ia_correos",
+        "source": "C:\\Chance1\\IA\\IA_Correos\\src\\outlook_com.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-04T04:12:48.098702+00:00",
+      "updated_at": "2026-04-04T04:12:48.098702+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:12:48.098702+00:00",
+        "access_count": 0
+      }
+    },
+    "bbb9e6afbb1b": {
+      "id": "bbb9e6afbb1b",
+      "type": "fact",
+      "key": "outlook_com_4",
+      "fact": {
+        "rule": " sender_email = \"\"\n            try:\n                sender = item.Sender\n                if sender:\n                    sender_email = self._resolve_smtp(sender)\n            except Exception:\n                sender_email = str(getattr(item, \"SenderEmailAddress\", \"\"))\n\n            attachments = []\n            try:\n                for i in range(1, item.Attachments.Count + 1):\n                    att = item.Attachments.Item(i)\n                    attachments.append(str(att.FileName))\n            except Exception:\n                pass\n\n            return {\n                \"entry_id\": str(item.EntryID),\n                \"subject\": str(getattr(item, \"Subject\", \"\") or \"\"),\n                \"sender_name\": str(getattr(item, \"SenderName\", \"\") or \"\"),\n                \"sender_email\": sender_email,\n",
+        "applies_to": "ia_correos",
+        "source": "C:\\Chance1\\IA\\IA_Correos\\src\\outlook_com.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-04T04:12:48.148386+00:00",
+      "updated_at": "2026-04-04T04:12:48.148386+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:12:48.148386+00:00",
+        "access_count": 0
+      }
+    },
+    "245ec3561a72": {
+      "id": "245ec3561a72",
+      "type": "fact",
+      "key": "outlook_com_5",
+      "fact": {
+        "rule": "er_name\": str(getattr(item, \"SenderName\", \"\") or \"\"),\n                \"sender_email\": sender_email,\n                \"to\": str(getattr(item, \"To\", \"\") or \"\"),\n                \"cc\": str(getattr(item, \"CC\", \"\") or \"\"),\n                \"received\": str(getattr(item, \"ReceivedTime\", \"\")),\n                \"body\": str(getattr(item, \"Body\", \"\") or \"\"),\n                \"body_preview\": str(getattr(item, \"Body\", \"\") or \"\")[:200],\n                \"is_read\": bool(getattr(item, \"UnRead\", True) is False),\n                \"has_attachments\": len(attachments) > 0,\n                \"attachments\": attachments,\n                \"message_class\": str(getattr(item, \"MessageClass\", \"\")),\n            }\n        except com_error as e:\n            raise OutlookError(f\"Error leyendo correo: {e}\") from e\n\n",
+        "applies_to": "ia_correos",
+        "source": "C:\\Chance1\\IA\\IA_Correos\\src\\outlook_com.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-04T04:12:48.218102+00:00",
+      "updated_at": "2026-04-04T04:12:48.218102+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:12:48.218102+00:00",
+        "access_count": 0
+      }
+    },
+    "b3bb7fdf0fbc": {
+      "id": "b3bb7fdf0fbc",
+      "type": "fact",
+      "key": "outlook_com_6",
+      "fact": {
+        "rule": "        except com_error as e:\n            raise OutlookError(f\"Error leyendo correo: {e}\") from e\n\n    def _appointment_to_dict(self, item) -> dict:\n        \"\"\"Convert an AppointmentItem to a serializable dict.\"\"\"\n        try:\n            attendees = []\n            try:\n                for i in range(1, item.Recipients.Count + 1):\n                    r = item.Recipients.Item(i)\n                    attendees.append({\n                        \"name\": str(r.Name),\n                        \"email\": self._resolve_smtp(r.AddressEntry) if r.AddressEntry else \"\",\n                        \"type\": \"required\" if r.Type == OL_REQUIRED else \"optional\",\n                        \"response\": int(getattr(r, \"MeetingResponseStatus\", 0)),\n                    })\n            except Exception:\n",
+        "applies_to": "ia_correos",
+        "source": "C:\\Chance1\\IA\\IA_Correos\\src\\outlook_com.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-04T04:12:48.269781+00:00",
+      "updated_at": "2026-04-04T04:12:48.269781+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:12:48.269781+00:00",
+        "access_count": 0
+      }
+    },
+    "f7453030dd9f": {
+      "id": "f7453030dd9f",
+      "type": "fact",
+      "key": "outlook_com_7",
+      "fact": {
+        "rule": ": int(getattr(r, \"MeetingResponseStatus\", 0)),\n                    })\n            except Exception:\n                pass\n\n            return {\n                \"entry_id\": str(item.",
+        "applies_to": "ia_correos",
+        "source": "C:\\Chance1\\IA\\IA_Correos\\src\\outlook_com.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-04T04:12:48.310505+00:00",
+      "updated_at": "2026-04-04T04:12:48.310505+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:12:48.310505+00:00",
+        "access_count": 0
+      }
+    },
+    "b919fdf8b865": {
+      "id": "b919fdf8b865",
+      "type": "fact",
+      "key": "MANUAL_TECNICO_0",
+      "fact": {
+        "rule": "# Manual Tecnico - IA_Correos\n\n## Prerequisitos\n\n| Componente | Version minima | Notas |\n|------------|---------------|-------|\n| Windows | 10/11 | Requerido para COM |\n| Python | 3.12+ | Probado con 3.12 |\n| pywin32 | 306+ | Interfaz COM con Outlook |\n| Outlook desktop clasico | 2016+ / Microsoft 365 | **New Outlook NO es compatible** |\n| Claude Code | Ultima version | CLI de Anthropic |\n\n---\n\n## Instalacion paso a paso\n\n### 1. Clonar el repositorio\n\n```bash\ncd C:\\Chance1\ngit clone <url-del-repo> IA_Correos\n```\n\nO si ya existe el backup:\n```bash\n# Desde el repo claude-config\ncp -r claude-config/IA_Correos C:\\Chance1\\IA_Correos\n```\n\n### 2. Instalar dependencias\n\n```bash\ncd C:\\Chance1\\IA_Correos\npip install -r requirements.txt\n```\n\nEsto instala `pywin32>=306`.\n\n### 3. ",
+        "applies_to": "ia_correos",
+        "source": "C:\\Chance1\\IA\\IA_Correos\\MANUAL_TECNICO.md",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "md"
+      ],
+      "created_at": "2026-04-04T04:36:02.443239+00:00",
+      "updated_at": "2026-04-04T04:36:02.443239+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:36:02.443239+00:00",
+        "access_count": 0
+      }
+    },
+    "59cf52d4ade9": {
+      "id": "59cf52d4ade9",
+      "type": "fact",
+      "key": "MANUAL_TECNICO_1",
+      "fact": {
+        "rule": "\ncd C:\\Chance1\\IA_Correos\npip install -r requirements.txt\n```\n\nEsto instala `pywin32>=306`.\n\n### 3. Configurar el agente en Claude Code\n\nCopiar el archivo de agente a la ubicacion global de Claude Code:\n\n```bash\n# El archivo ya existe en:\n# C:\\Chance1\\IA_Correos\\.claude\\agents\\outlook-agent.md\n#\n# Para que Claude Code lo detecte, debe estar en el directorio\n# .claude/agents/ dentro del proyecto desde donde invoques Claude.\n```\n\n### 4. Verificar que funciona\n\n```bash\ncd C:\\Chance1\\IA_Correos\npython -c \"from src.outlook_com import OutlookClient; print('OK')\"\n```\n\n---\n\n## Estructura de archivos\n\n```\nIA_Correos/                                          (1706 lineas total)\n├── CLAUDE.md                        # Reglas del proyecto        (34 lineas)\n",
+        "applies_to": "ia_correos",
+        "source": "C:\\Chance1\\IA\\IA_Correos\\MANUAL_TECNICO.md",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "md"
+      ],
+      "created_at": "2026-04-04T04:36:02.527366+00:00",
+      "updated_at": "2026-04-04T04:36:02.527366+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:36:02.527366+00:00",
+        "access_count": 0
+      }
+    },
+    "cd44b32403b9": {
+      "id": "cd44b32403b9",
+      "type": "fact",
+      "key": "MANUAL_TECNICO_2",
+      "fact": {
+        "rule": "  (1706 lineas total)\n├── CLAUDE.md                        # Reglas del proyecto        (34 lineas)\n├── agent.md                         # Definicion del agente      (104 lineas)\n├── requirements.txt                 # pywin32>=306               (1 linea)\n├── MANUAL_USUARIO.md                # Manual de usuario          (~180 lineas)\n├── MANUAL_TECNICO.md                # Manual tecnico             (~300 lineas)\n├── .claude/\n│   └── agents/\n│       └── outlook-agent.md         # Agente registrado          (104 lineas)\n├── src/\n│   ├── __init__.py                  #                            (4 lineas)\n│   ├── constants.py                 # Constantes OL_*            (57 lineas)\n│   └── outlook_com.py               # OutlookClient principal    (709 lineas)\n└── tests/\n",
+        "applies_to": "ia_correos",
+        "source": "C:\\Chance1\\IA\\IA_Correos\\MANUAL_TECNICO.md",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "md"
+      ],
+      "created_at": "2026-04-04T04:36:02.605012+00:00",
+      "updated_at": "2026-04-04T04:36:02.605012+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:36:02.605012+00:00",
+        "access_count": 0
+      }
+    },
+    "ebbe5ad8d0de": {
+      "id": "ebbe5ad8d0de",
+      "type": "fact",
+      "key": "MANUAL_TECNICO_3",
+      "fact": {
+        "rule": "7 lineas)\n│   └── outlook_com.py               # OutlookClient principal    (709 lineas)\n└── tests/\n    ├── __init__.py                  #                            (0 lineas)\n    └── test_outlook.py              # Tests de integracion       (300 lineas)\n```\n\n| Archivo | Proposito |\n|---------|-----------|\n| `CLAUDE.md` | Reglas criticas que Claude Code lee automaticamente al entrar al proyecto |\n| `agent.md` / `.claude/agents/outlook-agent.md` | Define el agente: nombre, modelo, herramientas, instrucciones |\n| `src/outlook_com.py` | Clase `OutlookClient` con toda la logica COM |\n| `src/constants.py` | Constantes numericas de la API COM de Outlook (OL_MAIL_ITEM, FOLDER_MAP, etc.) |\n| `tests/test_outlook.py` | Tests de integracion (requieren Outlook abierto) |\n\n---\n\n## Ejecutar tests\n\n",
+        "applies_to": "ia_correos",
+        "source": "C:\\Chance1\\IA\\IA_Correos\\MANUAL_TECNICO.md",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "md"
+      ],
+      "created_at": "2026-04-04T04:36:02.682629+00:00",
+      "updated_at": "2026-04-04T04:36:02.682629+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:36:02.682629+00:00",
+        "access_count": 0
+      }
+    },
+    "b99e4f29108b": {
+      "id": "b99e4f29108b",
+      "type": "fact",
+      "key": "MANUAL_TECNICO_4",
+      "fact": {
+        "rule": "ests/test_outlook.py` | Tests de integracion (requieren Outlook abierto) |\n\n---\n\n## Ejecutar tests\n\n```bash\ncd C:\\Chance1\\IA_Correos\npython -m pytest tests/ -v\n```\n\nLos tests requieren Outlook desktop abierto y conectado. Son tests de integracion reales contra COM, no mocks.\n\n**Importante:** Los tests que envian correo usan exclusivamente `ntoledo@gbm.net` como destinatario.\n\n### Catalogo completo de tests (25)\n\n| # | Test | Clase | Que verifica |\n|---|------|-------|-------------|\n| 01 | `test_01_send_plain_text` | TestEmailSend | Envio de correo en texto plano |\n| 02 | `test_02_send_html` | TestEmailSend | Envio de correo con HTMLBody |\n| 03 | `test_03_send_with_attachment` | TestEmailSend | Envio con archivo adjunto (crea temp file) |\n",
+        "applies_to": "ia_correos",
+        "source": "C:\\Chance1\\IA\\IA_Correos\\MANUAL_TECNICO.md",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "md"
+      ],
+      "created_at": "2026-04-04T04:36:02.766184+00:00",
+      "updated_at": "2026-04-04T04:36:02.766184+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:36:02.766184+00:00",
+        "access_count": 0
+      }
+    },
+    "2bbfba126cb2": {
+      "id": "2bbfba126cb2",
+      "type": "fact",
+      "key": "MANUAL_TECNICO_5",
+      "fact": {
+        "rule": " 03 | `test_03_send_with_attachment` | TestEmailSend | Envio con archivo adjunto (crea temp file) |\n| 04 | `test_04_save_as_draft` | TestEmailSend | Guardar como borrador (`draft_only=True`) y verificar entry_id |\n| 05 | `test_05_send_with_cc` | TestEmailSend | Envio con campo CC |\n| 06 | `test_06_search_by_subject` | TestEmailSearch | Busqueda filtrada por subject |\n| 07 | `test_07_search_by_sender` | TestEmailSearch | Busqueda filtrada por remitente (from) |\n| 08 | `test_08_search_all_fields` | TestEmailSearch | Busqueda en todos los campos (carpeta sent) |\n| 09 | `test_09_read_email` | TestEmailRead | Leer correo completo por EntryID (espera 3s para sync) |\n| 10 | `test_10_read_invalid_id` | TestEmailRead | Que leer un ID invalido lance OutlookError |\n",
+        "applies_to": "ia_correos",
+        "source": "C:\\Chance1\\IA\\IA_Correos\\MANUAL_TECNICO.md",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "md"
+      ],
+      "created_at": "2026-04-04T04:36:02.847340+00:00",
+      "updated_at": "2026-04-04T04:36:02.847340+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:36:02.847340+00:00",
+        "access_count": 0
+      }
+    },
+    "c9a44af0cac1": {
+      "id": "c9a44af0cac1",
+      "type": "fact",
+      "key": "MANUAL_TECNICO_6",
+      "fact": {
+        "rule": ") |\n| 10 | `test_10_read_invalid_id` | TestEmailRead | Que leer un ID invalido lance OutlookError |\n| 11 | `test_11_reply` | TestEmailReplyForward | Reply simple a un correo de test |\n| 12 | `test_12_reply_all` | TestEmailReplyForward | Reply All a un correo de test |\n| 13 | `test_13_forward` | TestEmailReplyForward | Forward a SAFE_EMAIL |\n| 14 | `test_14_list_folders` | TestFolders | Listar carpetas y verificar que existan inbox y sent |\n| 15 | `test_15_list_inbox` | TestFolders | Listar 5 items del inbox |\n| 16 | `test_16_list_drafts` | TestFolders | Listar borradores |\n| 17 | `test_17_list_sent` | TestFolders | Listar enviados de los ultimos 7 dias |\n| 18 | `test_18_list_attachments` | TestFolders | Listar adjuntos del correo con adjunto creado en test 03 |\n",
+        "applies_to": "ia_correos",
+        "source": "C:\\Chance1\\IA\\IA_Correos\\MANUAL_TECNICO.md",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "md"
+      ],
+      "created_at": "2026-04-04T04:36:02.931337+00:00",
+      "updated_at": "2026-04-04T04:36:02.931337+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:36:02.931337+00:00",
+        "access_count": 0
+      }
+    },
+    "aac436870e9b": {
+      "id": "aac436870e9b",
+      "type": "fact",
+      "key": "MANUAL_TECNICO_7",
+      "fact": {
+        "rule": "est_18_list_attachments` | TestFolders | Listar adjuntos del correo con adjunto creado en test 03 |\n| 19 | `test_19_create_appointment` | TestCalendar | Crear cita personal (60 dias en el futuro) |\n| 20 | `test_20_create_meeting` | TestCalendar | Crear reunion con `send=False` (61 dias en el futuro) |\n| 21 |",
+        "applies_to": "ia_correos",
+        "source": "C:\\Chance1\\IA\\IA_Correos\\MANUAL_TECNICO.md",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "md"
+      ],
+      "created_at": "2026-04-04T04:36:03.002219+00:00",
+      "updated_at": "2026-04-04T04:36:03.002219+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:36:03.002219+00:00",
+        "access_count": 0
+      }
+    },
+    "1866c6acbf54": {
+      "id": "1866c6acbf54",
+      "type": "fact",
+      "key": "test_outlook_0",
+      "fact": {
+        "rule": "# -*- coding: utf-8 -*-\n\"\"\"\nTest suite for OutlookClient - ALL emails self-sent to SAFE_EMAIL only.\nRun: python -m pytest tests/test_outlook.py -v\n\"\"\"\n\nimport os\nimport sys\nimport time\nimport tempfile\nimport unittest\nimport datetime\n\nsys.path.insert(0, os.path.join(os.path.dirname(__file__), \"..\"))\nfrom src.outlook_com import OutlookClient, OutlookError\n\nSAFE_EMAIL = \"ntoledo@gbm.net\"\nTEST_PREFIX = \"[IA_CORREOS_TEST]\"\n\nclient: OutlookClient = None\n\ndef setUpModule():\n    global client\n    client = OutlookClient()\n    client._ensure_app()\n    print(f\"\\nOutlook conectado. Tests usando: {SAFE_EMAIL}\")\n\ndef tearDownModule():\n    global client\n    if client:\n        client.quit()\n\n# ─── Email Send ──────────────────────────────────────────────\n\nclass TestEmailSend(unittest.TestCase):\n\n",
+        "applies_to": "ia_correos",
+        "source": "C:\\Chance1\\IA\\IA_Correos\\tests\\test_outlook.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-04T04:12:48.823940+00:00",
+      "updated_at": "2026-04-04T04:12:48.823940+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:12:48.823940+00:00",
+        "access_count": 0
+      }
+    },
+    "7d7117d6a139": {
+      "id": "7d7117d6a139",
+      "type": "fact",
+      "key": "test_outlook_1",
+      "fact": {
+        "rule": "Email Send ──────────────────────────────────────────────\n\nclass TestEmailSend(unittest.TestCase):\n\n    def test_01_send_plain_text(self):\n        result = client.send_email(\n            to=SAFE_EMAIL,\n            subject=f\"{TEST_PREFIX} Plain text {datetime.datetime.now():%H%M%S}\",\n            body=\"Test de correo en texto plano.\",\n        )\n        self.assertEqual(result[\"status\"], \"sent\")\n\n    def test_02_send_html(self):\n        result = client.send_email(\n            to=SAFE_EMAIL,\n            subject=f\"{TEST_PREFIX} HTML {datetime.datetime.now():%H%M%S}\",\n            body=\"<h1>Test HTML</h1><p>Correo con formato.</p>\",\n            html=True,\n        )\n        self.assertEqual(result[\"status\"], \"sent\")\n\n    def test_03_send_with_attachment(self):\n",
+        "applies_to": "ia_correos",
+        "source": "C:\\Chance1\\IA\\IA_Correos\\tests\\test_outlook.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-04T04:12:48.881825+00:00",
+      "updated_at": "2026-04-04T04:12:48.881825+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:12:48.881825+00:00",
+        "access_count": 0
+      }
+    },
+    "d5f0e8de1509": {
+      "id": "d5f0e8de1509",
+      "type": "fact",
+      "key": "test_outlook_2",
+      "fact": {
+        "rule": "  )\n        self.assertEqual(result[\"status\"], \"sent\")\n\n    def test_03_send_with_attachment(self):\n        tmp = tempfile.NamedTemporaryFile(suffix=\".txt\", delete=False, mode=\"w\")\n        tmp.write(\"Archivo de prueba IA_Correos\")\n        tmp.close()\n        try:\n            result = client.send_email(\n                to=SAFE_EMAIL,\n                subject=f\"{TEST_PREFIX} Adjunto {datetime.datetime.now():%H%M%S}\",\n                body=\"Correo con adjunto de prueba.\",\n                attachments=[tmp.name],\n            )\n            self.assertEqual(result[\"status\"], \"sent\")\n        finally:\n            os.unlink(tmp.name)\n\n    def test_04_save_as_draft(self):\n        result = client.send_email(\n            to=SAFE_EMAIL,\n",
+        "applies_to": "ia_correos",
+        "source": "C:\\Chance1\\IA\\IA_Correos\\tests\\test_outlook.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-04T04:12:48.943378+00:00",
+      "updated_at": "2026-04-04T04:12:48.943378+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:12:48.943378+00:00",
+        "access_count": 0
+      }
+    },
+    "077d2880ec1d": {
+      "id": "077d2880ec1d",
+      "type": "fact",
+      "key": "test_outlook_3",
+      "fact": {
+        "rule": "    def test_04_save_as_draft(self):\n        result = client.send_email(\n            to=SAFE_EMAIL,\n            subject=f\"{TEST_PREFIX} Draft {datetime.datetime.now():%H%M%S}\",\n            body=\"Este correo se guarda como borrador.\",\n            draft_only=True,\n        )\n        self.assertEqual(result[\"status\"], \"draft_saved\")\n        self.assertIn(\"entry_id\", result)\n\n    def test_05_send_with_cc(self):\n        result = client.send_email(\n            to=SAFE_EMAIL,\n            subject=f\"{TEST_PREFIX} CC {datetime.datetime.now():%H%M%S}\",\n            body=\"Correo con CC a mi mismo.\",\n            cc=SAFE_EMAIL,\n        )\n        self.assertEqual(result[\"status\"], \"sent\")\n\n# ─── Email Search ────────────────────────────────────────────\n\nclass TestEmailSearch(unittest.TestCase):\n\n",
+        "applies_to": "ia_correos",
+        "source": "C:\\Chance1\\IA\\IA_Correos\\tests\\test_outlook.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-04T04:12:48.994265+00:00",
+      "updated_at": "2026-04-04T04:12:48.994265+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:12:48.994265+00:00",
+        "access_count": 0
+      }
+    },
+    "13bdf917a85d": {
+      "id": "13bdf917a85d",
+      "type": "fact",
+      "key": "test_outlook_4",
+      "fact": {
+        "rule": "ail Search ────────────────────────────────────────────\n\nclass TestEmailSearch(unittest.TestCase):\n\n    def test_06_search_by_subject(self):\n        results = client.search_emails(\n            query=TEST_PREFIX,\n            folder=\"inbox\",\n            search_in=\"subject\",\n            last_days=1,\n        )\n        self.assertIsInstance(results, list)\n\n    def test_07_search_by_sender(self):\n        results = client.search_emails(\n            query=\"ntoledo\",\n            folder=\"inbox\",\n            search_in=\"from\",\n            last_days=7,\n            max_results=5,\n        )\n        self.assertIsInstance(results, list)\n\n    def test_08_search_all_fields(self):\n        results = client.search_emails(\n            query=\"IA_CORREOS_TEST\",\n            folder=\"sent\",\n",
+        "applies_to": "ia_correos",
+        "source": "C:\\Chance1\\IA\\IA_Correos\\tests\\test_outlook.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-04T04:12:49.047871+00:00",
+      "updated_at": "2026-04-04T04:12:49.047871+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:12:49.047871+00:00",
+        "access_count": 0
+      }
+    },
+    "b0ef33194538": {
+      "id": "b0ef33194538",
+      "type": "fact",
+      "key": "test_outlook_5",
+      "fact": {
+        "rule": "    results = client.search_emails(\n            query=\"IA_CORREOS_TEST\",\n            folder=\"sent\",\n            search_in=\"all\",\n            last_days=1,\n        )\n        self.assertIsInstance(results, list)\n\n# ─── Email Read ──────────────────────────────────────────────\n\nclass TestEmailRead(unittest.TestCase):\n\n    def test_09_read_email(self):\n        # Buscar un correo de test recien enviado\n        time.sleep(3)\n        results = client.search_emails(\n            query=TEST_PREFIX,\n            folder=\"sent\",\n            search_in=\"subject\",\n            last_days=1,\n            max_results=1,\n        )\n        if results:\n            email = client.read_email(results[0][\"entry_id\"])\n            self.assertIn(\"subject\", email)\n            self.assertIn(\"body\", email)\n",
+        "applies_to": "ia_correos",
+        "source": "C:\\Chance1\\IA\\IA_Correos\\tests\\test_outlook.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-04T04:12:49.105310+00:00",
+      "updated_at": "2026-04-04T04:12:49.105310+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:12:49.105310+00:00",
+        "access_count": 0
+      }
+    },
+    "c9290a460957": {
+      "id": "c9290a460957",
+      "type": "fact",
+      "key": "test_outlook_6",
+      "fact": {
+        "rule": "][\"entry_id\"])\n            self.assertIn(\"subject\", email)\n            self.assertIn(\"body\", email)\n            self.assertIn(TEST_PREFIX, email[\"subject\"])\n\n    def test_10_read_invalid_id(self):\n        with self.assertRaises(OutlookError):\n            client.read_email(\"INVALID_ENTRY_ID_12345\")\n\n# ─── Email Reply / Forward ───────────────────────────────────\n\nclass TestEmailReplyForward(unittest.TestCase):\n\n    def _get_test_email_id(self):\n        \"\"\"Find a test email to reply/forward.\"\"\"\n        time.sleep(2)\n        results = client.search_emails(\n            query=TEST_PREFIX,\n            folder=\"sent\",\n            search_in=\"subject\",\n            last_days=1,\n            max_results=1,\n        )\n        return results[0][\"entry_id\"] if results else None\n\n",
+        "applies_to": "ia_correos",
+        "source": "C:\\Chance1\\IA\\IA_Correos\\tests\\test_outlook.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-04T04:12:49.170455+00:00",
+      "updated_at": "2026-04-04T04:12:49.170455+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:12:49.170455+00:00",
+        "access_count": 0
+      }
+    },
+    "678a1ce95230": {
+      "id": "678a1ce95230",
+      "type": "fact",
+      "key": "test_outlook_7",
+      "fact": {
+        "rule": "1,\n            max_results=1,\n        )\n        return results[0][\"entry_id\"] if results else None\n\n    def test_11_reply(self):\n        eid = self._get_test_email_id()\n        if eid:\n            result = client.reply(eid, body=\"Reply de prueba automatica.\", send=True)\n            self.as",
+        "applies_to": "ia_correos",
+        "source": "C:\\Chance1\\IA\\IA_Correos\\tests\\test_outlook.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-04T04:12:49.209294+00:00",
+      "updated_at": "2026-04-04T04:12:49.209294+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:12:49.209294+00:00",
+        "access_count": 0
+      }
+    },
+    "383dd7c4e0bd": {
+      "id": "383dd7c4e0bd",
+      "type": "fact",
+      "key": "MANUAL_USUARIO_0",
+      "fact": {
+        "rule": "# Manual de Usuario - Outlook Automation Agent\n\n## Que hace este agente\n\nAutomatiza operaciones de Outlook desktop desde Claude Code:\n\n| Operacion | Descripcion |\n|-----------|-------------|\n| Buscar correos | Busca por texto en subject, body, remitente |\n| Leer correos | Lee el contenido completo de un correo y su hilo |\n| Responder (Reply/Reply All) | Prepara respuesta como borrador |\n| Reenviar (Forward) | Prepara forward como borrador |\n| Crear correo nuevo | Crea borrador con destinatarios, CC, BCC, adjuntos |\n| Crear reuniones | Crea meeting request (interna o con externos) sin enviar |\n| Consultar calendario | Verifica disponibilidad por dia/hora |\n| Listar carpetas | Inbox, Sent, Drafts, y carpetas personalizadas |\n\n",
+        "applies_to": "ia_correos",
+        "source": "C:\\Chance1\\IA\\IA_Correos\\MANUAL_USUARIO.md",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "md"
+      ],
+      "created_at": "2026-04-04T04:36:03.082007+00:00",
+      "updated_at": "2026-04-04T04:36:03.082007+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:36:03.082007+00:00",
+        "access_count": 0
+      }
+    },
+    "e6e1f81241f1": {
+      "id": "e6e1f81241f1",
+      "type": "fact",
+      "key": "MANUAL_USUARIO_1",
+      "fact": {
+        "rule": "disponibilidad por dia/hora |\n| Listar carpetas | Inbox, Sent, Drafts, y carpetas personalizadas |\n\n**Regla fundamental:** El agente NUNCA envia nada automaticamente. Todo queda como borrador en Outlook para que tu lo revises y envies manualmente.\n\n---\n\n## Referencia completa de metodos\n\n| # | Metodo | Categoria | Descripcion |\n|---|--------|-----------|-------------|\n| 1 | `send_email()` | Email | Crear correo nuevo (texto plano o HTML, con adjuntos, CC/BCC). Usar `draft_only=True` |\n| 2 | `reply()` | Email | Responder a un correo por EntryID. Soporta Reply y Reply All con `reply_all=True` |\n| 3 | `forward()` | Email | Reenviar un correo a otro destinatario |\n| 4 | `search_emails()` | Email | Buscar correos por texto en subject, from, body o todos. Filtro por carpeta y dias |\n",
+        "applies_to": "ia_correos",
+        "source": "C:\\Chance1\\IA\\IA_Correos\\MANUAL_USUARIO.md",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "md"
+      ],
+      "created_at": "2026-04-04T04:36:03.163099+00:00",
+      "updated_at": "2026-04-04T04:36:03.163099+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:36:03.163099+00:00",
+        "access_count": 0
+      }
+    },
+    "8831df54d7de": {
+      "id": "8831df54d7de",
+      "type": "fact",
+      "key": "MANUAL_USUARIO_2",
+      "fact": {
+        "rule": "s()` | Email | Buscar correos por texto en subject, from, body o todos. Filtro por carpeta y dias |\n| 5 | `read_email()` | Email | Leer contenido completo de un correo por EntryID |\n| 6 | `list_attachments()` | Email | Listar adjuntos de un correo (nombre, tamanio, indice) |\n| 7 | `save_attachments()` | Email | Guardar todos los adjuntos de un correo a una carpeta local |\n| 8 | `list_folders()` | Carpetas | Listar carpetas por defecto con conteo de items y no leidos |\n| 9 | `list_items_in_folder()` | Carpetas | Listar items recientes de cualquier carpeta (inbox, sent, etc.) |\n| 10 | `list_drafts()` | Carpetas | Listar borradores recientes |\n| 11 | `list_sent()` | Carpetas | Listar correos enviados con filtro de dias |\n",
+        "applies_to": "ia_correos",
+        "source": "C:\\Chance1\\IA\\IA_Correos\\MANUAL_USUARIO.md",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "md"
+      ],
+      "created_at": "2026-04-04T04:36:03.244541+00:00",
+      "updated_at": "2026-04-04T04:36:03.244541+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:36:03.244541+00:00",
+        "access_count": 0
+      }
+    },
+    "1297eb1e13cf": {
+      "id": "1297eb1e13cf",
+      "type": "fact",
+      "key": "MANUAL_USUARIO_3",
+      "fact": {
+        "rule": "rradores recientes |\n| 11 | `list_sent()` | Carpetas | Listar correos enviados con filtro de dias |\n| 12 | `create_appointment()` | Calendario | Crear cita personal sin asistentes |\n| 13 | `create_meeting()` | Calendario | Crear reunion con asistentes requeridos y opcionales |\n| 14 | `create_meeting_from_email()` | Calendario | Crear reunion usando los destinatarios de un correo existente. Soporta `exclude_external=True` |\n| 15 | `add_attendees()` | Calendario | Agregar asistentes a una reunion existente |\n| 16 | `remove_attendees()` | Calendario | Remover asistentes de una reunion por email |\n| 17 | `check_availability()` | Calendario | Consultar FreeBusy de un usuario en una fecha (slots de 30 min) |\n",
+        "applies_to": "ia_correos",
+        "source": "C:\\Chance1\\IA\\IA_Correos\\MANUAL_USUARIO.md",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "md"
+      ],
+      "created_at": "2026-04-04T04:36:03.320068+00:00",
+      "updated_at": "2026-04-04T04:36:03.320068+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:36:03.320068+00:00",
+        "access_count": 0
+      }
+    },
+    "5c111251605c": {
+      "id": "5c111251605c",
+      "type": "fact",
+      "key": "MANUAL_USUARIO_4",
+      "fact": {
+        "rule": "ck_availability()` | Calendario | Consultar FreeBusy de un usuario en una fecha (slots de 30 min) |\n| 18 | `list_appointments()` | Calendario | Listar citas/reuniones en un rango de fechas |\n| 19 | `delete_appointment()` | Calendario | Eliminar cita o reunion por EntryID |\n| 20 | `_get_my_email()` | Interno | Obtener el email SMTP del usuario actual |\n| 21 | `_resolve_smtp()` | Interno | Resolver Exchange DN a direccion SMTP real |\n| 22 | `_mail_to_dict()` | Interno | Convertir MailItem COM a diccionario Python serializable |\n| 23 | `_appointment_to_dict()` | Interno | Convertir AppointmentItem COM a diccionario Python serializable |\n| 24 | `quit()` | Sistema | Liberar referencias COM y llamar CoUninitialize (NO cierra Outlook) |\n\n---\n\n## Como invocar el agente\n\n",
+        "applies_to": "ia_correos",
+        "source": "C:\\Chance1\\IA\\IA_Correos\\MANUAL_USUARIO.md",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "md"
+      ],
+      "created_at": "2026-04-04T04:36:03.394012+00:00",
+      "updated_at": "2026-04-04T04:36:03.394012+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:36:03.394012+00:00",
+        "access_count": 0
+      }
+    },
+    "1dd8b484e391": {
+      "id": "1dd8b484e391",
+      "type": "fact",
+      "key": "MANUAL_USUARIO_5",
+      "fact": {
+        "rule": "erar referencias COM y llamar CoUninitialize (NO cierra Outlook) |\n\n---\n\n## Como invocar el agente\n\nDesde la terminal con Claude Code:\n\n```bash\n# Opcion 1: invocacion directa\nclaude --agent outlook-agent\n\n# Opcion 2: desde una sesion de Claude Code\n@outlook-agent\n```\n\nEl agente necesita que Outlook desktop clasico este abierto y conectado a tu cuenta.\n\n---\n\n## Casos de uso comunes\n\n### 1. Buscar y leer correos\n\n```\n\"Busca los correos de juan@empresa.com de la ultima semana sobre el tema de facturacion\"\n```\n\n```\n\"Lee el correo mas reciente con subject que contenga 'Propuesta comercial'\"\n```\n\n```\n\"Muestrame los ultimos 10 correos en mi inbox\"\n```\n\nEl agente usa `search_emails` con filtros de carpeta, dias y texto. Despues puedes pedir que lea el contenido completo con `read_email`.\n\n### 2. ",
+        "applies_to": "ia_correos",
+        "source": "C:\\Chance1\\IA\\IA_Correos\\MANUAL_USUARIO.md",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "md"
+      ],
+      "created_at": "2026-04-04T04:36:03.469088+00:00",
+      "updated_at": "2026-04-04T04:36:03.469088+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:36:03.469088+00:00",
+        "access_count": 0
+      }
+    },
+    "22c9b2e757ae": {
+      "id": "22c9b2e757ae",
+      "type": "fact",
+      "key": "MANUAL_USUARIO_6",
+      "fact": {
+        "rule": "carpeta, dias y texto. Despues puedes pedir que lea el contenido completo con `read_email`.\n\n### 2. Responder correos (Reply / Reply All)\n\n```\n\"Responde al correo de Maria sobre el presupuesto diciendo que apruebo el monto\"\n```\n\n```\n\"Haz Reply All al ultimo correo del hilo 'Kickoff proyecto ABC' confirmando asistencia\"\n```\n\nEl agente:\n1. Busca el correo\n2. Lee TODO el hilo para entender el contexto\n3. Redacta la respuesta\n4. La deja como borrador en Outlook\n\n### 3. Reenviar correos (Forward)\n\n```\n\"Reenvia el correo de soporte tecnico a pedro@gbm.net con una nota pidiendo que lo revise\"\n```\n\n### 4. Crear reuniones\n\n**Reunion interna (solo equipo):**\n```\n\"Crea una reunion con el equipo de desarrollo para manana a las 10am, 1 hora, sobre sprint planning\"\n```\n\n**Reunion con cliente:**\n```\n",
+        "applies_to": "ia_correos",
+        "source": "C:\\Chance1\\IA\\IA_Correos\\MANUAL_USUARIO.md",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "md"
+      ],
+      "created_at": "2026-04-04T04:36:03.546094+00:00",
+      "updated_at": "2026-04-04T04:36:03.546094+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:36:03.546094+00:00",
+        "access_count": 0
+      }
+    },
+    "b8acb0259f5e": {
+      "id": "b8acb0259f5e",
+      "type": "fact",
+      "key": "MANUAL_USUARIO_7",
+      "fact": {
+        "rule": "desarrollo para manana a las 10am, 1 hora, sobre sprint planning\"\n```\n\n**Reunion con cliente:**\n```\n\"Agenda una reunion con cliente@empresa.com para el viernes a las 2pm, 30 minutos, para revisar avance\"\n```\n\n**Reunion basada en un correo (con filtro de externos):**\n```\n\"A partir del correo sobre 'Revision de arquitectura', crea una reunion INTERNA con los participant",
+        "applies_to": "ia_correos",
+        "source": "C:\\Chance1\\IA\\IA_Correos\\MANUAL_USUARIO.md",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "md"
+      ],
+      "created_at": "2026-04-04T04:36:03.617326+00:00",
+      "updated_at": "2026-04-04T04:36:03.617326+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:36:03.617326+00:00",
+        "access_count": 0
+      }
+    },
+    "ac41dfb013c5": {
+      "id": "ac41dfb013c5",
+      "type": "fact",
+      "key": "outlook-agent_0",
+      "fact": {
+        "rule": "---\nname: outlook-agent\ndescription: Agente de Outlook para construir correos, respuestas, forwards y reuniones. NUNCA envia - solo prepara para revision del usuario.\nmodel: sonnet\ntools:\n  - Bash\n  - Read\n  - Glob\n  - Grep\n  - Write\n  - Edit\n---\n\nEres un agente especializado en automatizacion de Outlook via COM. Tu trabajo es preparar correos y reuniones para que el usuario los revise y envie manualmente.\n\n## Reglas CRITICAS\n\n1. **NUNCA enviar.** Siempre `send=False` o `draft_only=True`. El usuario da Send.\n2. **SIEMPRE leer el hilo completo** antes de redactar. Buscar TODOS los correos relacionados por Subject.\n3. **Analizar contexto profundamente.** Antes de armar cualquier correo o reunion:\n   - Leer TODOS los correos del hilo (no solo el primero)\n   - Identificar quien pide que cosa\n",
+        "applies_to": "ia_correos",
+        "source": "C:\\Chance1\\IA\\IA_Correos\\.claude\\agents\\outlook-agent.md",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "md"
+      ],
+      "created_at": "2026-04-04T04:12:49.762780+00:00",
+      "updated_at": "2026-04-04T04:12:49.762780+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:12:49.762780+00:00",
+        "access_count": 0
+      }
+    },
+    "951e39f101c7": {
+      "id": "951e39f101c7",
+      "type": "fact",
+      "key": "outlook-agent_1",
+      "fact": {
+        "rule": "ion:\n   - Leer TODOS los correos del hilo (no solo el primero)\n   - Identificar quien pide que cosa\n   - Determinar si es interno (solo GBM) o externo (incluye cliente)\n   - Entender el tema REAL (no el superficial del primer correo)\n4. **Reuniones: verificar audiencia.** Si el correo dice \"coordinar sesion interna\", NO incluir al cliente.\n5. **Verificar calendario** antes de proponer horario.\n\n## Flujo de trabajo\n\n### Para correos (reply, forward, nuevo):\n1. Buscar el correo original: `search_emails(query, folder, last_days)`\n2. Si hay hilo, buscar TODOS los correos relacionados por Subject\n3. Leer cada correo del hilo para entender contexto completo\n4. Redactar el mensaje basado en el analisis del hilo completo\n5. ",
+        "applies_to": "ia_correos",
+        "source": "C:\\Chance1\\IA\\IA_Correos\\.claude\\agents\\outlook-agent.md",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "md"
+      ],
+      "created_at": "2026-04-04T04:12:49.816924+00:00",
+      "updated_at": "2026-04-04T04:12:49.816924+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:12:49.816924+00:00",
+        "access_count": 0
+      }
+    },
+    "ef03133d9efe": {
+      "id": "ef03133d9efe",
+      "type": "fact",
+      "key": "outlook-agent_2",
+      "fact": {
+        "rule": "o para entender contexto completo\n4. Redactar el mensaje basado en el analisis del hilo completo\n5. Crear usando `reply(entry_id, body, send=False)` o `send_email(draft_only=True)`\n6. Informar al usuario que esta listo para revision en Outlook app\n\n### Para reuniones:\n1. Buscar correo(s) de referencia para entender contexto\n2. Leer TODO el hilo para identificar:\n   - Quien pidio la reunion\n   - Quienes deben asistir\n   - Si es interna o con cliente\n   - Tema real de la reunion\n3. Verificar calendario con `check_availability` o `list_appointments`\n4. Crear con `create_meeting(send=False)` o `create_meeting_from_email(send=False)`\n5. Informar al usuario: asistentes, fecha, agenda\n\n## Libreria disponible\n\nUbicacion: `C:\\Chance1\\IA_Correos\\src\\outlook_com.py`\n\n```python\nimport sys\n",
+        "applies_to": "ia_correos",
+        "source": "C:\\Chance1\\IA\\IA_Correos\\.claude\\agents\\outlook-agent.md",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "md"
+      ],
+      "created_at": "2026-04-04T04:12:49.875988+00:00",
+      "updated_at": "2026-04-04T04:12:49.875988+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:12:49.875988+00:00",
+        "access_count": 0
+      }
+    },
+    "2dd8b8c56bcd": {
+      "id": "2dd8b8c56bcd",
+      "type": "fact",
+      "key": "outlook-agent_3",
+      "fact": {
+        "rule": "## Libreria disponible\n\nUbicacion: `C:\\Chance1\\IA_Correos\\src\\outlook_com.py`\n\n```python\nimport sys\nsys.path.insert(0, \"C:/Chance1/IA_Correos\")\nfrom src.outlook_com import OutlookClient\n\nclient = OutlookClient()\nclient._ensure_app()\n```\n\n### Metodos principales:\n\n**Email:**\n- `send_email(to, subject, body, cc=\"\", bcc=\"\", attachments=[], html=False, draft_only=True)` → dict\n- `reply(entry_id, body=\"\", reply_all=False, send=False)` → dict\n- `forward(entry_id, to, body=\"\", send=False)` → dict\n- `search_emails(query, folder=\"inbox\", search_in=\"all\", last_days=30, max_results=20)` → list\n- `read_email(entry_id)` → dict\n- `list_attachments(entry_id)` → list\n- `save_attachments(entry_id, dest_folder)` → list\n\n**Carpetas:**\n- `list_folders()` → list\n",
+        "applies_to": "ia_correos",
+        "source": "C:\\Chance1\\IA\\IA_Correos\\.claude\\agents\\outlook-agent.md",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "md"
+      ],
+      "created_at": "2026-04-04T04:12:49.948512+00:00",
+      "updated_at": "2026-04-04T04:12:49.948512+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:12:49.948512+00:00",
+        "access_count": 0
+      }
+    },
+    "4ea89e93b409": {
+      "id": "4ea89e93b409",
+      "type": "fact",
+      "key": "outlook-agent_4",
+      "fact": {
+        "rule": " → list\n- `save_attachments(entry_id, dest_folder)` → list\n\n**Carpetas:**\n- `list_folders()` → list\n- `list_items_in_folder(folder=\"inbox\", count=20)` → list\n- `list_drafts(count=20)` → list\n- `list_sent(count=20, last_days=30)` → list\n\n**Calendario:**\n- `create_appointment(subject, start, end, location=\"\", body=\"\")` → dict\n- `create_meeting(subject, start, end, required=[], optional=[], location=\"\", body=\"\", send=False)` → dict\n- `create_meeting_from_email(entry_id, subject, start, end, ..., send=False, exclude_external=False)` → dict\n- `add_attendees(entry_id, required=[], optional=[])` → dict\n- `remove_attendees(entry_id, emails=[])` → dict\n- `check_availability(email, date, start_hour=8, end_hour=17)` → dict\n- `list_appointments(start_date, end_date)` → list\n",
+        "applies_to": "ia_correos",
+        "source": "C:\\Chance1\\IA\\IA_Correos\\.claude\\agents\\outlook-agent.md",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "md"
+      ],
+      "created_at": "2026-04-04T04:12:50.009548+00:00",
+      "updated_at": "2026-04-04T04:12:50.009548+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:12:50.009548+00:00",
+        "access_count": 0
+      }
+    },
+    "823fd39fc6a6": {
+      "id": "823fd39fc6a6",
+      "type": "fact",
+      "key": "outlook-agent_5",
+      "fact": {
+        "rule": "(email, date, start_hour=8, end_hour=17)` → dict\n- `list_appointments(start_date, end_date)` → list\n- `delete_appointment(entry_id)` → dict\n\n## Errores comunes a evitar\n\n1. **No acceder propiedades del item despues de Send()** - el objeto COM se invalida\n2. **FreeBusy necesita pywintypes.Time** - convertir strings antes de llamar\n3. **Outlook COM es singleton** - nunca llamar app.Quit()\n4. **Exchange DNs** - usar _resolve_smtp() para obtener email SMTP real\n5. **No asumir contexto** - SIEMPRE leer todo el hilo antes de actuar\n\n## Formato de respuesta al usuario\n\nAl terminar, reportar:\n- Que se creo (correo/reunion)\n- Destinatarios/asistentes\n- Contenido resumido\n- Donde esta (borrador en Outlook app)\n- Recordar: \"Revisalo y dale Send cuando estes listo\"",
+        "applies_to": "ia_correos",
+        "source": "C:\\Chance1\\IA\\IA_Correos\\.claude\\agents\\outlook-agent.md",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "md"
+      ],
+      "created_at": "2026-04-04T04:12:50.069937+00:00",
+      "updated_at": "2026-04-04T04:12:50.069937+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:12:50.069937+00:00",
+        "access_count": 0
+      }
+    },
+    "d43935c0b01a": {
+      "id": "d43935c0b01a",
+      "type": "fact",
+      "key": "agent_0",
+      "fact": {
+        "rule": "---\nname: outlook-agent\ndescription: Agente de Outlook para construir correos, respuestas, forwards y reuniones. NUNCA envia - solo prepara para revision del usuario.\nmodel: sonnet\ntools:\n  - Bash\n  - Read\n  - Glob\n  - Grep\n  - Write\n  - Edit\n---\n\nEres un agente especializado en automatizacion de Outlook via COM. Tu trabajo es preparar correos y reuniones para que el usuario los revise y envie manualmente.\n\n## Reglas CRITICAS\n\n1. **NUNCA enviar.** Siempre `send=False` o `draft_only=True`. El usuario da Send.\n2. **SIEMPRE leer el hilo completo** antes de redactar. Buscar TODOS los correos relacionados por Subject.\n3. **Analizar contexto profundamente.** Antes de armar cualquier correo o reunion:\n   - Leer TODOS los correos del hilo (no solo el primero)\n   - Identificar quien pide que cosa\n",
+        "applies_to": "ia_correos",
+        "source": "C:\\Chance1\\IA\\IA_Correos\\agent.md",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "md"
+      ],
+      "created_at": "2026-04-04T04:36:03.687083+00:00",
+      "updated_at": "2026-04-04T04:36:03.687083+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:36:03.687083+00:00",
+        "access_count": 0
+      }
+    },
+    "dad7b2fb889e": {
+      "id": "dad7b2fb889e",
+      "type": "fact",
+      "key": "agent_1",
+      "fact": {
+        "rule": "ion:\n   - Leer TODOS los correos del hilo (no solo el primero)\n   - Identificar quien pide que cosa\n   - Determinar si es interno (solo GBM) o externo (incluye cliente)\n   - Entender el tema REAL (no el superficial del primer correo)\n4. **Reuniones: verificar audiencia.** Si el correo dice \"coordinar sesion interna\", NO incluir al cliente.\n5. **Verificar calendario** antes de proponer horario.\n\n## Flujo de trabajo\n\n### Para correos (reply, forward, nuevo):\n1. Buscar el correo original: `search_emails(query, folder, last_days)`\n2. Si hay hilo, buscar TODOS los correos relacionados por Subject\n3. Leer cada correo del hilo para entender contexto completo\n4. Redactar el mensaje basado en el analisis del hilo completo\n5. ",
+        "applies_to": "ia_correos",
+        "source": "C:\\Chance1\\IA\\IA_Correos\\agent.md",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "md"
+      ],
+      "created_at": "2026-04-04T04:36:03.764972+00:00",
+      "updated_at": "2026-04-04T04:36:03.764972+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:36:03.764972+00:00",
+        "access_count": 0
+      }
+    },
+    "78d2222d5957": {
+      "id": "78d2222d5957",
+      "type": "fact",
+      "key": "agent_2",
+      "fact": {
+        "rule": "o para entender contexto completo\n4. Redactar el mensaje basado en el analisis del hilo completo\n5. Crear usando `reply(entry_id, body, send=False)` o `send_email(draft_only=True)`\n6. Informar al usuario que esta listo para revision en Outlook app\n\n### Para reuniones:\n1. Buscar correo(s) de referencia para entender contexto\n2. Leer TODO el hilo para identificar:\n   - Quien pidio la reunion\n   - Quienes deben asistir\n   - Si es interna o con cliente\n   - Tema real de la reunion\n3. Verificar calendario con `check_availability` o `list_appointments`\n4. Crear con `create_meeting(send=False)` o `create_meeting_from_email(send=False)`\n5. Informar al usuario: asistentes, fecha, agenda\n\n## Libreria disponible\n\nUbicacion: `C:\\Chance1\\IA_Correos\\src\\outlook_com.py`\n\n```python\nimport sys\n",
+        "applies_to": "ia_correos",
+        "source": "C:\\Chance1\\IA\\IA_Correos\\agent.md",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "md"
+      ],
+      "created_at": "2026-04-04T04:36:03.842140+00:00",
+      "updated_at": "2026-04-04T04:36:03.842140+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:36:03.842140+00:00",
+        "access_count": 0
+      }
+    },
+    "143efd2c77b5": {
+      "id": "143efd2c77b5",
+      "type": "fact",
+      "key": "agent_3",
+      "fact": {
+        "rule": "## Libreria disponible\n\nUbicacion: `C:\\Chance1\\IA_Correos\\src\\outlook_com.py`\n\n```python\nimport sys\nsys.path.insert(0, \"C:/Chance1/IA_Correos\")\nfrom src.outlook_com import OutlookClient\n\nclient = OutlookClient()\nclient._ensure_app()\n```\n\n### Metodos principales:\n\n**Email:**\n- `send_email(to, subject, body, cc=\"\", bcc=\"\", attachments=[], html=False, draft_only=True)` → dict\n- `reply(entry_id, body=\"\", reply_all=False, send=False)` → dict\n- `forward(entry_id, to, body=\"\", send=False)` → dict\n- `search_emails(query, folder=\"inbox\", search_in=\"all\", last_days=30, max_results=20)` → list\n- `read_email(entry_id)` → dict\n- `list_attachments(entry_id)` → list\n- `save_attachments(entry_id, dest_folder)` → list\n\n**Carpetas:**\n- `list_folders()` → list\n",
+        "applies_to": "ia_correos",
+        "source": "C:\\Chance1\\IA\\IA_Correos\\agent.md",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "md"
+      ],
+      "created_at": "2026-04-04T04:36:03.922649+00:00",
+      "updated_at": "2026-04-04T04:36:03.922649+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:36:03.922649+00:00",
+        "access_count": 0
+      }
+    },
+    "1b8e89021769": {
+      "id": "1b8e89021769",
+      "type": "fact",
+      "key": "agent_4",
+      "fact": {
+        "rule": " → list\n- `save_attachments(entry_id, dest_folder)` → list\n\n**Carpetas:**\n- `list_folders()` → list\n- `list_items_in_folder(folder=\"inbox\", count=20)` → list\n- `list_drafts(count=20)` → list\n- `list_sent(count=20, last_days=30)` → list\n\n**Calendario:**\n- `create_appointment(subject, start, end, location=\"\", body=\"\")` → dict\n- `create_meeting(subject, start, end, required=[], optional=[], location=\"\", body=\"\", send=False)` → dict\n- `create_meeting_from_email(entry_id, subject, start, end, ..., send=False, exclude_external=False)` → dict\n- `add_attendees(entry_id, required=[], optional=[])` → dict\n- `remove_attendees(entry_id, emails=[])` → dict\n- `check_availability(email, date, start_hour=8, end_hour=17)` → dict\n- `list_appointments(start_date, end_date)` → list\n",
+        "applies_to": "ia_correos",
+        "source": "C:\\Chance1\\IA\\IA_Correos\\agent.md",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "md"
+      ],
+      "created_at": "2026-04-04T04:36:04.004452+00:00",
+      "updated_at": "2026-04-04T04:36:04.004452+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:36:04.004452+00:00",
+        "access_count": 0
+      }
+    },
+    "f93df20440ff": {
+      "id": "f93df20440ff",
+      "type": "fact",
+      "key": "agent_5",
+      "fact": {
+        "rule": "(email, date, start_hour=8, end_hour=17)` → dict\n- `list_appointments(start_date, end_date)` → list\n- `delete_appointment(entry_id)` → dict\n\n## Errores comunes a evitar\n\n1. **No acceder propiedades del item despues de Send()** - el objeto COM se invalida\n2. **FreeBusy necesita pywintypes.Time** - convertir strings antes de llamar\n3. **Outlook COM es singleton** - nunca llamar app.Quit()\n4. **Exchange DNs** - usar _resolve_smtp() para obtener email SMTP real\n5. **No asumir contexto** - SIEMPRE leer todo el hilo antes de actuar\n\n## Formato de respuesta al usuario\n\nAl terminar, reportar:\n- Que se creo (correo/reunion)\n- Destinatarios/asistentes\n- Contenido resumido\n- Donde esta (borrador en Outlook app)\n- Recordar: \"Revisalo y dale Send cuando estes listo\"",
+        "applies_to": "ia_correos",
+        "source": "C:\\Chance1\\IA\\IA_Correos\\agent.md",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "md"
+      ],
+      "created_at": "2026-04-04T04:36:04.078391+00:00",
+      "updated_at": "2026-04-04T04:36:04.078391+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:36:04.078391+00:00",
+        "access_count": 0
+      }
+    },
+    "1daadb6a58ba": {
+      "id": "1daadb6a58ba",
+      "type": "fact",
+      "key": "CLAUDE_0",
+      "fact": {
+        "rule": "# IA_Correos - Outlook Automation Agent\n\n## Reglas criticas\n\n1. **NUNCA enviar (Send) correos ni reuniones.** Siempre usar `send=False` o `draft_only=True`. El usuario revisa y envia manualmente.\n2. **SIEMPRE leer el hilo completo** antes de redactar cualquier correo o reunion. Buscar todos los correos relacionados por Subject, no solo el primero.\n3. **Analizar contexto antes de actuar.** Leer todos los correos del hilo para entender: quien pide que, a quien va dirigido (interno vs externo), y cual es el tema real.\n4. **Reuniones internas vs externas.** Si alguien del equipo pide coordinar una sesion interna, NO incluir al cliente. Leer quien esta en CC y el contexto.\n5. **Capturar Subject antes de Send.** Despues de `mail.Send()` el objeto COM se invalida. ",
+        "applies_to": "ia_correos",
+        "source": "C:\\Chance1\\IA\\IA_Correos\\CLAUDE.md",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "md"
+      ],
+      "created_at": "2026-04-04T04:36:04.160145+00:00",
+      "updated_at": "2026-04-04T04:36:04.160145+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:36:04.160145+00:00",
+        "access_count": 0
+      }
+    },
+    "58183a754345": {
+      "id": "58183a754345",
+      "type": "fact",
+      "key": "CLAUDE_1",
+      "fact": {
+        "rule": "ontexto.\n5. **Capturar Subject antes de Send.** Despues de `mail.Send()` el objeto COM se invalida. Guardar todos los campos necesarios ANTES.\n6. **FreeBusy requiere pywintypes.Time**, no strings. Convertir siempre.\n7. **Tests solo a ntoledo@gbm.net** - nunca usar otro destinatario en pruebas.\n\n## Como usar la libreria\n\n```python\nfrom src.outlook_com import OutlookClient\n\nwith OutlookClient() as client:\n    # Buscar correos\n    results = client.search_emails(\"tema\", folder=\"inbox\", last_days=30)\n\n    # Leer correo completo\n    email = client.read_email(entry_id)\n\n    # Crear borrador\n    client.send_email(to=\"x@y.com\", subject=\"...\", body=\"...\", draft_only=True)\n\n    # Reply All sin enviar\n    client.reply(entry_id, body=\"...\", reply_all=True, send=False)\n\n    # Crear reunion sin enviar\n",
+        "applies_to": "ia_correos",
+        "source": "C:\\Chance1\\IA\\IA_Correos\\CLAUDE.md",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "md"
+      ],
+      "created_at": "2026-04-04T04:36:04.237804+00:00",
+      "updated_at": "2026-04-04T04:36:04.237804+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:36:04.237804+00:00",
+        "access_count": 0
+      }
+    },
+    "f50f16d0177c": {
+      "id": "f50f16d0177c",
+      "type": "fact",
+      "key": "CLAUDE_2",
+      "fact": {
+        "rule": "\n    client.reply(entry_id, body=\"...\", reply_all=True, send=False)\n\n    # Crear reunion sin enviar\n    client.create_meeting(subject=\"...\", start=\"...\", end=\"...\",\n                         required=[\"a@b.com\"], send=False)\n```",
+        "applies_to": "ia_correos",
+        "source": "C:\\Chance1\\IA\\IA_Correos\\CLAUDE.md",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "md"
+      ],
+      "created_at": "2026-04-04T04:36:04.299073+00:00",
+      "updated_at": "2026-04-04T04:36:04.299073+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:36:04.299073+00:00",
+        "access_count": 0
+      }
+    },
+    "22e86699f126": {
+      "id": "22e86699f126",
+      "type": "fact",
+      "key": "constants_0",
+      "fact": {
+        "rule": "# -*- coding: utf-8 -*-\n\"\"\"Outlook COM enumeration constants.\"\"\"\n\n# OlDefaultFolders\nOL_FOLDER_DELETED = 3\nOL_FOLDER_OUTBOX = 4\nOL_FOLDER_SENT = 5\nOL_FOLDER_INBOX = 6\nOL_FOLDER_CALENDAR = 9\nOL_FOLDER_CONTACTS = 10\nOL_FOLDER_DRAFTS = 16\n\n# OlItemType\nOL_MAIL_ITEM = 0\nOL_APPOINTMENT_ITEM = 1\n\n# OlMeetingStatus\nOL_NON_MEETING = 0\nOL_MEETING = 1\n\n# OlMailRecipientType\nOL_TO = 1\nOL_CC = 2\nOL_BCC = 3\n\n# OlMeetingRecipientType\nOL_REQUIRED = 1\nOL_OPTIONAL = 2\nOL_RESOURCE = 3\n\n# OlBusyStatus\nOL_FREE = 0\nOL_TENTATIVE = 1\nOL_BUSY = 2\nOL_OUT_OF_OFFICE = 3\n\n# OlResponseStatus\nOL_RESPONSE_NONE = 0\nOL_RESPONSE_ORGANIZED = 1\nOL_RESPONSE_TENTATIVE = 2\nOL_RESPONSE_ACCEPTED = 3\nOL_RESPONSE_DECLINED = 4\n\n# Folder name aliases (English + Spanish)\nFOLDER_MAP = {\n    \"inbox\": OL_FOLDER_INBOX,\n",
+        "applies_to": "ia_correos",
+        "source": "C:\\Chance1\\IA\\IA_Correos\\src\\constants.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-04T04:12:50.676993+00:00",
+      "updated_at": "2026-04-04T04:12:50.676993+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:12:50.676993+00:00",
+        "access_count": 0
+      }
+    },
+    "5d10f72219da": {
+      "id": "5d10f72219da",
+      "type": "fact",
+      "key": "constants_1",
+      "fact": {
+        "rule": "ECLINED = 4\n\n# Folder name aliases (English + Spanish)\nFOLDER_MAP = {\n    \"inbox\": OL_FOLDER_INBOX,\n    \"sent\": OL_FOLDER_SENT,\n    \"drafts\": OL_FOLDER_DRAFTS,\n    \"outbox\": OL_FOLDER_OUTBOX,\n    \"deleted\": OL_FOLDER_DELETED,\n    \"calendar\": OL_FOLDER_CALENDAR,\n    \"contacts\": OL_FOLDER_CONTACTS,\n    \"bandeja\": OL_FOLDER_INBOX,\n    \"enviados\": OL_FOLDER_SENT,\n    \"borradores\": OL_FOLDER_DRAFTS,\n    \"eliminados\": OL_FOLDER_DELETED,\n}",
+        "applies_to": "ia_correos",
+        "source": "C:\\Chance1\\IA\\IA_Correos\\src\\constants.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-04T04:12:50.726647+00:00",
+      "updated_at": "2026-04-04T04:12:50.726647+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:12:50.726647+00:00",
+        "access_count": 0
+      }
+    },
+    "934f838409da": {
+      "id": "934f838409da",
+      "type": "fact",
+      "key": "README_0",
+      "fact": {
+        "rule": "# pytest cache directory #\n\nThis directory contains data from the pytest's cache plugin,\nwhich provides the `--lf` and `--ff` options, as well as the `cache` fixture.\n\n**Do not** commit this to version control.\n\nSee [the docs](https://docs.pytest.org/en/stable/how-to/cache.html) for more information.",
+        "applies_to": "ia_correos",
+        "source": "C:\\Chance1\\IA\\IA_Correos\\.pytest_cache\\README.md",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "md"
+      ],
+      "created_at": "2026-04-04T04:12:50.770929+00:00",
+      "updated_at": "2026-04-04T04:12:50.770929+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:12:50.770929+00:00",
+        "access_count": 0
+      }
+    },
+    "26875a4df43c": {
+      "id": "26875a4df43c",
+      "type": "fact",
+      "key": "__init___0",
+      "fact": {
+        "rule": "from .outlook_com import OutlookClient, OutlookError\nfrom .constants import FOLDER_MAP\n\n__all__ = [\"OutlookClient\", \"OutlookError\", \"FOLDER_MAP\"]",
+        "applies_to": "ia_correos",
+        "source": "C:\\Chance1\\IA\\IA_Correos\\src\\__init__.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-04T04:12:50.808093+00:00",
+      "updated_at": "2026-04-04T04:12:50.808093+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-04T04:12:50.808093+00:00",
+        "access_count": 0
+      }
+    }
+  },
+  "tag_index": {
+    "python": [
+      "dce009735a64",
+      "e02c033a8b9b",
+      "fa6ec1719025",
+      "ef6c715f5c01",
+      "bbb9e6afbb1b",
+      "245ec3561a72",
+      "b3bb7fdf0fbc",
+      "f7453030dd9f",
+      "1866c6acbf54",
+      "7d7117d6a139",
+      "d5f0e8de1509",
+      "077d2880ec1d",
+      "13bdf917a85d",
+      "b0ef33194538",
+      "c9290a460957",
+      "678a1ce95230",
+      "22e86699f126",
+      "5d10f72219da",
+      "26875a4df43c"
+    ],
+    "py": [
+      "dce009735a64",
+      "e02c033a8b9b",
+      "fa6ec1719025",
+      "ef6c715f5c01",
+      "bbb9e6afbb1b",
+      "245ec3561a72",
+      "b3bb7fdf0fbc",
+      "f7453030dd9f",
+      "1866c6acbf54",
+      "7d7117d6a139",
+      "d5f0e8de1509",
+      "077d2880ec1d",
+      "13bdf917a85d",
+      "b0ef33194538",
+      "c9290a460957",
+      "678a1ce95230",
+      "22e86699f126",
+      "5d10f72219da",
+      "26875a4df43c"
+    ],
+    "md": [
+      "b919fdf8b865",
+      "59cf52d4ade9",
+      "cd44b32403b9",
+      "ebbe5ad8d0de",
+      "b99e4f29108b",
+      "2bbfba126cb2",
+      "c9a44af0cac1",
+      "aac436870e9b",
+      "383dd7c4e0bd",
+      "e6e1f81241f1",
+      "8831df54d7de",
+      "1297eb1e13cf",
+      "5c111251605c",
+      "1dd8b484e391",
+      "22c9b2e757ae",
+      "b8acb0259f5e",
+      "ac41dfb013c5",
+      "951e39f101c7",
+      "ef03133d9efe",
+      "2dd8b8c56bcd",
+      "4ea89e93b409",
+      "823fd39fc6a6",
+      "d43935c0b01a",
+      "dad7b2fb889e",
+      "78d2222d5957",
+      "143efd2c77b5",
+      "1b8e89021769",
+      "f93df20440ff",
+      "1daadb6a58ba",
+      "58183a754345",
+      "f50f16d0177c",
+      "934f838409da",
+      "b919fdf8b865",
+      "59cf52d4ade9",
+      "cd44b32403b9",
+      "ebbe5ad8d0de",
+      "b99e4f29108b",
+      "2bbfba126cb2",
+      "c9a44af0cac1",
+      "aac436870e9b",
+      "383dd7c4e0bd",
+      "e6e1f81241f1",
+      "8831df54d7de",
+      "1297eb1e13cf",
+      "5c111251605c",
+      "1dd8b484e391",
+      "22c9b2e757ae",
+      "b8acb0259f5e",
+      "d43935c0b01a",
+      "dad7b2fb889e",
+      "78d2222d5957",
+      "143efd2c77b5",
+      "1b8e89021769",
+      "f93df20440ff",
+      "1daadb6a58ba",
+      "58183a754345",
+      "f50f16d0177c"
+    ]
+  },
+  "stats": {
+    "total_entries": 76,
+    "total_lookups": 0,
+    "total_hits": 0
+  }
+}
