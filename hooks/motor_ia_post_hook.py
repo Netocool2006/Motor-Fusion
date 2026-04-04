@@ -73,7 +73,7 @@ def main():
             state = json.load(f)
 
         if not state.get("needs_save"):
-            log.info(f"KB cubrio 100% solo, no need to save. (kb={state.get('kb_pct',0)}%, internet={state.get('internet_pct',0)}%, ml={state.get('ml_pct',0)}%)")
+            log.info(f"No need to save. mode={state.get('mode','legacy')}")
             return
 
         query = state.get("query", "")
