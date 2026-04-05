@@ -23,8 +23,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:03.404923+00:00",
-        "access_count": 126
+        "last_accessed": "2026-04-05T04:58:04.219519+00:00",
+        "access_count": 128
       }
     },
     "738d737b83ed": {
@@ -123,8 +123,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:03.404923+00:00",
-        "access_count": 63
+        "last_accessed": "2026-04-05T04:58:04.219519+00:00",
+        "access_count": 65
       }
     },
     "0583d821d979": {
@@ -173,8 +173,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:03.404923+00:00",
-        "access_count": 107
+        "last_accessed": "2026-04-05T04:44:31.665846+00:00",
+        "access_count": 109
       }
     },
     "1b076b3f76bb": {
@@ -202,181 +202,6 @@
         "access_count": 61
       }
     },
-    "65cbbed36e05": {
-      "id": "65cbbed36e05",
-      "type": "fact",
-      "key": "playbook_opportunity_detail_0",
-      "fact": {
-        "rule": "{\n  \"screen\": \"Opportunity_Detail\",\n  \"title\": \"Opp Multiservice: 245372, Agentes Virtuales IA para Mercadeo - BR, BANCO AGROMERCANTIL DE GUATEMALA, S. A. - [SAP]\",\n  \"timestamp\": \"2026-03-27T23:40:24.044Z\",\n  \"iframe_chain\": [\n    \"CRMApplicationFrame\",\n    \"CRMApplicationFrame\",\n    \"WorkAreaFrame1\"\n  ],\n  \"fields\": [\n    {\n      \"suffix\": \"SearchMenuAnchor1__toggled\",\n      \"type\": \"input:hidden\",\n      \"label\": \"\",\n      \"value\": \"UP\",\n      \"visible\": false,\n      \"readonly\": false\n    },\n    {\n      \"suffix\": \"SavedSearches\",\n      \"type\": \"input:text\",\n      \"label\": \"List Of Saved Searches\",\n      \"value\": \"\",\n      \"visible\": true,\n      \"readonly\": false\n    },\n    {\n      \"suffix\": \"SavedSearches__key\",\n      \"type\": \"input:hidden\",\n      \"label\": \"\",\n      \"value\": \"\",\n",
-        "applies_to": "knowledge",
-        "source": "C:\\Hooks_IA_backup_20260331_220508\\knowledge\\sap_js_internals\\playbook_opportunity_detail.json",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "json",
-        "json"
-      ],
-      "created_at": "2026-04-04T04:42:54.280340+00:00",
-      "updated_at": "2026-04-04T04:42:54.280340+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:03.404923+00:00",
-        "access_count": 105
-      }
-    },
-    "214b541bc7cb": {
-      "id": "214b541bc7cb",
-      "type": "fact",
-      "key": "playbook_opportunity_detail_1",
-      "fact": {
-        "rule": "\"suffix\": \"SavedSearches__key\",\n      \"type\": \"input:hidden\",\n      \"label\": \"\",\n      \"value\": \"\",\n      \"visible\": false,\n      \"readonly\": false\n    },\n    {\n      \"suffix\": \"ZSD_ESP_isExpanded\",\n      \"type\": \"input:hidden\",\n      \"label\": \"\",\n      \"value\": \"yes\",\n      \"visible\": false,\n      \"readonly\": false\n    },\n    {\n      \"suffix\": \"RecentObjects_isExpanded\",\n      \"type\": \"input:hidden\",\n      \"label\": \"\",\n      \"value\": \"yes\",\n      \"visible\": false,\n      \"readonly\": false\n    },\n    {\n      \"suffix\": \"ZREP_FOREC_isExpanded\",\n      \"type\": \"input:hidden\",\n      \"label\": \"\",\n      \"value\": \"yes\",\n      \"visible\": false,\n      \"readonly\": false\n    },\n    {\n      \"suffix\": \"V3_V65_bchistory_selection\",\n      \"type\": \"input:hidden\",\n      \"label\": \"\",\n      \"value\": \"\",\n",
-        "applies_to": "knowledge",
-        "source": "C:\\Hooks_IA_backup_20260331_220508\\knowledge\\sap_js_internals\\playbook_opportunity_detail.json",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "json",
-        "json"
-      ],
-      "created_at": "2026-04-04T04:42:54.370713+00:00",
-      "updated_at": "2026-04-04T04:42:54.370713+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:10.162109+00:00",
-        "access_count": 132
-      }
-    },
-    "a2c657e2acd4": {
-      "id": "a2c657e2acd4",
-      "type": "fact",
-      "key": "playbook_opportunity_detail_2",
-      "fact": {
-        "rule": ": \"V3_V65_bchistory_selection\",\n      \"type\": \"input:hidden\",\n      \"label\": \"\",\n      \"value\": \"\",\n      \"visible\": false,\n      \"readonly\": false\n    },\n    {\n      \"suffix\": \"text_lines\",\n      \"type\": \"textarea:textarea\",\n      \"label\": \"El cliente ya púbico el RFP en Coupa para ofertar, debemos de entregar oferta a \",\n      \"value\": \"El cliente ya púbico el RFP en Coupa para ofertar, debemos d\",\n      \"visible\": true,\n      \"readonly\": true\n    },\n    {\n      \"suffix\": \"0001_iscollapsed\",\n      \"type\": \"input:hidden\",\n      \"label\": \"\",\n      \"value\": \"\",\n      \"visible\": false,\n      \"readonly\": false\n    },\n    {\n      \"suffix\": \"0001_displaymode\",\n      \"type\": \"input:hidden\",\n      \"label\": \"\",\n      \"value\": \"X\",\n      \"visible\": false,\n      \"readonly\": false\n    },\n    {\n",
-        "applies_to": "knowledge",
-        "source": "C:\\Hooks_IA_backup_20260331_220508\\knowledge\\sap_js_internals\\playbook_opportunity_detail.json",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "json",
-        "json"
-      ],
-      "created_at": "2026-04-04T04:42:54.461235+00:00",
-      "updated_at": "2026-04-04T04:42:54.461235+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:03.404923+00:00",
-        "access_count": 99
-      }
-    },
-    "0760d551bef7": {
-      "id": "0760d551bef7",
-      "type": "fact",
-      "key": "playbook_opportunity_detail_3",
-      "fact": {
-        "rule": "      \"label\": \"\",\n      \"value\": \"X\",\n      \"visible\": false,\n      \"readonly\": false\n    },\n    {\n      \"suffix\": \"0001_backendstate\",\n      \"type\": \"input:hidden\",\n      \"label\": \"\",\n      \"value\": \"yes\",\n      \"visible\": false,\n      \"readonly\": false\n    },\n    {\n      \"suffix\": \"0002_iscollapsed\",\n      \"type\": \"input:hidden\",\n      \"label\": \"\",\n      \"value\": \"\",\n      \"visible\": false,\n      \"readonly\": false\n    },\n    {\n      \"suffix\": \"0002_displaymode\",\n      \"type\": \"input:hidden\",\n      \"label\": \"\",\n      \"value\": \"X\",\n      \"visible\": false,\n      \"readonly\": false\n    },\n    {\n      \"suffix\": \"0002_backendstate\",\n      \"type\": \"input:hidden\",\n      \"label\": \"\",\n      \"value\": \"yes\",\n      \"visible\": false,\n      \"readonly\": false\n    },\n    {\n",
-        "applies_to": "knowledge",
-        "source": "C:\\Hooks_IA_backup_20260331_220508\\knowledge\\sap_js_internals\\playbook_opportunity_detail.json",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "json",
-        "json"
-      ],
-      "created_at": "2026-04-04T04:42:54.549906+00:00",
-      "updated_at": "2026-04-04T04:42:54.549906+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:03.404923+00:00",
-        "access_count": 69
-      }
-    },
-    "59ad6ce8a39f": {
-      "id": "59ad6ce8a39f",
-      "type": "fact",
-      "key": "playbook_opportunity_detail_4",
-      "fact": {
-        "rule": "    \"label\": \"\",\n      \"value\": \"yes\",\n      \"visible\": false,\n      \"readonly\": false\n    },\n    {\n      \"suffix\": \"TABLE_omni_input_afh\",\n      \"type\": \"input:text\",\n      \"label\": \"\",\n      \"value\": \"\",\n      \"visible\": true,\n      \"readonly\": false\n    },\n    {\n      \"suffix\": \"TABLE_editMode\",\n      \"type\": \"input:hidden\",\n      \"label\": \"\",\n      \"value\": \"NONE\",\n      \"visible\": false,\n      \"readonly\": false\n    },\n    {\n      \"suffix\": \"TABLE_isCellerator\",\n      \"type\": \"input:hidden\",\n      \"label\": \"\",\n      \"value\": \"TRUE\",\n      \"visible\": false,\n      \"readonly\": false\n    },\n    {\n      \"suffix\": \"TABLE_selectedRows\",\n      \"type\": \"input:hidden\",\n      \"label\": \"\",\n      \"value\": \"\",\n      \"visible\": false,\n      \"readonly\": false\n    },\n    {\n",
-        "applies_to": "knowledge",
-        "source": "C:\\Hooks_IA_backup_20260331_220508\\knowledge\\sap_js_internals\\playbook_opportunity_detail.json",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "json",
-        "json"
-      ],
-      "created_at": "2026-04-04T04:42:54.639890+00:00",
-      "updated_at": "2026-04-04T04:42:54.639890+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:03.404923+00:00",
-        "access_count": 62
-      }
-    },
-    "513394f0df51": {
-      "id": "513394f0df51",
-      "type": "fact",
-      "key": "playbook_opportunity_detail_5",
-      "fact": {
-        "rule": "\n      \"label\": \"\",\n      \"value\": \"\",\n      \"visible\": false,\n      \"readonly\": false\n    },\n    {\n      \"suffix\": \"TABLE_rowCount\",\n      \"type\": \"input:hidden\",\n      \"label\": \"\",\n      \"value\": \"0\",\n      \"visible\": false,\n      \"readonly\": false\n    },\n    {\n      \"suffix\": \"TABLE_visibleRowCount\",\n      \"type\": \"input:hidden\",\n      \"label\": \"\",\n      \"value\": \"1\",\n      \"visible\": false,\n      \"readonly\": true\n    },\n    {\n      \"suffix\": \"TABLE_totalVisibleRowCount\",\n      \"type\": \"input:hidden\",\n      \"label\": \"\",\n      \"value\": \"5\",\n      \"visible\": false,\n      \"readonly\": true\n    },\n    {\n      \"suffix\": \"TABLE_scrollRowCount\",\n      \"type\": \"input:hidden\",\n      \"label\": \"\",\n      \"value\": \"5\",\n      \"visible\": false,\n      \"readonly\": true\n    },\n    {\n",
-        "applies_to": "knowledge",
-        "source": "C:\\Hooks_IA_backup_20260331_220508\\knowledge\\sap_js_internals\\playbook_opportunity_detail.json",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "json",
-        "json"
-      ],
-      "created_at": "2026-04-04T04:42:54.722225+00:00",
-      "updated_at": "2026-04-04T04:42:54.722225+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:03.404923+00:00",
-        "access_count": 57
-      }
-    },
-    "b0b556f7137e": {
-      "id": "b0b556f7137e",
-      "type": "fact",
-      "key": "playbook_opportunity_detail_7",
-      "fact": {
-        "rule": "      \"label\": \"\",\n      \"value\": \"1\",\n      \"visible\": false,\n      \"readonly\": false\n    },\n    {\n      \"suffix\": \"TABLE_scrollPosition\",\n      \"type\": \"input:hidden\",\n      \"label\": \"\",\n      \"value\": \"\",\n      \"visible\":",
-        "applies_to": "knowledge",
-        "source": "C:\\Hooks_IA_backup_20260331_220508\\knowledge\\sap_js_internals\\playbook_opportunity_detail.json",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "json",
-        "json"
-      ],
-      "created_at": "2026-04-04T04:42:54.842576+00:00",
-      "updated_at": "2026-04-04T04:42:54.842576+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:03.404923+00:00",
-        "access_count": 56
-      }
-    },
     "c69e293ab247": {
       "id": "c69e293ab247",
       "type": "fact",
@@ -398,8 +223,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:10.162109+00:00",
-        "access_count": 130
+        "last_accessed": "2026-04-05T04:44:31.665846+00:00",
+        "access_count": 133
       }
     },
     "f56ff98611cc": {
@@ -423,8 +248,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:10.162109+00:00",
-        "access_count": 124
+        "last_accessed": "2026-04-05T04:44:31.665846+00:00",
+        "access_count": 126
       }
     },
     "06eb5f9d13fc": {
@@ -448,8 +273,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:10.162109+00:00",
-        "access_count": 120
+        "last_accessed": "2026-04-05T04:44:31.665846+00:00",
+        "access_count": 122
       }
     },
     "3d5438f6f531": {
@@ -473,8 +298,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:10.162109+00:00",
-        "access_count": 117
+        "last_accessed": "2026-04-05T04:44:31.665846+00:00",
+        "access_count": 119
       }
     },
     "e61883d54695": {
@@ -498,8 +323,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:10.162109+00:00",
-        "access_count": 132
+        "last_accessed": "2026-04-05T04:44:31.665846+00:00",
+        "access_count": 134
       }
     },
     "082a541d0222": {
@@ -523,8 +348,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:10.162109+00:00",
-        "access_count": 131
+        "last_accessed": "2026-04-05T04:44:31.665846+00:00",
+        "access_count": 133
       }
     },
     "ae9cbd9d37ec": {
@@ -548,8 +373,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:10.162109+00:00",
-        "access_count": 119
+        "last_accessed": "2026-04-05T04:44:31.665846+00:00",
+        "access_count": 121
       }
     },
     "a6b28f59c4fa": {
@@ -573,8 +398,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:10.162109+00:00",
-        "access_count": 118
+        "last_accessed": "2026-04-05T04:44:31.665846+00:00",
+        "access_count": 120
       }
     },
     "b3ee13dc8f0c": {
@@ -598,8 +423,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:10.162109+00:00",
-        "access_count": 168
+        "last_accessed": "2026-04-05T04:44:31.665846+00:00",
+        "access_count": 171
       }
     },
     "aeed9d660833": {
@@ -623,8 +448,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:10.162109+00:00",
-        "access_count": 127
+        "last_accessed": "2026-04-05T04:44:31.665846+00:00",
+        "access_count": 129
       }
     },
     "000210237519": {
@@ -648,8 +473,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:10.162109+00:00",
-        "access_count": 119
+        "last_accessed": "2026-04-05T04:44:31.665846+00:00",
+        "access_count": 121
       }
     },
     "8860c66bdfcb": {
@@ -673,8 +498,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:10.162109+00:00",
-        "access_count": 121
+        "last_accessed": "2026-04-05T04:44:31.665846+00:00",
+        "access_count": 123
       }
     },
     "a37133b7bec1": {
@@ -698,8 +523,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:10.162109+00:00",
-        "access_count": 189
+        "last_accessed": "2026-04-05T04:44:31.665846+00:00",
+        "access_count": 191
       }
     },
     "dc455efc9a98": {
@@ -723,8 +548,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:10.162109+00:00",
-        "access_count": 136
+        "last_accessed": "2026-04-05T04:44:31.665846+00:00",
+        "access_count": 138
       }
     },
     "7e429b4cb10f": {
@@ -748,8 +573,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:10.162109+00:00",
-        "access_count": 124
+        "last_accessed": "2026-04-05T04:44:31.665846+00:00",
+        "access_count": 126
       }
     },
     "8476b13916b1": {
@@ -773,8 +598,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:10.162109+00:00",
-        "access_count": 113
+        "last_accessed": "2026-04-05T04:44:31.665846+00:00",
+        "access_count": 115
       }
     },
     "3eea54f4907d": {
@@ -798,8 +623,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:03.404923+00:00",
-        "access_count": 54
+        "last_accessed": "2026-04-05T04:44:31.665846+00:00",
+        "access_count": 57
       }
     },
     "ce18e1afcc88": {
@@ -823,8 +648,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:03.404923+00:00",
-        "access_count": 49
+        "last_accessed": "2026-04-05T04:44:31.665846+00:00",
+        "access_count": 51
       }
     },
     "cb73f3c172db": {
@@ -848,8 +673,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:10.162109+00:00",
-        "access_count": 44
+        "last_accessed": "2026-04-05T04:44:31.665846+00:00",
+        "access_count": 46
       }
     },
     "8821acba96ee": {
@@ -873,8 +698,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:03.404923+00:00",
-        "access_count": 39
+        "last_accessed": "2026-04-05T04:44:31.665846+00:00",
+        "access_count": 41
       }
     },
     "7655bc1483c6": {
@@ -898,8 +723,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:03.404923+00:00",
-        "access_count": 43
+        "last_accessed": "2026-04-05T04:44:31.665846+00:00",
+        "access_count": 45
       }
     },
     "7711784d4c1a": {
@@ -923,8 +748,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:03.404923+00:00",
-        "access_count": 54
+        "last_accessed": "2026-04-05T04:44:31.665846+00:00",
+        "access_count": 56
       }
     },
     "cb11d4bb6f76": {
@@ -948,8 +773,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:03.404923+00:00",
-        "access_count": 49
+        "last_accessed": "2026-04-05T04:44:31.665846+00:00",
+        "access_count": 51
       }
     },
     "2341eb2edb96": {
@@ -973,8 +798,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:03.404923+00:00",
-        "access_count": 42
+        "last_accessed": "2026-04-05T04:44:31.665846+00:00",
+        "access_count": 44
       }
     },
     "307738205ba8": {
@@ -998,8 +823,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:10.162109+00:00",
-        "access_count": 138
+        "last_accessed": "2026-04-05T04:58:04.219519+00:00",
+        "access_count": 141
       }
     },
     "6eb413f28c7a": {
@@ -1023,8 +848,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:03.404923+00:00",
-        "access_count": 52
+        "last_accessed": "2026-04-05T04:44:31.665846+00:00",
+        "access_count": 54
       }
     },
     "28fd36196acc": {
@@ -1048,8 +873,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:03.404923+00:00",
-        "access_count": 57
+        "last_accessed": "2026-04-05T04:44:31.665846+00:00",
+        "access_count": 59
       }
     },
     "ac9b443061f0": {
@@ -1073,8 +898,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:10.162109+00:00",
-        "access_count": 104
+        "last_accessed": "2026-04-05T04:44:31.665846+00:00",
+        "access_count": 106
       }
     },
     "0482a725605f": {
@@ -1098,8 +923,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:03.404923+00:00",
-        "access_count": 51
+        "last_accessed": "2026-04-05T04:44:31.665846+00:00",
+        "access_count": 53
       }
     },
     "a2d2d29f77f9": {
@@ -1123,8 +948,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:03.404923+00:00",
-        "access_count": 52
+        "last_accessed": "2026-04-05T04:44:31.665846+00:00",
+        "access_count": 54
       }
     },
     "7203177ac979": {
@@ -1148,8 +973,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:03.404923+00:00",
-        "access_count": 59
+        "last_accessed": "2026-04-05T04:44:31.665846+00:00",
+        "access_count": 62
       }
     },
     "f4f7a64a80a1": {
@@ -1173,8 +998,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:03.404923+00:00",
-        "access_count": 49
+        "last_accessed": "2026-04-05T04:44:31.665846+00:00",
+        "access_count": 51
       }
     },
     "4e3753e50ad5": {
@@ -1198,8 +1023,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:03.404923+00:00",
-        "access_count": 55
+        "last_accessed": "2026-04-05T04:44:31.665846+00:00",
+        "access_count": 57
       }
     },
     "694a612f051a": {
@@ -1223,8 +1048,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:03.404923+00:00",
-        "access_count": 47
+        "last_accessed": "2026-04-05T04:44:31.665846+00:00",
+        "access_count": 49
       }
     },
     "783cae0c3316": {
@@ -1248,8 +1073,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:03.404923+00:00",
-        "access_count": 43
+        "last_accessed": "2026-04-05T04:44:31.665846+00:00",
+        "access_count": 45
       }
     },
     "936adff0f024": {
@@ -1273,8 +1098,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:03.404923+00:00",
-        "access_count": 47
+        "last_accessed": "2026-04-05T04:44:31.665846+00:00",
+        "access_count": 49
       }
     },
     "b861b67fe3b2": {
@@ -1298,8 +1123,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:03.404923+00:00",
-        "access_count": 47
+        "last_accessed": "2026-04-05T04:44:31.665846+00:00",
+        "access_count": 49
       }
     },
     "3b198291ec5a": {
@@ -1323,8 +1148,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:03.404923+00:00",
-        "access_count": 50
+        "last_accessed": "2026-04-05T04:44:31.665846+00:00",
+        "access_count": 52
       }
     },
     "e6f2460ae53f": {
@@ -1348,8 +1173,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:03.404923+00:00",
-        "access_count": 58
+        "last_accessed": "2026-04-05T04:44:31.665846+00:00",
+        "access_count": 60
       }
     },
     "473b64295c47": {
@@ -1373,8 +1198,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:03.404923+00:00",
-        "access_count": 50
+        "last_accessed": "2026-04-05T04:44:31.665846+00:00",
+        "access_count": 52
       }
     },
     "98e3b8100959": {
@@ -1398,8 +1223,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:03.404923+00:00",
-        "access_count": 70
+        "last_accessed": "2026-04-05T04:44:31.665846+00:00",
+        "access_count": 72
       }
     },
     "0681ecf15211": {
@@ -1423,8 +1248,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:03.404923+00:00",
-        "access_count": 53
+        "last_accessed": "2026-04-05T04:44:31.665846+00:00",
+        "access_count": 55
       }
     },
     "7512835b141e": {
@@ -1448,8 +1273,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:03.404923+00:00",
-        "access_count": 44
+        "last_accessed": "2026-04-05T04:44:31.665846+00:00",
+        "access_count": 46
       }
     },
     "938b0f377c37": {
@@ -1473,8 +1298,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:03.404923+00:00",
-        "access_count": 41
+        "last_accessed": "2026-04-05T04:44:31.665846+00:00",
+        "access_count": 43
       }
     },
     "d861bd591e7a": {
@@ -1498,8 +1323,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:03.404923+00:00",
-        "access_count": 50
+        "last_accessed": "2026-04-05T04:44:31.665846+00:00",
+        "access_count": 52
       }
     },
     "4929bde6d22f": {
@@ -1523,8 +1348,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:03.404923+00:00",
-        "access_count": 50
+        "last_accessed": "2026-04-05T04:44:31.665846+00:00",
+        "access_count": 52
       }
     },
     "402a6a1d6077": {
@@ -1548,8 +1373,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:10.162109+00:00",
-        "access_count": 51
+        "last_accessed": "2026-04-05T04:44:31.665846+00:00",
+        "access_count": 53
       }
     },
     "130b2c2fb65d": {
@@ -1573,8 +1398,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:03.404923+00:00",
-        "access_count": 50
+        "last_accessed": "2026-04-05T04:44:31.665846+00:00",
+        "access_count": 52
       }
     },
     "66b12976ae72": {
@@ -1598,8 +1423,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:03.404923+00:00",
-        "access_count": 59
+        "last_accessed": "2026-04-05T04:44:31.665846+00:00",
+        "access_count": 61
       }
     },
     "7a0be00cbc82": {
@@ -1623,8 +1448,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:03.404923+00:00",
-        "access_count": 60
+        "last_accessed": "2026-04-05T04:44:31.665846+00:00",
+        "access_count": 62
       }
     },
     "6b8688c3f867": {
@@ -1648,8 +1473,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:03.404923+00:00",
-        "access_count": 68
+        "last_accessed": "2026-04-05T04:58:04.219519+00:00",
+        "access_count": 69
       }
     },
     "43cda25de617": {
@@ -1748,458 +1573,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:03.404923+00:00",
-        "access_count": 66
-      }
-    },
-    "52915365b360": {
-      "id": "52915365b360",
-      "type": "fact",
-      "key": "facts_6",
-      "fact": {
-        "rule": "ashboard Flask funcional en puerto 5000\\n- 14 agentes en Prompts IA/ (8 nuevos creados esta sesion)\\n- RAG Nivel 1 extrae tablas DOCX correctamente\\n\\nPENDIENTE:\\n- Completar testing casos 4-6, 17\\n- Fix auto-load overlays\\n- Fix Limpiar chat overlap\\n- Fix KB leaking en chat\"\n      },\n      \"tags\": [\n        \"session\",\n        \"visual-testing\",\n        \"bugs\",\n        \"knowledge-dump\"\n      ],\n      \"error_context\": null,\n      \"created_at\": \"2026-03-17T20:13:18.342966+00:00\",\n      \"updated_at\": \"2026-03-17T20:13:18.342966+00:00\",\n      \"stats\": {\n        \"lookups\": 0,\n        \"reuses\": 0,\n        \"success_rate\": 1.0,\n        \"last_accessed\": \"2026-03-20T22:48:09.434983+00:00\",\n        \"access_count\": 15\n      }\n    },\n    \"ee4e81636a34\": {\n      \"id\": \"ee4e81636a34\",\n",
-        "applies_to": "knowledge",
-        "source": "C:\\Hooks_IA_backup_20260331_220508\\knowledge\\sessions\\facts.json",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "json",
-        "json"
-      ],
-      "created_at": "2026-04-04T04:43:05.921581+00:00",
-      "updated_at": "2026-04-04T04:43:05.921581+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:34:03.956677+00:00",
-        "access_count": 83
-      }
-    },
-    "ed024f34e441": {
-      "id": "ed024f34e441",
-      "type": "fact",
-      "key": "facts_7",
-      "fact": {
-        "rule": "00:00\",\n        \"access_count\": 15\n      }\n    },\n    \"ee4e81636a34\": {\n      \"id\": \"ee4e81636a34\",\n      \"type\": \"pattern\",\n      \"key\": \"compacted_context_20260317_sessions\",\n      \"solution\": {",
-        "applies_to": "knowledge",
-        "source": "C:\\Hooks_IA_backup_20260331_220508\\knowledge\\sessions\\facts.json",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "json",
-        "json"
-      ],
-      "created_at": "2026-04-04T04:43:06.028199+00:00",
-      "updated_at": "2026-04-04T04:43:06.028199+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:03.404923+00:00",
-        "access_count": 65
-      }
-    },
-    "8b608c112d53": {
-      "id": "8b608c112d53",
-      "type": "fact",
-      "key": "scan_cdp_0",
-      "fact": {
-        "rule": "\"\"\"\nscan_cdp.py — Escanea pantallas SAP CRM via CDP puro (sin Playwright)\nConecta directo via websocket al Chrome con CDP habilitado.\n\nUso: python scan_cdp.py [--opp OPP_ID]\nRequiere: Chrome con --remote-debugging-port=9222 y SAP logueado.\n\"\"\"\nimport json\nimport time\nimport sys\nimport urllib.request\nfrom pathlib import Path\nimport websocket\n\nCDP_PORT = 9222\nOUTPUT_DIR = Path(__file__).parent / \"playbooks\"\nOUTPUT_DIR.mkdir(exist_ok=True)\n\nOPP_ID = \"245372\"  # Default opportunity to scan\nif \"--opp\" in sys.argv:\n    idx = sys.argv.index(\"--opp\")\n    if idx + 1 < len(sys.argv):\n        OPP_ID = sys.argv[idx + 1]\n\nmsg_counter = 0\n\ndef log(msg):\n    print(f\"[{time.strftime('%H:%M:%S')}] {msg}\", flush=True)\n\ndef get_tabs():\n    \"\"\"Get all Chrome tabs via CDP HTTP endpoint.\"\"\"\n",
-        "applies_to": "knowledge",
-        "source": "C:\\Hooks_IA_backup_20260331_220508\\knowledge\\sap_js_internals\\scan_cdp.py",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "python",
-        "py"
-      ],
-      "created_at": "2026-04-04T04:43:06.143481+00:00",
-      "updated_at": "2026-04-04T04:43:06.143481+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:47.771092+00:00",
-        "access_count": 183
-      }
-    },
-    "5861193edaac": {
-      "id": "5861193edaac",
-      "type": "fact",
-      "key": "scan_cdp_1",
-      "fact": {
-        "rule": "%M:%S')}] {msg}\", flush=True)\n\ndef get_tabs():\n    \"\"\"Get all Chrome tabs via CDP HTTP endpoint.\"\"\"\n    resp = urllib.request.urlopen(f'http://127.0.0.1:{CDP_PORT}/json')\n    return json.loads(resp.read())\n\ndef get_browser_ws():\n    \"\"\"Get browser-level websocket URL.\"\"\"\n    resp = urllib.request.urlopen(f'http://127.0.0.1:{CDP_PORT}/json/version')\n    info = json.loads(resp.read())\n    return info.get(\"webSocketDebuggerUrl\")\n\nclass CDPSession:\n    \"\"\"Simple CDP session via raw websocket.\"\"\"\n\n    def __init__(self, ws_url, timeout=30):\n        self.ws = websocket.create_connection(ws_url, timeout=timeout)\n        self.msg_id = 0\n        self.events = []\n\n    def send(self, method, params=None):\n        \"\"\"Send CDP command and wait for response.\"\"\"\n        self.msg_id += 1\n",
-        "applies_to": "knowledge",
-        "source": "C:\\Hooks_IA_backup_20260331_220508\\knowledge\\sap_js_internals\\scan_cdp.py",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "python",
-        "py"
-      ],
-      "created_at": "2026-04-04T04:43:06.270258+00:00",
-      "updated_at": "2026-04-04T04:43:06.270258+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:47.771092+00:00",
-        "access_count": 230
-      }
-    },
-    "d7d0394f264d": {
-      "id": "d7d0394f264d",
-      "type": "fact",
-      "key": "scan_cdp_2",
-      "fact": {
-        "rule": "ethod, params=None):\n        \"\"\"Send CDP command and wait for response.\"\"\"\n        self.msg_id += 1\n        mid = self.msg_id\n        msg = {\"id\": mid, \"method\": method}\n        if params:\n            msg[\"params\"] = params\n        self.ws.send(json.dumps(msg))\n\n        # Wait for matching response (collect events along the way)\n        deadline = time.time() + 30\n        while time.time() < deadline:\n            try:\n                self.ws.settimeout(5)\n                raw = self.ws.recv()\n                data = json.loads(raw)\n                if data.get(\"id\") == mid:\n                    if \"error\" in data:\n                        return {\"__error\": data[\"error\"]}\n                    return data.get(\"result\", {})\n                else:\n                    # It's an event, store it\n",
-        "applies_to": "knowledge",
-        "source": "C:\\Hooks_IA_backup_20260331_220508\\knowledge\\sap_js_internals\\scan_cdp.py",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "python",
-        "py"
-      ],
-      "created_at": "2026-04-04T04:43:06.374971+00:00",
-      "updated_at": "2026-04-04T04:43:06.374971+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:47.771092+00:00",
-        "access_count": 212
-      }
-    },
-    "cc9ba6459129": {
-      "id": "cc9ba6459129",
-      "type": "fact",
-      "key": "scan_cdp_3",
-      "fact": {
-        "rule": "  return data.get(\"result\", {})\n                else:\n                    # It's an event, store it\n                    self.events.append(data)\n            except websocket.WebSocketTimeoutException:\n                continue\n        return {\"__error\": \"timeout\"}\n\n    def evaluate(self, expression, context_id=None, return_by_value=True):\n        \"\"\"Evaluate JS expression, optionally in a specific execution context.\"\"\"\n        params = {\n            \"expression\": expression,\n            \"returnByValue\": return_by_value,\n            \"awaitPromise\": True,\n            \"timeout\": 15000\n        }\n        if context_id:\n            params[\"contextId\"] = context_id\n        result = self.send(\"Runtime.evaluate\", params)\n        if \"__error\" in result:\n            return None\n",
-        "applies_to": "knowledge",
-        "source": "C:\\Hooks_IA_backup_20260331_220508\\knowledge\\sap_js_internals\\scan_cdp.py",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "python",
-        "py"
-      ],
-      "created_at": "2026-04-04T04:43:06.483158+00:00",
-      "updated_at": "2026-04-04T04:43:06.483158+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:47.771092+00:00",
-        "access_count": 98
-      }
-    },
-    "62688619f537": {
-      "id": "62688619f537",
-      "type": "fact",
-      "key": "scan_cdp_4",
-      "fact": {
-        "rule": "ult = self.send(\"Runtime.evaluate\", params)\n        if \"__error\" in result:\n            return None\n        exc = result.get(\"exceptionDetails\")\n        if exc:\n            return None\n        val = result.get(\"result\", {})\n        return val.get(\"value\") if return_by_value else val\n\n    def close(self):\n        try:\n            self.ws.close()\n        except:\n            pass\n\ndef find_sap_tab():\n    \"\"\"Find the SAP CRM tab.\"\"\"\n    tabs = get_tabs()\n    for t in tabs:\n        if t.get(\"type\") == \"page\" and (\"SAP\" in t.get(\"title\", \"\") or \"sap\" in t.get(\"url\", \"\").lower()):\n            if \"chrome-extension\" not in t.get(\"url\", \"\"):\n                return t\n    return None\n\ndef get_frame_contexts(cdp):\n    \"\"\"Enable Runtime and collect execution contexts for all frames.\"\"\"\n",
-        "applies_to": "knowledge",
-        "source": "C:\\Hooks_IA_backup_20260331_220508\\knowledge\\sap_js_internals\\scan_cdp.py",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "python",
-        "py"
-      ],
-      "created_at": "2026-04-04T04:43:06.591101+00:00",
-      "updated_at": "2026-04-04T04:43:06.591101+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:47.771092+00:00",
-        "access_count": 215
-      }
-    },
-    "286def510ba7": {
-      "id": "286def510ba7",
-      "type": "fact",
-      "key": "scan_cdp_5",
-      "fact": {
-        "rule": "ef get_frame_contexts(cdp):\n    \"\"\"Enable Runtime and collect execution contexts for all frames.\"\"\"\n    # Enable needed domains\n    cdp.send(\"Page.enable\")\n    cdp.send(\"Runtime.enable\")\n    time.sleep(1)\n\n    # Get frame tree\n    tree = cdp.send(\"Page.getFrameTree\")\n    frames = {}\n\n    def walk_tree(node, depth=0):\n        f = node.get(\"frame\", {})\n        fid = f.get(\"id\", \"\")\n        fname = f.get(\"name\", \"\")\n        furl = f.get(\"url\", \"\")\n        frames[fid] = {\"name\": fname, \"url\": furl, \"depth\": depth}\n        for child in node.get(\"childFrames\", []):\n            walk_tree(child, depth + 1)\n\n    if \"frameTree\" in tree:\n        walk_tree(tree[\"frameTree\"])\n\n    # Collect execution contexts from events\n    contexts = {}\n    for ev in cdp.events:\n",
-        "applies_to": "knowledge",
-        "source": "C:\\Hooks_IA_backup_20260331_220508\\knowledge\\sap_js_internals\\scan_cdp.py",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "python",
-        "py"
-      ],
-      "created_at": "2026-04-04T04:43:06.719599+00:00",
-      "updated_at": "2026-04-04T04:43:06.719599+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:47.771092+00:00",
-        "access_count": 155
-      }
-    },
-    "7a12e5551599": {
-      "id": "7a12e5551599",
-      "type": "fact",
-      "key": "scan_cdp_6",
-      "fact": {
-        "rule": "meTree\"])\n\n    # Collect execution contexts from events\n    contexts = {}\n    for ev in cdp.events:\n        if ev.get(\"method\") == \"Runtime.executionContextCreated\":\n            ctx = ev[\"params\"].get(\"context\", {})\n            aux = ctx.get(\"auxData\", {})\n            fid = aux.get(\"frameId\", \"\")\n            if fid and not aux.get(\"isDefault\") == False:\n                contexts[fid] = ctx.get(\"id\")\n\n    # Also try to query for them\n    cdp.events.clear()\n\n    return frames, contexts\n\ndef eval_in_frame(cdp, frame_id, contexts, expression):\n    \"\"\"Evaluate JS in a specific frame context.\"\"\"\n    ctx_id = contexts.get(frame_id)\n    if ctx_id:\n        return cdp.evaluate(expression, context_id=ctx_id)\n    return None\n\ndef scan_via_js(cdp, contexts, frames):\n",
-        "applies_to": "knowledge",
-        "source": "C:\\Hooks_IA_backup_20260331_220508\\knowledge\\sap_js_internals\\scan_cdp.py",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "python",
-        "py"
-      ],
-      "created_at": "2026-04-04T04:43:06.833129+00:00",
-      "updated_at": "2026-04-04T04:43:06.833129+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:47.771092+00:00",
-        "access_count": 289
-      }
-    },
-    "ea41beb7a493": {
-      "id": "ea41beb7a493",
-      "type": "fact",
-      "key": "scan_cdp_7",
-      "fact": {
-        "rule": "dp.evaluate(expression, context_id=ctx_id)\n    return None\n\ndef scan_via_js(cdp, contexts, frames):\n    \"\"\"Scan SAP fields by evaluating JS in each frame. Returns combined results.\"\"\"\n\n    SCAN_JS = \"\"\"(() => {\n        const result = {fields: [], span",
-        "applies_to": "knowledge",
-        "source": "C:\\Hooks_IA_backup_20260331_220508\\knowledge\\sap_js_internals\\scan_cdp.py",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "python",
-        "py"
-      ],
-      "created_at": "2026-04-04T04:43:06.929895+00:00",
-      "updated_at": "2026-04-04T04:43:06.929895+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:47.771092+00:00",
-        "access_count": 65
-      }
-    },
-    "f90668b081a3": {
-      "id": "f90668b081a3",
-      "type": "fact",
-      "key": "sap_internal_functions_0",
-      "fact": {
-        "rule": "// ========== htmlbSubmitLib ==========\nfunction htmlbSubmitLib(library,elem,eventType,formID,objectID,eventName,paramCount,param1,param2,param3,param4,param5,param6,param7,param8,param9)\n{\n  /*if((typeof(eventName) != \"undefined\") && eventName.length>0 && eventName.indexOf(\"-\") > -1)\n  {\n    window.top.WCF_CurrentLogicalLink = eventName;\n  }*/\n  document.forms[formID].onInputProcessing.value = library;\n  htmlbSubmit(elem,eventType,formID,objectID,eventName,paramCount,param1,param2,param3,param4,param5,param6,param7,param8,param9);\n}\n\n// ========== htmlbSubmitFormAjax ==========\nfunction htmlbSubmitFormAjax(form)\n{\n\nvar returnvalue = false;\nif (isAjaxEnabled == true && ajax_submit == true)\n{\najax_submit = false;\nvar str = \"\";\nif (bindOnlyEvent == false)\n{\n\n",
-        "applies_to": "knowledge",
-        "source": "C:\\Hooks_IA_backup_20260331_220508\\knowledge\\sap_js_internals\\sap_internal_functions.js",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "javascript",
-        "js"
-      ],
-      "created_at": "2026-04-04T04:43:07.054355+00:00",
-      "updated_at": "2026-04-04T04:43:07.054355+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:03.404923+00:00",
-        "access_count": 116
-      }
-    },
-    "a0b57f5a5461": {
-      "id": "a0b57f5a5461",
-      "type": "fact",
-      "key": "sap_internal_functions_1",
-      "fact": {
-        "rule": "== true && ajax_submit == true)\n{\najax_submit = false;\nvar str = \"\";\nif (bindOnlyEvent == false)\n{\n\nstr = createFormInputString(form);\n\n}\nelse\n{\n\nstr = bindHtmlbEvent(form);\n\nvar targetValues = document.getElementById(\"sap-ajaxtarget\");\nif (targetValues)\n{\nstr = str + \"&sap-ajaxtarget=\" + targetValues.value;\n}\nvar modeValue = document.getElementById(\"sap-ajax_dh_mode\");\nif (modeValue != null)\n{\nstr = str + \"&sap-ajax_dh_mode=\" + modeValue.value;\n}\n\n}\n\nclearAjaxRequestOptions();\n\nif (str != null)\n{\n\nstr = str + \"&sap-ajax_request=X\";\n\nvar elementid = getElementIdToReplace(form);\n\nif (elementid != null)\n{\nvar ajaxObj = null;\ntry\n{\n\najaxObj = new AjaxRequest(form.action, {\nmethod: 'post',\nasynchronous: true,\nparameters: str,\nbindingMode: 'xml',\nonComplete: deltaRenderingCallback,\n",
-        "applies_to": "knowledge",
-        "source": "C:\\Hooks_IA_backup_20260331_220508\\knowledge\\sap_js_internals\\sap_internal_functions.js",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "javascript",
-        "js"
-      ],
-      "created_at": "2026-04-04T04:43:07.178436+00:00",
-      "updated_at": "2026-04-04T04:43:07.178436+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:10.162109+00:00",
-        "access_count": 175
-      }
-    },
-    "8f8e92ec038a": {
-      "id": "8f8e92ec038a",
-      "type": "fact",
-      "key": "sap_internal_functions_2",
-      "fact": {
-        "rule": "post',\nasynchronous: true,\nparameters: str,\nbindingMode: 'xml',\nonComplete: deltaRenderingCallback,\nsubmittedFormId: form.id,\nsapAjaxtarget: elementid,\npostProcess: dhPostProcess});\n\n}\ncatch(e)\n{\najaxObj = null;\n}\nif (ajaxObj != null)\n{\ntry\n{\n\nif ( ajaxObj.executeRequest() ) {\n\nreturnvalue = true;\nif (toDisable == true)\n{\n\ndisableForm(ajaxObj.options.submittedFormId, true);\n\n}\n}\n\n}\ncatch(e)\n{\n}\n}\n}\n}\n}\ntry{\n\nif (th_runningInPopup()){\nif (typeof WCFDialogAPI !== 'undefined' && WCFDialogAPI.isRunningInDialog){\nwindow.opener = WCFDialogAPI.getOpener();\n}else{\nvar getParent = getMainParent(window.parent);\nwindow.opener = getParent.opener;\n}\nif (window.opener.thtmlbGetHostWindow && window.opener.thtmlbGetHostWindow().reset_last_server_update){\n",
-        "applies_to": "knowledge",
-        "source": "C:\\Hooks_IA_backup_20260331_220508\\knowledge\\sap_js_internals\\sap_internal_functions.js",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "javascript",
-        "js"
-      ],
-      "created_at": "2026-04-04T04:43:07.290368+00:00",
-      "updated_at": "2026-04-04T04:43:07.290368+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:10.162109+00:00",
-        "access_count": 190
-      }
-    },
-    "0273c64262af": {
-      "id": "0273c64262af",
-      "type": "fact",
-      "key": "sap_internal_functions_3",
-      "fact": {
-        "rule": "window.opener.thtmlbGetHostWindow && window.opener.thtmlbGetHostWindow().reset_last_server_update){\nwindow.opener.thtmlbGetHostWindow().reset_last_server_update();\n}\n}else {\nif(thtmlbGetHostWindow().reset_last_server_update){\nthtmlbGetHostWindow().reset_last_server_update();\n}\n}\n} catch(e) {}\nreturn returnvalue;\n}\n\n// ========== preAjaxRequest ==========\nfunction preAjaxRequest(target)\n{\nif (isAjaxEnabled == true)\n{\najax_submit = true;\nif (target == null)\n{\najax_submit = false;\nreturn;\n}\nif (target.length == 0)\n{\najax_submit = false;\nreturn;\n}\nvar element = document.getElementById(\"sap-ajaxtarget\");\nif (element != null)\n{\nelement.value = target;\n}else{\najax_submit = false;\n}\n}\n}\n\n// ========== preAjaxRequest2 ==========\nfunction preAjaxRequest2(target)\n{\n",
-        "applies_to": "knowledge",
-        "source": "C:\\Hooks_IA_backup_20260331_220508\\knowledge\\sap_js_internals\\sap_internal_functions.js",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "javascript",
-        "js"
-      ],
-      "created_at": "2026-04-04T04:43:07.408339+00:00",
-      "updated_at": "2026-04-04T04:43:07.408339+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:03.404923+00:00",
-        "access_count": 140
-      }
-    },
-    "f5c66ce661a6": {
-      "id": "f5c66ce661a6",
-      "type": "fact",
-      "key": "sap_internal_functions_4",
-      "fact": {
-        "rule": "_submit = false;\n}\n}\n}\n\n// ========== preAjaxRequest2 ==========\nfunction preAjaxRequest2(target)\n{\nvar element = document.getElementById(\"sap-ajax_dh_ssoptenabled\");\nif (element != null)\n{\nelement.value = \" \";\n}\npreAjaxRequest(target);\n}\n\n// ========== AjaxRequest ==========\nfunction AjaxRequest(targerUrl, reqOptions){\nthis.url = targerUrl;\nthis.options = {method: \"post\",asynchronous: true, parameters: \"\", bindingMode: \"xml\", onComplete: AjaxCommon.emptyFunction, preProcess: AjaxCommon.preProcessFunction, postProcess: AjaxCommon.postProcessFunction, onFailure: AjaxCommon.onFailure};\n\nthis.onStateChange = onStateChange;\nthis.respondToReadyState = respondToReadyState;\nthis.getRequestObject = getRequestObject;\nthis.setOptions = setOptions;\nthis.responseIsSuccess = responseIsSuccess;\n",
-        "applies_to": "knowledge",
-        "source": "C:\\Hooks_IA_backup_20260331_220508\\knowledge\\sap_js_internals\\sap_internal_functions.js",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "javascript",
-        "js"
-      ],
-      "created_at": "2026-04-04T04:43:07.528652+00:00",
-      "updated_at": "2026-04-04T04:43:07.528652+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:10.162109+00:00",
-        "access_count": 171
-      }
-    },
-    "427cbdc0163f": {
-      "id": "427cbdc0163f",
-      "type": "fact",
-      "key": "sap_internal_functions_5",
-      "fact": {
-        "rule": "bject = getRequestObject;\nthis.setOptions = setOptions;\nthis.responseIsSuccess = responseIsSuccess;\nthis.responseIsFailure = responseIsFailure;\nthis.processDefaultXML = processDefaultXML;\nthis.setRequestHeaders = setRequestHeaders;\nthis.requestHeaders = {};\nthis.request = this.getRequestObject();\n\nif(!this.request){\nthrow 'Not able to create XmlHttpRequestObject object';\n}\nthis.setOptions(reqOptions);\n}\n\n// ========== thtmlbNavigateToLogicalLink ==========\nfunction thtmlbNavigateToLogicalLink(iv_link_id)\n{\nthtmlbSaveKeyboardFocus(\"first_active_element_in_work_area\");\ncrmFrwNavigateToLogicalLink(iv_link_id, \"KBD\");\n}\n\n// ========== menu_navigate ==========\nfunction menu_navigate(pagecontext, link){\nvar form = document.getElementsByTagName(\"FORM\")[0];\n",
-        "applies_to": "knowledge",
-        "source": "C:\\Hooks_IA_backup_20260331_220508\\knowledge\\sap_js_internals\\sap_internal_functions.js",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "javascript",
-        "js"
-      ],
-      "created_at": "2026-04-04T04:43:07.655726+00:00",
-      "updated_at": "2026-04-04T04:43:07.655726+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:10.162109+00:00",
-        "access_count": 274
-      }
-    },
-    "feebe54a3e4a": {
-      "id": "feebe54a3e4a",
-      "type": "fact",
-      "key": "sap_internal_functions_6",
-      "fact": {
-        "rule": "===\nfunction menu_navigate(pagecontext, link){\nvar form = document.getElementsByTagName(\"FORM\")[0];\nif (form != null && typeof(htmlbSubmitLib) != 'undefined') {\nhtmlbSubmitLib(\"htmlb\", this, \"htmlb:link:click:null\", form.id, pagecontext + \"_\" + link,link,1,\"#\");\n}\n}\n\n// ========== isDeltaHandlingAutoMode ==========\nfunction isDeltaHandlingAutoMode(){\nvar hiddenFlag = document.getElementById(\"sap-ajax_dh_mode\");\nif(hiddenFlag != null && hiddenFlag.value.toUpperCase() == \"AUTO\"){\nreturn true;\n}\nreturn false;\n}\n\n// ========== setDeltaHandlingMode ==========\nfunction setDeltaHandlingMode(mode){\nvar hiddenFlag = document.getElementById(\"sap-ajax_dh_mode\");\nif(hiddenFlag != null ){\nhiddenFlag.value = mode;\n}\n}\n\n// ========== cancelAjaxRequest ==========\nfunction cancelAjaxRequest(){\n",
-        "applies_to": "knowledge",
-        "source": "C:\\Hooks_IA_backup_20260331_220508\\knowledge\\sap_js_internals\\sap_internal_functions.js",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "javascript",
-        "js"
-      ],
-      "created_at": "2026-04-04T04:43:07.774952+00:00",
-      "updated_at": "2026-04-04T04:43:07.774952+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:10.162109+00:00",
-        "access_count": 210
-      }
-    },
-    "738c9f6a9ec4": {
-      "id": "738c9f6a9ec4",
-      "type": "fact",
-      "key": "sap_internal_functions_7",
-      "fact": {
-        "rule": "denFlag.value = mode;\n}\n}\n\n// ========== cancelAjaxRequest ==========\nfunction cancelAjaxRequest(){\nisAjaxEnabled = false;\n}\n\n// ========== isAjaxActive ==========\nfunction isAjaxActive()\n{\nif (isAjaxEnabled == false)\nreturn false;\ntry\n{\najaxObj = new AjaxRequest('', {\nmethod: 'post',\nasyn",
-        "applies_to": "knowledge",
-        "source": "C:\\Hooks_IA_backup_20260331_220508\\knowledge\\sap_js_internals\\sap_internal_functions.js",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "javascript",
-        "js"
-      ],
-      "created_at": "2026-04-04T04:43:07.887643+00:00",
-      "updated_at": "2026-04-04T04:43:07.887643+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:03.404923+00:00",
-        "access_count": 140
+        "last_accessed": "2026-04-05T04:58:04.219519+00:00",
+        "access_count": 67
       }
     },
     "769feece255f": {
@@ -2223,8 +1598,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:03.404923+00:00",
-        "access_count": 63
+        "last_accessed": "2026-04-05T04:44:31.665846+00:00",
+        "access_count": 66
       }
     },
     "7e657c22602e": {
@@ -2248,8 +1623,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:03.404923+00:00",
-        "access_count": 59
+        "last_accessed": "2026-04-05T04:44:31.665846+00:00",
+        "access_count": 61
       }
     },
     "5b8457d4efdd": {
@@ -2273,8 +1648,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:03.404923+00:00",
-        "access_count": 56
+        "last_accessed": "2026-04-05T04:44:31.665846+00:00",
+        "access_count": 58
       }
     },
     "d97b9e294219": {
@@ -2298,8 +1673,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:03.404923+00:00",
-        "access_count": 56
+        "last_accessed": "2026-04-05T04:44:31.665846+00:00",
+        "access_count": 58
       }
     },
     "0b8ebc93f19d": {
@@ -2323,8 +1698,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:10.162109+00:00",
-        "access_count": 81
+        "last_accessed": "2026-04-05T04:44:31.665846+00:00",
+        "access_count": 83
       }
     },
     "2716ff8c63df": {
@@ -2348,8 +1723,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:03.404923+00:00",
-        "access_count": 51
+        "last_accessed": "2026-04-05T04:44:31.665846+00:00",
+        "access_count": 53
       }
     },
     "1a297d7e1fd0": {
@@ -2373,208 +1748,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:03.404923+00:00",
-        "access_count": 51
-      }
-    },
-    "8bbda4b47cb7": {
-      "id": "8bbda4b47cb7",
-      "type": "fact",
-      "key": "scan_followup_types_0",
-      "fact": {
-        "rule": "\"\"\"\nscan_followup_types.py — Clicks each Follow-Up type (16-27), scans the resulting form, cancels, repeats.\n\nCycle per type:\n  1. Click type in popup → popup closes, form opens in main window\n  2. Wait for form to load\n  3. Scan all fields/spans/buttons/dropdowns\n  4. Save playbook JSON\n  5. Click Cancel/Back to return to opportunity\n  6. Reopen Follow-Up popup\n  7. Navigate to page 2\n  8. Repeat next type\n\nUsage: python scan_followup_types.py [start_row] [end_row]\n  Default: 16 27\n\"\"\"\nimport json\nimport sys\nimport time\nimport urllib.request\nfrom pathlib import Path\nimport websocket\n\nCDP_PORT = 9222\nOUTPUT_DIR = Path(__file__).parent / \"playbooks\"\nOUTPUT_DIR.mkdir(exist_ok=True)\n\n# Types to scan (row 16-27 from Follow-Up popup page 2)\nTYPES = {\n    16: \"Quote_Proyecto\",\n",
-        "applies_to": "knowledge",
-        "source": "C:\\Hooks_IA_backup_20260331_220508\\knowledge\\sap_js_internals\\scan_followup_types.py",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "python",
-        "py"
-      ],
-      "created_at": "2026-04-04T04:43:08.870654+00:00",
-      "updated_at": "2026-04-04T04:43:08.870654+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:47.771092+00:00",
-        "access_count": 287
-      }
-    },
-    "761a161b9cf1": {
-      "id": "761a161b9cf1",
-      "type": "fact",
-      "key": "scan_followup_types_1",
-      "fact": {
-        "rule": "=True)\n\n# Types to scan (row 16-27 from Follow-Up popup page 2)\nTYPES = {\n    16: \"Quote_Proyecto\",\n    17: \"Cont_Quot_Man_Horas\",\n    18: \"Cont_Quot_Manual\",\n    19: \"Cont_Quot_VQ_Annual\",\n    20: \"Cont_Quot_VQ_Mon\",\n    21: \"Contr_Quot_Autom\",\n    22: \"Contr_Quot_Cons_Auto\",\n    23: \"Contr_Quot_Cons_Manu\",\n    24: \"Contract_Pack_Quot\",\n    25: \"Quotation_Standard\",\n    26: \"Best_Pr_Task\",\n    27: \"Internal_Task\",\n}\n\ndef log(msg):\n    print(f\"[{time.strftime('%H:%M:%S')}] {msg}\", flush=True)\n\ndef get_tabs():\n    resp = urllib.request.urlopen(f'http://127.0.0.1:{CDP_PORT}/json')\n    return json.loads(resp.read())\n\nclass CDPSession:\n    def __init__(self, ws_url, timeout=30):\n        self.ws = websocket.create_connection(ws_url, timeout=timeout)\n        self.msg_id = 0\n",
-        "applies_to": "knowledge",
-        "source": "C:\\Hooks_IA_backup_20260331_220508\\knowledge\\sap_js_internals\\scan_followup_types.py",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "python",
-        "py"
-      ],
-      "created_at": "2026-04-04T04:43:08.961824+00:00",
-      "updated_at": "2026-04-04T04:43:08.961824+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:47.771092+00:00",
-        "access_count": 234
-      }
-    },
-    "d0e8b3f48eab": {
-      "id": "d0e8b3f48eab",
-      "type": "fact",
-      "key": "scan_followup_types_2",
-      "fact": {
-        "rule": "30):\n        self.ws = websocket.create_connection(ws_url, timeout=timeout)\n        self.msg_id = 0\n        self.events = []\n\n    def send(self, method, params=None):\n        self.msg_id += 1\n        mid = self.msg_id\n        msg = {\"id\": mid, \"method\": method}\n        if params:\n            msg[\"params\"] = params\n        self.ws.send(json.dumps(msg))\n        deadline = time.time() + 20\n        while time.time() < deadline:\n            try:\n                self.ws.settimeout(5)\n                raw = self.ws.recv()\n                data = json.loads(raw)\n                if data.get(\"id\") == mid:\n                    if \"error\" in data:\n                        return {\"__error\": data[\"error\"]}\n                    return data.get(\"result\", {})\n                else:\n",
-        "applies_to": "knowledge",
-        "source": "C:\\Hooks_IA_backup_20260331_220508\\knowledge\\sap_js_internals\\scan_followup_types.py",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "python",
-        "py"
-      ],
-      "created_at": "2026-04-04T04:43:09.051013+00:00",
-      "updated_at": "2026-04-04T04:43:09.051013+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:47.771092+00:00",
-        "access_count": 100
-      }
-    },
-    "dd5e30ecd185": {
-      "id": "dd5e30ecd185",
-      "type": "fact",
-      "key": "scan_followup_types_3",
-      "fact": {
-        "rule": " {\"__error\": data[\"error\"]}\n                    return data.get(\"result\", {})\n                else:\n                    self.events.append(data)\n            except websocket.WebSocketTimeoutException:\n                continue\n        return {\"__error\": \"timeout\"}\n\n    def evaluate(self, expression, context_id=None):\n        params = {\n            \"expression\": expression,\n            \"returnByValue\": True,\n            \"awaitPromise\": True,\n            \"timeout\": 15000\n        }\n        if context_id:\n            params[\"contextId\"] = context_id\n        result = self.send(\"Runtime.evaluate\", params)\n        if \"__error\" in result:\n            return None\n        if result.get(\"exceptionDetails\"):\n            return None\n        # CDP returns {result: {type, value}} — extract value\n",
-        "applies_to": "knowledge",
-        "source": "C:\\Hooks_IA_backup_20260331_220508\\knowledge\\sap_js_internals\\scan_followup_types.py",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "python",
-        "py"
-      ],
-      "created_at": "2026-04-04T04:43:09.126965+00:00",
-      "updated_at": "2026-04-04T04:43:09.126965+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:47.771092+00:00",
-        "access_count": 97
-      }
-    },
-    "a209bc605e34": {
-      "id": "a209bc605e34",
-      "type": "fact",
-      "key": "scan_followup_types_4",
-      "fact": {
-        "rule": "ionDetails\"):\n            return None\n        # CDP returns {result: {type, value}} — extract value\n        inner = result.get(\"result\", {})\n        if isinstance(inner, dict):\n            return inner.get(\"value\")\n        return inner\n\n    def close(self):\n        try:\n            self.ws.close()\n        except:\n            pass\n\ndef get_frame_contexts(cdp):\n    \"\"\"Get frame tree and execution contexts.\"\"\"\n    cdp.send(\"Page.enable\")\n    cdp.send(\"Runtime.enable\")\n    time.sleep(1.5)\n\n    tree = cdp.send(\"Page.getFrameTree\")\n    frames = {}\n    def walk(node, depth=0):\n        f = node.get(\"frame\", {})\n        fid = f.get(\"id\", \"\")\n        frames[fid] = {\"name\": f.get(\"name\", \"\"), \"url\": f.get(\"url\", \"\"), \"depth\": depth}\n        for child in node.get(\"childFrames\", []):\n",
-        "applies_to": "knowledge",
-        "source": "C:\\Hooks_IA_backup_20260331_220508\\knowledge\\sap_js_internals\\scan_followup_types.py",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "python",
-        "py"
-      ],
-      "created_at": "2026-04-04T04:43:09.212425+00:00",
-      "updated_at": "2026-04-04T04:43:09.212425+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:47.771092+00:00",
-        "access_count": 150
-      }
-    },
-    "ce8bb06f7bdf": {
-      "id": "ce8bb06f7bdf",
-      "type": "fact",
-      "key": "scan_followup_types_5",
-      "fact": {
-        "rule": "e\", \"\"), \"url\": f.get(\"url\", \"\"), \"depth\": depth}\n        for child in node.get(\"childFrames\", []):\n            walk(child, depth + 1)\n    if \"frameTree\" in tree:\n        walk(tree[\"frameTree\"])\n\n    contexts = {}\n    for ev in cdp.events:\n        if ev.get(\"method\") == \"Runtime.executionContextCreated\":\n            ctx = ev[\"params\"].get(\"context\", {})\n            aux = ctx.get(\"auxData\", {})\n            fid = aux.get(\"frameId\", \"\")\n            if fid and aux.get(\"isDefault\", True):\n                contexts[fid] = ctx.get(\"id\")\n\n    return frames, contexts\n\ndef find_context(frames, contexts, name_contains):\n    \"\"\"Find execution context for a frame by name substring.\"\"\"\n    for fid, finfo in frames.items():\n        if name_contains in finfo.get(\"name\", \"\"):\n",
-        "applies_to": "knowledge",
-        "source": "C:\\Hooks_IA_backup_20260331_220508\\knowledge\\sap_js_internals\\scan_followup_types.py",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "python",
-        "py"
-      ],
-      "created_at": "2026-04-04T04:43:09.304090+00:00",
-      "updated_at": "2026-04-04T04:43:09.304090+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:47.771092+00:00",
-        "access_count": 157
-      }
-    },
-    "e6633879b459": {
-      "id": "e6633879b459",
-      "type": "fact",
-      "key": "scan_followup_types_6",
-      "fact": {
-        "rule": "string.\"\"\"\n    for fid, finfo in frames.items():\n        if name_contains in finfo.get(\"name\", \"\"):\n            if fid in contexts:\n                return contexts[fid]\n    return None\n\nSCAN_JS = \"\"\"(() => {\n    const result = {fields: [], spans: [], buttons: [], tables: [], dropdowns: [], checkboxes: []};\n\n    // Fields (inputs, textareas, selects)\n    document.querySelectorAll('input[type=\"text\"], input:not([type]), textarea, select').forEach(el => {\n        if (el.offsetParent === null && el.type !== 'hidden') return;\n        const id = el.id || '';\n        const suffix = id.replace(/^(C\\\\d+_W\\\\d+_(?:V\\\\d+_)*)/g, '');\n        if (!suffix || suffix.startsWith('htmlb') || suffix.includes('_isExpanded') ||\n            suffix.includes('_iscollapsed') || suffix === 'SavedSearches') return;\n\n",
-        "applies_to": "knowledge",
-        "source": "C:\\Hooks_IA_backup_20260331_220508\\knowledge\\sap_js_internals\\scan_followup_types.py",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "python",
-        "py"
-      ],
-      "created_at": "2026-04-04T04:43:09.393617+00:00",
-      "updated_at": "2026-04-04T04:43:09.393617+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:47.771092+00:00",
-        "access_count": 227
-      }
-    },
-    "d31936aa3fd4": {
-      "id": "d31936aa3fd4",
-      "type": "fact",
-      "key": "scan_followup_types_7",
-      "fact": {
-        "rule": "isExpanded') ||\n            suffix.includes('_iscollapsed') || suffix === 'SavedSearches') return;\n\n        let label = '';\n        try {\n            const td = el.closest('td');\n            if (td && td.previousElementSibling",
-        "applies_to": "knowledge",
-        "source": "C:\\Hooks_IA_backup_20260331_220508\\knowledge\\sap_js_internals\\scan_followup_types.py",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "python",
-        "py"
-      ],
-      "created_at": "2026-04-04T04:43:09.468485+00:00",
-      "updated_at": "2026-04-04T04:43:09.468485+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:47.771092+00:00",
-        "access_count": 130
+        "last_accessed": "2026-04-05T04:44:31.665846+00:00",
+        "access_count": 53
       }
     },
     "7f1f09450d33": {
@@ -2598,8 +1773,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:03.404923+00:00",
-        "access_count": 116
+        "last_accessed": "2026-04-05T04:44:31.665846+00:00",
+        "access_count": 118
       }
     },
     "7d3bfe3d7b79": {
@@ -2623,8 +1798,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:03.404923+00:00",
-        "access_count": 68
+        "last_accessed": "2026-04-05T04:44:31.665846+00:00",
+        "access_count": 70
       }
     },
     "c1b05643c81a": {
@@ -2648,8 +1823,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:03.404923+00:00",
-        "access_count": 66
+        "last_accessed": "2026-04-05T04:44:31.665846+00:00",
+        "access_count": 68
       }
     },
     "d349426bacd0": {
@@ -2673,8 +1848,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:03.404923+00:00",
-        "access_count": 66
+        "last_accessed": "2026-04-05T04:44:31.665846+00:00",
+        "access_count": 68
       }
     },
     "8f7288061dfd": {
@@ -2698,8 +1873,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:03.404923+00:00",
-        "access_count": 73
+        "last_accessed": "2026-04-05T04:44:31.665846+00:00",
+        "access_count": 75
       }
     },
     "3e46a783032c": {
@@ -2723,8 +1898,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:03.404923+00:00",
-        "access_count": 56
+        "last_accessed": "2026-04-05T04:44:31.665846+00:00",
+        "access_count": 58
       }
     },
     "b5afb1bc4340": {
@@ -2748,8 +1923,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:03.404923+00:00",
-        "access_count": 49
+        "last_accessed": "2026-04-05T04:44:31.665846+00:00",
+        "access_count": 51
       }
     },
     "5f1a0a4d10a0": {
@@ -2773,8 +1948,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:03.404923+00:00",
-        "access_count": 54
+        "last_accessed": "2026-04-05T04:44:31.665846+00:00",
+        "access_count": 57
       }
     },
     "4a6a9569d244": {
@@ -2798,8 +1973,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:03.404923+00:00",
-        "access_count": 50
+        "last_accessed": "2026-04-05T04:44:31.665846+00:00",
+        "access_count": 52
       }
     },
     "a7fd604741cd": {
@@ -2823,8 +1998,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:03.404923+00:00",
-        "access_count": 46
+        "last_accessed": "2026-04-05T04:44:31.665846+00:00",
+        "access_count": 48
       }
     },
     "776a72a9121f": {
@@ -2848,8 +2023,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:03.404923+00:00",
-        "access_count": 47
+        "last_accessed": "2026-04-05T04:44:31.665846+00:00",
+        "access_count": 49
       }
     },
     "cc0a741e0deb": {
@@ -2873,8 +2048,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:03.404923+00:00",
-        "access_count": 49
+        "last_accessed": "2026-04-05T04:44:31.665846+00:00",
+        "access_count": 51
       }
     },
     "407046551845": {
@@ -2898,8 +2073,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:03.404923+00:00",
-        "access_count": 50
+        "last_accessed": "2026-04-05T04:44:31.665846+00:00",
+        "access_count": 52
       }
     },
     "b43ce3ce66ae": {
@@ -2923,8 +2098,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:03.404923+00:00",
-        "access_count": 48
+        "last_accessed": "2026-04-05T04:44:31.665846+00:00",
+        "access_count": 50
       }
     },
     "855d099a5fd7": {
@@ -2948,8 +2123,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:03.404923+00:00",
-        "access_count": 42
+        "last_accessed": "2026-04-05T04:44:31.665846+00:00",
+        "access_count": 44
       }
     },
     "8501f78cf1a8": {
@@ -2973,8 +2148,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:03.404923+00:00",
-        "access_count": 90
+        "last_accessed": "2026-04-05T04:44:31.665846+00:00",
+        "access_count": 92
       }
     },
     "6209e3f5f8a6": {
@@ -2998,8 +2173,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:03.404923+00:00",
-        "access_count": 73
+        "last_accessed": "2026-04-05T04:44:31.665846+00:00",
+        "access_count": 75
       }
     },
     "d424ec1b04a0": {
@@ -3023,8 +2198,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:03.404923+00:00",
-        "access_count": 75
+        "last_accessed": "2026-04-05T04:44:31.665846+00:00",
+        "access_count": 77
       }
     },
     "e704aafdb961": {
@@ -3048,8 +2223,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:03.404923+00:00",
-        "access_count": 95
+        "last_accessed": "2026-04-05T04:44:31.665846+00:00",
+        "access_count": 97
       }
     },
     "ce3f80b4f576": {
@@ -3073,8 +2248,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:03.404923+00:00",
-        "access_count": 64
+        "last_accessed": "2026-04-05T04:44:31.665846+00:00",
+        "access_count": 66
       }
     },
     "a87a9ae6ae5f": {
@@ -3098,8 +2273,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:03.404923+00:00",
-        "access_count": 60
+        "last_accessed": "2026-04-05T04:44:31.665846+00:00",
+        "access_count": 62
       }
     },
     "0c766208b429": {
@@ -3123,8 +2298,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:03.404923+00:00",
-        "access_count": 64
+        "last_accessed": "2026-04-05T04:44:31.665846+00:00",
+        "access_count": 66
       }
     },
     "ae99f9436654": {
@@ -3148,8 +2323,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:03.404923+00:00",
-        "access_count": 59
+        "last_accessed": "2026-04-05T04:44:31.665846+00:00",
+        "access_count": 61
       }
     },
     "8d24512de3e6": {
@@ -3173,8 +2348,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:03.404923+00:00",
-        "access_count": 81
+        "last_accessed": "2026-04-05T04:44:31.665846+00:00",
+        "access_count": 83
       }
     },
     "c709a4d6dc56": {
@@ -3198,8 +2373,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:03.404923+00:00",
-        "access_count": 76
+        "last_accessed": "2026-04-05T04:44:31.665846+00:00",
+        "access_count": 78
       }
     },
     "214be28a0e0c": {
@@ -3223,8 +2398,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:03.404923+00:00",
-        "access_count": 75
+        "last_accessed": "2026-04-05T04:44:31.665846+00:00",
+        "access_count": 77
       }
     },
     "529be8289bea": {
@@ -3248,8 +2423,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:03.404923+00:00",
-        "access_count": 85
+        "last_accessed": "2026-04-05T04:44:31.665846+00:00",
+        "access_count": 87
       }
     },
     "946a8d7f09bb": {
@@ -3273,583 +2448,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:10.162109+00:00",
-        "access_count": 97
-      }
-    },
-    "b73b8143e5aa": {
-      "id": "b73b8143e5aa",
-      "type": "fact",
-      "key": "scan_sap_screens_0",
-      "fact": {
-        "rule": "\"\"\"\nscan_sap_screens.py — Escanea pantallas de SAP CRM y genera playbooks JSON\nConecta via CDP al Chrome con sesión SAP activa.\nDetecta popups via CDP Target.getTargets.\n\nUso:\n  python scan_sap_screens.py\n\nRequiere: Chrome corriendo con --remote-debugging-port=9222 y SAP logueado.\n\"\"\"\nimport json\nimport time\nimport sys\nimport os\nfrom pathlib import Path\nfrom playwright.sync_api import sync_playwright\n\nCDP_PORT = 9222\nOUTPUT_DIR = Path(__file__).parent / \"playbooks\"\nOUTPUT_DIR.mkdir(exist_ok=True)\n\n# SAP credentials for HTTP auth\nSAP_USER = \"ntoledo\"\nHTTP_USER = \"ntoledo\"\nHTTP_PASS = \"Gbmcr2026\"\n\ndef log(msg):\n    print(f\"[{time.strftime('%H:%M:%S')}] {msg}\", flush=True)\n\ndef get_work_frame(page):\n    \"\"\"Navigate through SAP iframe chain to get WorkAreaFrame1 content.\"\"\"\n",
-        "applies_to": "knowledge",
-        "source": "C:\\Hooks_IA_backup_20260331_220508\\knowledge\\sap_js_internals\\scan_sap_screens.py",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "python",
-        "py"
-      ],
-      "created_at": "2026-04-04T04:43:14.186593+00:00",
-      "updated_at": "2026-04-04T04:43:14.186593+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:47.771092+00:00",
-        "access_count": 141
-      }
-    },
-    "30df1ff1f157": {
-      "id": "30df1ff1f157",
-      "type": "fact",
-      "key": "scan_sap_screens_1",
-      "fact": {
-        "rule": "ef get_work_frame(page):\n    \"\"\"Navigate through SAP iframe chain to get WorkAreaFrame1 content.\"\"\"\n    for fr in page.frames:\n        if \"WorkAreaFrame1\" in (fr.name or \"\") or \"WorkAreaFrame1popup\" in (fr.name or \"\"):\n            return fr\n    # Fallback: try finding by URL pattern\n    for fr in page.frames:\n        url = fr.url or \"\"\n        if \"popup_buffered_frame\" in url or \"WorkAreaFrame\" in (fr.name or \"\"):\n            return fr\n    return None\n\ndef scan_fields(frame):\n    \"\"\"Extract all visible input fields with stable suffixes.\"\"\"\n    return frame.evaluate(\"\"\"() => {\n        const fields = [];\n        document.querySelectorAll('input[type=\"text\"], input:not([type]), textarea, select').forEach(el => {\n            if (el.offsetParent === null && el.type !== 'hidden') return;\n",
-        "applies_to": "knowledge",
-        "source": "C:\\Hooks_IA_backup_20260331_220508\\knowledge\\sap_js_internals\\scan_sap_screens.py",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "python",
-        "py"
-      ],
-      "created_at": "2026-04-04T04:43:14.275224+00:00",
-      "updated_at": "2026-04-04T04:43:14.275224+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:47.771092+00:00",
-        "access_count": 196
-      }
-    },
-    "13088fcff1d4": {
-      "id": "13088fcff1d4",
-      "type": "fact",
-      "key": "scan_sap_screens_2",
-      "fact": {
-        "rule": " select').forEach(el => {\n            if (el.offsetParent === null && el.type !== 'hidden') return;\n            const id = el.id || '';\n            const stableSuffix = id.replace(/^(C\\\\d+_W\\\\d+_(?:V\\\\d+_)*)/g, '');\n            if (!stableSuffix || stableSuffix.startsWith('htmlb') || stableSuffix.includes('_isExpanded') ||\n                stableSuffix.includes('_iscollapsed') || stableSuffix === 'SavedSearches') return;\n\n            let label = '';\n            try {\n                const td = el.closest('td');\n                if (td && td.previousElementSibling) {\n                    label = td.previousElementSibling.textContent.trim().replace(/^[\\\\*\\\\s]+/, '').replace(/[:\\\\s]+$/, '');\n                    if (label.length > 50) label = '';\n                }\n            } catch(e) {}\n\n",
-        "applies_to": "knowledge",
-        "source": "C:\\Hooks_IA_backup_20260331_220508\\knowledge\\sap_js_internals\\scan_sap_screens.py",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "python",
-        "py"
-      ],
-      "created_at": "2026-04-04T04:43:14.367118+00:00",
-      "updated_at": "2026-04-04T04:43:14.367118+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:47.771092+00:00",
-        "access_count": 149
-      }
-    },
-    "3bb0c72c8e22": {
-      "id": "3bb0c72c8e22",
-      "type": "fact",
-      "key": "scan_sap_screens_3",
-      "fact": {
-        "rule": "                    if (label.length > 50) label = '';\n                }\n            } catch(e) {}\n\n            fields.push({\n                stable_suffix: stableSuffix,\n                selector: '[id$=\"' + stableSuffix + '\"]',\n                label: label,\n                value: (el.value || '').substring(0, 60),\n                type: el.tagName === 'SELECT' ? 'dropdown' : el.tagName === 'TEXTAREA' ? 'textarea' : 'input',\n                editable: !el.readOnly && !el.disabled,\n                visible: el.offsetParent !== null\n            });\n        });\n        return fields;\n    }\"\"\")\n\ndef scan_spans(frame):\n    \"\"\"Extract read-only span values with stable suffixes.\"\"\"\n    return frame.evaluate(\"\"\"() => {\n        const spans = [];\n",
-        "applies_to": "knowledge",
-        "source": "C:\\Hooks_IA_backup_20260331_220508\\knowledge\\sap_js_internals\\scan_sap_screens.py",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "python",
-        "py"
-      ],
-      "created_at": "2026-04-04T04:43:14.456329+00:00",
-      "updated_at": "2026-04-04T04:43:14.456329+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:47.771092+00:00",
-        "access_count": 87
-      }
-    },
-    "408703063079": {
-      "id": "408703063079",
-      "type": "fact",
-      "key": "scan_sap_screens_4",
-      "fact": {
-        "rule": "span values with stable suffixes.\"\"\"\n    return frame.evaluate(\"\"\"() => {\n        const spans = [];\n        document.querySelectorAll('span, a').forEach(el => {\n            const id = el.id || '';\n            const stableSuffix = id.replace(/^(C\\\\d+_W\\\\d+_(?:V\\\\d+_)*)/g, '');\n            if (!stableSuffix || stableSuffix.startsWith('htmlb') || stableSuffix.includes('Expanded')) return;\n            const text = (el.textContent || '').trim();\n            if (!text || text.length > 100 || el.offsetParent === null) return;\n\n            let label = '';\n            try {\n                const td = el.closest('td');\n                if (td && td.previousElementSibling) {\n                    label = td.previousElementSibling.textContent.trim().replace(/^[\\\\*\\\\s]+/, '').replace(/[:\\\\s]+$/, '');\n",
-        "applies_to": "knowledge",
-        "source": "C:\\Hooks_IA_backup_20260331_220508\\knowledge\\sap_js_internals\\scan_sap_screens.py",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "python",
-        "py"
-      ],
-      "created_at": "2026-04-04T04:43:14.544535+00:00",
-      "updated_at": "2026-04-04T04:43:14.544535+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:47.771092+00:00",
-        "access_count": 224
-      }
-    },
-    "8450c89de46a": {
-      "id": "8450c89de46a",
-      "type": "fact",
-      "key": "scan_sap_screens_5",
-      "fact": {
-        "rule": "l = td.previousElementSibling.textContent.trim().replace(/^[\\\\*\\\\s]+/, '').replace(/[:\\\\s]+$/, '');\n                    if (label.length > 50) label = '';\n                }\n            } catch(e) {}\n\n            spans.push({ stable_suffix: stableSuffix, label: label, value: text.substring(0, 60) });\n        });\n        // Deduplicate\n        const seen = new Set();\n        return spans.filter(s => { if (seen.has(s.stable_suffix)) return false; seen.add(s.stable_suffix); return true; });\n    }\"\"\")\n\ndef scan_buttons(frame):\n    \"\"\"Extract action buttons with stable suffixes.\"\"\"\n    return frame.evaluate(\"\"\"() => {\n        const btns = [];\n        const navItems = ['Home','Account Management','Activities','Sales Cycle','Master Data',\n",
-        "applies_to": "knowledge",
-        "source": "C:\\Hooks_IA_backup_20260331_220508\\knowledge\\sap_js_internals\\scan_sap_screens.py",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "python",
-        "py"
-      ],
-      "created_at": "2026-04-04T04:43:14.641183+00:00",
-      "updated_at": "2026-04-04T04:43:14.641183+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:47.771092+00:00",
-        "access_count": 93
-      }
-    },
-    "fe75b9941c9f": {
-      "id": "fe75b9941c9f",
-      "type": "fact",
-      "key": "scan_sap_screens_6",
-      "fact": {
-        "rule": "[];\n        const navItems = ['Home','Account Management','Activities','Sales Cycle','Master Data',\n            'Service Orders','Service Contracts','Accounts','Contacts','Reporte ZSD_ESP',\n            'Reporte de precios ESP','Forecast GBM','Forecast Employee GBM'];\n\n        document.querySelectorAll('a[onclick], button, input[type=\"button\"]').forEach(el => {\n            const text = (el.textContent || el.value || '').trim();\n            if (!text || text.length > 50 || text.length < 2) return;\n            if (navItems.includes(text)) return;\n            const id = el.id || '';\n            const stableSuffix = id.replace(/^(C\\\\d+_W\\\\d+_(?:V\\\\d+_)*)/g, '');\n            btns.push({ text: text, stable_suffix: stableSuffix });\n        });\n        const seen = new Set();\n",
-        "applies_to": "knowledge",
-        "source": "C:\\Hooks_IA_backup_20260331_220508\\knowledge\\sap_js_internals\\scan_sap_screens.py",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "python",
-        "py"
-      ],
-      "created_at": "2026-04-04T04:43:14.733696+00:00",
-      "updated_at": "2026-04-04T04:43:14.733696+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:47.771092+00:00",
-        "access_count": 191
-      }
-    },
-    "982fd7966d01": {
-      "id": "982fd7966d01",
-      "type": "fact",
-      "key": "scan_sap_screens_7",
-      "fact": {
-        "rule": "btns.push({ text: text, stable_suffix: stableSuffix });\n        });\n        const seen = new Set();\n        return btns.filter(b => { const k = b.text; if (seen.has(k)) return false; seen.add(k); return true; });\n    }\"\"\")\n\ndef scan_table_columns(frame):\n    \"\"\"Extra",
-        "applies_to": "knowledge",
-        "source": "C:\\Hooks_IA_backup_20260331_220508\\knowledge\\sap_js_internals\\scan_sap_screens.py",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "python",
-        "py"
-      ],
-      "created_at": "2026-04-04T04:43:14.817020+00:00",
-      "updated_at": "2026-04-04T04:43:14.817020+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:47.771092+00:00",
-        "access_count": 77
-      }
-    },
-    "10f00d3c5b0e": {
-      "id": "10f00d3c5b0e",
-      "type": "fact",
-      "key": "scan_popup_0",
-      "fact": {
-        "rule": "\"\"\"\nscan_popup.py — Escanea el popup Follow-Up de SAP via CDP puro\nSolo escanea lo que esté abierto (sin navegar).\n\nUso: python scan_popup.py\n\"\"\"\nimport json\nimport time\nimport urllib.request\nfrom pathlib import Path\nimport websocket\n\nCDP_PORT = 9222\nOUTPUT_DIR = Path(__file__).parent / \"playbooks\"\nOUTPUT_DIR.mkdir(exist_ok=True)\n\ndef log(msg):\n    print(f\"[{time.strftime('%H:%M:%S')}] {msg}\", flush=True)\n\ndef get_tabs():\n    resp = urllib.request.urlopen(f'http://127.0.0.1:{CDP_PORT}/json')\n    return json.loads(resp.read())\n\ndef get_browser_ws():\n    resp = urllib.request.urlopen(f'http://127.0.0.1:{CDP_PORT}/json/version')\n    return json.loads(resp.read()).get(\"webSocketDebuggerUrl\")\n\nclass CDPSession:\n    def __init__(self, ws_url, timeout=30):\n",
-        "applies_to": "knowledge",
-        "source": "C:\\Hooks_IA_backup_20260331_220508\\knowledge\\sap_js_internals\\scan_popup.py",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "python",
-        "py"
-      ],
-      "created_at": "2026-04-04T04:43:14.918155+00:00",
-      "updated_at": "2026-04-04T04:43:14.918155+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:47.771092+00:00",
-        "access_count": 175
-      }
-    },
-    "0ebce9c7885b": {
-      "id": "0ebce9c7885b",
-      "type": "fact",
-      "key": "scan_popup_1",
-      "fact": {
-        "rule": ".read()).get(\"webSocketDebuggerUrl\")\n\nclass CDPSession:\n    def __init__(self, ws_url, timeout=30):\n        self.ws = websocket.create_connection(ws_url, timeout=timeout)\n        self.msg_id = 0\n        self.events = []\n\n    def send(self, method, params=None):\n        self.msg_id += 1\n        mid = self.msg_id\n        msg = {\"id\": mid, \"method\": method}\n        if params:\n            msg[\"params\"] = params\n        self.ws.send(json.dumps(msg))\n        deadline = time.time() + 20\n        while time.time() < deadline:\n            try:\n                self.ws.settimeout(5)\n                raw = self.ws.recv()\n                data = json.loads(raw)\n                if data.get(\"id\") == mid:\n                    if \"error\" in data:\n                        return {\"__error\": data[\"error\"]}\n",
-        "applies_to": "knowledge",
-        "source": "C:\\Hooks_IA_backup_20260331_220508\\knowledge\\sap_js_internals\\scan_popup.py",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "python",
-        "py"
-      ],
-      "created_at": "2026-04-04T04:43:15.011267+00:00",
-      "updated_at": "2026-04-04T04:43:15.011267+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:47.771092+00:00",
-        "access_count": 101
-      }
-    },
-    "72f936582d41": {
-      "id": "72f936582d41",
-      "type": "fact",
-      "key": "scan_popup_3",
-      "fact": {
-        "rule": "\n        if \"__error\" in result:\n            return None\n        if result.get(\"exceptionDetails\"):\n            return None\n        return result.get(\"result\", {}).get(\"value\")\n\n    def close(self):\n        try:\n            self.ws.close()\n        except:\n            pass\n\nSCAN_JS = \"\"\"(() => {\n    const result = {fields: [], spans: [], buttons: [], tables: [], dropdowns: []};\n\n    // Fields (inputs, textareas, selects)\n    document.querySelectorAll('input[type=\"text\"], input:not([type]), textarea, select').forEach(el => {\n        if (el.offsetParent === null && el.type !== 'hidden') return;\n        const id = el.id || '';\n        const suffix = id.replace(/^(C\\\\d+_W\\\\d+_(?:V\\\\d+_)*)/g, '');\n        if (!suffix || suffix.startsWith('htmlb') || suffix.includes('_isExpanded') ||\n",
-        "applies_to": "knowledge",
-        "source": "C:\\Hooks_IA_backup_20260331_220508\\knowledge\\sap_js_internals\\scan_popup.py",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "python",
-        "py"
-      ],
-      "created_at": "2026-04-04T04:43:15.122037+00:00",
-      "updated_at": "2026-04-04T04:43:15.122037+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:47.771092+00:00",
-        "access_count": 224
-      }
-    },
-    "c50b46f14821": {
-      "id": "c50b46f14821",
-      "type": "fact",
-      "key": "scan_popup_4",
-      "fact": {
-        "rule": "_)*)/g, '');\n        if (!suffix || suffix.startsWith('htmlb') || suffix.includes('_isExpanded') ||\n            suffix.includes('_iscollapsed') || suffix === 'SavedSearches') return;\n\n        let label = '';\n        try {\n            const td = el.closest('td');\n            if (td && td.previousElementSibling) {\n                label = td.previousElementSibling.textContent.trim()\n                    .replace(/^[\\\\*\\\\s]+/, '').replace(/[:\\\\s]+$/, '');\n                if (label.length > 50) label = '';\n            }\n        } catch(e) {}\n\n        const entry = {\n            stable_suffix: suffix,\n            selector: '[id$=\"' + suffix + '\"]',\n            label: label,\n            value: (el.value || '').substring(0, 60),\n            type: el.tagName === 'SELECT' ? ",
-        "applies_to": "knowledge",
-        "source": "C:\\Hooks_IA_backup_20260331_220508\\knowledge\\sap_js_internals\\scan_popup.py",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "python",
-        "py"
-      ],
-      "created_at": "2026-04-04T04:43:15.225853+00:00",
-      "updated_at": "2026-04-04T04:43:15.225853+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:47.771092+00:00",
-        "access_count": 136
-      }
-    },
-    "433021525e7a": {
-      "id": "433021525e7a",
-      "type": "fact",
-      "key": "scan_popup_5",
-      "fact": {
-        "rule": ",\n            value: (el.value || '').substring(0, 60),\n            type: el.tagName === 'SELECT' ? 'dropdown' : el.tagName === 'TEXTAREA' ? 'textarea' : 'input',\n            editable: !el.readOnly && !el.disabled,\n            visible: el.offsetParent !== null,\n            id_sample: id.substring(0, 80)\n        };\n\n        // For dropdowns, capture options\n        if (el.tagName === 'SELECT') {\n            entry.options = [];\n            el.querySelectorAll('option').forEach(opt => {\n                entry.options.push({value: opt.value, text: opt.textContent.trim()});\n            });\n            result.dropdowns.push(entry);\n        }\n\n        result.fields.push(entry);\n    });\n\n    // Read-only spans\n    document.querySelectorAll('span[id], a[id]').forEach(el => {\n",
-        "applies_to": "knowledge",
-        "source": "C:\\Hooks_IA_backup_20260331_220508\\knowledge\\sap_js_internals\\scan_popup.py",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "python",
-        "py"
-      ],
-      "created_at": "2026-04-04T04:43:15.312047+00:00",
-      "updated_at": "2026-04-04T04:43:15.312047+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:47.771092+00:00",
-        "access_count": 175
-      }
-    },
-    "7e9a9a05ab89": {
-      "id": "7e9a9a05ab89",
-      "type": "fact",
-      "key": "scan_popup_6",
-      "fact": {
-        "rule": ");\n    });\n\n    // Read-only spans\n    document.querySelectorAll('span[id], a[id]').forEach(el => {\n        const id = el.id || '';\n        const suffix = id.replace(/^(C\\\\d+_W\\\\d+_(?:V\\\\d+_)*)/g, '');\n        if (!suffix || suffix.startsWith('htmlb') || suffix.includes('Expanded')) return;\n        const text = (el.textContent || '').trim();\n        if (!text || text.length > 100 || el.offsetParent === null) return;\n        let label = '';\n        try {\n            const td = el.closest('td');\n            if (td && td.previousElementSibling) {\n                label = td.previousElementSibling.textContent.trim()\n                    .replace(/^[\\\\*\\\\s]+/, '').replace(/[:\\\\s]+$/, '');\n                if (label.length > 50) label = '';\n            }\n        } catch(e) {}\n",
-        "applies_to": "knowledge",
-        "source": "C:\\Hooks_IA_backup_20260331_220508\\knowledge\\sap_js_internals\\scan_popup.py",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "python",
-        "py"
-      ],
-      "created_at": "2026-04-04T04:43:15.415619+00:00",
-      "updated_at": "2026-04-04T04:43:15.415619+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:47.771092+00:00",
-        "access_count": 219
-      }
-    },
-    "857924772810": {
-      "id": "857924772810",
-      "type": "fact",
-      "key": "scan_popup_7",
-      "fact": {
-        "rule": "\\s]+$/, '');\n                if (label.length > 50) label = '';\n            }\n        } catch(e) {}\n        result.spans.push({stable_suffix: suffix, label: label, value: text.substring(0, 60)});\n    });\n\n    // Buttons\n    document.querySelectorAll('a[",
-        "applies_to": "knowledge",
-        "source": "C:\\Hooks_IA_backup_20260331_220508\\knowledge\\sap_js_internals\\scan_popup.py",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "python",
-        "py"
-      ],
-      "created_at": "2026-04-04T04:43:15.505588+00:00",
-      "updated_at": "2026-04-04T04:43:15.505588+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:47.771092+00:00",
-        "access_count": 155
-      }
-    },
-    "68fa9f26e816": {
-      "id": "68fa9f26e816",
-      "type": "fact",
-      "key": "scan_current_0",
-      "fact": {
-        "rule": "\"\"\"\nscan_current.py — Scan all currently open SAP pages/popups via CDP.\nSaves each as a playbook JSON.\n\nUsage: python scan_current.py\n\"\"\"\nimport json\nimport time\nimport urllib.request\nfrom pathlib import Path\nimport websocket\n\nCDP_PORT = 9222\nOUTPUT_DIR = Path(__file__).parent / \"playbooks\"\nOUTPUT_DIR.mkdir(exist_ok=True)\n\ndef log(msg):\n    print(f\"[{time.strftime('%H:%M:%S')}] {msg}\", flush=True)\n\nclass CDPSession:\n    def __init__(self, ws_url, timeout=30):\n        self.ws = websocket.create_connection(ws_url, timeout=timeout)\n        self.msg_id = 0\n        self.events = []\n\n    def send(self, method, params=None):\n        self.msg_id += 1\n        mid = self.msg_id\n        msg = {\"id\": mid, \"method\": method}\n        if params:\n            msg[\"params\"] = params\n",
-        "applies_to": "knowledge",
-        "source": "C:\\Hooks_IA_backup_20260331_220508\\knowledge\\sap_js_internals\\scan_current.py",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "python",
-        "py"
-      ],
-      "created_at": "2026-04-04T04:43:15.628755+00:00",
-      "updated_at": "2026-04-04T04:43:15.628755+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:47.771092+00:00",
-        "access_count": 183
-      }
-    },
-    "1a55b29a1006": {
-      "id": "1a55b29a1006",
-      "type": "fact",
-      "key": "scan_current_1",
-      "fact": {
-        "rule": "d\n        msg = {\"id\": mid, \"method\": method}\n        if params:\n            msg[\"params\"] = params\n        self.ws.send(json.dumps(msg))\n        deadline = time.time() + 20\n        while time.time() < deadline:\n            try:\n                self.ws.settimeout(5)\n                data = json.loads(self.ws.recv())\n                if data.get(\"id\") == mid:\n                    if \"error\" in data:\n                        return {\"__error\": data[\"error\"]}\n                    return data.get(\"result\", {})\n                else:\n                    self.events.append(data)\n            except websocket.WebSocketTimeoutException:\n                continue\n        return {\"__error\": \"timeout\"}\n\n    def evaluate(self, expression, context_id=None):\n        params = {\n",
-        "applies_to": "knowledge",
-        "source": "C:\\Hooks_IA_backup_20260331_220508\\knowledge\\sap_js_internals\\scan_current.py",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "python",
-        "py"
-      ],
-      "created_at": "2026-04-04T04:43:15.720190+00:00",
-      "updated_at": "2026-04-04T04:43:15.720190+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:47.771092+00:00",
-        "access_count": 96
-      }
-    },
-    "cf499fe20fcd": {
-      "id": "cf499fe20fcd",
-      "type": "fact",
-      "key": "scan_current_2",
-      "fact": {
-        "rule": "urn {\"__error\": \"timeout\"}\n\n    def evaluate(self, expression, context_id=None):\n        params = {\n            \"expression\": expression,\n            \"returnByValue\": True,\n            \"awaitPromise\": True,\n            \"timeout\": 15000\n        }\n        if context_id:\n            params[\"contextId\"] = context_id\n        result = self.send(\"Runtime.evaluate\", params)\n        if \"__error\" in result:\n            return None\n        if result.get(\"exceptionDetails\"):\n            return None\n        inner = result.get(\"result\", {})\n        return inner.get(\"value\") if isinstance(inner, dict) else inner\n\n    def close(self):\n        try:\n            self.ws.close()\n        except:\n            pass\n\nSCAN_JS = r\"\"\"(() => {\n",
-        "applies_to": "knowledge",
-        "source": "C:\\Hooks_IA_backup_20260331_220508\\knowledge\\sap_js_internals\\scan_current.py",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "python",
-        "py"
-      ],
-      "created_at": "2026-04-04T04:43:15.813315+00:00",
-      "updated_at": "2026-04-04T04:43:15.813315+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:47.771092+00:00",
-        "access_count": 92
-      }
-    },
-    "596867ac37c6": {
-      "id": "596867ac37c6",
-      "type": "fact",
-      "key": "scan_current_3",
-      "fact": {
-        "rule": ":\n        try:\n            self.ws.close()\n        except:\n            pass\n\nSCAN_JS = r\"\"\"(() => {\n    const result = {fields: [], spans: [], buttons: [], tables: [], dropdowns: [], checkboxes: []};\n\n    // Fields\n    document.querySelectorAll('input[type=\"text\"], input:not([type]), textarea, select').forEach(el => {\n        if (el.offsetParent === null && el.type !== 'hidden') return;\n        const id = el.id || '';\n        const suffix = id.replace(/^(C\\d+_W\\d+_(?:V\\d+_)*)/g, '');\n        if (!suffix || suffix.startsWith('htmlb') || suffix.includes('_isExpanded') ||\n            suffix.includes('_iscollapsed') || suffix === 'SavedSearches') return;\n\n        let label = '';\n        try {\n            const td = el.closest('td');\n            if (td && td.previousElementSibling) {\n",
-        "applies_to": "knowledge",
-        "source": "C:\\Hooks_IA_backup_20260331_220508\\knowledge\\sap_js_internals\\scan_current.py",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "python",
-        "py"
-      ],
-      "created_at": "2026-04-04T04:43:15.919173+00:00",
-      "updated_at": "2026-04-04T04:43:15.919173+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:47.771092+00:00",
-        "access_count": 223
-      }
-    },
-    "01f3a3230fec": {
-      "id": "01f3a3230fec",
-      "type": "fact",
-      "key": "scan_current_4",
-      "fact": {
-        "rule": "  try {\n            const td = el.closest('td');\n            if (td && td.previousElementSibling) {\n                label = td.previousElementSibling.textContent.trim()\n                    .replace(/^[\\*\\s]+/, '').replace(/[:\\s]+$/, '');\n                if (label.length > 50) label = '';\n            }\n        } catch(e) {}\n\n        const entry = {\n            stable_suffix: suffix,\n            selector: '[id$=\"' + suffix + '\"]',\n            label: label,\n            value: (el.value || '').substring(0, 60),\n            type: el.tagName === 'SELECT' ? 'dropdown' : el.tagName === 'TEXTAREA' ? 'textarea' : 'input',\n            editable: !el.readOnly && !el.disabled,\n            visible: el.offsetParent !== null,\n            id_sample: id.substring(0, 80)\n        };\n\n",
-        "applies_to": "knowledge",
-        "source": "C:\\Hooks_IA_backup_20260331_220508\\knowledge\\sap_js_internals\\scan_current.py",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "python",
-        "py"
-      ],
-      "created_at": "2026-04-04T04:43:16.008763+00:00",
-      "updated_at": "2026-04-04T04:43:16.008763+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:47.771092+00:00",
-        "access_count": 85
-      }
-    },
-    "0261a3723cb4": {
-      "id": "0261a3723cb4",
-      "type": "fact",
-      "key": "scan_current_5",
-      "fact": {
-        "rule": "          visible: el.offsetParent !== null,\n            id_sample: id.substring(0, 80)\n        };\n\n        if (el.tagName === 'SELECT') {\n            entry.options = [];\n            el.querySelectorAll('option').forEach(opt => {\n                entry.options.push({value: opt.value, text: opt.textContent.trim()});\n            });\n            result.dropdowns.push(entry);\n        }\n        result.fields.push(entry);\n    });\n\n    // Checkboxes\n    document.querySelectorAll('input[type=\"checkbox\"]').forEach(el => {\n        const id = el.id || '';\n        const suffix = id.replace(/^(C\\d+_W\\d+_(?:V\\d+_)*)/g, '');\n        if (!suffix) return;\n        let label = '';\n        try {\n            const td = el.closest('td');\n            if (td && td.previousElementSibling) {\n",
-        "applies_to": "knowledge",
-        "source": "C:\\Hooks_IA_backup_20260331_220508\\knowledge\\sap_js_internals\\scan_current.py",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "python",
-        "py"
-      ],
-      "created_at": "2026-04-04T04:43:16.101408+00:00",
-      "updated_at": "2026-04-04T04:43:16.101408+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:47.771092+00:00",
-        "access_count": 177
-      }
-    },
-    "e3d1d74fe8ee": {
-      "id": "e3d1d74fe8ee",
-      "type": "fact",
-      "key": "scan_current_6",
-      "fact": {
-        "rule": "  try {\n            const td = el.closest('td');\n            if (td && td.previousElementSibling) {\n                label = td.previousElementSibling.textContent.trim()\n                    .replace(/^[\\*\\s]+/, '').replace(/[:\\s]+$/, '');\n                if (label.length > 50) label = '';\n            }\n        } catch(e) {}\n        result.checkboxes.push({stable_suffix: suffix, label: label, checked: el.checked});\n    });\n\n    // Spans\n    document.querySelectorAll('span[id], a[id]').forEach(el => {\n        const id = el.id || '';\n        const suffix = id.replace(/^(C\\d+_W\\d+_(?:V\\d+_)*)/g, '');\n        if (!suffix || suffix.startsWith('htmlb') || suffix.includes('Expanded')) return;\n        const text = (el.textContent || '').trim();\n",
-        "applies_to": "knowledge",
-        "source": "C:\\Hooks_IA_backup_20260331_220508\\knowledge\\sap_js_internals\\scan_current.py",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "python",
-        "py"
-      ],
-      "created_at": "2026-04-04T04:43:16.192226+00:00",
-      "updated_at": "2026-04-04T04:43:16.192226+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:47.771092+00:00",
-        "access_count": 222
-      }
-    },
-    "0302f4392807": {
-      "id": "0302f4392807",
-      "type": "fact",
-      "key": "scan_current_7",
-      "fact": {
-        "rule": "htmlb') || suffix.includes('Expanded')) return;\n        const text = (el.textContent || '').trim();\n        if (!text || text.length > 100 || el.offsetParent === null) return;\n        let label = '';\n        try {\n            const td = el.closest('td');\n            if (td && td.previousElementSibling) {\n                label = td.previousElement",
-        "applies_to": "knowledge",
-        "source": "C:\\Hooks_IA_backup_20260331_220508\\knowledge\\sap_js_internals\\scan_current.py",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "python",
-        "py"
-      ],
-      "created_at": "2026-04-04T04:43:16.280172+00:00",
-      "updated_at": "2026-04-04T04:43:16.280172+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:47.771092+00:00",
-        "access_count": 132
+        "last_accessed": "2026-04-05T04:44:31.665846+00:00",
+        "access_count": 99
       }
     },
     "a1f0243c25e6": {
@@ -3873,8 +2473,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:03.404923+00:00",
-        "access_count": 56
+        "last_accessed": "2026-04-05T04:44:31.665846+00:00",
+        "access_count": 58
       }
     },
     "278376bd54c9": {
@@ -3898,8 +2498,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:03.404923+00:00",
-        "access_count": 79
+        "last_accessed": "2026-04-05T04:44:31.665846+00:00",
+        "access_count": 81
       }
     },
     "8972699a9684": {
@@ -3923,8 +2523,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:03.404923+00:00",
-        "access_count": 80
+        "last_accessed": "2026-04-05T04:44:31.665846+00:00",
+        "access_count": 82
       }
     },
     "6f664d5868a9": {
@@ -3948,8 +2548,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:03.404923+00:00",
-        "access_count": 55
+        "last_accessed": "2026-04-05T04:44:31.665846+00:00",
+        "access_count": 57
       }
     },
     "3b0ac250ebd2": {
@@ -3973,8 +2573,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:03.404923+00:00",
-        "access_count": 53
+        "last_accessed": "2026-04-05T04:44:31.665846+00:00",
+        "access_count": 55
       }
     },
     "5165426a5312": {
@@ -3998,8 +2598,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:03.404923+00:00",
-        "access_count": 52
+        "last_accessed": "2026-04-05T04:44:31.665846+00:00",
+        "access_count": 54
       }
     },
     "1b97f29a2ecb": {
@@ -4023,8 +2623,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:03.404923+00:00",
-        "access_count": 45
+        "last_accessed": "2026-04-05T04:44:31.665846+00:00",
+        "access_count": 47
       }
     },
     "4e717c54d4a5": {
@@ -4048,8 +2648,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:03.404923+00:00",
-        "access_count": 44
+        "last_accessed": "2026-04-05T04:44:31.665846+00:00",
+        "access_count": 46
       }
     },
     "9a6e61850198": {
@@ -4073,8 +2673,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:03.404923+00:00",
-        "access_count": 50
+        "last_accessed": "2026-04-05T04:44:31.665846+00:00",
+        "access_count": 53
       }
     },
     "62e7060b5b72": {
@@ -4098,8 +2698,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:03.404923+00:00",
-        "access_count": 44
+        "last_accessed": "2026-04-05T04:44:31.665846+00:00",
+        "access_count": 46
       }
     },
     "c58332e6c154": {
@@ -4123,8 +2723,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:03.404923+00:00",
-        "access_count": 46
+        "last_accessed": "2026-04-05T04:44:31.665846+00:00",
+        "access_count": 48
       }
     },
     "77dba4e1d5c5": {
@@ -4148,8 +2748,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:03.404923+00:00",
-        "access_count": 74
+        "last_accessed": "2026-04-05T04:44:31.665846+00:00",
+        "access_count": 76
       }
     },
     "6df0f3d1548d": {
@@ -4173,200 +2773,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:03.404923+00:00",
-        "access_count": 66
-      }
-    },
-    "5a9cef85d51a": {
-      "id": "5a9cef85d51a",
-      "type": "fact",
-      "key": "API_REFERENCE_0",
-      "fact": {
-        "rule": "# SAP CRM WebUI - Internal JavaScript API Reference\n**Extracted from:** wdp-sap.gbm.net:8105 (SAP CRM 7.0)\n**Date:** 2026-03-27\n**Source files:** events.js, scripts.js, crmuifServer.js, crmuifclient.js, event_dictionary.js\n\n---\n\n## Architecture Overview\n\nSAP CRM WebUI uses a form-based submit model with optional AJAX delta handling:\n\n```\nUser Action → onclick handler → htmlbSL() or htmlbEL()\n  → htmlbSubmitLib() → htmlbSubmit()\n    → htmlbSubmitForm()\n      ├─ AJAX mode:  htmlbSubmitFormAjax() → AjaxRequest → deltaRenderingCallback()\n      └─ Full mode:  form.submit() (full page reload)\n```\n\n### Key Global Variables\n- `isAjaxEnabled` — whether AJAX delta handling is active\n- `ajax_submit` — flag set by preAjaxRequest() before submit\n- `submissionInProgress` — prevents double-submit\n",
-        "applies_to": "knowledge",
-        "source": "C:\\Hooks_IA_backup_20260331_220508\\knowledge\\sap_js_internals\\API_REFERENCE.md",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "md"
-      ],
-      "created_at": "2026-04-04T04:43:18.578316+00:00",
-      "updated_at": "2026-04-04T04:43:18.578316+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:47.771092+00:00",
-        "access_count": 313
-      }
-    },
-    "32ef6fe17f5d": {
-      "id": "32ef6fe17f5d",
-      "type": "fact",
-      "key": "API_REFERENCE_1",
-      "fact": {
-        "rule": "mit` — flag set by preAjaxRequest() before submit\n- `submissionInProgress` — prevents double-submit\n- `thLast_objectID` / `thLast_eventName` — last submitted event info\n- `htmlbEDIC[]` — event dictionary array (maps index to event type string)\n- `bindOnlyEvent` — if true, AJAX only sends event data (not full form)\n\n---\n\n## Core Functions\n\n### 1. `htmlbSL(elem, eventType_idx, objectID_plus_eventName, eventDef, param1, param2)`\n**Purpose:** Shorthand submit — most common entry point for button clicks, links, etc.\n**Flow:** Resolves event type from dictionary → splits objectID:eventName → calls htmlbSubmitLib()\n\n```javascript\n// Example: simulate a button click\nhtmlbSL(document.body, 0, 'OBJECT_ID:eventName', null);\n```\n\n### 2. ",
-        "applies_to": "knowledge",
-        "source": "C:\\Hooks_IA_backup_20260331_220508\\knowledge\\sap_js_internals\\API_REFERENCE.md",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "md"
-      ],
-      "created_at": "2026-04-04T04:43:18.666233+00:00",
-      "updated_at": "2026-04-04T04:43:18.666233+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:10.162109+00:00",
-        "access_count": 244
-      }
-    },
-    "9fb3d168f821": {
-      "id": "9fb3d168f821",
-      "type": "fact",
-      "key": "API_REFERENCE_2",
-      "fact": {
-        "rule": "xample: simulate a button click\nhtmlbSL(document.body, 0, 'OBJECT_ID:eventName', null);\n```\n\n### 2. `htmlbEL(elem, eventType_idx, objectID_plus_eventName, eventDef, param1, param2)`\n**Purpose:** Shorthand event — like htmlbSL but fires client-side event handler first.\n**Flow:** Same as htmlbSL but routes through htmlbEventLib() → htmlbEvent() which checks for cancelSubmit.\n\n### 3. `htmlbSubmitLib(library, elem, eventType, formID, objectID, eventName, paramCount, param1..9)`\n**Purpose:** Sets the `onInputProcessing` field to the library name, then calls htmlbSubmit().\n**Key:** `library` is almost always `'htmlb'`.\n\n```javascript\n// Direct call example\nvar formId = document.getElementById(\"htmlb_first_form_id\").value;\n",
-        "applies_to": "knowledge",
-        "source": "C:\\Hooks_IA_backup_20260331_220508\\knowledge\\sap_js_internals\\API_REFERENCE.md",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "md"
-      ],
-      "created_at": "2026-04-04T04:43:18.767698+00:00",
-      "updated_at": "2026-04-04T04:43:18.767698+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:10.162109+00:00",
-        "access_count": 224
-      }
-    },
-    "da11ff2c4e3e": {
-      "id": "da11ff2c4e3e",
-      "type": "fact",
-      "key": "API_REFERENCE_3",
-      "fact": {
-        "rule": "avascript\n// Direct call example\nvar formId = document.getElementById(\"htmlb_first_form_id\").value;\nhtmlbSubmitLib('htmlb', document.body, 'htmlb:link:click:null', formId, objectID, eventName, 0);\n```\n\n### 4. `htmlbSubmit(elem, eventType, formID, objectID, eventName, paramCount, param1..9)`\n**Purpose:** Core submit function. Validates form, populates hidden fields, then submits.\n**Important fields it sets on the form:**\n- `form.htmlbevt_ty` = eventType\n- `form.htmlbevt_oid` = objectID\n- `form.htmlbevt_id` = eventName\n- `form.htmlbevt_cnt` = paramCount\n- `form.htmlbevt_par1..9` = params\n\n**Guard:** Checks `formID + \"_complete\"` has attribute `code=\"OK\"` before proceeding.\n\n### 5. `htmlbSubmitForm(form)`\n**Purpose:** Actual form submission. Tries AJAX first, falls back to full submit.\n",
-        "applies_to": "knowledge",
-        "source": "C:\\Hooks_IA_backup_20260331_220508\\knowledge\\sap_js_internals\\API_REFERENCE.md",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "md"
-      ],
-      "created_at": "2026-04-04T04:43:18.869609+00:00",
-      "updated_at": "2026-04-04T04:43:18.869609+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:10.162109+00:00",
-        "access_count": 214
-      }
-    },
-    "652d4981eca0": {
-      "id": "652d4981eca0",
-      "type": "fact",
-      "key": "API_REFERENCE_4",
-      "fact": {
-        "rule": "SubmitForm(form)`\n**Purpose:** Actual form submission. Tries AJAX first, falls back to full submit.\n**Flow:**\n1. `processDataLossDialog()` — checks for unsaved changes\n2. Guards against `submissionInProgress`\n3. Tries `htmlbSubmitFormAjax(form)` — if returns true, AJAX was used\n4. If AJAX fails/disabled, does `form.submit()` (full page reload)\n\n### 6. `htmlbSubmitFormAjax(form)`\n**Purpose:** AJAX submit via XHR. Only works if `isAjaxEnabled && ajax_submit`.\n**Creates:** `new AjaxRequest(form.action, { method:'post', onComplete: deltaRenderingCallback, ... })`\n\n### 7. `htmlbEvent(elem, eventClass, eventType, formID, objectID, eventName, paramCount, param1..9)`\n**Purpose:** Fires client-side event handler before submitting.\n",
-        "applies_to": "knowledge",
-        "source": "C:\\Hooks_IA_backup_20260331_220508\\knowledge\\sap_js_internals\\API_REFERENCE.md",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "md"
-      ],
-      "created_at": "2026-04-04T04:43:18.973738+00:00",
-      "updated_at": "2026-04-04T04:43:18.973738+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:10.162109+00:00",
-        "access_count": 259
-      }
-    },
-    "13d65f5b6e3a": {
-      "id": "13d65f5b6e3a",
-      "type": "fact",
-      "key": "API_REFERENCE_5",
-      "fact": {
-        "rule": " eventName, paramCount, param1..9)`\n**Purpose:** Fires client-side event handler before submitting.\n**Checks:** `window[formID + \"_\" + objectID + \"_\" + eventClass]` — if exists, calls it with htmlbevent object. If `htmlbevent.cancelSubmit == true`, aborts.\n\n---\n\n## Navigation Functions\n\n### 8. `thtmlbNavigateToLogicalLink(iv_link_id)`\n**Purpose:** Navigate to a logical link (menu item) in SAP CRM.\n**Calls:** `crmFrwNavigateToLogicalLink(iv_link_id, \"KBD\")`\n\n### 9. `menu_navigate(pagecontext, link)`\n**Purpose:** Trigger menu navigation via form submit.\n```javascript\n// Navigate to a menu item\nmenu_navigate('PageContext', 'LogicalLinkId');\n```\n\n---\n\n## AJAX / Delta Handling\n\n### 10. `preAjaxRequest(target)`\n**Purpose:** Prepares for AJAX submit by setting the target element ID.\n",
-        "applies_to": "knowledge",
-        "source": "C:\\Hooks_IA_backup_20260331_220508\\knowledge\\sap_js_internals\\API_REFERENCE.md",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "md"
-      ],
-      "created_at": "2026-04-04T04:43:19.080754+00:00",
-      "updated_at": "2026-04-04T04:43:19.080754+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:10.162109+00:00",
-        "access_count": 291
-      }
-    },
-    "926265f5173f": {
-      "id": "926265f5173f",
-      "type": "fact",
-      "key": "API_REFERENCE_6",
-      "fact": {
-        "rule": "0. `preAjaxRequest(target)`\n**Purpose:** Prepares for AJAX submit by setting the target element ID.\n**Sets:** `sap-ajaxtarget` hidden field value, enables `ajax_submit` flag.\n\n### 11. `AjaxRequest(targetUrl, reqOptions)`\n**Purpose:** XHR wrapper. Creates XMLHttpRequest, sends POST.\n**Options:** `{ method, asynchronous, parameters, bindingMode, onComplete, submittedFormId, sapAjaxtarget, postProcess }`\n\n### 12. `deltaRenderingCallback(reqObj)`\n**Purpose:** Processes AJAX response. Replaces target DOM elements with new HTML.\n**Handles:**\n- HTTP redirects via `sap-ajax_http_redirect` header\n- Multiple targets via `sap-ajax-targets` header (auto mode)\n- Script extraction and deferred execution\n- CSS injection\n- WorkAreaFrame1/WorkAreaFrame2 switching\n\n### 13. ",
-        "applies_to": "knowledge",
-        "source": "C:\\Hooks_IA_backup_20260331_220508\\knowledge\\sap_js_internals\\API_REFERENCE.md",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "md"
-      ],
-      "created_at": "2026-04-04T04:43:19.178563+00:00",
-      "updated_at": "2026-04-04T04:43:19.178563+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:10.162109+00:00",
-        "access_count": 298
-      }
-    },
-    "82ee9b33d6e2": {
-      "id": "82ee9b33d6e2",
-      "type": "fact",
-      "key": "API_REFERENCE_7",
-      "fact": {
-        "rule": "xtraction and deferred execution\n- CSS injection\n- WorkAreaFrame1/WorkAreaFrame2 switching\n\n### 13. `isDeltaHandlingAutoMode()` / `setDeltaHandlingMode(mode)`\n**Purpose:** Check/set delta handling mode. AUTO = server decides targets.\n\n### 14. `cancelAjaxRequest()` / `isAjaxActive()`\n**Purpose:** Disable AJAX / check if AJAX is available.\n\n---\n\n## Event Dictionary",
-        "applies_to": "knowledge",
-        "source": "C:\\Hooks_IA_backup_20260331_220508\\knowledge\\sap_js_internals\\API_REFERENCE.md",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "md"
-      ],
-      "created_at": "2026-04-04T04:43:19.274373+00:00",
-      "updated_at": "2026-04-04T04:43:19.274373+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:10.162109+00:00",
-        "access_count": 210
+        "last_accessed": "2026-04-05T04:44:31.665846+00:00",
+        "access_count": 68
       }
     },
     "0f7f851433ed": {
@@ -4390,8 +2798,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:34:03.956677+00:00",
-        "access_count": 111
+        "last_accessed": "2026-04-05T04:44:31.665846+00:00",
+        "access_count": 113
       }
     },
     "f3de8dfaf713": {
@@ -4415,8 +2823,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:03.404923+00:00",
-        "access_count": 64
+        "last_accessed": "2026-04-05T04:44:31.665846+00:00",
+        "access_count": 66
       }
     },
     "d3c5d05e3e10": {
@@ -4440,8 +2848,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:03.404923+00:00",
-        "access_count": 55
+        "last_accessed": "2026-04-05T04:44:31.665846+00:00",
+        "access_count": 57
       }
     },
     "5767753a1486": {
@@ -4465,8 +2873,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:03.404923+00:00",
-        "access_count": 75
+        "last_accessed": "2026-04-05T04:44:31.665846+00:00",
+        "access_count": 77
       }
     },
     "47cb71d0d2a9": {
@@ -4490,8 +2898,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:03.404923+00:00",
-        "access_count": 70
+        "last_accessed": "2026-04-05T04:44:31.665846+00:00",
+        "access_count": 72
       }
     },
     "da663182e098": {
@@ -4515,8 +2923,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:03.404923+00:00",
-        "access_count": 51
+        "last_accessed": "2026-04-05T04:44:31.665846+00:00",
+        "access_count": 53
       }
     },
     "ee0a43336485": {
@@ -4540,8 +2948,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:03.404923+00:00",
-        "access_count": 153
+        "last_accessed": "2026-04-05T05:26:02.250060+00:00",
+        "access_count": 158
       }
     },
     "476335be8c2f": {
@@ -4565,8 +2973,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:03.404923+00:00",
-        "access_count": 92
+        "last_accessed": "2026-04-05T05:26:02.250060+00:00",
+        "access_count": 97
       }
     },
     "98c0522fde7f": {
@@ -4590,8 +2998,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:03.404923+00:00",
-        "access_count": 168
+        "last_accessed": "2026-04-05T04:44:31.665846+00:00",
+        "access_count": 171
       }
     },
     "e881f9f7009c": {
@@ -4615,8 +3023,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:03.404923+00:00",
-        "access_count": 73
+        "last_accessed": "2026-04-05T04:44:27.201079+00:00",
+        "access_count": 74
       }
     },
     "6887920e7c64": {
@@ -4640,8 +3048,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:03.404923+00:00",
-        "access_count": 51
+        "last_accessed": "2026-04-05T04:44:31.665846+00:00",
+        "access_count": 54
       }
     },
     "b04c8b33c667": {
@@ -4665,8 +3073,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:03.404923+00:00",
-        "access_count": 70
+        "last_accessed": "2026-04-05T04:44:31.665846+00:00",
+        "access_count": 72
       }
     },
     "e88d82c9092c": {
@@ -4690,8 +3098,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:03.404923+00:00",
-        "access_count": 69
+        "last_accessed": "2026-04-05T04:44:31.665846+00:00",
+        "access_count": 71
       }
     }
   },
@@ -4783,20 +3191,6 @@
       "0583d821d979",
       "1b076b3f76bb",
       "1b076b3f76bb",
-      "65cbbed36e05",
-      "65cbbed36e05",
-      "214b541bc7cb",
-      "214b541bc7cb",
-      "a2c657e2acd4",
-      "a2c657e2acd4",
-      "0760d551bef7",
-      "0760d551bef7",
-      "59ad6ce8a39f",
-      "59ad6ce8a39f",
-      "513394f0df51",
-      "513394f0df51",
-      "b0b556f7137e",
-      "b0b556f7137e",
       "389967af8c1e",
       "389967af8c1e",
       "738d737b83ed",
@@ -4983,10 +3377,6 @@
       "939e3a9f2f53",
       "5c6c13fec228",
       "5c6c13fec228",
-      "52915365b360",
-      "52915365b360",
-      "ed024f34e441",
-      "ed024f34e441",
       "769feece255f",
       "769feece255f",
       "7e657c22602e",
@@ -5173,123 +3563,11 @@
       "e88d82c9092c",
       "6b8688c3f867",
       "6b8688c3f867"
-    ],
-    "python": [
-      "8b608c112d53",
-      "5861193edaac",
-      "d7d0394f264d",
-      "cc9ba6459129",
-      "62688619f537",
-      "286def510ba7",
-      "7a12e5551599",
-      "ea41beb7a493",
-      "8bbda4b47cb7",
-      "761a161b9cf1",
-      "d0e8b3f48eab",
-      "dd5e30ecd185",
-      "a209bc605e34",
-      "ce8bb06f7bdf",
-      "e6633879b459",
-      "d31936aa3fd4",
-      "b73b8143e5aa",
-      "30df1ff1f157",
-      "13088fcff1d4",
-      "3bb0c72c8e22",
-      "408703063079",
-      "8450c89de46a",
-      "fe75b9941c9f",
-      "982fd7966d01",
-      "10f00d3c5b0e",
-      "0ebce9c7885b",
-      "72f936582d41",
-      "c50b46f14821",
-      "433021525e7a",
-      "7e9a9a05ab89",
-      "857924772810",
-      "68fa9f26e816",
-      "1a55b29a1006",
-      "cf499fe20fcd",
-      "596867ac37c6",
-      "01f3a3230fec",
-      "0261a3723cb4",
-      "e3d1d74fe8ee",
-      "0302f4392807"
-    ],
-    "py": [
-      "8b608c112d53",
-      "5861193edaac",
-      "d7d0394f264d",
-      "cc9ba6459129",
-      "62688619f537",
-      "286def510ba7",
-      "7a12e5551599",
-      "ea41beb7a493",
-      "8bbda4b47cb7",
-      "761a161b9cf1",
-      "d0e8b3f48eab",
-      "dd5e30ecd185",
-      "a209bc605e34",
-      "ce8bb06f7bdf",
-      "e6633879b459",
-      "d31936aa3fd4",
-      "b73b8143e5aa",
-      "30df1ff1f157",
-      "13088fcff1d4",
-      "3bb0c72c8e22",
-      "408703063079",
-      "8450c89de46a",
-      "fe75b9941c9f",
-      "982fd7966d01",
-      "10f00d3c5b0e",
-      "0ebce9c7885b",
-      "72f936582d41",
-      "c50b46f14821",
-      "433021525e7a",
-      "7e9a9a05ab89",
-      "857924772810",
-      "68fa9f26e816",
-      "1a55b29a1006",
-      "cf499fe20fcd",
-      "596867ac37c6",
-      "01f3a3230fec",
-      "0261a3723cb4",
-      "e3d1d74fe8ee",
-      "0302f4392807"
-    ],
-    "javascript": [
-      "f90668b081a3",
-      "a0b57f5a5461",
-      "8f8e92ec038a",
-      "0273c64262af",
-      "f5c66ce661a6",
-      "427cbdc0163f",
-      "feebe54a3e4a",
-      "738c9f6a9ec4"
-    ],
-    "js": [
-      "f90668b081a3",
-      "a0b57f5a5461",
-      "8f8e92ec038a",
-      "0273c64262af",
-      "f5c66ce661a6",
-      "427cbdc0163f",
-      "feebe54a3e4a",
-      "738c9f6a9ec4"
-    ],
-    "md": [
-      "5a9cef85d51a",
-      "32ef6fe17f5d",
-      "9fb3d168f821",
-      "da11ff2c4e3e",
-      "652d4981eca0",
-      "13d65f5b6e3a",
-      "926265f5173f",
-      "82ee9b33d6e2"
     ]
   },
   "stats": {
-    "total_entries": 293,
-    "total_lookups": 542,
-    "total_hits": 485
+    "total_entries": 124,
+    "total_lookups": 550,
+    "total_hits": 492
   }
 }

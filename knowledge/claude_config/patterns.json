@@ -23,8 +23,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:47.331849+00:00",
-        "access_count": 217
+        "last_accessed": "2026-04-05T04:44:40.948764+00:00",
+        "access_count": 218
       }
     },
     "2c6e9f20470a": {
@@ -48,8 +48,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:47.331849+00:00",
-        "access_count": 127
+        "last_accessed": "2026-04-05T04:44:40.948764+00:00",
+        "access_count": 128
       }
     },
     "ba504c6eb18f": {
@@ -73,8 +73,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:47.331849+00:00",
-        "access_count": 95
+        "last_accessed": "2026-04-05T04:44:40.948764+00:00",
+        "access_count": 96
       }
     },
     "c681baf742c3": {
@@ -98,8 +98,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:47.331849+00:00",
-        "access_count": 116
+        "last_accessed": "2026-04-05T04:44:40.948764+00:00",
+        "access_count": 117
       }
     },
     "66522ad9f643": {
@@ -123,8 +123,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:47.331849+00:00",
-        "access_count": 134
+        "last_accessed": "2026-04-05T04:44:40.948764+00:00",
+        "access_count": 135
       }
     },
     "711ad74c914a": {
@@ -148,8 +148,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:34:03.659205+00:00",
-        "access_count": 179
+        "last_accessed": "2026-04-05T04:44:40.948764+00:00",
+        "access_count": 180
       }
     },
     "a368943c0022": {
@@ -173,8 +173,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:34:03.659205+00:00",
-        "access_count": 152
+        "last_accessed": "2026-04-05T04:44:40.948764+00:00",
+        "access_count": 153
       }
     },
     "f35a9c224675": {
@@ -198,208 +198,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:47.331849+00:00",
-        "access_count": 94
-      }
-    },
-    "5957076bc92b": {
-      "id": "5957076bc92b",
-      "type": "fact",
-      "key": "learning_memory_0",
-      "fact": {
-        "rule": "\"\"\"\nlearning_memory.py -- Motor de Memoria Adaptativa Unificado\n============================================================\nFusion de Motor 1 () + Motor 2 (Motor_Inteligente_IA).\n\nSistema de aprendizaje incremental local que registra:\n- Patrones de interaccion exitosos\n- Errores encontrados y sus soluciones\n- Contexto de ejecucion\n- Correlacion automatica error -> fix\n\nInspirado en Engram (github.com/Gentleman-Programming/engram):\n- Deduplicacion por hash + topic_key (3 tiers)\n- Clasificacion por tipo (bugfix, decision, architecture, etc.)\n- Scoping proyecto vs personal\n- Soft deletes con deleted_at\n- Protocolo anti-compaction\n- Topic key suggestion para evitar fragmentacion\n\nFlujo: intentar -> fallar -> corregir -> registrar -> reutilizar\n\"\"\"\n\nimport json\nimport re\n",
-        "applies_to": "claude_config",
-        "source": "claude-config\\kb-local\\learning_memory.py",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "python",
-        "py"
-      ],
-      "created_at": "2026-04-04T04:39:40.433557+00:00",
-      "updated_at": "2026-04-04T04:39:40.433557+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:47.331849+00:00",
-        "access_count": 215
-      }
-    },
-    "d3f4e9fba15e": {
-      "id": "d3f4e9fba15e",
-      "type": "fact",
-      "key": "learning_memory_1",
-      "fact": {
-        "rule": "tacion\n\nFlujo: intentar -> fallar -> corregir -> registrar -> reutilizar\n\"\"\"\n\nimport json\nimport re\nimport hashlib\nimport time\nfrom datetime import datetime, timezone\nfrom pathlib import Path\nfrom typing import Optional\n\nfrom config import (\n    MEMORY_FILE,\n    ATTEMPTS_FILE,\n    PENDING_ERRORS_FILE,\n    EXECUTION_LOG,\n    LOCK_DIR,\n    DEDUP_WINDOW_SECS,\n    ERROR_CORRELATION_WINDOW,\n    CONFIDENCE_THRESHOLD,\n    MAX_PENDING_ERRORS,\n)\nfrom core.file_lock import file_lock, _atomic_replace\n\n# -- Tipos de memoria (17 tipos, inspirado en Engram) --\nVALID_TYPES = {\n    \"bugfix\", \"decision\", \"architecture\", \"discovery\", \"pattern\",\n    \"config\", \"preference\", \"manual\", \"session_summary\", \"file_change\",\n    \"command\", \"file_read\", \"search\", \"tool_use\", \"passive\", \"learning\",\n",
-        "applies_to": "claude_config",
-        "source": "claude-config\\kb-local\\learning_memory.py",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "python",
-        "py"
-      ],
-      "created_at": "2026-04-04T04:39:40.517381+00:00",
-      "updated_at": "2026-04-04T04:39:40.517381+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:47.331849+00:00",
-        "access_count": 202
-      }
-    },
-    "749eeff220c5": {
-      "id": "749eeff220c5",
-      "type": "fact",
-      "key": "learning_memory_2",
-      "fact": {
-        "rule": "n_summary\", \"file_change\",\n    \"command\", \"file_read\", \"search\", \"tool_use\", \"passive\", \"learning\",\n    \"bug\", \"error_fix\",\n}\n\n# -- Scopes --\nVALID_SCOPES = {\"project\", \"personal\"}\n\nERROR_PATTERNS = [\n    r\"Traceback \\(most recent call last\\)\",\n    r\"Error:|ERROR:|Exception:\",\n    r\"ModuleNotFoundError|ImportError|FileNotFoundError\",\n    r\"Permission denied|command not found\",\n    r\"exit code [1-9]\",\n    r\"No such file or directory\",\n    r\"SyntaxError|TypeError|ValueError|KeyError|AttributeError\",\n    r\"FAILED|FAIL|fatal:\",\n    r\"Cannot|cannot|Could not|could not\",\n    r\"refused|denied|timeout|timed out\",\n]\n\nSUCCESS_PATTERNS = [\n    r\"exit code 0\",\n    r\"OK|completado|exitosa|correcto|successfully\",\n    r\"Running on http://\",\n    r\"created|installed|updated|saved|done\",\n",
-        "applies_to": "claude_config",
-        "source": "claude-config\\kb-local\\learning_memory.py",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "python",
-        "py"
-      ],
-      "created_at": "2026-04-04T04:39:40.599414+00:00",
-      "updated_at": "2026-04-04T04:39:40.599414+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:47.331849+00:00",
-        "access_count": 203
-      }
-    },
-    "bc974a7850da": {
-      "id": "bc974a7850da",
-      "type": "fact",
-      "key": "learning_memory_3",
-      "fact": {
-        "rule": "osa|correcto|successfully\",\n    r\"Running on http://\",\n    r\"created|installed|updated|saved|done\",\n    r\"\\d+ (?:files?|archivos?|rows?|items?|results?)\",\n]\n\n# ══════════════════════════════════════════════════════════════\n#  INTERNALS -- IO & Hashing\n# ══════════════════════════════════════════════════════════════\n\ndef _ensure_dirs():\n    \"\"\"Crea directorios padre si no existen.\"\"\"\n    MEMORY_FILE.parent.mkdir(parents=True, exist_ok=True)\n\ndef _load_memory() -> dict:\n    \"\"\"Carga la base de patrones aprendidos (con lock).\"\"\"\n    _ensure_dirs()\n    with file_lock(\"learned_patterns\"):\n        if MEMORY_FILE.exists():\n            try:\n                with open(MEMORY_FILE, \"r\", encoding=\"utf-8\") as f:\n                    data = json.load(f)\n",
-        "applies_to": "claude_config",
-        "source": "claude-config\\kb-local\\learning_memory.py",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "python",
-        "py"
-      ],
-      "created_at": "2026-04-04T04:39:40.670547+00:00",
-      "updated_at": "2026-04-04T04:39:40.670547+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:47.331849+00:00",
-        "access_count": 134
-      }
-    },
-    "d22c1e19b2c3": {
-      "id": "d22c1e19b2c3",
-      "type": "fact",
-      "key": "learning_memory_4",
-      "fact": {
-        "rule": "        with open(MEMORY_FILE, \"r\", encoding=\"utf-8\") as f:\n                    data = json.load(f)\n                # Ensure stats keys exist (self-healing)\n                defaults = {\"total_patterns\": 0, \"total_reuses\": 0, \"total_ai_calls_saved\": 0}\n                if \"stats\" not in data:\n                    data[\"stats\"] = defaults\n                else:\n                    for k, v in defaults.items():\n                        if k not in data[\"stats\"]:\n                            data[\"stats\"][k] = v\n                if \"patterns\" not in data:\n                    data[\"patterns\"] = {}\n                if \"tag_index\" not in data:\n                    data[\"tag_index\"] = {}\n                return data\n            except (json.JSONDecodeError, OSError):\n                pass\n    return {\n",
-        "applies_to": "claude_config",
-        "source": "claude-config\\kb-local\\learning_memory.py",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "python",
-        "py"
-      ],
-      "created_at": "2026-04-04T04:39:40.745465+00:00",
-      "updated_at": "2026-04-04T04:39:40.745465+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:47.331849+00:00",
-        "access_count": 133
-      }
-    },
-    "036ce169ce6f": {
-      "id": "036ce169ce6f",
-      "type": "fact",
-      "key": "learning_memory_5",
-      "fact": {
-        "rule": "  return data\n            except (json.JSONDecodeError, OSError):\n                pass\n    return {\n        \"version\": \"1.0\",\n        \"patterns\": {},\n        \"tag_index\": {},\n        \"stats\": {\n            \"total_patterns\": 0,\n            \"total_reuses\": 0,\n            \"total_ai_calls_saved\": 0,\n        },\n    }\n\ndef _save_memory(mem: dict):\n    \"\"\"Guarda la base de patrones con atomic replace.\"\"\"\n    _ensure_dirs()\n    with file_lock(\"learned_patterns\"):\n        tmp = MEMORY_FILE.with_suffix(\".tmp\")\n        with open(tmp, \"w\", encoding=\"utf-8\") as f:\n            json.dump(mem, f, indent=2, ensure_ascii=False)\n        _atomic_replace(tmp, MEMORY_FILE)\n\ndef _pattern_id(task_type: str, context_key: str) -> str:\n    \"\"\"Genera ID deterministico para un patron.\"\"\"\n",
-        "applies_to": "claude_config",
-        "source": "claude-config\\kb-local\\learning_memory.py",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "python",
-        "py"
-      ],
-      "created_at": "2026-04-04T04:39:40.821705+00:00",
-      "updated_at": "2026-04-04T04:39:40.821705+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:47.331849+00:00",
-        "access_count": 151
-      }
-    },
-    "8bc6dee5af38": {
-      "id": "8bc6dee5af38",
-      "type": "fact",
-      "key": "learning_memory_6",
-      "fact": {
-        "rule": "ern_id(task_type: str, context_key: str) -> str:\n    \"\"\"Genera ID deterministico para un patron.\"\"\"\n    raw = f\"{task_type}::{context_key}\"\n    return hashlib.sha256(raw.encode()).hexdigest()[:12]\n\ndef _content_hash(content: str) -> str:\n    \"\"\"Hash normalizado del contenido para deduplicacion (Engram tier 2).\n    Lowercase -> collapse whitespace -> SHA-256 -> hex[:16].\"\"\"\n    normalized = re.sub(r'\\s+', ' ', content.strip().lower())\n    return hashlib.sha256(normalized.encode()).hexdigest()[:16]\n\ndef suggest_topic_key(task_type: str, context_key: str) -> str:\n    \"\"\"Genera topic_key jerarquico estable (Engram-style).\n    Ej: 'architecture/sap-login', 'bugfix/iframe-timeout'.\"\"\"\n    family = task_type.lower().replace(\"_\", \"-\")\n",
-        "applies_to": "claude_config",
-        "source": "claude-config\\kb-local\\learning_memory.py",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "python",
-        "py"
-      ],
-      "created_at": "2026-04-04T04:39:40.905225+00:00",
-      "updated_at": "2026-04-04T04:39:40.905225+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:47.331849+00:00",
-        "access_count": 141
-      }
-    },
-    "4020c76df8c4": {
-      "id": "4020c76df8c4",
-      "type": "fact",
-      "key": "learning_memory_7",
-      "fact": {
-        "rule": "chitecture/sap-login', 'bugfix/iframe-timeout'.\"\"\"\n    family = task_type.lower().replace(\"_\", \"-\")\n    topic = re.sub(r'[^a-z0-9_\\-]', '-', context_key.strip().lower())\n    topic = re.sub(r'-+', '-', topic).strip('-')[:40]\n    return f\"{family}/{topic}\"\n\ndef _normalize_key(text: str) -> st",
-        "applies_to": "claude_config",
-        "source": "claude-config\\kb-local\\learning_memory.py",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "python",
-        "py"
-      ],
-      "created_at": "2026-04-04T04:39:40.980005+00:00",
-      "updated_at": "2026-04-04T04:39:40.980005+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:47.331849+00:00",
-        "access_count": 94
+        "last_accessed": "2026-04-05T04:44:40.948764+00:00",
+        "access_count": 95
       }
     },
     "3b3baabfe0c1": {
@@ -423,8 +223,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:47.331849+00:00",
-        "access_count": 219
+        "last_accessed": "2026-04-05T04:44:40.948764+00:00",
+        "access_count": 220
       }
     },
     "433627347c74": {
@@ -448,8 +248,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:47.331849+00:00",
-        "access_count": 126
+        "last_accessed": "2026-04-05T04:44:40.948764+00:00",
+        "access_count": 127
       }
     },
     "9d31a6db79eb": {
@@ -473,8 +273,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:47.331849+00:00",
-        "access_count": 131
+        "last_accessed": "2026-04-05T04:44:40.948764+00:00",
+        "access_count": 132
       }
     },
     "bcefc2079afb": {
@@ -498,8 +298,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:47.331849+00:00",
-        "access_count": 211
+        "last_accessed": "2026-04-05T04:44:40.948764+00:00",
+        "access_count": 212
       }
     },
     "98c5d38e356f": {
@@ -523,8 +323,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:47.331849+00:00",
-        "access_count": 149
+        "last_accessed": "2026-04-05T04:44:40.948764+00:00",
+        "access_count": 150
       }
     },
     "a6e524695c94": {
@@ -548,8 +348,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:47.331849+00:00",
-        "access_count": 106
+        "last_accessed": "2026-04-05T04:44:40.948764+00:00",
+        "access_count": 107
       }
     },
     "37fad1204776": {
@@ -573,108 +373,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:47.331849+00:00",
-        "access_count": 89
-      }
-    },
-    "3c208e4ff0a7": {
-      "id": "3c208e4ff0a7",
-      "type": "fact",
-      "key": "knowledge_base_0",
-      "fact": {
-        "rule": "\"\"\"\nknowledge_base.py -- Base de Conocimiento Multi-Dominio (Motor Unificado)\n=========================================================================\nFusion de Motor 1 (IDF + decay + ingest) y Motor 2 (dominios dinamicos,\nclean architecture, Path-based).\n\nEstructura en disco:\n    <KNOWLEDGE_DIR>/\n        domains.json              <- registro de dominios conocidos\n        <dominio>/patterns.json   <- selectores, scripts, workarounds\n        <dominio>/facts.json      <- reglas, procesos, conocimiento declarativo\n    <DATA_DIR>/\n        execution_log.jsonl       <- log global\n\nAPI publica:\n    add_pattern(domain, key, solution, tags, error_context) -> str\n    add_fact(domain, key, fact, tags) -> str\n    search(domain, key, tags, text_query) -> list[dict]\n",
-        "applies_to": "claude_config",
-        "source": "claude-config\\kb-local\\knowledge_base.py",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "python",
-        "py"
-      ],
-      "created_at": "2026-04-04T04:39:41.639941+00:00",
-      "updated_at": "2026-04-04T04:39:41.639941+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:47.331849+00:00",
-        "access_count": 202
-      }
-    },
-    "8cb431568847": {
-      "id": "8cb431568847",
-      "type": "fact",
-      "key": "knowledge_base_1",
-      "fact": {
-        "rule": "   add_fact(domain, key, fact, tags) -> str\n    search(domain, key, tags, text_query) -> list[dict]\n    cross_domain_search(tags, text_query, domains) -> dict[str, list]\n    export_context(domain, tags, text_query, limit) -> str\n    get_global_stats() -> dict\n    list_domains() -> list[str]\n    ingest_business_rules_from_text(text, source) -> list[str]\n    ingest_catalog_from_text(text, source) -> list[str]\n\"\"\"\n\nimport io\nimport json\nimport hashlib\nimport math\nimport re\nimport sys\nimport time\nfrom collections import Counter\nfrom datetime import datetime, timezone\nfrom pathlib import Path\nfrom typing import Optional\n\n# -- Windows cp1252 stdout fix (module-level) --------------------------------\ndef _fix_windows_stdout():\n    \"\"\"Fix Unicode en Windows (cp1252 no soporta emojis). ",
-        "applies_to": "claude_config",
-        "source": "claude-config\\kb-local\\knowledge_base.py",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "python",
-        "py"
-      ],
-      "created_at": "2026-04-04T04:39:41.724714+00:00",
-      "updated_at": "2026-04-04T04:39:41.724714+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:47.331849+00:00",
-        "access_count": 198
-      }
-    },
-    "8fdef6d939d3": {
-      "id": "8fdef6d939d3",
-      "type": "fact",
-      "key": "knowledge_base_2",
-      "fact": {
-        "rule": "--------------\ndef _fix_windows_stdout():\n    \"\"\"Fix Unicode en Windows (cp1252 no soporta emojis). Solo al ejecutar como script.\"\"\"\n    if sys.stdout and hasattr(sys.stdout, \"buffer\"):\n        try:\n            sys.stdout = io.TextIOWrapper(\n                sys.stdout.buffer, encoding=\"utf-8\", errors=\"replace\"\n            )\n        except Exception:\n            pass\n\n# -- Configuracion central ---------------------------------------------------\nfrom config import KNOWLEDGE_DIR, DATA_DIR, EXECUTION_LOG, DOMAINS_FILE\nfrom core.file_lock import file_lock, _atomic_replace\n\n# Alias para compatibilidad con usos internos del modulo\nLOG_FILE = EXECUTION_LOG\n\n# ============================================================================\n#  GESTION DE DOMINIOS DINAMICOS\n",
-        "applies_to": "claude_config",
-        "source": "claude-config\\kb-local\\knowledge_base.py",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "python",
-        "py"
-      ],
-      "created_at": "2026-04-04T04:39:41.817261+00:00",
-      "updated_at": "2026-04-04T04:39:41.817261+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:47.331849+00:00",
-        "access_count": 207
-      }
-    },
-    "1e6eac750218": {
-      "id": "1e6eac750218",
-      "type": "fact",
-      "key": "knowledge_base_3",
-      "fact": {
-        "rule": "==================================================================\n#  GESTION DE DOMINIOS DINAMICOS\n# ============================================================================\n\ndef _load_all_domains() -> dict:\n    \"\"\"\n    Devuelve todos los dominios conocidos desde disco (domains.json).\n    No hay dominios hardcodeados -- todos se crean dinamicamente.\n    \"\"\"\n    KNOWLEDGE_DIR.mkdir(parents=True, exist_ok=True)\n    if DOMAINS_FILE.exists():\n        try:\n            return json.loads(DOMAINS_FILE.read_text(encoding=\"utf-8\"))\n        except Exception:\n            pass\n    return {}\n\ndef _ensure_domain(name: str, description: str = \"\") -> dict:\n    \"\"\"\n    Garantiza que el dominio existe en disco.\n    Si no existe, lo crea automaticamente en domains.json.\n",
-        "applies_to": "claude_config",
-        "source": "claude-config\\kb-local\\knowledge_base.py",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "python",
-        "py"
-      ],
-      "created_at": "2026-04-04T04:39:41.909252+00:00",
-      "updated_at": "2026-04-04T04:39:41.909252+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:47.331849+00:00",
-        "access_count": 157
+        "last_accessed": "2026-04-05T04:44:40.948764+00:00",
+        "access_count": 90
       }
     },
     "b8af83394b93": {
@@ -698,8 +398,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:47.331849+00:00",
-        "access_count": 173
+        "last_accessed": "2026-04-05T04:44:40.948764+00:00",
+        "access_count": 174
       }
     },
     "006d9c4a0f79": {
@@ -723,8 +423,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:47.331849+00:00",
-        "access_count": 214
+        "last_accessed": "2026-04-05T04:44:40.948764+00:00",
+        "access_count": 215
       }
     },
     "3b5fd038b76c": {
@@ -748,8 +448,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:47.331849+00:00",
-        "access_count": 160
+        "last_accessed": "2026-04-05T04:44:40.948764+00:00",
+        "access_count": 161
       }
     },
     "a7ed7896f967": {
@@ -773,8 +473,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:47.331849+00:00",
-        "access_count": 86
+        "last_accessed": "2026-04-05T04:44:40.948764+00:00",
+        "access_count": 87
       }
     },
     "18ea7688995a": {
@@ -798,8 +498,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:47.331849+00:00",
-        "access_count": 173
+        "last_accessed": "2026-04-05T04:58:03.658302+00:00",
+        "access_count": 175
       }
     },
     "cecd6993af3b": {
@@ -823,8 +523,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:47.331849+00:00",
-        "access_count": 123
+        "last_accessed": "2026-04-05T04:44:40.948764+00:00",
+        "access_count": 124
       }
     },
     "0742348c723c": {
@@ -848,8 +548,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:47.331849+00:00",
-        "access_count": 167
+        "last_accessed": "2026-04-05T04:44:40.948764+00:00",
+        "access_count": 168
       }
     },
     "ea1f399de046": {
@@ -873,8 +573,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:47.331849+00:00",
-        "access_count": 167
+        "last_accessed": "2026-04-05T04:44:40.948764+00:00",
+        "access_count": 169
       }
     },
     "77a1b0cd1e8b": {
@@ -898,8 +598,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:34:03.659205+00:00",
-        "access_count": 219
+        "last_accessed": "2026-04-05T04:44:40.948764+00:00",
+        "access_count": 221
       }
     },
     "822182c0d555": {
@@ -923,8 +623,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:34:03.659205+00:00",
-        "access_count": 93
+        "last_accessed": "2026-04-05T04:44:40.948764+00:00",
+        "access_count": 94
       }
     },
     "709848ff66dc": {
@@ -948,8 +648,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:47.331849+00:00",
-        "access_count": 212
+        "last_accessed": "2026-04-05T04:44:40.948764+00:00",
+        "access_count": 213
       }
     },
     "cd42a545ebcb": {
@@ -973,8 +673,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:47.331849+00:00",
-        "access_count": 124
+        "last_accessed": "2026-04-05T04:44:40.948764+00:00",
+        "access_count": 125
       }
     },
     "6972d4538403": {
@@ -998,8 +698,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:47.331849+00:00",
-        "access_count": 244
+        "last_accessed": "2026-04-05T04:58:03.658302+00:00",
+        "access_count": 246
       }
     },
     "835647051e5c": {
@@ -1023,8 +723,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:47.331849+00:00",
-        "access_count": 124
+        "last_accessed": "2026-04-05T04:44:40.948764+00:00",
+        "access_count": 125
       }
     },
     "302cd421949b": {
@@ -1048,8 +748,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:34:03.659205+00:00",
-        "access_count": 127
+        "last_accessed": "2026-04-05T05:26:01.930923+00:00",
+        "access_count": 129
       }
     },
     "646c0787db36": {
@@ -1073,8 +773,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:34:03.659205+00:00",
-        "access_count": 115
+        "last_accessed": "2026-04-05T05:26:01.930923+00:00",
+        "access_count": 117
       }
     },
     "ff23de945e61": {
@@ -1098,8 +798,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:47.331849+00:00",
-        "access_count": 231
+        "last_accessed": "2026-04-05T04:44:40.948764+00:00",
+        "access_count": 232
       }
     },
     "998320ecd7a5": {
@@ -1123,8 +823,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:47.331849+00:00",
-        "access_count": 227
+        "last_accessed": "2026-04-05T04:44:40.948764+00:00",
+        "access_count": 228
       }
     },
     "f345d88a7e7c": {
@@ -1148,8 +848,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:47.331849+00:00",
-        "access_count": 166
+        "last_accessed": "2026-04-05T04:58:03.658302+00:00",
+        "access_count": 168
       }
     },
     "2aecfbfa1f42": {
@@ -1173,208 +873,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:47.331849+00:00",
-        "access_count": 72
-      }
-    },
-    "7f4fe33b87b6": {
-      "id": "7f4fe33b87b6",
-      "type": "fact",
-      "key": "sap_playbook_0",
-      "fact": {
-        "rule": "# -*- coding: utf-8 -*-\n\"\"\"\nsap_playbook.py -- Playbook operativo para SAP CRM WebUI\n=========================================================\nSistema de aprendizaje persistente para automatizacion SAP.\n\nDisenado para:\n- Guardar patrones por pantalla/campo/accion con selectores exactos\n- Tracking de tecnicas exitosas Y fallidas (blacklist)\n- Confidence scoring con decay temporal\n- Lookup instantaneo por key semantica (sap.opportunity.items.quantity)\n- Helpers JS persistidos y versionados\n- Frame paths aprendidos por pantalla\n- Integracion con Claude in Chrome y JS Injection\n\nUso desde Claude CLI:\n    from sap_playbook import lookup, learn, fail, get_helpers, get_blacklist\n\nUso como CLI:\n    python sap_playbook.py lookup \"sap.opportunity.items.insert\"\n    python sap_playbook.py stats\n",
-        "applies_to": "claude_config",
-        "source": "claude-config\\kb-local\\sap_playbook.py",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "python",
-        "py"
-      ],
-      "created_at": "2026-04-04T04:39:43.974255+00:00",
-      "updated_at": "2026-04-04T04:39:43.974255+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:47.331849+00:00",
-        "access_count": 164
-      }
-    },
-    "266e10099ff5": {
-      "id": "266e10099ff5",
-      "type": "fact",
-      "key": "sap_playbook_1",
-      "fact": {
-        "rule": ":\n    python sap_playbook.py lookup \"sap.opportunity.items.insert\"\n    python sap_playbook.py stats\n    python sap_playbook.py export\n\"\"\"\n\nimport json\nimport time\nimport sqlite3\nfrom pathlib import Path\nfrom datetime import datetime, timedelta\n\nfrom config import SAP_PLAYBOOK_DB, CONFIDENCE_DECAY_DAYS, CONFIDENCE_DECAY_RATE\n\n# -- Database ------------------------------------------------------------------\n\n_conn = None\n\ndef _get_db() -> sqlite3.Connection:\n    global _conn\n    if _conn is not None:\n        return _conn\n    SAP_PLAYBOOK_DB.parent.mkdir(parents=True, exist_ok=True)\n    _conn = sqlite3.connect(str(SAP_PLAYBOOK_DB), check_same_thread=False)\n    _conn.execute(\"PRAGMA journal_mode=WAL\")\n    _conn.execute(\"PRAGMA synchronous=NORMAL\")\n    _conn.row_factory = sqlite3.Row\n",
-        "applies_to": "claude_config",
-        "source": "claude-config\\kb-local\\sap_playbook.py",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "python",
-        "py"
-      ],
-      "created_at": "2026-04-04T04:39:44.076532+00:00",
-      "updated_at": "2026-04-04T04:39:44.076532+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:47.331849+00:00",
-        "access_count": 131
-      }
-    },
-    "a5cc10f80658": {
-      "id": "a5cc10f80658",
-      "type": "fact",
-      "key": "sap_playbook_2",
-      "fact": {
-        "rule": "urnal_mode=WAL\")\n    _conn.execute(\"PRAGMA synchronous=NORMAL\")\n    _conn.row_factory = sqlite3.Row\n    _init_schema(_conn)\n    return _conn\n\ndef _init_schema(db: sqlite3.Connection):\n    \"\"\"Crea tablas si no existen.\"\"\"\n    db.executescript(\"\"\"\n        -- Patrones exitosos (lo que SI funciona)\n        CREATE TABLE IF NOT EXISTS patterns (\n            key TEXT PRIMARY KEY,\n            screen TEXT NOT NULL,\n            action TEXT NOT NULL,\n            field TEXT DEFAULT '',\n            technique TEXT NOT NULL,\n            tool TEXT NOT NULL,\n            selector TEXT DEFAULT '',\n            frame_path TEXT DEFAULT '',\n            steps TEXT DEFAULT '[]',\n            code_snippet TEXT DEFAULT '',\n            preconditions TEXT DEFAULT '',\n            success_signals TEXT DEFAULT '',\n",
-        "applies_to": "claude_config",
-        "source": "claude-config\\kb-local\\sap_playbook.py",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "python",
-        "py"
-      ],
-      "created_at": "2026-04-04T04:39:44.180283+00:00",
-      "updated_at": "2026-04-04T04:39:44.180283+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:34:03.659205+00:00",
-        "access_count": 203
-      }
-    },
-    "ebb453f777bd": {
-      "id": "ebb453f777bd",
-      "type": "fact",
-      "key": "sap_playbook_3",
-      "fact": {
-        "rule": "DEFAULT '',\n            preconditions TEXT DEFAULT '',\n            success_signals TEXT DEFAULT '',\n            fail_signals TEXT DEFAULT '',\n            fallback_key TEXT DEFAULT '',\n            confidence REAL DEFAULT 1.0,\n            uses INTEGER DEFAULT 1,\n            successes INTEGER DEFAULT 1,\n            failures INTEGER DEFAULT 0,\n            last_used TEXT,\n            last_success TEXT,\n            created TEXT,\n            updated TEXT,\n            notes TEXT DEFAULT '',\n            tags TEXT DEFAULT '[]'\n        );\n\n        -- Tecnicas fallidas (lo que NO funciona -- blacklist)\n        CREATE TABLE IF NOT EXISTS blacklist (\n            id INTEGER PRIMARY KEY AUTOINCREMENT,\n            screen TEXT NOT NULL,\n            action TEXT NOT NULL,\n            field TEXT DEFAULT '',\n",
-        "applies_to": "claude_config",
-        "source": "claude-config\\kb-local\\sap_playbook.py",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "python",
-        "py"
-      ],
-      "created_at": "2026-04-04T04:39:44.265843+00:00",
-      "updated_at": "2026-04-04T04:39:44.265843+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:47.331849+00:00",
-        "access_count": 153
-      }
-    },
-    "d2807c08c22f": {
-      "id": "d2807c08c22f",
-      "type": "fact",
-      "key": "sap_playbook_4",
-      "fact": {
-        "rule": "         screen TEXT NOT NULL,\n            action TEXT NOT NULL,\n            field TEXT DEFAULT '',\n            technique TEXT NOT NULL,\n            reason TEXT NOT NULL,\n            error_detail TEXT DEFAULT '',\n            created TEXT,\n            still_valid INTEGER DEFAULT 1\n        );\n\n        -- Helpers JS reutilizables\n        CREATE TABLE IF NOT EXISTS js_helpers (\n            name TEXT PRIMARY KEY,\n            code TEXT NOT NULL,\n            description TEXT DEFAULT '',\n            sap_specific INTEGER DEFAULT 0,\n            version INTEGER DEFAULT 1,\n            last_used TEXT,\n            created TEXT,\n            updated TEXT\n        );\n\n        -- Frame paths por pantalla\n        CREATE TABLE IF NOT EXISTS frame_paths (\n            screen TEXT PRIMARY KEY,\n",
-        "applies_to": "claude_config",
-        "source": "claude-config\\kb-local\\sap_playbook.py",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "python",
-        "py"
-      ],
-      "created_at": "2026-04-04T04:39:44.351364+00:00",
-      "updated_at": "2026-04-04T04:39:44.351364+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:47.331849+00:00",
-        "access_count": 159
-      }
-    },
-    "859ea293c2c6": {
-      "id": "859ea293c2c6",
-      "type": "fact",
-      "key": "sap_playbook_5",
-      "fact": {
-        "rule": " por pantalla\n        CREATE TABLE IF NOT EXISTS frame_paths (\n            screen TEXT PRIMARY KEY,\n            path TEXT NOT NULL,\n            js_access TEXT DEFAULT '',\n            confidence REAL DEFAULT 1.0,\n            last_verified TEXT,\n            notes TEXT DEFAULT ''\n        );\n\n        -- Log de intentos (para analisis)\n        CREATE TABLE IF NOT EXISTS attempt_log (\n            id INTEGER PRIMARY KEY AUTOINCREMENT,\n            key TEXT,\n            screen TEXT,\n            action TEXT,\n            technique TEXT,\n            success INTEGER,\n            duration_ms INTEGER DEFAULT 0,\n            error TEXT DEFAULT '',\n            timestamp TEXT\n        );\n\n        -- Indices para busqueda rapida\n        CREATE INDEX IF NOT EXISTS idx_patterns_screen ON patterns(screen);\n",
-        "applies_to": "claude_config",
-        "source": "claude-config\\kb-local\\sap_playbook.py",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "python",
-        "py"
-      ],
-      "created_at": "2026-04-04T04:39:44.434952+00:00",
-      "updated_at": "2026-04-04T04:39:44.434952+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:47.331849+00:00",
-        "access_count": 193
-      }
-    },
-    "db06c44e9b46": {
-      "id": "db06c44e9b46",
-      "type": "fact",
-      "key": "sap_playbook_6",
-      "fact": {
-        "rule": "es para busqueda rapida\n        CREATE INDEX IF NOT EXISTS idx_patterns_screen ON patterns(screen);\n        CREATE INDEX IF NOT EXISTS idx_patterns_action ON patterns(action);\n        CREATE INDEX IF NOT EXISTS idx_blacklist_screen ON blacklist(screen, action);\n        CREATE INDEX IF NOT EXISTS idx_attempt_log_key ON attempt_log(key);\n    \"\"\")\n    db.commit()\n\n# -- Lookup (PRIMERA cosa que debe hacer el agente) ----------------------------\n\ndef lookup(key: str = None, screen: str = None, action: str = None,\n           field: str = None) -> dict:\n    \"\"\"\n    Busca patron aplicable. Retorna el mejor match con confidence.\n\n    Uso:\n        lookup(\"sap.opportunity.items.insert.product_id\")\n        lookup(screen=\"opportunity\", action=\"insert_item\")\n",
-        "applies_to": "claude_config",
-        "source": "claude-config\\kb-local\\sap_playbook.py",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "python",
-        "py"
-      ],
-      "created_at": "2026-04-04T04:39:44.524055+00:00",
-      "updated_at": "2026-04-04T04:39:44.524055+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:47.331849+00:00",
-        "access_count": 196
-      }
-    },
-    "2e9adb3979dd": {
-      "id": "2e9adb3979dd",
-      "type": "fact",
-      "key": "sap_playbook_7",
-      "fact": {
-        "rule": "ap.opportunity.items.insert.product_id\")\n        lookup(screen=\"opportunity\", action=\"insert_item\")\n        lookup(screen=\"opportunity\", action=\"fill\", field=\"quantity\")\n    \"\"\"\n    db = _get_d",
-        "applies_to": "claude_config",
-        "source": "claude-config\\kb-local\\sap_playbook.py",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "python",
-        "py"
-      ],
-      "created_at": "2026-04-04T04:39:44.609211+00:00",
-      "updated_at": "2026-04-04T04:39:44.609211+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:47.331849+00:00",
-        "access_count": 78
+        "last_accessed": "2026-04-05T04:44:40.948764+00:00",
+        "access_count": 73
       }
     },
     "d761ed9e89cf": {
@@ -1398,8 +898,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:47.331849+00:00",
-        "access_count": 202
+        "last_accessed": "2026-04-05T04:58:03.658302+00:00",
+        "access_count": 204
       }
     },
     "a2ee83a988fe": {
@@ -1423,8 +923,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:47.331849+00:00",
-        "access_count": 264
+        "last_accessed": "2026-04-05T04:58:03.658302+00:00",
+        "access_count": 266
       }
     },
     "0e699eb40673": {
@@ -1448,8 +948,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:47.331849+00:00",
-        "access_count": 245
+        "last_accessed": "2026-04-05T04:58:03.658302+00:00",
+        "access_count": 247
       }
     },
     "a5c9b33df201": {
@@ -1473,8 +973,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:47.331849+00:00",
-        "access_count": 157
+        "last_accessed": "2026-04-05T04:58:03.658302+00:00",
+        "access_count": 159
       }
     },
     "3768b5964129": {
@@ -1498,8 +998,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:47.331849+00:00",
-        "access_count": 173
+        "last_accessed": "2026-04-05T04:44:40.948764+00:00",
+        "access_count": 174
       }
     },
     "284cfeaf52bc": {
@@ -1523,8 +1023,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:47.331849+00:00",
-        "access_count": 133
+        "last_accessed": "2026-04-05T04:44:40.948764+00:00",
+        "access_count": 134
       }
     },
     "a8b042365279": {
@@ -1548,8 +1048,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:47.331849+00:00",
-        "access_count": 103
+        "last_accessed": "2026-04-05T04:44:40.948764+00:00",
+        "access_count": 104
       }
     },
     "ec0ce1b69fc1": {
@@ -1573,8 +1073,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:47.331849+00:00",
-        "access_count": 76
+        "last_accessed": "2026-04-05T04:44:40.948764+00:00",
+        "access_count": 77
       }
     },
     "321b6535e44c": {
@@ -1598,8 +1098,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:47.331849+00:00",
-        "access_count": 114
+        "last_accessed": "2026-04-05T04:44:40.948764+00:00",
+        "access_count": 115
       }
     },
     "79d7ba4a5868": {
@@ -1623,8 +1123,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:47.331849+00:00",
-        "access_count": 143
+        "last_accessed": "2026-04-05T04:44:40.948764+00:00",
+        "access_count": 145
       }
     },
     "fc661889d3f1": {
@@ -1648,8 +1148,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:47.331849+00:00",
-        "access_count": 139
+        "last_accessed": "2026-04-05T04:44:40.948764+00:00",
+        "access_count": 140
       }
     },
     "4eace3d3bff7": {
@@ -1673,8 +1173,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:47.331849+00:00",
-        "access_count": 82
+        "last_accessed": "2026-04-05T04:44:40.948764+00:00",
+        "access_count": 83
       }
     },
     "8e90364f01fb": {
@@ -1698,8 +1198,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:47.331849+00:00",
-        "access_count": 139
+        "last_accessed": "2026-04-05T04:44:40.948764+00:00",
+        "access_count": 142
       }
     },
     "bb0fba73b3d6": {
@@ -1723,8 +1223,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:47.331849+00:00",
-        "access_count": 89
+        "last_accessed": "2026-04-05T04:44:40.948764+00:00",
+        "access_count": 92
       }
     },
     "341b0b8111e3": {
@@ -1748,8 +1248,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:47.331849+00:00",
-        "access_count": 113
+        "last_accessed": "2026-04-05T04:44:40.948764+00:00",
+        "access_count": 114
       }
     },
     "1675532e5dc7": {
@@ -1773,8 +1273,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:47.331849+00:00",
-        "access_count": 88
+        "last_accessed": "2026-04-05T04:44:40.948764+00:00",
+        "access_count": 89
       }
     },
     "facc62bc867a": {
@@ -1797,8 +1297,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:34:03.659205+00:00",
-        "access_count": 176
+        "last_accessed": "2026-04-05T04:44:40.948764+00:00",
+        "access_count": 177
       }
     },
     "6ae4e94ea177": {
@@ -1821,8 +1321,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:34:03.659205+00:00",
-        "access_count": 147
+        "last_accessed": "2026-04-05T04:44:40.948764+00:00",
+        "access_count": 148
       }
     },
     "5a5c94dfeb08": {
@@ -1845,8 +1345,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:34:03.659205+00:00",
-        "access_count": 75
+        "last_accessed": "2026-04-05T04:44:40.948764+00:00",
+        "access_count": 76
       }
     },
     "182f97438486": {
@@ -1869,8 +1369,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:34:03.659205+00:00",
-        "access_count": 208
+        "last_accessed": "2026-04-05T04:44:40.948764+00:00",
+        "access_count": 209
       }
     },
     "e9c079833ba1": {
@@ -1893,8 +1393,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:34:03.659205+00:00",
-        "access_count": 185
+        "last_accessed": "2026-04-05T05:02:11.135542+00:00",
+        "access_count": 188
       }
     },
     "865be5af8573": {
@@ -1917,8 +1417,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:34:03.659205+00:00",
-        "access_count": 110
+        "last_accessed": "2026-04-05T05:02:11.135542+00:00",
+        "access_count": 112
       }
     },
     "20beea523a77": {
@@ -1941,8 +1441,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:34:03.659205+00:00",
-        "access_count": 51
+        "last_accessed": "2026-04-05T04:44:40.948764+00:00",
+        "access_count": 52
       }
     },
     "1e1d0ea1f6c2": {
@@ -1965,8 +1465,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:34:03.659205+00:00",
-        "access_count": 32
+        "last_accessed": "2026-04-05T04:44:40.948764+00:00",
+        "access_count": 33
       }
     },
     "27f7e8e2504b": {
@@ -1989,8 +1489,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:09.985086+00:00",
-        "access_count": 209
+        "last_accessed": "2026-04-05T04:44:31.248723+00:00",
+        "access_count": 211
       }
     },
     "0d2e9936c4a2": {
@@ -2013,8 +1513,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:47.331849+00:00",
-        "access_count": 155
+        "last_accessed": "2026-04-05T04:58:03.658302+00:00",
+        "access_count": 157
       }
     },
     "d69e839d0146": {
@@ -2061,8 +1561,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:47.331849+00:00",
-        "access_count": 240
+        "last_accessed": "2026-04-05T04:44:40.948764+00:00",
+        "access_count": 245
       }
     },
     "2c95f81624fa": {
@@ -2085,8 +1585,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:47.331849+00:00",
-        "access_count": 197
+        "last_accessed": "2026-04-05T04:58:03.658302+00:00",
+        "access_count": 202
       }
     },
     "553bd35bf0d3": {
@@ -2109,8 +1609,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:03.013873+00:00",
-        "access_count": 79
+        "last_accessed": "2026-04-05T04:44:21.165833+00:00",
+        "access_count": 80
       }
     },
     "cd1090c50f92": {
@@ -2133,8 +1633,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:34:03.659205+00:00",
-        "access_count": 119
+        "last_accessed": "2026-04-05T05:26:01.930923+00:00",
+        "access_count": 123
       }
     },
     "046bf633a2a9": {
@@ -2157,8 +1657,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:03.013873+00:00",
-        "access_count": 81
+        "last_accessed": "2026-04-05T05:02:11.135542+00:00",
+        "access_count": 84
       }
     },
     "13708a97468b": {
@@ -2182,8 +1682,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:34:03.659205+00:00",
-        "access_count": 193
+        "last_accessed": "2026-04-05T04:44:40.948764+00:00",
+        "access_count": 194
       }
     },
     "0b0c9c99f849": {
@@ -2207,8 +1707,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:47.331849+00:00",
-        "access_count": 136
+        "last_accessed": "2026-04-05T04:44:40.948764+00:00",
+        "access_count": 138
       }
     },
     "ccf472a516b6": {
@@ -2232,8 +1732,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:47.331849+00:00",
-        "access_count": 168
+        "last_accessed": "2026-04-05T04:44:40.948764+00:00",
+        "access_count": 169
       }
     },
     "28fafd4b97bc": {
@@ -2257,8 +1757,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:47.331849+00:00",
-        "access_count": 113
+        "last_accessed": "2026-04-05T04:44:40.948764+00:00",
+        "access_count": 114
       }
     },
     "089c92fc40f1": {
@@ -2282,8 +1782,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:47.331849+00:00",
-        "access_count": 173
+        "last_accessed": "2026-04-05T04:44:40.948764+00:00",
+        "access_count": 174
       }
     },
     "4229bc237967": {
@@ -2307,8 +1807,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:47.331849+00:00",
-        "access_count": 212
+        "last_accessed": "2026-04-05T04:44:40.948764+00:00",
+        "access_count": 213
       }
     },
     "2cdd5246fd56": {
@@ -2332,8 +1832,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:47.331849+00:00",
-        "access_count": 210
+        "last_accessed": "2026-04-05T04:44:40.948764+00:00",
+        "access_count": 211
       }
     },
     "f28f491085d3": {
@@ -2357,8 +1857,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:47.331849+00:00",
-        "access_count": 66
+        "last_accessed": "2026-04-05T04:44:40.948764+00:00",
+        "access_count": 67
       }
     },
     "36d12eddb296": {
@@ -2381,8 +1881,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:47.331849+00:00",
-        "access_count": 116
+        "last_accessed": "2026-04-05T04:44:40.948764+00:00",
+        "access_count": 117
       }
     },
     "0b7d022fde13": {
@@ -2405,8 +1905,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:34:03.659205+00:00",
-        "access_count": 173
+        "last_accessed": "2026-04-05T05:26:01.930923+00:00",
+        "access_count": 175
       }
     },
     "95244b6d95ea": {
@@ -2429,8 +1929,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:34:03.659205+00:00",
-        "access_count": 189
+        "last_accessed": "2026-04-05T05:26:01.930923+00:00",
+        "access_count": 191
       }
     },
     "754a8bd90414": {
@@ -2453,8 +1953,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:47.331849+00:00",
-        "access_count": 143
+        "last_accessed": "2026-04-05T04:58:03.658302+00:00",
+        "access_count": 145
       }
     },
     "a2308c339484": {
@@ -2477,8 +1977,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:47.331849+00:00",
-        "access_count": 109
+        "last_accessed": "2026-04-05T04:58:03.658302+00:00",
+        "access_count": 110
       }
     },
     "1a6ac68fdfb9": {
@@ -2574,8 +2074,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:03.013873+00:00",
-        "access_count": 57
+        "last_accessed": "2026-04-05T04:44:21.165833+00:00",
+        "access_count": 58
       }
     },
     "9fcebcc61f83": {
@@ -2649,8 +2149,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:34:03.659205+00:00",
-        "access_count": 46
+        "last_accessed": "2026-04-05T04:44:40.948764+00:00",
+        "access_count": 47
       }
     },
     "68288f2471b9": {
@@ -2698,8 +2198,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:47.331849+00:00",
-        "access_count": 164
+        "last_accessed": "2026-04-05T04:44:31.248723+00:00",
+        "access_count": 166
       }
     },
     "b39f165e317b": {
@@ -2722,8 +2222,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:09.985086+00:00",
-        "access_count": 219
+        "last_accessed": "2026-04-05T05:02:11.135542+00:00",
+        "access_count": 222
       }
     },
     "d4e9a1791f6a": {
@@ -2746,8 +2246,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:03.013873+00:00",
-        "access_count": 209
+        "last_accessed": "2026-04-05T04:44:31.248723+00:00",
+        "access_count": 211
       }
     },
     "118ef12eb3f3": {
@@ -2770,8 +2270,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:09.985086+00:00",
-        "access_count": 250
+        "last_accessed": "2026-04-05T04:44:31.248723+00:00",
+        "access_count": 252
       }
     },
     "a18b93acb36c": {
@@ -2794,8 +2294,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:47.331849+00:00",
-        "access_count": 248
+        "last_accessed": "2026-04-05T05:26:01.930923+00:00",
+        "access_count": 254
       }
     },
     "18b9ab0de8cb": {
@@ -2818,8 +2318,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:09.985086+00:00",
-        "access_count": 213
+        "last_accessed": "2026-04-05T04:44:31.248723+00:00",
+        "access_count": 216
       }
     },
     "4f3b48512e7c": {
@@ -2842,8 +2342,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:09.985086+00:00",
-        "access_count": 172
+        "last_accessed": "2026-04-05T04:44:31.248723+00:00",
+        "access_count": 175
       }
     },
     "8f64d12997b3": {
@@ -2866,8 +2366,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:47.331849+00:00",
-        "access_count": 239
+        "last_accessed": "2026-04-05T05:02:11.135542+00:00",
+        "access_count": 244
       }
     },
     "daaab59e8f82": {
@@ -2890,8 +2390,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:47.331849+00:00",
-        "access_count": 205
+        "last_accessed": "2026-04-05T04:58:03.658302+00:00",
+        "access_count": 208
       }
     },
     "0e00d98ead78": {
@@ -2914,8 +2414,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:03.013873+00:00",
-        "access_count": 160
+        "last_accessed": "2026-04-05T04:44:31.248723+00:00",
+        "access_count": 162
       }
     },
     "6df5a2499d0a": {
@@ -2938,8 +2438,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:09.985086+00:00",
-        "access_count": 235
+        "last_accessed": "2026-04-05T04:44:31.248723+00:00",
+        "access_count": 237
       }
     },
     "92a01f580242": {
@@ -2962,8 +2462,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:03.013873+00:00",
-        "access_count": 147
+        "last_accessed": "2026-04-05T05:02:11.135542+00:00",
+        "access_count": 151
       }
     },
     "3a61578f5187": {
@@ -2986,8 +2486,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:47.331849+00:00",
-        "access_count": 140
+        "last_accessed": "2026-04-05T05:02:11.135542+00:00",
+        "access_count": 144
       }
     },
     "16acddd4cc95": {
@@ -3010,8 +2510,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:09.985086+00:00",
-        "access_count": 133
+        "last_accessed": "2026-04-05T04:58:03.658302+00:00",
+        "access_count": 136
       }
     },
     "5038f9ed3dfa": {
@@ -3034,8 +2534,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:47.331849+00:00",
-        "access_count": 146
+        "last_accessed": "2026-04-05T05:02:11.135542+00:00",
+        "access_count": 151
       }
     },
     "4bf5beda1669": {
@@ -3058,8 +2558,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:09.985086+00:00",
-        "access_count": 215
+        "last_accessed": "2026-04-05T05:02:11.135542+00:00",
+        "access_count": 219
       }
     },
     "1b0a878045b6": {
@@ -3082,8 +2582,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:47.331849+00:00",
-        "access_count": 182
+        "last_accessed": "2026-04-05T05:26:01.930923+00:00",
+        "access_count": 189
       }
     },
     "10050ad1d113": {
@@ -3106,8 +2606,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:47.331849+00:00",
-        "access_count": 182
+        "last_accessed": "2026-04-05T05:02:11.135542+00:00",
+        "access_count": 186
       }
     },
     "be06fb63b0f1": {
@@ -3130,8 +2630,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:03.013873+00:00",
-        "access_count": 58
+        "last_accessed": "2026-04-05T05:02:11.135542+00:00",
+        "access_count": 61
       }
     },
     "f149cb9cc53f": {
@@ -3154,8 +2654,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:47.331849+00:00",
-        "access_count": 170
+        "last_accessed": "2026-04-05T04:58:03.658302+00:00",
+        "access_count": 173
       }
     },
     "7bf0c2e8e555": {
@@ -3178,8 +2678,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:09.985086+00:00",
-        "access_count": 236
+        "last_accessed": "2026-04-05T05:26:01.930923+00:00",
+        "access_count": 243
       }
     },
     "531649bde5f3": {
@@ -3202,8 +2702,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:47.331849+00:00",
-        "access_count": 204
+        "last_accessed": "2026-04-05T04:44:40.948764+00:00",
+        "access_count": 207
       }
     },
     "36acdf43d781": {
@@ -3226,8 +2726,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:03.013873+00:00",
-        "access_count": 118
+        "last_accessed": "2026-04-05T05:02:11.135542+00:00",
+        "access_count": 122
       }
     },
     "59269a8a3493": {
@@ -3250,8 +2750,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:47.331849+00:00",
-        "access_count": 107
+        "last_accessed": "2026-04-05T05:02:11.135542+00:00",
+        "access_count": 111
       }
     },
     "f07afe077c34": {
@@ -3274,8 +2774,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:47.331849+00:00",
-        "access_count": 215
+        "last_accessed": "2026-04-05T05:02:11.135542+00:00",
+        "access_count": 219
       }
     },
     "24c298cc91e1": {
@@ -3298,8 +2798,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:09.985086+00:00",
-        "access_count": 204
+        "last_accessed": "2026-04-05T05:02:11.135542+00:00",
+        "access_count": 208
       }
     },
     "bbbed6da4e5b": {
@@ -3322,8 +2822,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:09.985086+00:00",
-        "access_count": 123
+        "last_accessed": "2026-04-05T05:02:11.135542+00:00",
+        "access_count": 127
       }
     },
     "80e540683187": {
@@ -3346,8 +2846,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:09.985086+00:00",
-        "access_count": 141
+        "last_accessed": "2026-04-05T05:02:11.135542+00:00",
+        "access_count": 145
       }
     },
     "b063d04059a9": {
@@ -3370,8 +2870,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:09.985086+00:00",
-        "access_count": 249
+        "last_accessed": "2026-04-05T04:44:31.248723+00:00",
+        "access_count": 251
       }
     },
     "afc76606c517": {
@@ -3394,8 +2894,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:47.331849+00:00",
-        "access_count": 329
+        "last_accessed": "2026-04-05T04:44:40.948764+00:00",
+        "access_count": 332
       }
     },
     "919e315c1a49": {
@@ -3418,8 +2918,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:09.985086+00:00",
-        "access_count": 145
+        "last_accessed": "2026-04-05T04:44:31.248723+00:00",
+        "access_count": 147
       }
     },
     "d0fa3f158eef": {
@@ -3442,8 +2942,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:09.985086+00:00",
-        "access_count": 106
+        "last_accessed": "2026-04-05T04:44:31.248723+00:00",
+        "access_count": 108
       }
     },
     "ad03868bb351": {
@@ -3490,8 +2990,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:09.985086+00:00",
-        "access_count": 164
+        "last_accessed": "2026-04-05T04:44:26.750831+00:00",
+        "access_count": 165
       }
     },
     "698b97da8568": {
@@ -3562,8 +3062,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:47.331849+00:00",
-        "access_count": 185
+        "last_accessed": "2026-04-05T04:44:31.248723+00:00",
+        "access_count": 187
       }
     },
     "67fbbdb004b8": {
@@ -3586,8 +3086,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:47.331849+00:00",
-        "access_count": 208
+        "last_accessed": "2026-04-05T05:02:11.135542+00:00",
+        "access_count": 211
       }
     },
     "0578dd329b22": {
@@ -3610,8 +3110,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:03.013873+00:00",
-        "access_count": 97
+        "last_accessed": "2026-04-05T04:44:31.248723+00:00",
+        "access_count": 99
       }
     },
     "ce667a1f4f6d": {
@@ -3634,8 +3134,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:34:03.659205+00:00",
-        "access_count": 219
+        "last_accessed": "2026-04-05T05:26:01.930923+00:00",
+        "access_count": 224
       }
     },
     "0f26e478060d": {
@@ -3658,8 +3158,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:34:03.659205+00:00",
-        "access_count": 233
+        "last_accessed": "2026-04-05T05:26:01.930923+00:00",
+        "access_count": 236
       }
     },
     "483bd20c3050": {
@@ -3682,8 +3182,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:34:03.659205+00:00",
-        "access_count": 115
+        "last_accessed": "2026-04-05T05:26:01.930923+00:00",
+        "access_count": 116
       }
     },
     "e204544647b9": {
@@ -3706,8 +3206,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:47.331849+00:00",
-        "access_count": 261
+        "last_accessed": "2026-04-05T05:26:01.930923+00:00",
+        "access_count": 267
       }
     },
     "e551cdcae0ba": {
@@ -3730,8 +3230,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:09.985086+00:00",
-        "access_count": 194
+        "last_accessed": "2026-04-05T04:44:31.248723+00:00",
+        "access_count": 197
       }
     },
     "79257648a036": {
@@ -3754,8 +3254,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:03.013873+00:00",
-        "access_count": 99
+        "last_accessed": "2026-04-05T04:44:31.248723+00:00",
+        "access_count": 102
       }
     },
     "441ec0118cdb": {
@@ -3778,8 +3278,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:47.331849+00:00",
-        "access_count": 156
+        "last_accessed": "2026-04-05T05:26:01.930923+00:00",
+        "access_count": 158
       }
     },
     "3cae85773eac": {
@@ -3802,8 +3302,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:47.331849+00:00",
-        "access_count": 221
+        "last_accessed": "2026-04-05T04:58:03.658302+00:00",
+        "access_count": 223
       }
     },
     "88d5c755231e": {
@@ -3826,8 +3326,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:47.331849+00:00",
-        "access_count": 222
+        "last_accessed": "2026-04-05T04:44:40.948764+00:00",
+        "access_count": 223
       }
     },
     "e98dbb97b2d8": {
@@ -3898,8 +3398,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:09.985086+00:00",
-        "access_count": 130
+        "last_accessed": "2026-04-05T05:26:01.930923+00:00",
+        "access_count": 135
       }
     },
     "1f47c0615428": {
@@ -3922,8 +3422,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:03.013873+00:00",
-        "access_count": 124
+        "last_accessed": "2026-04-05T05:02:11.135542+00:00",
+        "access_count": 127
       }
     },
     "5cc0a0312ef3": {
@@ -3946,8 +3446,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:34:03.659205+00:00",
-        "access_count": 216
+        "last_accessed": "2026-04-05T04:44:40.948764+00:00",
+        "access_count": 218
       }
     },
     "a6c2316640fa": {
@@ -3970,8 +3470,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:47.331849+00:00",
-        "access_count": 234
+        "last_accessed": "2026-04-05T05:26:01.930923+00:00",
+        "access_count": 240
       }
     },
     "b96572a3b0c0": {
@@ -3995,8 +3495,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:47.331849+00:00",
-        "access_count": 227
+        "last_accessed": "2026-04-05T04:58:03.658302+00:00",
+        "access_count": 229
       }
     },
     "cceffb27c7ce": {
@@ -4020,8 +3520,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:47.331849+00:00",
-        "access_count": 153
+        "last_accessed": "2026-04-05T04:44:40.948764+00:00",
+        "access_count": 154
       }
     },
     "ac7428366eea": {
@@ -4068,8 +3568,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:47.331849+00:00",
-        "access_count": 207
+        "last_accessed": "2026-04-05T04:44:40.948764+00:00",
+        "access_count": 210
       }
     },
     "5a5573e2fa11": {
@@ -4092,8 +3592,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:47.331849+00:00",
-        "access_count": 170
+        "last_accessed": "2026-04-05T04:44:40.948764+00:00",
+        "access_count": 171
       }
     },
     "b1b91afecc3a": {
@@ -4116,8 +3616,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:47.331849+00:00",
-        "access_count": 182
+        "last_accessed": "2026-04-05T04:44:40.948764+00:00",
+        "access_count": 184
       }
     },
     "96a216df3813": {
@@ -4164,8 +3664,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:34:03.659205+00:00",
-        "access_count": 211
+        "last_accessed": "2026-04-05T04:44:40.948764+00:00",
+        "access_count": 212
       }
     },
     "34f84111863a": {
@@ -4188,8 +3688,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:47.331849+00:00",
-        "access_count": 275
+        "last_accessed": "2026-04-05T04:44:40.948764+00:00",
+        "access_count": 276
       }
     },
     "11c52361808c": {
@@ -4212,8 +3712,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:47.331849+00:00",
-        "access_count": 151
+        "last_accessed": "2026-04-05T04:58:03.658302+00:00",
+        "access_count": 153
       }
     },
     "68e2fa40fd12": {
@@ -4236,8 +3736,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:09.985086+00:00",
-        "access_count": 189
+        "last_accessed": "2026-04-05T04:44:31.248723+00:00",
+        "access_count": 191
       }
     },
     "31fc56aa510a": {
@@ -4260,8 +3760,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:09.985086+00:00",
-        "access_count": 112
+        "last_accessed": "2026-04-05T04:44:31.248723+00:00",
+        "access_count": 114
       }
     },
     "ba099dcee9fe": {
@@ -4285,8 +3785,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:47.331849+00:00",
-        "access_count": 137
+        "last_accessed": "2026-04-05T04:44:40.948764+00:00",
+        "access_count": 138
       }
     },
     "b32a56d3ce55": {
@@ -4310,8 +3810,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:47.331849+00:00",
-        "access_count": 118
+        "last_accessed": "2026-04-05T04:44:40.948764+00:00",
+        "access_count": 119
       }
     },
     "6675be8cb347": {
@@ -4334,8 +3834,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:47.331849+00:00",
-        "access_count": 171
+        "last_accessed": "2026-04-05T04:44:40.948764+00:00",
+        "access_count": 173
       }
     },
     "75164040cd0f": {
@@ -4382,8 +3882,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:47.331849+00:00",
-        "access_count": 182
+        "last_accessed": "2026-04-05T04:58:03.658302+00:00",
+        "access_count": 183
       }
     },
     "c4fa19914e35": {
@@ -4406,8 +3906,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:09.985086+00:00",
-        "access_count": 245
+        "last_accessed": "2026-04-05T04:58:03.658302+00:00",
+        "access_count": 246
       }
     },
     "840fd52004a8": {
@@ -4526,8 +4026,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:09.985086+00:00",
-        "access_count": 245
+        "last_accessed": "2026-04-05T04:44:31.248723+00:00",
+        "access_count": 246
       }
     },
     "e42ff45db9ad": {
@@ -4550,8 +4050,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:03.013873+00:00",
-        "access_count": 108
+        "last_accessed": "2026-04-05T04:44:31.248723+00:00",
+        "access_count": 109
       }
     },
     "3aa4b61b0ba7": {
@@ -4574,8 +4074,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:09.985086+00:00",
-        "access_count": 294
+        "last_accessed": "2026-04-05T04:44:31.248723+00:00",
+        "access_count": 296
       }
     },
     "e9d31483cf9a": {
@@ -4598,8 +4098,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:09.985086+00:00",
-        "access_count": 108
+        "last_accessed": "2026-04-05T04:44:31.248723+00:00",
+        "access_count": 110
       }
     },
     "8ba8e86ff9fd": {
@@ -4623,8 +4123,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:47.331849+00:00",
-        "access_count": 148
+        "last_accessed": "2026-04-05T04:44:40.948764+00:00",
+        "access_count": 149
       }
     },
     "e1a9d8641bfd": {
@@ -4648,8 +4148,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:47.331849+00:00",
-        "access_count": 131
+        "last_accessed": "2026-04-05T04:44:40.948764+00:00",
+        "access_count": 132
       }
     },
     "be20229316c4": {
@@ -4672,8 +4172,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:34:03.659205+00:00",
-        "access_count": 187
+        "last_accessed": "2026-04-05T05:26:01.930923+00:00",
+        "access_count": 190
       }
     },
     "b1f72d9451bb": {
@@ -4696,8 +4196,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:34:03.659205+00:00",
-        "access_count": 80
+        "last_accessed": "2026-04-05T05:26:01.930923+00:00",
+        "access_count": 83
       }
     }
   },
@@ -4711,14 +4211,6 @@
       "711ad74c914a",
       "a368943c0022",
       "f35a9c224675",
-      "5957076bc92b",
-      "d3f4e9fba15e",
-      "749eeff220c5",
-      "bc974a7850da",
-      "d22c1e19b2c3",
-      "036ce169ce6f",
-      "8bc6dee5af38",
-      "4020c76df8c4",
       "3b3baabfe0c1",
       "433627347c74",
       "9d31a6db79eb",
@@ -4726,10 +4218,6 @@
       "98c5d38e356f",
       "a6e524695c94",
       "37fad1204776",
-      "3c208e4ff0a7",
-      "8cb431568847",
-      "8fdef6d939d3",
-      "1e6eac750218",
       "b8af83394b93",
       "006d9c4a0f79",
       "3b5fd038b76c",
@@ -4750,14 +4238,6 @@
       "998320ecd7a5",
       "f345d88a7e7c",
       "2aecfbfa1f42",
-      "7f4fe33b87b6",
-      "266e10099ff5",
-      "a5cc10f80658",
-      "ebb453f777bd",
-      "d2807c08c22f",
-      "859ea293c2c6",
-      "db06c44e9b46",
-      "2e9adb3979dd",
       "d761ed9e89cf",
       "a2ee83a988fe",
       "0e699eb40673",
@@ -4794,14 +4274,6 @@
       "711ad74c914a",
       "a368943c0022",
       "f35a9c224675",
-      "5957076bc92b",
-      "d3f4e9fba15e",
-      "749eeff220c5",
-      "bc974a7850da",
-      "d22c1e19b2c3",
-      "036ce169ce6f",
-      "8bc6dee5af38",
-      "4020c76df8c4",
       "3b3baabfe0c1",
       "433627347c74",
       "9d31a6db79eb",
@@ -4809,10 +4281,6 @@
       "98c5d38e356f",
       "a6e524695c94",
       "37fad1204776",
-      "3c208e4ff0a7",
-      "8cb431568847",
-      "8fdef6d939d3",
-      "1e6eac750218",
       "b8af83394b93",
       "006d9c4a0f79",
       "3b5fd038b76c",
@@ -4833,14 +4301,6 @@
       "998320ecd7a5",
       "f345d88a7e7c",
       "2aecfbfa1f42",
-      "7f4fe33b87b6",
-      "266e10099ff5",
-      "a5cc10f80658",
-      "ebb453f777bd",
-      "d2807c08c22f",
-      "859ea293c2c6",
-      "db06c44e9b46",
-      "2e9adb3979dd",
       "d761ed9e89cf",
       "a2ee83a988fe",
       "0e699eb40673",
@@ -5000,8 +4460,8 @@
     ]
   },
   "stats": {
-    "total_entries": 198,
-    "total_lookups": 543,
-    "total_hits": 526
+    "total_entries": 172,
+    "total_lookups": 551,
+    "total_hits": 534
   }
 }

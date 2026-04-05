@@ -767,6 +767,14 @@
       "properties": {},
       "created_at": "2026-04-05T04:19:17.006562+00:00",
       "updated_at": "2026-04-05T04:19:17.006562+00:00"
+    },
+    "learning_memory.py": {
+      "id": "learning_memory.py",
+      "type": "file",
+      "name": "learning_memory.py",
+      "properties": {},
+      "created_at": "2026-04-05T04:59:31.959097+00:00",
+      "updated_at": "2026-04-05T04:59:31.959097+00:00"
     }
   },
   "relations": [
@@ -2470,11 +2478,20 @@
       "context": "cuanto de experiencia de pyhton hay en el KB?",
       "created_at": "2026-04-05T04:19:17.010567+00:00",
       "updated_at": "2026-04-05T04:19:17.010567+00:00"
+    },
+    {
+      "source": "learning_memory.py",
+      "target": "knowledge_base.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "no hay nada repetido en los kb verdad?",
+      "created_at": "2026-04-05T04:59:31.962516+00:00",
+      "updated_at": "2026-04-05T04:59:31.962516+00:00"
     }
   ],
-  "updated_at": "2026-04-05T04:19:17.010567+00:00",
+  "updated_at": "2026-04-05T04:59:31.962516+00:00",
   "stats": {
-    "entities": 96,
-    "relations": 189
+    "entities": 97,
+    "relations": 190
   }
 }

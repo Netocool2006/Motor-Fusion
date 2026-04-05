@@ -23,8 +23,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:09.526404+00:00",
-        "access_count": 259
+        "last_accessed": "2026-04-05T05:02:10.449697+00:00",
+        "access_count": 262
       }
     },
     "13a9c936edb8": {
@@ -48,133 +48,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:09.526404+00:00",
-        "access_count": 184
-      }
-    },
-    "71bb3878c804": {
-      "id": "71bb3878c804",
-      "type": "fact",
-      "key": "dom_2",
-      "fact": {
-        "rule": "ion.hostname.substr(liBehindFirstDot);}\n//]]>\n</script>\n<script type=\"text/javascript\">\n//<![CDATA[\nfunction WCF_SessInfo() {this.sessUrl=\"http://crm-prod-app.gbm.net:8001/sap(bD1lbiZjPTUwMCZkPW1pbg==)/bc/bsp/sap/crm_ui_frame/bspwdapplication.do\";}\n//]]>\n</script><meta http-equiv=\"Content-Type\" content=\"text/html;charset=utf-8\">\n<script type=\"text/javascript\" src=\"/sap(====)/bc/bsp/sap/thtmlb_scripts/events.js?sap-client=500&amp;sap-language=EN&amp;sap-domainRelax=min&amp;20230718005420\"></script>\n<script type=\"text/javascript\" src=\"/sap/public/bsp/sap/htmlb/event_dictionary.js?0014\"></script>\n<script type=\"text/javascript\">\n//<![CDATA[\nvar HTMLB_SECTION508 = false;\nvar thtmlbLayoutTableSummary = \"\";\nvar thtmlbSkinRootPath = \"/SAP/BC/BSP/SAP/thtmlb_styles/sap_skins/default/\";\n",
-        "applies_to": "sap_capturas_output",
-        "source": "SAP_Tierra_IA\\sap_capturas_output\\007_20260311_213109_Opport_Standard_245451_Horas_Assesoria_SW_IBM_BANCO_PROMERICA_S._A._-_SAP_\\dom.html",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "web",
-        "html"
-      ],
-      "created_at": "2026-04-04T04:37:13.005490+00:00",
-      "updated_at": "2026-04-04T04:37:13.005490+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.753222+00:00",
-        "access_count": 160
-      }
-    },
-    "d4f27446a9b7": {
-      "id": "d4f27446a9b7",
-      "type": "fact",
-      "key": "dom_3",
-      "fact": {
-        "rule": "youtTableSummary = \"\";\nvar thtmlbSkinRootPath = \"/SAP/BC/BSP/SAP/thtmlb_styles/sap_skins/default/\";\nsyuname = \"NTOLEDO\";\ngv_tajaxDHScriptMode = \"\";\ngv_tajaxDHUseJsRegex = \"\";\ngv_thtmlb_JS_debug_mode = \"\";\nvar thtmlbPleaseWaitMode = \"DEFAULT\";\nvar thtmlbShieldEasyViewing = false;\nvar thPleaseWaitMsg = \"Please Wait\";\nvar thtmlbFiori20Active = false;\nvar thtmlbFiori = {};\nvar thtmlbIsICRole = false;\nObject.defineProperty(thtmlbFiori,'active',{value:false});\nObject.defineProperty(thtmlbFiori,'version',{value:''});\nvar thtmlbClient = \"500\";\n//]]>\n</script>\n\n<script type=\"text/javascript\">\n//<![CDATA[\nvar thtmlbTestMode = false;\nvar thtmlbTextDirection = \"ltr\";\nvar thtmlbDdlbWithKeys = false;\nvar thtmlbDdlbSorting = \"\";\nvar thtmlbDdlbInvalidEntry = \"Invalid entry\";\n",
-        "applies_to": "sap_capturas_output",
-        "source": "SAP_Tierra_IA\\sap_capturas_output\\007_20260311_213109_Opport_Standard_245451_Horas_Assesoria_SW_IBM_BANCO_PROMERICA_S._A._-_SAP_\\dom.html",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "web",
-        "html"
-      ],
-      "created_at": "2026-04-04T04:37:13.099361+00:00",
-      "updated_at": "2026-04-04T04:37:13.099361+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:09.526404+00:00",
-        "access_count": 156
-      }
-    },
-    "b706b043192d": {
-      "id": "b706b043192d",
-      "type": "fact",
-      "key": "dom_4",
-      "fact": {
-        "rule": "tmlbDdlbWithKeys = false;\nvar thtmlbDdlbSorting = \"\";\nvar thtmlbDdlbInvalidEntry = \"Invalid entry\";\nvar th_ddlbTE_placeHolder = \"\\x261\";\nvar th_ddlbTE_noTokens = \"No\\x20tokens\";\nvar th_ddlbTE_oneToken = \"Contains\\x201\\x20token\";\nvar th_ddlbTE_deletable = \"Deletable\";\nvar th_textElement_inactiveLI = \"List\\x20Item.\\x20Is\\x20Inactive.\";\nvar th_ddlbTE_multi = \"Multi\\x20Value\\x20Combo\\x20Box\";\nvar th_ddlbTE_nItems = \"\\x261\\x20Items\";\nvar th_ddlbTE_nMore = \"\\x261\\x20More\";\nvar th_ddlbTE_nTokens = \"Contains\\x20\\x261\\x20tokens\";\nvar th_ddlbTE_selectedLI = \"List\\x20Item.\\x20Selected.\\x20Is\\x20Active.\";\nvar th_ddlbTE_tokenizer = \"Tokenizer\";\nvar th_ddlbTE_token = \"Token\";\nvar th_ddlbTE_unselectedLI = \"List\\x20Item.\\x20Is\\x20Active.\";\nvar thtmlb_disabl_typeahead =false;\nvar thtmlb12HourFormat = \"\";\n",
-        "applies_to": "sap_capturas_output",
-        "source": "SAP_Tierra_IA\\sap_capturas_output\\007_20260311_213109_Opport_Standard_245451_Horas_Assesoria_SW_IBM_BANCO_PROMERICA_S._A._-_SAP_\\dom.html",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "web",
-        "html"
-      ],
-      "created_at": "2026-04-04T04:37:13.203195+00:00",
-      "updated_at": "2026-04-04T04:37:13.203195+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:09.526404+00:00",
-        "access_count": 150
-      }
-    },
-    "82dc3bbfa414": {
-      "id": "82dc3bbfa414",
-      "type": "fact",
-      "key": "dom_5",
-      "fact": {
-        "rule": " \"List\\x20Item.\\x20Is\\x20Active.\";\nvar thtmlb_disabl_typeahead =false;\nvar thtmlb12HourFormat = \"\";\n//]]>\n</script>\n<script type=\"text/javascript\" src=\"/sap(====)/bc/bsp/sap/thtmlb_scripts/scripts.js?sap-client=500&amp;sap-language=EN&amp;sap-domainRelax=min&amp;20210730001017\"></script>\n<script type=\"text/javascript\" src=\"/sap(====)/bc/bsp/sap/thtmlb_scripts/calendar.js?sap-client=500&amp;sap-language=EN&amp;sap-domainRelax=min&amp;dformat=1&amp;dlanguage=en&amp;dweek=1&amp;minimalDaysInFirstWeek=04&amp;20180510142125\"></script>\n<script type=\"text/javascript\">\n//<![CDATA[\nvar thtmlbUtil_renderEffects = true;\n//]]>\n</script>\n</head><body role=\"main\" aria-label=\"For accessibility support, please enable Screen Reader Mode in Personalize Settings.\">\n<span class=\"th-ip-dh-hovercache\"></span>\n",
-        "applies_to": "sap_capturas_output",
-        "source": "SAP_Tierra_IA\\sap_capturas_output\\007_20260311_213109_Opport_Standard_245451_Horas_Assesoria_SW_IBM_BANCO_PROMERICA_S._A._-_SAP_\\dom.html",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "web",
-        "html"
-      ],
-      "created_at": "2026-04-04T04:37:13.300337+00:00",
-      "updated_at": "2026-04-04T04:37:13.300337+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.753222+00:00",
-        "access_count": 173
-      }
-    },
-    "5740e9da1f76": {
-      "id": "5740e9da1f76",
-      "type": "fact",
-      "key": "dom_6",
-      "fact": {
-        "rule": "ease enable Screen Reader Mode in Personalize Settings.\">\n<span class=\"th-ip-dh-hovercache\"></span>\n<script type=\"text/javascript\">\n//<![CDATA[\nvar thtmlbGetRuntime = false;\n//]]>\n</script>\n<script type=\"text/javascript\">\n//<![CDATA[\nvar thtmlbMangling = \"bD1FTiZjPTUwMCZkPW1pbiZpPTEmcz1TSUQlM2FBTk9OJTNhY3JtLXByb2QtYXBwX0NSUF8wMSUzYXNwTWtMTW93a1gwMmZWVkR5S01pZVlWcTRzNEZ0UUhsTkM3aFV4LVQtQVRU\";\n//]]>\n</script>\n<span id=\"__text600\" class=\"th-displayNone\" aria-hidden=\"true\">Value help available</span>\n\n    <script type=\"text/javascript\">\n      \n      \n      var WCF_isLoggedOff = false;\n      \n      var WCF_isForceLogoff = false;\n      \n    </script>\n    <link rel=\"shortcut icon\" href=\"saplogo.ico\" type=\"image/x-icon\">\n    <link rel=\"icon\" href=\"saplogo.ico\" type=\"image/x-icon\">\n",
-        "applies_to": "sap_capturas_output",
-        "source": "SAP_Tierra_IA\\sap_capturas_output\\007_20260311_213109_Opport_Standard_245451_Horas_Assesoria_SW_IBM_BANCO_PROMERICA_S._A._-_SAP_\\dom.html",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "web",
-        "html"
-      ],
-      "created_at": "2026-04-04T04:37:13.385295+00:00",
-      "updated_at": "2026-04-04T04:37:13.385295+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:09.526404+00:00",
-        "access_count": 154
+        "last_accessed": "2026-04-05T05:02:10.449697+00:00",
+        "access_count": 187
       }
     },
     "fe9db5b634fc": {
@@ -198,8 +73,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:09.526404+00:00",
-        "access_count": 126
+        "last_accessed": "2026-04-05T05:02:10.449697+00:00",
+        "access_count": 129
       }
     },
     "e4e8ea179931": {
@@ -223,8 +98,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:02.528397+00:00",
-        "access_count": 73
+        "last_accessed": "2026-04-05T05:02:10.449697+00:00",
+        "access_count": 76
       }
     },
     "ad8817c137fe": {
@@ -248,8 +123,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:02.528397+00:00",
-        "access_count": 66
+        "last_accessed": "2026-04-05T05:02:10.449697+00:00",
+        "access_count": 69
       }
     },
     "7fdd6d2acabf": {
@@ -273,8 +148,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:02.528397+00:00",
-        "access_count": 74
+        "last_accessed": "2026-04-05T05:02:10.449697+00:00",
+        "access_count": 77
       }
     },
     "925bb055693f": {
@@ -298,8 +173,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:02.528397+00:00",
-        "access_count": 74
+        "last_accessed": "2026-04-05T05:02:10.449697+00:00",
+        "access_count": 77
       }
     },
     "a339f2a6034a": {
@@ -323,8 +198,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:02.528397+00:00",
-        "access_count": 48
+        "last_accessed": "2026-04-05T05:02:10.449697+00:00",
+        "access_count": 51
       }
     }
   },
@@ -332,11 +207,6 @@
     "web": [
       "583df2d67e05",
       "13a9c936edb8",
-      "71bb3878c804",
-      "d4f27446a9b7",
-      "b706b043192d",
-      "82dc3bbfa414",
-      "5740e9da1f76",
       "fe9db5b634fc",
       "583df2d67e05",
       "583df2d67e05",
@@ -382,11 +252,6 @@
     "html": [
       "583df2d67e05",
       "13a9c936edb8",
-      "71bb3878c804",
-      "d4f27446a9b7",
-      "b706b043192d",
-      "82dc3bbfa414",
-      "5740e9da1f76",
       "fe9db5b634fc",
       "583df2d67e05",
       "583df2d67e05",
@@ -443,8 +308,8 @@
     ]
   },
   "stats": {
-    "total_entries": 53,
-    "total_lookups": 543,
-    "total_hits": 345
+    "total_entries": 8,
+    "total_lookups": 551,
+    "total_hits": 348
   }
 }

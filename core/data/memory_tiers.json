@@ -1,127 +1,5 @@
 {
-  "hot": [
-    {
-      "key": "el dashboard necesita alguna nueva modificacion por las actulizaciones realizadas?",
-      "value": "El dashboard `_check_hooks` busca `UserPromptSubmit` y `Stop` que es correcto. Pero NO verifica `SessionStart` ni `SessionEnd`. Y hay un detalle: los hooks commands tienen `C:\\Hooks_IA` quemado en `settings.json` â€” pero eso es la configuraciÃ³n del USUARIO, no del proyecto, asÃ­ que es esperado (el instalador lo configura por mÃ¡quina).\n\nEl dashboard estÃ¡ **bien alineado**. No necesita cambios funcionales por las actualizaciones. Todo lo que cambiÃ³ (`web_search.py` con `force`, timeout, fallback) se loguea correctamente y el dashboard ya lo lee.\n\n**Resumen: el dashboard NO necesita modificaciones.** Las actualizaciones de `web_search.py` (force mode, timeout DDG, fallback al mejor resultado) se integran transparentemente porque:\n\n1. `web_search.py` loguea \"Web search:\" que el dashboard parsea en `_parse_motor_ia_log()`\n2. `_check_hooks()` ya usa `Path.home()` (portable)\n3. Las mÃ©tricas del dashboard (Queries, Cache Hits, Vector Hits, Web Searches, Auto-Saves, Errors) cubren todo e",
-      "domain": "Internet 10% + ML 60%",
-      "source": "auto_save",
-      "tier": "hot",
-      "created_at": "2026-04-05T03:43:25.136515+00:00",
-      "last_access": "2026-04-05T03:43:25.136515+00:00",
-      "access_count": 0,
-      "promotion_count": 0
-    },
-    {
-      "key": "sera que el dashboard puede dar informacion de tokens utilizados o tokens ahorrados por la tecnica que usamos en el proyecto?",
-      "value": "Funciona perfectamente. Ya hay datos reales: **11,600 tokens ahorrados** en 10 mediciones con **77% eficiencia promedio**.\n\nLa nueva card de **Token Budget** en el dashboard muestra:\n\n| MÃ©trica | Valor actual |\n|---|---|\n| Tokens ahorrados total | 11,600 |\n| Eficiencia promedio | 77% |\n| Tokens original (prom.) | 2,892 |\n| Tokens final (prom.) | 1,732 |\n| Mediciones | 10 |\n| Barra de compresiÃ³n | ~40% reducciÃ³n visual |\n\nLos cambios fueron:\n- [server.py:476-482](dashboard/server.py#L476-L482) - nueva funciÃ³n `_check_token_budget()` que llama a `get_token_stats()`\n- [server.py:608](dashboard/server.py#L608) - se agrega al endpoint `/api/status`\n- [index.html:141-158](dashboard/index.html#L141-L158) - nueva card visual con mÃ©tricas de tokens\n- [index.html](dashboard/index.html) - JS que actualiza la card cada 5 segundos con el auto-refresh",
-      "domain": "ML",
-      "source": "auto_save",
-      "tier": "hot",
-      "created_at": "2026-04-05T03:52:01.227779+00:00",
-      "last_access": "2026-04-05T03:52:01.227779+00:00",
-      "access_count": 0,
-      "promotion_count": 0
-    },
-    {
-      "key": "algo que actualizar en el instalador y o manuales tecnicos y de usuario?",
-      "value": "Todo compila correctamente. AquÃ­ el resumen de todo lo actualizado:\n\n## Resumen de actualizaciones\n\n### 1. [setup.py](installer/setup.py) (Instalador CLI)\n| Cambio | Antes | DespuÃ©s |\n|---|---|---|\n| VersiÃ³n | `1.0.0-fusion` | `2.3.0` |\n| Hooks | `UserMessage`, `Stop`, `ToolUse` | `UserPromptSubmit`, `Stop`, `SessionStart` |\n| Scripts referenciados | `on_user_message.py`, `on_session_end.py`, `on_tool_use.py` | `motor_ia_hook.py`, `motor_ia_post_hook.py`, `session_start.py` |\n| MCP Server | No se registraba | Se registra `motor-ia` en `mcpServers` |\n| Permisos | No se configuraban | `\"allow\": [\"*\"]` automÃ¡tico |\n\n### 2. [manual_usuario.html](installer/manual_usuario.html) (Manual de Usuario)\n| Cambio | Detalle |\n|---|---|\n| VersiÃ³n sidebar | v1.0 â†’ v2.3 |\n| 3 secciones nuevas | **5. Pipeline RAG HÃ­brido**, **6. Dashboard**, **7. MCP Tools** |\n| Diagrama arquitectura | Actualizado con ChromaDB, DuckDuckGo, ML, Dashboard |\n| Tabla de dominios | Expandida + nota de 70+ dominios y ",
-      "domain": "Internet 10% + ML 60%",
-      "source": "auto_save",
-      "tier": "hot",
-      "created_at": "2026-04-05T03:59:09.338512+00:00",
-      "last_access": "2026-04-05T03:59:09.338512+00:00",
-      "access_count": 0,
-      "promotion_count": 0
-    },
-    {
-      "key": "porque el log muestra esta url muy seguido HTTP Request: GET https://huggingface.co/ap",
-      "value": "Perfecto, carga sin ningÃºn HTTP a HuggingFace.\n\n## Resumen\n\nEl log mostraba `HTTP Request: GET https://huggingface.co/...` porque **cada vez** que `SentenceTransformer(\"all-MiniLM-L6-v2\")` se inicializaba, la librerÃ­a `huggingface-hub` hacÃ­a un request HTTP para verificar si habÃ­a una versiÃ³n nueva del modelo â€” aunque ya lo tenÃ­a en cache local.\n\n**Fix aplicado** en 2 archivos:\n\n| Archivo | Cambio |\n|---|---|\n| [vector_kb.py:42-43](core/vector_kb.py#L42-L43) | `HF_HUB_OFFLINE=1` + `TRANSFORMERS_OFFLINE=1` + silenciar loggers de httpx/huggingface |\n| [semantic_search.py:41-42](core/semantic_search.py#L41-L42) | `HF_HUB_OFFLINE=1` + `TRANSFORMERS_OFFLINE=1` |\n\nAmbos tienen **fallback**: si el modelo NO estÃ¡ en cache (primera vez), remueve las variables offline y descarga normalmente. DespuÃ©s de eso, nunca mÃ¡s toca HuggingFace.",
-      "domain": "ML 80%",
-      "source": "auto_save",
-      "tier": "hot",
-      "created_at": "2026-04-05T04:01:55.152966+00:00",
-      "last_access": "2026-04-05T04:01:55.152966+00:00",
-      "access_count": 0,
-      "promotion_count": 0
-    },
-    {
-      "key": "borra todos los datos de prueba utilizados",
-      "value": "Listo. Todo borrado:\n\n| Eliminado | Tipo |\n|---|---|\n| `tests/pipeline_real_results.json` | Resultados 50 casos reales |\n| `tests/pipeline_1000_real_results.json` | Resultados 1000 casos reales |\n| `tests/mega50_results.json` | Resultados mega-50 |\n| `core/locks/kb_test_results.lock` | Lock de pruebas |\n| `.pytest_cache/` | Cache de pytest |\n| `tests/__pycache__/` | Bytecode compilado de tests |\n| `knowledge/test/` | Dominio KB de prueba |\n| `knowledge/test_mega_50/` | Dominio KB mega-50 |\n| `knowledge/test_pattern_*` (x3) | Dominios KB de patrones test |\n| `knowledge/test_results/` | Dominio KB resultados |\n| `knowledge/tests/` | Dominio KB tests |\n| `knowledge/pruebas_reales/` | Dominio KB pruebas reales |\n| `knowledge/pytest_cache/` | Dominio KB pytest cache |\n\nLos archivos `.py` de los tests se conservan (son cÃ³digo, no datos).",
-      "domain": "ML",
-      "source": "auto_save",
-      "tier": "hot",
-      "created_at": "2026-04-05T04:04:11.201344+00:00",
-      "last_access": "2026-04-05T04:04:11.201344+00:00",
-      "access_count": 0,
-      "promotion_count": 0
-    },
-    {
-      "key": "algo que mas que este en este proyecto tipo basura que no ejecute nada es decir codigo muerto o que no sirve para la necesidad de este proyecto?",
-      "value": "Todo funciona. Resumen de la limpieza:\n\n## Limpieza completada\n\n### CÃ³digo muerto eliminado (Prioridad 1)\n| Archivo | RazÃ³n |\n|---|---|\n| `core/kb_api.py` | API REST nunca integrada, MCP server la reemplaza |\n| `core/multi_agent.py` | Feature incompleta, nunca importada |\n| `hooks/motor_ia_hook_legacy.py` | VersiÃ³n vieja, `motor_ia_hook.py` es la actual |\n\n### Backups y duplicados (Prioridad 2)\n| Eliminado | RazÃ³n |\n|---|---|\n| `knowledge/backups/` | Almacenamiento muerto |\n| `knowledge/deprecated/` | Entries obsoletas |\n| `knowledge/backup_asistente/` | Sistema legacy |\n| `knowledge/backup_ia/` | Snapshot viejo |\n| `knowledge/hooks_ia_backup_20260331_22050/` | Backup de hace 3 dÃ­as |\n| `dashboard_final/`, `dashboard_v2/` | Directorios vacÃ­os |\n| `dashboard/index.html.backup` | Copia redundante |\n| `dashboard/index_pro.html` | Copia redundante |\n\n### Artefactos runtime (Prioridad 3)\n| Eliminado | RazÃ³n |\n|---|---|\n| 13 archivos `.log` en `core/` | Logs de debug/test |\n| 6 direct",
-      "domain": "Internet 10% + ML 75%",
-      "source": "auto_save",
-      "tier": "hot",
-      "created_at": "2026-04-05T04:13:13.004771+00:00",
-      "last_access": "2026-04-05T04:13:13.004771+00:00",
-      "access_count": 0,
-      "promotion_count": 0
-    },
-    {
-      "key": "si hay informacion que esta en mi disco C que no este en el KB favor de alimentarlo",
-      "value": "## Resultado de la ingesta\n\n**95 archivos** ingresados al KB desde el disco C:\n\n| CategorÃ­a | Archivos | Dominio KB |\n|---|---|---|\n| SOWs (Downloads) | 48 | `sow` |\n| Propuestas/BoM/IBM | 13 | `sow`, `bom` |\n| SAP JS internals + playbooks | 6 | `sap_js_internals` |\n| Textos Ãºtiles (IA, Prompts, BoM data) | 3 | `general`, `bom` |\n| Transcripciones FasterWhisper | 9 | `general` |\n| Personal (solar, inventario) | 2 | `personal` |\n| Calculadora Quote/Contrato | 1 | `business_rules` |\n| Docs extra (Banrural, ISR, Soporte, CapacitaciÃ³n) | 6 | `banco_banrural`, `contabilidad`, `sow`, `general` |\n| Convertidor mp4-texto | 1 | `tools` |\n| Cartas invitaciÃ³n RedHat | 6 | `general` |\n\nEl KB ahora tiene el conocimiento de tus SOWs recientes (Bantrab, BAC, Promerica, Banco de Agua, BI), los internals de SAP CRM JS, las transcripciones de reuniones, la calculadora de quotes, y documentos de clientes que antes solo estaban sueltos en Downloads.",
-      "domain": "Internet 5% + ML 85%",
-      "source": "auto_save",
-      "tier": "hot",
-      "created_at": "2026-04-05T04:17:11.486329+00:00",
-      "last_access": "2026-04-05T04:17:11.486329+00:00",
-      "access_count": 0,
-      "promotion_count": 0
-    },
-    {
-      "key": "cuanto de experiencia de pyhton hay en el KB?",
-      "value": "AquÃ­ estÃ¡ el panorama completo de experiencia Python en tu KB:\n\n## Experiencia Python en el KB\n\n**13 MB de conocimiento Python** distribuido en **48 dominios**:\n\n### Por categorÃ­a:\n\n| CategorÃ­a | Dominios principales | TamaÃ±o |\n|---|---|---|\n| **AutomatizaciÃ³n SAP/Web** | `sap_tierra` (885KB), `formfiller_ia` (592KB), `sapautomata_ia` (392KB), `sap_tierra_ia` (321KB) | ~2.6 MB |\n| **Herramientas IA propias** | `buscador_ia` (573KB), `ia_word` (576KB), `hooks_ia` (417KB), `motor_inteligente_ia` (231KB) | ~2.4 MB |\n| **Office Automation** | `outlook` (258KB), `ia_excel` (89KB), `ia_powerpoint` (49KB), `ia_correos` (70KB) | ~466 KB |\n| **Sessions/Files** | `files` (4.9MB), `sessions` (694KB), `sow` (530KB) | ~6.2 MB |\n| **Config/Infra** | `claude_config` (265KB), `editar_con_ia` (281KB), `core` (119KB) | ~1.3 MB |\n\n### Tipos de experiencia Python registrada:\n\n- **Playwright/CDP** â€” AutomatizaciÃ³n SAP CRM WebUI, selectores, iframes, SAP JS injection\n- **win32com.client** â€” COM A",
-      "domain": "Internet 5% + ML 10%",
-      "source": "auto_save",
-      "tier": "hot",
-      "created_at": "2026-04-05T04:19:16.992797+00:00",
-      "last_access": "2026-04-05T04:19:16.992797+00:00",
-      "access_count": 0,
-      "promotion_count": 0
-    },
-    {
-      "key": "busca algo masivo en el internet respecto al proyecto ia_word  y alimenta fuerte este kb",
-      "value": "**Listo. AlimentaciÃ³n masiva del KB ia_word completada.**\n\nResumen de lo que se inyectÃ³ â€” **32 entries nuevas** cubriendo:\n\n| # | Tema | Entry |\n|---|------|-------|\n| 1 | Formatting inline | `docx_inline_formatting_bold_italic_underline` |\n| 2 | Estilos | `docx_styles_paragraph_character` |\n| 3 | python-docx vs win32com | `docx_vs_win32com_comparison` |\n| 4 | Track changes | `win32com_track_changes_accept_reject` |\n| 5 | Sections/page setup | `docx_sections_page_setup_margins_orientation` |\n| 6 | Listas/bullets | `docx_lists_numbered_bullet_multilevel` |\n| 7 | Tabla de contenidos | `docx_table_of_contents_toc` |\n| 8 | Wordâ†’PDF | `docx2pdf_batch_conversion` |\n| 9 | Watermarks | `docx_watermarks_text_image` |\n| 10 | Headers/footers/pages | `docx_headers_footers_page_numbers` |\n| 11 | Find & replace | `docx_find_replace_advanced` |\n| 12 | docxtpl/Jinja2 | `docxtpl_template_engine_jinja2` |\n| 13 | Tablas avanzadas | `docx_tables_advanced_merge_borders_shading` |\n| 14 | Hyperlinks/bo",
-      "domain": "ML",
-      "source": "auto_save",
-      "tier": "hot",
-      "created_at": "2026-04-05T04:33:04.412683+00:00",
-      "last_access": "2026-04-05T04:33:04.412683+00:00",
-      "access_count": 0,
-      "promotion_count": 0
-    },
-    {
-      "key": "ahora busca temas relacionados a copiar tablas de excel y pegar en word que esten identicas que no pierdan formato, que se ajusten a la hoja del word etc etc y lo insertas en este kb",
-      "value": "**Listo.** 8 entries nuevas guardadas en ia_word sobre Excelâ†’Word. Resumen:\n\n| # | Entry | Tema |\n|---|-------|------|\n| 1 | `excel_to_word_win32com_paste_methods` | 3 mÃ©todos de pegado: PasteExcelTable, PasteSpecial, CopyPicture |\n| 2 | `excel_to_word_autofit_page_width` | AutoFitBehavior, ajustar al ancho de pÃ¡gina, columnas proporcionales |\n| 3 | `openpyxl_to_docx_table_with_formatting` | SoluciÃ³n cross-platform completa: leer Excel con openpyxl, recrear en python-docx con font, color, alignment, merge cells |\n| 4 | `excel_to_word_borders_complete` | Mapping de bordes openpyxl â†’ python-docx (thin, medium, thick, dotted, etc.) |\n| 5 | `excel_to_word_batch_multiple_sheets` | Batch: todas las hojas â†’ Word, mÃºltiples archivos â†’ un Word |\n| 6 | `excel_to_word_number_formats_preserve` | Preservar $, %, fechas â€” cell.Text en win32com, format_excel_value() en openpyxl |\n| 7 | `excel_to_word_row_height_vertical_alignment` | Alturas de fila, alineaciÃ³n vertical, padding de celd",
-      "domain": "Internet 40% + ML 50%",
-      "source": "auto_save",
-      "tier": "hot",
-      "created_at": "2026-04-05T04:38:05.954077+00:00",
-      "last_access": "2026-04-05T04:38:05.954077+00:00",
-      "access_count": 0,
-      "promotion_count": 0
-    },
-    {
-      "key": "realiza commit al repo",
-      "value": "Commit exitoso: `6db275c`\n\n**159 archivos** commiteados incluyendo:\n- CÃ³digo fuente actualizado (config, dashboard, installer, vector_kb, semantic_search, etc.)\n- 7 archivos eliminados (cÃ³digo muerto + backups)\n- KB completo con ~40 entries nuevas en ia_word + ingesta masiva de todos los dominios\n- ChromaDB actualizado\n\nLo que quedÃ³ fuera (correcto, no debe ir al repo):\n- `.claude/` y `.vscode/` (configuraciÃ³n local)\n- `core/locks/` (estado temporal)\n- `tests/test_*` (scripts de prueba ad-hoc)",
-      "domain": "ML",
-      "source": "auto_save",
-      "tier": "hot",
-      "created_at": "2026-04-05T04:40:32.906674+00:00",
-      "last_access": "2026-04-05T04:40:32.906674+00:00",
-      "access_count": 0,
-      "promotion_count": 0
-    }
-  ],
+  "hot": [],
   "warm": [
     {
       "key": "valida",
@@ -265,13 +143,178 @@
       "last_access": "2026-04-05T03:34:17.544928+00:00",
       "access_count": 0,
       "promotion_count": 0
+    },
+    {
+      "key": "el dashboard necesita alguna nueva modificacion por las actulizaciones realizadas?",
+      "value": "El dashboard `_check_hooks` busca `UserPromptSubmit` y `Stop` que es correcto. Pero NO verifica `SessionStart` ni `SessionEnd`. Y hay un detalle: los hooks commands tienen `C:\\Hooks_IA` quemado en `settings.json` â€” pero eso es la configuraciÃ³n del USUARIO, no del proyecto, asÃ­ que es esperado (el instalador lo configura por mÃ¡quina).\n\nEl dashboard estÃ¡ **bien alineado**. No necesita cambios funcionales por las actualizaciones. Todo lo que cambiÃ³ (`web_search.py` con `force`, timeout, fallback) se loguea correctamente y el dashboard ya lo lee.\n\n**Resumen: el dashboard NO necesita modificaciones.** Las actualizaciones de `web_search.py` (force mode, timeout DDG, fallback al mejor resultado) se integran transparentemente porque:\n\n1. `web_search.py` loguea \"Web search:\" que el dashboard parsea en `_parse_motor_ia_log()`\n2. `_check_hooks()` ya usa `Path.home()` (portable)\n3. Las mÃ©tricas del dashboard (Queries, Cache Hits, Vector Hits, Web Searches, Auto-Saves, Errors) cubren todo e",
+      "domain": "Internet 10% + ML 60%",
+      "source": "auto_save",
+      "tier": "warm",
+      "created_at": "2026-04-05T03:43:25.136515+00:00",
+      "last_access": "2026-04-05T03:43:25.136515+00:00",
+      "access_count": 0,
+      "promotion_count": 0
+    },
+    {
+      "key": "sera que el dashboard puede dar informacion de tokens utilizados o tokens ahorrados por la tecnica que usamos en el proyecto?",
+      "value": "Funciona perfectamente. Ya hay datos reales: **11,600 tokens ahorrados** en 10 mediciones con **77% eficiencia promedio**.\n\nLa nueva card de **Token Budget** en el dashboard muestra:\n\n| MÃ©trica | Valor actual |\n|---|---|\n| Tokens ahorrados total | 11,600 |\n| Eficiencia promedio | 77% |\n| Tokens original (prom.) | 2,892 |\n| Tokens final (prom.) | 1,732 |\n| Mediciones | 10 |\n| Barra de compresiÃ³n | ~40% reducciÃ³n visual |\n\nLos cambios fueron:\n- [server.py:476-482](dashboard/server.py#L476-L482) - nueva funciÃ³n `_check_token_budget()` que llama a `get_token_stats()`\n- [server.py:608](dashboard/server.py#L608) - se agrega al endpoint `/api/status`\n- [index.html:141-158](dashboard/index.html#L141-L158) - nueva card visual con mÃ©tricas de tokens\n- [index.html](dashboard/index.html) - JS que actualiza la card cada 5 segundos con el auto-refresh",
+      "domain": "ML",
+      "source": "auto_save",
+      "tier": "warm",
+      "created_at": "2026-04-05T03:52:01.227779+00:00",
+      "last_access": "2026-04-05T03:52:01.227779+00:00",
+      "access_count": 0,
+      "promotion_count": 0
+    },
+    {
+      "key": "algo que actualizar en el instalador y o manuales tecnicos y de usuario?",
+      "value": "Todo compila correctamente. AquÃ­ el resumen de todo lo actualizado:\n\n## Resumen de actualizaciones\n\n### 1. [setup.py](installer/setup.py) (Instalador CLI)\n| Cambio | Antes | DespuÃ©s |\n|---|---|---|\n| VersiÃ³n | `1.0.0-fusion` | `2.3.0` |\n| Hooks | `UserMessage`, `Stop`, `ToolUse` | `UserPromptSubmit`, `Stop`, `SessionStart` |\n| Scripts referenciados | `on_user_message.py`, `on_session_end.py`, `on_tool_use.py` | `motor_ia_hook.py`, `motor_ia_post_hook.py`, `session_start.py` |\n| MCP Server | No se registraba | Se registra `motor-ia` en `mcpServers` |\n| Permisos | No se configuraban | `\"allow\": [\"*\"]` automÃ¡tico |\n\n### 2. [manual_usuario.html](installer/manual_usuario.html) (Manual de Usuario)\n| Cambio | Detalle |\n|---|---|\n| VersiÃ³n sidebar | v1.0 â†’ v2.3 |\n| 3 secciones nuevas | **5. Pipeline RAG HÃ­brido**, **6. Dashboard**, **7. MCP Tools** |\n| Diagrama arquitectura | Actualizado con ChromaDB, DuckDuckGo, ML, Dashboard |\n| Tabla de dominios | Expandida + nota de 70+ dominios y ",
+      "domain": "Internet 10% + ML 60%",
+      "source": "auto_save",
+      "tier": "warm",
+      "created_at": "2026-04-05T03:59:09.338512+00:00",
+      "last_access": "2026-04-05T03:59:09.338512+00:00",
+      "access_count": 0,
+      "promotion_count": 0
+    },
+    {
+      "key": "porque el log muestra esta url muy seguido HTTP Request: GET https://huggingface.co/ap",
+      "value": "Perfecto, carga sin ningÃºn HTTP a HuggingFace.\n\n## Resumen\n\nEl log mostraba `HTTP Request: GET https://huggingface.co/...` porque **cada vez** que `SentenceTransformer(\"all-MiniLM-L6-v2\")` se inicializaba, la librerÃ­a `huggingface-hub` hacÃ­a un request HTTP para verificar si habÃ­a una versiÃ³n nueva del modelo â€” aunque ya lo tenÃ­a en cache local.\n\n**Fix aplicado** en 2 archivos:\n\n| Archivo | Cambio |\n|---|---|\n| [vector_kb.py:42-43](core/vector_kb.py#L42-L43) | `HF_HUB_OFFLINE=1` + `TRANSFORMERS_OFFLINE=1` + silenciar loggers de httpx/huggingface |\n| [semantic_search.py:41-42](core/semantic_search.py#L41-L42) | `HF_HUB_OFFLINE=1` + `TRANSFORMERS_OFFLINE=1` |\n\nAmbos tienen **fallback**: si el modelo NO estÃ¡ en cache (primera vez), remueve las variables offline y descarga normalmente. DespuÃ©s de eso, nunca mÃ¡s toca HuggingFace.",
+      "domain": "ML 80%",
+      "source": "auto_save",
+      "tier": "warm",
+      "created_at": "2026-04-05T04:01:55.152966+00:00",
+      "last_access": "2026-04-05T04:01:55.152966+00:00",
+      "access_count": 0,
+      "promotion_count": 0
+    },
+    {
+      "key": "borra todos los datos de prueba utilizados",
+      "value": "Listo. Todo borrado:\n\n| Eliminado | Tipo |\n|---|---|\n| `tests/pipeline_real_results.json` | Resultados 50 casos reales |\n| `tests/pipeline_1000_real_results.json` | Resultados 1000 casos reales |\n| `tests/mega50_results.json` | Resultados mega-50 |\n| `core/locks/kb_test_results.lock` | Lock de pruebas |\n| `.pytest_cache/` | Cache de pytest |\n| `tests/__pycache__/` | Bytecode compilado de tests |\n| `knowledge/test/` | Dominio KB de prueba |\n| `knowledge/test_mega_50/` | Dominio KB mega-50 |\n| `knowledge/test_pattern_*` (x3) | Dominios KB de patrones test |\n| `knowledge/test_results/` | Dominio KB resultados |\n| `knowledge/tests/` | Dominio KB tests |\n| `knowledge/pruebas_reales/` | Dominio KB pruebas reales |\n| `knowledge/pytest_cache/` | Dominio KB pytest cache |\n\nLos archivos `.py` de los tests se conservan (son cÃ³digo, no datos).",
+      "domain": "ML",
+      "source": "auto_save",
+      "tier": "warm",
+      "created_at": "2026-04-05T04:04:11.201344+00:00",
+      "last_access": "2026-04-05T04:04:11.201344+00:00",
+      "access_count": 0,
+      "promotion_count": 0
+    },
+    {
+      "key": "algo que mas que este en este proyecto tipo basura que no ejecute nada es decir codigo muerto o que no sirve para la necesidad de este proyecto?",
+      "value": "Todo funciona. Resumen de la limpieza:\n\n## Limpieza completada\n\n### CÃ³digo muerto eliminado (Prioridad 1)\n| Archivo | RazÃ³n |\n|---|---|\n| `core/kb_api.py` | API REST nunca integrada, MCP server la reemplaza |\n| `core/multi_agent.py` | Feature incompleta, nunca importada |\n| `hooks/motor_ia_hook_legacy.py` | VersiÃ³n vieja, `motor_ia_hook.py` es la actual |\n\n### Backups y duplicados (Prioridad 2)\n| Eliminado | RazÃ³n |\n|---|---|\n| `knowledge/backups/` | Almacenamiento muerto |\n| `knowledge/deprecated/` | Entries obsoletas |\n| `knowledge/backup_asistente/` | Sistema legacy |\n| `knowledge/backup_ia/` | Snapshot viejo |\n| `knowledge/hooks_ia_backup_20260331_22050/` | Backup de hace 3 dÃ­as |\n| `dashboard_final/`, `dashboard_v2/` | Directorios vacÃ­os |\n| `dashboard/index.html.backup` | Copia redundante |\n| `dashboard/index_pro.html` | Copia redundante |\n\n### Artefactos runtime (Prioridad 3)\n| Eliminado | RazÃ³n |\n|---|---|\n| 13 archivos `.log` en `core/` | Logs de debug/test |\n| 6 direct",
+      "domain": "Internet 10% + ML 75%",
+      "source": "auto_save",
+      "tier": "warm",
+      "created_at": "2026-04-05T04:13:13.004771+00:00",
+      "last_access": "2026-04-05T04:13:13.004771+00:00",
+      "access_count": 0,
+      "promotion_count": 0
+    },
+    {
+      "key": "si hay informacion que esta en mi disco C que no este en el KB favor de alimentarlo",
+      "value": "## Resultado de la ingesta\n\n**95 archivos** ingresados al KB desde el disco C:\n\n| CategorÃ­a | Archivos | Dominio KB |\n|---|---|---|\n| SOWs (Downloads) | 48 | `sow` |\n| Propuestas/BoM/IBM | 13 | `sow`, `bom` |\n| SAP JS internals + playbooks | 6 | `sap_js_internals` |\n| Textos Ãºtiles (IA, Prompts, BoM data) | 3 | `general`, `bom` |\n| Transcripciones FasterWhisper | 9 | `general` |\n| Personal (solar, inventario) | 2 | `personal` |\n| Calculadora Quote/Contrato | 1 | `business_rules` |\n| Docs extra (Banrural, ISR, Soporte, CapacitaciÃ³n) | 6 | `banco_banrural`, `contabilidad`, `sow`, `general` |\n| Convertidor mp4-texto | 1 | `tools` |\n| Cartas invitaciÃ³n RedHat | 6 | `general` |\n\nEl KB ahora tiene el conocimiento de tus SOWs recientes (Bantrab, BAC, Promerica, Banco de Agua, BI), los internals de SAP CRM JS, las transcripciones de reuniones, la calculadora de quotes, y documentos de clientes que antes solo estaban sueltos en Downloads.",
+      "domain": "Internet 5% + ML 85%",
+      "source": "auto_save",
+      "tier": "warm",
+      "created_at": "2026-04-05T04:17:11.486329+00:00",
+      "last_access": "2026-04-05T04:17:11.486329+00:00",
+      "access_count": 0,
+      "promotion_count": 0
+    },
+    {
+      "key": "cuanto de experiencia de pyhton hay en el KB?",
+      "value": "AquÃ­ estÃ¡ el panorama completo de experiencia Python en tu KB:\n\n## Experiencia Python en el KB\n\n**13 MB de conocimiento Python** distribuido en **48 dominios**:\n\n### Por categorÃ­a:\n\n| CategorÃ­a | Dominios principales | TamaÃ±o |\n|---|---|---|\n| **AutomatizaciÃ³n SAP/Web** | `sap_tierra` (885KB), `formfiller_ia` (592KB), `sapautomata_ia` (392KB), `sap_tierra_ia` (321KB) | ~2.6 MB |\n| **Herramientas IA propias** | `buscador_ia` (573KB), `ia_word` (576KB), `hooks_ia` (417KB), `motor_inteligente_ia` (231KB) | ~2.4 MB |\n| **Office Automation** | `outlook` (258KB), `ia_excel` (89KB), `ia_powerpoint` (49KB), `ia_correos` (70KB) | ~466 KB |\n| **Sessions/Files** | `files` (4.9MB), `sessions` (694KB), `sow` (530KB) | ~6.2 MB |\n| **Config/Infra** | `claude_config` (265KB), `editar_con_ia` (281KB), `core` (119KB) | ~1.3 MB |\n\n### Tipos de experiencia Python registrada:\n\n- **Playwright/CDP** â€” AutomatizaciÃ³n SAP CRM WebUI, selectores, iframes, SAP JS injection\n- **win32com.client** â€” COM A",
+      "domain": "Internet 5% + ML 10%",
+      "source": "auto_save",
+      "tier": "warm",
+      "created_at": "2026-04-05T04:19:16.992797+00:00",
+      "last_access": "2026-04-05T04:19:16.992797+00:00",
+      "access_count": 0,
+      "promotion_count": 0
+    },
+    {
+      "key": "busca algo masivo en el internet respecto al proyecto ia_word  y alimenta fuerte este kb",
+      "value": "**Listo. AlimentaciÃ³n masiva del KB ia_word completada.**\n\nResumen de lo que se inyectÃ³ â€” **32 entries nuevas** cubriendo:\n\n| # | Tema | Entry |\n|---|------|-------|\n| 1 | Formatting inline | `docx_inline_formatting_bold_italic_underline` |\n| 2 | Estilos | `docx_styles_paragraph_character` |\n| 3 | python-docx vs win32com | `docx_vs_win32com_comparison` |\n| 4 | Track changes | `win32com_track_changes_accept_reject` |\n| 5 | Sections/page setup | `docx_sections_page_setup_margins_orientation` |\n| 6 | Listas/bullets | `docx_lists_numbered_bullet_multilevel` |\n| 7 | Tabla de contenidos | `docx_table_of_contents_toc` |\n| 8 | Wordâ†’PDF | `docx2pdf_batch_conversion` |\n| 9 | Watermarks | `docx_watermarks_text_image` |\n| 10 | Headers/footers/pages | `docx_headers_footers_page_numbers` |\n| 11 | Find & replace | `docx_find_replace_advanced` |\n| 12 | docxtpl/Jinja2 | `docxtpl_template_engine_jinja2` |\n| 13 | Tablas avanzadas | `docx_tables_advanced_merge_borders_shading` |\n| 14 | Hyperlinks/bo",
+      "domain": "ML",
+      "source": "auto_save",
+      "tier": "warm",
+      "created_at": "2026-04-05T04:33:04.412683+00:00",
+      "last_access": "2026-04-05T04:33:04.412683+00:00",
+      "access_count": 0,
+      "promotion_count": 0
+    },
+    {
+      "key": "ahora busca temas relacionados a copiar tablas de excel y pegar en word que esten identicas que no pierdan formato, que se ajusten a la hoja del word etc etc y lo insertas en este kb",
+      "value": "**Listo.** 8 entries nuevas guardadas en ia_word sobre Excelâ†’Word. Resumen:\n\n| # | Entry | Tema |\n|---|-------|------|\n| 1 | `excel_to_word_win32com_paste_methods` | 3 mÃ©todos de pegado: PasteExcelTable, PasteSpecial, CopyPicture |\n| 2 | `excel_to_word_autofit_page_width` | AutoFitBehavior, ajustar al ancho de pÃ¡gina, columnas proporcionales |\n| 3 | `openpyxl_to_docx_table_with_formatting` | SoluciÃ³n cross-platform completa: leer Excel con openpyxl, recrear en python-docx con font, color, alignment, merge cells |\n| 4 | `excel_to_word_borders_complete` | Mapping de bordes openpyxl â†’ python-docx (thin, medium, thick, dotted, etc.) |\n| 5 | `excel_to_word_batch_multiple_sheets` | Batch: todas las hojas â†’ Word, mÃºltiples archivos â†’ un Word |\n| 6 | `excel_to_word_number_formats_preserve` | Preservar $, %, fechas â€” cell.Text en win32com, format_excel_value() en openpyxl |\n| 7 | `excel_to_word_row_height_vertical_alignment` | Alturas de fila, alineaciÃ³n vertical, padding de celd",
+      "domain": "Internet 40% + ML 50%",
+      "source": "auto_save",
+      "tier": "warm",
+      "created_at": "2026-04-05T04:38:05.954077+00:00",
+      "last_access": "2026-04-05T04:38:05.954077+00:00",
+      "access_count": 0,
+      "promotion_count": 0
+    },
+    {
+      "key": "realiza commit al repo",
+      "value": "Commit exitoso: `6db275c`\n\n**159 archivos** commiteados incluyendo:\n- CÃ³digo fuente actualizado (config, dashboard, installer, vector_kb, semantic_search, etc.)\n- 7 archivos eliminados (cÃ³digo muerto + backups)\n- KB completo con ~40 entries nuevas en ia_word + ingesta masiva de todos los dominios\n- ChromaDB actualizado\n\nLo que quedÃ³ fuera (correcto, no debe ir al repo):\n- `.claude/` y `.vscode/` (configuraciÃ³n local)\n- `core/locks/` (estado temporal)\n- `tests/test_*` (scripts de prueba ad-hoc)",
+      "domain": "ML",
+      "source": "auto_save",
+      "tier": "warm",
+      "created_at": "2026-04-05T04:40:32.906674+00:00",
+      "last_access": "2026-04-05T04:40:32.906674+00:00",
+      "access_count": 0,
+      "promotion_count": 0
+    },
+    {
+      "key": "inyecta mas de sap_tierra, formfiller_ia, sapautomata_ia ,ia_powerpoint ,ia_powerpoiny, ia_excel",
+      "value": "Listo. **23 entradas nuevas** inyectadas en total en esta sesiÃ³n. Resumen por dominio:\n\n| Dominio | Entradas previas | Nuevas | Total nuevas |\n|---|---|---|---|\n| **ia_excel** | 0 | 8 | openpyxl charts, conditional formatting, data validation, xlsxwriter reports, win32com COM, pandas export, styles/copy, filters/freeze/named ranges, batch processing |\n| **ia_powerpoint** | 2 | 3 | master slides/notes, shapes/formatting/colors, COM automation win32com |\n| **sap_tierra** | 2 | 2 | field handling/errors, navigation/CRUD workflow, products/partners/notes |\n| **sapautomata_ia** | 2 | 3 | PyRFC connection/RFC, GUI transactions/tables avanzado, recording/best practices |\n| **formfiller_ia** | 2 | 3 | form patterns por tipo, retry/recovery avanzado, validation/verification pipeline |\n\nLos 5 dominios ahora tienen cobertura amplia con cÃ³digo ejecutable y patrones reales.",
+      "domain": "ML",
+      "source": "auto_save",
+      "tier": "warm",
+      "created_at": "2026-04-05T04:56:29.074797+00:00",
+      "last_access": "2026-04-05T04:56:29.074797+00:00",
+      "access_count": 0,
+      "promotion_count": 0
+    },
+    {
+      "key": "no hay nada repetido en los kb verdad?",
+      "value": "**SÃ­ hay duplicados y basura.** AquÃ­ el diagnÃ³stico:\n\n## Estado del KB\n\n| MÃ©trica | Valor |\n|---|---|\n| Entries brutas | 10,898 |\n| Entries Ãºnicas | 9,974 |\n| **Duplicadas (eliminables)** | **924 (8.5%)** |\n| Dominios vacÃ­os | 53 |\n| Dominios test/basura | 7 |\n| Dominios con nombre largo (queries como nombre) | 19 |\n\n## Problemas principales:\n\n1. **Cross-domain duplicates** - El mismo archivo (ej: `learning_memory.py`, `knowledge_base.py`) fue ingestado en 4-6 dominios diferentes (hooks_ia, claude_config, motor_inteligente_ia, formfiller_ia, learning)\n2. **SOWs duplicados** - Los SOW de BAC aparecen en chance1, ejemplos_de_sow, banco_bac y users simultÃ¡neamente\n3. **53 dominios vacÃ­os** - Creados automÃ¡ticamente por bÃºsquedas de internet que usaron la query como nombre de dominio (ej: \"ChromaDB embedding collection search similarity threshold\")\n4. **7 dominios test** - Datos de prueba sin entries\n\nQuieres que limpie todo esto? Puedo:\n- Eliminar las 924 entries duplicadas (man",
+      "domain": "ML 60%",
+      "source": "auto_save",
+      "tier": "warm",
+      "created_at": "2026-04-05T04:59:31.948098+00:00",
+      "last_access": "2026-04-05T04:59:31.948098+00:00",
+      "access_count": 0,
+      "promotion_count": 0
+    },
+    {
+      "key": "procede",
+      "value": "Limpieza completa. Resultado:\n\n| MÃ©trica | Antes | DespuÃ©s | Eliminado |\n|---|---|---|---|\n| Dominios | 130 | **77** | -53 |\n| Entries | 10,898 | **9,974** | -924 |\n| Duplicados | 924 | **0** | -924 |\n| Dominios vacÃ­os | 53 | **0** | -53 |\n\n**QuÃ© se hizo:**\n- **53 dominios vacÃ­os eliminados** â€” incluyendo 19 con nombres-query (ej: \"ChromaDB embedding collection...\"), 7 de test, y 27 miscelÃ¡neos sin entries\n- **924 entries duplicadas eliminadas** â€” se mantuvo la copia en el dominio mÃ¡s especÃ­fico/relevante y se eliminÃ³ de dominios genÃ©ricos (chance1, users, files, temp)\n- **0 duplicados restantes** â€” KB completamente limpio",
+      "domain": "ML 70%",
+      "source": "auto_save",
+      "tier": "warm",
+      "created_at": "2026-04-05T05:00:54.968418+00:00",
+      "last_access": "2026-04-05T05:00:54.968418+00:00",
+      "access_count": 0,
+      "promotion_count": 0
+    },
+    {
+      "key": "encontraste muy poco de esto no hay mas?  Dominio\tEntradas previas\tNuevas\tTotal nuevas\nia_excel\t0\t8\topenpyxl charts, conditional formatting, data validation, xlsxwriter reports, win32com COM, pandas e",
+      "value": "Ahora sÃ­ fue masivo. Resumen completo de **todas las inyecciones** (sesiÃ³n anterior + esta sesiÃ³n):\n\n## Total inyectado por dominio\n\n| Dominio | SesiÃ³n anterior | Esta sesiÃ³n | **Total nuevas** |\n|---|---|---|---|\n| **ia_excel** | 8 | **12** | **20** |\n| **ia_powerpoint** | 3 | **5** | **8** |\n| **sap_tierra** | 2 | **5** | **7** |\n| **sapautomata_ia** | 3 | **4** | **7** |\n| **formfiller_ia** | 3 | **4** | **7** |\n\n## Temas cubiertos por dominio:\n\n**ia_excel (20 entries):** charts, conditional formatting, data validation, formulas, xlsxwriter reports/tables/charts, win32com COM (macros, pivot, export), pandas export/styling, styles copy, filters/freeze/named ranges, batch processing, comments/hyperlinks/images, performance/large files/streaming, xlsxwriter sparklines/validation/macros, number formats/dates/currencies, pandas advanced operations, workbook management\n\n**ia_powerpoint (8 entries):** master slides/notes, shapes/formatting/colors/connectors, COM automation (transicion",
+      "domain": "Internet 15% + ML 70%",
+      "source": "auto_save",
+      "tier": "warm",
+      "created_at": "2026-04-05T05:11:52.066059+00:00",
+      "last_access": "2026-04-05T05:11:52.066059+00:00",
+      "access_count": 0,
+      "promotion_count": 0
     }
   ],
   "cold": [],
-  "updated_at": "2026-04-05T04:40:32.906674+00:00",
+  "updated_at": "2026-04-05T16:47:39.290745+00:00",
   "counts": {
-    "hot": 11,
-    "warm": 13,
+    "hot": 0,
+    "warm": 28,
     "cold": 0
   }
 }

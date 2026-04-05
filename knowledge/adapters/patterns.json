@@ -2,206 +2,6 @@
   "domain": "adapters",
   "description": "Dominio auto-creado: adapters",
   "entries": {
-    "1ac9cd5e75eb": {
-      "id": "1ac9cd5e75eb",
-      "type": "fact",
-      "key": "ollama_adapter_0",
-      "fact": {
-        "rule": "\"\"\"\nollama_adapter.py — Adapter Ollama para FormFiller_IA\n=====================================================\nConecta FormFiller_IA con modelos locales servidos por Ollama.\nIncluye identify_field_selector() para identificar selectores CSS\nusando el modelo LLM local.\n\nAPI Ollama usada:\n    POST http://localhost:11434/api/chat\n    GET  http://localhost:11434/api/tags\n\nSin dependencias externas — solo stdlib (urllib).\n\"\"\"\n\nimport json\nimport sys\nimport urllib.request\nimport urllib.error\nfrom pathlib import Path\nfrom typing import Optional\n\n# Asegurar que el root del proyecto este en sys.path\n_PROJECT_ROOT = Path(__file__).resolve().parent.parent\nif str(_PROJECT_ROOT) not in sys.path:\n    sys.path.insert(0, str(_PROJECT_ROOT))\n\n",
-        "applies_to": "adapters",
-        "source": "FormFiller_IA\\adapters\\ollama_adapter.py",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "python",
-        "py"
-      ],
-      "created_at": "2026-04-04T04:30:11.656442+00:00",
-      "updated_at": "2026-04-04T04:30:11.656442+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:45.537246+00:00",
-        "access_count": 269
-      }
-    },
-    "8a10a235a0e9": {
-      "id": "8a10a235a0e9",
-      "type": "fact",
-      "key": "ollama_adapter_1",
-      "fact": {
-        "rule": "().parent.parent\nif str(_PROJECT_ROOT) not in sys.path:\n    sys.path.insert(0, str(_PROJECT_ROOT))\n\nfrom config import OLLAMA_BASE_URL, OLLAMA_MODEL, OLLAMA_TIMEOUT, OLLAMA_TEMPERATURE\nfrom adapters.base_adapter import BaseAdapter\n\nclass OllamaAdapter(BaseAdapter):\n    \"\"\"\n    Adapter para Ollama — modelos locales (Qwen3, Llama, Mistral, etc.).\n\n    Implementa BaseAdapter para consistencia con FormFiller_IA,\n    y agrega metodos de chat directo y analisis de selectores.\n    \"\"\"\n\n    def __init__(\n        self,\n        model: str = OLLAMA_MODEL,\n        base_url: str = OLLAMA_BASE_URL,\n        timeout: int = OLLAMA_TIMEOUT,\n        temperature: float = OLLAMA_TEMPERATURE,\n    ):\n        self.model = model\n        self.base_url = base_url.rstrip(\"/\")\n        self.timeout = timeout\n",
-        "applies_to": "adapters",
-        "source": "FormFiller_IA\\adapters\\ollama_adapter.py",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "python",
-        "py"
-      ],
-      "created_at": "2026-04-04T04:30:11.748996+00:00",
-      "updated_at": "2026-04-04T04:30:11.748996+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:45.537246+00:00",
-        "access_count": 147
-      }
-    },
-    "d0e2d75c8e5e": {
-      "id": "d0e2d75c8e5e",
-      "type": "fact",
-      "key": "ollama_adapter_2",
-      "fact": {
-        "rule": "     self.model = model\n        self.base_url = base_url.rstrip(\"/\")\n        self.timeout = timeout\n        self.temperature = temperature\n\n    # ── BaseAdapter interface ──────────────────────────────────\n\n    def get_name(self) -> str:\n        return f\"ollama/{self.model}\"\n\n    def is_available(self) -> bool:\n        \"\"\"Verifica que Ollama este corriendo y el modelo este instalado.\"\"\"\n        try:\n            req = urllib.request.Request(f\"{self.base_url}/api/tags\")\n            with urllib.request.urlopen(req, timeout=3) as resp:\n                data = json.loads(resp.read())\n                models = [m[\"name\"] for m in data.get(\"models\", [])]\n                return any(self.model in m or m in self.model for m in models)\n        except Exception:\n            return False\n\n",
-        "applies_to": "adapters",
-        "source": "FormFiller_IA\\adapters\\ollama_adapter.py",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "python",
-        "py"
-      ],
-      "created_at": "2026-04-04T04:30:11.838707+00:00",
-      "updated_at": "2026-04-04T04:30:11.838707+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:45.537246+00:00",
-        "access_count": 184
-      }
-    },
-    "ceb87f4a73b2": {
-      "id": "ceb87f4a73b2",
-      "type": "fact",
-      "key": "ollama_adapter_3",
-      "fact": {
-        "rule": ".model in m or m in self.model for m in models)\n        except Exception:\n            return False\n\n    def identify_field_selector(\n        self,\n        html_chunk: str,\n        field_description: str,\n    ) -> Optional[str]:\n        \"\"\"\n        Usa el modelo LLM local para identificar el selector CSS de un campo\n        dentro de un fragmento HTML.\n\n        Args:\n            html_chunk:       HTML del formulario (max ~2000 chars recomendado).\n            field_description: Descripcion del campo buscado.\n\n        Returns:\n            Selector CSS como string, o None si no puede determinarlo.\n        \"\"\"\n        # Truncar HTML si es muy largo para no saturar el contexto\n        max_html = 3000\n        if len(html_chunk) > max_html:\n            html_chunk = html_chunk[:max_html] + \"\\n... ",
-        "applies_to": "adapters",
-        "source": "FormFiller_IA\\adapters\\ollama_adapter.py",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "python",
-        "py"
-      ],
-      "created_at": "2026-04-04T04:30:11.921471+00:00",
-      "updated_at": "2026-04-04T04:30:11.921471+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:45.537246+00:00",
-        "access_count": 140
-      }
-    },
-    "6ef2f3d9d782": {
-      "id": "6ef2f3d9d782",
-      "type": "fact",
-      "key": "ollama_adapter_4",
-      "fact": {
-        "rule": "3000\n        if len(html_chunk) > max_html:\n            html_chunk = html_chunk[:max_html] + \"\\n... [truncado]\"\n\n        system_prompt = (\n            \"Eres un experto en automatizacion web. \"\n            \"Tu tarea es identificar el selector CSS mas preciso para un campo \"\n            \"de formulario dentro del HTML proporcionado. \"\n            \"Responde SOLO con el selector CSS, sin explicacion ni formato adicional. \"\n            \"Si no puedes determinarlo, responde exactamente: NONE\"\n        )\n\n        user_prompt = (\n            f\"Encuentra el selector CSS para el siguiente campo:\\n\"\n            f\"Campo buscado: {field_description}\\n\\n\"\n            f\"HTML del formulario:\\n```html\\n{html_chunk}\\n```\\n\\n\"\n            f\"Responde SOLO el selector CSS:\"\n        )\n\n        try:\n",
-        "applies_to": "adapters",
-        "source": "FormFiller_IA\\adapters\\ollama_adapter.py",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "python",
-        "py"
-      ],
-      "created_at": "2026-04-04T04:30:12.008205+00:00",
-      "updated_at": "2026-04-04T04:30:12.008205+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:34:01.290312+00:00",
-        "access_count": 128
-      }
-    },
-    "23d2ac781b57": {
-      "id": "23d2ac781b57",
-      "type": "fact",
-      "key": "ollama_adapter_5",
-      "fact": {
-        "rule": "`html\\n{html_chunk}\\n```\\n\\n\"\n            f\"Responde SOLO el selector CSS:\"\n        )\n\n        try:\n            response = self.chat(\n                messages=[\n                    {\"role\": \"system\", \"content\": system_prompt},\n                    {\"role\": \"user\", \"content\": user_prompt},\n                ],\n                stream=False,\n                temperature=0.1,  # Muy bajo para respuestas precisas\n            )\n\n            selector = response.strip().strip(\"`\").strip('\"').strip(\"'\")\n\n            if not selector or selector.upper() == \"NONE\":\n                return None\n\n            # Validacion basica: debe parecer un selector CSS\n            if any(c in selector for c in [\"#\", \".\", \"[\", \"input\", \"select\", \"textarea\",\n",
-        "applies_to": "adapters",
-        "source": "FormFiller_IA\\adapters\\ollama_adapter.py",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "python",
-        "py"
-      ],
-      "created_at": "2026-04-04T04:30:12.096312+00:00",
-      "updated_at": "2026-04-04T04:30:12.096312+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:45.537246+00:00",
-        "access_count": 104
-      }
-    },
-    "cfc30264433a": {
-      "id": "cfc30264433a",
-      "type": "fact",
-      "key": "ollama_adapter_6",
-      "fact": {
-        "rule": "lector CSS\n            if any(c in selector for c in [\"#\", \".\", \"[\", \"input\", \"select\", \"textarea\",\n                                            \"button\", \"a\", \"div\", \"span\", \"label\"]):\n                return selector\n\n            return None\n\n        except (ConnectionError, Exception):\n            return None\n\n    # ── Modelos disponibles ────────────────────────────────────\n\n    def list_models(self) -> list:\n        \"\"\"Retorna lista de modelos instalados en Ollama.\"\"\"\n        try:\n            req = urllib.request.Request(f\"{self.base_url}/api/tags\")\n            with urllib.request.urlopen(req, timeout=3) as resp:\n                data = json.loads(resp.read())\n                return [m[\"name\"] for m in data.get(\"models\", [])]\n        except Exception:\n            return []\n\n",
-        "applies_to": "adapters",
-        "source": "FormFiller_IA\\adapters\\ollama_adapter.py",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "python",
-        "py"
-      ],
-      "created_at": "2026-04-04T04:30:12.188390+00:00",
-      "updated_at": "2026-04-04T04:30:12.188390+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:45.537246+00:00",
-        "access_count": 206
-      }
-    },
-    "3d92b34859c2": {
-      "id": "3d92b34859c2",
-      "type": "fact",
-      "key": "ollama_adapter_7",
-      "fact": {
-        "rule": "return [m[\"name\"] for m in data.get(\"models\", [])]\n        except Exception:\n            return []\n\n    # ── Chat directo ───────────────────────────────────────────\n\n    def free_ram_gb(self) -> float:\n        \"\"\"Retorna GB de RAM libre (Windows). Retorna 99.0 si no puede medir.\"",
-        "applies_to": "adapters",
-        "source": "FormFiller_IA\\adapters\\ollama_adapter.py",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "python",
-        "py"
-      ],
-      "created_at": "2026-04-04T04:30:12.273671+00:00",
-      "updated_at": "2026-04-04T04:30:12.273671+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:45.537246+00:00",
-        "access_count": 96
-      }
-    },
     "25c72cea6785": {
       "id": "25c72cea6785",
       "type": "fact",
@@ -223,8 +23,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:45.537246+00:00",
-        "access_count": 204
+        "last_accessed": "2026-04-05T05:02:09.337595+00:00",
+        "access_count": 207
       }
     },
     "3984a6542d22": {
@@ -248,8 +48,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:45.537246+00:00",
-        "access_count": 189
+        "last_accessed": "2026-04-05T05:02:09.337595+00:00",
+        "access_count": 192
       }
     },
     "56992714cce5": {
@@ -273,64 +73,32 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:45.537246+00:00",
-        "access_count": 183
+        "last_accessed": "2026-04-05T05:02:09.337595+00:00",
+        "access_count": 186
       }
     }
   },
   "tag_index": {
     "python": [
-      "1ac9cd5e75eb",
-      "8a10a235a0e9",
-      "d0e2d75c8e5e",
-      "ceb87f4a73b2",
-      "6ef2f3d9d782",
-      "23d2ac781b57",
-      "cfc30264433a",
-      "3d92b34859c2",
       "25c72cea6785",
       "3984a6542d22",
       "56992714cce5",
-      "1ac9cd5e75eb",
-      "8a10a235a0e9",
-      "d0e2d75c8e5e",
-      "ceb87f4a73b2",
-      "6ef2f3d9d782",
-      "23d2ac781b57",
-      "cfc30264433a",
-      "3d92b34859c2",
       "25c72cea6785",
       "3984a6542d22",
       "56992714cce5"
     ],
     "py": [
-      "1ac9cd5e75eb",
-      "8a10a235a0e9",
-      "d0e2d75c8e5e",
-      "ceb87f4a73b2",
-      "6ef2f3d9d782",
-      "23d2ac781b57",
-      "cfc30264433a",
-      "3d92b34859c2",
       "25c72cea6785",
       "3984a6542d22",
       "56992714cce5",
-      "1ac9cd5e75eb",
-      "8a10a235a0e9",
-      "d0e2d75c8e5e",
-      "ceb87f4a73b2",
-      "6ef2f3d9d782",
-      "23d2ac781b57",
-      "cfc30264433a",
-      "3d92b34859c2",
       "25c72cea6785",
       "3984a6542d22",
       "56992714cce5"
     ]
   },
   "stats": {
-    "total_entries": 22,
-    "total_lookups": 543,
-    "total_hits": 311
+    "total_entries": 3,
+    "total_lookups": 551,
+    "total_hits": 315
   }
 }

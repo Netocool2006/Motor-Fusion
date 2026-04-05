@@ -23,8 +23,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:34:02.521084+00:00",
-        "access_count": 225
+        "last_accessed": "2026-04-05T05:26:01.201891+00:00",
+        "access_count": 226
       }
     },
     "fdf38c9617af": {
@@ -376,206 +376,6 @@
         "last_accessed": "2026-04-04T23:16:02.116627+00:00",
         "access_count": 66
       }
-    },
-    "760ce5aac7b2": {
-      "id": "760ce5aac7b2",
-      "type": "fact",
-      "key": "web_inspector_0",
-      "fact": {
-        "rule": "#!/usr/bin/env python3\n\"\"\"\n╔══════════════════════════════════════════════════════════════════╗\n║  WEB FRONTEND INSPECTOR — Auditor Visual del Frontend          ║\n║                                                                  ║\n║  Inspecciona y documenta una página web renderizada.            ║\n║  Genera: screenshot, HTML renderizado, reporte JSON completo.   ║\n║                                                                  ║\n║  Uso:                                                            ║\n║    python web_inspector.py <URL> [--output <dir>] [--timeout ms] ║\n║                                                                  ║\n║  Qué hace:                                                       ║\n║    1. Abre la página en Chromium real (Playwright)              ║\n║    2. ",
-        "applies_to": "skin_web",
-        "source": "skin_web\\web_inspector.py",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "python",
-        "py"
-      ],
-      "created_at": "2026-04-04T04:14:58.982552+00:00",
-      "updated_at": "2026-04-04T04:14:58.982552+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.380808+00:00",
-        "access_count": 93
-      }
-    },
-    "3d668b60fb90": {
-      "id": "3d668b60fb90",
-      "type": "fact",
-      "key": "web_inspector_1",
-      "fact": {
-        "rule": "                      ║\n║    1. Abre la página en Chromium real (Playwright)              ║\n║    2. Espera networkidle para capturar contenido dinámico       ║\n║    3. Toma screenshot full-page                                  ║\n║    4. Extrae HTML renderizado final (DOM post-JS)               ║\n║    5. Analiza DOM para inventariar assets públicos              ║\n║    6. Intercepta tráfico de red (first/third party)            ║\n║    7. Inspecciona estilos computados de elementos visibles      ║\n║    8. Extrae links y menús de navegación                        ║\n║    9. Guarda todo en archivos locales de referencia             ║\n║                                                                  ║\n║  Qué NO hace:                                                    ║\n",
-        "applies_to": "skin_web",
-        "source": "skin_web\\web_inspector.py",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "python",
-        "py"
-      ],
-      "created_at": "2026-04-04T04:14:59.045699+00:00",
-      "updated_at": "2026-04-04T04:14:59.045699+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.380808+00:00",
-        "access_count": 91
-      }
-    },
-    "76150c767bd3": {
-      "id": "76150c767bd3",
-      "type": "fact",
-      "key": "web_inspector_2",
-      "fact": {
-        "rule": "                             ║\n║  Qué NO hace:                                                    ║\n║    - No reconstruye componentes React/Vue/Angular               ║\n║    - No replica animaciones, hover/focus, scroll effects        ║\n║    - No genera una copia funcional del sitio                    ║\n║    - No copia backend ni genera código fuente                   ║\n╚══════════════════════════════════════════════════════════════════╝\n\"\"\"\n\nimport argparse\nimport json\nimport os\nimport sys\nimport time\nimport re\nfrom datetime import datetime, timezone\nfrom urllib.parse import urlparse, urljoin\n\nfrom playwright.sync_api import sync_playwright\nfrom bs4 import BeautifulSoup\n\n# ─────────────────────────────────────────────────────────────\n# UTILIDADES\n",
-        "applies_to": "skin_web",
-        "source": "skin_web\\web_inspector.py",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "python",
-        "py"
-      ],
-      "created_at": "2026-04-04T04:14:59.096792+00:00",
-      "updated_at": "2026-04-04T04:14:59.096792+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.380808+00:00",
-        "access_count": 119
-      }
-    },
-    "e34c3a0e60d8": {
-      "id": "e34c3a0e60d8",
-      "type": "fact",
-      "key": "web_inspector_3",
-      "fact": {
-        "rule": " import BeautifulSoup\n\n# ─────────────────────────────────────────────────────────────\n# UTILIDADES\n# ─────────────────────────────────────────────────────────────\n\ndef normalize_url(url: str) -> str:\n    \"\"\"Asegura que la URL tenga esquema.\"\"\"\n    if not url.startswith((\"http://\", \"https://\")):\n        url = \"https://\" + url\n    return url\n\ndef get_domain(url: str) -> str:\n    \"\"\"Extrae el dominio base (sin www).\"\"\"\n    parsed = urlparse(url)\n    domain = parsed.netloc.lower()\n    if domain.startswith(\"www.\"):\n        domain = domain[4:]\n    return domain\n\ndef classify_resource_url(resource_url: str, page_domain: str) -> str:\n    \"\"\"Clasifica un recurso como first-party o third-party.\"\"\"\n    res_domain = get_domain(resource_url)\n    if not res_domain:\n        return \"first-party\"\n",
-        "applies_to": "skin_web",
-        "source": "skin_web\\web_inspector.py",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "python",
-        "py"
-      ],
-      "created_at": "2026-04-04T04:14:59.279051+00:00",
-      "updated_at": "2026-04-04T04:14:59.279051+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.380808+00:00",
-        "access_count": 147
-      }
-    },
-    "2f77091779b9": {
-      "id": "2f77091779b9",
-      "type": "fact",
-      "key": "web_inspector_4",
-      "fact": {
-        "rule": "y.\"\"\"\n    res_domain = get_domain(resource_url)\n    if not res_domain:\n        return \"first-party\"\n    # Comparar dominio raíz\n    page_root = \".\".join(page_domain.split(\".\")[-2:])\n    res_root = \".\".join(res_domain.split(\".\")[-2:])\n    return \"first-party\" if res_root == page_root else \"third-party\"\n\ndef safe_filename(url: str) -> str:\n    \"\"\"Genera un nombre seguro para carpeta basado en la URL.\"\"\"\n    parsed = urlparse(url)\n    name = parsed.netloc.replace(\".\", \"_\")\n    path_part = parsed.path.strip(\"/\").replace(\"/\", \"_\")\n    if path_part:\n        name += f\"_{path_part}\"\n    # Limpiar caracteres problemáticos\n    name = re.sub(r'[^\\w\\-]', '_', name)\n    return name[:80]\n\n# ─────────────────────────────────────────────────────────────\n# EXTRACCIÓN DE ASSETS DEL DOM\n",
-        "applies_to": "skin_web",
-        "source": "skin_web\\web_inspector.py",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "python",
-        "py"
-      ],
-      "created_at": "2026-04-04T04:14:59.350306+00:00",
-      "updated_at": "2026-04-04T04:14:59.350306+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.380808+00:00",
-        "access_count": 89
-      }
-    },
-    "7e994d0d0439": {
-      "id": "7e994d0d0439",
-      "type": "fact",
-      "key": "web_inspector_5",
-      "fact": {
-        "rule": "80]\n\n# ─────────────────────────────────────────────────────────────\n# EXTRACCIÓN DE ASSETS DEL DOM\n# ─────────────────────────────────────────────────────────────\n\ndef extract_dom_assets(html: str, base_url: str) -> dict:\n    \"\"\"Analiza el DOM renderizado y extrae inventario de assets públicos.\"\"\"\n    soup = BeautifulSoup(html, \"html.parser\")\n    page_domain = get_domain(base_url)\n    assets = {\n        \"stylesheets\": [],\n        \"scripts\": [],\n        \"images\": [],\n        \"fonts\": [],\n        \"links\": [],\n        \"meta_tags\": [],\n        \"favicon\": None,\n    }\n\n    # --- CSS ---\n    for tag in soup.find_all(\"link\", rel=lambda r: r and \"stylesheet\" in r):\n        href = tag.get(\"href\", \"\")\n        if href:\n            full_url = urljoin(base_url, href)\n",
-        "applies_to": "skin_web",
-        "source": "skin_web\\web_inspector.py",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "python",
-        "py"
-      ],
-      "created_at": "2026-04-04T04:14:59.429528+00:00",
-      "updated_at": "2026-04-04T04:14:59.429528+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.380808+00:00",
-        "access_count": 146
-      }
-    },
-    "2dc8f20a27f2": {
-      "id": "2dc8f20a27f2",
-      "type": "fact",
-      "key": "web_inspector_6",
-      "fact": {
-        "rule": "\n        href = tag.get(\"href\", \"\")\n        if href:\n            full_url = urljoin(base_url, href)\n            assets[\"stylesheets\"].append({\n                \"url\": full_url,\n                \"party\": classify_resource_url(full_url, page_domain),\n                \"media\": tag.get(\"media\", \"all\"),\n            })\n\n    # --- Inline <style> count ---\n    inline_styles = soup.find_all(\"style\")\n    assets[\"inline_style_blocks\"] = len(inline_styles)\n\n    # --- JS ---\n    for tag in soup.find_all(\"script\"):\n        src = tag.get(\"src\", \"\")\n        if src:\n            full_url = urljoin(base_url, src)\n            assets[\"scripts\"].append({\n                \"url\": full_url,\n                \"party\": classify_resource_url(full_url, page_domain),\n                \"async\": tag.has_attr(\"async\"),\n",
-        "applies_to": "skin_web",
-        "source": "skin_web\\web_inspector.py",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "python",
-        "py"
-      ],
-      "created_at": "2026-04-04T04:14:59.521264+00:00",
-      "updated_at": "2026-04-04T04:14:59.521264+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.380808+00:00",
-        "access_count": 88
-      }
-    },
-    "0aa2a06d19e0": {
-      "id": "0aa2a06d19e0",
-      "type": "fact",
-      "key": "web_inspector_7",
-      "fact": {
-        "rule": "rty\": classify_resource_url(full_url, page_domain),\n                \"async\": tag.has_attr(\"async\"),\n                \"defer\": tag.has_attr(\"defer\"),\n                \"type\": tag.get(\"type\", \"\"),\n            })\n    assets[\"inline_script_blocks\"] = len(",
-        "applies_to": "skin_web",
-        "source": "skin_web\\web_inspector.py",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "python",
-        "py"
-      ],
-      "created_at": "2026-04-04T04:14:59.572105+00:00",
-      "updated_at": "2026-04-04T04:14:59.572105+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.380808+00:00",
-        "access_count": 71
-      }
     }
   },
   "tag_index": {
@@ -614,31 +414,11 @@
       "67d88c7c0f85",
       "0e108b17dbec",
       "0e108b17dbec"
-    ],
-    "python": [
-      "760ce5aac7b2",
-      "3d668b60fb90",
-      "76150c767bd3",
-      "e34c3a0e60d8",
-      "2f77091779b9",
-      "7e994d0d0439",
-      "2dc8f20a27f2",
-      "0aa2a06d19e0"
-    ],
-    "py": [
-      "760ce5aac7b2",
-      "3d668b60fb90",
-      "76150c767bd3",
-      "e34c3a0e60d8",
-      "2f77091779b9",
-      "7e994d0d0439",
-      "2dc8f20a27f2",
-      "0aa2a06d19e0"
     ]
   },
   "stats": {
-    "total_entries": 23,
-    "total_lookups": 543,
-    "total_hits": 396
+    "total_entries": 15,
+    "total_lookups": 551,
+    "total_hits": 398
   }
 }

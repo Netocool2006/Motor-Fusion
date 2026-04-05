@@ -2,606 +2,6 @@
   "domain": "learning",
   "description": "Dominio auto-creado: learning",
   "entries": {
-    "c94adf5b4a0a": {
-      "id": "c94adf5b4a0a",
-      "type": "fact",
-      "key": "learning_memory_0",
-      "fact": {
-        "rule": "\"\"\"\nlearning_memory.py — Motor de Memoria Adaptativa para FormFiller_IA\n===================================================================\nSistema de aprendizaje incremental local que registra:\n- Patrones de interaccion exitosos (selectores, estrategias de llenado)\n- Errores encontrados y sus soluciones\n- Contexto de ejecucion\n\nFlujo: intentar -> fallar -> corregir -> registrar -> reutilizar\n\"\"\"\n\nimport json\nimport re\nimport hashlib\nimport sys\nimport time\nfrom datetime import datetime, timezone\nfrom pathlib import Path\nfrom typing import Optional\n\n# Asegurar que el root del proyecto este en sys.path\n_PROJECT_ROOT = Path(__file__).resolve().parent.parent\nif str(_PROJECT_ROOT) not in sys.path:\n    sys.path.insert(0, str(_PROJECT_ROOT))\n\nfrom config import (\n",
-        "applies_to": "learning",
-        "source": "FormFiller_IA\\learning\\learning_memory.py",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "python",
-        "py"
-      ],
-      "created_at": "2026-04-04T04:30:30.301794+00:00",
-      "updated_at": "2026-04-04T04:30:30.301794+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:45.743038+00:00",
-        "access_count": 206
-      }
-    },
-    "2b278ae4b277": {
-      "id": "2b278ae4b277",
-      "type": "fact",
-      "key": "learning_memory_1",
-      "fact": {
-        "rule": "tr(_PROJECT_ROOT) not in sys.path:\n    sys.path.insert(0, str(_PROJECT_ROOT))\n\nfrom config import (\n    MEMORY_FILE, ATTEMPTS_FILE, LOG_FILE,\n)\nfrom core.file_lock import file_lock\n\nCONFIDENCE_THRESHOLD  = 0.6\nERROR_FIX_WINDOW_SECS = 600   # 10 min para correlacionar error -> fix\nMAX_PENDING_ERRORS    = 15\n\nERROR_PATTERNS = [\n    r\"Traceback \\(most recent call last\\)\",\n    r\"Error:|ERROR:|Exception:\",\n    r\"ModuleNotFoundError|ImportError|FileNotFoundError\",\n    r\"Permission denied|command not found\",\n    r\"exit code [1-9]\",\n    r\"No such file or directory\",\n    r\"SyntaxError|TypeError|ValueError|KeyError|AttributeError\",\n    r\"FAILED|FAIL|fatal:\",\n    r\"Cannot|cannot|Could not|could not\",\n    r\"refused|denied|timeout|timed out\",\n    r\"element not found|selector .* not found\",\n",
-        "applies_to": "learning",
-        "source": "FormFiller_IA\\learning\\learning_memory.py",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "python",
-        "py"
-      ],
-      "created_at": "2026-04-04T04:30:30.365549+00:00",
-      "updated_at": "2026-04-04T04:30:30.365549+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:45.743038+00:00",
-        "access_count": 213
-      }
-    },
-    "8d6343a8053b": {
-      "id": "8d6343a8053b",
-      "type": "fact",
-      "key": "learning_memory_2",
-      "fact": {
-        "rule": "ould not\",\n    r\"refused|denied|timeout|timed out\",\n    r\"element not found|selector .* not found\",\n    r\"stale element|detached|frame .* not found\",\n]\n\nSUCCESS_PATTERNS = [\n    r\"exit code 0\",\n    r\"OK|completado|exitosa|correcto|successfully\",\n    r\"Running on http://\",\n    r\"created|installed|updated|saved|done\",\n    r\"\\d+ (?:files?|archivos?|rows?|items?|results?)\",\n    r\"field filled|form submitted|value set\",\n]\n\ndef _ensure_dirs():\n    MEMORY_FILE.parent.mkdir(parents=True, exist_ok=True)\n\ndef _load_memory() -> dict:\n    \"\"\"Carga la base de patrones aprendidos (con lock).\"\"\"\n    _ensure_dirs()\n    with file_lock(\"learned_patterns\"):\n        if MEMORY_FILE.exists():\n            with open(MEMORY_FILE, \"r\", encoding=\"utf-8\") as f:\n                return json.load(f)\n    return {\n",
-        "applies_to": "learning",
-        "source": "FormFiller_IA\\learning\\learning_memory.py",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "python",
-        "py"
-      ],
-      "created_at": "2026-04-04T04:30:30.438183+00:00",
-      "updated_at": "2026-04-04T04:30:30.438183+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:45.743038+00:00",
-        "access_count": 153
-      }
-    },
-    "c01960280df1": {
-      "id": "c01960280df1",
-      "type": "fact",
-      "key": "learning_memory_3",
-      "fact": {
-        "rule": "ith open(MEMORY_FILE, \"r\", encoding=\"utf-8\") as f:\n                return json.load(f)\n    return {\n        \"version\": \"1.0\",\n        \"patterns\": {},\n        \"tag_index\": {},\n        \"stats\": {\n            \"total_patterns\": 0,\n            \"total_reuses\": 0,\n            \"total_ai_calls_saved\": 0,\n        },\n    }\n\ndef _atomic_replace(tmp_path, dest_path):\n    \"\"\"Replace atomico cross-platform. Fallback para WinError 5 (archivo bloqueado).\"\"\"\n    try:\n        tmp_path.replace(dest_path)\n    except OSError:\n        import shutil\n        try:\n            shutil.copy2(str(tmp_path), str(dest_path))\n        except Exception:\n            dest_path.write_text(tmp_path.read_text(encoding=\"utf-8\"), encoding=\"utf-8\")\n        finally:\n            try:\n                tmp_path.unlink(missing_ok=True)\n",
-        "applies_to": "learning",
-        "source": "FormFiller_IA\\learning\\learning_memory.py",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "python",
-        "py"
-      ],
-      "created_at": "2026-04-04T04:30:30.523650+00:00",
-      "updated_at": "2026-04-04T04:30:30.523650+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:45.743038+00:00",
-        "access_count": 201
-      }
-    },
-    "c8ebc2d68250": {
-      "id": "c8ebc2d68250",
-      "type": "fact",
-      "key": "learning_memory_4",
-      "fact": {
-        "rule": "ncoding=\"utf-8\")\n        finally:\n            try:\n                tmp_path.unlink(missing_ok=True)\n            except Exception:\n                pass\n\ndef _save_memory(mem: dict):\n    _ensure_dirs()\n    with file_lock(\"learned_patterns\"):\n        tmp = MEMORY_FILE.with_suffix(\".tmp\")\n        with open(tmp, \"w\", encoding=\"utf-8\") as f:\n            json.dump(mem, f, indent=2, ensure_ascii=False)\n        _atomic_replace(tmp, MEMORY_FILE)\n\ndef _pattern_id(task_type: str, context_key: str) -> str:\n    raw = f\"{task_type}::{context_key}\"\n    return hashlib.sha256(raw.encode()).hexdigest()[:12]\n\ndef _normalize_key(text: str) -> str:\n    \"\"\"Normaliza un comando/tarea para matching.\"\"\"\n    t = text.strip().lower()\n    t = re.sub(r'[\"\\'].*?[\"\\']', '\"\"', t)\n    t = re.sub(r'\\b\\d+\\b', 'N', t)\n",
-        "applies_to": "learning",
-        "source": "FormFiller_IA\\learning\\learning_memory.py",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "python",
-        "py"
-      ],
-      "created_at": "2026-04-04T04:30:30.593118+00:00",
-      "updated_at": "2026-04-04T04:30:30.593118+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:45.743038+00:00",
-        "access_count": 185
-      }
-    },
-    "162430a4808b": {
-      "id": "162430a4808b",
-      "type": "fact",
-      "key": "learning_memory_5",
-      "fact": {
-        "rule": "= text.strip().lower()\n    t = re.sub(r'[\"\\'].*?[\"\\']', '\"\"', t)\n    t = re.sub(r'\\b\\d+\\b', 'N', t)\n    t = re.sub(r'[/\\\\]\\S+', '/PATH', t)\n    t = re.sub(r'\\s+', ' ', t)\n    return t.strip()\n\ndef _similarity(a: str, b: str) -> float:\n    \"\"\"Similitud Jaccard sobre bigramas. Rapido y sin dependencias.\"\"\"\n    def bigrams(s):\n        return set(s[i:i+2] for i in range(len(s) - 1))\n    ba, bb = bigrams(a), bigrams(b)\n    if not ba and not bb:\n        return 1.0\n    if not ba or not bb:\n        return 0.0\n    return len(ba & bb) / len(ba | bb)\n\ndef _append_log(entry: dict):\n    _ensure_dirs()\n    entry[\"timestamp\"] = datetime.now(timezone.utc).isoformat()\n    with open(LOG_FILE, \"a\", encoding=\"utf-8\") as f:\n        f.write(json.dumps(entry, ensure_ascii=False) + \"\\n\")\n\n",
-        "applies_to": "learning",
-        "source": "FormFiller_IA\\learning\\learning_memory.py",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "python",
-        "py"
-      ],
-      "created_at": "2026-04-04T04:30:30.665411+00:00",
-      "updated_at": "2026-04-04T04:30:30.665411+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:45.743038+00:00",
-        "access_count": 165
-      }
-    },
-    "6de4455ca0d2": {
-      "id": "6de4455ca0d2",
-      "type": "fact",
-      "key": "learning_memory_6",
-      "fact": {
-        "rule": "G_FILE, \"a\", encoding=\"utf-8\") as f:\n        f.write(json.dumps(entry, ensure_ascii=False) + \"\\n\")\n\n# ── API Publica ────────────────────────────────────────────────\n\ndef search_pattern(\n    task_type: str,\n    context_key: str,\n    tags: Optional[list] = None,\n) -> Optional[dict]:\n    \"\"\"\n    Busca un patron aprendido que coincida con la tarea actual.\n\n    Returns:\n        PatternEntry si encuentra match, None si es territorio nuevo.\n    \"\"\"\n    mem = _load_memory()\n    pid = _pattern_id(task_type, context_key)\n\n    # 1) Busqueda exacta por ID\n    if pid in mem[\"patterns\"]:\n        pattern = mem[\"patterns\"][pid]\n        pattern[\"stats\"][\"lookups\"] += 1\n        pattern[\"stats\"][\"last_lookup\"] = datetime.now(timezone.utc).isoformat()\n        _save_memory(mem)\n        _append_log({\n",
-        "applies_to": "learning",
-        "source": "FormFiller_IA\\learning\\learning_memory.py",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "python",
-        "py"
-      ],
-      "created_at": "2026-04-04T04:30:30.742546+00:00",
-      "updated_at": "2026-04-04T04:30:30.742546+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:45.743038+00:00",
-        "access_count": 226
-      }
-    },
-    "92e27a48f333": {
-      "id": "92e27a48f333",
-      "type": "fact",
-      "key": "learning_memory_7",
-      "fact": {
-        "rule": "t_lookup\"] = datetime.now(timezone.utc).isoformat()\n        _save_memory(mem)\n        _append_log({\n            \"event\": \"pattern_hit\",\n            \"pattern_id\": pid,\n            \"task",
-        "applies_to": "learning",
-        "source": "FormFiller_IA\\learning\\learning_memory.py",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "python",
-        "py"
-      ],
-      "created_at": "2026-04-04T04:30:30.798286+00:00",
-      "updated_at": "2026-04-04T04:30:30.798286+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:45.743038+00:00",
-        "access_count": 110
-      }
-    },
-    "794ccd81acd2": {
-      "id": "794ccd81acd2",
-      "type": "fact",
-      "key": "knowledge_base_0",
-      "fact": {
-        "rule": "\"\"\"\nknowledge_base.py — Base de Conocimiento Multi-Dominio para FormFiller_IA\n=========================================================================\nSistema de conocimiento local con dominios dinamicos.\nNo hay dominios hardcodeados — todos se crean automaticamente.\n\nEstructura en disco:\n    ~/.formfiller_ia/\n        knowledge/\n            <dominio>/patterns.json   o facts.json\n            domains.json              <- registro de dominios conocidos\n        execution_log.jsonl           <- log global\n\nAPI publica:\n    add_pattern(domain, key, solution, tags, error_context) -> str\n    add_fact(domain, key, fact, tags) -> str\n    search(domain, key, tags, text_query) -> list[dict]\n    cross_domain_search(tags, text_query, domains) -> dict[str, list]\n",
-        "applies_to": "learning",
-        "source": "FormFiller_IA\\learning\\knowledge_base.py",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "python",
-        "py"
-      ],
-      "created_at": "2026-04-04T04:30:30.874034+00:00",
-      "updated_at": "2026-04-04T04:30:30.874034+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:45.743038+00:00",
-        "access_count": 218
-      }
-    },
-    "50056d5a7690": {
-      "id": "50056d5a7690",
-      "type": "fact",
-      "key": "knowledge_base_1",
-      "fact": {
-        "rule": "gs, text_query) -> list[dict]\n    cross_domain_search(tags, text_query, domains) -> dict[str, list]\n    export_context(domain, tags, text_query, limit) -> str\n    get_global_stats() -> dict\n    list_domains() -> list[str]\n    _load_all_domains() -> dict\n    _ensure_domain(name, description) -> dict\n\"\"\"\n\nimport json\nimport hashlib\nimport math\nimport re\nimport sys\nimport time\nfrom datetime import datetime, timezone\nfrom pathlib import Path\nfrom typing import Optional\n\n# Asegurar que el root del proyecto este en sys.path\n_PROJECT_ROOT = Path(__file__).resolve().parent.parent\nif str(_PROJECT_ROOT) not in sys.path:\n    sys.path.insert(0, str(_PROJECT_ROOT))\n\n# ── Configuracion (desde config central) ──────────────────────\nfrom config import (\n    KNOWLEDGE_DIR, LOG_FILE, DOMAINS_FILE\n)\n",
-        "applies_to": "learning",
-        "source": "FormFiller_IA\\learning\\knowledge_base.py",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "python",
-        "py"
-      ],
-      "created_at": "2026-04-04T04:30:30.936929+00:00",
-      "updated_at": "2026-04-04T04:30:30.936929+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:45.743038+00:00",
-        "access_count": 203
-      }
-    },
-    "44269f76268c": {
-      "id": "44269f76268c",
-      "type": "fact",
-      "key": "knowledge_base_2",
-      "fact": {
-        "rule": "ig central) ──────────────────────\nfrom config import (\n    KNOWLEDGE_DIR, LOG_FILE, DOMAINS_FILE\n)\nfrom core.file_lock import file_lock\n\n# Dominios: completamente dinamicos (vacio al inicio)\nDOMAINS: dict = {}\n\n# ══════════════════════════════════════════════════════════════\n#  GESTION DE DOMINIOS DINAMICOS\n# ══════════════════════════════════════════════════════════════\n\ndef _load_all_domains() -> dict:\n    \"\"\"Devuelve todos los dominios conocidos desde disco (domains.json).\"\"\"\n    all_domains = dict(DOMAINS)\n    if DOMAINS_FILE.exists():\n        try:\n            extra = json.loads(DOMAINS_FILE.read_text(encoding=\"utf-8\"))\n            all_domains.update(extra)\n        except Exception:\n            pass\n    return all_domains\n\ndef _ensure_domain(name: str, description: str = \"\") -> dict:\n",
-        "applies_to": "learning",
-        "source": "FormFiller_IA\\learning\\knowledge_base.py",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "python",
-        "py"
-      ],
-      "created_at": "2026-04-04T04:30:30.998684+00:00",
-      "updated_at": "2026-04-04T04:30:30.998684+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:45.743038+00:00",
-        "access_count": 118
-      }
-    },
-    "4596ca09fc2f": {
-      "id": "4596ca09fc2f",
-      "type": "fact",
-      "key": "knowledge_base_3",
-      "fact": {
-        "rule": "         pass\n    return all_domains\n\ndef _ensure_domain(name: str, description: str = \"\") -> dict:\n    \"\"\"\n    Garantiza que el dominio existe en disco.\n    Si no existe, lo crea automaticamente.\n    Retorna el dict completo de todos los dominios.\n    \"\"\"\n    all_domains = _load_all_domains()\n    if name not in all_domains:\n        new_entry = {\n            \"description\": description or f\"Dominio auto-creado: {name}\",\n            \"file\": \"patterns.json\",\n            \"entry_type\": \"pattern\",\n            \"auto_created\": True,\n        }\n        KNOWLEDGE_DIR.mkdir(parents=True, exist_ok=True)\n        current_extra = {}\n        if DOMAINS_FILE.exists():\n            try:\n                current_extra = json.loads(DOMAINS_FILE.read_text(encoding=\"utf-8\"))\n            except Exception:\n",
-        "applies_to": "learning",
-        "source": "FormFiller_IA\\learning\\knowledge_base.py",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "python",
-        "py"
-      ],
-      "created_at": "2026-04-04T04:30:31.063707+00:00",
-      "updated_at": "2026-04-04T04:30:31.063707+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:45.743038+00:00",
-        "access_count": 187
-      }
-    },
-    "c378ac433688": {
-      "id": "c378ac433688",
-      "type": "fact",
-      "key": "knowledge_base_4",
-      "fact": {
-        "rule": " current_extra = json.loads(DOMAINS_FILE.read_text(encoding=\"utf-8\"))\n            except Exception:\n                pass\n        current_extra[name] = new_entry\n        DOMAINS_FILE.write_text(\n            json.dumps(current_extra, indent=2, ensure_ascii=False),\n            encoding=\"utf-8\"\n        )\n        all_domains[name] = new_entry\n        _append_log({\"event\": \"domain_created\", \"domain\": name,\n                     \"description\": new_entry[\"description\"]})\n\n    (KNOWLEDGE_DIR / name).mkdir(parents=True, exist_ok=True)\n    return all_domains\n\ndef _ensure_dirs():\n    \"\"\"Crea directorios para todos los dominios conocidos.\"\"\"\n    for domain in _load_all_domains():\n        (KNOWLEDGE_DIR / domain).mkdir(parents=True, exist_ok=True)\n\ndef list_domains() -> list:\n",
-        "applies_to": "learning",
-        "source": "FormFiller_IA\\learning\\knowledge_base.py",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "python",
-        "py"
-      ],
-      "created_at": "2026-04-04T04:30:31.127379+00:00",
-      "updated_at": "2026-04-04T04:30:31.127379+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:45.743038+00:00",
-        "access_count": 118
-      }
-    },
-    "539033a03f28": {
-      "id": "539033a03f28",
-      "type": "fact",
-      "key": "knowledge_base_5",
-      "fact": {
-        "rule": "):\n        (KNOWLEDGE_DIR / domain).mkdir(parents=True, exist_ok=True)\n\ndef list_domains() -> list:\n    \"\"\"Retorna la lista de dominios conocidos (dinamicos).\"\"\"\n    return list(_load_all_domains().keys())\n\n# ══════════════════════════════════════════════════════════════\n#  ACCESO A ARCHIVOS DE DOMINIO\n# ══════════════════════════════════════════════════════════════\n\ndef _domain_path(domain: str) -> Path:\n    \"\"\"Ruta del archivo de datos del dominio. Crea el dominio si no existe.\"\"\"\n    all_domains = _ensure_domain(domain)\n    return KNOWLEDGE_DIR / domain / all_domains[domain][\"file\"]\n\ndef _load_domain(domain: str) -> dict:\n    all_domains = _ensure_domain(domain)\n    path = _domain_path(domain)\n    with file_lock(f\"kb_{domain}\"):\n        if path.exists():\n",
-        "applies_to": "learning",
-        "source": "FormFiller_IA\\learning\\knowledge_base.py",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "python",
-        "py"
-      ],
-      "created_at": "2026-04-04T04:30:31.192578+00:00",
-      "updated_at": "2026-04-04T04:30:31.192578+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:45.743038+00:00",
-        "access_count": 100
-      }
-    },
-    "e131c8d80fff": {
-      "id": "e131c8d80fff",
-      "type": "fact",
-      "key": "knowledge_base_6",
-      "fact": {
-        "rule": "main)\n    path = _domain_path(domain)\n    with file_lock(f\"kb_{domain}\"):\n        if path.exists():\n            with open(path, \"r\", encoding=\"utf-8\") as f:\n                return json.load(f)\n    return {\n        \"domain\": domain,\n        \"description\": all_domains[domain][\"description\"],\n        \"entries\": {},\n        \"tag_index\": {},\n        \"stats\": {\"total_entries\": 0, \"total_lookups\": 0, \"total_hits\": 0},\n    }\n\ndef _save_domain(domain: str, data: dict):\n    _ensure_dirs()\n    path = _domain_path(domain)\n    with file_lock(f\"kb_{domain}\"):\n        tmp = path.with_suffix(\".tmp\")\n        with open(tmp, \"w\", encoding=\"utf-8\") as f:\n            json.dump(data, f, indent=2, ensure_ascii=False)\n        # Retry para WinError 5 (Access Denied en rename atomico en Windows)\n",
-        "applies_to": "learning",
-        "source": "FormFiller_IA\\learning\\knowledge_base.py",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "python",
-        "py"
-      ],
-      "created_at": "2026-04-04T04:30:31.255478+00:00",
-      "updated_at": "2026-04-04T04:30:31.255478+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:45.743038+00:00",
-        "access_count": 113
-      }
-    },
-    "beedb2e79612": {
-      "id": "beedb2e79612",
-      "type": "fact",
-      "key": "knowledge_base_7",
-      "fact": {
-        "rule": "2, ensure_ascii=False)\n        # Retry para WinError 5 (Access Denied en rename atomico en Windows)\n        for _attempt in range(5):\n            try:\n                tmp.replace(path)\n                break\n            except OSEr",
-        "applies_to": "learning",
-        "source": "FormFiller_IA\\learning\\knowledge_base.py",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "python",
-        "py"
-      ],
-      "created_at": "2026-04-04T04:30:31.321752+00:00",
-      "updated_at": "2026-04-04T04:30:31.321752+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:45.743038+00:00",
-        "access_count": 91
-      }
-    },
-    "56fb681a800f": {
-      "id": "56fb681a800f",
-      "type": "fact",
-      "key": "session_log_0",
-      "fact": {
-        "rule": "\"\"\"\nsession_log.py — Log de Sesiones para FormFiller_IA\n====================================================\nRegistra sesiones de llenado de formularios con acciones detalladas.\nCada sesion se almacena como un archivo JSONL en SESSIONS_DIR.\n\nAPI publica:\n    start_session(form_name, url) -> str (UUID session_id)\n    log_action(session_id, action, field, strategy, success, duration_ms, details)\n    end_session(session_id, summary)\n    get_session(session_id) -> dict\n    get_recent_sessions(limit) -> list\n    get_success_rate(form_name) -> dict\n\"\"\"\n\nimport json\nimport sys\nimport uuid\nfrom datetime import datetime, timezone\nfrom pathlib import Path\nfrom typing import Optional\n\n# Asegurar que el root del proyecto este en sys.path\n_PROJECT_ROOT = Path(__file__).resolve().parent.parent\n",
-        "applies_to": "learning",
-        "source": "FormFiller_IA\\learning\\session_log.py",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "python",
-        "py"
-      ],
-      "created_at": "2026-04-04T04:30:31.392323+00:00",
-      "updated_at": "2026-04-04T04:30:31.392323+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:45.743038+00:00",
-        "access_count": 205
-      }
-    },
-    "f07d57a8b629": {
-      "id": "f07d57a8b629",
-      "type": "fact",
-      "key": "session_log_1",
-      "fact": {
-        "rule": "ar que el root del proyecto este en sys.path\n_PROJECT_ROOT = Path(__file__).resolve().parent.parent\nif str(_PROJECT_ROOT) not in sys.path:\n    sys.path.insert(0, str(_PROJECT_ROOT))\n\nfrom config import SESSIONS_DIR\n\ndef _ensure_dirs():\n    SESSIONS_DIR.mkdir(parents=True, exist_ok=True)\n\ndef _session_file(session_id: str) -> Path:\n    return SESSIONS_DIR / f\"{session_id}.jsonl\"\n\ndef _index_file() -> Path:\n    return SESSIONS_DIR / \"_index.json\"\n\ndef _load_index() -> dict:\n    idx_path = _index_file()\n    if idx_path.exists():\n        try:\n            return json.loads(idx_path.read_text(encoding=\"utf-8\"))\n        except (json.JSONDecodeError, OSError):\n            pass\n    return {\"sessions\": []}\n\ndef _save_index(index: dict):\n    _ensure_dirs()\n    idx_path = _index_file()\n",
-        "applies_to": "learning",
-        "source": "FormFiller_IA\\learning\\session_log.py",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "python",
-        "py"
-      ],
-      "created_at": "2026-04-04T04:30:31.461354+00:00",
-      "updated_at": "2026-04-04T04:30:31.461354+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:45.743038+00:00",
-        "access_count": 193
-      }
-    },
-    "efcca826e387": {
-      "id": "efcca826e387",
-      "type": "fact",
-      "key": "session_log_2",
-      "fact": {
-        "rule": "urn {\"sessions\": []}\n\ndef _save_index(index: dict):\n    _ensure_dirs()\n    idx_path = _index_file()\n    tmp = idx_path.with_suffix(\".tmp\")\n    tmp.write_text(json.dumps(index, indent=2, ensure_ascii=False), encoding=\"utf-8\")\n    try:\n        tmp.replace(idx_path)\n    except OSError:\n        import shutil\n        try:\n            shutil.copy2(str(tmp), str(idx_path))\n        except Exception:\n            idx_path.write_text(tmp.read_text(encoding=\"utf-8\"), encoding=\"utf-8\")\n        finally:\n            try:\n                tmp.unlink(missing_ok=True)\n            except Exception:\n                pass\n\ndef _append_to_session(session_id: str, entry: dict):\n    _ensure_dirs()\n    path = _session_file(session_id)\n    entry[\"timestamp\"] = datetime.now(timezone.utc).isoformat()\n",
-        "applies_to": "learning",
-        "source": "FormFiller_IA\\learning\\session_log.py",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "python",
-        "py"
-      ],
-      "created_at": "2026-04-04T04:30:31.533534+00:00",
-      "updated_at": "2026-04-04T04:30:31.533534+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:45.743038+00:00",
-        "access_count": 112
-      }
-    },
-    "4de9c3e4fa25": {
-      "id": "4de9c3e4fa25",
-      "type": "fact",
-      "key": "session_log_3",
-      "fact": {
-        "rule": "   path = _session_file(session_id)\n    entry[\"timestamp\"] = datetime.now(timezone.utc).isoformat()\n    with open(path, \"a\", encoding=\"utf-8\") as f:\n        f.write(json.dumps(entry, ensure_ascii=False) + \"\\n\")\n\ndef start_session(form_name: str, url: str) -> str:\n    \"\"\"\n    Inicia una nueva sesion de llenado de formulario.\n\n    Args:\n        form_name: Nombre identificador del formulario.\n        url:       URL del formulario.\n\n    Returns:\n        session_id (UUID string).\n    \"\"\"\n    session_id = str(uuid.uuid4())[:12]\n    now = datetime.now(timezone.utc).isoformat()\n\n    header = {\n        \"event\": \"session_start\",\n        \"session_id\": session_id,\n        \"form_name\": form_name,\n        \"url\": url,\n        \"started_at\": now,\n    }\n\n    _append_to_session(session_id, header)\n\n",
-        "applies_to": "learning",
-        "source": "FormFiller_IA\\learning\\session_log.py",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "python",
-        "py"
-      ],
-      "created_at": "2026-04-04T04:30:31.603189+00:00",
-      "updated_at": "2026-04-04T04:30:31.603189+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:45.743038+00:00",
-        "access_count": 102
-      }
-    },
-    "4a59d6b0aa25": {
-      "id": "4a59d6b0aa25",
-      "type": "fact",
-      "key": "session_log_4",
-      "fact": {
-        "rule": ",\n        \"url\": url,\n        \"started_at\": now,\n    }\n\n    _append_to_session(session_id, header)\n\n    # Actualizar indice\n    index = _load_index()\n    index[\"sessions\"].append({\n        \"session_id\": session_id,\n        \"form_name\": form_name,\n        \"url\": url,\n        \"started_at\": now,\n        \"status\": \"active\",\n        \"actions\": 0,\n        \"successes\": 0,\n        \"failures\": 0,\n    })\n    _save_index(index)\n\n    return session_id\n\ndef log_action(\n    session_id: str,\n    action: str,\n    field: str,\n    strategy: str,\n    success: bool,\n    duration_ms: int,\n    details: Optional[dict] = None,\n):\n    \"\"\"\n    Registra una accion dentro de una sesion.\n\n    Args:\n        session_id:  ID de la sesion.\n",
-        "applies_to": "learning",
-        "source": "FormFiller_IA\\learning\\session_log.py",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "python",
-        "py"
-      ],
-      "created_at": "2026-04-04T04:30:31.668340+00:00",
-      "updated_at": "2026-04-04T04:30:31.668340+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:45.743038+00:00",
-        "access_count": 93
-      }
-    },
-    "6afb1aaa7135": {
-      "id": "6afb1aaa7135",
-      "type": "fact",
-      "key": "session_log_5",
-      "fact": {
-        "rule": " \"\"\"\n    Registra una accion dentro de una sesion.\n\n    Args:\n        session_id:  ID de la sesion.\n        action:      Tipo de accion (ej: \"fill\", \"click\", \"select\", \"wait\", \"scroll\").\n        field:       Campo objetivo (ej: \"company_name\", \"submit_button\").\n        strategy:    Estrategia usada (ej: \"direct_value\", \"type_simulation\").\n        success:     Si la accion fue exitosa.\n        duration_ms: Duracion en milisegundos.\n        details:     Detalles adicionales (opcional).\n    \"\"\"\n    entry = {\n        \"event\": \"action\",\n        \"session_id\": session_id,\n        \"action\": action,\n        \"field\": field,\n        \"strategy\": strategy,\n        \"success\": success,\n        \"duration_ms\": duration_ms,\n        \"details\": details or {},\n    }\n\n    _append_to_session(session_id, entry)\n\n",
-        "applies_to": "learning",
-        "source": "FormFiller_IA\\learning\\session_log.py",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "python",
-        "py"
-      ],
-      "created_at": "2026-04-04T04:30:31.733054+00:00",
-      "updated_at": "2026-04-04T04:30:31.733054+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:45.743038+00:00",
-        "access_count": 93
-      }
-    },
-    "1d112ff64a1e": {
-      "id": "1d112ff64a1e",
-      "type": "fact",
-      "key": "session_log_6",
-      "fact": {
-        "rule": "\": duration_ms,\n        \"details\": details or {},\n    }\n\n    _append_to_session(session_id, entry)\n\n    # Actualizar indice\n    index = _load_index()\n    for sess in index[\"sessions\"]:\n        if sess[\"session_id\"] == session_id:\n            sess[\"actions\"] = sess.get(\"actions\", 0) + 1\n            if success:\n                sess[\"successes\"] = sess.get(\"successes\", 0) + 1\n            else:\n                sess[\"failures\"] = sess.get(\"failures\", 0) + 1\n            break\n    _save_index(index)\n\ndef end_session(session_id: str, summary: str):\n    \"\"\"\n    Finaliza una sesion con un resumen.\n\n    Args:\n        session_id: ID de la sesion.\n        summary:    Resumen textual del resultado.\n    \"\"\"\n    now = datetime.now(timezone.utc).isoformat()\n\n    entry = {\n        \"event\": \"session_end\",\n",
-        "applies_to": "learning",
-        "source": "FormFiller_IA\\learning\\session_log.py",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "python",
-        "py"
-      ],
-      "created_at": "2026-04-04T04:30:31.795106+00:00",
-      "updated_at": "2026-04-04T04:30:31.795106+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:45.743038+00:00",
-        "access_count": 100
-      }
-    },
-    "bd542c17d0b8": {
-      "id": "bd542c17d0b8",
-      "type": "fact",
-      "key": "session_log_7",
-      "fact": {
-        "rule": "\"\"\"\n    now = datetime.now(timezone.utc).isoformat()\n\n    entry = {\n        \"event\": \"session_end\",\n        \"session_id\": session_id,\n        \"summary\": summary,\n        \"ended_at\": now,\n    }\n\n    _append_to_session(session_id",
-        "applies_to": "learning",
-        "source": "FormFiller_IA\\learning\\session_log.py",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "python",
-        "py"
-      ],
-      "created_at": "2026-04-04T04:30:31.853545+00:00",
-      "updated_at": "2026-04-04T04:30:31.853545+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:45.743038+00:00",
-        "access_count": 80
-      }
-    },
     "963354dcdeaa": {
       "id": "963354dcdeaa",
       "type": "fact",
@@ -623,8 +23,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:45.743038+00:00",
-        "access_count": 202
+        "last_accessed": "2026-04-05T05:02:09.487544+00:00",
+        "access_count": 205
       }
     },
     "f5c864e8df83": {
@@ -648,8 +48,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:45.743038+00:00",
-        "access_count": 219
+        "last_accessed": "2026-04-05T05:02:09.487544+00:00",
+        "access_count": 222
       }
     },
     "5f06358e00c2": {
@@ -673,8 +73,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:45.743038+00:00",
-        "access_count": 183
+        "last_accessed": "2026-04-05T05:02:09.487544+00:00",
+        "access_count": 188
       }
     },
     "ee47bca41f99": {
@@ -698,8 +98,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:45.743038+00:00",
-        "access_count": 128
+        "last_accessed": "2026-04-05T05:02:09.487544+00:00",
+        "access_count": 131
       }
     },
     "5281c0bdfda8": {
@@ -723,8 +123,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:45.743038+00:00",
-        "access_count": 115
+        "last_accessed": "2026-04-05T05:02:09.487544+00:00",
+        "access_count": 118
       }
     },
     "ca201875ec2f": {
@@ -748,8 +148,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:45.743038+00:00",
-        "access_count": 174
+        "last_accessed": "2026-04-05T05:02:09.487544+00:00",
+        "access_count": 178
       }
     },
     "ee169b7c2779": {
@@ -773,8 +173,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:45.743038+00:00",
-        "access_count": 125
+        "last_accessed": "2026-04-05T05:02:09.487544+00:00",
+        "access_count": 128
       }
     },
     "6266deaee5ad": {
@@ -798,37 +198,13 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:45.743038+00:00",
-        "access_count": 109
+        "last_accessed": "2026-04-05T05:02:09.487544+00:00",
+        "access_count": 112
       }
     }
   },
   "tag_index": {
     "python": [
-      "c94adf5b4a0a",
-      "2b278ae4b277",
-      "8d6343a8053b",
-      "c01960280df1",
-      "c8ebc2d68250",
-      "162430a4808b",
-      "6de4455ca0d2",
-      "92e27a48f333",
-      "794ccd81acd2",
-      "50056d5a7690",
-      "44269f76268c",
-      "4596ca09fc2f",
-      "c378ac433688",
-      "539033a03f28",
-      "e131c8d80fff",
-      "beedb2e79612",
-      "56fb681a800f",
-      "f07d57a8b629",
-      "efcca826e387",
-      "4de9c3e4fa25",
-      "4a59d6b0aa25",
-      "6afb1aaa7135",
-      "1d112ff64a1e",
-      "bd542c17d0b8",
       "963354dcdeaa",
       "f5c864e8df83",
       "5f06358e00c2",
@@ -837,30 +213,6 @@
       "ca201875ec2f",
       "ee169b7c2779",
       "6266deaee5ad",
-      "c94adf5b4a0a",
-      "2b278ae4b277",
-      "8d6343a8053b",
-      "c01960280df1",
-      "c8ebc2d68250",
-      "162430a4808b",
-      "6de4455ca0d2",
-      "92e27a48f333",
-      "794ccd81acd2",
-      "50056d5a7690",
-      "44269f76268c",
-      "4596ca09fc2f",
-      "c378ac433688",
-      "539033a03f28",
-      "e131c8d80fff",
-      "beedb2e79612",
-      "56fb681a800f",
-      "f07d57a8b629",
-      "efcca826e387",
-      "4de9c3e4fa25",
-      "4a59d6b0aa25",
-      "6afb1aaa7135",
-      "1d112ff64a1e",
-      "bd542c17d0b8",
       "963354dcdeaa",
       "f5c864e8df83",
       "5f06358e00c2",
@@ -871,30 +223,6 @@
       "6266deaee5ad"
     ],
     "py": [
-      "c94adf5b4a0a",
-      "2b278ae4b277",
-      "8d6343a8053b",
-      "c01960280df1",
-      "c8ebc2d68250",
-      "162430a4808b",
-      "6de4455ca0d2",
-      "92e27a48f333",
-      "794ccd81acd2",
-      "50056d5a7690",
-      "44269f76268c",
-      "4596ca09fc2f",
-      "c378ac433688",
-      "539033a03f28",
-      "e131c8d80fff",
-      "beedb2e79612",
-      "56fb681a800f",
-      "f07d57a8b629",
-      "efcca826e387",
-      "4de9c3e4fa25",
-      "4a59d6b0aa25",
-      "6afb1aaa7135",
-      "1d112ff64a1e",
-      "bd542c17d0b8",
       "963354dcdeaa",
       "f5c864e8df83",
       "5f06358e00c2",
@@ -903,30 +231,6 @@
       "ca201875ec2f",
       "ee169b7c2779",
       "6266deaee5ad",
-      "c94adf5b4a0a",
-      "2b278ae4b277",
-      "8d6343a8053b",
-      "c01960280df1",
-      "c8ebc2d68250",
-      "162430a4808b",
-      "6de4455ca0d2",
-      "92e27a48f333",
-      "794ccd81acd2",
-      "50056d5a7690",
-      "44269f76268c",
-      "4596ca09fc2f",
-      "c378ac433688",
-      "539033a03f28",
-      "e131c8d80fff",
-      "beedb2e79612",
-      "56fb681a800f",
-      "f07d57a8b629",
-      "efcca826e387",
-      "4de9c3e4fa25",
-      "4a59d6b0aa25",
-      "6afb1aaa7135",
-      "1d112ff64a1e",
-      "bd542c17d0b8",
       "963354dcdeaa",
       "f5c864e8df83",
       "5f06358e00c2",
@@ -938,8 +242,8 @@
     ]
   },
   "stats": {
-    "total_entries": 64,
-    "total_lookups": 543,
-    "total_hits": 353
+    "total_entries": 8,
+    "total_lookups": 551,
+    "total_hits": 359
   }
 }

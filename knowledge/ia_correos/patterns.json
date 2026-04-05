@@ -2,206 +2,6 @@
   "domain": "ia_correos",
   "description": "Dominio auto-creado: ia_correos",
   "entries": {
-    "dce009735a64": {
-      "id": "dce009735a64",
-      "type": "fact",
-      "key": "outlook_com_0",
-      "fact": {
-        "rule": "# -*- coding: utf-8 -*-\n\"\"\"OutlookClient - Outlook desktop automation via COM.\"\"\"\n\nimport os\nimport datetime\nfrom typing import Any, Optional\n\nimport pythoncom\nimport win32com.client\nfrom pywintypes import com_error\n\nfrom .constants import (\n    OL_MAIL_ITEM, OL_APPOINTMENT_ITEM,\n    OL_MEETING, OL_NON_MEETING,\n    OL_TO, OL_CC, OL_BCC,\n    OL_REQUIRED, OL_OPTIONAL,\n    OL_FREE, OL_TENTATIVE, OL_BUSY, OL_OUT_OF_OFFICE,\n    FOLDER_MAP,\n)\n\nclass OutlookError(Exception):\n    \"\"\"Raised when a COM operation on Outlook fails.\"\"\"\n\nclass OutlookClient:\n    \"\"\"Wrapper for Outlook desktop COM automation.\"\"\"\n\n    def __init__(self) -> None:\n        self._app = None\n        self._namespace = None\n\n    def _ensure_app(self) -> None:\n        if self._app is not None:\n            return\n        try:\n",
-        "applies_to": "ia_correos",
-        "source": "IA_Correos\\src\\outlook_com.py",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "python",
-        "py"
-      ],
-      "created_at": "2026-04-04T04:12:47.930894+00:00",
-      "updated_at": "2026-04-04T04:12:47.930894+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.084724+00:00",
-        "access_count": 110
-      }
-    },
-    "e02c033a8b9b": {
-      "id": "e02c033a8b9b",
-      "type": "fact",
-      "key": "outlook_com_1",
-      "fact": {
-        "rule": "   def _ensure_app(self) -> None:\n        if self._app is not None:\n            return\n        try:\n            pythoncom.CoInitialize()\n            self._app = win32com.client.Dispatch(\"Outlook.Application\")\n            self._namespace = self._app.GetNamespace(\"MAPI\")\n        except com_error as e:\n            raise OutlookError(\n                \"No se pudo conectar a Outlook desktop. \"\n                \"Asegurate de que Outlook clasico este abierto.\"\n            ) from e\n\n    def __enter__(self) -> \"OutlookClient\":\n        self._ensure_app()\n        return self\n\n    def __exit__(self, *args) -> None:\n        self.quit()\n\n    def quit(self) -> None:\n        # NO llamar app.Quit() - Outlook COM es singleton, mataria el proceso del usuario\n        self._namespace = None\n",
-        "applies_to": "ia_correos",
-        "source": "IA_Correos\\src\\outlook_com.py",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "python",
-        "py"
-      ],
-      "created_at": "2026-04-04T04:12:47.981688+00:00",
-      "updated_at": "2026-04-04T04:12:47.981688+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.084724+00:00",
-        "access_count": 166
-      }
-    },
-    "fa6ec1719025": {
-      "id": "fa6ec1719025",
-      "type": "fact",
-      "key": "outlook_com_2",
-      "fact": {
-        "rule": "pp.Quit() - Outlook COM es singleton, mataria el proceso del usuario\n        self._namespace = None\n        self._app = None\n        try:\n            pythoncom.CoUninitialize()\n        except Exception:\n            pass\n\n    @property\n    def app(self) -> Any:\n        self._ensure_app()\n        return self._app\n\n    @property\n    def namespace(self) -> Any:\n        self._ensure_app()\n        return self._namespace\n\n    # ── Helpers ──────────────────────────────────────────────\n\n    def _get_folder(self, folder_name: str) -> Any:\n        folder_id = FOLDER_MAP.get(folder_name.lower())\n        if folder_id is None:\n            raise OutlookError(f\"Carpeta desconocida: {folder_name}\")\n        return self.namespace.GetDefaultFolder(folder_id)\n\n    def _resolve_smtp(self, addr_entry) -> str:\n",
-        "applies_to": "ia_correos",
-        "source": "IA_Correos\\src\\outlook_com.py",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "python",
-        "py"
-      ],
-      "created_at": "2026-04-04T04:12:48.043189+00:00",
-      "updated_at": "2026-04-04T04:12:48.043189+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.084724+00:00",
-        "access_count": 69
-      }
-    },
-    "ef6c715f5c01": {
-      "id": "ef6c715f5c01",
-      "type": "fact",
-      "key": "outlook_com_3",
-      "fact": {
-        "rule": " return self.namespace.GetDefaultFolder(folder_id)\n\n    def _resolve_smtp(self, addr_entry) -> str:\n        \"\"\"Extract SMTP email from an AddressEntry (handles Exchange DNs).\"\"\"\n        try:\n            if addr_entry.AddressEntryUserType in (0, 5):  # Exchange user/mailbox\n                exch = addr_entry.GetExchangeUser()\n                if exch:\n                    return str(exch.PrimarySmtpAddress).lower()\n            return str(addr_entry.Address).lower()\n        except Exception:\n            return str(getattr(addr_entry, \"Address\", \"\")) .lower()\n\n    def _mail_to_dict(self, item) -> dict:\n        \"\"\"Convert a MailItem to a serializable dict.\"\"\"\n        try:\n            sender_email = \"\"\n            try:\n                sender = item.Sender\n                if sender:\n",
-        "applies_to": "ia_correos",
-        "source": "IA_Correos\\src\\outlook_com.py",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "python",
-        "py"
-      ],
-      "created_at": "2026-04-04T04:12:48.098702+00:00",
-      "updated_at": "2026-04-04T04:12:48.098702+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.084724+00:00",
-        "access_count": 125
-      }
-    },
-    "bbb9e6afbb1b": {
-      "id": "bbb9e6afbb1b",
-      "type": "fact",
-      "key": "outlook_com_4",
-      "fact": {
-        "rule": " sender_email = \"\"\n            try:\n                sender = item.Sender\n                if sender:\n                    sender_email = self._resolve_smtp(sender)\n            except Exception:\n                sender_email = str(getattr(item, \"SenderEmailAddress\", \"\"))\n\n            attachments = []\n            try:\n                for i in range(1, item.Attachments.Count + 1):\n                    att = item.Attachments.Item(i)\n                    attachments.append(str(att.FileName))\n            except Exception:\n                pass\n\n            return {\n                \"entry_id\": str(item.EntryID),\n                \"subject\": str(getattr(item, \"Subject\", \"\") or \"\"),\n                \"sender_name\": str(getattr(item, \"SenderName\", \"\") or \"\"),\n                \"sender_email\": sender_email,\n",
-        "applies_to": "ia_correos",
-        "source": "IA_Correos\\src\\outlook_com.py",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "python",
-        "py"
-      ],
-      "created_at": "2026-04-04T04:12:48.148386+00:00",
-      "updated_at": "2026-04-04T04:12:48.148386+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.084724+00:00",
-        "access_count": 65
-      }
-    },
-    "245ec3561a72": {
-      "id": "245ec3561a72",
-      "type": "fact",
-      "key": "outlook_com_5",
-      "fact": {
-        "rule": "er_name\": str(getattr(item, \"SenderName\", \"\") or \"\"),\n                \"sender_email\": sender_email,\n                \"to\": str(getattr(item, \"To\", \"\") or \"\"),\n                \"cc\": str(getattr(item, \"CC\", \"\") or \"\"),\n                \"received\": str(getattr(item, \"ReceivedTime\", \"\")),\n                \"body\": str(getattr(item, \"Body\", \"\") or \"\"),\n                \"body_preview\": str(getattr(item, \"Body\", \"\") or \"\")[:200],\n                \"is_read\": bool(getattr(item, \"UnRead\", True) is False),\n                \"has_attachments\": len(attachments) > 0,\n                \"attachments\": attachments,\n                \"message_class\": str(getattr(item, \"MessageClass\", \"\")),\n            }\n        except com_error as e:\n            raise OutlookError(f\"Error leyendo correo: {e}\") from e\n\n",
-        "applies_to": "ia_correos",
-        "source": "IA_Correos\\src\\outlook_com.py",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "python",
-        "py"
-      ],
-      "created_at": "2026-04-04T04:12:48.218102+00:00",
-      "updated_at": "2026-04-04T04:12:48.218102+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.084724+00:00",
-        "access_count": 74
-      }
-    },
-    "b3bb7fdf0fbc": {
-      "id": "b3bb7fdf0fbc",
-      "type": "fact",
-      "key": "outlook_com_6",
-      "fact": {
-        "rule": "        except com_error as e:\n            raise OutlookError(f\"Error leyendo correo: {e}\") from e\n\n    def _appointment_to_dict(self, item) -> dict:\n        \"\"\"Convert an AppointmentItem to a serializable dict.\"\"\"\n        try:\n            attendees = []\n            try:\n                for i in range(1, item.Recipients.Count + 1):\n                    r = item.Recipients.Item(i)\n                    attendees.append({\n                        \"name\": str(r.Name),\n                        \"email\": self._resolve_smtp(r.AddressEntry) if r.AddressEntry else \"\",\n                        \"type\": \"required\" if r.Type == OL_REQUIRED else \"optional\",\n                        \"response\": int(getattr(r, \"MeetingResponseStatus\", 0)),\n                    })\n            except Exception:\n",
-        "applies_to": "ia_correos",
-        "source": "IA_Correos\\src\\outlook_com.py",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "python",
-        "py"
-      ],
-      "created_at": "2026-04-04T04:12:48.269781+00:00",
-      "updated_at": "2026-04-04T04:12:48.269781+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.084724+00:00",
-        "access_count": 83
-      }
-    },
-    "f7453030dd9f": {
-      "id": "f7453030dd9f",
-      "type": "fact",
-      "key": "outlook_com_7",
-      "fact": {
-        "rule": ": int(getattr(r, \"MeetingResponseStatus\", 0)),\n                    })\n            except Exception:\n                pass\n\n            return {\n                \"entry_id\": str(item.",
-        "applies_to": "ia_correos",
-        "source": "IA_Correos\\src\\outlook_com.py",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "python",
-        "py"
-      ],
-      "created_at": "2026-04-04T04:12:48.310505+00:00",
-      "updated_at": "2026-04-04T04:12:48.310505+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.084724+00:00",
-        "access_count": 49
-      }
-    },
     "b919fdf8b865": {
       "id": "b919fdf8b865",
       "type": "fact",
@@ -222,8 +22,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.084724+00:00",
-        "access_count": 162
+        "last_accessed": "2026-04-05T04:44:39.802138+00:00",
+        "access_count": 163
       }
     },
     "59cf52d4ade9": {
@@ -246,8 +46,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:34:02.023009+00:00",
-        "access_count": 160
+        "last_accessed": "2026-04-05T04:44:39.802138+00:00",
+        "access_count": 161
       }
     },
     "cd44b32403b9": {
@@ -318,8 +118,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.084724+00:00",
-        "access_count": 146
+        "last_accessed": "2026-04-05T04:44:39.802138+00:00",
+        "access_count": 147
       }
     },
     "2bbfba126cb2": {
@@ -342,8 +142,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:01.800622+00:00",
-        "access_count": 146
+        "last_accessed": "2026-04-05T04:44:25.427853+00:00",
+        "access_count": 147
       }
     },
     "c9a44af0cac1": {
@@ -415,8 +215,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.084724+00:00",
-        "access_count": 170
+        "last_accessed": "2026-04-05T04:44:39.802138+00:00",
+        "access_count": 171
       }
     },
     "7d7117d6a139": {
@@ -440,8 +240,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:34:02.023009+00:00",
-        "access_count": 85
+        "last_accessed": "2026-04-05T04:44:39.802138+00:00",
+        "access_count": 86
       }
     },
     "d5f0e8de1509": {
@@ -465,8 +265,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.084724+00:00",
-        "access_count": 90
+        "last_accessed": "2026-04-05T04:44:39.802138+00:00",
+        "access_count": 91
       }
     },
     "077d2880ec1d": {
@@ -490,8 +290,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.084724+00:00",
-        "access_count": 99
+        "last_accessed": "2026-04-05T04:44:39.802138+00:00",
+        "access_count": 100
       }
     },
     "13bdf917a85d": {
@@ -515,8 +315,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.084724+00:00",
-        "access_count": 161
+        "last_accessed": "2026-04-05T04:44:39.802138+00:00",
+        "access_count": 162
       }
     },
     "b0ef33194538": {
@@ -540,8 +340,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.084724+00:00",
-        "access_count": 152
+        "last_accessed": "2026-04-05T04:44:39.802138+00:00",
+        "access_count": 153
       }
     },
     "c9290a460957": {
@@ -565,8 +365,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.084724+00:00",
-        "access_count": 162
+        "last_accessed": "2026-04-05T04:44:39.802138+00:00",
+        "access_count": 163
       }
     },
     "678a1ce95230": {
@@ -590,8 +390,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.084724+00:00",
-        "access_count": 53
+        "last_accessed": "2026-04-05T04:44:39.802138+00:00",
+        "access_count": 54
       }
     },
     "383dd7c4e0bd": {
@@ -614,8 +414,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:01.800622+00:00",
-        "access_count": 149
+        "last_accessed": "2026-04-05T05:26:00.976252+00:00",
+        "access_count": 152
       }
     },
     "e6e1f81241f1": {
@@ -710,8 +510,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.084724+00:00",
-        "access_count": 120
+        "last_accessed": "2026-04-05T04:44:39.802138+00:00",
+        "access_count": 121
       }
     },
     "1dd8b484e391": {
@@ -854,8 +654,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.084724+00:00",
-        "access_count": 230
+        "last_accessed": "2026-04-05T04:44:39.802138+00:00",
+        "access_count": 231
       }
     },
     "2dd8b8c56bcd": {
@@ -878,8 +678,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.084724+00:00",
-        "access_count": 164
+        "last_accessed": "2026-04-05T04:44:39.802138+00:00",
+        "access_count": 165
       }
     },
     "4ea89e93b409": {
@@ -998,8 +798,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.084724+00:00",
-        "access_count": 229
+        "last_accessed": "2026-04-05T04:44:39.802138+00:00",
+        "access_count": 230
       }
     },
     "143efd2c77b5": {
@@ -1022,8 +822,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.084724+00:00",
-        "access_count": 163
+        "last_accessed": "2026-04-05T04:44:39.802138+00:00",
+        "access_count": 164
       }
     },
     "1b8e89021769": {
@@ -1094,8 +894,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:01.800622+00:00",
-        "access_count": 138
+        "last_accessed": "2026-04-05T05:26:00.976252+00:00",
+        "access_count": 142
       }
     },
     "58183a754345": {
@@ -1118,8 +918,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.084724+00:00",
-        "access_count": 131
+        "last_accessed": "2026-04-05T04:44:39.802138+00:00",
+        "access_count": 133
       }
     },
     "f50f16d0177c": {
@@ -1167,8 +967,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.084724+00:00",
-        "access_count": 62
+        "last_accessed": "2026-04-05T04:44:39.802138+00:00",
+        "access_count": 63
       }
     },
     "5d10f72219da": {
@@ -1192,32 +992,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.084724+00:00",
-        "access_count": 113
-      }
-    },
-    "934f838409da": {
-      "id": "934f838409da",
-      "type": "fact",
-      "key": "README_0",
-      "fact": {
-        "rule": "# pytest cache directory #\n\nThis directory contains data from the pytest's cache plugin,\nwhich provides the `--lf` and `--ff` options, as well as the `cache` fixture.\n\n**Do not** commit this to version control.\n\nSee [the docs](https://docs.pytest.org/en/stable/how-to/cache.html) for more information.",
-        "applies_to": "ia_correos",
-        "source": "IA_Correos\\.pytest_cache\\README.md",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "md"
-      ],
-      "created_at": "2026-04-04T04:12:50.770929+00:00",
-      "updated_at": "2026-04-04T04:12:50.770929+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:09.072918+00:00",
-        "access_count": 193
+        "last_accessed": "2026-04-05T04:44:39.802138+00:00",
+        "access_count": 114
       }
     },
     "26875a4df43c": {
@@ -1241,21 +1017,13 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.084724+00:00",
-        "access_count": 82
+        "last_accessed": "2026-04-05T04:44:39.802138+00:00",
+        "access_count": 83
       }
     }
   },
   "tag_index": {
     "python": [
-      "dce009735a64",
-      "e02c033a8b9b",
-      "fa6ec1719025",
-      "ef6c715f5c01",
-      "bbb9e6afbb1b",
-      "245ec3561a72",
-      "b3bb7fdf0fbc",
-      "f7453030dd9f",
       "1866c6acbf54",
       "7d7117d6a139",
       "d5f0e8de1509",
@@ -1269,14 +1037,6 @@
       "26875a4df43c"
     ],
     "py": [
-      "dce009735a64",
-      "e02c033a8b9b",
-      "fa6ec1719025",
-      "ef6c715f5c01",
-      "bbb9e6afbb1b",
-      "245ec3561a72",
-      "b3bb7fdf0fbc",
-      "f7453030dd9f",
       "1866c6acbf54",
       "7d7117d6a139",
       "d5f0e8de1509",
@@ -1321,7 +1081,6 @@
       "1daadb6a58ba",
       "58183a754345",
       "f50f16d0177c",
-      "934f838409da",
       "b919fdf8b865",
       "59cf52d4ade9",
       "cd44b32403b9",
@@ -1350,8 +1109,8 @@
     ]
   },
   "stats": {
-    "total_entries": 76,
-    "total_lookups": 543,
-    "total_hits": 415
+    "total_entries": 42,
+    "total_lookups": 551,
+    "total_hits": 420
   }
 }

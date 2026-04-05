@@ -2,206 +2,6 @@
   "domain": "ia_powerpoint",
   "description": "Dominio auto-creado: ia_powerpoint",
   "entries": {
-    "0eb20c30e346": {
-      "id": "0eb20c30e346",
-      "type": "fact",
-      "key": "powerpoint_com_0",
-      "fact": {
-        "rule": "# -*- coding: utf-8 -*-\n\"\"\"\nCOM Automation engine for Microsoft PowerPoint.\n\nUses win32com.client.Dispatch(\"PowerPoint.Application\") to control PowerPoint.\n\nIMPORTANT:\n    - Always call CoInitialize() before Dispatch\n    - Always set DisplayAlerts = False (ppAlertsNone = 0) to avoid popups\n    - Close presentation before Quit: Close() -> Quit() -> CoUninitialize()\n    - Shapes are 1-indexed in COM\n    - TextFrame.HasText must be checked before accessing TextRange\n\"\"\"\n\nfrom __future__ import annotations\n\nimport functools\nimport os\nimport re\nimport time\nfrom dataclasses import dataclass, field\nfrom typing import Any, Callable, Optional, TypeVar\n\nimport pythoncom\nimport win32com.client\nfrom pywintypes import com_error\n\nfrom .constants import (\n",
-        "applies_to": "ia_powerpoint",
-        "source": "IA_PowerPoint\\src\\powerpoint_com.py",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "python",
-        "py"
-      ],
-      "created_at": "2026-04-04T04:12:54.576563+00:00",
-      "updated_at": "2026-04-04T04:12:54.576563+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.139167+00:00",
-        "access_count": 137
-      }
-    },
-    "fffd1a46cf62": {
-      "id": "fffd1a46cf62",
-      "type": "fact",
-      "key": "powerpoint_com_1",
-      "fact": {
-        "rule": "\nimport pythoncom\nimport win32com.client\nfrom pywintypes import com_error\n\nfrom .constants import (\n    SHAPE_TYPE_NAMES, PLACEHOLDER_TYPE_NAMES, LAYOUT_NAMES,\n    MSO_PLACEHOLDER, MSO_TABLE, MSO_PICTURE, MSO_CHART,\n    MSO_TEXT_BOX, MSO_GROUP, MSO_AUTO_SHAPE, MSO_GRAPHIC,\n    PP_SAVE_AS_PPTX, PP_SAVE_AS_PDF, PP_SAVE_AS_PNG, PP_SAVE_AS_JPG,\n    PP_LAYOUT_TITLE, PP_LAYOUT_TEXT, PP_LAYOUT_BLANK,\n    PP_LAYOUT_TITLE_ONLY, PP_LAYOUT_TWO_OBJECTS,\n    MSO_TRUE, MSO_FALSE,\n    PROPOSAL_SLIDE_TYPES, IVA_RATES,\n)\n\nT = TypeVar(\"T\")\n\ndef com_retry(\n    max_retries: int = 3,\n    delay: float = 1.0,\n    backoff: float = 2.0,\n) -> Callable:\n    \"\"\"Retry COM calls on transient failures with exponential backoff.\"\"\"\n    RETRYABLE_HRESULTS = {-2147418111, -2147352567}\n",
-        "applies_to": "ia_powerpoint",
-        "source": "IA_PowerPoint\\src\\powerpoint_com.py",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "python",
-        "py"
-      ],
-      "created_at": "2026-04-04T04:12:54.630927+00:00",
-      "updated_at": "2026-04-04T04:12:54.630927+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.139167+00:00",
-        "access_count": 111
-      }
-    },
-    "a620b4b744d3": {
-      "id": "a620b4b744d3",
-      "type": "fact",
-      "key": "powerpoint_com_2",
-      "fact": {
-        "rule": "transient failures with exponential backoff.\"\"\"\n    RETRYABLE_HRESULTS = {-2147418111, -2147352567}\n    RETRYABLE_CODES = {'0x800706be', '0x800706ba', '0x80010001', '0x80020009'}\n\n    def decorator(func: Callable[..., T]) -> Callable[..., T]:\n        @functools.wraps(func)\n        def wrapper(*args: Any, **kwargs: Any) -> T:\n            last_error = None\n            for attempt in range(max_retries + 1):\n                try:\n                    return func(*args, **kwargs)\n                except com_error as e:\n                    last_error = e\n                    hresult = e.args[0] if e.args else 0\n                    err_str = str(e).lower()\n                    is_retryable = (\n                        hresult in RETRYABLE_HRESULTS\n",
-        "applies_to": "ia_powerpoint",
-        "source": "IA_PowerPoint\\src\\powerpoint_com.py",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "python",
-        "py"
-      ],
-      "created_at": "2026-04-04T04:12:54.695082+00:00",
-      "updated_at": "2026-04-04T04:12:54.695082+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.139167+00:00",
-        "access_count": 82
-      }
-    },
-    "4ec9321a543b": {
-      "id": "4ec9321a543b",
-      "type": "fact",
-      "key": "powerpoint_com_3",
-      "fact": {
-        "rule": ".lower()\n                    is_retryable = (\n                        hresult in RETRYABLE_HRESULTS\n                        or any(code in err_str for code in RETRYABLE_CODES)\n                        or 'rejected' in err_str\n                    )\n                    if is_retryable and attempt < max_retries:\n                        time.sleep(delay * (backoff ** attempt))\n                        continue\n                    raise\n            raise last_error  # type: ignore\n        return wrapper\n    return decorator\n\nclass PowerPointCOMError(Exception):\n    \"\"\"Raised when a COM operation on PowerPoint fails.\"\"\"\n\n@dataclass\nclass ValidationResult:\n    passed: bool\n    issues: list = field(default_factory=list)\n\n    def to_dict(self) -> dict:\n",
-        "applies_to": "ia_powerpoint",
-        "source": "IA_PowerPoint\\src\\powerpoint_com.py",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "python",
-        "py"
-      ],
-      "created_at": "2026-04-04T04:12:54.736021+00:00",
-      "updated_at": "2026-04-04T04:12:54.736021+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.139167+00:00",
-        "access_count": 146
-      }
-    },
-    "20c5a4014f19": {
-      "id": "20c5a4014f19",
-      "type": "fact",
-      "key": "powerpoint_com_4",
-      "fact": {
-        "rule": "lt:\n    passed: bool\n    issues: list = field(default_factory=list)\n\n    def to_dict(self) -> dict:\n        return {\"passed\": self.passed, \"issues\": self.issues}\n\nclass PowerPointCOM:\n    \"\"\"\n    Wrapper around Microsoft PowerPoint COM Automation.\n\n    Provides high-level methods for presentation manipulation while ensuring\n    proper cleanup of COM resources.\n\n    Example:\n        with PowerPointCOM() as ppt:\n            ppt.open_presentation(\"C:/docs/proposal.pptx\")\n            ppt.find_replace(\"2024\", \"2025\")\n            ppt.save_as(\"C:/docs/proposal_updated.pptx\")\n    \"\"\"\n\n    def __init__(self, visible: bool = False) -> None:\n        self._app: Any = None\n        self._prs: Any = None\n        self._visible = visible\n        self._initialized = False\n\n",
-        "applies_to": "ia_powerpoint",
-        "source": "IA_PowerPoint\\src\\powerpoint_com.py",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "python",
-        "py"
-      ],
-      "created_at": "2026-04-04T04:12:54.786603+00:00",
-      "updated_at": "2026-04-04T04:12:54.786603+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.139167+00:00",
-        "access_count": 84
-      }
-    },
-    "ecaf3bd96d2d": {
-      "id": "ecaf3bd96d2d",
-      "type": "fact",
-      "key": "powerpoint_com_5",
-      "fact": {
-        "rule": "ne\n        self._prs: Any = None\n        self._visible = visible\n        self._initialized = False\n\n    # HRESULTs that indicate PowerPoint is busy (modal dialog, initializing)\n    _BUSY_HRESULTS = frozenset({-2147418111, -2147417846})\n    _RETRY_MAX = 5\n    _RETRY_INTERVAL = 3\n\n    def _ensure_app(self) -> None:\n        \"\"\"\n        Ensure PowerPoint COM connection is alive.\n\n        Strategy (from ykuwai/ppt-mcp best practices):\n        1. Health-check existing reference via .Name\n        2. Try GetActiveObject() to attach to running instance\n        3. Fall back to Dispatch() to create new instance\n        4. Retry on busy HRESULTs (modal dialog, initializing)\n        \"\"\"\n        if self._app is not None:\n            try:\n                _ = self._app.Name  # Health check\n",
-        "applies_to": "ia_powerpoint",
-        "source": "IA_PowerPoint\\src\\powerpoint_com.py",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "python",
-        "py"
-      ],
-      "created_at": "2026-04-04T04:12:54.835683+00:00",
-      "updated_at": "2026-04-04T04:12:54.835683+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.139167+00:00",
-        "access_count": 99
-      }
-    },
-    "fcddc2275460": {
-      "id": "fcddc2275460",
-      "type": "fact",
-      "key": "powerpoint_com_6",
-      "fact": {
-        "rule": "      if self._app is not None:\n            try:\n                _ = self._app.Name  # Health check\n                return\n            except com_error as e:\n                if e.hresult in self._BUSY_HRESULTS:\n                    raise\n                self._app = None\n            except (AttributeError, Exception):\n                self._app = None  # Stale/broken COM reference\n\n        if not self._initialized:\n            try:\n                pythoncom.CoInitialize()\n            except Exception:\n                pass\n\n        # Step 1: Try to attach to existing PowerPoint instance\n        try:\n            self._app = win32com.client.GetActiveObject(\"PowerPoint.Application\")\n            _ = self._app.Name\n            try:\n                self._app.DisplayAlerts = 0\n",
-        "applies_to": "ia_powerpoint",
-        "source": "IA_PowerPoint\\src\\powerpoint_com.py",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "python",
-        "py"
-      ],
-      "created_at": "2026-04-04T04:12:54.878281+00:00",
-      "updated_at": "2026-04-04T04:12:54.878281+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.139167+00:00",
-        "access_count": 68
-      }
-    },
-    "e570f9c19e0c": {
-      "id": "e570f9c19e0c",
-      "type": "fact",
-      "key": "powerpoint_com_7",
-      "fact": {
-        "rule": "ation\")\n            _ = self._app.Name\n            try:\n                self._app.DisplayAlerts = 0\n            except (com_error, AttributeError):\n                pass\n            self._initialized = True\n            return\n        except com_error:\n            pass  # No running instance, create one\n\n        # Step 2: Create new instance with retry",
-        "applies_to": "ia_powerpoint",
-        "source": "IA_PowerPoint\\src\\powerpoint_com.py",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "python",
-        "py"
-      ],
-      "created_at": "2026-04-04T04:12:54.921160+00:00",
-      "updated_at": "2026-04-04T04:12:54.921160+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.139167+00:00",
-        "access_count": 59
-      }
-    },
     "545ef8284327": {
       "id": "545ef8284327",
       "type": "fact",
@@ -223,8 +23,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.139167+00:00",
-        "access_count": 279
+        "last_accessed": "2026-04-05T05:02:09.802747+00:00",
+        "access_count": 282
       }
     },
     "de1fcfc168a8": {
@@ -248,8 +48,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.139167+00:00",
-        "access_count": 93
+        "last_accessed": "2026-04-05T05:02:09.802747+00:00",
+        "access_count": 96
       }
     },
     "6a14f67f9908": {
@@ -273,8 +73,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.139167+00:00",
-        "access_count": 133
+        "last_accessed": "2026-04-05T05:02:09.802747+00:00",
+        "access_count": 136
       }
     },
     "e2dc38488ac5": {
@@ -298,8 +98,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.139167+00:00",
-        "access_count": 106
+        "last_accessed": "2026-04-05T05:02:09.802747+00:00",
+        "access_count": 109
       }
     },
     "f30e4e6370fb": {
@@ -323,8 +123,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.139167+00:00",
-        "access_count": 115
+        "last_accessed": "2026-04-05T05:02:09.802747+00:00",
+        "access_count": 118
       }
     },
     "19f5c61c5294": {
@@ -348,8 +148,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.139167+00:00",
-        "access_count": 211
+        "last_accessed": "2026-04-05T05:02:09.802747+00:00",
+        "access_count": 214
       }
     },
     "9d9a8e5bd63e": {
@@ -373,8 +173,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.139167+00:00",
-        "access_count": 186
+        "last_accessed": "2026-04-05T05:02:09.802747+00:00",
+        "access_count": 189
       }
     },
     "c58b467af5ee": {
@@ -398,133 +198,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.139167+00:00",
-        "access_count": 114
-      }
-    },
-    "e6e0e93baf65": {
-      "id": "e6e0e93baf65",
-      "type": "fact",
-      "key": "mcp_server_0",
-      "fact": {
-        "rule": "\"\"\"\nMCP Server for PowerPoint Automation.\n\nExposes tools to any LLM for controlling Microsoft PowerPoint via COM Automation.\nEach tool performs a specific presentation operation and returns structured JSON.\n\nRun with:\n    python -m src.mcp_server\n\"\"\"\n\nfrom __future__ import annotations\n\nimport json\nimport logging\nimport sys\nimport traceback\nfrom typing import Any, Optional\n\nfrom mcp.server import Server\nfrom mcp.server.stdio import stdio_server\nfrom mcp.types import TextContent, Tool\n\nfrom .powerpoint_com import PowerPointCOM, PowerPointCOMError\n\nlogging.basicConfig(\n    level=logging.INFO,\n    format=\"%(asctime)s [%(levelname)s] %(name)s: %(message)s\",\n    handlers=[logging.StreamHandler(sys.stderr)],\n)\nlogger = logging.getLogger(\"ia_powerpoint\")\n\n_ppt: Optional[PowerPointCOM] = None\n\n",
-        "applies_to": "ia_powerpoint",
-        "source": "IA_PowerPoint\\src\\mcp_server.py",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "python",
-        "py"
-      ],
-      "created_at": "2026-04-04T04:12:55.402515+00:00",
-      "updated_at": "2026-04-04T04:12:55.402515+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.139167+00:00",
-        "access_count": 184
-      }
-    },
-    "56e5b7669307": {
-      "id": "56e5b7669307",
-      "type": "fact",
-      "key": "mcp_server_1",
-      "fact": {
-        "rule": "(sys.stderr)],\n)\nlogger = logging.getLogger(\"ia_powerpoint\")\n\n_ppt: Optional[PowerPointCOM] = None\n\ndef get_ppt() -> PowerPointCOM:\n    global _ppt\n    if _ppt is None:\n        _ppt = PowerPointCOM(visible=False)\n        _ppt._ensure_app()\n    return _ppt\n\ndef result_json(data: Any) -> list[TextContent]:\n    return [TextContent(type=\"text\", text=json.dumps(data, ensure_ascii=False, indent=2, default=str))]\n\ndef error_json(message: str, details: str = \"\") -> list[TextContent]:\n    payload = {\"error\": message}\n    if details:\n        payload[\"details\"] = details\n    return [TextContent(type=\"text\", text=json.dumps(payload, ensure_ascii=False, indent=2))]\n\napp = Server(\"ia_powerpoint\")\n\n@app.list_tools()\nasync def list_tools() -> list[Tool]:\n    return [\n        Tool(\n",
-        "applies_to": "ia_powerpoint",
-        "source": "IA_PowerPoint\\src\\mcp_server.py",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "python",
-        "py"
-      ],
-      "created_at": "2026-04-04T04:12:55.459825+00:00",
-      "updated_at": "2026-04-04T04:12:55.459825+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.139167+00:00",
-        "access_count": 81
-      }
-    },
-    "73158fdf4a74": {
-      "id": "73158fdf4a74",
-      "type": "fact",
-      "key": "mcp_server_2",
-      "fact": {
-        "rule": "ia_powerpoint\")\n\n@app.list_tools()\nasync def list_tools() -> list[Tool]:\n    return [\n        Tool(\n            name=\"open_presentation\",\n            description=\"Open a PowerPoint file (.pptx/.ppt). Must be called before any other operation.\",\n            inputSchema={\n                \"type\": \"object\",\n                \"properties\": {\n                    \"path\": {\"type\": \"string\", \"description\": \"Absolute path to the PowerPoint file.\"},\n                    \"read_only\": {\"type\": \"boolean\", \"description\": \"Open in read-only mode. Default: false.\", \"default\": False},\n                },\n                \"required\": [\"path\"],\n            },\n        ),\n        Tool(\n            name=\"analyze_presentation\",\n            description=(\n",
-        "applies_to": "ia_powerpoint",
-        "source": "IA_PowerPoint\\src\\mcp_server.py",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "python",
-        "py"
-      ],
-      "created_at": "2026-04-04T04:12:55.513177+00:00",
-      "updated_at": "2026-04-04T04:12:55.513177+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.139167+00:00",
-        "access_count": 192
-      }
-    },
-    "e17be83a1dee": {
-      "id": "e17be83a1dee",
-      "type": "fact",
-      "key": "mcp_server_3",
-      "fact": {
-        "rule": "     },\n        ),\n        Tool(\n            name=\"analyze_presentation\",\n            description=(\n                \"Full analysis of the open presentation: slides, shapes, tables, \"\n                \"charts, images, notes, transitions, animations, layouts. \"\n                \"Use this first to understand the presentation structure.\"\n            ),\n            inputSchema={\"type\": \"object\", \"properties\": {}},\n        ),\n        Tool(\n            name=\"get_slide_text\",\n            description=\"Get all text content from a specific slide.\",\n            inputSchema={\n                \"type\": \"object\",\n                \"properties\": {\n                    \"slide_number\": {\"type\": \"integer\", \"description\": \"1-based slide number.\"},\n                },\n                \"required\": [\"slide_number\"],\n",
-        "applies_to": "ia_powerpoint",
-        "source": "IA_PowerPoint\\src\\mcp_server.py",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "python",
-        "py"
-      ],
-      "created_at": "2026-04-04T04:12:55.565247+00:00",
-      "updated_at": "2026-04-04T04:12:55.565247+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.139167+00:00",
-        "access_count": 206
-      }
-    },
-    "bf109036850b": {
-      "id": "bf109036850b",
-      "type": "fact",
-      "key": "mcp_server_4",
-      "fact": {
-        "rule": "iption\": \"1-based slide number.\"},\n                },\n                \"required\": [\"slide_number\"],\n            },\n        ),\n        Tool(\n            name=\"get_all_slides_text\",\n            description=\"Get text content from all slides. Good for understanding the full presentation.\",\n            inputSchema={\"type\": \"object\", \"properties\": {}},\n        ),\n        Tool(\n            name=\"find_replace\",\n            description=(\n                \"Find and replace text across all slides, notes, tables, and masters. \"\n                \"Works on rendered text, handles grouped shapes and table cells.\"\n            ),\n            inputSchema={\n                \"type\": \"object\",\n                \"properties\": {\n                    \"old_text\": {\"type\": \"string\", \"description\": \"Text to find.\"},\n",
-        "applies_to": "ia_powerpoint",
-        "source": "IA_PowerPoint\\src\\mcp_server.py",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "python",
-        "py"
-      ],
-      "created_at": "2026-04-04T04:12:55.610067+00:00",
-      "updated_at": "2026-04-04T04:12:55.610067+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.139167+00:00",
-        "access_count": 208
+        "last_accessed": "2026-04-05T05:02:09.802747+00:00",
+        "access_count": 117
       }
     },
     "a3ae8a3efa02": {
@@ -548,233 +223,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.139167+00:00",
-        "access_count": 139
-      }
-    },
-    "2093c91a2747": {
-      "id": "2093c91a2747",
-      "type": "fact",
-      "key": "mcp_server_6",
-      "fact": {
-        "rule": "roperties\": {\n                    \"text\": {\"type\": \"string\", \"description\": \"Text to search for.\"},\n                    \"match_case\": {\"type\": \"boolean\", \"description\": \"Case-sensitive. Default: false.\", \"default\": False},\n                },\n                \"required\": [\"text\"],\n            },\n        ),\n        Tool(\n            name=\"manage_slide\",\n            description=\"Add, delete, duplicate, or move slides.\",\n            inputSchema={\n                \"type\": \"object\",\n                \"properties\": {\n                    \"action\": {\n                        \"type\": \"string\",\n                        \"enum\": [\"add\", \"delete\", \"duplicate\", \"move\"],\n                        \"description\": \"Action to perform.\",\n                    },\n",
-        "applies_to": "ia_powerpoint",
-        "source": "IA_PowerPoint\\src\\mcp_server.py",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "python",
-        "py"
-      ],
-      "created_at": "2026-04-04T04:12:55.717425+00:00",
-      "updated_at": "2026-04-04T04:12:55.717425+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.139167+00:00",
-        "access_count": 91
-      }
-    },
-    "014f4b2dee4c": {
-      "id": "014f4b2dee4c",
-      "type": "fact",
-      "key": "mcp_server_7",
-      "fact": {
-        "rule": "cate\", \"move\"],\n                        \"description\": \"Action to perform.\",\n                    },\n                    \"slide_number\": {\"type\": \"integer\", \"description\": \"Target slide number.\"},\n                    \"layout\": {\"type\": \"integer\", \"description\": \"Layout index for add action. Default: 2 (Title and Content).\"",
-        "applies_to": "ia_powerpoint",
-        "source": "IA_PowerPoint\\src\\mcp_server.py",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "python",
-        "py"
-      ],
-      "created_at": "2026-04-04T04:12:55.764480+00:00",
-      "updated_at": "2026-04-04T04:12:55.764480+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.139167+00:00",
-        "access_count": 127
-      }
-    },
-    "b65964ff300a": {
-      "id": "b65964ff300a",
-      "type": "fact",
-      "key": "constants_0",
-      "fact": {
-        "rule": "# -*- coding: utf-8 -*-\n\"\"\"PowerPoint COM enumeration constants.\"\"\"\n\n# MsoShapeType\nMSO_AUTO_SHAPE = 1\nMSO_CALLOUT = 2\nMSO_CHART = 3\nMSO_COMMENT = 4\nMSO_FREEFORM = 5\nMSO_GROUP = 6\nMSO_EMBEDDED_OLE_OBJECT = 7\nMSO_FORM_CONTROL = 8\nMSO_LINE = 9\nMSO_LINKED_OLE_OBJECT = 10\nMSO_LINKED_PICTURE = 11\nMSO_OLE_CONTROL_OBJECT = 12\nMSO_PICTURE = 13\nMSO_PLACEHOLDER = 14\nMSO_TEXT_EFFECT = 15\nMSO_MEDIA = 16\nMSO_TEXT_BOX = 17\nMSO_TABLE = 19\nMSO_CONTENT_APP = 22\nMSO_GRAPHIC = 28\n\nSHAPE_TYPE_NAMES = {\n    MSO_AUTO_SHAPE: \"AutoShape\",\n    MSO_CALLOUT: \"Callout\",\n    MSO_CHART: \"Chart\",\n    MSO_COMMENT: \"Comment\",\n    MSO_FREEFORM: \"Freeform\",\n    MSO_GROUP: \"Group\",\n    MSO_EMBEDDED_OLE_OBJECT: \"EmbeddedOLE\",\n    MSO_FORM_CONTROL: \"FormControl\",\n    MSO_LINE: \"Line\",\n    MSO_LINKED_OLE_OBJECT: \"LinkedOLE\",\n",
-        "applies_to": "ia_powerpoint",
-        "source": "IA_PowerPoint\\src\\constants.py",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "python",
-        "py"
-      ],
-      "created_at": "2026-04-04T04:12:55.827156+00:00",
-      "updated_at": "2026-04-04T04:12:55.827156+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.139167+00:00",
-        "access_count": 80
-      }
-    },
-    "8ef9bc1478bf": {
-      "id": "8ef9bc1478bf",
-      "type": "fact",
-      "key": "constants_1",
-      "fact": {
-        "rule": "\n    MSO_FORM_CONTROL: \"FormControl\",\n    MSO_LINE: \"Line\",\n    MSO_LINKED_OLE_OBJECT: \"LinkedOLE\",\n    MSO_LINKED_PICTURE: \"LinkedPicture\",\n    MSO_OLE_CONTROL_OBJECT: \"OLEControl\",\n    MSO_PICTURE: \"Picture\",\n    MSO_PLACEHOLDER: \"Placeholder\",\n    MSO_TEXT_EFFECT: \"TextEffect\",\n    MSO_MEDIA: \"Media\",\n    MSO_TEXT_BOX: \"TextBox\",\n    MSO_TABLE: \"Table\",\n    MSO_CONTENT_APP: \"ContentApp\",\n    MSO_GRAPHIC: \"Graphic\",\n}\n\n# PpPlaceholderType\nPP_PLACEHOLDER_TITLE = 1\nPP_PLACEHOLDER_BODY = 2\nPP_PLACEHOLDER_CENTER_TITLE = 3\nPP_PLACEHOLDER_SUBTITLE = 4\nPP_PLACEHOLDER_DATE = 10\nPP_PLACEHOLDER_SLIDE_NUMBER = 12\nPP_PLACEHOLDER_FOOTER = 11\nPP_PLACEHOLDER_HEADER = 14\nPP_PLACEHOLDER_OBJECT = 7\n\nPLACEHOLDER_TYPE_NAMES = {\n    PP_PLACEHOLDER_TITLE: \"Title\",\n    PP_PLACEHOLDER_BODY: \"Body\",\n",
-        "applies_to": "ia_powerpoint",
-        "source": "IA_PowerPoint\\src\\constants.py",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "python",
-        "py"
-      ],
-      "created_at": "2026-04-04T04:12:55.884495+00:00",
-      "updated_at": "2026-04-04T04:12:55.884495+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.139167+00:00",
-        "access_count": 73
-      }
-    },
-    "27e576f422c9": {
-      "id": "27e576f422c9",
-      "type": "fact",
-      "key": "constants_2",
-      "fact": {
-        "rule": "= 7\n\nPLACEHOLDER_TYPE_NAMES = {\n    PP_PLACEHOLDER_TITLE: \"Title\",\n    PP_PLACEHOLDER_BODY: \"Body\",\n    PP_PLACEHOLDER_CENTER_TITLE: \"CenterTitle\",\n    PP_PLACEHOLDER_SUBTITLE: \"Subtitle\",\n    PP_PLACEHOLDER_DATE: \"Date\",\n    PP_PLACEHOLDER_SLIDE_NUMBER: \"SlideNumber\",\n    PP_PLACEHOLDER_FOOTER: \"Footer\",\n    PP_PLACEHOLDER_HEADER: \"Header\",\n    PP_PLACEHOLDER_OBJECT: \"Object\",\n}\n\n# PpSlideLayout\nPP_LAYOUT_TITLE = 1\nPP_LAYOUT_TEXT = 2\nPP_LAYOUT_TWO_COLUMN_TEXT = 3\nPP_LAYOUT_TABLE = 4\nPP_LAYOUT_TEXT_AND_CHART = 5\nPP_LAYOUT_CHART_AND_TEXT = 6\nPP_LAYOUT_ORG_CHART = 7\nPP_LAYOUT_CHART = 8\nPP_LAYOUT_TEXT_AND_CLIP_ART = 9\nPP_LAYOUT_CLIP_ART_AND_TEXT = 10\nPP_LAYOUT_TITLE_ONLY = 11\nPP_LAYOUT_BLANK = 12\nPP_LAYOUT_CONTENT_WITH_CAPTION = 13\nPP_LAYOUT_PICTURE_WITH_CAPTION = 14\n",
-        "applies_to": "ia_powerpoint",
-        "source": "IA_PowerPoint\\src\\constants.py",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "python",
-        "py"
-      ],
-      "created_at": "2026-04-04T04:12:55.947664+00:00",
-      "updated_at": "2026-04-04T04:12:55.947664+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.139167+00:00",
-        "access_count": 124
-      }
-    },
-    "8b41609792bd": {
-      "id": "8b41609792bd",
-      "type": "fact",
-      "key": "constants_3",
-      "fact": {
-        "rule": "Y = 11\nPP_LAYOUT_BLANK = 12\nPP_LAYOUT_CONTENT_WITH_CAPTION = 13\nPP_LAYOUT_PICTURE_WITH_CAPTION = 14\nPP_LAYOUT_TWO_OBJECTS = 15\nPP_LAYOUT_OBJECT_AND_TWO_OBJECTS = 16\nPP_LAYOUT_TWO_OBJECTS_AND_TEXT = 17\nPP_LAYOUT_CUSTOM = 32\n\nLAYOUT_NAMES = {\n    PP_LAYOUT_TITLE: \"Title Slide\",\n    PP_LAYOUT_TEXT: \"Title and Content\",\n    PP_LAYOUT_TWO_COLUMN_TEXT: \"Two Column Text\",\n    PP_LAYOUT_TABLE: \"Table\",\n    PP_LAYOUT_TITLE_ONLY: \"Title Only\",\n    PP_LAYOUT_BLANK: \"Blank\",\n    PP_LAYOUT_CONTENT_WITH_CAPTION: \"Content with Caption\",\n    PP_LAYOUT_PICTURE_WITH_CAPTION: \"Picture with Caption\",\n    PP_LAYOUT_TWO_OBJECTS: \"Two Objects\",\n    PP_LAYOUT_CUSTOM: \"Custom\",\n}\n\n# PpSaveAsFileType\nPP_SAVE_AS_PPTX = 24\nPP_SAVE_AS_PPT = 1\nPP_SAVE_AS_PDF = 32\nPP_SAVE_AS_PNG = 18\nPP_SAVE_AS_JPG = 17\n",
-        "applies_to": "ia_powerpoint",
-        "source": "IA_PowerPoint\\src\\constants.py",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "python",
-        "py"
-      ],
-      "created_at": "2026-04-04T04:12:56.004871+00:00",
-      "updated_at": "2026-04-04T04:12:56.004871+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.139167+00:00",
-        "access_count": 122
-      }
-    },
-    "fd9cace7945b": {
-      "id": "fd9cace7945b",
-      "type": "fact",
-      "key": "constants_4",
-      "fact": {
-        "rule": "PP_SAVE_AS_PPTX = 24\nPP_SAVE_AS_PPT = 1\nPP_SAVE_AS_PDF = 32\nPP_SAVE_AS_PNG = 18\nPP_SAVE_AS_JPG = 17\nPP_SAVE_AS_GIF = 16\nPP_SAVE_AS_BMP = 19\nPP_SAVE_AS_TIF = 21\nPP_SAVE_AS_HTML = 12\nPP_SAVE_AS_MP4 = 39\nPP_SAVE_AS_XPS = 33\n\n# PpViewType\nPP_VIEW_NORMAL = 9\nPP_VIEW_SLIDE_SORTER = 5\nPP_VIEW_NOTES_PAGE = 10\nPP_VIEW_OUTLINE = 6\n\n# MsoTriState\nMSO_TRUE = -1\nMSO_FALSE = 0\nMSO_CTrue = 1\n\n# PpSlideShowAdvanceMode\nPP_ADVANCE_ON_CLICK = 1\nPP_ADVANCE_ON_TIME = 2\nPP_ADVANCE_ON_CLICK_OR_TIME = 3\n\n# MsoTextOrientation\nMSO_TEXT_ORIENT_HORIZONTAL = 1\nMSO_TEXT_ORIENT_VERTICAL = 5\n\n# PpEntryEffect (common ones)\nPP_EFFECT_NONE = 0\nPP_EFFECT_FADE = 3844\nPP_EFFECT_PUSH = 3845\nPP_EFFECT_WIPE = 3841\nPP_EFFECT_APPEAR = 3846\n\n# Financial (inherited for GBM context)\nIVA_RATES = {\n",
-        "applies_to": "ia_powerpoint",
-        "source": "IA_PowerPoint\\src\\constants.py",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "python",
-        "py"
-      ],
-      "created_at": "2026-04-04T04:12:56.076694+00:00",
-      "updated_at": "2026-04-04T04:12:56.076694+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.139167+00:00",
-        "access_count": 143
-      }
-    },
-    "659b4e72b639": {
-      "id": "659b4e72b639",
-      "type": "fact",
-      "key": "constants_5",
-      "fact": {
-        "rule": "P_EFFECT_WIPE = 3841\nPP_EFFECT_APPEAR = 3846\n\n# Financial (inherited for GBM context)\nIVA_RATES = {\n    \"GT\": 0.12, \"CR\": 0.13, \"PA\": 0.07,\n    \"SV\": 0.13, \"HN\": 0.15, \"NI\": 0.15,\n    \"DO\": 0.18,\n}\n\n# GBM proposal slide categories\nPROPOSAL_SLIDE_TYPES = {\n    \"cover\": [\"portada\", \"cover\", \"titulo\"],\n    \"agenda\": [\"agenda\", \"contenido\", \"indice\"],\n    \"about\": [\"gbm\", \"quienes somos\", \"mision\", \"vision\", \"nosotros\"],\n    \"technical\": [\"tecnic\", \"arquitectura\", \"solucion\", \"infraestructura\"],\n    \"financial\": [\"economic\", \"financier\", \"precio\", \"costo\", \"inversion\",\n                  \"propuesta economica\", \"cotizacion\"],\n    \"services\": [\"servicio\", \"alcance\", \"implementacion\", \"soporte\",\n                 \"capacitacion\", \"migracion\"],\n",
-        "applies_to": "ia_powerpoint",
-        "source": "IA_PowerPoint\\src\\constants.py",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "python",
-        "py"
-      ],
-      "created_at": "2026-04-04T04:12:56.156450+00:00",
-      "updated_at": "2026-04-04T04:12:56.156450+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.139167+00:00",
-        "access_count": 102
-      }
-    },
-    "78fd8e003ede": {
-      "id": "78fd8e003ede",
-      "type": "fact",
-      "key": "constants_6",
-      "fact": {
-        "rule": "[\"servicio\", \"alcance\", \"implementacion\", \"soporte\",\n                 \"capacitacion\", \"migracion\"],\n    \"timeline\": [\"cronograma\", \"timeline\", \"plan\", \"calendario\", \"fases\"],\n    \"terms\": [\"terminos\", \"condiciones\", \"legal\", \"garantia\"],\n    \"closing\": [\"cierre\", \"contacto\", \"gracias\", \"siguiente\"],\n}",
-        "applies_to": "ia_powerpoint",
-        "source": "IA_PowerPoint\\src\\constants.py",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "python",
-        "py"
-      ],
-      "created_at": "2026-04-04T04:12:56.211380+00:00",
-      "updated_at": "2026-04-04T04:12:56.211380+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.139167+00:00",
-        "access_count": 79
+        "last_accessed": "2026-04-05T05:02:09.802747+00:00",
+        "access_count": 142
       }
     },
     "1bc7ea7e6d5b": {
@@ -797,8 +247,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.139167+00:00",
-        "access_count": 162
+        "last_accessed": "2026-04-05T05:26:01.008758+00:00",
+        "access_count": 166
       }
     },
     "9478989dd931": {
@@ -821,32 +271,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:01.871446+00:00",
-        "access_count": 76
-      }
-    },
-    "1ea05a1d5167": {
-      "id": "1ea05a1d5167",
-      "type": "fact",
-      "key": "README_0",
-      "fact": {
-        "rule": "# pytest cache directory #\n\nThis directory contains data from the pytest's cache plugin,\nwhich provides the `--lf` and `--ff` options, as well as the `cache` fixture.\n\n**Do not** commit this to version control.\n\nSee [the docs](https://docs.pytest.org/en/stable/how-to/cache.html) for more information.",
-        "applies_to": "ia_powerpoint",
-        "source": "IA_PowerPoint\\.pytest_cache\\README.md",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "md"
-      ],
-      "created_at": "2026-04-04T04:12:56.389576+00:00",
-      "updated_at": "2026-04-04T04:12:56.389576+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:09.113063+00:00",
-        "access_count": 193
+        "last_accessed": "2026-04-05T05:02:09.802747+00:00",
+        "access_count": 78
       }
     },
     "28c938a48845": {
@@ -870,21 +296,294 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.139167+00:00",
-        "access_count": 61
+        "last_accessed": "2026-04-05T05:02:09.802747+00:00",
+        "access_count": 64
+      }
+    },
+    "535ab935f243": {
+      "id": "535ab935f243",
+      "type": "fact",
+      "key": "pptx_slides_shapes_text_formatting",
+      "fact": {
+        "rule": "python-pptx: Crear y manipular slides, shapes y texto en PowerPoint.\n\nCREAR PRESENTACIÓN BÁSICA:\n```python\nfrom pptx import Presentation\nfrom pptx.util import Inches, Pt, Emu\nfrom pptx.enum.text import PP_ALIGN\nfrom pptx.dml.color import RGBColor\n\nprs = Presentation()\n# Tamaño widescreen\nprs.slide_width = Inches(13.333)\nprs.slide_height = Inches(7.5)\n```\n\nLAYOUTS DISPONIBLES:\n```python\n# Listar layouts disponibles\nfor i, layout in enumerate(prs.slide_layouts):\n    print(f\"{i}: {layout.name}\")\n# 0: Title Slide\n# 1: Title and Content\n# 2: Section Header\n# 3: Two Content\n# 4: Comparison\n# 5: Title Only\n# 6: Blank\n```\n\nAGREGAR SLIDES:\n```python\n# Slide de título\nslide = prs.slides.add_slide(prs.slide_layouts[0])\nslide.shapes.title.text = \"Presentación Ejecutiva\"\nslide.placeholders[1].text = \"GBM Guatemala - 2024\"\n\n# Slide con contenido\nslide2 = prs.slides.add_slide(prs.slide_layouts[1])\nslide2.shapes.title.text = \"Agenda\"\nbody = slide2.placeholders[1]\ntf = body.text_frame\ntf.text = \"Contexto del proyecto\"\ntf.add_paragraph().text = \"Solución propuesta\"\ntf.add_paragraph().text = \"Inversión\"\ntf.add_paragraph().text = \"Próximos pasos\"\n```\n\nSHAPES Y TEXTO:\n```python\nfrom pptx.util import Inches, Pt\n\nslide = prs.slides.add_slide(prs.slide_layouts[6])  # Blank\n\n# Text box\ntxBox = slide.shapes.add_textbox(Inches(1), Inches(1), Inches(5), Inches(2))\ntf = txBox.text_frame\ntf.word_wrap = True\n\n# Párrafo con formato\np = tf.paragraphs[0]\np.text = \"Título de sección\"\np.font.size = Pt(24)\np.font.bold = True\np.font.color.rgb = RGBColor(0x1F, 0x49, 0x7D)\np.alignment = PP_ALIGN.CENTER\n\n# Segundo párrafo\np2 = tf.add_paragraph()\np2.text = \"Descripción detallada del contenido\"\np2.font.size = Pt(14)\np2.font.color.rgb = RGBColor(0x66, 0x66, 0x66)\np2.space_before = Pt(12)\n```\n\nFORMAS GEOMÉTRICAS:\n```python\nfrom pptx.enum.shapes import MSO_SHAPE\n\n# Rectángulo\nshape = slide.shapes.add_shape(\n    MSO_SHAPE.RECTANGLE, Inches(1), Inches(3), Inches(3), Inches(1.5)\n)\nshape.fill.solid()\nshape.fill.fore_color.rgb = RGBColor(0x1F, 0x49, 0x7D)\nshape.line.fill.background()  # Sin borde\n\n# Texto dentro del shape\ntf = shape.text_frame\ntf.text = \"Valor: $120,000\"\ntf.paragraphs[0].font.color.rgb = RGBColor(0xFF, 0xFF, 0xFF)\ntf.paragraphs[0].font.size = Pt(18)\ntf.paragraphs[0].alignment = PP_ALIGN.CENTER\n\n# Círculo\ncircle = slide.shapes.add_shape(\n    MSO_SHAPE.OVAL, Inches(5), Inches(3), Inches(1.5), Inches(1.5)\n)\n\n# Flecha\narrow = slide.shapes.add_shape(\n    MSO_SHAPE.RIGHT_ARROW, Inches(4), Inches(3.5), Inches(0.8), Inches(0.5)\n)\n```\n\nIMÁGENES:\n```python\n# Agregar imagen\nslide.shapes.add_picture(\"logo.png\", Inches(0.5), Inches(0.3), Inches(2))\n\n# Imagen centrada\nimg_width = Inches(8)\nimg_left = (prs.slide_width - img_width) / 2\nslide.shapes.add_picture(\"chart.png\", img_left, Inches(2), img_width)\n```\n\nFuente: python-pptx docs, Lenstra blog, LinkedIn articles",
+        "source": "claude_desktop_mcp"
+      },
+      "tags": [
+        "python-pptx",
+        "slides",
+        "shapes",
+        "text",
+        "formatting",
+        "images",
+        "layouts",
+        "mcp_learned"
+      ],
+      "created_at": "2026-04-05T04:47:26.911601+00:00",
+      "updated_at": "2026-04-05T04:47:26.911601+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-05T05:26:01.008758+00:00",
+        "access_count": 1
+      }
+    },
+    "53548a749d8f": {
+      "id": "53548a749d8f",
+      "type": "fact",
+      "key": "pptx_tables_charts_advanced",
+      "fact": {
+        "rule": "python-pptx: Tablas y gráficos avanzados en PowerPoint.\n\nTABLAS:\n```python\nfrom pptx import Presentation\nfrom pptx.util import Inches, Pt, Emu\nfrom pptx.dml.color import RGBColor\nfrom pptx.enum.text import PP_ALIGN\n\nprs = Presentation()\nslide = prs.slides.add_slide(prs.slide_layouts[6])\n\n# Crear tabla\nrows, cols = 5, 4\ntable_shape = slide.shapes.add_table(rows, cols, Inches(1), Inches(2), Inches(8), Inches(3))\ntable = table_shape.table\n\n# Headers\nheaders = [\"Servicio\", \"Cantidad\", \"Precio Unit.\", \"Total\"]\nfor i, h in enumerate(headers):\n    cell = table.cell(0, i)\n    cell.text = h\n    p = cell.text_frame.paragraphs[0]\n    p.font.bold = True\n    p.font.size = Pt(12)\n    p.font.color.rgb = RGBColor(0xFF, 0xFF, 0xFF)\n    p.alignment = PP_ALIGN.CENTER\n    # Fondo azul header\n    cell.fill.solid()\n    cell.fill.fore_color.rgb = RGBColor(0x1F, 0x49, 0x7D)\n\n# Datos\ndata = [\n    [\"Consultoría\", \"160 hrs\", \"$150\", \"$24,000\"],\n    [\"Desarrollo\", \"320 hrs\", \"$120\", \"$38,400\"],\n    [\"Testing\", \"80 hrs\", \"$100\", \"$8,000\"],\n    [\"PM\", \"40 hrs\", \"$180\", \"$7,200\"],\n]\nfor row_idx, row_data in enumerate(data):\n    for col_idx, val in enumerate(row_data):\n        cell = table.cell(row_idx + 1, col_idx)\n        cell.text = val\n        p = cell.text_frame.paragraphs[0]\n        p.font.size = Pt(11)\n        if col_idx >= 1:  # Alinear números a la derecha\n            p.alignment = PP_ALIGN.RIGHT\n\n# Ancho de columnas\ntable.columns[0].width = Inches(3)\ntable.columns[1].width = Inches(1.5)\ntable.columns[2].width = Inches(1.5)\ntable.columns[3].width = Inches(2)\n\n# Merge cells\ncell_a = table.cell(0, 0)\ncell_b = table.cell(0, 1)\n# cell_a.merge(cell_b)  # Fusionar\n```\n\nGRÁFICOS (Charts):\n```python\nfrom pptx.chart.data import CategoryChartData, ChartData\nfrom pptx.enum.chart import XL_CHART_TYPE\n\nslide = prs.slides.add_slide(prs.slide_layouts[6])\n\n# Bar Chart\nchart_data = CategoryChartData()\nchart_data.categories = [\"Q1\", \"Q2\", \"Q3\", \"Q4\"]\nchart_data.add_series(\"Ventas 2024\", (120, 150, 180, 200))\nchart_data.add_series(\"Ventas 2023\", (100, 110, 130, 160))\n\nchart_frame = slide.shapes.add_chart(\n    XL_CHART_TYPE.COLUMN_CLUSTERED,\n    Inches(1), Inches(1.5), Inches(8), Inches(5),\n    chart_data\n)\nchart = chart_frame.chart\nchart.has_legend = True\n\n# Personalizar\nplot = chart.plots[0]\nplot.gap_width = 150\n\n# Colores de series\nseries0 = plot.series[0]\nseries0.format.fill.solid()\nseries0.format.fill.fore_color.rgb = RGBColor(0x1F, 0x49, 0x7D)\n\n# Line Chart\nline_data = CategoryChartData()\nline_data.categories = [\"Ene\", \"Feb\", \"Mar\", \"Abr\", \"May\", \"Jun\"]\nline_data.add_series(\"Tendencia\", (10, 15, 13, 17, 20, 25))\n\nslide2 = prs.slides.add_slide(prs.slide_layouts[6])\nchart2 = slide2.shapes.add_chart(\n    XL_CHART_TYPE.LINE,\n    Inches(1), Inches(1.5), Inches(8), Inches(5),\n    line_data\n).chart\n\n# Pie Chart\npie_data = CategoryChartData()\npie_data.categories = [\"Licencias\", \"Servicios\", \"Soporte\", \"Cloud\"]\npie_data.add_series(\"Distribución\", (35, 30, 20, 15))\n\nslide3 = prs.slides.add_slide(prs.slide_layouts[6])\nchart3 = slide3.shapes.add_chart(\n    XL_CHART_TYPE.PIE,\n    Inches(2), Inches(1.5), Inches(6), Inches(5),\n    pie_data\n).chart\nchart3.has_legend = True\n```\n\nCHART CON MATPLOTLIB (más control visual):\n```python\nimport matplotlib.pyplot as plt\nimport io\n\nfig, ax = plt.subplots(figsize=(10, 6))\nax.bar([\"Q1\", \"Q2\", \"Q3\", \"Q4\"], [120, 150, 180, 200], color=\"#1F497D\")\nax.set_title(\"Ventas Trimestrales\")\n\nbuf = io.BytesIO()\nfig.savefig(buf, format=\"png\", dpi=150, bbox_inches=\"tight\")\nbuf.seek(0)\nplt.close(fig)\n\nslide = prs.slides.add_slide(prs.slide_layouts[6])\nslide.shapes.add_picture(buf, Inches(1.5), Inches(1.5), Inches(8))\n```\n\nFuente: python-pptx docs, LinkedIn (Umer Saeed), nb-data.com",
+        "source": "claude_desktop_mcp"
+      },
+      "tags": [
+        "python-pptx",
+        "tables",
+        "charts",
+        "bar",
+        "line",
+        "pie",
+        "matplotlib",
+        "formatting",
+        "mcp_learned"
+      ],
+      "created_at": "2026-04-05T04:47:45.573303+00:00",
+      "updated_at": "2026-04-05T04:47:45.573303+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-05T04:47:45.573303+00:00",
+        "access_count": 0
+      }
+    },
+    "1e237acda8f8": {
+      "id": "1e237acda8f8",
+      "type": "fact",
+      "key": "pptx_master_slides_notes_advanced",
+      "fact": {
+        "rule": "python-pptx avanzado: Master slides, notas del orador y temas:\n\nSLIDE LAYOUTS Y MASTERS:\n```python\nfrom pptx import Presentation\n\nprs = Presentation()\n# Acceder a slide layouts del master\nslide_master = prs.slide_masters[0]\nlayouts = slide_master.slide_layouts\n\n# Layouts estándar (índices comunes):\n# 0: Title Slide, 1: Title and Content, 2: Section Header\n# 3: Two Content, 4: Comparison, 5: Title Only\n# 6: Blank, 7: Content with Caption\n\n# Usar layout específico\nlayout = prs.slide_layouts[1]  # Title and Content\nslide = prs.slides.add_slide(layout)\n\n# Acceder a placeholders del layout\nfor ph in layout.placeholders:\n    print(f\"idx={ph.placeholder_format.idx}, name={ph.name}, type={ph.placeholder_format.type}\")\n\n# Llenar placeholders\nslide.placeholders[0].text = \"Título\"\nslide.placeholders[1].text = \"Contenido del cuerpo\"\n```\n\nNOTAS DEL ORADOR (Speaker Notes):\n```python\n# Agregar notas a un slide\nnotes_slide = slide.notes_slide\nnotes_tf = notes_slide.notes_text_frame\nnotes_tf.text = \"Estas son las notas del orador para esta diapositiva.\"\n\n# Notas con formato\nfrom pptx.util import Pt\nnotes_tf.clear()\np = notes_tf.paragraphs[0]\np.text = \"Punto importante: \"\nrun = p.add_run()\nrun.text = \"mencionar cifras del Q4\"\nrun.font.bold = True\nrun.font.size = Pt(12)\n\n# Leer notas existentes\nfor slide in prs.slides:\n    if slide.has_notes_slide:\n        print(slide.notes_slide.notes_text_frame.text)\n```\n\nAPLICAR TEMPLATE/THEME:\n```python\n# Usar presentación existente como template\nprs = Presentation(\"template_corporativo.pptx\")\n# Los masters y layouts del template se heredan\n\n# Clonar slide de otra presentación (workaround via python-pptx-copier o manual XML)\nfrom copy import deepcopy\nfrom lxml import etree\n# Copiar XML del slide\n```\n\nTAMAÑO DE DIAPOSITIVA:\n```python\nfrom pptx.util import Inches, Emu\nprs.slide_width = Inches(13.333)   # 16:9 widescreen\nprs.slide_height = Inches(7.5)\n# O 4:3 estándar:\nprs.slide_width = Inches(10)\nprs.slide_height = Inches(7.5)\n```",
+        "source": "claude_desktop_mcp"
+      },
+      "tags": [
+        "python-pptx",
+        "master_slides",
+        "notes",
+        "speaker",
+        "layouts",
+        "powerpoint",
+        "python",
+        "mcp_learned"
+      ],
+      "created_at": "2026-04-05T04:50:28.334510+00:00",
+      "updated_at": "2026-04-05T04:50:28.334510+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-05T05:26:01.008758+00:00",
+        "access_count": 2
+      }
+    },
+    "a6beb0240180": {
+      "id": "a6beb0240180",
+      "type": "fact",
+      "key": "pptx_batch_processing_images",
+      "fact": {
+        "rule": "python-pptx: Procesamiento batch, imágenes y generación masiva:\n\nBATCH: GENERAR PRESENTACIÓN DESDE DATOS:\n```python\nfrom pptx import Presentation\nfrom pptx.util import Inches, Pt, Emu\nfrom pptx.enum.text import PP_ALIGN\nimport pandas as pd\n\ndef generate_report_pptx(data: list[dict], template=\"template.pptx\", output=\"reporte.pptx\"):\n    prs = Presentation(template)\n    \n    for item in data:\n        # Slide de título por sección\n        slide = prs.slides.add_slide(prs.slide_layouts[5])  # Title Only\n        slide.shapes.title.text = item[\"titulo\"]\n        \n        # Slide de contenido\n        slide = prs.slides.add_slide(prs.slide_layouts[1])  # Title + Content\n        slide.shapes.title.text = item[\"subtitulo\"]\n        tf = slide.placeholders[1].text_frame\n        for bullet in item[\"puntos\"]:\n            p = tf.add_paragraph()\n            p.text = bullet\n            p.level = 0\n            p.font.size = Pt(18)\n    \n    prs.save(output)\n```\n\nIMÁGENES:\n```python\nfrom pptx.util import Inches\n\n# Agregar imagen\nslide.shapes.add_picture(\"grafico.png\", \n    left=Inches(1), top=Inches(2),\n    width=Inches(8), height=Inches(4.5))\n\n# Imagen desde BytesIO (generada dinámicamente)\nfrom io import BytesIO\nimport matplotlib.pyplot as plt\n\nfig, ax = plt.subplots()\nax.bar([\"Q1\",\"Q2\",\"Q3\",\"Q4\"], [100,150,130,180])\nbuf = BytesIO()\nfig.savefig(buf, format=\"png\", dpi=150, bbox_inches=\"tight\")\nbuf.seek(0)\nslide.shapes.add_picture(buf, Inches(1), Inches(2), Inches(8))\nplt.close()\n\n# Background de slide (imagen de fondo)\nfrom pptx.oxml.ns import qn\nbackground = slide.background\nfill = background.fill\nfill.background()  # No hay API directa, usar XML:\n# Workaround: agregar imagen del tamaño completo del slide\nslide.shapes.add_picture(\"fondo.jpg\", 0, 0, prs.slide_width, prs.slide_height)\n# Mover al fondo (z-order)\nsp = slide.shapes[-1]._element\nslide.shapes._spTree.remove(sp)\nslide.shapes._spTree.insert(2, sp)  # posición 2 = detrás de todo\n```\n\nMERGE MÚLTIPLES PPTX:\n```python\nfrom pptx import Presentation\nfrom copy import deepcopy\nfrom lxml import etree\n\ndef merge_presentations(files: list[str], output: str):\n    merged = Presentation()\n    # Copiar tamaño del primero\n    first = Presentation(files[0])\n    merged.slide_width = first.slide_width\n    merged.slide_height = first.slide_height\n    \n    for f in files:\n        prs = Presentation(f)\n        for slide in prs.slides:\n            # Agregar slide en blanco\n            new_slide = merged.slides.add_slide(merged.slide_layouts[6])  # Blank\n            # Copiar shapes\n            for shape in slide.shapes:\n                el = deepcopy(shape._element)\n                new_slide.shapes._spTree.append(el)\n    \n    merged.save(output)\n\n# Uso\nmerge_presentations([\"parte1.pptx\", \"parte2.pptx\", \"parte3.pptx\"], \"completo.pptx\")\n```\n\nTABLAS DINÁMICAS DESDE DATAFRAME:\n```python\ndef df_to_pptx_table(slide, df, left=Inches(0.5), top=Inches(2), \n                      width=Inches(9), height=Inches(0.3)):\n    rows, cols = df.shape\n    table = slide.shapes.add_table(rows + 1, cols, left, top, width, height).table\n    \n    # Headers\n    for j, col_name in enumerate(df.columns):\n        cell = table.cell(0, j)\n        cell.text = str(col_name)\n        cell.fill.solid()\n        cell.fill.fore_color.rgb = RGBColor(0x44, 0x72, 0xC4)\n        for paragraph in cell.text_frame.paragraphs:\n            paragraph.font.bold = True\n            paragraph.font.color.rgb = RGBColor(0xFF, 0xFF, 0xFF)\n            paragraph.font.size = Pt(11)\n    \n    # Datos\n    for i in range(rows):\n        for j in range(cols):\n            cell = table.cell(i + 1, j)\n            cell.text = str(df.iloc[i, j])\n            cell.text_frame.paragraphs[0].font.size = Pt(10)\n    \n    return table\n```",
+        "source": "claude_desktop_mcp"
+      },
+      "tags": [
+        "python-pptx",
+        "batch",
+        "images",
+        "merge",
+        "tables",
+        "dataframe",
+        "powerpoint",
+        "python",
+        "mcp_learned"
+      ],
+      "created_at": "2026-04-05T04:52:31.330950+00:00",
+      "updated_at": "2026-04-05T04:52:31.330950+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-05T04:52:31.330950+00:00",
+        "access_count": 0
+      }
+    },
+    "7429d1c5e9ac": {
+      "id": "7429d1c5e9ac",
+      "type": "fact",
+      "key": "pptx_shapes_formatting_colors",
+      "fact": {
+        "rule": "python-pptx: Shapes avanzados, formato de texto y colores:\n\nTIPOS DE SHAPES:\n```python\nfrom pptx.util import Inches, Pt, Emu\nfrom pptx.enum.shapes import MSO_SHAPE\nfrom pptx.dml.color import RGBColor\n\n# Formas básicas\nshape = slide.shapes.add_shape(\n    MSO_SHAPE.RECTANGLE, Inches(1), Inches(1), Inches(3), Inches(2))\n\n# Formas disponibles comunes:\n# MSO_SHAPE.RECTANGLE, ROUNDED_RECTANGLE, OVAL, TRIANGLE\n# MSO_SHAPE.DIAMOND, PENTAGON, HEXAGON, CHEVRON\n# MSO_SHAPE.RIGHT_ARROW, LEFT_ARROW, UP_ARROW, DOWN_ARROW\n# MSO_SHAPE.STAR_5_POINT, STAR_6_POINT, HEART, LIGHTNING_BOLT\n# MSO_SHAPE.CALLOUT_1, CALLOUT_2, CLOUD_CALLOUT\n```\n\nFORMATO DE SHAPE:\n```python\n# Fill (relleno)\nshape.fill.solid()\nshape.fill.fore_color.rgb = RGBColor(0x44, 0x72, 0xC4)\n\n# Gradiente\nshape.fill.gradient()\nshape.fill.gradient_stops[0].color.rgb = RGBColor(0x00, 0x00, 0xFF)\nshape.fill.gradient_stops[0].position = 0\nshape.fill.gradient_stops[1].color.rgb = RGBColor(0xFF, 0xFF, 0xFF)\nshape.fill.gradient_stops[1].position = 1.0\n\n# Sin relleno\nshape.fill.background()\n\n# Línea/borde\nshape.line.color.rgb = RGBColor(0, 0, 0)\nshape.line.width = Pt(2)\nshape.line.dash_style = MSO_LINE_DASH_STYLE.DASH  # o SOLID, DOT, DASH_DOT\n\n# Sombra (via XML)\nfrom pptx.oxml.ns import qn\n# Agregar sombra requiere manipulación XML directa\n```\n\nFORMATO DE TEXTO AVANZADO:\n```python\nfrom pptx.util import Pt\nfrom pptx.enum.text import PP_ALIGN, MSO_ANCHOR\n\ntf = shape.text_frame\ntf.word_wrap = True\ntf.auto_size = MSO_AUTO_SIZE.SHAPE_TO_FIT_TEXT\n\n# Alineación vertical\ntf.paragraphs[0].alignment = PP_ALIGN.CENTER  # horizontal\nshape.text_frame.paragraphs[0].space_before = Pt(6)\nshape.text_frame.paragraphs[0].space_after = Pt(6)\n\n# Múltiples runs con formato diferente\np = tf.paragraphs[0]\np.clear()\n\nrun1 = p.add_run()\nrun1.text = \"Texto normal \"\nrun1.font.size = Pt(14)\n\nrun2 = p.add_run()\nrun2.text = \"Texto en negrita\"\nrun2.font.size = Pt(14)\nrun2.font.bold = True\nrun2.font.color.rgb = RGBColor(0xFF, 0x00, 0x00)\n\nrun3 = p.add_run()\nrun3.text = \" con cursiva\"\nrun3.font.italic = True\nrun3.font.underline = True\n\n# Hyperlink\nrun4 = p.add_run()\nrun4.text = \"Click aquí\"\nrun4.hyperlink.address = \"https://ejemplo.com\"\n```\n\nPLACEHOLDERS (del layout):\n```python\n# Listar placeholders disponibles\nfor ph in slide.placeholders:\n    print(f\"idx={ph.placeholder_format.idx} | type={ph.placeholder_format.type} | name={ph.name}\")\n\n# Tipos comunes:\n# 0 = Title, 1 = Body/Content, 2 = Center Title\n# 10 = Subtitle, 12 = Slide Number, 13 = Date, 14 = Footer\n\n# Llenar placeholder por índice\nslide.placeholders[0].text = \"Mi Título\"\nslide.placeholders[1].text = \"Contenido\"\n```\n\nCONECTORES (líneas entre shapes):\n```python\nfrom pptx.enum.shapes import MSO_CONNECTOR_TYPE\n\nconnector = slide.shapes.add_connector(\n    MSO_CONNECTOR_TYPE.STRAIGHT,\n    Inches(1), Inches(1),  # start\n    Inches(5), Inches(3),  # end\n)\nconnector.begin_connect(shape1, 3)  # connection point index\nconnector.end_connect(shape2, 1)\n```",
+        "source": "claude_desktop_mcp"
+      },
+      "tags": [
+        "python-pptx",
+        "shapes",
+        "formatting",
+        "colors",
+        "text",
+        "placeholders",
+        "connectors",
+        "powerpoint",
+        "mcp_learned"
+      ],
+      "created_at": "2026-04-05T04:54:20.977525+00:00",
+      "updated_at": "2026-04-05T04:54:20.977525+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-05T05:26:01.008758+00:00",
+        "access_count": 1
+      }
+    },
+    "0e65371180c7": {
+      "id": "0e65371180c7",
+      "type": "fact",
+      "key": "pptx_com_automation_win32com",
+      "fact": {
+        "rule": "PowerPoint COM automation con win32com - Control total desde Python:\n\nCONEXIÓN:\n```python\nimport win32com.client\n\nppt = win32com.client.Dispatch(\"PowerPoint.Application\")\nppt.Visible = True  # PowerPoint requiere Visible=True para muchas operaciones\n\n# Abrir presentación\nprs = ppt.Presentations.Open(r\"C:\\ruta\\presentacion.pptx\")\n\n# Nueva presentación\nprs = ppt.Presentations.Add()\n```\n\nSLIDES:\n```python\n# Agregar slide (layout 1=Title, 2=Title+Content, 7=Blank, etc.)\nslide = prs.Slides.Add(prs.Slides.Count + 1, 2)\n\n# Acceder slides\nfor slide in prs.Slides:\n    print(f\"Slide {slide.SlideIndex}: {slide.Shapes.Title.TextFrame.TextRange.Text}\")\n\n# Duplicar slide\nprs.Slides(1).Duplicate()\n\n# Mover slide\nprs.Slides(3).MoveTo(1)  # mover slide 3 a posición 1\n\n# Eliminar\nprs.Slides(2).Delete()\n```\n\nSHAPES Y TEXTO:\n```python\nslide = prs.Slides(1)\n\n# Título\nslide.Shapes.Title.TextFrame.TextRange.Text = \"Mi Título\"\n\n# Body/content\nbody = slide.Shapes.Placeholders(2)\nbody.TextFrame.TextRange.Text = \"Contenido del slide\"\n\n# Formato de texto\ntr = slide.Shapes.Title.TextFrame.TextRange\ntr.Font.Size = 28\ntr.Font.Bold = True\ntr.Font.Color.RGB = 0x0000FF  # Azul (BGR en COM)\ntr.Font.Name = \"Calibri\"\n\n# Agregar shape\nshape = slide.Shapes.AddShape(1, 100, 100, 200, 150)  # type, left, top, w, h\nshape.TextFrame.TextRange.Text = \"Texto en shape\"\nshape.Fill.ForeColor.RGB = 0xC47244  # BGR\n\n# Imagen\nslide.Shapes.AddPicture(\n    r\"C:\\ruta\\imagen.png\",\n    LinkToFile=False, SaveWithDocument=True,\n    Left=100, Top=200, Width=400, Height=300\n)\n```\n\nEXPORTAR:\n```python\n# Exportar a PDF\nprs.SaveAs(r\"C:\\output\\presentacion.pdf\", FileFormat=32)  # 32=ppSaveAsPDF\n\n# Exportar slides como imágenes\nfor i, slide in enumerate(prs.Slides, 1):\n    slide.Export(f\"C:\\\\output\\\\slide_{i}.png\", \"PNG\", 1920, 1080)\n\n# Exportar como video (requiere Office 365)\n# No disponible directamente via COM, usar SaveAs con formato MP4\n```\n\nTRANSICIONES Y ANIMACIONES (solo COM):\n```python\n# Transición del slide\nslide = prs.Slides(1)\nslide.SlideShowTransition.EntryEffect = 3  # ppEffectFade\nslide.SlideShowTransition.Duration = 1.5   # segundos\nslide.SlideShowTransition.AdvanceOnClick = True\nslide.SlideShowTransition.AdvanceOnTime = True\nslide.SlideShowTransition.AdvanceTime = 5  # auto-avance 5 seg\n\n# Animación de shape (entrada)\neffect = slide.TimeLine.MainSequence.AddEffect(\n    shape,           # shape a animar\n    effectId=1,      # msoAnimEffectAppear\n    trigger=1,       # msoAnimTriggerOnPageClick\n)\neffect.Timing.Duration = 0.5\n\n# Efectos comunes: 1=Appear, 2=Fly, 10=Fade, 53=Zoom\n```\n\nSLIDE SHOW:\n```python\n# Iniciar presentación\nsettings = prs.SlideShowSettings\nsettings.StartingSlide = 1\nsettings.EndingSlide = prs.Slides.Count\nwindow = settings.Run()\n\n# Controlar slideshow\nimport time\ntime.sleep(3)\nwindow.View.Next()  # siguiente slide\nwindow.View.Exit()  # terminar\n```\n\nCERRAR:\n```python\nprs.Close()\nppt.Quit()\n```",
+        "source": "claude_desktop_mcp"
+      },
+      "tags": [
+        "win32com",
+        "powerpoint",
+        "com",
+        "automation",
+        "transitions",
+        "animations",
+        "export",
+        "python",
+        "mcp_learned"
+      ],
+      "created_at": "2026-04-05T04:55:01.942800+00:00",
+      "updated_at": "2026-04-05T04:55:01.942800+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-05T05:26:01.008758+00:00",
+        "access_count": 1
+      }
+    },
+    "6501df918133": {
+      "id": "6501df918133",
+      "type": "fact",
+      "key": "pptx_tables_formatting_advanced",
+      "fact": {
+        "rule": "python-pptx: Tablas avanzadas - merge, formato, colores y alineación:\n\nCREAR TABLA CON FORMATO:\n```python\nfrom pptx import Presentation\nfrom pptx.util import Inches, Pt, Emu\nfrom pptx.dml.color import RGBColor\nfrom pptx.enum.text import PP_ALIGN, MSO_ANCHOR\n\nprs = Presentation()\nslide = prs.slides.add_slide(prs.slide_layouts[6])  # Blank\n\nrows, cols = 5, 4\ntable_shape = slide.shapes.add_table(rows, cols, \n    Inches(0.5), Inches(1.5), Inches(9), Inches(3))\ntable = table_shape.table\n\n# Headers\nheaders = [\"Producto\", \"Q1\", \"Q2\", \"Total\"]\nfor j, header in enumerate(headers):\n    cell = table.cell(0, j)\n    cell.text = header\n    # Formato header\n    cell.fill.solid()\n    cell.fill.fore_color.rgb = RGBColor(0x1F, 0x49, 0x7D)\n    p = cell.text_frame.paragraphs[0]\n    p.font.bold = True\n    p.font.color.rgb = RGBColor(0xFF, 0xFF, 0xFF)\n    p.font.size = Pt(12)\n    p.alignment = PP_ALIGN.CENTER\n    cell.vertical_anchor = MSO_ANCHOR.MIDDLE\n```\n\nMERGE CELLS (combinar celdas):\n```python\n# Merge horizontal (combinar columnas)\ncell = table.cell(0, 1)\ncell.merge(table.cell(0, 2))  # combina B1:C1\ncell.text = \"Primer Semestre\"\n\n# Merge vertical (combinar filas)\ncell = table.cell(1, 0)\ncell.merge(table.cell(3, 0))  # combina A2:A4\ncell.text = \"Grupo A\"\n\n# Merge rectangular (bloque)\ncell = table.cell(1, 1)\ncell.merge(table.cell(2, 2))  # combina B2:C3\n```\n\nFORMATO DE CELDAS INDIVIDUAL:\n```python\ndef format_cell(cell, text, bold=False, font_size=10, \n                bg_color=None, font_color=None, align=\"left\"):\n    cell.text = str(text)\n    p = cell.text_frame.paragraphs[0]\n    p.font.size = Pt(font_size)\n    p.font.bold = bold\n    \n    if font_color:\n        p.font.color.rgb = RGBColor(*font_color)\n    \n    if bg_color:\n        cell.fill.solid()\n        cell.fill.fore_color.rgb = RGBColor(*bg_color)\n    \n    align_map = {\"left\": PP_ALIGN.LEFT, \"center\": PP_ALIGN.CENTER, \"right\": PP_ALIGN.RIGHT}\n    p.alignment = align_map.get(align, PP_ALIGN.LEFT)\n    cell.vertical_anchor = MSO_ANCHOR.MIDDLE\n\n# Filas alternas (zebra)\nfor i in range(1, rows):\n    for j in range(cols):\n        cell = table.cell(i, j)\n        if i % 2 == 0:\n            cell.fill.solid()\n            cell.fill.fore_color.rgb = RGBColor(0xE8, 0xEE, 0xF7)\n```\n\nBORDES DE TABLA:\n```python\n# Los bordes se controlan via XML (no hay API directa)\nfrom pptx.oxml.ns import qn\nfrom lxml import etree\n\ndef set_cell_border(cell, border_color=\"000000\", border_width=\"12700\"):\n    tc = cell._tc\n    tcPr = tc.get_or_add_tcPr()\n    \n    for border_name in [\"lnL\", \"lnR\", \"lnT\", \"lnB\"]:\n        ln = etree.SubElement(tcPr, qn(f\"a:{border_name}\"))\n        ln.set(\"w\", border_width)\n        solidFill = etree.SubElement(ln, qn(\"a:solidFill\"))\n        srgbClr = etree.SubElement(solidFill, qn(\"a:srgbClr\"))\n        srgbClr.set(\"val\", border_color)\n\n# Aplicar a todas las celdas\nfor i in range(rows):\n    for j in range(cols):\n        set_cell_border(table.cell(i, j))\n```\n\nANCHO DE COLUMNAS:\n```python\n# Ancho de columnas en EMUs (1 inch = 914400 EMUs)\ntable.columns[0].width = Inches(3)    # columna ancha\ntable.columns[1].width = Inches(1.5)\ntable.columns[2].width = Inches(1.5)\ntable.columns[3].width = Inches(2)\n\n# Alto de filas\ntable.rows[0].height = Inches(0.5)    # header más alto\nfor i in range(1, rows):\n    table.rows[i].height = Inches(0.35)\n```\n\nTEXTO MULTI-LÍNEA EN CELDA:\n```python\ncell = table.cell(1, 0)\ntf = cell.text_frame\ntf.word_wrap = True\n\np1 = tf.paragraphs[0]\np1.text = \"Primera línea\"\np1.font.bold = True\n\np2 = tf.add_paragraph()\np2.text = \"Segunda línea\"\np2.font.size = Pt(9)\np2.font.italic = True\n\n# Bullet points en celda\np3 = tf.add_paragraph()\np3.text = \"Item con bullet\"\np3.level = 0\npPr = p3._pPr\nif pPr is None:\n    pPr = p3._p.get_or_add_pPr()\n```",
+        "source": "claude_desktop_mcp"
+      },
+      "tags": [
+        "python-pptx",
+        "tables",
+        "merge",
+        "formatting",
+        "borders",
+        "alignment",
+        "colors",
+        "powerpoint",
+        "mcp_learned"
+      ],
+      "created_at": "2026-04-05T05:03:46.644352+00:00",
+      "updated_at": "2026-04-05T05:03:46.644352+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-05T05:26:01.008758+00:00",
+        "access_count": 1
+      }
+    },
+    "f5ac51192c17": {
+      "id": "f5ac51192c17",
+      "type": "fact",
+      "key": "pptx_charts_advanced_formatting",
+      "fact": {
+        "rule": "python-pptx: Charts avanzados - tipos, data labels, ejes y series:\n\nCHART DE BARRAS/COLUMNAS:\n```python\nfrom pptx.chart.data import CategoryChartData\nfrom pptx.enum.chart import XL_CHART_TYPE, XL_LEGEND_POSITION, XL_LABEL_POSITION\nfrom pptx.util import Inches, Pt\n\nchart_data = CategoryChartData()\nchart_data.categories = [\"Ene\", \"Feb\", \"Mar\", \"Abr\", \"May\", \"Jun\"]\nchart_data.add_series(\"2025\", (100, 120, 115, 130, 145, 160))\nchart_data.add_series(\"2026\", (110, 135, 125, 150, 170, 185))\n\nchart = slide.shapes.add_chart(\n    XL_CHART_TYPE.COLUMN_CLUSTERED,\n    Inches(1), Inches(1.5), Inches(8), Inches(5),\n    chart_data\n).chart\n\n# Título\nchart.has_title = True\nchart.chart_title.text_frame.text = \"Ventas Mensuales\"\nchart.chart_title.text_frame.paragraphs[0].font.size = Pt(14)\n```\n\nFORMATO DE EJES:\n```python\n# Eje Y (valores)\nvalue_axis = chart.value_axis\nvalue_axis.has_title = True\nvalue_axis.axis_title.text_frame.text = \"Monto ($)\"\nvalue_axis.minimum_scale = 0\nvalue_axis.maximum_scale = 200\nvalue_axis.major_unit = 50\nvalue_axis.has_major_gridlines = True\nvalue_axis.major_gridlines.format.line.color.rgb = RGBColor(0xD9, 0xD9, 0xD9)\nvalue_axis.format.line.color.rgb = RGBColor(0x59, 0x59, 0x59)\n\n# Eje X (categorías)\ncategory_axis = chart.category_axis\ncategory_axis.has_major_gridlines = False\ncategory_axis.tick_labels.font.size = Pt(10)\ncategory_axis.tick_label_position = XL_TICK_LABEL_POSITION.LOW\n```\n\nDATA LABELS:\n```python\n# Habilitar data labels en todas las series\nplot = chart.plots[0]\nplot.has_data_labels = True\ndata_labels = plot.data_labels\ndata_labels.font.size = Pt(9)\ndata_labels.font.color.rgb = RGBColor(0, 0, 0)\ndata_labels.number_format = \"#,##0\"\ndata_labels.show_value = True\ndata_labels.show_category_name = False\ndata_labels.show_percentage = False  # útil para pie charts\n```\n\nCOLORES DE SERIES:\n```python\nfrom pptx.dml.color import RGBColor\n\n# Color por serie\ncolors = [RGBColor(0x44, 0x72, 0xC4), RGBColor(0xED, 0x7D, 0x31)]\nfor i, series in enumerate(plot.series):\n    series.format.fill.solid()\n    series.format.fill.fore_color.rgb = colors[i]\n\n# Color por punto individual (en bar/pie charts)\npoint = plot.series[0].points[2]  # tercer punto\npoint.format.fill.solid()\npoint.format.fill.fore_color.rgb = RGBColor(0xFF, 0x00, 0x00)\n```\n\nLEYENDA:\n```python\nchart.has_legend = True\nchart.legend.position = XL_LEGEND_POSITION.BOTTOM\nchart.legend.include_in_layout = False\nchart.legend.font.size = Pt(10)\n```\n\nPIE CHART:\n```python\nchart_data = CategoryChartData()\nchart_data.categories = [\"Región A\", \"Región B\", \"Región C\", \"Región D\"]\nchart_data.add_series(\"Distribución\", (35, 25, 22, 18))\n\nchart = slide.shapes.add_chart(\n    XL_CHART_TYPE.PIE,\n    Inches(2), Inches(1.5), Inches(6), Inches(5),\n    chart_data\n).chart\n\n# Data labels con porcentaje\nplot = chart.plots[0]\nplot.has_data_labels = True\nplot.data_labels.show_percentage = True\nplot.data_labels.show_value = False\nplot.data_labels.show_category_name = True\nplot.data_labels.number_format = \"0.0%\"\n\n# Explotar una rebanada\npoint = plot.series[0].points[0]\npoint.format.fill.solid()\npoint.format.fill.fore_color.rgb = RGBColor(0x44, 0x72, 0xC4)\n# Explosión via XML\nfrom pptx.oxml.ns import qn\npoint._element.set(qn(\"c:explosion\"), \"10\")  # 10% de separación\n```\n\nLINE CHART:\n```python\nchart_data = CategoryChartData()\nchart_data.categories = [\"Ene\", \"Feb\", \"Mar\", \"Abr\"]\nchart_data.add_series(\"Trend\", (100, 110, 105, 120))\n\nchart = slide.shapes.add_chart(\n    XL_CHART_TYPE.LINE_MARKERS,\n    Inches(1), Inches(2), Inches(8), Inches(4),\n    chart_data\n).chart\n\n# Formato de línea\nseries = chart.plots[0].series[0]\nseries.format.line.color.rgb = RGBColor(0xED, 0x7D, 0x31)\nseries.format.line.width = Pt(2.5)\nseries.smooth = True  # línea suavizada\n```",
+        "source": "claude_desktop_mcp"
+      },
+      "tags": [
+        "python-pptx",
+        "charts",
+        "data_labels",
+        "axis",
+        "series",
+        "pie",
+        "line",
+        "bar",
+        "formatting",
+        "powerpoint",
+        "mcp_learned"
+      ],
+      "created_at": "2026-04-05T05:04:05.927507+00:00",
+      "updated_at": "2026-04-05T05:04:05.927507+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-05T05:04:05.927507+00:00",
+        "access_count": 0
+      }
+    },
+    "9907e7cbf15d": {
+      "id": "9907e7cbf15d",
+      "type": "fact",
+      "key": "pptx_pdf_export_template_generation",
+      "fact": {
+        "rule": "python-pptx: Generación desde templates, exportación y casos de uso empresariales:\n\nTEMPLATE-BASED GENERATION:\n```python\nfrom pptx import Presentation\nfrom pptx.util import Inches, Pt\nfrom pptx.dml.color import RGBColor\n\ndef generate_from_template(template_path, data, output_path):\n    '''Genera presentación desde template corporativo'''\n    prs = Presentation(template_path)\n    \n    # El template ya tiene masters y layouts definidos\n    # Solo agregar slides con contenido\n    \n    # Slide de título\n    title_layout = prs.slide_layouts[0]\n    slide = prs.slides.add_slide(title_layout)\n    slide.shapes.title.text = data[\"titulo\"]\n    slide.placeholders[1].text = data[\"subtitulo\"]\n    \n    # Slides de contenido por sección\n    content_layout = prs.slide_layouts[1]\n    for section in data[\"secciones\"]:\n        slide = prs.slides.add_slide(content_layout)\n        slide.shapes.title.text = section[\"titulo\"]\n        \n        tf = slide.placeholders[1].text_frame\n        tf.clear()\n        for bullet in section[\"puntos\"]:\n            p = tf.add_paragraph()\n            p.text = bullet[\"texto\"]\n            p.level = bullet.get(\"nivel\", 0)\n            p.font.size = Pt(bullet.get(\"tamaño\", 18))\n    \n    prs.save(output_path)\n\n# Datos de ejemplo\ndata = {\n    \"titulo\": \"Propuesta Comercial\",\n    \"subtitulo\": \"Cliente XYZ - Q2 2026\",\n    \"secciones\": [\n        {\n            \"titulo\": \"Alcance del Proyecto\",\n            \"puntos\": [\n                {\"texto\": \"Migración de infraestructura a AWS\", \"nivel\": 0},\n                {\"texto\": \"Incluye EC2, RDS, S3\", \"nivel\": 1},\n                {\"texto\": \"Duración: 3 meses\", \"nivel\": 1},\n            ]\n        },\n    ]\n}\n```\n\nREEMPLAZO DE PLACEHOLDERS (mail-merge style):\n```python\ndef replace_placeholders(prs, replacements: dict):\n    '''Reemplaza {{variable}} en toda la presentación'''\n    for slide in prs.slides:\n        for shape in slide.shapes:\n            if shape.has_text_frame:\n                for paragraph in shape.text_frame.paragraphs:\n                    for run in paragraph.runs:\n                        for key, value in replacements.items():\n                            if f\"{{{{{key}}}}}\" in run.text:\n                                run.text = run.text.replace(f\"{{{{{key}}}}}\", str(value))\n            \n            # También en tablas\n            if shape.has_table:\n                for row in shape.table.rows:\n                    for cell in row.cells:\n                        for paragraph in cell.text_frame.paragraphs:\n                            for run in paragraph.runs:\n                                for key, value in replacements.items():\n                                    if f\"{{{{{key}}}}}\" in run.text:\n                                        run.text = run.text.replace(f\"{{{{{key}}}}}\", str(value))\n\n# Uso\nprs = Presentation(\"template_propuesta.pptx\")\nreplace_placeholders(prs, {\n    \"cliente\": \"Banco Industrial\",\n    \"fecha\": \"4 de abril de 2026\",\n    \"monto\": \"$125,000\",\n    \"consultor\": \"Nestor Toledo\"\n})\nprs.save(\"propuesta_banco_industrial.pptx\")\n```\n\nGENERACIÓN DE REPORTES CON MATPLOTLIB:\n```python\nimport matplotlib.pyplot as plt\nfrom io import BytesIO\n\ndef add_chart_slide(prs, title, chart_func):\n    '''Agrega slide con gráfico generado por matplotlib'''\n    slide = prs.slides.add_slide(prs.slide_layouts[5])  # Title Only\n    slide.shapes.title.text = title\n    \n    # Generar gráfico\n    fig, ax = plt.subplots(figsize=(10, 6))\n    chart_func(ax)\n    \n    # Guardar en buffer\n    buf = BytesIO()\n    fig.savefig(buf, format=\"png\", dpi=150, bbox_inches=\"tight\", \n                facecolor=\"white\", transparent=False)\n    buf.seek(0)\n    plt.close()\n    \n    # Agregar imagen centrada\n    slide.shapes.add_picture(buf, Inches(1.5), Inches(1.8), Inches(7), Inches(5))\n\n# Uso\ndef my_chart(ax):\n    ax.bar([\"Q1\", \"Q2\", \"Q3\", \"Q4\"], [100, 150, 130, 180])\n    ax.set_ylabel(\"Ventas ($K)\")\n    ax.set_title(\"\")\n\nadd_chart_slide(prs, \"Resultados Trimestrales\", my_chart)\n```\n\nEXPORTAR A PDF VIA COM:\n```python\nimport win32com.client\n\ndef pptx_to_pdf(pptx_path, pdf_path):\n    ppt = win32com.client.Dispatch(\"PowerPoint.Application\")\n    ppt.Visible = True\n    prs = ppt.Presentations.Open(str(pptx_path))\n    prs.SaveAs(str(pdf_path), FileFormat=32)  # ppSaveAsPDF\n    prs.Close()\n    ppt.Quit()\n```\n\nEXTRAER TEXTO DE PRESENTACIÓN:\n```python\ndef extract_all_text(pptx_path):\n    '''Extrae todo el texto de una presentación'''\n    prs = Presentation(pptx_path)\n    texts = []\n    for i, slide in enumerate(prs.slides, 1):\n        slide_text = []\n        for shape in slide.shapes:\n            if shape.has_text_frame:\n                for p in shape.text_frame.paragraphs:\n                    text = p.text.strip()\n                    if text:\n                        slide_text.append(text)\n            if shape.has_table:\n                for row in shape.table.rows:\n                    for cell in row.cells:\n                        text = cell.text.strip()\n                        if text:\n                            slide_text.append(text)\n        if slide_text:\n            texts.append({\"slide\": i, \"text\": \"\\n\".join(slide_text)})\n    return texts\n```",
+        "source": "claude_desktop_mcp"
+      },
+      "tags": [
+        "python-pptx",
+        "template",
+        "generation",
+        "pdf",
+        "export",
+        "placeholder",
+        "matplotlib",
+        "powerpoint",
+        "mcp_learned"
+      ],
+      "created_at": "2026-04-05T05:07:23.944857+00:00",
+      "updated_at": "2026-04-05T05:07:23.944857+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-05T05:07:23.944857+00:00",
+        "access_count": 0
+      }
+    },
+    "c66fb9efda5c": {
+      "id": "c66fb9efda5c",
+      "type": "fact",
+      "key": "pptx_xml_manipulation_advanced",
+      "fact": {
+        "rule": "python-pptx: Manipulación XML directa para features no soportados nativamente:\n\nACCESO AL XML INTERNO:\n```python\nfrom pptx import Presentation\nfrom pptx.oxml.ns import qn, nsmap\nfrom lxml import etree\n\nprs = Presentation(\"archivo.pptx\")\nslide = prs.slides[0]\n\n# Acceder al XML de un shape\nfor shape in slide.shapes:\n    print(etree.tostring(shape._element, pretty_print=True).decode())\n```\n\nTRANSICIONES (no soportado nativamente en python-pptx):\n```python\ndef add_transition(slide, transition_type=\"fade\", duration=1000, advance_time=None):\n    '''Agrega transición a un slide via XML'''\n    sld = slide._element\n    \n    # Crear elemento de transición\n    transition = etree.SubElement(sld, qn(\"p:transition\"))\n    transition.set(\"spd\", \"med\")  # slow, med, fast\n    \n    if advance_time:\n        transition.set(\"advTm\", str(advance_time))  # milisegundos\n    \n    # Tipo de transición\n    transitions_map = {\n        \"fade\": \"p:fade\",\n        \"push\": \"p:push\",\n        \"wipe\": \"p:wipe\",\n        \"split\": \"p:split\",\n        \"cover\": \"p:cover\",\n        \"dissolve\": \"p:dissolve\",\n        \"blinds\": \"p:blinds\",\n        \"checker\": \"p:checker\",\n        \"comb\": \"p:comb\",\n        \"zoom\": \"p:zoom\",\n    }\n    \n    tag = transitions_map.get(transition_type, \"p:fade\")\n    effect = etree.SubElement(transition, qn(tag))\n    \n    if transition_type == \"wipe\":\n        effect.set(\"dir\", \"d\")  # d=down, u=up, l=left, r=right\n    elif transition_type == \"push\":\n        effect.set(\"dir\", \"l\")\n\n# Uso\nfor slide in prs.slides:\n    add_transition(slide, \"fade\", advance_time=5000)\n```\n\nANIMACIONES (no soportado nativamente):\n```python\ndef add_appear_animation(slide, shape, delay_ms=0):\n    '''Agrega animación \"Appear\" a un shape'''\n    timing = slide._element.find(qn(\"p:timing\"))\n    if timing is None:\n        timing = etree.SubElement(slide._element, qn(\"p:timing\"))\n    \n    tn_lst = timing.find(qn(\"p:tnLst\"))\n    if tn_lst is None:\n        tn_lst = etree.SubElement(timing, qn(\"p:tnLst\"))\n    \n    par = etree.SubElement(tn_lst, qn(\"p:par\"))\n    c_tn = etree.SubElement(par, qn(\"p:cTn\"))\n    c_tn.set(\"id\", \"1\")\n    c_tn.set(\"dur\", \"indefinite\")\n    c_tn.set(\"restart\", \"never\")\n    c_tn.set(\"nodeType\", \"tmRoot\")\n    \n    # Sequence\n    child_tn_lst = etree.SubElement(c_tn, qn(\"p:childTnLst\"))\n    seq = etree.SubElement(child_tn_lst, qn(\"p:seq\"))\n    seq.set(\"concurrent\", \"1\")\n    seq.set(\"nextAc\", \"seek\")\n\n# Nota: Animaciones complejas requieren XML extenso.\n# Para animaciones avanzadas, usar win32com COM automation.\n```\n\nSLIDE NUMBERS, DATE, FOOTER:\n```python\ndef set_slide_footer(prs, footer_text=\"\", show_date=True, show_number=True):\n    '''Configura footer, fecha y número de slide'''\n    for slide in prs.slides:\n        for ph in slide.placeholders:\n            ph_type = ph.placeholder_format.type\n            \n            # Footer (tipo 14)\n            if ph_type == 14:  # PP_PLACEHOLDER.FOOTER\n                ph.text = footer_text\n            \n            # Slide number (tipo 12)\n            if ph_type == 12:  # PP_PLACEHOLDER.SLIDE_NUMBER\n                if show_number:\n                    # El número se auto-genera, solo hacer visible\n                    pass\n            \n            # Date (tipo 13)\n            if ph_type == 13:  # PP_PLACEHOLDER.DATE\n                if show_date:\n                    from datetime import datetime\n                    ph.text = datetime.now().strftime(\"%d/%m/%Y\")\n```\n\nEXTRAER TODAS LAS IMÁGENES:\n```python\ndef extract_images(pptx_path, output_dir):\n    '''Extrae todas las imágenes de una presentación'''\n    from pathlib import Path\n    import os\n    \n    prs = Presentation(pptx_path)\n    Path(output_dir).mkdir(exist_ok=True)\n    \n    count = 0\n    for i, slide in enumerate(prs.slides, 1):\n        for shape in slide.shapes:\n            if shape.shape_type == 13:  # MSO_SHAPE_TYPE.PICTURE\n                image = shape.image\n                ext = image.content_type.split(\"/\")[-1]\n                if ext == \"jpeg\": ext = \"jpg\"\n                filename = f\"slide{i}_img{count}.{ext}\"\n                filepath = os.path.join(output_dir, filename)\n                with open(filepath, \"wb\") as f:\n                    f.write(image.blob)\n                count += 1\n    \n    return count\n```",
+        "source": "claude_desktop_mcp"
+      },
+      "tags": [
+        "python-pptx",
+        "xml",
+        "transitions",
+        "animations",
+        "footer",
+        "images",
+        "extract",
+        "advanced",
+        "powerpoint",
+        "mcp_learned"
+      ],
+      "created_at": "2026-04-05T05:10:33.646594+00:00",
+      "updated_at": "2026-04-05T05:10:33.646594+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-05T05:26:01.008758+00:00",
+        "access_count": 1
       }
     }
   },
   "tag_index": {
     "python": [
-      "0eb20c30e346",
-      "fffd1a46cf62",
-      "a620b4b744d3",
-      "4ec9321a543b",
-      "20c5a4014f19",
-      "ecaf3bd96d2d",
-      "fcddc2275460",
-      "e570f9c19e0c",
       "545ef8284327",
       "de1fcfc168a8",
       "6a14f67f9908",
@@ -893,33 +592,14 @@
       "19f5c61c5294",
       "9d9a8e5bd63e",
       "c58b467af5ee",
-      "e6e0e93baf65",
-      "56e5b7669307",
-      "73158fdf4a74",
-      "e17be83a1dee",
-      "bf109036850b",
       "a3ae8a3efa02",
-      "2093c91a2747",
-      "014f4b2dee4c",
-      "b65964ff300a",
-      "8ef9bc1478bf",
-      "27e576f422c9",
-      "8b41609792bd",
-      "fd9cace7945b",
-      "659b4e72b639",
-      "78fd8e003ede",
       "28c938a48845",
-      "28c938a48845"
+      "28c938a48845",
+      "1e237acda8f8",
+      "a6beb0240180",
+      "0e65371180c7"
     ],
     "py": [
-      "0eb20c30e346",
-      "fffd1a46cf62",
-      "a620b4b744d3",
-      "4ec9321a543b",
-      "20c5a4014f19",
-      "ecaf3bd96d2d",
-      "fcddc2275460",
-      "e570f9c19e0c",
       "545ef8284327",
       "de1fcfc168a8",
       "6a14f67f9908",
@@ -928,35 +608,194 @@
       "19f5c61c5294",
       "9d9a8e5bd63e",
       "c58b467af5ee",
-      "e6e0e93baf65",
-      "56e5b7669307",
-      "73158fdf4a74",
-      "e17be83a1dee",
-      "bf109036850b",
       "a3ae8a3efa02",
-      "2093c91a2747",
-      "014f4b2dee4c",
-      "b65964ff300a",
-      "8ef9bc1478bf",
-      "27e576f422c9",
-      "8b41609792bd",
-      "fd9cace7945b",
-      "659b4e72b639",
-      "78fd8e003ede",
       "28c938a48845",
       "28c938a48845"
     ],
     "md": [
       "1bc7ea7e6d5b",
       "9478989dd931",
-      "1ea05a1d5167",
       "1bc7ea7e6d5b",
       "9478989dd931"
+    ],
+    "python-pptx": [
+      "535ab935f243",
+      "53548a749d8f",
+      "1e237acda8f8",
+      "a6beb0240180",
+      "7429d1c5e9ac",
+      "6501df918133",
+      "f5ac51192c17",
+      "9907e7cbf15d",
+      "c66fb9efda5c"
+    ],
+    "slides": [
+      "535ab935f243"
+    ],
+    "shapes": [
+      "535ab935f243",
+      "7429d1c5e9ac"
+    ],
+    "text": [
+      "535ab935f243",
+      "7429d1c5e9ac"
+    ],
+    "formatting": [
+      "535ab935f243",
+      "53548a749d8f",
+      "7429d1c5e9ac",
+      "6501df918133",
+      "f5ac51192c17"
+    ],
+    "images": [
+      "535ab935f243",
+      "a6beb0240180",
+      "c66fb9efda5c"
+    ],
+    "layouts": [
+      "535ab935f243",
+      "1e237acda8f8"
+    ],
+    "mcp_learned": [
+      "535ab935f243",
+      "53548a749d8f",
+      "1e237acda8f8",
+      "a6beb0240180",
+      "7429d1c5e9ac",
+      "0e65371180c7",
+      "6501df918133",
+      "f5ac51192c17",
+      "9907e7cbf15d",
+      "c66fb9efda5c"
+    ],
+    "tables": [
+      "53548a749d8f",
+      "a6beb0240180",
+      "6501df918133"
+    ],
+    "charts": [
+      "53548a749d8f",
+      "f5ac51192c17"
+    ],
+    "bar": [
+      "53548a749d8f",
+      "f5ac51192c17"
+    ],
+    "line": [
+      "53548a749d8f",
+      "f5ac51192c17"
+    ],
+    "pie": [
+      "53548a749d8f",
+      "f5ac51192c17"
+    ],
+    "matplotlib": [
+      "53548a749d8f",
+      "9907e7cbf15d"
+    ],
+    "master_slides": [
+      "1e237acda8f8"
+    ],
+    "notes": [
+      "1e237acda8f8"
+    ],
+    "speaker": [
+      "1e237acda8f8"
+    ],
+    "powerpoint": [
+      "1e237acda8f8",
+      "a6beb0240180",
+      "7429d1c5e9ac",
+      "0e65371180c7",
+      "6501df918133",
+      "f5ac51192c17",
+      "9907e7cbf15d",
+      "c66fb9efda5c"
+    ],
+    "batch": [
+      "a6beb0240180"
+    ],
+    "merge": [
+      "a6beb0240180",
+      "6501df918133"
+    ],
+    "dataframe": [
+      "a6beb0240180"
+    ],
+    "colors": [
+      "7429d1c5e9ac",
+      "6501df918133"
+    ],
+    "placeholders": [
+      "7429d1c5e9ac"
+    ],
+    "connectors": [
+      "7429d1c5e9ac"
+    ],
+    "win32com": [
+      "0e65371180c7"
+    ],
+    "com": [
+      "0e65371180c7"
+    ],
+    "automation": [
+      "0e65371180c7"
+    ],
+    "transitions": [
+      "0e65371180c7",
+      "c66fb9efda5c"
+    ],
+    "animations": [
+      "0e65371180c7",
+      "c66fb9efda5c"
+    ],
+    "export": [
+      "0e65371180c7",
+      "9907e7cbf15d"
+    ],
+    "borders": [
+      "6501df918133"
+    ],
+    "alignment": [
+      "6501df918133"
+    ],
+    "data_labels": [
+      "f5ac51192c17"
+    ],
+    "axis": [
+      "f5ac51192c17"
+    ],
+    "series": [
+      "f5ac51192c17"
+    ],
+    "template": [
+      "9907e7cbf15d"
+    ],
+    "generation": [
+      "9907e7cbf15d"
+    ],
+    "pdf": [
+      "9907e7cbf15d"
+    ],
+    "placeholder": [
+      "9907e7cbf15d"
+    ],
+    "xml": [
+      "c66fb9efda5c"
+    ],
+    "footer": [
+      "c66fb9efda5c"
+    ],
+    "extract": [
+      "c66fb9efda5c"
+    ],
+    "advanced": [
+      "c66fb9efda5c"
     ]
   },
   "stats": {
-    "total_entries": 38,
-    "total_lookups": 543,
-    "total_hits": 438
+    "total_entries": 22,
+    "total_lookups": 551,
+    "total_hits": 443
   }
 }

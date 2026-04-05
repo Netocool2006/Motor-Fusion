@@ -2,30 +2,6 @@
   "domain": "sap_profile",
   "description": "Dominio auto-creado: sap_profile",
   "entries": {
-    "843d345ee0ad": {
-      "id": "843d345ee0ad",
-      "type": "fact",
-      "key": "000003_0",
-      "fact": {
-        "rule": "f5\f\u0000\u0001\u0001\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000f5\f\u0000\u0001\u0001\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000f5\f\u0000\u0001\u0001\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000f5\f\u0000\u0001\u0001\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000f5\f\u0000\u0001\u0001\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000f5\f\u0000\u0001\u0001\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000f5\f\u0000\u0001\u0001\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000f5\f\u0000\u0001\u0001\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000f5\f\u0000\u0001\u0001\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000",
-        "applies_to": "sap_profile",
-        "source": "SAP_Tierra_IA\\sap_profile\\Default\\Extension Scripts\\000003.log",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "log"
-      ],
-      "created_at": "2026-04-04T04:37:47.327708+00:00",
-      "updated_at": "2026-04-04T04:37:47.327708+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.837014+00:00",
-        "access_count": 37
-      }
-    },
     "b676e07dd7d0": {
       "id": "b676e07dd7d0",
       "type": "fact",
@@ -46,8 +22,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:02.622190+00:00",
-        "access_count": 41
+        "last_accessed": "2026-04-05T05:02:10.553952+00:00",
+        "access_count": 44
       }
     },
     "34a05d4fc298": {
@@ -70,8 +46,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:02.622190+00:00",
-        "access_count": 131
+        "last_accessed": "2026-04-05T05:02:10.553952+00:00",
+        "access_count": 134
       }
     },
     "77278862d70d": {
@@ -94,8 +70,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:09.581087+00:00",
-        "access_count": 232
+        "last_accessed": "2026-04-05T05:02:10.553952+00:00",
+        "access_count": 235
       }
     },
     "4ce94ea63eda": {
@@ -118,8 +94,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:34:03.036775+00:00",
-        "access_count": 186
+        "last_accessed": "2026-04-05T05:26:01.546085+00:00",
+        "access_count": 191
       }
     },
     "e15a8641378d": {
@@ -142,8 +118,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:34:03.036775+00:00",
-        "access_count": 170
+        "last_accessed": "2026-04-05T05:26:01.546085+00:00",
+        "access_count": 175
       }
     },
     "887351419dc6": {
@@ -166,8 +142,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:02.622190+00:00",
-        "access_count": 46
+        "last_accessed": "2026-04-05T05:02:10.553952+00:00",
+        "access_count": 49
       }
     },
     "9f4fe3938105": {
@@ -190,183 +166,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:02.622190+00:00",
-        "access_count": 50
-      }
-    },
-    "1f0fb30de39e": {
-      "id": "1f0fb30de39e",
-      "type": "fact",
-      "key": "Special-Bid_0",
-      "fact": {
-        "rule": "International Business Machines Corporation\nInternational Business Machines Corporation, 1 North Castle Drive, Armonk, NY 10504\nIBM Cloud Subscription Renewal Quote\nCustomer Information\nCustomer Name: Assa Seguros \nAddress: 7ª. Avenida 12-23 zona 9, Edificio\nCity: Guatemala\nState: GU\nPostal/ZIP Code: 01009\nCountry: GT\nCustomer Set Designation:\nSelect Territory: Yes\nGovernment Entity (GOE): No\nPAE\nIBM Site Number: 4213933\nCurrent PA SVP Level: A\nMEP (Maximum End User Price): No\nValue Seller Quote Information\nQuote Number: 21636810\nQuote Effective Date: 16-Jan-2026\nQuote Expiration Date: 28-Feb-2026\nDate Quote Sent: 16-Jan-2026\nDistributor Name: Miami Direct, Inc.\nDistributor SAP ID: 7000621\nReseller Name: GBM de Guatemala\nReseller ID: 7062480\nSummary\n",
-        "applies_to": "sap_profile",
-        "source": "SAP_Tierra_IA\\sap_profile\\Special-Bid.pdf",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "pdf",
-        "pdf"
-      ],
-      "created_at": "2026-04-04T04:37:44.345553+00:00",
-      "updated_at": "2026-04-04T04:37:44.345553+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:02.622190+00:00",
-        "access_count": 130
-      }
-    },
-    "a9e12350786f": {
-      "id": "a9e12350786f",
-      "type": "fact",
-      "key": "Special-Bid_1",
-      "fact": {
-        "rule": "rect, Inc.\nDistributor SAP ID: 7000621\nReseller Name: GBM de Guatemala\nReseller ID: 7062480\nSummary\nValue Seller Total Commit Value:            715,20 USD\nPartner Value Seller Total Commit Value:            657,98 USD\nSoftware as a Service\nPage 1 of 3  \nInternational Business Machines Corporation\nInternational Business Machines Corporation, 1 North Castle Drive, Armonk, NY 10504\nIBM Blueworks Live\nProjected Service Start Date: 01-Mar-2026\nIBM Blueworks Live Instance per Annum\nSubscription Part#: D01MWZX\nBilling: Annual\nCustomer Unit Price: 0,00 \nChannel Discount: 8%\nCommitted Term:  12 Months\nRenewal Type: Expires at end of Subscription\nRenewal: Yes\nIBM Opportunity Number: 006gR000000zXC9QAM\nItem Quantity\nCustomer\nEntitled Rate Months\nCustomer Entitled\n",
-        "applies_to": "sap_profile",
-        "source": "SAP_Tierra_IA\\sap_profile\\Special-Bid.pdf",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "pdf",
-        "pdf"
-      ],
-      "created_at": "2026-04-04T04:37:44.416864+00:00",
-      "updated_at": "2026-04-04T04:37:44.416864+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:09.581087+00:00",
-        "access_count": 120
-      }
-    },
-    "1301a1408f73": {
-      "id": "1301a1408f73",
-      "type": "fact",
-      "key": "Special-Bid_2",
-      "fact": {
-        "rule": "pportunity Number: 006gR000000zXC9QAM\nItem Quantity\nCustomer\nEntitled Rate Months\nCustomer Entitled\nTotal Commit Value Discount %* Quote Rate*\nQuote\nTotal Commit Value*\nQuote\nUnit Price\nPartner\nQuote Rate\nPartner Quote\nTotal Commit Value\n001 1              0,00 1-12              0,00 0,000              0,00              0,00              0,00              0,00              0,00 USD\nIBM Blueworks Live\nProjected Service Start Date: 01-Mar-2026\nIBM Blueworks Live Editor Authorized User\nSubscription Part#: D0PQILL\nBilling: Annual\nCustomer Unit Price: 715,20 \nChannel Discount: 8%\nCommitted Term:  12 Months\nRenewal Type: Expires at end of Subscription\nRenewal: Yes\nIBM Opportunity Number: 006gR000000zXC9QAM\nItem Quantity\nCustomer\nEntitled Rate Months\nCustomer Entitled\n",
-        "applies_to": "sap_profile",
-        "source": "SAP_Tierra_IA\\sap_profile\\Special-Bid.pdf",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "pdf",
-        "pdf"
-      ],
-      "created_at": "2026-04-04T04:37:44.488025+00:00",
-      "updated_at": "2026-04-04T04:37:44.488025+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:02.622190+00:00",
-        "access_count": 87
-      }
-    },
-    "7cacf8a8ae93": {
-      "id": "7cacf8a8ae93",
-      "type": "fact",
-      "key": "Special-Bid_4",
-      "fact": {
-        "rule": "pportunity Number: 006gR000000zXC9QAM\nItem Quantity\nCustomer\nEntitled Rate Months\nCustomer Entitled\nTotal Commit Value Discount %* Quote Rate*\nQuote\nTotal Commit Value*\nPartner\nQuote Rate\nPartner Quote\nTotal Commit Value\n003 1              0,00 1-12              0,00 0,000              0,00              0,00              0,00              0,00 USD\nPage 2 of 3  \nInternational Business Machines Corporation\nInternational Business Machines Corporation, 1 North Castle Drive, Armonk, NY 10504\nSoftware as a Service Total:            715,20 USD\nThis quote must be ordered between 16-Jan-2026 and 28-Feb-2026.\nNOTES:\nIt is understood that final coverage dates for subscription part numbers will be based upon completion of order provisioning, irrespective of the dates which may appear in\nthis quote.\n",
-        "applies_to": "sap_profile",
-        "source": "SAP_Tierra_IA\\sap_profile\\Special-Bid.pdf",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "pdf",
-        "pdf"
-      ],
-      "created_at": "2026-04-04T04:37:44.579082+00:00",
-      "updated_at": "2026-04-04T04:37:44.579082+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:09.581087+00:00",
-        "access_count": 216
-      }
-    },
-    "cb65f7122882": {
-      "id": "cb65f7122882",
-      "type": "fact",
-      "key": "Special-Bid_5",
-      "fact": {
-        "rule": "ed upon completion of order provisioning, irrespective of the dates which may appear in\nthis quote.\nQuote pricing is valid for this transaction only.\nThis quote is contingent upon all paperwork being on file with IBM.\n* The channel discount is not included.\nIBM Software Group\nPage 3 of 3  \nInternational Business Machines Corporation\nInternational Business Machines Corporation, 1 North Castle Drive, Armonk, NY 10504\nUseful/Important Web resources:\nPassport Advantage information, customer secure site access, training, etc.: www.ibm.com/software/passportadvantage\nIBM's International Program License Agreement and product License Information documents: www.ibm.com/software/sla\nIBM Software Support Web site: https://www.ibm.com/software/support/handbook.html\nIBM Customer Number: 000385\n",
-        "applies_to": "sap_profile",
-        "source": "SAP_Tierra_IA\\sap_profile\\Special-Bid.pdf",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "pdf",
-        "pdf"
-      ],
-      "created_at": "2026-04-04T04:37:44.645215+00:00",
-      "updated_at": "2026-04-04T04:37:44.645215+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:09.581087+00:00",
-        "access_count": 217
-      }
-    },
-    "4a3bf7948a8d": {
-      "id": "4a3bf7948a8d",
-      "type": "fact",
-      "key": "Special-Bid_6",
-      "fact": {
-        "rule": "re Support Web site: https://www.ibm.com/software/support/handbook.html\nIBM Customer Number: 000385\nIBM Terms and Conditions\nIBM International Passport Advantage Express Agreement\nThe quote or order to which this document relates is governed by the terms of the Passport Advantage Express Agreement and its\nassociated attachment(s).\nIBM Terms for IBM Cloud Offerings\nThe referenced Cloud Services are governed by the terms of the IBM International Passport Advantage Express Agreement, its\nassociated attachment(s), and the referenced Transaction Documents. Your order and use of the Cloud Services are your acceptance of\nthe prices and terms referenced in this document, except to the extent superseded by a written amendment or agreement signed by both\nof us.\n",
-        "applies_to": "sap_profile",
-        "source": "SAP_Tierra_IA\\sap_profile\\Special-Bid.pdf",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "pdf",
-        "pdf"
-      ],
-      "created_at": "2026-04-04T04:37:44.709019+00:00",
-      "updated_at": "2026-04-04T04:37:44.709019+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:09.581087+00:00",
-        "access_count": 208
-      }
-    },
-    "8cc4c75ac7e6": {
-      "id": "8cc4c75ac7e6",
-      "type": "fact",
-      "key": "Special-Bid_7",
-      "fact": {
-        "rule": "document, except to the extent superseded by a written amendment or agreement signed by both\nof us.\nFinal coverage dates for offerings listed are provided in your Proof of Entitlement.\nTransaction Documents\nIBM Terms of Use - General Terms for IBM Cloud Offerings at:\nhttp://www.ib",
-        "applies_to": "sap_profile",
-        "source": "SAP_Tierra_IA\\sap_profile\\Special-Bid.pdf",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "pdf",
-        "pdf"
-      ],
-      "created_at": "2026-04-04T04:37:44.771589+00:00",
-      "updated_at": "2026-04-04T04:37:44.771589+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:09.581087+00:00",
-        "access_count": 161
+        "last_accessed": "2026-04-05T05:02:10.553952+00:00",
+        "access_count": 53
       }
     },
     "d433066e3f64": {
@@ -390,8 +191,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:02.622190+00:00",
-        "access_count": 40
+        "last_accessed": "2026-04-05T05:02:10.553952+00:00",
+        "access_count": 43
       }
     },
     "eb99c3e85e1b": {
@@ -415,8 +216,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:02.622190+00:00",
-        "access_count": 43
+        "last_accessed": "2026-04-05T05:02:10.553952+00:00",
+        "access_count": 46
       }
     },
     "72eed281fee9": {
@@ -440,14 +241,13 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:02.622190+00:00",
-        "access_count": 36
+        "last_accessed": "2026-04-05T05:02:10.553952+00:00",
+        "access_count": 39
       }
     }
   },
   "tag_index": {
     "log": [
-      "843d345ee0ad",
       "b676e07dd7d0",
       "34a05d4fc298",
       "77278862d70d",
@@ -455,31 +255,9 @@
       "e15a8641378d",
       "887351419dc6",
       "9f4fe3938105",
-      "843d345ee0ad",
       "9f4fe3938105",
-      "843d345ee0ad",
       "b676e07dd7d0",
-      "843d345ee0ad",
-      "b676e07dd7d0",
-      "843d345ee0ad",
-      "843d345ee0ad",
-      "843d345ee0ad"
-    ],
-    "pdf": [
-      "1f0fb30de39e",
-      "1f0fb30de39e",
-      "a9e12350786f",
-      "a9e12350786f",
-      "1301a1408f73",
-      "1301a1408f73",
-      "7cacf8a8ae93",
-      "7cacf8a8ae93",
-      "cb65f7122882",
-      "cb65f7122882",
-      "4a3bf7948a8d",
-      "4a3bf7948a8d",
-      "8cc4c75ac7e6",
-      "8cc4c75ac7e6"
+      "b676e07dd7d0"
     ],
     "json": [
       "d433066e3f64",
@@ -519,8 +297,8 @@
     ]
   },
   "stats": {
-    "total_entries": 41,
-    "total_lookups": 543,
-    "total_hits": 376
+    "total_entries": 10,
+    "total_lookups": 551,
+    "total_hits": 381
   }
 }

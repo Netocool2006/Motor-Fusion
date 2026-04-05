@@ -2,206 +2,6 @@
   "domain": "sapautomata_ia",
   "description": "Dominio auto-creado: sapautomata_ia",
   "entries": {
-    "5d6c278db19a": {
-      "id": "5d6c278db19a",
-      "type": "fact",
-      "key": "playbook_opportunity_detail_0",
-      "fact": {
-        "rule": "{\n  \"screen\": \"Opportunity_Detail\",\n  \"title\": \"Opp Multiservice: 245372, Agentes Virtuales IA para Mercadeo - BR, BANCO AGROMERCANTIL DE GUATEMALA, S. A. - [SAP]\",\n  \"timestamp\": \"2026-03-27T23:40:24.044Z\",\n  \"iframe_chain\": [\n    \"CRMApplicationFrame\",\n    \"CRMApplicationFrame\",\n    \"WorkAreaFrame1\"\n  ],\n  \"fields\": [\n    {\n      \"suffix\": \"SearchMenuAnchor1__toggled\",\n      \"type\": \"input:hidden\",\n      \"label\": \"\",\n      \"value\": \"UP\",\n      \"visible\": false,\n      \"readonly\": false\n    },\n    {\n      \"suffix\": \"SavedSearches\",\n      \"type\": \"input:text\",\n      \"label\": \"List Of Saved Searches\",\n      \"value\": \"\",\n      \"visible\": true,\n      \"readonly\": false\n    },\n    {\n      \"suffix\": \"SavedSearches__key\",\n      \"type\": \"input:hidden\",\n      \"label\": \"\",\n      \"value\": \"\",\n",
-        "applies_to": "sapautomata_ia",
-        "source": "SapAutomata_IA\\knowledge\\sap_js_internals\\playbook_opportunity_detail.json",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "json",
-        "json"
-      ],
-      "created_at": "2026-04-04T04:14:03.628265+00:00",
-      "updated_at": "2026-04-04T04:14:03.628265+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:02.021275+00:00",
-        "access_count": 104
-      }
-    },
-    "28e94b4d8cf7": {
-      "id": "28e94b4d8cf7",
-      "type": "fact",
-      "key": "playbook_opportunity_detail_1",
-      "fact": {
-        "rule": "\"suffix\": \"SavedSearches__key\",\n      \"type\": \"input:hidden\",\n      \"label\": \"\",\n      \"value\": \"\",\n      \"visible\": false,\n      \"readonly\": false\n    },\n    {\n      \"suffix\": \"ZSD_ESP_isExpanded\",\n      \"type\": \"input:hidden\",\n      \"label\": \"\",\n      \"value\": \"yes\",\n      \"visible\": false,\n      \"readonly\": false\n    },\n    {\n      \"suffix\": \"RecentObjects_isExpanded\",\n      \"type\": \"input:hidden\",\n      \"label\": \"\",\n      \"value\": \"yes\",\n      \"visible\": false,\n      \"readonly\": false\n    },\n    {\n      \"suffix\": \"ZREP_FOREC_isExpanded\",\n      \"type\": \"input:hidden\",\n      \"label\": \"\",\n      \"value\": \"yes\",\n      \"visible\": false,\n      \"readonly\": false\n    },\n    {\n      \"suffix\": \"V3_V65_bchistory_selection\",\n      \"type\": \"input:hidden\",\n      \"label\": \"\",\n      \"value\": \"\",\n",
-        "applies_to": "sapautomata_ia",
-        "source": "SapAutomata_IA\\knowledge\\sap_js_internals\\playbook_opportunity_detail.json",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "json",
-        "json"
-      ],
-      "created_at": "2026-04-04T04:14:03.692352+00:00",
-      "updated_at": "2026-04-04T04:14:03.692352+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:09.239682+00:00",
-        "access_count": 128
-      }
-    },
-    "bf9db0109871": {
-      "id": "bf9db0109871",
-      "type": "fact",
-      "key": "playbook_opportunity_detail_2",
-      "fact": {
-        "rule": ": \"V3_V65_bchistory_selection\",\n      \"type\": \"input:hidden\",\n      \"label\": \"\",\n      \"value\": \"\",\n      \"visible\": false,\n      \"readonly\": false\n    },\n    {\n      \"suffix\": \"text_lines\",\n      \"type\": \"textarea:textarea\",\n      \"label\": \"El cliente ya púbico el RFP en Coupa para ofertar, debemos de entregar oferta a \",\n      \"value\": \"El cliente ya púbico el RFP en Coupa para ofertar, debemos d\",\n      \"visible\": true,\n      \"readonly\": true\n    },\n    {\n      \"suffix\": \"0001_iscollapsed\",\n      \"type\": \"input:hidden\",\n      \"label\": \"\",\n      \"value\": \"\",\n      \"visible\": false,\n      \"readonly\": false\n    },\n    {\n      \"suffix\": \"0001_displaymode\",\n      \"type\": \"input:hidden\",\n      \"label\": \"\",\n      \"value\": \"X\",\n      \"visible\": false,\n      \"readonly\": false\n    },\n    {\n",
-        "applies_to": "sapautomata_ia",
-        "source": "SapAutomata_IA\\knowledge\\sap_js_internals\\playbook_opportunity_detail.json",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "json",
-        "json"
-      ],
-      "created_at": "2026-04-04T04:14:03.755220+00:00",
-      "updated_at": "2026-04-04T04:14:03.755220+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:02.021275+00:00",
-        "access_count": 95
-      }
-    },
-    "93fb24c874de": {
-      "id": "93fb24c874de",
-      "type": "fact",
-      "key": "playbook_opportunity_detail_3",
-      "fact": {
-        "rule": "      \"label\": \"\",\n      \"value\": \"X\",\n      \"visible\": false,\n      \"readonly\": false\n    },\n    {\n      \"suffix\": \"0001_backendstate\",\n      \"type\": \"input:hidden\",\n      \"label\": \"\",\n      \"value\": \"yes\",\n      \"visible\": false,\n      \"readonly\": false\n    },\n    {\n      \"suffix\": \"0002_iscollapsed\",\n      \"type\": \"input:hidden\",\n      \"label\": \"\",\n      \"value\": \"\",\n      \"visible\": false,\n      \"readonly\": false\n    },\n    {\n      \"suffix\": \"0002_displaymode\",\n      \"type\": \"input:hidden\",\n      \"label\": \"\",\n      \"value\": \"X\",\n      \"visible\": false,\n      \"readonly\": false\n    },\n    {\n      \"suffix\": \"0002_backendstate\",\n      \"type\": \"input:hidden\",\n      \"label\": \"\",\n      \"value\": \"yes\",\n      \"visible\": false,\n      \"readonly\": false\n    },\n    {\n",
-        "applies_to": "sapautomata_ia",
-        "source": "SapAutomata_IA\\knowledge\\sap_js_internals\\playbook_opportunity_detail.json",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "json",
-        "json"
-      ],
-      "created_at": "2026-04-04T04:14:03.821175+00:00",
-      "updated_at": "2026-04-04T04:14:03.821175+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:02.021275+00:00",
-        "access_count": 65
-      }
-    },
-    "39054e0bc812": {
-      "id": "39054e0bc812",
-      "type": "fact",
-      "key": "playbook_opportunity_detail_4",
-      "fact": {
-        "rule": "    \"label\": \"\",\n      \"value\": \"yes\",\n      \"visible\": false,\n      \"readonly\": false\n    },\n    {\n      \"suffix\": \"TABLE_omni_input_afh\",\n      \"type\": \"input:text\",\n      \"label\": \"\",\n      \"value\": \"\",\n      \"visible\": true,\n      \"readonly\": false\n    },\n    {\n      \"suffix\": \"TABLE_editMode\",\n      \"type\": \"input:hidden\",\n      \"label\": \"\",\n      \"value\": \"NONE\",\n      \"visible\": false,\n      \"readonly\": false\n    },\n    {\n      \"suffix\": \"TABLE_isCellerator\",\n      \"type\": \"input:hidden\",\n      \"label\": \"\",\n      \"value\": \"TRUE\",\n      \"visible\": false,\n      \"readonly\": false\n    },\n    {\n      \"suffix\": \"TABLE_selectedRows\",\n      \"type\": \"input:hidden\",\n      \"label\": \"\",\n      \"value\": \"\",\n      \"visible\": false,\n      \"readonly\": false\n    },\n    {\n",
-        "applies_to": "sapautomata_ia",
-        "source": "SapAutomata_IA\\knowledge\\sap_js_internals\\playbook_opportunity_detail.json",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "json",
-        "json"
-      ],
-      "created_at": "2026-04-04T04:14:03.887741+00:00",
-      "updated_at": "2026-04-04T04:14:03.887741+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:02.021275+00:00",
-        "access_count": 58
-      }
-    },
-    "641608f017d5": {
-      "id": "641608f017d5",
-      "type": "fact",
-      "key": "playbook_opportunity_detail_5",
-      "fact": {
-        "rule": "\n      \"label\": \"\",\n      \"value\": \"\",\n      \"visible\": false,\n      \"readonly\": false\n    },\n    {\n      \"suffix\": \"TABLE_rowCount\",\n      \"type\": \"input:hidden\",\n      \"label\": \"\",\n      \"value\": \"0\",\n      \"visible\": false,\n      \"readonly\": false\n    },\n    {\n      \"suffix\": \"TABLE_visibleRowCount\",\n      \"type\": \"input:hidden\",\n      \"label\": \"\",\n      \"value\": \"1\",\n      \"visible\": false,\n      \"readonly\": true\n    },\n    {\n      \"suffix\": \"TABLE_totalVisibleRowCount\",\n      \"type\": \"input:hidden\",\n      \"label\": \"\",\n      \"value\": \"5\",\n      \"visible\": false,\n      \"readonly\": true\n    },\n    {\n      \"suffix\": \"TABLE_scrollRowCount\",\n      \"type\": \"input:hidden\",\n      \"label\": \"\",\n      \"value\": \"5\",\n      \"visible\": false,\n      \"readonly\": true\n    },\n    {\n",
-        "applies_to": "sapautomata_ia",
-        "source": "SapAutomata_IA\\knowledge\\sap_js_internals\\playbook_opportunity_detail.json",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "json",
-        "json"
-      ],
-      "created_at": "2026-04-04T04:14:03.962850+00:00",
-      "updated_at": "2026-04-04T04:14:03.962850+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:02.021275+00:00",
-        "access_count": 53
-      }
-    },
-    "7c91a4f24a6d": {
-      "id": "7c91a4f24a6d",
-      "type": "fact",
-      "key": "playbook_opportunity_detail_6",
-      "fact": {
-        "rule": "\n      \"label\": \"\",\n      \"value\": \"5\",\n      \"visible\": false,\n      \"readonly\": true\n    },\n    {\n      \"suffix\": \"TABLE_renderedRowCount\",\n      \"type\": \"input:hidden\",\n      \"label\": \"\",\n      \"value\": \"0\",\n      \"visible\": false,\n      \"readonly\": true\n    },\n    {\n      \"suffix\": \"TABLE_lastSelectedRow\",\n      \"type\": \"input:hidden\",\n      \"label\": \"\",\n      \"value\": \"\",\n      \"visible\": false,\n      \"readonly\": false\n    },\n    {\n      \"suffix\": \"TABLE_isExpanded\",\n      \"type\": \"input:hidden\",\n      \"label\": \"\",\n      \"value\": \"\",\n      \"visible\": false,\n      \"readonly\": false\n    },\n    {\n      \"suffix\": \"TABLE_visibleFirstRow\",\n      \"type\": \"input:hidden\",\n      \"label\": \"\",\n      \"value\": \"1\",\n      \"visible\": false,\n      \"readonly\": false\n    },\n    {\n",
-        "applies_to": "sapautomata_ia",
-        "source": "SapAutomata_IA\\knowledge\\sap_js_internals\\playbook_opportunity_detail.json",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "json",
-        "json"
-      ],
-      "created_at": "2026-04-04T04:14:04.027025+00:00",
-      "updated_at": "2026-04-04T04:14:04.027025+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:09.239682+00:00",
-        "access_count": 111
-      }
-    },
-    "d832674edc13": {
-      "id": "d832674edc13",
-      "type": "fact",
-      "key": "playbook_opportunity_detail_7",
-      "fact": {
-        "rule": "      \"label\": \"\",\n      \"value\": \"1\",\n      \"visible\": false,\n      \"readonly\": false\n    },\n    {\n      \"suffix\": \"TABLE_scrollPosition\",\n      \"type\": \"input:hidden\",\n      \"label\": \"\",\n      \"value\": \"\",\n      \"visible\":",
-        "applies_to": "sapautomata_ia",
-        "source": "SapAutomata_IA\\knowledge\\sap_js_internals\\playbook_opportunity_detail.json",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "json",
-        "json"
-      ],
-      "created_at": "2026-04-04T04:14:04.076412+00:00",
-      "updated_at": "2026-04-04T04:14:04.076412+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:02.021275+00:00",
-        "access_count": 52
-      }
-    },
     "2fc0a6b2b047": {
       "id": "2fc0a6b2b047",
       "type": "fact",
@@ -222,8 +22,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.315244+00:00",
-        "access_count": 136
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 139
       }
     },
     "8b5a6ce67bd3": {
@@ -246,8 +46,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:02.021275+00:00",
-        "access_count": 128
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 131
       }
     },
     "fe78ba5a3f55": {
@@ -270,8 +70,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:34:02.424855+00:00",
-        "access_count": 131
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 134
       }
     },
     "fb75fc58bd30": {
@@ -294,8 +94,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:09.239682+00:00",
-        "access_count": 201
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 204
       }
     },
     "ad4ac449146c": {
@@ -318,8 +118,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:02.021275+00:00",
-        "access_count": 78
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 81
       }
     },
     "0a3389df36cf": {
@@ -342,8 +142,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:09.239682+00:00",
-        "access_count": 142
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 145
       }
     },
     "24a075456b3d": {
@@ -366,8 +166,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:34:02.424855+00:00",
-        "access_count": 134
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 137
       }
     },
     "d59d81235d3c": {
@@ -390,8 +190,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:02.021275+00:00",
-        "access_count": 147
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 150
       }
     },
     "faae09086873": {
@@ -414,8 +214,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.315244+00:00",
-        "access_count": 174
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 178
       }
     },
     "6b39b1d746c4": {
@@ -438,8 +238,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:02.021275+00:00",
-        "access_count": 89
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 92
       }
     },
     "dc88ae00e0e8": {
@@ -462,8 +262,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:34:02.424855+00:00",
-        "access_count": 97
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 100
       }
     },
     "5324c315442e": {
@@ -486,8 +286,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:02.021275+00:00",
-        "access_count": 121
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 125
       }
     },
     "cf3614b5b298": {
@@ -510,8 +310,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:02.021275+00:00",
-        "access_count": 72
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 75
       }
     },
     "532215ef85df": {
@@ -534,8 +334,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:34:02.424855+00:00",
-        "access_count": 128
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 131
       }
     },
     "9b0e33a88d3e": {
@@ -558,8 +358,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:34:02.424855+00:00",
-        "access_count": 153
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 156
       }
     },
     "aa5399722760": {
@@ -582,8 +382,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:02.021275+00:00",
-        "access_count": 133
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 136
       }
     },
     "30cfc03eb4bc": {
@@ -607,8 +407,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.315244+00:00",
-        "access_count": 157
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 161
       }
     },
     "9602727decaf": {
@@ -632,8 +432,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.315244+00:00",
-        "access_count": 216
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 220
       }
     },
     "888300ad9021": {
@@ -657,8 +457,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.315244+00:00",
-        "access_count": 99
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 103
       }
     },
     "5f279136b1fb": {
@@ -682,8 +482,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.315244+00:00",
-        "access_count": 101
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 105
       }
     },
     "4d9f9b45890c": {
@@ -707,8 +507,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.315244+00:00",
-        "access_count": 275
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 279
       }
     },
     "29f7914eb4f2": {
@@ -732,8 +532,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.315244+00:00",
-        "access_count": 112
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 116
       }
     },
     "d3c57d5496b6": {
@@ -757,8 +557,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.315244+00:00",
-        "access_count": 141
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 146
       }
     },
     "efbfef3275e5": {
@@ -782,8 +582,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.315244+00:00",
-        "access_count": 63
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 68
       }
     },
     "53f1db7eb612": {
@@ -807,8 +607,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.315244+00:00",
-        "access_count": 193
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 199
       }
     },
     "215061253de5": {
@@ -832,8 +632,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.315244+00:00",
-        "access_count": 87
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 91
       }
     },
     "ba74cb86a5d9": {
@@ -857,8 +657,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.315244+00:00",
-        "access_count": 101
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 105
       }
     },
     "0df3fd403afd": {
@@ -882,8 +682,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.315244+00:00",
-        "access_count": 120
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 124
       }
     },
     "5b1a36179302": {
@@ -907,8 +707,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.315244+00:00",
-        "access_count": 174
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 178
       }
     },
     "f3839089d9f1": {
@@ -932,8 +732,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.315244+00:00",
-        "access_count": 156
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 160
       }
     },
     "48b81690348b": {
@@ -957,8 +757,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.315244+00:00",
-        "access_count": 259
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 263
       }
     },
     "e906e4d3d568": {
@@ -982,8 +782,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.315244+00:00",
-        "access_count": 230
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 234
       }
     },
     "2d9b03f34df8": {
@@ -1007,33 +807,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.315244+00:00",
-        "access_count": 158
-      }
-    },
-    "07838cdf26eb": {
-      "id": "07838cdf26eb",
-      "type": "fact",
-      "key": "sap_playbook_1",
-      "fact": {
-        "rule": ":\n    python sap_playbook.py lookup \"sap.opportunity.items.insert\"\n    python sap_playbook.py stats\n    python sap_playbook.py export\n\"\"\"\n\nimport json\nimport time\nimport sqlite3\nfrom pathlib import Path\nfrom datetime import datetime, timedelta\n\n# ── Config ────────────────────────────────────────────────────\ndef _resolve_data_dir():\n    import os\n    for env in [\"HOME\", \"LOCALAPPDATA\"]:\n        v = os.environ.get(env)\n        if v:\n            c = Path(v) / (\".adaptive_cli\" if env == \"HOME\" else \"ClaudeCode/.adaptive_cli\")\n            if c.exists(): return c\n    c = Path.home() / \".adaptive_cli\"; c.mkdir(parents=True, exist_ok=True); return c\n\nDB_DIR = _resolve_data_dir()\nDB_PATH = DB_DIR / \"sap_playbook.db\"\n\n# Decay: patterns pierden confianza si no se usan en X días\n",
-        "applies_to": "sapautomata_ia",
-        "source": "SapAutomata_IA\\playbook\\sap_playbook.py",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "python",
-        "py"
-      ],
-      "created_at": "2026-04-04T04:14:06.518607+00:00",
-      "updated_at": "2026-04-04T04:14:06.518607+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.315244+00:00",
-        "access_count": 152
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 163
       }
     },
     "2cbcaa445910": {
@@ -1057,8 +832,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:34:02.424855+00:00",
-        "access_count": 136
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 140
       }
     },
     "dbc9aa8f7641": {
@@ -1082,8 +857,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:34:02.424855+00:00",
-        "access_count": 195
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 200
       }
     },
     "6a3fa07978db": {
@@ -1107,8 +882,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.315244+00:00",
-        "access_count": 153
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 157
       }
     },
     "76c6adf4f312": {
@@ -1132,8 +907,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.315244+00:00",
-        "access_count": 160
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 164
       }
     },
     "910e6992d496": {
@@ -1157,8 +932,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.315244+00:00",
-        "access_count": 182
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 186
       }
     },
     "a412e72cd966": {
@@ -1182,208 +957,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.315244+00:00",
-        "access_count": 97
-      }
-    },
-    "6786e611871f": {
-      "id": "6786e611871f",
-      "type": "fact",
-      "key": "scan_cdp_0",
-      "fact": {
-        "rule": "\"\"\"\nscan_cdp.py — Escanea pantallas SAP CRM via CDP puro (sin Playwright)\nConecta directo via websocket al Chrome con CDP habilitado.\n\nUso: python scan_cdp.py [--opp OPP_ID]\nRequiere: Chrome con --remote-debugging-port=9222 y SAP logueado.\n\"\"\"\nimport json\nimport time\nimport sys\nimport urllib.request\nfrom pathlib import Path\nimport websocket\n\nCDP_PORT = 9222\nOUTPUT_DIR = Path(__file__).parent / \"playbooks\"\nOUTPUT_DIR.mkdir(exist_ok=True)\n\nOPP_ID = \"245372\"  # Default opportunity to scan\nif \"--opp\" in sys.argv:\n    idx = sys.argv.index(\"--opp\")\n    if idx + 1 < len(sys.argv):\n        OPP_ID = sys.argv[idx + 1]\n\nmsg_counter = 0\n\ndef log(msg):\n    print(f\"[{time.strftime('%H:%M:%S')}] {msg}\", flush=True)\n\ndef get_tabs():\n    \"\"\"Get all Chrome tabs via CDP HTTP endpoint.\"\"\"\n",
-        "applies_to": "sapautomata_ia",
-        "source": "SapAutomata_IA\\knowledge\\sap_js_internals\\scan_cdp.py",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "python",
-        "py"
-      ],
-      "created_at": "2026-04-04T04:14:06.948186+00:00",
-      "updated_at": "2026-04-04T04:14:06.948186+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.315244+00:00",
-        "access_count": 183
-      }
-    },
-    "cc567b8aedbf": {
-      "id": "cc567b8aedbf",
-      "type": "fact",
-      "key": "scan_cdp_1",
-      "fact": {
-        "rule": "%M:%S')}] {msg}\", flush=True)\n\ndef get_tabs():\n    \"\"\"Get all Chrome tabs via CDP HTTP endpoint.\"\"\"\n    resp = urllib.request.urlopen(f'http://127.0.0.1:{CDP_PORT}/json')\n    return json.loads(resp.read())\n\ndef get_browser_ws():\n    \"\"\"Get browser-level websocket URL.\"\"\"\n    resp = urllib.request.urlopen(f'http://127.0.0.1:{CDP_PORT}/json/version')\n    info = json.loads(resp.read())\n    return info.get(\"webSocketDebuggerUrl\")\n\nclass CDPSession:\n    \"\"\"Simple CDP session via raw websocket.\"\"\"\n\n    def __init__(self, ws_url, timeout=30):\n        self.ws = websocket.create_connection(ws_url, timeout=timeout)\n        self.msg_id = 0\n        self.events = []\n\n    def send(self, method, params=None):\n        \"\"\"Send CDP command and wait for response.\"\"\"\n        self.msg_id += 1\n",
-        "applies_to": "sapautomata_ia",
-        "source": "SapAutomata_IA\\knowledge\\sap_js_internals\\scan_cdp.py",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "python",
-        "py"
-      ],
-      "created_at": "2026-04-04T04:14:07.025475+00:00",
-      "updated_at": "2026-04-04T04:14:07.025475+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.315244+00:00",
-        "access_count": 229
-      }
-    },
-    "8a44f97f8e08": {
-      "id": "8a44f97f8e08",
-      "type": "fact",
-      "key": "scan_cdp_2",
-      "fact": {
-        "rule": "ethod, params=None):\n        \"\"\"Send CDP command and wait for response.\"\"\"\n        self.msg_id += 1\n        mid = self.msg_id\n        msg = {\"id\": mid, \"method\": method}\n        if params:\n            msg[\"params\"] = params\n        self.ws.send(json.dumps(msg))\n\n        # Wait for matching response (collect events along the way)\n        deadline = time.time() + 30\n        while time.time() < deadline:\n            try:\n                self.ws.settimeout(5)\n                raw = self.ws.recv()\n                data = json.loads(raw)\n                if data.get(\"id\") == mid:\n                    if \"error\" in data:\n                        return {\"__error\": data[\"error\"]}\n                    return data.get(\"result\", {})\n                else:\n                    # It's an event, store it\n",
-        "applies_to": "sapautomata_ia",
-        "source": "SapAutomata_IA\\knowledge\\sap_js_internals\\scan_cdp.py",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "python",
-        "py"
-      ],
-      "created_at": "2026-04-04T04:14:07.092140+00:00",
-      "updated_at": "2026-04-04T04:14:07.092140+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.315244+00:00",
-        "access_count": 209
-      }
-    },
-    "4e37ac1fa2af": {
-      "id": "4e37ac1fa2af",
-      "type": "fact",
-      "key": "scan_cdp_3",
-      "fact": {
-        "rule": "  return data.get(\"result\", {})\n                else:\n                    # It's an event, store it\n                    self.events.append(data)\n            except websocket.WebSocketTimeoutException:\n                continue\n        return {\"__error\": \"timeout\"}\n\n    def evaluate(self, expression, context_id=None, return_by_value=True):\n        \"\"\"Evaluate JS expression, optionally in a specific execution context.\"\"\"\n        params = {\n            \"expression\": expression,\n            \"returnByValue\": return_by_value,\n            \"awaitPromise\": True,\n            \"timeout\": 15000\n        }\n        if context_id:\n            params[\"contextId\"] = context_id\n        result = self.send(\"Runtime.evaluate\", params)\n        if \"__error\" in result:\n            return None\n",
-        "applies_to": "sapautomata_ia",
-        "source": "SapAutomata_IA\\knowledge\\sap_js_internals\\scan_cdp.py",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "python",
-        "py"
-      ],
-      "created_at": "2026-04-04T04:14:07.147316+00:00",
-      "updated_at": "2026-04-04T04:14:07.147316+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.315244+00:00",
-        "access_count": 97
-      }
-    },
-    "6277404ff4e0": {
-      "id": "6277404ff4e0",
-      "type": "fact",
-      "key": "scan_cdp_4",
-      "fact": {
-        "rule": "ult = self.send(\"Runtime.evaluate\", params)\n        if \"__error\" in result:\n            return None\n        exc = result.get(\"exceptionDetails\")\n        if exc:\n            return None\n        val = result.get(\"result\", {})\n        return val.get(\"value\") if return_by_value else val\n\n    def close(self):\n        try:\n            self.ws.close()\n        except:\n            pass\n\ndef find_sap_tab():\n    \"\"\"Find the SAP CRM tab.\"\"\"\n    tabs = get_tabs()\n    for t in tabs:\n        if t.get(\"type\") == \"page\" and (\"SAP\" in t.get(\"title\", \"\") or \"sap\" in t.get(\"url\", \"\").lower()):\n            if \"chrome-extension\" not in t.get(\"url\", \"\"):\n                return t\n    return None\n\ndef get_frame_contexts(cdp):\n    \"\"\"Enable Runtime and collect execution contexts for all frames.\"\"\"\n",
-        "applies_to": "sapautomata_ia",
-        "source": "SapAutomata_IA\\knowledge\\sap_js_internals\\scan_cdp.py",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "python",
-        "py"
-      ],
-      "created_at": "2026-04-04T04:14:07.206555+00:00",
-      "updated_at": "2026-04-04T04:14:07.206555+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.315244+00:00",
-        "access_count": 212
-      }
-    },
-    "6f67c15a0540": {
-      "id": "6f67c15a0540",
-      "type": "fact",
-      "key": "scan_cdp_5",
-      "fact": {
-        "rule": "ef get_frame_contexts(cdp):\n    \"\"\"Enable Runtime and collect execution contexts for all frames.\"\"\"\n    # Enable needed domains\n    cdp.send(\"Page.enable\")\n    cdp.send(\"Runtime.enable\")\n    time.sleep(1)\n\n    # Get frame tree\n    tree = cdp.send(\"Page.getFrameTree\")\n    frames = {}\n\n    def walk_tree(node, depth=0):\n        f = node.get(\"frame\", {})\n        fid = f.get(\"id\", \"\")\n        fname = f.get(\"name\", \"\")\n        furl = f.get(\"url\", \"\")\n        frames[fid] = {\"name\": fname, \"url\": furl, \"depth\": depth}\n        for child in node.get(\"childFrames\", []):\n            walk_tree(child, depth + 1)\n\n    if \"frameTree\" in tree:\n        walk_tree(tree[\"frameTree\"])\n\n    # Collect execution contexts from events\n    contexts = {}\n    for ev in cdp.events:\n",
-        "applies_to": "sapautomata_ia",
-        "source": "SapAutomata_IA\\knowledge\\sap_js_internals\\scan_cdp.py",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "python",
-        "py"
-      ],
-      "created_at": "2026-04-04T04:14:07.273672+00:00",
-      "updated_at": "2026-04-04T04:14:07.273672+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.315244+00:00",
-        "access_count": 151
-      }
-    },
-    "f93624193cb6": {
-      "id": "f93624193cb6",
-      "type": "fact",
-      "key": "scan_cdp_6",
-      "fact": {
-        "rule": "meTree\"])\n\n    # Collect execution contexts from events\n    contexts = {}\n    for ev in cdp.events:\n        if ev.get(\"method\") == \"Runtime.executionContextCreated\":\n            ctx = ev[\"params\"].get(\"context\", {})\n            aux = ctx.get(\"auxData\", {})\n            fid = aux.get(\"frameId\", \"\")\n            if fid and not aux.get(\"isDefault\") == False:\n                contexts[fid] = ctx.get(\"id\")\n\n    # Also try to query for them\n    cdp.events.clear()\n\n    return frames, contexts\n\ndef eval_in_frame(cdp, frame_id, contexts, expression):\n    \"\"\"Evaluate JS in a specific frame context.\"\"\"\n    ctx_id = contexts.get(frame_id)\n    if ctx_id:\n        return cdp.evaluate(expression, context_id=ctx_id)\n    return None\n\ndef scan_via_js(cdp, contexts, frames):\n",
-        "applies_to": "sapautomata_ia",
-        "source": "SapAutomata_IA\\knowledge\\sap_js_internals\\scan_cdp.py",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "python",
-        "py"
-      ],
-      "created_at": "2026-04-04T04:14:07.338997+00:00",
-      "updated_at": "2026-04-04T04:14:07.338997+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.315244+00:00",
-        "access_count": 286
-      }
-    },
-    "ba9f2437832f": {
-      "id": "ba9f2437832f",
-      "type": "fact",
-      "key": "scan_cdp_7",
-      "fact": {
-        "rule": "dp.evaluate(expression, context_id=ctx_id)\n    return None\n\ndef scan_via_js(cdp, contexts, frames):\n    \"\"\"Scan SAP fields by evaluating JS in each frame. Returns combined results.\"\"\"\n\n    SCAN_JS = \"\"\"(() => {\n        const result = {fields: [], span",
-        "applies_to": "sapautomata_ia",
-        "source": "SapAutomata_IA\\knowledge\\sap_js_internals\\scan_cdp.py",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "python",
-        "py"
-      ],
-      "created_at": "2026-04-04T04:14:07.390376+00:00",
-      "updated_at": "2026-04-04T04:14:07.390376+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.315244+00:00",
-        "access_count": 61
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 101
       }
     },
     "39c74b732ac7": {
@@ -1407,8 +982,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.315244+00:00",
-        "access_count": 214
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 218
       }
     },
     "298e4f40c3a9": {
@@ -1432,8 +1007,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.315244+00:00",
-        "access_count": 185
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 189
       }
     },
     "5f0bc2fd5a23": {
@@ -1457,8 +1032,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:34:02.424855+00:00",
-        "access_count": 193
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 198
       }
     },
     "67fd1874f6f0": {
@@ -1482,8 +1057,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:34:02.424855+00:00",
-        "access_count": 139
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 143
       }
     },
     "e7c57ffe8b72": {
@@ -1507,8 +1082,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.315244+00:00",
-        "access_count": 94
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 98
       }
     },
     "c2f59236abdb": {
@@ -1532,8 +1107,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:34:02.424855+00:00",
-        "access_count": 147
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 151
       }
     },
     "3c5cddd5caff": {
@@ -1557,8 +1132,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.315244+00:00",
-        "access_count": 144
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 148
       }
     },
     "b89200fb03b4": {
@@ -1582,408 +1157,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.315244+00:00",
-        "access_count": 197
-      }
-    },
-    "227629ad3f44": {
-      "id": "227629ad3f44",
-      "type": "fact",
-      "key": "sap_internal_functions_0",
-      "fact": {
-        "rule": "// ========== htmlbSubmitLib ==========\nfunction htmlbSubmitLib(library,elem,eventType,formID,objectID,eventName,paramCount,param1,param2,param3,param4,param5,param6,param7,param8,param9)\n{\n  /*if((typeof(eventName) != \"undefined\") && eventName.length>0 && eventName.indexOf(\"-\") > -1)\n  {\n    window.top.WCF_CurrentLogicalLink = eventName;\n  }*/\n  document.forms[formID].onInputProcessing.value = library;\n  htmlbSubmit(elem,eventType,formID,objectID,eventName,paramCount,param1,param2,param3,param4,param5,param6,param7,param8,param9);\n}\n\n// ========== htmlbSubmitFormAjax ==========\nfunction htmlbSubmitFormAjax(form)\n{\n\nvar returnvalue = false;\nif (isAjaxEnabled == true && ajax_submit == true)\n{\najax_submit = false;\nvar str = \"\";\nif (bindOnlyEvent == false)\n{\n\n",
-        "applies_to": "sapautomata_ia",
-        "source": "SapAutomata_IA\\knowledge\\sap_js_internals\\sap_internal_functions.js",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "javascript",
-        "js"
-      ],
-      "created_at": "2026-04-04T04:14:08.006815+00:00",
-      "updated_at": "2026-04-04T04:14:08.006815+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:02.021275+00:00",
-        "access_count": 112
-      }
-    },
-    "b15aae7d3c4f": {
-      "id": "b15aae7d3c4f",
-      "type": "fact",
-      "key": "sap_internal_functions_1",
-      "fact": {
-        "rule": "== true && ajax_submit == true)\n{\najax_submit = false;\nvar str = \"\";\nif (bindOnlyEvent == false)\n{\n\nstr = createFormInputString(form);\n\n}\nelse\n{\n\nstr = bindHtmlbEvent(form);\n\nvar targetValues = document.getElementById(\"sap-ajaxtarget\");\nif (targetValues)\n{\nstr = str + \"&sap-ajaxtarget=\" + targetValues.value;\n}\nvar modeValue = document.getElementById(\"sap-ajax_dh_mode\");\nif (modeValue != null)\n{\nstr = str + \"&sap-ajax_dh_mode=\" + modeValue.value;\n}\n\n}\n\nclearAjaxRequestOptions();\n\nif (str != null)\n{\n\nstr = str + \"&sap-ajax_request=X\";\n\nvar elementid = getElementIdToReplace(form);\n\nif (elementid != null)\n{\nvar ajaxObj = null;\ntry\n{\n\najaxObj = new AjaxRequest(form.action, {\nmethod: 'post',\nasynchronous: true,\nparameters: str,\nbindingMode: 'xml',\nonComplete: deltaRenderingCallback,\n",
-        "applies_to": "sapautomata_ia",
-        "source": "SapAutomata_IA\\knowledge\\sap_js_internals\\sap_internal_functions.js",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "javascript",
-        "js"
-      ],
-      "created_at": "2026-04-04T04:14:08.086468+00:00",
-      "updated_at": "2026-04-04T04:14:08.086468+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:09.239682+00:00",
-        "access_count": 172
-      }
-    },
-    "2170c4438783": {
-      "id": "2170c4438783",
-      "type": "fact",
-      "key": "sap_internal_functions_2",
-      "fact": {
-        "rule": "post',\nasynchronous: true,\nparameters: str,\nbindingMode: 'xml',\nonComplete: deltaRenderingCallback,\nsubmittedFormId: form.id,\nsapAjaxtarget: elementid,\npostProcess: dhPostProcess});\n\n}\ncatch(e)\n{\najaxObj = null;\n}\nif (ajaxObj != null)\n{\ntry\n{\n\nif ( ajaxObj.executeRequest() ) {\n\nreturnvalue = true;\nif (toDisable == true)\n{\n\ndisableForm(ajaxObj.options.submittedFormId, true);\n\n}\n}\n\n}\ncatch(e)\n{\n}\n}\n}\n}\n}\ntry{\n\nif (th_runningInPopup()){\nif (typeof WCFDialogAPI !== 'undefined' && WCFDialogAPI.isRunningInDialog){\nwindow.opener = WCFDialogAPI.getOpener();\n}else{\nvar getParent = getMainParent(window.parent);\nwindow.opener = getParent.opener;\n}\nif (window.opener.thtmlbGetHostWindow && window.opener.thtmlbGetHostWindow().reset_last_server_update){\n",
-        "applies_to": "sapautomata_ia",
-        "source": "SapAutomata_IA\\knowledge\\sap_js_internals\\sap_internal_functions.js",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "javascript",
-        "js"
-      ],
-      "created_at": "2026-04-04T04:14:08.168602+00:00",
-      "updated_at": "2026-04-04T04:14:08.168602+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:09.239682+00:00",
-        "access_count": 187
-      }
-    },
-    "73ae5612b60c": {
-      "id": "73ae5612b60c",
-      "type": "fact",
-      "key": "sap_internal_functions_3",
-      "fact": {
-        "rule": "window.opener.thtmlbGetHostWindow && window.opener.thtmlbGetHostWindow().reset_last_server_update){\nwindow.opener.thtmlbGetHostWindow().reset_last_server_update();\n}\n}else {\nif(thtmlbGetHostWindow().reset_last_server_update){\nthtmlbGetHostWindow().reset_last_server_update();\n}\n}\n} catch(e) {}\nreturn returnvalue;\n}\n\n// ========== preAjaxRequest ==========\nfunction preAjaxRequest(target)\n{\nif (isAjaxEnabled == true)\n{\najax_submit = true;\nif (target == null)\n{\najax_submit = false;\nreturn;\n}\nif (target.length == 0)\n{\najax_submit = false;\nreturn;\n}\nvar element = document.getElementById(\"sap-ajaxtarget\");\nif (element != null)\n{\nelement.value = target;\n}else{\najax_submit = false;\n}\n}\n}\n\n// ========== preAjaxRequest2 ==========\nfunction preAjaxRequest2(target)\n{\n",
-        "applies_to": "sapautomata_ia",
-        "source": "SapAutomata_IA\\knowledge\\sap_js_internals\\sap_internal_functions.js",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "javascript",
-        "js"
-      ],
-      "created_at": "2026-04-04T04:14:08.247901+00:00",
-      "updated_at": "2026-04-04T04:14:08.247901+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:02.021275+00:00",
-        "access_count": 136
-      }
-    },
-    "5bfc1dfb8aa4": {
-      "id": "5bfc1dfb8aa4",
-      "type": "fact",
-      "key": "sap_internal_functions_4",
-      "fact": {
-        "rule": "_submit = false;\n}\n}\n}\n\n// ========== preAjaxRequest2 ==========\nfunction preAjaxRequest2(target)\n{\nvar element = document.getElementById(\"sap-ajax_dh_ssoptenabled\");\nif (element != null)\n{\nelement.value = \" \";\n}\npreAjaxRequest(target);\n}\n\n// ========== AjaxRequest ==========\nfunction AjaxRequest(targerUrl, reqOptions){\nthis.url = targerUrl;\nthis.options = {method: \"post\",asynchronous: true, parameters: \"\", bindingMode: \"xml\", onComplete: AjaxCommon.emptyFunction, preProcess: AjaxCommon.preProcessFunction, postProcess: AjaxCommon.postProcessFunction, onFailure: AjaxCommon.onFailure};\n\nthis.onStateChange = onStateChange;\nthis.respondToReadyState = respondToReadyState;\nthis.getRequestObject = getRequestObject;\nthis.setOptions = setOptions;\nthis.responseIsSuccess = responseIsSuccess;\n",
-        "applies_to": "sapautomata_ia",
-        "source": "SapAutomata_IA\\knowledge\\sap_js_internals\\sap_internal_functions.js",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "javascript",
-        "js"
-      ],
-      "created_at": "2026-04-04T04:14:08.320380+00:00",
-      "updated_at": "2026-04-04T04:14:08.320380+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:09.239682+00:00",
-        "access_count": 168
-      }
-    },
-    "c63ef3c2f02d": {
-      "id": "c63ef3c2f02d",
-      "type": "fact",
-      "key": "sap_internal_functions_5",
-      "fact": {
-        "rule": "bject = getRequestObject;\nthis.setOptions = setOptions;\nthis.responseIsSuccess = responseIsSuccess;\nthis.responseIsFailure = responseIsFailure;\nthis.processDefaultXML = processDefaultXML;\nthis.setRequestHeaders = setRequestHeaders;\nthis.requestHeaders = {};\nthis.request = this.getRequestObject();\n\nif(!this.request){\nthrow 'Not able to create XmlHttpRequestObject object';\n}\nthis.setOptions(reqOptions);\n}\n\n// ========== thtmlbNavigateToLogicalLink ==========\nfunction thtmlbNavigateToLogicalLink(iv_link_id)\n{\nthtmlbSaveKeyboardFocus(\"first_active_element_in_work_area\");\ncrmFrwNavigateToLogicalLink(iv_link_id, \"KBD\");\n}\n\n// ========== menu_navigate ==========\nfunction menu_navigate(pagecontext, link){\nvar form = document.getElementsByTagName(\"FORM\")[0];\n",
-        "applies_to": "sapautomata_ia",
-        "source": "SapAutomata_IA\\knowledge\\sap_js_internals\\sap_internal_functions.js",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "javascript",
-        "js"
-      ],
-      "created_at": "2026-04-04T04:14:08.393435+00:00",
-      "updated_at": "2026-04-04T04:14:08.393435+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:09.239682+00:00",
-        "access_count": 272
-      }
-    },
-    "6b0fff94b1f2": {
-      "id": "6b0fff94b1f2",
-      "type": "fact",
-      "key": "sap_internal_functions_6",
-      "fact": {
-        "rule": "===\nfunction menu_navigate(pagecontext, link){\nvar form = document.getElementsByTagName(\"FORM\")[0];\nif (form != null && typeof(htmlbSubmitLib) != 'undefined') {\nhtmlbSubmitLib(\"htmlb\", this, \"htmlb:link:click:null\", form.id, pagecontext + \"_\" + link,link,1,\"#\");\n}\n}\n\n// ========== isDeltaHandlingAutoMode ==========\nfunction isDeltaHandlingAutoMode(){\nvar hiddenFlag = document.getElementById(\"sap-ajax_dh_mode\");\nif(hiddenFlag != null && hiddenFlag.value.toUpperCase() == \"AUTO\"){\nreturn true;\n}\nreturn false;\n}\n\n// ========== setDeltaHandlingMode ==========\nfunction setDeltaHandlingMode(mode){\nvar hiddenFlag = document.getElementById(\"sap-ajax_dh_mode\");\nif(hiddenFlag != null ){\nhiddenFlag.value = mode;\n}\n}\n\n// ========== cancelAjaxRequest ==========\nfunction cancelAjaxRequest(){\n",
-        "applies_to": "sapautomata_ia",
-        "source": "SapAutomata_IA\\knowledge\\sap_js_internals\\sap_internal_functions.js",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "javascript",
-        "js"
-      ],
-      "created_at": "2026-04-04T04:14:08.491167+00:00",
-      "updated_at": "2026-04-04T04:14:08.491167+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:09.239682+00:00",
-        "access_count": 205
-      }
-    },
-    "7183d550d680": {
-      "id": "7183d550d680",
-      "type": "fact",
-      "key": "sap_internal_functions_7",
-      "fact": {
-        "rule": "denFlag.value = mode;\n}\n}\n\n// ========== cancelAjaxRequest ==========\nfunction cancelAjaxRequest(){\nisAjaxEnabled = false;\n}\n\n// ========== isAjaxActive ==========\nfunction isAjaxActive()\n{\nif (isAjaxEnabled == false)\nreturn false;\ntry\n{\najaxObj = new AjaxRequest('', {\nmethod: 'post',\nasyn",
-        "applies_to": "sapautomata_ia",
-        "source": "SapAutomata_IA\\knowledge\\sap_js_internals\\sap_internal_functions.js",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "javascript",
-        "js"
-      ],
-      "created_at": "2026-04-04T04:14:08.571114+00:00",
-      "updated_at": "2026-04-04T04:14:08.571114+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:02.021275+00:00",
-        "access_count": 136
-      }
-    },
-    "38105b399380": {
-      "id": "38105b399380",
-      "type": "fact",
-      "key": "scan_followup_types_0",
-      "fact": {
-        "rule": "\"\"\"\nscan_followup_types.py — Clicks each Follow-Up type (16-27), scans the resulting form, cancels, repeats.\n\nCycle per type:\n  1. Click type in popup → popup closes, form opens in main window\n  2. Wait for form to load\n  3. Scan all fields/spans/buttons/dropdowns\n  4. Save playbook JSON\n  5. Click Cancel/Back to return to opportunity\n  6. Reopen Follow-Up popup\n  7. Navigate to page 2\n  8. Repeat next type\n\nUsage: python scan_followup_types.py [start_row] [end_row]\n  Default: 16 27\n\"\"\"\nimport json\nimport sys\nimport time\nimport urllib.request\nfrom pathlib import Path\nimport websocket\n\nCDP_PORT = 9222\nOUTPUT_DIR = Path(__file__).parent / \"playbooks\"\nOUTPUT_DIR.mkdir(exist_ok=True)\n\n# Types to scan (row 16-27 from Follow-Up popup page 2)\nTYPES = {\n    16: \"Quote_Proyecto\",\n",
-        "applies_to": "sapautomata_ia",
-        "source": "SapAutomata_IA\\knowledge\\sap_js_internals\\scan_followup_types.py",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "python",
-        "py"
-      ],
-      "created_at": "2026-04-04T04:14:08.650197+00:00",
-      "updated_at": "2026-04-04T04:14:08.650197+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.315244+00:00",
-        "access_count": 287
-      }
-    },
-    "ce883eccfbc6": {
-      "id": "ce883eccfbc6",
-      "type": "fact",
-      "key": "scan_followup_types_1",
-      "fact": {
-        "rule": "=True)\n\n# Types to scan (row 16-27 from Follow-Up popup page 2)\nTYPES = {\n    16: \"Quote_Proyecto\",\n    17: \"Cont_Quot_Man_Horas\",\n    18: \"Cont_Quot_Manual\",\n    19: \"Cont_Quot_VQ_Annual\",\n    20: \"Cont_Quot_VQ_Mon\",\n    21: \"Contr_Quot_Autom\",\n    22: \"Contr_Quot_Cons_Auto\",\n    23: \"Contr_Quot_Cons_Manu\",\n    24: \"Contract_Pack_Quot\",\n    25: \"Quotation_Standard\",\n    26: \"Best_Pr_Task\",\n    27: \"Internal_Task\",\n}\n\ndef log(msg):\n    print(f\"[{time.strftime('%H:%M:%S')}] {msg}\", flush=True)\n\ndef get_tabs():\n    resp = urllib.request.urlopen(f'http://127.0.0.1:{CDP_PORT}/json')\n    return json.loads(resp.read())\n\nclass CDPSession:\n    def __init__(self, ws_url, timeout=30):\n        self.ws = websocket.create_connection(ws_url, timeout=timeout)\n        self.msg_id = 0\n",
-        "applies_to": "sapautomata_ia",
-        "source": "SapAutomata_IA\\knowledge\\sap_js_internals\\scan_followup_types.py",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "python",
-        "py"
-      ],
-      "created_at": "2026-04-04T04:14:08.734373+00:00",
-      "updated_at": "2026-04-04T04:14:08.734373+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.315244+00:00",
-        "access_count": 232
-      }
-    },
-    "37dcf011e012": {
-      "id": "37dcf011e012",
-      "type": "fact",
-      "key": "scan_followup_types_2",
-      "fact": {
-        "rule": "30):\n        self.ws = websocket.create_connection(ws_url, timeout=timeout)\n        self.msg_id = 0\n        self.events = []\n\n    def send(self, method, params=None):\n        self.msg_id += 1\n        mid = self.msg_id\n        msg = {\"id\": mid, \"method\": method}\n        if params:\n            msg[\"params\"] = params\n        self.ws.send(json.dumps(msg))\n        deadline = time.time() + 20\n        while time.time() < deadline:\n            try:\n                self.ws.settimeout(5)\n                raw = self.ws.recv()\n                data = json.loads(raw)\n                if data.get(\"id\") == mid:\n                    if \"error\" in data:\n                        return {\"__error\": data[\"error\"]}\n                    return data.get(\"result\", {})\n                else:\n",
-        "applies_to": "sapautomata_ia",
-        "source": "SapAutomata_IA\\knowledge\\sap_js_internals\\scan_followup_types.py",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "python",
-        "py"
-      ],
-      "created_at": "2026-04-04T04:14:08.799517+00:00",
-      "updated_at": "2026-04-04T04:14:08.799517+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.315244+00:00",
-        "access_count": 99
-      }
-    },
-    "835accacf4f2": {
-      "id": "835accacf4f2",
-      "type": "fact",
-      "key": "scan_followup_types_3",
-      "fact": {
-        "rule": " {\"__error\": data[\"error\"]}\n                    return data.get(\"result\", {})\n                else:\n                    self.events.append(data)\n            except websocket.WebSocketTimeoutException:\n                continue\n        return {\"__error\": \"timeout\"}\n\n    def evaluate(self, expression, context_id=None):\n        params = {\n            \"expression\": expression,\n            \"returnByValue\": True,\n            \"awaitPromise\": True,\n            \"timeout\": 15000\n        }\n        if context_id:\n            params[\"contextId\"] = context_id\n        result = self.send(\"Runtime.evaluate\", params)\n        if \"__error\" in result:\n            return None\n        if result.get(\"exceptionDetails\"):\n            return None\n        # CDP returns {result: {type, value}} — extract value\n",
-        "applies_to": "sapautomata_ia",
-        "source": "SapAutomata_IA\\knowledge\\sap_js_internals\\scan_followup_types.py",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "python",
-        "py"
-      ],
-      "created_at": "2026-04-04T04:14:08.860157+00:00",
-      "updated_at": "2026-04-04T04:14:08.860157+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.315244+00:00",
-        "access_count": 96
-      }
-    },
-    "d0d0fc04d001": {
-      "id": "d0d0fc04d001",
-      "type": "fact",
-      "key": "scan_followup_types_4",
-      "fact": {
-        "rule": "ionDetails\"):\n            return None\n        # CDP returns {result: {type, value}} — extract value\n        inner = result.get(\"result\", {})\n        if isinstance(inner, dict):\n            return inner.get(\"value\")\n        return inner\n\n    def close(self):\n        try:\n            self.ws.close()\n        except:\n            pass\n\ndef get_frame_contexts(cdp):\n    \"\"\"Get frame tree and execution contexts.\"\"\"\n    cdp.send(\"Page.enable\")\n    cdp.send(\"Runtime.enable\")\n    time.sleep(1.5)\n\n    tree = cdp.send(\"Page.getFrameTree\")\n    frames = {}\n    def walk(node, depth=0):\n        f = node.get(\"frame\", {})\n        fid = f.get(\"id\", \"\")\n        frames[fid] = {\"name\": f.get(\"name\", \"\"), \"url\": f.get(\"url\", \"\"), \"depth\": depth}\n        for child in node.get(\"childFrames\", []):\n",
-        "applies_to": "sapautomata_ia",
-        "source": "SapAutomata_IA\\knowledge\\sap_js_internals\\scan_followup_types.py",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "python",
-        "py"
-      ],
-      "created_at": "2026-04-04T04:14:08.923570+00:00",
-      "updated_at": "2026-04-04T04:14:08.923570+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.315244+00:00",
-        "access_count": 146
-      }
-    },
-    "4e0054e9b70d": {
-      "id": "4e0054e9b70d",
-      "type": "fact",
-      "key": "scan_followup_types_5",
-      "fact": {
-        "rule": "e\", \"\"), \"url\": f.get(\"url\", \"\"), \"depth\": depth}\n        for child in node.get(\"childFrames\", []):\n            walk(child, depth + 1)\n    if \"frameTree\" in tree:\n        walk(tree[\"frameTree\"])\n\n    contexts = {}\n    for ev in cdp.events:\n        if ev.get(\"method\") == \"Runtime.executionContextCreated\":\n            ctx = ev[\"params\"].get(\"context\", {})\n            aux = ctx.get(\"auxData\", {})\n            fid = aux.get(\"frameId\", \"\")\n            if fid and aux.get(\"isDefault\", True):\n                contexts[fid] = ctx.get(\"id\")\n\n    return frames, contexts\n\ndef find_context(frames, contexts, name_contains):\n    \"\"\"Find execution context for a frame by name substring.\"\"\"\n    for fid, finfo in frames.items():\n        if name_contains in finfo.get(\"name\", \"\"):\n",
-        "applies_to": "sapautomata_ia",
-        "source": "SapAutomata_IA\\knowledge\\sap_js_internals\\scan_followup_types.py",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "python",
-        "py"
-      ],
-      "created_at": "2026-04-04T04:14:08.998683+00:00",
-      "updated_at": "2026-04-04T04:14:08.998683+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.315244+00:00",
-        "access_count": 153
-      }
-    },
-    "414f0ef13640": {
-      "id": "414f0ef13640",
-      "type": "fact",
-      "key": "scan_followup_types_6",
-      "fact": {
-        "rule": "string.\"\"\"\n    for fid, finfo in frames.items():\n        if name_contains in finfo.get(\"name\", \"\"):\n            if fid in contexts:\n                return contexts[fid]\n    return None\n\nSCAN_JS = \"\"\"(() => {\n    const result = {fields: [], spans: [], buttons: [], tables: [], dropdowns: [], checkboxes: []};\n\n    // Fields (inputs, textareas, selects)\n    document.querySelectorAll('input[type=\"text\"], input:not([type]), textarea, select').forEach(el => {\n        if (el.offsetParent === null && el.type !== 'hidden') return;\n        const id = el.id || '';\n        const suffix = id.replace(/^(C\\\\d+_W\\\\d+_(?:V\\\\d+_)*)/g, '');\n        if (!suffix || suffix.startsWith('htmlb') || suffix.includes('_isExpanded') ||\n            suffix.includes('_iscollapsed') || suffix === 'SavedSearches') return;\n\n",
-        "applies_to": "sapautomata_ia",
-        "source": "SapAutomata_IA\\knowledge\\sap_js_internals\\scan_followup_types.py",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "python",
-        "py"
-      ],
-      "created_at": "2026-04-04T04:14:09.075076+00:00",
-      "updated_at": "2026-04-04T04:14:09.075076+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.315244+00:00",
-        "access_count": 223
-      }
-    },
-    "2df39800572e": {
-      "id": "2df39800572e",
-      "type": "fact",
-      "key": "scan_followup_types_7",
-      "fact": {
-        "rule": "isExpanded') ||\n            suffix.includes('_iscollapsed') || suffix === 'SavedSearches') return;\n\n        let label = '';\n        try {\n            const td = el.closest('td');\n            if (td && td.previousElementSibling",
-        "applies_to": "sapautomata_ia",
-        "source": "SapAutomata_IA\\knowledge\\sap_js_internals\\scan_followup_types.py",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "python",
-        "py"
-      ],
-      "created_at": "2026-04-04T04:14:09.122719+00:00",
-      "updated_at": "2026-04-04T04:14:09.122719+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.315244+00:00",
-        "access_count": 126
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 201
       }
     },
     "4a12eb7bbfec": {
@@ -2006,8 +1181,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:34:02.424855+00:00",
-        "access_count": 78
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 82
       }
     },
     "b7af069c704f": {
@@ -2030,8 +1205,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:02.021275+00:00",
-        "access_count": 159
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 163
       }
     },
     "812ceeaf57c4": {
@@ -2054,8 +1229,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.315244+00:00",
-        "access_count": 169
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 173
       }
     },
     "c5560a0a4730": {
@@ -2078,8 +1253,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.315244+00:00",
-        "access_count": 159
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 164
       }
     },
     "7f1ad9a0c8bc": {
@@ -2102,8 +1277,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.315244+00:00",
-        "access_count": 123
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 128
       }
     },
     "9b1492e98650": {
@@ -2126,8 +1301,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:34:02.424855+00:00",
-        "access_count": 72
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 76
       }
     },
     "f47e40bfbaaa": {
@@ -2150,8 +1325,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.315244+00:00",
-        "access_count": 205
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 210
       }
     },
     "1a8029ea601b": {
@@ -2174,8 +1349,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.315244+00:00",
-        "access_count": 121
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 126
       }
     },
     "3c1e7f764a2c": {
@@ -2199,8 +1374,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.315244+00:00",
-        "access_count": 255
+        "last_accessed": "2026-04-05T05:26:01.137376+00:00",
+        "access_count": 261
       }
     },
     "51d5482c2c1b": {
@@ -2224,8 +1399,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.315244+00:00",
-        "access_count": 220
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 224
       }
     },
     "0292be85c31a": {
@@ -2249,8 +1424,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.315244+00:00",
-        "access_count": 83
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 87
       }
     },
     "37e5861256a9": {
@@ -2274,8 +1449,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.315244+00:00",
-        "access_count": 109
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 113
       }
     },
     "656a4738ce1b": {
@@ -2299,8 +1474,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.315244+00:00",
-        "access_count": 103
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 107
       }
     },
     "6f77f0b8c728": {
@@ -2324,8 +1499,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.315244+00:00",
-        "access_count": 246
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 250
       }
     },
     "c520e7911ec2": {
@@ -2349,8 +1524,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.315244+00:00",
-        "access_count": 155
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 159
       }
     },
     "a6e15d014dc4": {
@@ -2374,8 +1549,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.315244+00:00",
-        "access_count": 145
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 149
       }
     },
     "d5f5b9552ddc": {
@@ -2399,8 +1574,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.315244+00:00",
-        "access_count": 211
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 215
       }
     },
     "b54a33a607f4": {
@@ -2424,8 +1599,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.315244+00:00",
-        "access_count": 88
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 92
       }
     },
     "92cb9ed6b97b": {
@@ -2449,8 +1624,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.315244+00:00",
-        "access_count": 100
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 104
       }
     },
     "e7f87871e258": {
@@ -2474,8 +1649,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.315244+00:00",
-        "access_count": 102
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 106
       }
     },
     "1b856669a5e7": {
@@ -2499,8 +1674,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.315244+00:00",
-        "access_count": 237
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 241
       }
     },
     "566d16bb5706": {
@@ -2524,8 +1699,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.315244+00:00",
-        "access_count": 157
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 161
       }
     },
     "e89887cd3fca": {
@@ -2549,8 +1724,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.315244+00:00",
-        "access_count": 236
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 240
       }
     },
     "dc7235ef0780": {
@@ -2574,8 +1749,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.315244+00:00",
-        "access_count": 173
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 177
       }
     },
     "0852177d4885": {
@@ -2599,8 +1774,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.315244+00:00",
-        "access_count": 164
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 168
       }
     },
     "c0fc40b104c1": {
@@ -2624,8 +1799,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.315244+00:00",
-        "access_count": 88
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 92
       }
     },
     "456bf8648cc3": {
@@ -2649,8 +1824,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.315244+00:00",
-        "access_count": 110
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 114
       }
     },
     "2e20a044ef1d": {
@@ -2674,8 +1849,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.315244+00:00",
-        "access_count": 242
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 246
       }
     },
     "f48ba69bf87c": {
@@ -2699,8 +1874,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.315244+00:00",
-        "access_count": 102
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 106
       }
     },
     "1c4bc0f31d71": {
@@ -2724,8 +1899,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.315244+00:00",
-        "access_count": 237
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 241
       }
     },
     "891959833eeb": {
@@ -2749,8 +1924,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.315244+00:00",
-        "access_count": 157
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 161
       }
     },
     "7790fcb78096": {
@@ -2774,208 +1949,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.315244+00:00",
-        "access_count": 143
-      }
-    },
-    "83a49859aed5": {
-      "id": "83a49859aed5",
-      "type": "fact",
-      "key": "playbook_opp_detail_EDIT_0",
-      "fact": {
-        "rule": "{\n  \"screen\": \"Opportunity_Detail_EDIT\",\n  \"timestamp\": \"2026-03-27T23:42:07.238Z\",\n  \"iframe_chain\": [\n    \"CRMApplicationFrame\",\n    \"CRMApplicationFrame\",\n    \"WorkAreaFrame1\"\n  ],\n  \"fields\": [\n    {\n      \"stable_suffix\": \"btadminh_struct.proc_type_descr\",\n      \"selector\": \"[id$=\\\"btadminh_struct.proc_type_descr\\\"]\",\n      \"label\": \"Type\",\n      \"value\": \"Opp Multiservice\",\n      \"type\": \"input\",\n      \"editable\": false\n    },\n    {\n      \"stable_suffix\": \"btadminh_struct.object_id\",\n      \"selector\": \"[id$=\\\"btadminh_struct.object_id\\\"]\",\n      \"label\": \"ID\",\n      \"value\": \"245372\",\n      \"type\": \"input\",\n      \"editable\": false\n    },\n    {\n      \"stable_suffix\": \"btadminh_struct.description\",\n      \"selector\": \"[id$=\\\"btadminh_struct.description\\\"]\",\n",
-        "applies_to": "sapautomata_ia",
-        "source": "SapAutomata_IA\\knowledge\\sap_js_internals\\playbook_opp_detail_EDIT.json",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "json",
-        "json"
-      ],
-      "created_at": "2026-04-04T04:14:11.888783+00:00",
-      "updated_at": "2026-04-04T04:14:11.888783+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:02.021275+00:00",
-        "access_count": 89
-      }
-    },
-    "31d4b78a4b8a": {
-      "id": "31d4b78a4b8a",
-      "type": "fact",
-      "key": "playbook_opp_detail_EDIT_1",
-      "fact": {
-        "rule": "_suffix\": \"btadminh_struct.description\",\n      \"selector\": \"[id$=\\\"btadminh_struct.description\\\"]\",\n      \"label\": \"Description\",\n      \"value\": \"Agentes Virtuales IA para Mercadeo - BR\",\n      \"type\": \"input\",\n      \"editable\": true\n    },\n    {\n      \"stable_suffix\": \"btpartnerprospect_partnerno\",\n      \"selector\": \"[id$=\\\"btpartnerprospect_partnerno\\\"]\",\n      \"label\": \"\",\n      \"value\": \"BANCO AGROMERCANTIL DE GUATEMALA, S. A.\",\n      \"type\": \"input\",\n      \"editable\": true\n    },\n    {\n      \"stable_suffix\": \"btpartnerprospect_struct.address_short\",\n      \"selector\": \"[id$=\\\"btpartnerprospect_struct.address_short\\\"]\",\n      \"label\": \"Prospect Address\",\n      \"value\": \"7A. AVENIDA 7-30 ZONA 9 / 01009 GUATEMALA\",\n      \"type\": \"input\",\n      \"editable\": false\n    },\n    {\n",
-        "applies_to": "sapautomata_ia",
-        "source": "SapAutomata_IA\\knowledge\\sap_js_internals\\playbook_opp_detail_EDIT.json",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "json",
-        "json"
-      ],
-      "created_at": "2026-04-04T04:14:11.999079+00:00",
-      "updated_at": "2026-04-04T04:14:11.999079+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:02.021275+00:00",
-        "access_count": 51
-      }
-    },
-    "73f7db1b04f5": {
-      "id": "73f7db1b04f5",
-      "type": "fact",
-      "key": "playbook_opp_detail_EDIT_2",
-      "fact": {
-        "rule": "AVENIDA 7-30 ZONA 9 / 01009 GUATEMALA\",\n      \"type\": \"input\",\n      \"editable\": false\n    },\n    {\n      \"stable_suffix\": \"btpartnermain_partnerno\",\n      \"selector\": \"[id$=\\\"btpartnermain_partnerno\\\"]\",\n      \"label\": \"\",\n      \"value\": \"Mr. LUIS VALLE\",\n      \"type\": \"input\",\n      \"editable\": true\n    },\n    {\n      \"stable_suffix\": \"btpartnerowner_partnerno\",\n      \"selector\": \"[id$=\\\"btpartnerowner_partnerno\\\"]\",\n      \"label\": \"\",\n      \"value\": \"Ms. BIANCA PAOLA RODAS\",\n      \"type\": \"input\",\n      \"editable\": true\n    },\n    {\n      \"stable_suffix\": \"btadminh_ext.zzfld00000e\",\n      \"selector\": \"[id$=\\\"btadminh_ext.zzfld00000e\\\"]\",\n      \"label\": \"Total Rev. Pipeline\",\n      \"value\": \"0,00\",\n      \"type\": \"input\",\n      \"editable\": true\n    },\n    {\n",
-        "applies_to": "sapautomata_ia",
-        "source": "SapAutomata_IA\\knowledge\\sap_js_internals\\playbook_opp_detail_EDIT.json",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "json",
-        "json"
-      ],
-      "created_at": "2026-04-04T04:14:12.075993+00:00",
-      "updated_at": "2026-04-04T04:14:12.075993+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:02.021275+00:00",
-        "access_count": 52
-      }
-    },
-    "d989f18484a3": {
-      "id": "d989f18484a3",
-      "type": "fact",
-      "key": "playbook_opp_detail_EDIT_3",
-      "fact": {
-        "rule": "l Rev. Pipeline\",\n      \"value\": \"0,00\",\n      \"type\": \"input\",\n      \"editable\": true\n    },\n    {\n      \"stable_suffix\": \"btadminh_ext.zzfld00000q\",\n      \"selector\": \"[id$=\\\"btadminh_ext.zzfld00000q\\\"]\",\n      \"label\": \"Total Rev.Forecast\",\n      \"value\": \"0,00\",\n      \"type\": \"input\",\n      \"editable\": true\n    },\n    {\n      \"stable_suffix\": \"btadminh_ext.zzfld00000r\",\n      \"selector\": \"[id$=\\\"btadminh_ext.zzfld00000r\\\"]\",\n      \"label\": \"Total Rev. Best Est.\",\n      \"value\": \"0,00\",\n      \"type\": \"input\",\n      \"editable\": true\n    },\n    {\n      \"stable_suffix\": \"btadminh_ext.zzfld00000s\",\n      \"selector\": \"[id$=\\\"btadminh_ext.zzfld00000s\\\"]\",\n      \"label\": \"New Signings\",\n      \"value\": \"0,00\",\n      \"type\": \"input\",\n      \"editable\": true\n    },\n    {\n",
-        "applies_to": "sapautomata_ia",
-        "source": "SapAutomata_IA\\knowledge\\sap_js_internals\\playbook_opp_detail_EDIT.json",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "json",
-        "json"
-      ],
-      "created_at": "2026-04-04T04:14:12.165980+00:00",
-      "updated_at": "2026-04-04T04:14:12.165980+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:02.021275+00:00",
-        "access_count": 72
-      }
-    },
-    "7dfaf78d6e5e": {
-      "id": "7dfaf78d6e5e",
-      "type": "fact",
-      "key": "playbook_opp_detail_EDIT_4",
-      "fact": {
-        "rule": ": \"New Signings\",\n      \"value\": \"0,00\",\n      \"type\": \"input\",\n      \"editable\": true\n    },\n    {\n      \"stable_suffix\": \"btopporth_struct.startdate\",\n      \"selector\": \"[id$=\\\"btopporth_struct.startdate\\\"]\",\n      \"label\": \"\",\n      \"value\": \"05.02.2026\",\n      \"type\": \"input\",\n      \"editable\": true\n    },\n    {\n      \"stable_suffix\": \"btopporth_struct.expect_end\",\n      \"selector\": \"[id$=\\\"btopporth_struct.expect_end\\\"]\",\n      \"label\": \"\",\n      \"value\": \"05.06.2026\",\n      \"type\": \"input\",\n      \"editable\": true\n    },\n    {\n      \"stable_suffix\": \"btopporth_struct.curr_phase\",\n      \"selector\": \"[id$=\\\"btopporth_struct.curr_phase\\\"]\",\n      \"label\": \"\",\n      \"value\": \"Quotation\",\n      \"type\": \"input\",\n      \"editable\": true\n    },\n    {\n",
-        "applies_to": "sapautomata_ia",
-        "source": "SapAutomata_IA\\knowledge\\sap_js_internals\\playbook_opp_detail_EDIT.json",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "json",
-        "json"
-      ],
-      "created_at": "2026-04-04T04:14:12.244890+00:00",
-      "updated_at": "2026-04-04T04:14:12.244890+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:02.021275+00:00",
-        "access_count": 60
-      }
-    },
-    "cb544103f850": {
-      "id": "cb544103f850",
-      "type": "fact",
-      "key": "playbook_opp_detail_EDIT_5",
-      "fact": {
-        "rule": "\"label\": \"\",\n      \"value\": \"Quotation\",\n      \"type\": \"input\",\n      \"editable\": true\n    },\n    {\n      \"stable_suffix\": \"btopporth_struct.probability\",\n      \"selector\": \"[id$=\\\"btopporth_struct.probability\\\"]\",\n      \"label\": \"Chance of Success\",\n      \"value\": \"50\",\n      \"type\": \"input\",\n      \"editable\": true\n    },\n    {\n      \"stable_suffix\": \"btopporth_percent\",\n      \"selector\": \"[id$=\\\"btopporth_percent\\\"]\",\n      \"label\": \"\",\n      \"value\": \"%\",\n      \"type\": \"input\",\n      \"editable\": false\n    },\n    {\n      \"stable_suffix\": \"btopporth_struct.sys_probability\",\n      \"selector\": \"[id$=\\\"btopporth_struct.sys_probability\\\"]\",\n      \"label\": \"Calculated Chance\",\n      \"value\": \"0\",\n      \"type\": \"input\",\n      \"editable\": false\n    },\n    {\n",
-        "applies_to": "sapautomata_ia",
-        "source": "SapAutomata_IA\\knowledge\\sap_js_internals\\playbook_opp_detail_EDIT.json",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "json",
-        "json"
-      ],
-      "created_at": "2026-04-04T04:14:12.317810+00:00",
-      "updated_at": "2026-04-04T04:14:12.317810+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:02.021275+00:00",
-        "access_count": 53
-      }
-    },
-    "d94cc4ad08a2": {
-      "id": "d94cc4ad08a2",
-      "type": "fact",
-      "key": "playbook_opp_detail_EDIT_6",
-      "fact": {
-        "rule": "Calculated Chance\",\n      \"value\": \"0\",\n      \"type\": \"input\",\n      \"editable\": false\n    },\n    {\n      \"stable_suffix\": \"btopporth_percent1\",\n      \"selector\": \"[id$=\\\"btopporth_percent1\\\"]\",\n      \"label\": \"\",\n      \"value\": \"%\",\n      \"type\": \"input\",\n      \"editable\": false\n    },\n    {\n      \"stable_suffix\": \"btstatus_struct.act_status\",\n      \"selector\": \"[id$=\\\"btstatus_struct.act_status\\\"]\",\n      \"label\": \"\",\n      \"value\": \"Open\",\n      \"type\": \"input\",\n      \"editable\": true\n    },\n    {\n      \"stable_suffix\": \"btsubject_struct.conc_key\",\n      \"selector\": \"[id$=\\\"btsubject_struct.conc_key\\\"]\",\n      \"label\": \"\",\n      \"value\": \"\",\n      \"type\": \"input\",\n      \"editable\": false\n    },\n    {\n      \"stable_suffix\": \"btstatushsum_struct.credit_not_ok\",\n",
-        "applies_to": "sapautomata_ia",
-        "source": "SapAutomata_IA\\knowledge\\sap_js_internals\\playbook_opp_detail_EDIT.json",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "json",
-        "json"
-      ],
-      "created_at": "2026-04-04T04:14:12.397013+00:00",
-      "updated_at": "2026-04-04T04:14:12.397013+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:02.021275+00:00",
-        "access_count": 57
-      }
-    },
-    "b88d05883753": {
-      "id": "b88d05883753",
-      "type": "fact",
-      "key": "playbook_opp_detail_EDIT_7",
-      "fact": {
-        "rule": "\",\n      \"editable\": false\n    },\n    {\n      \"stable_suffix\": \"btstatushsum_struct.credit_not_ok\",\n      \"selector\": \"[id$=\\\"btstatushsum_struct.credit_not_ok\\\"]\",\n      \"label\": \"Credit Status\",\n      \"value\": \"\",\n      \"type\": \"input\",\n      \"editable\": false\n    },\n    {\n      \"stable_suffix\": \"btopport",
-        "applies_to": "sapautomata_ia",
-        "source": "SapAutomata_IA\\knowledge\\sap_js_internals\\playbook_opp_detail_EDIT.json",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "json",
-        "json"
-      ],
-      "created_at": "2026-04-04T04:14:12.458284+00:00",
-      "updated_at": "2026-04-04T04:14:12.458284+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:02.021275+00:00",
-        "access_count": 52
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 147
       }
     },
     "7906a1f3402f": {
@@ -2999,8 +1974,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.315244+00:00",
-        "access_count": 268
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 272
       }
     },
     "3604de78c9ea": {
@@ -3024,8 +1999,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.315244+00:00",
-        "access_count": 202
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 206
       }
     },
     "97b06ca47987": {
@@ -3049,8 +2024,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.315244+00:00",
-        "access_count": 103
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 107
       }
     },
     "65eee342dcb6": {
@@ -3074,8 +2049,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.315244+00:00",
-        "access_count": 100
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 104
       }
     },
     "421d7c66a407": {
@@ -3099,8 +2074,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.315244+00:00",
-        "access_count": 265
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 269
       }
     },
     "4ca38ea83121": {
@@ -3124,8 +2099,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.315244+00:00",
-        "access_count": 148
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 152
       }
     },
     "d8922432ebed": {
@@ -3149,8 +2124,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.315244+00:00",
-        "access_count": 168
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 172
       }
     },
     "28bea82f5051": {
@@ -3174,8 +2149,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.315244+00:00",
-        "access_count": 136
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 140
       }
     },
     "06401583d3bd": {
@@ -3199,8 +2174,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.315244+00:00",
-        "access_count": 230
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 234
       }
     },
     "64953fa48a48": {
@@ -3224,8 +2199,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.315244+00:00",
-        "access_count": 91
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 95
       }
     },
     "865864ea6c48": {
@@ -3249,8 +2224,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.315244+00:00",
-        "access_count": 95
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 99
       }
     },
     "c8b39535e99b": {
@@ -3274,8 +2249,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.315244+00:00",
-        "access_count": 229
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 233
       }
     },
     "52f9e5e3775a": {
@@ -3299,8 +2274,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.315244+00:00",
-        "access_count": 151
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 155
       }
     },
     "44a4858ed3b4": {
@@ -3324,8 +2299,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.315244+00:00",
-        "access_count": 231
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 235
       }
     },
     "2e7397e98fd9": {
@@ -3349,8 +2324,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.315244+00:00",
-        "access_count": 113
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 117
       }
     },
     "4b05c44cc6b7": {
@@ -3374,8 +2349,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.315244+00:00",
-        "access_count": 146
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 150
       }
     },
     "4521e5efc8ea": {
@@ -3399,8 +2374,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.315244+00:00",
-        "access_count": 141
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 146
       }
     },
     "7af0321b80cb": {
@@ -3424,8 +2399,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.315244+00:00",
-        "access_count": 192
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 197
       }
     },
     "5582a1fd432b": {
@@ -3449,8 +2424,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.315244+00:00",
-        "access_count": 145
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 150
       }
     },
     "e2cdb9258529": {
@@ -3474,8 +2449,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.315244+00:00",
-        "access_count": 83
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 88
       }
     },
     "71258aacdfb8": {
@@ -3499,8 +2474,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.315244+00:00",
-        "access_count": 220
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 225
       }
     },
     "0d5304a43526": {
@@ -3524,8 +2499,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.315244+00:00",
-        "access_count": 89
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 94
       }
     },
     "143a7959f249": {
@@ -3549,8 +2524,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.315244+00:00",
-        "access_count": 187
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 192
       }
     },
     "79afa0eb86e6": {
@@ -3574,8 +2549,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.315244+00:00",
-        "access_count": 73
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 78
       }
     },
     "141da834f2f4": {
@@ -3599,8 +2574,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.315244+00:00",
-        "access_count": 174
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 179
       }
     },
     "32d89d66f033": {
@@ -3624,8 +2599,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.315244+00:00",
-        "access_count": 100
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 105
       }
     },
     "4e789f058370": {
@@ -3649,8 +2624,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.315244+00:00",
-        "access_count": 94
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 99
       }
     },
     "42cc80aca7e0": {
@@ -3674,8 +2649,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.315244+00:00",
-        "access_count": 220
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 225
       }
     },
     "98475375f69e": {
@@ -3699,8 +2674,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.315244+00:00",
-        "access_count": 132
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 137
       }
     },
     "773fb40b911c": {
@@ -3724,8 +2699,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.315244+00:00",
-        "access_count": 172
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 177
       }
     },
     "84c6212bc81f": {
@@ -3749,8 +2724,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.315244+00:00",
-        "access_count": 215
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 220
       }
     },
     "719071349066": {
@@ -3774,8 +2749,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.315244+00:00",
-        "access_count": 151
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 156
       }
     },
     "99746836800c": {
@@ -3799,8 +2774,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.315244+00:00",
-        "access_count": 182
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 187
       }
     },
     "d702b96ea896": {
@@ -3824,8 +2799,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.315244+00:00",
-        "access_count": 95
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 100
       }
     },
     "f03bcfa9e82a": {
@@ -3849,8 +2824,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.315244+00:00",
-        "access_count": 88
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 93
       }
     },
     "9161b5bbb726": {
@@ -3874,8 +2849,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.315244+00:00",
-        "access_count": 219
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 224
       }
     },
     "065d891330eb": {
@@ -3899,8 +2874,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.315244+00:00",
-        "access_count": 81
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 86
       }
     },
     "bc06ea928aa9": {
@@ -3924,8 +2899,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.315244+00:00",
-        "access_count": 174
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 179
       }
     },
     "1e0f83199497": {
@@ -3949,8 +2924,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.315244+00:00",
-        "access_count": 218
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 223
       }
     },
     "4e4e6e7bae1d": {
@@ -3974,8 +2949,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.315244+00:00",
-        "access_count": 128
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 133
       }
     },
     "f4ba8f1df0e9": {
@@ -3998,8 +2973,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:02.021275+00:00",
-        "access_count": 110
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 113
       }
     },
     "8cab395f768d": {
@@ -4022,8 +2997,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:02.021275+00:00",
-        "access_count": 159
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 162
       }
     },
     "3dc2e408fd06": {
@@ -4046,8 +3021,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:02.021275+00:00",
-        "access_count": 158
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 161
       }
     },
     "0a2682ae8c47": {
@@ -4070,8 +3045,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:02.021275+00:00",
-        "access_count": 107
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 110
       }
     },
     "3b6f7f165cc1": {
@@ -4094,8 +3069,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:34:02.424855+00:00",
-        "access_count": 150
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 153
       }
     },
     "07acfea0967b": {
@@ -4118,8 +3093,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:02.021275+00:00",
-        "access_count": 124
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 128
       }
     },
     "88297f85aa90": {
@@ -4142,8 +3117,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.315244+00:00",
-        "access_count": 245
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 248
       }
     },
     "2925c6ab4384": {
@@ -4166,8 +3141,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.315244+00:00",
-        "access_count": 200
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 203
       }
     },
     "281329b9d117": {
@@ -4191,8 +3166,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.315244+00:00",
-        "access_count": 222
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 226
       }
     },
     "73159a3711d7": {
@@ -4216,8 +3191,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.315244+00:00",
-        "access_count": 174
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 178
       }
     },
     "84a03d263da2": {
@@ -4241,8 +3216,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.315244+00:00",
-        "access_count": 231
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 235
       }
     },
     "c21ca5f6d4a0": {
@@ -4266,8 +3241,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.315244+00:00",
-        "access_count": 192
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 196
       }
     },
     "5506f6a329d9": {
@@ -4291,8 +3266,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.315244+00:00",
-        "access_count": 193
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 197
       }
     },
     "a923164c9476": {
@@ -4316,8 +3291,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.315244+00:00",
-        "access_count": 191
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 195
       }
     },
     "ad7a7d92ff50": {
@@ -4341,8 +3316,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.315244+00:00",
-        "access_count": 155
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 159
       }
     },
     "a35a54f42e62": {
@@ -4366,8 +3341,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.315244+00:00",
-        "access_count": 92
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 96
       }
     },
     "645c848101bc": {
@@ -4391,8 +3366,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:34:02.424855+00:00",
-        "access_count": 205
+        "last_accessed": "2026-04-05T05:26:01.137376+00:00",
+        "access_count": 210
       }
     },
     "4a1b1359cb9f": {
@@ -4416,8 +3391,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.315244+00:00",
-        "access_count": 199
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 203
       }
     },
     "7fe29969fe23": {
@@ -4441,8 +3416,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.315244+00:00",
-        "access_count": 98
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 102
       }
     },
     "3101604aa8da": {
@@ -4466,8 +3441,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.315244+00:00",
-        "access_count": 157
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 161
       }
     },
     "a2ab6cd1c45c": {
@@ -4491,8 +3466,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.315244+00:00",
-        "access_count": 230
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 234
       }
     },
     "bf6eb0469dc2": {
@@ -4516,8 +3491,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.315244+00:00",
-        "access_count": 120
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 124
       }
     },
     "cf5bce94dcd4": {
@@ -4541,8 +3516,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.315244+00:00",
-        "access_count": 101
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 105
       }
     },
     "461e0f68fcfc": {
@@ -4566,8 +3541,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.315244+00:00",
-        "access_count": 133
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 137
       }
     },
     "535edf1cf309": {
@@ -4590,8 +3565,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.315244+00:00",
-        "access_count": 313
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 316
       }
     },
     "3d41335d4277": {
@@ -4614,8 +3589,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:09.239682+00:00",
-        "access_count": 240
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 243
       }
     },
     "2406470bfe2f": {
@@ -4638,8 +3613,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:09.239682+00:00",
-        "access_count": 221
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 224
       }
     },
     "4ca2c9569047": {
@@ -4662,8 +3637,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:09.239682+00:00",
-        "access_count": 211
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 214
       }
     },
     "7fd9afbe4280": {
@@ -4686,8 +3661,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:09.239682+00:00",
-        "access_count": 255
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 258
       }
     },
     "9f7826450f73": {
@@ -4710,8 +3685,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:09.239682+00:00",
-        "access_count": 288
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 291
       }
     },
     "4793c6d1d9f9": {
@@ -4734,8 +3709,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:09.239682+00:00",
-        "access_count": 295
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 298
       }
     },
     "659669e3795e": {
@@ -4758,8 +3733,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:09.239682+00:00",
-        "access_count": 205
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 208
       }
     },
     "e5b86050d3f9": {
@@ -4783,8 +3758,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.315244+00:00",
-        "access_count": 180
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 184
       }
     },
     "635ac04fbd66": {
@@ -4808,8 +3783,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.315244+00:00",
-        "access_count": 183
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 187
       }
     },
     "5203e10ca6bd": {
@@ -4833,8 +3808,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.315244+00:00",
-        "access_count": 184
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 188
       }
     },
     "6ba1e8856864": {
@@ -4858,8 +3833,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.315244+00:00",
-        "access_count": 168
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 172
       }
     },
     "889c6345358b": {
@@ -4883,8 +3858,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.315244+00:00",
-        "access_count": 103
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 107
       }
     },
     "d4c111af04ff": {
@@ -4908,8 +3883,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.315244+00:00",
-        "access_count": 83
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 87
       }
     },
     "72a6feb1c258": {
@@ -4933,8 +3908,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.315244+00:00",
-        "access_count": 163
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 167
       }
     },
     "a75d1f4371ab": {
@@ -4958,8 +3933,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.315244+00:00",
-        "access_count": 126
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 130
       }
     },
     "a8cf70a62c6c": {
@@ -4983,8 +3958,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.315244+00:00",
-        "access_count": 232
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 236
       }
     },
     "b9ba5da0edea": {
@@ -5008,8 +3983,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.315244+00:00",
-        "access_count": 91
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 95
       }
     },
     "9b1d497de20f": {
@@ -5033,8 +4008,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.315244+00:00",
-        "access_count": 163
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 167
       }
     },
     "765f9818bf06": {
@@ -5058,8 +4033,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.315244+00:00",
-        "access_count": 167
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 171
       }
     },
     "b4da2d8dbebc": {
@@ -5083,8 +4058,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.315244+00:00",
-        "access_count": 187
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 191
       }
     },
     "b08285682d8f": {
@@ -5108,8 +4083,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.315244+00:00",
-        "access_count": 84
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 88
       }
     },
     "8d0a38d99955": {
@@ -5133,8 +4108,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.315244+00:00",
-        "access_count": 187
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 192
       }
     },
     "f39143a6b2b5": {
@@ -5158,8 +4133,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.315244+00:00",
-        "access_count": 76
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 80
       }
     },
     "3f183d4e68f6": {
@@ -5183,8 +4158,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.315244+00:00",
-        "access_count": 220
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 224
       }
     },
     "f796d0ac77ad": {
@@ -5208,8 +4183,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.315244+00:00",
-        "access_count": 130
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 134
       }
     },
     "7586dca33797": {
@@ -5233,8 +4208,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.315244+00:00",
-        "access_count": 99
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 103
       }
     },
     "8927739b8b79": {
@@ -5258,8 +4233,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.315244+00:00",
-        "access_count": 209
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 213
       }
     },
     "8467fdaa1d29": {
@@ -5283,8 +4258,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.315244+00:00",
-        "access_count": 102
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 106
       }
     },
     "6c449dac1285": {
@@ -5308,8 +4283,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.315244+00:00",
-        "access_count": 65
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 70
       }
     },
     "d1a8f6f89474": {
@@ -5333,8 +4308,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.315244+00:00",
-        "access_count": 88
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 92
       }
     },
     "b694abb5de79": {
@@ -5358,8 +4333,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.315244+00:00",
-        "access_count": 74
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 78
       }
     },
     "9c0ae650ebe0": {
@@ -5383,8 +4358,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:34:02.424855+00:00",
-        "access_count": 269
+        "last_accessed": "2026-04-05T05:26:01.137376+00:00",
+        "access_count": 276
       }
     },
     "8c9874ede5aa": {
@@ -5408,8 +4383,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:34:02.424855+00:00",
-        "access_count": 173
+        "last_accessed": "2026-04-05T05:26:01.137376+00:00",
+        "access_count": 179
       }
     },
     "41211b7967d0": {
@@ -5433,8 +4408,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:34:02.424855+00:00",
-        "access_count": 226
+        "last_accessed": "2026-04-05T05:26:01.137376+00:00",
+        "access_count": 231
       }
     },
     "eb5232de1d24": {
@@ -5458,8 +4433,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.315244+00:00",
-        "access_count": 203
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 207
       }
     },
     "514941ad7978": {
@@ -5483,8 +4458,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.315244+00:00",
-        "access_count": 128
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 133
       }
     },
     "282489b815f3": {
@@ -5508,8 +4483,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.315244+00:00",
-        "access_count": 187
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 192
       }
     },
     "481d524549b9": {
@@ -5533,8 +4508,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.315244+00:00",
-        "access_count": 203
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 207
       }
     },
     "841be7959c39": {
@@ -5558,8 +4533,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.315244+00:00",
-        "access_count": 93
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 97
       }
     },
     "ea2c92a5188c": {
@@ -5583,8 +4558,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:34:02.424855+00:00",
-        "access_count": 207
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 212
       }
     },
     "0e6856e0aa3e": {
@@ -5608,8 +4583,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.315244+00:00",
-        "access_count": 187
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 192
       }
     },
     "d62213b43388": {
@@ -5633,8 +4608,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.315244+00:00",
-        "access_count": 167
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 171
       }
     },
     "e79267620fb8": {
@@ -5658,8 +4633,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.315244+00:00",
-        "access_count": 173
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 177
       }
     },
     "c2d083feb6a3": {
@@ -5683,8 +4658,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.315244+00:00",
-        "access_count": 162
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 166
       }
     },
     "d10807cd0d41": {
@@ -5708,8 +4683,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.315244+00:00",
-        "access_count": 184
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 188
       }
     },
     "bb7ce108d47d": {
@@ -5733,8 +4708,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.315244+00:00",
-        "access_count": 136
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 140
       }
     },
     "9b3f0c50e7f0": {
@@ -5758,8 +4733,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.315244+00:00",
-        "access_count": 156
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 160
       }
     },
     "b2e7a5b54d42": {
@@ -5783,8 +4758,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:34:02.424855+00:00",
-        "access_count": 186
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 190
       }
     },
     "90c77c40dcc8": {
@@ -5808,8 +4783,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:34:02.424855+00:00",
-        "access_count": 241
+        "last_accessed": "2026-04-05T05:26:01.137376+00:00",
+        "access_count": 247
       }
     },
     "0c06682462c5": {
@@ -5833,8 +4808,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:34:02.424855+00:00",
-        "access_count": 192
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 197
       }
     },
     "748f77ab3cbb": {
@@ -5858,8 +4833,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.315244+00:00",
-        "access_count": 177
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 181
       }
     },
     "1ad3f1f35ce5": {
@@ -5883,8 +4858,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.315244+00:00",
-        "access_count": 227
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 231
       }
     },
     "be00b50669e2": {
@@ -5908,8 +4883,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.315244+00:00",
-        "access_count": 174
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 178
       }
     },
     "80c3b158e9db": {
@@ -5933,8 +4908,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.315244+00:00",
-        "access_count": 200
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 204
       }
     },
     "f3a2f9e742d0": {
@@ -5958,8 +4933,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.315244+00:00",
-        "access_count": 158
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 162
       }
     },
     "93e72a24b0f9": {
@@ -5983,8 +4958,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.315244+00:00",
-        "access_count": 222
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 226
       }
     },
     "033868ed92c8": {
@@ -6008,8 +4983,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.315244+00:00",
-        "access_count": 166
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 170
       }
     },
     "b4b9a8677afe": {
@@ -6033,8 +5008,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.315244+00:00",
-        "access_count": 155
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 159
       }
     },
     "7eb86f9be989": {
@@ -6058,8 +5033,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.315244+00:00",
-        "access_count": 183
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 187
       }
     },
     "1776abcfbbc6": {
@@ -6083,8 +5058,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.315244+00:00",
-        "access_count": 175
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 180
       }
     },
     "0510454a258c": {
@@ -6108,8 +5083,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.315244+00:00",
-        "access_count": 172
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 178
       }
     },
     "dbd96fbe79d7": {
@@ -6133,8 +5108,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.315244+00:00",
-        "access_count": 159
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 163
       }
     },
     "881ab930677b": {
@@ -6158,8 +5133,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:34:02.424855+00:00",
-        "access_count": 182
+        "last_accessed": "2026-04-05T05:26:01.137376+00:00",
+        "access_count": 188
       }
     },
     "d9562df29af3": {
@@ -6183,8 +5158,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:34:02.424855+00:00",
-        "access_count": 191
+        "last_accessed": "2026-04-05T05:26:01.137376+00:00",
+        "access_count": 197
       }
     },
     "9d7e70f6a25e": {
@@ -6208,8 +5183,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:34:02.424855+00:00",
-        "access_count": 123
+        "last_accessed": "2026-04-05T05:26:01.137376+00:00",
+        "access_count": 128
       }
     },
     "f8c80bc427f8": {
@@ -6233,8 +5208,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:34:02.424855+00:00",
-        "access_count": 98
+        "last_accessed": "2026-04-05T05:26:01.137376+00:00",
+        "access_count": 104
       }
     },
     "707b8f81991c": {
@@ -6258,8 +5233,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:34:02.424855+00:00",
-        "access_count": 116
+        "last_accessed": "2026-04-05T05:26:01.137376+00:00",
+        "access_count": 122
       }
     },
     "d5a08cf23a7d": {
@@ -6283,8 +5258,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:34:02.424855+00:00",
-        "access_count": 164
+        "last_accessed": "2026-04-05T05:26:01.137376+00:00",
+        "access_count": 169
       }
     },
     "1031933b36bf": {
@@ -6308,8 +5283,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:34:02.424855+00:00",
-        "access_count": 72
+        "last_accessed": "2026-04-05T05:26:01.137376+00:00",
+        "access_count": 77
       }
     },
     "b9a5f25692f9": {
@@ -6333,8 +5308,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.315244+00:00",
-        "access_count": 124
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 128
       }
     },
     "ad2412e17379": {
@@ -6358,8 +5333,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.315244+00:00",
-        "access_count": 109
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 113
       }
     },
     "ec04a5530687": {
@@ -6383,8 +5358,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.315244+00:00",
-        "access_count": 187
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 191
       }
     },
     "72fb09cb31b5": {
@@ -6408,8 +5383,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.315244+00:00",
-        "access_count": 160
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 164
       }
     },
     "890096ddb912": {
@@ -6433,8 +5408,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.315244+00:00",
-        "access_count": 93
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 97
       }
     },
     "30c4489eeb48": {
@@ -6458,8 +5433,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.315244+00:00",
-        "access_count": 166
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 170
       }
     },
     "ae594757295f": {
@@ -6483,8 +5458,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.315244+00:00",
-        "access_count": 114
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 118
       }
     },
     "7dbb2d00f571": {
@@ -6508,8 +5483,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.315244+00:00",
-        "access_count": 173
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 177
       }
     },
     "03d493f08340": {
@@ -6533,8 +5508,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:34:02.424855+00:00",
-        "access_count": 147
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 151
       }
     },
     "b0bff3c95b32": {
@@ -6558,8 +5533,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.315244+00:00",
-        "access_count": 127
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 131
       }
     },
     "26486bc89e59": {
@@ -6583,8 +5558,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.315244+00:00",
-        "access_count": 179
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 183
       }
     },
     "8194d01fa64f": {
@@ -6608,8 +5583,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.315244+00:00",
-        "access_count": 183
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 187
       }
     },
     "55c1a9e9adf8": {
@@ -6633,8 +5608,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.315244+00:00",
-        "access_count": 150
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 154
       }
     },
     "4736dad17581": {
@@ -6658,8 +5633,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.315244+00:00",
-        "access_count": 121
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 125
       }
     },
     "43577eb2cf29": {
@@ -6683,8 +5658,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.315244+00:00",
-        "access_count": 186
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 190
       }
     },
     "1e7b70164541": {
@@ -6708,8 +5683,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.315244+00:00",
-        "access_count": 167
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 171
       }
     },
     "4eef1c3b7200": {
@@ -6733,8 +5708,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.315244+00:00",
-        "access_count": 137
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 141
       }
     },
     "d2f46b9e455c": {
@@ -6758,46 +5733,277 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:46.315244+00:00",
-        "access_count": 103
+        "last_accessed": "2026-04-05T05:26:01.137376+00:00",
+        "access_count": 109
+      }
+    },
+    "dfe607a1b773": {
+      "id": "dfe607a1b773",
+      "type": "fact",
+      "key": "sap_gui_scripting_python_win32com",
+      "fact": {
+        "rule": "SAP GUI Scripting con Python via win32com — automatizar transacciones.\n\nCONCEPTO: SAP GUI expone COM API para scripting. Python accede via win32com.\n\nSETUP:\n1. Habilitar scripting en SAP GUI: Options > Accessibility & Scripting > Scripting > Enable\n2. pip install pywin32\n\nCONEXIÓN BÁSICA:\n```python\nimport win32com.client\nimport subprocess\nimport time\n\n# Método 1: Conectar a SAP GUI ya abierto\nSapGuiAuto = win32com.client.GetObject(\"SAPGUI\")\napplication = SapGuiAuto.GetScriptingEngine\nconnection = application.Children(0)  # Primera conexión\nsession = connection.Children(0)  # Primera sesión\n\n# Método 2: Abrir SAP GUI y conectar\nsubprocess.Popen(r\"C:\\Program Files (x86)\\SAP\\FrontEnd\\SAPgui\\saplogon.exe\")\ntime.sleep(5)\nSapGuiAuto = win32com.client.GetObject(\"SAPGUI\")\napplication = SapGuiAuto.GetScriptingEngine\n```\n\nLOGIN:\n```python\n# Doble click en conexión\napplication.OpenConnection(\"NOMBRE_SERVIDOR\", True)\ntime.sleep(3)\nconnection = application.Children(0)\nsession = connection.Children(0)\n\n# Llenar credenciales\nsession.findById(\"wnd[0]/usr/txtRSYST-MESSION\").text = \"usuario\"\nsession.findById(\"wnd[0]/usr/pwdRSYST-BCODE\").text = \"password\"\nsession.findById(\"wnd[0]/usr/txtRSYST-LANGU\").text = \"EN\"\nsession.findById(\"wnd[0]\").sendVKey(0)  # Enter\n```\n\nEJECUTAR TRANSACCIÓN:\n```python\n# Ir a transacción\nsession.StartTransaction(\"MM03\")  # Material Master Display\n# O via command field:\nsession.findById(\"wnd[0]/tbar[0]/okcd\").text = \"/nMM03\"\nsession.findById(\"wnd[0]\").sendVKey(0)\n\n# Llenar campos\nsession.findById(\"wnd[0]/usr/ctxtRMMG1-MATNR\").text = \"MATERIAL001\"\nsession.findById(\"wnd[0]\").sendVKey(0)  # Enter\n```\n\nTRANSACCIONES COMUNES:\n```python\n# VA01 - Crear orden de venta\nsession.StartTransaction(\"VA01\")\nsession.findById(\"wnd[0]/usr/ctxtVBAK-AUART\").text = \"OR\"  # Order type\nsession.findById(\"wnd[0]/usr/ctxtVBAK-VKORG\").text = \"1000\"  # Sales org\nsession.findById(\"wnd[0]\").sendVKey(0)\n\n# ME21N - Crear orden de compra\nsession.StartTransaction(\"ME21N\")\n\n# FB01 - Contabilidad\nsession.StartTransaction(\"FB01\")\n\n# SE16 - Table display\nsession.StartTransaction(\"SE16\")\nsession.findById(\"wnd[0]/usr/ctxtDATABROWSE-TABLENAME\").text = \"MARA\"\nsession.findById(\"wnd[0]\").sendVKey(0)\n```\n\nLEER DATOS:\n```python\n# Leer campo de texto\nvalor = session.findById(\"wnd[0]/usr/txtFIELD\").text\n\n# Leer tabla (grid control)\ngrid = session.findById(\"wnd[0]/usr/cntlGRID/shellcont/shell\")\nrows = grid.RowCount\ncols = grid.ColumnCount\nfor i in range(rows):\n    for j in range(cols):\n        cell_value = grid.GetCellValue(i, grid.ColumnOrder(j))\n        print(f\"[{i},{j}]: {cell_value}\")\n```\n\nGRABAR Y REPRODUCIR:\n1. En SAP GUI: Alt+F12 > Script Recording and Playback\n2. Click \"Record\" y ejecutar acciones manualmente\n3. SAP genera script VBS\n4. Convertir VBS a Python:\n   - session.findById(\"...\") se mantiene igual\n   - wScript.Sleep(1000) → time.sleep(1)\n   - .sendVKey(0) = Enter, .sendVKey(2) = F2, etc.\n\nVIRTUAL KEYS:\n- 0 = Enter\n- 2 = F2\n- 3 = F3 (Back)\n- 8 = F8 (Execute)\n- 11 = F11 (Save)\n- 12 = F12 (Cancel)\n\nFuente: SAP Community, Medium, StackOverflow, YouTube, Panaya",
+        "source": "claude_desktop_mcp"
+      },
+      "tags": [
+        "sap",
+        "gui",
+        "scripting",
+        "python",
+        "win32com",
+        "transaction",
+        "automation",
+        "recording",
+        "mcp_learned"
+      ],
+      "created_at": "2026-04-05T04:46:11.265103+00:00",
+      "updated_at": "2026-04-05T04:46:11.265103+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-05T05:26:01.137376+00:00",
+        "access_count": 1
+      }
+    },
+    "1122bfbd7d82": {
+      "id": "1122bfbd7d82",
+      "type": "fact",
+      "key": "sap_gui_python_advanced_tables_export",
+      "fact": {
+        "rule": "SAP GUI Scripting avanzado: tablas, export, ALV grids, popups.\n\nMANEJAR ALV GRID (tablas SAP):\n```python\n# Acceder al grid control\ngrid = session.findById(\"wnd[0]/usr/cntlGRID/shellcont/shell\")\n\n# Info del grid\nprint(f\"Filas: {grid.RowCount}\")\nprint(f\"Columnas: {grid.ColumnCount}\")\n\n# Leer todas las filas\ndata = []\nfor row in range(grid.RowCount):\n    row_data = {}\n    for col_name in grid.ColumnOrder:\n        row_data[col_name] = grid.GetCellValue(row, col_name)\n    data.append(row_data)\n\n# Seleccionar fila\ngrid.SelectedRows = \"0\"  # Primera fila\ngrid.SelectedRows = \"0,1,2\"  # Múltiples filas\n\n# Doble click en celda\ngrid.SetCurrentCell(row_index, \"COLUMN_NAME\")\ngrid.DoubleClickCurrentCell()\n\n# Click en celda\ngrid.ClickCurrentCell()\n```\n\nEXPORTAR DATOS A EXCEL:\n```python\n# Método 1: Via menú SAP (List > Export > Spreadsheet)\nsession.findById(\"wnd[0]/mbar/menu[0]/menu[1]/menu[2]\").select()\n# Seleccionar formato\nsession.findById(\"wnd[0]/usr/radRB_OTHERS\").select()  # Otros formatos\nsession.findById(\"wnd[0]\").sendVKey(0)\n\n# Método 2: Clipboard (más confiable)\ngrid.SelectAll()\ngrid.ContextMenu()\ngrid.SelectContextMenuItem(\"&XXL\")  # Export to Excel\n\n# Método 3: Exportar como archivo local\nsession.findById(\"wnd[0]/tbar[1]/btn[45]\").press()  # Export button\nsession.findById(\"wnd[0]/usr/ctxtDY_PATH\").text = r\"C:\\export\"\nsession.findById(\"wnd[0]/usr/ctxtDY_FILENAME\").text = \"datos.xlsx\"\nsession.findById(\"wnd[0]/tbar[0]/btn[11]\").press()  # Save\n```\n\nMANEJAR POPUPS Y DIÁLOGOS:\n```python\nimport time\n\ndef handle_popup(session, action=\"confirm\"):\n    \"\"\"Manejar popups SAP automáticamente.\"\"\"\n    time.sleep(1)\n    try:\n        # Popup de información\n        popup = session.findById(\"wnd[1]\")\n        if action == \"confirm\":\n            popup.sendVKey(0)  # Enter/OK\n        elif action == \"cancel\":\n            popup.sendVKey(12)  # Cancel\n        elif action == \"yes\":\n            session.findById(\"wnd[1]/usr/btnSPOP-OPTION1\").press()\n        elif action == \"no\":\n            session.findById(\"wnd[1]/usr/btnSPOP-OPTION2\").press()\n        return True\n    except:\n        return False\n\n# Manejar popup con texto específico\ndef handle_popup_with_text(session, expected_text):\n    try:\n        popup = session.findById(\"wnd[1]\")\n        msg = session.findById(\"wnd[1]/usr/txtMESSTXT1\").text\n        if expected_text in msg:\n            popup.sendVKey(0)\n            return True\n    except:\n        pass\n    return False\n```\n\nSTATUSBAR (mensajes SAP):\n```python\n# Leer mensaje de la barra de estado\nmsg = session.findById(\"wnd[0]/sbar\").text\nmsg_type = session.findById(\"wnd[0]/sbar\").MessageType\n# S = Success, E = Error, W = Warning, I = Info\n\nif msg_type == \"E\":\n    print(f\"ERROR SAP: {msg}\")\nelif msg_type == \"S\":\n    print(f\"OK: {msg}\")\n```\n\nTOMAR SCREENSHOT:\n```python\n# Screenshot de la ventana SAP\nsession.findById(\"wnd[0]\").HardCopy(r\"C:\\screenshots\\sap_screen.png\", \"PNG\")\n```\n\nBATCH INPUT (BDC):\n```python\n# Para procesar múltiples registros\n# Usar transacción SM35 o SHDB para grabar BDC\n# Luego ejecutar via CALL TRANSACTION usando RFC\n\n# Alternativa: loop con StartTransaction\nitems = [(\"MATERIAL1\", 10), (\"MATERIAL2\", 20), (\"MATERIAL3\", 30)]\nfor mat, qty in items:\n    session.StartTransaction(\"MB1A\")  # Goods Issue\n    session.findById(\"wnd[0]/usr/ctxtMKPF-BLDAT\").text = \"01.01.2024\"\n    session.findById(\"wnd[0]/usr/ctxtMSEG-MATNR\").text = mat\n    session.findById(\"wnd[0]/usr/txtMSEG-ERFMG\").text = str(qty)\n    session.findById(\"wnd[0]\").sendVKey(11)  # Save\n    handle_popup(session)\n    time.sleep(1)\n```\n\nFuente: SAP Community, StackOverflow, experiencia con SAP GUI 7.x",
+        "source": "claude_desktop_mcp"
+      },
+      "tags": [
+        "sap",
+        "gui",
+        "scripting",
+        "alv",
+        "grid",
+        "export",
+        "popup",
+        "batch",
+        "statusbar",
+        "mcp_learned"
+      ],
+      "created_at": "2026-04-05T04:46:34.972178+00:00",
+      "updated_at": "2026-04-05T04:46:34.972178+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-05T04:46:34.972178+00:00",
+        "access_count": 0
+      }
+    },
+    "d88d00e3eb9c": {
+      "id": "d88d00e3eb9c",
+      "type": "fact",
+      "key": "sapautomata_pyrfc_connection_rfc",
+      "fact": {
+        "rule": "SAP RFC con PyRFC - Conexión y llamadas a módulos ABAP desde Python:\n\nPREREQUISITOS:\n- SAP NWRFC SDK instalado (descargar de SAP Support Portal)\n- Variables de entorno: SAPNWRFC_HOME apuntando al SDK, PATH incluye lib/\n- pip install pyrfc\n\nCONEXIÓN:\n```python\nfrom pyrfc import Connection\n\n# Conexión directa (application server)\nconn = Connection(\n    ashost=\"sap-server.empresa.com\",\n    sysnr=\"00\",\n    client=\"100\",\n    user=\"RFC_USER\",\n    passwd=\"password\",\n    lang=\"ES\"\n)\n\n# Conexión por message server (load balancing)\nconn = Connection(\n    mshost=\"sap-msg-server\",\n    msserv=\"3600\",\n    sysid=\"PRD\",\n    group=\"PUBLIC\",\n    client=\"100\",\n    user=\"RFC_USER\",\n    passwd=\"password\"\n)\n\n# Conexión con SNC (Single Sign-On)\nconn = Connection(\n    ashost=\"sap-server\",\n    sysnr=\"00\",\n    client=\"100\",\n    snc_partnername=\"p:CN=SAP\",\n    snc_lib=\"/usr/lib/libsapcrypto.so\"\n)\n```\n\nLEER TABLA SAP:\n```python\n# RFC_READ_TABLE - leer cualquier tabla SAP\nresult = conn.call(\"RFC_READ_TABLE\",\n    QUERY_TABLE=\"MARA\",           # tabla de materiales\n    DELIMITER=\"|\",\n    FIELDS=[\n        {\"FIELDNAME\": \"MATNR\"},   # número material\n        {\"FIELDNAME\": \"MTART\"},   # tipo material  \n        {\"FIELDNAME\": \"MATKL\"},   # grupo material\n    ],\n    OPTIONS=[\n        {\"TEXT\": \"MTART = 'FERT'\"},  # filtro WHERE\n        {\"TEXT\": \"AND MATKL = '001'\"}\n    ],\n    ROWCOUNT=100                   # límite filas\n)\n\n# Parsear resultados\nimport pandas as pd\nfields = [f[\"FIELDNAME\"] for f in result[\"FIELDS\"]]\ndata = [row[\"WA\"].split(\"|\") for row in result[\"DATA\"]]\ndf = pd.DataFrame(data, columns=fields)\n```\n\nLLAMAR BAPI:\n```python\n# Crear orden de venta\nresult = conn.call(\"BAPI_SALESORDER_CREATEFROMDAT2\",\n    ORDER_HEADER_IN={\n        \"DOC_TYPE\": \"ZOR\",\n        \"SALES_ORG\": \"1000\",\n        \"DISTR_CHAN\": \"10\",\n        \"DIVISION\": \"00\",\n    },\n    ORDER_ITEMS_IN=[{\n        \"ITM_NUMBER\": \"000010\",\n        \"MATERIAL\": \"MAT001\",\n        \"TARGET_QTY\": \"1\",\n    }],\n    ORDER_PARTNERS=[{\n        \"PARTN_ROLE\": \"AG\",\n        \"PARTN_NUMB\": \"0000001000\",\n    }]\n)\n\n# Confirmar transacción\nif result.get(\"SALESDOCUMENT\"):\n    conn.call(\"BAPI_TRANSACTION_COMMIT\", WAIT=\"X\")\nelse:\n    conn.call(\"BAPI_TRANSACTION_ROLLBACK\")\n    errors = result.get(\"RETURN\", [])\n```\n\nNOTA: PyRFC está siendo descontinuado. Alternativas: SAP Cloud SDK, OData APIs, o dlt-hub/sap-rfc para pipelines.",
+        "source": "claude_desktop_mcp"
+      },
+      "tags": [
+        "sap",
+        "pyrfc",
+        "rfc",
+        "abap",
+        "bapi",
+        "connection",
+        "python",
+        "automation",
+        "mcp_learned"
+      ],
+      "created_at": "2026-04-05T04:51:49.997756+00:00",
+      "updated_at": "2026-04-05T04:51:49.997756+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-05T05:26:01.137376+00:00",
+        "access_count": 2
+      }
+    },
+    "9ee4c9c8505c": {
+      "id": "9ee4c9c8505c",
+      "type": "fact",
+      "key": "sapautomata_gui_transactions_advanced",
+      "fact": {
+        "rule": "SAP GUI Scripting avanzado - Transacciones, tablas y manejo de errores:\n\nTRANSACCIONES COMUNES Y AUTOMATIZACIÓN:\n```python\nimport win32com.client\n\n# Conectar a SAP GUI\nSapGuiAuto = win32com.client.GetObject(\"SAPGUI\")\napplication = SapGuiAuto.GetScriptingEngine\nconnection = application.Children(0)\nsession = connection.Children(0)\n\n# Navegar a transacción\nsession.findById(\"wnd[0]/tbar[0]/okcd\").text = \"/nVA01\"  # Crear orden venta\nsession.findById(\"wnd[0]\").sendVKey(0)  # Enter\n\n# Transacciones frecuentes:\n# VA01/VA02/VA03 - Crear/Modificar/Ver orden de venta\n# ME21N/ME22N/ME23N - Crear/Modificar/Ver pedido de compra\n# MM01/MM02/MM03 - Crear/Modificar/Ver material\n# XD01/XD02/XD03 - Crear/Modificar/Ver cliente\n# FB01/FB02/FB03 - Crear/Modificar/Ver documento contable\n# SE16/SE16N - Visor de tablas\n# SM37 - Monitor de jobs\n```\n\nLLENAR CAMPOS:\n```python\n# Campos de texto\nsession.findById(\"wnd[0]/usr/ctxtVBAK-AUART\").text = \"ZOR\"  # tipo orden\nsession.findById(\"wnd[0]/usr/ctxtVBAK-VKORG\").text = \"1000\"  # org ventas\n\n# Checkbox\nsession.findById(\"wnd[0]/usr/chkCHECK1\").selected = True\n\n# Radio button\nsession.findById(\"wnd[0]/usr/radRB_OPT1\").select()\n\n# Combo box / dropdown\nsession.findById(\"wnd[0]/usr/cmbDROPDOWN\").key = \"01\"\n\n# Botón\nsession.findById(\"wnd[0]/tbar[1]/btn[8]\").press()  # Ejecutar (F8)\n```\n\nTABLAS (Grid/TableControl):\n```python\n# Leer tabla ALV Grid\ngrid = session.findById(\"wnd[0]/usr/cntlGRID/shellcont/shell\")\nrows = grid.RowCount\ncols = grid.ColumnCount\n\n# Leer celda\nvalue = grid.GetCellValue(row, \"FIELDNAME\")\n\n# Seleccionar fila\ngrid.SetCurrentCell(row, \"FIELDNAME\")\ngrid.SelectedRows = str(row)\n\n# Doble click en fila\ngrid.DoubleClickCurrentCell()\n\n# Scroll en tabla\ngrid.FirstVisibleRow = 50  # ir a fila 50\n\n# TableControl (otro tipo de tabla)\ntable = session.findById(\"wnd[0]/usr/tblTABLE_CTRL\")\ntable.GetAbsoluteRow(5).Selected = True\n```\n\nMANEJO DE ERRORES Y POPUPS:\n```python\nimport time\n\ndef safe_execute(session, action_func, max_retries=3):\n    for attempt in range(max_retries):\n        try:\n            action_func()\n            # Verificar statusbar\n            status = session.findById(\"wnd[0]/sbar\").MessageType\n            msg = session.findById(\"wnd[0]/sbar\").Text\n            \n            if status == \"E\":  # Error\n                print(f\"Error SAP: {msg}\")\n                return False\n            elif status == \"S\":  # Success\n                return True\n            elif status == \"W\":  # Warning\n                session.findById(\"wnd[0]\").sendVKey(0)  # Enter para continuar\n                return True\n        except Exception as e:\n            # Popup inesperado\n            try:\n                session.findById(\"wnd[1]/usr/btnBUTTON_1\").press()  # OK/Yes\n            except:\n                pass\n            time.sleep(1)\n    return False\n\n# Cerrar popups\ndef close_popups(session):\n    try:\n        while True:\n            win = session.findById(\"wnd[1]\")\n            win.sendVKey(0)  # Enter\n    except:\n        pass  # No más popups\n```\n\nEXPORTAR RESULTADOS:\n```python\n# Export a Excel desde ALV\ngrid.PressToolbarContextButton(\"&MB_EXPORT\")\ngrid.SelectContextMenuItem(\"&XXL\")  # Excel\n# Manejar dialog de guardado\nsession.findById(\"wnd[1]/usr/ctxtDY_PATH\").text = r\"C:\\exports\"\nsession.findById(\"wnd[1]/usr/ctxtDY_FILENAME\").text = \"export.xlsx\"\nsession.findById(\"wnd[1]/tbar[0]/btn[11]\").press()  # Guardar\n```",
+        "source": "claude_desktop_mcp"
+      },
+      "tags": [
+        "sap",
+        "gui",
+        "scripting",
+        "transactions",
+        "tables",
+        "alv",
+        "grid",
+        "errors",
+        "win32com",
+        "python",
+        "mcp_learned"
+      ],
+      "created_at": "2026-04-05T04:52:12.040683+00:00",
+      "updated_at": "2026-04-05T04:52:12.040683+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-05T05:02:09.987928+00:00",
+        "access_count": 1
+      }
+    },
+    "a1ee6906d591": {
+      "id": "a1ee6906d591",
+      "type": "fact",
+      "key": "sapautomata_recording_best_practices",
+      "fact": {
+        "rule": "SAP GUI Scripting - Recording, mejores prácticas y patrones robustos:\n\nACTIVAR SCRIPTING:\n1. SAP GUI: Opciones → Accessibility & Scripting → Scripting → Enable\n2. Servidor: RZ11 → sapgui/user_scripting = TRUE\n3. Sin restricciones: sapgui/user_scripting_disable_recording = FALSE\n\nGRABAR SCRIPT:\n1. Barra menú → Script Recording and Playback\n2. Record → realizar acciones manualmente → Stop\n3. Se genera .vbs que se puede convertir a Python\n\nCONVERTIR VBS → PYTHON:\n```vbs\n' VBS original grabado\nsession.findById(\"wnd[0]/tbar[0]/okcd\").text = \"/nMM03\"\nsession.findById(\"wnd[0]\").sendVKey 0\nsession.findById(\"wnd[0]/usr/ctxtRMMG1-MATNR\").text = \"MAT001\"\n```\n```python\n# Python equivalente\nsession.findById(\"wnd[0]/tbar[0]/okcd\").text = \"/nMM03\"\nsession.findById(\"wnd[0]\").sendVKey(0)\nsession.findById(\"wnd[0]/usr/ctxtRMMG1-MATNR\").text = \"MAT001\"\n# Cambios: sendVKey 0 → sendVKey(0), rest es igual\n```\n\nMEJORES PRÁCTICAS:\n1. **Usar IDs estables**: Los IDs de SAP GUI son determinísticos basados en la estructura\n2. **Verificar statusbar después de cada acción crítica**:\n   ```python\n   def check_status(session):\n       sbar = session.findById(\"wnd[0]/sbar\")\n       return {\"type\": sbar.MessageType, \"text\": sbar.Text}\n   ```\n3. **Timeout para operaciones largas**: SAP puede tardar en responder\n4. **No hardcodear posiciones de fila en tablas**: Usar búsqueda\n5. **Manejar sesiones múltiples**: \n   ```python\n   # Crear nueva sesión\n   session.createSession()\n   new_session = connection.Children(1)\n   ```\n6. **Usar /n vs /o para navegación**:\n   - /nXXXX: reemplaza sesión actual\n   - /oXXXX: abre nueva sesión\n   - /nend: cerrar sesión\n   - /nex: cerrar sin guardar\n\nPATTERN: LOOP SOBRE RESULTADOS:\n```python\ndef process_search_results(session):\n    try:\n        grid = session.findById(\"wnd[0]/usr/cntlGRID/shellcont/shell\")\n        total_rows = grid.RowCount\n        \n        for i in range(total_rows):\n            grid.SetCurrentCell(i, \"MATNR\")\n            material = grid.GetCellValue(i, \"MATNR\")\n            \n            # Doble click para abrir detalle\n            grid.DoubleClickCurrentCell()\n            \n            # Procesar detalle...\n            detail = session.findById(\"wnd[0]/usr/txtFIELD\").text\n            \n            # Volver a lista\n            session.findById(\"wnd[0]/tbar[0]/btn[3]\").press()  # F3 Back\n            \n    except Exception as e:\n        print(f\"Error en fila {i}: {e}\")\n```",
+        "source": "claude_desktop_mcp"
+      },
+      "tags": [
+        "sap",
+        "gui",
+        "scripting",
+        "recording",
+        "vbs",
+        "python",
+        "best_practices",
+        "automation",
+        "mcp_learned"
+      ],
+      "created_at": "2026-04-05T04:53:28.912050+00:00",
+      "updated_at": "2026-04-05T04:53:28.912050+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-05T05:26:01.137376+00:00",
+        "access_count": 3
+      }
+    },
+    "eebff4b320c8": {
+      "id": "eebff4b320c8",
+      "type": "fact",
+      "key": "sapautomata_error_handling_patterns",
+      "fact": {
+        "rule": "SAP GUI Scripting - Patrones de manejo de errores y diagnóstico:\n\nSTATUS BAR COMPLETO:\n```python\ndef read_statusbar(session):\n    '''Lee el status bar completo de SAP GUI'''\n    sbar = session.findById(\"wnd[0]/sbar\")\n    return {\n        \"type\": sbar.MessageType,    # S=Success, E=Error, W=Warning, I=Info, A=Abort\n        \"text\": sbar.Text,\n        \"id\": sbar.MessageId,        # Clase de mensaje (ej: \"V1\", \"M7\")  \n        \"number\": sbar.MessageNumber, # Número del mensaje\n    }\n\n# Tipos de mensaje:\n# S = Success (verde) - operación exitosa\n# E = Error (rojo) - algo falló, acción no completada\n# W = Warning (amarillo) - advertencia, puede continuar con Enter\n# I = Info (azul) - informativo\n# A = Abort (rojo) - error fatal, transacción abortada\n```\n\nMANEJO POR TIPO DE ERROR:\n```python\ndef handle_sap_response(session, context=\"\"):\n    status = read_statusbar(session)\n    \n    if status[\"type\"] == \"S\":\n        return {\"ok\": True, \"msg\": status[\"text\"]}\n    \n    elif status[\"type\"] == \"W\":\n        # Warning: presionar Enter para continuar\n        session.findById(\"wnd[0]\").sendVKey(0)\n        return {\"ok\": True, \"msg\": f\"Warning aceptado: {status['text']}\"}\n    \n    elif status[\"type\"] == \"E\":\n        error_text = status[\"text\"]\n        \n        # Errores comunes y soluciones\n        error_handlers = {\n            \"locked by user\": handle_locked_object,\n            \"does not exist\": handle_not_found,\n            \"authorization\": handle_no_auth,\n            \"enter a valid\": handle_invalid_input,\n            \"required\": handle_required_field,\n            \"already exists\": handle_duplicate,\n            \"session\": handle_session_error,\n        }\n        \n        for pattern, handler in error_handlers.items():\n            if pattern.lower() in error_text.lower():\n                return handler(session, error_text, context)\n        \n        return {\"ok\": False, \"msg\": error_text, \"type\": status[\"type\"]}\n    \n    elif status[\"type\"] == \"A\":\n        # Abort: necesita reiniciar transacción\n        session.findById(\"wnd[0]/tbar[0]/okcd\").text = \"/n\"\n        session.findById(\"wnd[0]\").sendVKey(0)\n        return {\"ok\": False, \"msg\": f\"ABORT: {status['text']}\", \"type\": \"A\"}\n\ndef handle_locked_object(session, msg, context):\n    '''Objeto bloqueado por otro usuario'''\n    # Extraer nombre de usuario del mensaje\n    import re\n    user_match = re.search(r\"user (\\w+)\", msg, re.I)\n    locked_by = user_match.group(1) if user_match else \"desconocido\"\n    return {\"ok\": False, \"msg\": msg, \"locked_by\": locked_by, \"retry_after\": 60}\n\ndef handle_not_found(session, msg, context):\n    return {\"ok\": False, \"msg\": msg, \"action\": \"verify_input\"}\n\ndef handle_no_auth(session, msg, context):\n    return {\"ok\": False, \"msg\": msg, \"action\": \"contact_basis\"}\n\ndef handle_invalid_input(session, msg, context):\n    return {\"ok\": False, \"msg\": msg, \"action\": \"check_format\"}\n\ndef handle_required_field(session, msg, context):\n    return {\"ok\": False, \"msg\": msg, \"action\": \"fill_required\"}\n\ndef handle_duplicate(session, msg, context):\n    return {\"ok\": False, \"msg\": msg, \"action\": \"use_existing\"}\n\ndef handle_session_error(session, msg, context):\n    return {\"ok\": False, \"msg\": msg, \"action\": \"reconnect\"}\n```\n\nMODAL DIALOGS Y POPUPS:\n```python\ndef handle_popup(session, action=\"confirm\"):\n    '''Maneja popups/dialogs modales de SAP'''\n    try:\n        popup = session.findById(\"wnd[1]\")\n        title = popup.Text  # título del popup\n        \n        if action == \"confirm\":\n            # Buscar botón Yes/OK/Continue\n            for btn_id in [\"btn[0]\", \"btn[1]\", \"tbar[0]/btn[0]\"]:\n                try:\n                    session.findById(f\"wnd[1]/{btn_id}\").press()\n                    return {\"handled\": True, \"title\": title}\n                except:\n                    continue\n            # Fallback: Enter\n            popup.sendVKey(0)\n            \n        elif action == \"cancel\":\n            for btn_id in [\"btn[1]\", \"btn[12]\", \"tbar[0]/btn[12]\"]:\n                try:\n                    session.findById(f\"wnd[1]/{btn_id}\").press()\n                    return {\"handled\": True, \"title\": title, \"action\": \"cancelled\"}\n                except:\n                    continue\n            popup.sendVKey(12)  # F12 = Cancel\n            \n        elif action == \"read\":\n            # Solo leer el contenido\n            text_parts = []\n            for i in range(20):\n                try:\n                    txt = session.findById(f\"wnd[1]/usr/txtMESSTXT{i+1}\").Text\n                    text_parts.append(txt)\n                except:\n                    break\n            return {\"handled\": False, \"title\": title, \"text\": \" \".join(text_parts)}\n        \n        return {\"handled\": True, \"title\": title}\n    except:\n        return {\"handled\": False, \"no_popup\": True}\n```\n\nRECONEXIÓN AUTOMÁTICA:\n```python\nimport win32com.client\nimport time\n\ndef reconnect_sap(max_retries=3):\n    for attempt in range(max_retries):\n        try:\n            SapGuiAuto = win32com.client.GetObject(\"SAPGUI\")\n            app = SapGuiAuto.GetScriptingEngine\n            conn = app.Children(0)\n            session = conn.Children(0)\n            # Verificar que responde\n            _ = session.findById(\"wnd[0]\").Text\n            return session\n        except Exception as e:\n            print(f\"Intento {attempt+1}: {e}\")\n            time.sleep(5)\n    raise Exception(\"No se pudo reconectar a SAP GUI\")\n```",
+        "source": "claude_desktop_mcp"
+      },
+      "tags": [
+        "sap",
+        "gui",
+        "scripting",
+        "errors",
+        "statusbar",
+        "popup",
+        "dialog",
+        "reconnect",
+        "handling",
+        "python",
+        "mcp_learned"
+      ],
+      "created_at": "2026-04-05T05:05:31.580318+00:00",
+      "updated_at": "2026-04-05T05:05:31.580318+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-05T05:05:31.580318+00:00",
+        "access_count": 0
+      }
+    },
+    "e24bbc7c6ec5": {
+      "id": "e24bbc7c6ec5",
+      "type": "fact",
+      "key": "sapautomata_batch_mass_processing",
+      "fact": {
+        "rule": "SAP GUI Scripting - Procesamiento masivo y batch automation:\n\nBATCH: PROCESAR LISTA DE MATERIALES:\n```python\nimport win32com.client\nimport pandas as pd\nimport time\n\ndef batch_display_materials(session, materials: list[str]):\n    '''MM03: Ver datos de múltiples materiales'''\n    results = []\n    \n    for mat_id in materials:\n        try:\n            # Ir a MM03\n            session.findById(\"wnd[0]/tbar[0]/okcd\").text = \"/nMM03\"\n            session.findById(\"wnd[0]\").sendVKey(0)\n            \n            # Ingresar material\n            session.findById(\"wnd[0]/usr/ctxtRMMG1-MATNR\").text = mat_id\n            session.findById(\"wnd[0]\").sendVKey(0)\n            \n            # Leer datos\n            desc = session.findById(\"wnd[0]/usr/txtMAKT-MAKTX\").text\n            tipo = session.findById(\"wnd[0]/usr/ctxtRMMG1-MTART\").text\n            \n            results.append({\n                \"material\": mat_id,\n                \"description\": desc,\n                \"type\": tipo,\n                \"status\": \"OK\"\n            })\n        except Exception as e:\n            results.append({\"material\": mat_id, \"status\": \"ERROR\", \"error\": str(e)})\n        \n        # Back para siguiente\n        session.findById(\"wnd[0]/tbar[0]/btn[3]\").press()\n        time.sleep(0.5)\n    \n    return pd.DataFrame(results)\n\n# Batch desde Excel\ndf_input = pd.read_excel(\"materiales.xlsx\")\nmaterials = df_input[\"MATNR\"].tolist()\ndf_result = batch_display_materials(session, materials)\ndf_result.to_excel(\"resultado_materiales.xlsx\", index=False)\n```\n\nBATCH: CREAR DOCUMENTOS EN MASA:\n```python\ndef batch_create_purchase_orders(session, orders_data: list[dict]):\n    '''ME21N: Crear pedidos de compra en masa'''\n    results = []\n    \n    for order in orders_data:\n        try:\n            session.findById(\"wnd[0]/tbar[0]/okcd\").text = \"/nME21N\"\n            session.findById(\"wnd[0]\").sendVKey(0)\n            time.sleep(1)\n            \n            # Header\n            session.findById(\"wnd[0]/usr/subSUB0:SAPLMEGUI:0013/ctxtMEPO_TOPLINE-BSART\").text = order[\"type\"]\n            session.findById(\"wnd[0]/usr/subSUB0:SAPLMEGUI:0013/ctxtMEPO_TOPLINE-EKORG\").text = order[\"org\"]\n            session.findById(\"wnd[0]/usr/subSUB0:SAPLMEGUI:0013/ctxtMEPO_TOPLINE-EKGRP\").text = order[\"group\"]\n            \n            # Items\n            for i, item in enumerate(order[\"items\"]):\n                row = i\n                grid = session.findById(\"wnd[0]/usr/subSUB0:SAPLMEGUI:0010/cntlMEPO_TC_MAIN/shellcont/shell\")\n                grid.SetCurrentCell(row, \"EMATN\")\n                grid.ModifyCell(row, \"EMATN\", item[\"material\"])\n                grid.ModifyCell(row, \"MENGE\", str(item[\"qty\"]))\n                grid.ModifyCell(row, \"NETPR\", str(item[\"price\"]))\n                grid.PressEnter()\n                time.sleep(0.3)\n            \n            # Vendor\n            session.findById(\"wnd[0]/usr/subSUB0:SAPLMEGUI:0013/ctxtMEPO_TOPLINE-SUPERFIELD\").text = order[\"vendor\"]\n            session.findById(\"wnd[0]\").sendVKey(0)\n            time.sleep(1)\n            \n            # Save\n            session.findById(\"wnd[0]/tbar[0]/btn[11]\").press()\n            time.sleep(2)\n            \n            # Verificar\n            status = read_statusbar(session)\n            if status[\"type\"] == \"S\":\n                # Extraer número de PO\n                import re\n                po_match = re.search(r\"\\d{10}\", status[\"text\"])\n                po_number = po_match.group(0) if po_match else \"\"\n                results.append({\"vendor\": order[\"vendor\"], \"po\": po_number, \"status\": \"OK\"})\n            else:\n                results.append({\"vendor\": order[\"vendor\"], \"status\": \"ERROR\", \"msg\": status[\"text\"]})\n        \n        except Exception as e:\n            results.append({\"vendor\": order.get(\"vendor\"), \"status\": \"EXCEPTION\", \"error\": str(e)})\n    \n    return results\n```\n\nPATTERN: EXTRACT ALV A DATAFRAME:\n```python\ndef alv_to_dataframe(session, grid_id=None):\n    '''Extrae una tabla ALV Grid completa a pandas DataFrame'''\n    if grid_id:\n        grid = session.findById(grid_id)\n    else:\n        # Buscar el grid automáticamente\n        grid = session.findById(\"wnd[0]/usr/cntlGRID/shellcont/shell\")\n    \n    rows = grid.RowCount\n    cols = grid.ColumnCount\n    \n    # Obtener nombres de columnas\n    col_names = []\n    for c in range(cols):\n        col_names.append(grid.GetColumnTitles(c))\n    \n    # Extraer datos\n    data = []\n    for r in range(rows):\n        row_data = {}\n        for c in range(cols):\n            field = grid.GetCellValue(r, grid.ColumnOrder(c))\n            row_data[col_names[c] if c < len(col_names) else f\"col_{c}\"] = field\n        data.append(row_data)\n        \n        # Scroll si es necesario (SAP carga 100 filas a la vez)\n        if (r + 1) % 90 == 0:\n            grid.FirstVisibleRow = r + 1\n            time.sleep(0.3)\n    \n    return pd.DataFrame(data)\n```\n\nLOGGING Y AUDITORÍA:\n```python\nimport logging\nfrom datetime import datetime\n\ndef setup_sap_logger(log_file=\"sap_automation.log\"):\n    logger = logging.getLogger(\"sap_batch\")\n    logger.setLevel(logging.INFO)\n    fh = logging.FileHandler(log_file, encoding=\"utf-8\")\n    fh.setFormatter(logging.Formatter(\"%(asctime)s | %(levelname)s | %(message)s\"))\n    logger.addHandler(fh)\n    return logger\n\nlog = setup_sap_logger()\n\n# En cada operación:\nlog.info(f\"Processing material {mat_id}\")\nlog.error(f\"Failed: {error_msg}\")\nlog.info(f\"Batch complete: {len(results)} processed, {errors} errors\")\n```",
+        "source": "claude_desktop_mcp"
+      },
+      "tags": [
+        "sap",
+        "gui",
+        "scripting",
+        "batch",
+        "mass",
+        "processing",
+        "alv",
+        "dataframe",
+        "automation",
+        "python",
+        "mcp_learned"
+      ],
+      "created_at": "2026-04-05T05:05:56.695410+00:00",
+      "updated_at": "2026-04-05T05:05:56.695410+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-05T05:26:01.137376+00:00",
+        "access_count": 1
+      }
+    },
+    "e2d844692af9": {
+      "id": "e2d844692af9",
+      "type": "fact",
+      "key": "sapautomata_user_role_management",
+      "fact": {
+        "rule": "SAP GUI Scripting - Gestión de usuarios, roles y transacciones administrativas:\n\nGESTIÓN DE USUARIOS (SU01):\n```python\ndef create_user(session, user_data):\n    '''SU01: Crear usuario SAP'''\n    session.findById(\"wnd[0]/tbar[0]/okcd\").text = \"/nSU01\"\n    session.findById(\"wnd[0]\").sendVKey(0)\n    \n    # Username\n    session.findById(\"wnd[0]/usr/ctxtSUID_ST_BNAME-BNAME\").text = user_data[\"username\"]\n    # Botón Create\n    session.findById(\"wnd[0]/tbar[1]/btn[5]\").press()\n    \n    # Tab Address\n    session.findById(\"wnd[0]/usr/tabsTABSTRIP1/tabpADDR\").select()\n    session.findById(\"wnd[0]/usr/tabsTABSTRIP1/tabpADDR/ssub:SAPLSUID_MAINTENANCE:1101/ctxtSUID_ST_NODE_PERSON_NAME-NAME_LAST\").text = user_data[\"last_name\"]\n    session.findById(\"wnd[0]/usr/tabsTABSTRIP1/tabpADDR/ssub:SAPLSUID_MAINTENANCE:1101/ctxtSUID_ST_NODE_PERSON_NAME-NAME_FIRST\").text = user_data[\"first_name\"]\n    \n    # Tab Logon\n    session.findById(\"wnd[0]/usr/tabsTABSTRIP1/tabpLOGO\").select()\n    session.findById(\"wnd[0]/usr/tabsTABSTRIP1/tabpLOGO/ssub:SAPLSUID_MAINTENANCE:1102/ctxtSUID_ST_NODE_LOGON-GLTGV\").text = user_data[\"valid_from\"]\n    session.findById(\"wnd[0]/usr/tabsTABSTRIP1/tabpLOGO/ssub:SAPLSUID_MAINTENANCE:1102/ctxtSUID_ST_NODE_LOGON-GLTGB\").text = user_data[\"valid_to\"]\n    \n    # Tab Roles\n    session.findById(\"wnd[0]/usr/tabsTABSTRIP1/tabpROLE\").select()\n    for i, role in enumerate(user_data[\"roles\"]):\n        session.findById(f\"wnd[0]/usr/tabsTABSTRIP1/tabpROLE/ssub:SAPLSUID_MAINTENANCE:1103/cntlROLE_CONTAINER/shellcont/shell\").modifyCell(i, \"AGR_NAME\", role)\n    \n    # Save\n    session.findById(\"wnd[0]/tbar[0]/btn[11]\").press()\n    return read_statusbar(session)\n\n# Bloquear/desbloquear usuario\ndef lock_user(session, username):\n    session.findById(\"wnd[0]/tbar[0]/okcd\").text = \"/nSU01\"\n    session.findById(\"wnd[0]\").sendVKey(0)\n    session.findById(\"wnd[0]/usr/ctxtSUID_ST_BNAME-BNAME\").text = username\n    session.findById(\"wnd[0]/tbar[1]/btn[21]\").press()  # Lock\n    return read_statusbar(session)\n```\n\nTRANSPORTE Y CONFIGURACIÓN (SE09/SE10/SPRO):\n```python\n# Ver órdenes de transporte\ndef list_transports(session, user=\"*\"):\n    session.findById(\"wnd[0]/tbar[0]/okcd\").text = \"/nSE09\"\n    session.findById(\"wnd[0]\").sendVKey(0)\n    session.findById(\"wnd[0]/usr/ctxtSE03_USERNAME\").text = user\n    session.findById(\"wnd[0]/tbar[1]/btn[8]\").press()  # Display\n    \n    # Leer resultados del tree\n    tree = session.findById(\"wnd[0]/usr/cntlTREE_CONTAINER/shellcont/shell\")\n    nodes = tree.GetAllNodeKeys()\n    results = []\n    for node in nodes:\n        text = tree.GetNodeTextByKey(node)\n        results.append(text)\n    return results\n```\n\nSM37 - MONITOR DE JOBS:\n```python\ndef check_job_status(session, job_name, username=\"*\"):\n    '''SM37: Verificar estado de job'''\n    session.findById(\"wnd[0]/tbar[0]/okcd\").text = \"/nSM37\"\n    session.findById(\"wnd[0]\").sendVKey(0)\n    \n    session.findById(\"wnd[0]/usr/txtBTCH2170-JOBNAME\").text = job_name\n    session.findById(\"wnd[0]/usr/ctxtBTCH2170-USERNAME\").text = username\n    \n    # Seleccionar todos los estados\n    for chk in [\"RELEASED\", \"READY\", \"ACTIVE\", \"FINISHED\", \"CANCELLED\"]:\n        try:\n            session.findById(f\"wnd[0]/usr/chkBTCH2170-{chk}\").selected = True\n        except:\n            pass\n    \n    session.findById(\"wnd[0]/tbar[1]/btn[8]\").press()\n    \n    # Leer resultados\n    return read_statusbar(session)\n\n# SE16N - Ver tabla\ndef read_table(session, table_name, filters=None, max_rows=100):\n    session.findById(\"wnd[0]/tbar[0]/okcd\").text = \"/nSE16N\"\n    session.findById(\"wnd[0]\").sendVKey(0)\n    session.findById(\"wnd[0]/usr/ctxtGD-TAB\").text = table_name\n    session.findById(\"wnd[0]\").sendVKey(0)\n    \n    # Aplicar filtros\n    if filters:\n        for field, value in filters.items():\n            try:\n                session.findById(f\"wnd[0]/usr/ctxtGS_FIELDS-LOW[{field}]\").text = value\n            except:\n                pass\n    \n    # Limitar filas\n    session.findById(\"wnd[0]/usr/txtGD-MAX_LINES\").text = str(max_rows)\n    \n    # Ejecutar\n    session.findById(\"wnd[0]/tbar[1]/btn[8]\").press()\n    return alv_to_dataframe(session) if 'alv_to_dataframe' in dir() else None\n```",
+        "source": "claude_desktop_mcp"
+      },
+      "tags": [
+        "sap",
+        "gui",
+        "scripting",
+        "users",
+        "roles",
+        "transport",
+        "jobs",
+        "sm37",
+        "se16",
+        "su01",
+        "python",
+        "mcp_learned"
+      ],
+      "created_at": "2026-04-05T05:08:41.534819+00:00",
+      "updated_at": "2026-04-05T05:08:41.534819+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-05T05:08:41.534819+00:00",
+        "access_count": 0
+      }
+    },
+    "dba59e1d3c67": {
+      "id": "dba59e1d3c67",
+      "type": "fact",
+      "key": "sapautomata_financial_transactions",
+      "fact": {
+        "rule": "SAP GUI Scripting - Transacciones financieras y contables:\n\nFB01 - CREAR DOCUMENTO CONTABLE:\n```python\ndef create_accounting_doc(session, header, line_items):\n    session.findById(\"wnd[0]/tbar[0]/okcd\").text = \"/nFB01\"\n    session.findById(\"wnd[0]\").sendVKey(0)\n    \n    # Header\n    session.findById(\"wnd[0]/usr/ctxtBKPF-BUKRS\").text = header[\"company_code\"]\n    session.findById(\"wnd[0]/usr/ctxtBKPF-BLDAT\").text = header[\"doc_date\"]\n    session.findById(\"wnd[0]/usr/ctxtBKPF-BUDAT\").text = header[\"posting_date\"]\n    session.findById(\"wnd[0]/usr/ctxtBKPF-BLART\").text = header[\"doc_type\"]\n    session.findById(\"wnd[0]/usr/ctxtBKPF-WAERS\").text = header[\"currency\"]\n    session.findById(\"wnd[0]/usr/txtBKPF-XBLNR\").text = header[\"reference\"]\n    session.findById(\"wnd[0]/usr/txtBKPF-BKTXT\").text = header[\"header_text\"]\n    \n    # Line items\n    for item in line_items:\n        session.findById(\"wnd[0]/usr/ctxtBSEG-BSCHL\").text = item[\"posting_key\"]\n        # 40=Debit, 50=Credit, 01=Invoice, 11=Credit Memo\n        session.findById(\"wnd[0]/usr/ctxtBSEG-HKONT\").text = item[\"account\"]\n        session.findById(\"wnd[0]\").sendVKey(0)\n        \n        session.findById(\"wnd[0]/usr/txtBSEG-WRBTR\").text = str(item[\"amount\"])\n        if item.get(\"text\"):\n            session.findById(\"wnd[0]/usr/txtBSEG-SGTXT\").text = item[\"text\"]\n        session.findById(\"wnd[0]\").sendVKey(0)\n    \n    # Post\n    session.findById(\"wnd[0]/tbar[0]/btn[11]\").press()\n    status = read_statusbar(session)\n    \n    # Extraer número de documento\n    import re\n    doc_match = re.search(r\"\\d{10}\", status[\"text\"])\n    return {\n        \"doc_number\": doc_match.group(0) if doc_match else \"\",\n        \"status\": status\n    }\n```\n\nFBL3N - BALANCE DE CUENTAS:\n```python\ndef get_account_balance(session, account, company_code, date_from, date_to):\n    session.findById(\"wnd[0]/tbar[0]/okcd\").text = \"/nFBL3N\"\n    session.findById(\"wnd[0]\").sendVKey(0)\n    \n    session.findById(\"wnd[0]/usr/ctxtSD_SAKNR-LOW\").text = account\n    session.findById(\"wnd[0]/usr/ctxtSD_BUKRS-LOW\").text = company_code\n    session.findById(\"wnd[0]/usr/ctxtSO_BUDAT-LOW\").text = date_from\n    session.findById(\"wnd[0]/usr/ctxtSO_BUDAT-HIGH\").text = date_to\n    \n    # Ejecutar\n    session.findById(\"wnd[0]/tbar[1]/btn[8]\").press()\n    \n    # Extraer datos del ALV\n    return alv_to_dataframe(session)\n```\n\nMIRO - VERIFICAR FACTURA:\n```python\ndef verify_invoice(session, invoice_data):\n    session.findById(\"wnd[0]/tbar[0]/okcd\").text = \"/nMIRO\"\n    session.findById(\"wnd[0]\").sendVKey(0)\n    \n    # Datos de factura\n    session.findById(\"wnd[0]/usr/ctxtINVFO-BLDAT\").text = invoice_data[\"invoice_date\"]\n    session.findById(\"wnd[0]/usr/txtINVFO-XBLNR\").text = invoice_data[\"reference\"]\n    session.findById(\"wnd[0]/usr/txtINVFO-WRBTR\").text = str(invoice_data[\"amount\"])\n    \n    # PO reference\n    session.findById(\"wnd[0]/usr/ctxtINVFO-EBELN\").text = invoice_data[\"po_number\"]\n    session.findById(\"wnd[0]\").sendVKey(0)\n    time.sleep(2)\n    \n    # Simular\n    session.findById(\"wnd[0]/tbar[1]/btn[29]\").press()\n    status = read_statusbar(session)\n    \n    if \"balance\" in status[\"text\"].lower() and \"zero\" in status[\"text\"].lower():\n        # Post\n        session.findById(\"wnd[0]/tbar[0]/btn[11]\").press()\n    \n    return read_statusbar(session)\n```\n\nMB51 - HISTORIAL DE MOVIMIENTOS:\n```python\ndef material_movements(session, material, plant, date_from, date_to):\n    session.findById(\"wnd[0]/tbar[0]/okcd\").text = \"/nMB51\"\n    session.findById(\"wnd[0]\").sendVKey(0)\n    \n    session.findById(\"wnd[0]/usr/ctxtMATNR-LOW\").text = material\n    session.findById(\"wnd[0]/usr/ctxtWERKS-LOW\").text = plant\n    session.findById(\"wnd[0]/usr/ctxtBUDAT-LOW\").text = date_from\n    session.findById(\"wnd[0]/usr/ctxtBUDAT-HIGH\").text = date_to\n    \n    session.findById(\"wnd[0]/tbar[1]/btn[8]\").press()\n    return alv_to_dataframe(session)\n```",
+        "source": "claude_desktop_mcp"
+      },
+      "tags": [
+        "sap",
+        "gui",
+        "scripting",
+        "finance",
+        "accounting",
+        "fb01",
+        "fbl3n",
+        "miro",
+        "mb51",
+        "transactions",
+        "python",
+        "mcp_learned"
+      ],
+      "created_at": "2026-04-05T05:08:59.427751+00:00",
+      "updated_at": "2026-04-05T05:08:59.427751+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-05T05:08:59.427751+00:00",
+        "access_count": 0
       }
     }
   },
   "tag_index": {
-    "json": [
-      "5d6c278db19a",
-      "5d6c278db19a",
-      "28e94b4d8cf7",
-      "28e94b4d8cf7",
-      "bf9db0109871",
-      "bf9db0109871",
-      "93fb24c874de",
-      "93fb24c874de",
-      "39054e0bc812",
-      "39054e0bc812",
-      "641608f017d5",
-      "641608f017d5",
-      "7c91a4f24a6d",
-      "7c91a4f24a6d",
-      "d832674edc13",
-      "d832674edc13",
-      "83a49859aed5",
-      "83a49859aed5",
-      "31d4b78a4b8a",
-      "31d4b78a4b8a",
-      "73f7db1b04f5",
-      "73f7db1b04f5",
-      "d989f18484a3",
-      "d989f18484a3",
-      "7dfaf78d6e5e",
-      "7dfaf78d6e5e",
-      "cb544103f850",
-      "cb544103f850",
-      "d94cc4ad08a2",
-      "d94cc4ad08a2",
-      "b88d05883753",
-      "b88d05883753"
-    ],
     "txt": [
       "2fc0a6b2b047",
       "8b5a6ce67bd3",
@@ -6860,21 +6066,12 @@
       "48b81690348b",
       "e906e4d3d568",
       "2d9b03f34df8",
-      "07838cdf26eb",
       "2cbcaa445910",
       "dbc9aa8f7641",
       "6a3fa07978db",
       "76c6adf4f312",
       "910e6992d496",
       "a412e72cd966",
-      "6786e611871f",
-      "cc567b8aedbf",
-      "8a44f97f8e08",
-      "4e37ac1fa2af",
-      "6277404ff4e0",
-      "6f67c15a0540",
-      "f93624193cb6",
-      "ba9f2437832f",
       "39c74b732ac7",
       "298e4f40c3a9",
       "5f0bc2fd5a23",
@@ -6883,14 +6080,6 @@
       "c2f59236abdb",
       "3c5cddd5caff",
       "b89200fb03b4",
-      "38105b399380",
-      "ce883eccfbc6",
-      "37dcf011e012",
-      "835accacf4f2",
-      "d0d0fc04d001",
-      "4e0054e9b70d",
-      "414f0ef13640",
-      "2df39800572e",
       "3c1e7f764a2c",
       "51d5482c2c1b",
       "0292be85c31a",
@@ -7052,7 +6241,15 @@
       "4eef1c3b7200",
       "d2f46b9e455c",
       "d2f46b9e455c",
-      "d2f46b9e455c"
+      "d2f46b9e455c",
+      "dfe607a1b773",
+      "d88d00e3eb9c",
+      "9ee4c9c8505c",
+      "a1ee6906d591",
+      "eebff4b320c8",
+      "e24bbc7c6ec5",
+      "e2d844692af9",
+      "dba59e1d3c67"
     ],
     "py": [
       "30cfc03eb4bc",
@@ -7072,21 +6269,12 @@
       "48b81690348b",
       "e906e4d3d568",
       "2d9b03f34df8",
-      "07838cdf26eb",
       "2cbcaa445910",
       "dbc9aa8f7641",
       "6a3fa07978db",
       "76c6adf4f312",
       "910e6992d496",
       "a412e72cd966",
-      "6786e611871f",
-      "cc567b8aedbf",
-      "8a44f97f8e08",
-      "4e37ac1fa2af",
-      "6277404ff4e0",
-      "6f67c15a0540",
-      "f93624193cb6",
-      "ba9f2437832f",
       "39c74b732ac7",
       "298e4f40c3a9",
       "5f0bc2fd5a23",
@@ -7095,14 +6283,6 @@
       "c2f59236abdb",
       "3c5cddd5caff",
       "b89200fb03b4",
-      "38105b399380",
-      "ce883eccfbc6",
-      "37dcf011e012",
-      "835accacf4f2",
-      "d0d0fc04d001",
-      "4e0054e9b70d",
-      "414f0ef13640",
-      "2df39800572e",
       "3c1e7f764a2c",
       "51d5482c2c1b",
       "0292be85c31a",
@@ -7266,30 +6446,182 @@
       "d2f46b9e455c",
       "d2f46b9e455c"
     ],
-    "javascript": [
-      "227629ad3f44",
-      "b15aae7d3c4f",
-      "2170c4438783",
-      "73ae5612b60c",
-      "5bfc1dfb8aa4",
-      "c63ef3c2f02d",
-      "6b0fff94b1f2",
-      "7183d550d680"
+    "sap": [
+      "dfe607a1b773",
+      "1122bfbd7d82",
+      "d88d00e3eb9c",
+      "9ee4c9c8505c",
+      "a1ee6906d591",
+      "eebff4b320c8",
+      "e24bbc7c6ec5",
+      "e2d844692af9",
+      "dba59e1d3c67"
     ],
-    "js": [
-      "227629ad3f44",
-      "b15aae7d3c4f",
-      "2170c4438783",
-      "73ae5612b60c",
-      "5bfc1dfb8aa4",
-      "c63ef3c2f02d",
-      "6b0fff94b1f2",
-      "7183d550d680"
+    "gui": [
+      "dfe607a1b773",
+      "1122bfbd7d82",
+      "9ee4c9c8505c",
+      "a1ee6906d591",
+      "eebff4b320c8",
+      "e24bbc7c6ec5",
+      "e2d844692af9",
+      "dba59e1d3c67"
+    ],
+    "scripting": [
+      "dfe607a1b773",
+      "1122bfbd7d82",
+      "9ee4c9c8505c",
+      "a1ee6906d591",
+      "eebff4b320c8",
+      "e24bbc7c6ec5",
+      "e2d844692af9",
+      "dba59e1d3c67"
+    ],
+    "win32com": [
+      "dfe607a1b773",
+      "9ee4c9c8505c"
+    ],
+    "transaction": [
+      "dfe607a1b773"
+    ],
+    "automation": [
+      "dfe607a1b773",
+      "d88d00e3eb9c",
+      "a1ee6906d591",
+      "e24bbc7c6ec5"
+    ],
+    "recording": [
+      "dfe607a1b773",
+      "a1ee6906d591"
+    ],
+    "mcp_learned": [
+      "dfe607a1b773",
+      "1122bfbd7d82",
+      "d88d00e3eb9c",
+      "9ee4c9c8505c",
+      "a1ee6906d591",
+      "eebff4b320c8",
+      "e24bbc7c6ec5",
+      "e2d844692af9",
+      "dba59e1d3c67"
+    ],
+    "alv": [
+      "1122bfbd7d82",
+      "9ee4c9c8505c",
+      "e24bbc7c6ec5"
+    ],
+    "grid": [
+      "1122bfbd7d82",
+      "9ee4c9c8505c"
+    ],
+    "export": [
+      "1122bfbd7d82"
+    ],
+    "popup": [
+      "1122bfbd7d82",
+      "eebff4b320c8"
+    ],
+    "batch": [
+      "1122bfbd7d82",
+      "e24bbc7c6ec5"
+    ],
+    "statusbar": [
+      "1122bfbd7d82",
+      "eebff4b320c8"
+    ],
+    "pyrfc": [
+      "d88d00e3eb9c"
+    ],
+    "rfc": [
+      "d88d00e3eb9c"
+    ],
+    "abap": [
+      "d88d00e3eb9c"
+    ],
+    "bapi": [
+      "d88d00e3eb9c"
+    ],
+    "connection": [
+      "d88d00e3eb9c"
+    ],
+    "transactions": [
+      "9ee4c9c8505c",
+      "dba59e1d3c67"
+    ],
+    "tables": [
+      "9ee4c9c8505c"
+    ],
+    "errors": [
+      "9ee4c9c8505c",
+      "eebff4b320c8"
+    ],
+    "vbs": [
+      "a1ee6906d591"
+    ],
+    "best_practices": [
+      "a1ee6906d591"
+    ],
+    "dialog": [
+      "eebff4b320c8"
+    ],
+    "reconnect": [
+      "eebff4b320c8"
+    ],
+    "handling": [
+      "eebff4b320c8"
+    ],
+    "mass": [
+      "e24bbc7c6ec5"
+    ],
+    "processing": [
+      "e24bbc7c6ec5"
+    ],
+    "dataframe": [
+      "e24bbc7c6ec5"
+    ],
+    "users": [
+      "e2d844692af9"
+    ],
+    "roles": [
+      "e2d844692af9"
+    ],
+    "transport": [
+      "e2d844692af9"
+    ],
+    "jobs": [
+      "e2d844692af9"
+    ],
+    "sm37": [
+      "e2d844692af9"
+    ],
+    "se16": [
+      "e2d844692af9"
+    ],
+    "su01": [
+      "e2d844692af9"
+    ],
+    "finance": [
+      "dba59e1d3c67"
+    ],
+    "accounting": [
+      "dba59e1d3c67"
+    ],
+    "fb01": [
+      "dba59e1d3c67"
+    ],
+    "fbl3n": [
+      "dba59e1d3c67"
+    ],
+    "miro": [
+      "dba59e1d3c67"
+    ],
+    "mb51": [
+      "dba59e1d3c67"
     ]
   },
   "stats": {
-    "total_entries": 274,
-    "total_lookups": 543,
-    "total_hits": 513
+    "total_entries": 240,
+    "total_lookups": 551,
+    "total_hits": 521
   }
 }

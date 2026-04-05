@@ -2,606 +2,6 @@
   "domain": "services",
   "description": "Dominio auto-creado: services",
   "entries": {
-    "37639aec04ef": {
-      "id": "37639aec04ef",
-      "type": "fact",
-      "key": "sap_crear_followup_0",
-      "fact": {
-        "rule": "\"\"\"\nsap_crear_followup.py — SAP CRM Create Follow-Up Service\n==========================================================\nCreates a Follow-Up from an opportunity. Handles:\n  1. Click \"Create Follow-Up\" button in opp\n  2. Navigate Follow-Up popup pages to find desired type\n  3. Select the transaction type (e.g. Quotation Standard)\n  4. In Select Items popup: select all eligible items + click Choose\n\nCLI:\n  python services/sap_crear_followup.py --opp 245372 --type \"Quotation Standard\"\n  python services/sap_crear_followup.py --opp 245372 --type \"Opport Standard\"\n\nReturns JSON result to stdout.\n\nProven technique (2026-03-28 CDP test + playbook selectors):\n  - Create Follow-Up button: [id$='thtmlb_button_6'] with onclick\n  - Follow-Up popup: separate window, frame WorkAreaFrame1popup\n",
-        "applies_to": "services",
-        "source": "FormFiller_IA\\services\\sap_crear_followup.py",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "python",
-        "py"
-      ],
-      "created_at": "2026-04-04T04:30:32.477698+00:00",
-      "updated_at": "2026-04-04T04:30:32.477698+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:45.757655+00:00",
-        "access_count": 318
-      }
-    },
-    "b29202febbc2": {
-      "id": "b29202febbc2",
-      "type": "fact",
-      "key": "sap_crear_followup_1",
-      "fact": {
-        "rule": "id$='thtmlb_button_6'] with onclick\n  - Follow-Up popup: separate window, frame WorkAreaFrame1popup\n  - Type selector: proctype_table[N].proc_type_descr_20, click via rowsel\n  - Pagination: Table_pag_pg-{N} for page navigation\n  - Select Items popup: Table-selectall (<a>, NOT checkbox), thtmlb_button_1 = Choose\n  - Items transfer: followupitems_table[N].mark is <img> (visual only, not clickable)\n  - Row selection: Table_sel_N-rowsel (<a> links)\n\nREGLA DE ORO: Servidor de produccion — no hacer nada masivo sin confirmacion.\n\"\"\"\nimport sys\nimport time\nimport argparse\nfrom pathlib import Path\nfrom datetime import datetime\n\n_PROJECT_ROOT = str(Path(__file__).resolve().parent.parent)\nif _PROJECT_ROOT not in sys.path:\n    sys.path.insert(0, _PROJECT_ROOT)\n\n",
-        "applies_to": "services",
-        "source": "FormFiller_IA\\services\\sap_crear_followup.py",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "python",
-        "py"
-      ],
-      "created_at": "2026-04-04T04:30:32.551261+00:00",
-      "updated_at": "2026-04-04T04:30:32.551261+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:45.757655+00:00",
-        "access_count": 169
-      }
-    },
-    "af6565a0b89d": {
-      "id": "af6565a0b89d",
-      "type": "fact",
-      "key": "sap_crear_followup_2",
-      "fact": {
-        "rule": ").resolve().parent.parent)\nif _PROJECT_ROOT not in sys.path:\n    sys.path.insert(0, _PROJECT_ROOT)\n\nfrom services.sap_session import get_session, SAPSession, log\nfrom services.sap_buscar_oportunidad import search_opportunity\n\ndef _find_popup_page(session, title_contains, timeout_s=15):\n    \"\"\"Find a popup page (separate window) by title substring.\"\"\"\n    page = session.page\n    context = page.context\n    start = time.time()\n    while time.time() - start < timeout_s:\n        for p in context.pages:\n            if title_contains in (p.title() or \"\"):\n                return p\n        time.sleep(1)\n    return None\n\ndef _find_popup_frame(popup_page, frame_name=\"WorkAreaFrame1popup\"):\n    \"\"\"Find the work frame inside a popup page.\"\"\"\n    for f in popup_page.frames:\n",
-        "applies_to": "services",
-        "source": "FormFiller_IA\\services\\sap_crear_followup.py",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "python",
-        "py"
-      ],
-      "created_at": "2026-04-04T04:30:32.605638+00:00",
-      "updated_at": "2026-04-04T04:30:32.605638+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:45.757655+00:00",
-        "access_count": 258
-      }
-    },
-    "7ad2ad2524f2": {
-      "id": "7ad2ad2524f2",
-      "type": "fact",
-      "key": "sap_crear_followup_3",
-      "fact": {
-        "rule": "eaFrame1popup\"):\n    \"\"\"Find the work frame inside a popup page.\"\"\"\n    for f in popup_page.frames:\n        if frame_name in (f.name or \"\"):\n            return f\n    # Fallback: deepest frame\n    if len(popup_page.frames) > 1:\n        return popup_page.frames[-1]\n    return popup_page\n\ndef create_followup(opp_id: str, followup_type: str = \"Quotation Standard\",\n                    select_all_items: bool = True, headless: bool = False) -> dict:\n    \"\"\"\n    Open opportunity and create a Follow-Up of the specified type.\n\n    Args:\n        opp_id: Opportunity ID to open\n        followup_type: Exact text of the transaction type (e.g. \"Quotation Standard\")\n        select_all_items: If True, select all eligible items in the Select Items popup\n        headless: Run browser headless\n\n    Returns:\n",
-        "applies_to": "services",
-        "source": "FormFiller_IA\\services\\sap_crear_followup.py",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "python",
-        "py"
-      ],
-      "created_at": "2026-04-04T04:30:32.680583+00:00",
-      "updated_at": "2026-04-04T04:30:32.680583+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:45.757655+00:00",
-        "access_count": 240
-      }
-    },
-    "5bbbd06c2f06": {
-      "id": "5bbbd06c2f06",
-      "type": "fact",
-      "key": "sap_crear_followup_4",
-      "fact": {
-        "rule": "t all eligible items in the Select Items popup\n        headless: Run browser headless\n\n    Returns:\n        dict with success status and details\n    \"\"\"\n    log(f\"Creating Follow-Up '{followup_type}' from opportunity {opp_id}\")\n\n    # Step 0: Open the opportunity\n    opp_result = search_opportunity(opp_id, headless=headless)\n    if not opp_result[\"success\"]:\n        return opp_result\n\n    session = opp_result[\"session\"]\n    page = session.page\n    scanner = session.scanner\n\n    try:\n        # ── Step 1: Click \"Create Follow-Up\" ──────────────────────\n        log(\"Step 1: Click Create Follow-Up...\")\n        work_frame = scanner.find_sap_work_frame()\n        if work_frame is None:\n            return _fail(\"Could not find SAP work frame\")\n\n",
-        "applies_to": "services",
-        "source": "FormFiller_IA\\services\\sap_crear_followup.py",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "python",
-        "py"
-      ],
-      "created_at": "2026-04-04T04:30:32.851455+00:00",
-      "updated_at": "2026-04-04T04:30:32.851455+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:45.757655+00:00",
-        "access_count": 254
-      }
-    },
-    "92167013f1aa": {
-      "id": "92167013f1aa",
-      "type": "fact",
-      "key": "sap_crear_followup_5",
-      "fact": {
-        "rule": "k_frame()\n        if work_frame is None:\n            return _fail(\"Could not find SAP work frame\")\n\n        # Playbook selector: thtmlb_button_6 = Create Follow-Up\n        followup_clicked = False\n        for fr in page.frames:\n            try:\n                result = fr.evaluate(\"\"\"() => {\n                    // Strategy 1: By stable suffix\n                    var el = document.querySelector(\"[id$='thtmlb_button_6']\");\n                    if (el && (el.innerText || '').includes('Follow-Up')) {\n                        return {id: el.id, text: el.innerText.trim()};\n                    }\n                    // Strategy 2: By text\n                    var links = document.querySelectorAll('a[onclick], button, span[onclick]');\n                    for (var l of links) {\n",
-        "applies_to": "services",
-        "source": "FormFiller_IA\\services\\sap_crear_followup.py",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "python",
-        "py"
-      ],
-      "created_at": "2026-04-04T04:30:32.901749+00:00",
-      "updated_at": "2026-04-04T04:30:32.901749+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:45.757655+00:00",
-        "access_count": 197
-      }
-    },
-    "89630b8f0688": {
-      "id": "89630b8f0688",
-      "type": "fact",
-      "key": "sap_crear_followup_6",
-      "fact": {
-        "rule": "t.querySelectorAll('a[onclick], button, span[onclick]');\n                    for (var l of links) {\n                        if ((l.innerText || '').trim().includes('Follow-Up')) {\n                            return {id: l.id, text: l.innerText.trim()};\n                        }\n                    }\n                    return null;\n                }\"\"\")\n                if result:\n                    loc = fr.locator(f\"[id='{result['id']}']\").first\n                    if loc.count() > 0:\n                        loc.click(timeout=5000)\n                        followup_clicked = True\n                        log(f\"  Clicked: {result['text']} ({result['id'][-30:]})\")\n                        break\n            except Exception:\n                continue\n\n        if not followup_clicked:\n",
-        "applies_to": "services",
-        "source": "FormFiller_IA\\services\\sap_crear_followup.py",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "python",
-        "py"
-      ],
-      "created_at": "2026-04-04T04:30:32.971874+00:00",
-      "updated_at": "2026-04-04T04:30:32.971874+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:45.757655+00:00",
-        "access_count": 192
-      }
-    },
-    "783bed7e4865": {
-      "id": "783bed7e4865",
-      "type": "fact",
-      "key": "sap_crear_followup_7",
-      "fact": {
-        "rule": "     break\n            except Exception:\n                continue\n\n        if not followup_clicked:\n            return _fail(\"Create Follow-Up button not found\")\n\n        time.sleep(5)\n        session.waiter.wait_ready(page, timeout_s=10)\n\n        # ── Step 2: Find F",
-        "applies_to": "services",
-        "source": "FormFiller_IA\\services\\sap_crear_followup.py",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "python",
-        "py"
-      ],
-      "created_at": "2026-04-04T04:30:33.029602+00:00",
-      "updated_at": "2026-04-04T04:30:33.029602+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:45.757655+00:00",
-        "access_count": 107
-      }
-    },
-    "1f82acac15dd": {
-      "id": "1f82acac15dd",
-      "type": "fact",
-      "key": "sap_borrar_items_0",
-      "fact": {
-        "rule": "\"\"\"\nsap_borrar_items.py — SAP CRM Delete Items Service\n====================================================\nDelete items from an opportunity's Items table.\nTwo modes: --all (delete everything) or --positions \"1,2\" (specific positions).\n\nCLI:\n  python services/sap_borrar_items.py --opp 245451 --all\n  python services/sap_borrar_items.py --opp 245451 --positions \"1,2\"\n\nReturns JSON result to stdout.\n\nProven technique:\n  1. scanner.click_in_section(\"Items\", \"Edit List\")\n  2. scanner.delete_table_item(position=1) uses img[src*='delete'] inside\n     a[id*='btadmini_table'] — ONLY items table, not Contacts/Sales Team\n  3. Always delete position=1 and re-scan (SAP re-indexes after each delete)\n  4. scanner.execute_save()\n\n",
-        "applies_to": "services",
-        "source": "FormFiller_IA\\services\\sap_borrar_items.py",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "python",
-        "py"
-      ],
-      "created_at": "2026-04-04T04:30:33.112284+00:00",
-      "updated_at": "2026-04-04T04:30:33.112284+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:45.757655+00:00",
-        "access_count": 255
-      }
-    },
-    "31d6ce75e6ce": {
-      "id": "31d6ce75e6ce",
-      "type": "fact",
-      "key": "sap_borrar_items_1",
-      "fact": {
-        "rule": "lways delete position=1 and re-scan (SAP re-indexes after each delete)\n  4. scanner.execute_save()\n\nREGLA DE ORO: Servidor de produccion — no hacer nada masivo sin confirmacion.\n\"\"\"\nimport sys\nimport time\nimport argparse\nfrom pathlib import Path\nfrom datetime import datetime\n\n_PROJECT_ROOT = str(Path(__file__).resolve().parent.parent)\nif _PROJECT_ROOT not in sys.path:\n    sys.path.insert(0, _PROJECT_ROOT)\n\nfrom services.sap_session import get_session, SAPSession, log\nfrom services.sap_buscar_oportunidad import search_opportunity\n\ndef count_items_in_table(scanner) -> int:\n    \"\"\"Count current items in the Items table by scanning product inputs.\"\"\"\n    frame = scanner.find_sap_work_frame()\n    if frame is None:\n        return 0\n    try:\n        count = frame.evaluate(\"\"\"() => {\n",
-        "applies_to": "services",
-        "source": "FormFiller_IA\\services\\sap_borrar_items.py",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "python",
-        "py"
-      ],
-      "created_at": "2026-04-04T04:30:33.287746+00:00",
-      "updated_at": "2026-04-04T04:30:33.287746+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:45.757655+00:00",
-        "access_count": 270
-      }
-    },
-    "4bd67c494a53": {
-      "id": "4bd67c494a53",
-      "type": "fact",
-      "key": "sap_borrar_items_2",
-      "fact": {
-        "rule": "k_frame()\n    if frame is None:\n        return 0\n    try:\n        count = frame.evaluate(\"\"\"() => {\n            var inputs = document.querySelectorAll('input[id*=\"orderedprod\"]');\n            var filled = 0;\n            for (var inp of inputs) {\n                // Skip omnisearch\n                if (inp.id && inp.id.includes('omni_input')) continue;\n                if (inp.value && inp.value.trim() !== '') filled++;\n            }\n            return filled;\n        }\"\"\")\n        return count\n    except Exception:\n        return 0\n\ndef delete_items(opp_id: str, delete_all: bool = False, positions: list = None,\n                 headless: bool = False) -> dict:\n    \"\"\"\n    Delete items from the opportunity.\n    - delete_all: delete every item in the table\n",
-        "applies_to": "services",
-        "source": "FormFiller_IA\\services\\sap_borrar_items.py",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "python",
-        "py"
-      ],
-      "created_at": "2026-04-04T04:30:33.347265+00:00",
-      "updated_at": "2026-04-04T04:30:33.347265+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:45.757655+00:00",
-        "access_count": 306
-      }
-    },
-    "360179b8dd14": {
-      "id": "360179b8dd14",
-      "type": "fact",
-      "key": "sap_borrar_items_3",
-      "fact": {
-        "rule": "ct:\n    \"\"\"\n    Delete items from the opportunity.\n    - delete_all: delete every item in the table\n    - positions: list of 1-based positions to delete\n    \"\"\"\n    if not delete_all and not positions:\n        SAPSession.emit_result(False, error=\"Specify --all or --positions.\")\n        return {\"success\": False, \"error\": \"Specify --all or --positions.\"}\n\n    # Open the opportunity\n    opp_result = search_opportunity(opp_id, headless=headless)\n    if not opp_result[\"success\"]:\n        return opp_result\n\n    session = opp_result[\"session\"]\n    page = session.page\n    scanner = session.scanner\n\n    try:\n        # Step 1: Click \"Edit List\" in Items section\n        log(\"Clicking Edit List in Items section...\")\n        scanner.click_in_section(\"Items\", \"Edit List\")\n        time.sleep(3)\n",
-        "applies_to": "services",
-        "source": "FormFiller_IA\\services\\sap_borrar_items.py",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "python",
-        "py"
-      ],
-      "created_at": "2026-04-04T04:30:33.418579+00:00",
-      "updated_at": "2026-04-04T04:30:33.418579+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:45.757655+00:00",
-        "access_count": 262
-      }
-    },
-    "5e56cf1f98a0": {
-      "id": "5e56cf1f98a0",
-      "type": "fact",
-      "key": "sap_borrar_items_4",
-      "fact": {
-        "rule": " in Items section...\")\n        scanner.click_in_section(\"Items\", \"Edit List\")\n        time.sleep(3)\n        session.waiter.wait_ready(page, timeout_s=10)\n\n        # Count existing items\n        total_items = count_items_in_table(scanner)\n        log(f\"Items in table: {total_items}\")\n\n        if total_items == 0:\n            log(\"No items to delete.\")\n            data = {\"opp_id\": opp_id, \"items_deleted\": 0, \"message\": \"Table already empty.\"}\n            SAPSession.emit_result(True, data=data)\n            return {\"success\": True, \"data\": data}\n\n        deleted_count = 0\n        errors = []\n\n        if delete_all:\n            # Delete all: always delete position 1, SAP re-indexes\n            log(f\"Deleting ALL {total_items} items (position 1 each time)...\")\n",
-        "applies_to": "services",
-        "source": "FormFiller_IA\\services\\sap_borrar_items.py",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "python",
-        "py"
-      ],
-      "created_at": "2026-04-04T04:30:33.485552+00:00",
-      "updated_at": "2026-04-04T04:30:33.485552+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:45.757655+00:00",
-        "access_count": 129
-      }
-    },
-    "45f10a8afcb4": {
-      "id": "45f10a8afcb4",
-      "type": "fact",
-      "key": "sap_borrar_items_5",
-      "fact": {
-        "rule": "on 1, SAP re-indexes\n            log(f\"Deleting ALL {total_items} items (position 1 each time)...\")\n            for i in range(total_items):\n                log(f\"--- Deleting item {i + 1}/{total_items} (always position 1) ---\")\n                try:\n                    ok = scanner.delete_table_item(position=1)\n                    if ok:\n                        deleted_count += 1\n                        log(f\"Deleted position 1 (iteration {i + 1}).\")\n                    else:\n                        log(f\"WARNING: delete_table_item returned False at iteration {i + 1}.\")\n                        errors.append(f\"Failed at iteration {i + 1}\")\n                    time.sleep(3)\n                    session.waiter.wait_ready(page, timeout_s=10)\n                except Exception as e:\n",
-        "applies_to": "services",
-        "source": "FormFiller_IA\\services\\sap_borrar_items.py",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "python",
-        "py"
-      ],
-      "created_at": "2026-04-04T04:30:33.549016+00:00",
-      "updated_at": "2026-04-04T04:30:33.549016+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:45.757655+00:00",
-        "access_count": 124
-      }
-    },
-    "c390f4ecb4a8": {
-      "id": "c390f4ecb4a8",
-      "type": "fact",
-      "key": "sap_borrar_items_6",
-      "fact": {
-        "rule": "               session.waiter.wait_ready(page, timeout_s=10)\n                except Exception as e:\n                    error_msg = f\"Error deleting at iteration {i + 1}: {e}\"\n                    log(f\"ERROR: {error_msg}\")\n                    errors.append(error_msg)\n                    break\n        else:\n            # Delete specific positions (sorted descending to avoid re-index issues)\n            # But since SAP re-indexes, we must always delete from position 1\n            # for the N-th highest position. Strategy: sort descending, track offset.\n            #\n            # Actually the safest approach: delete position 1 repeatedly for\n            # len(positions) times if positions are sequential from 1.\n            # For arbitrary positions, we need to be smarter.\n            #\n",
-        "applies_to": "services",
-        "source": "FormFiller_IA\\services\\sap_borrar_items.py",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "python",
-        "py"
-      ],
-      "created_at": "2026-04-04T04:30:33.605974+00:00",
-      "updated_at": "2026-04-04T04:30:33.605974+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:45.757655+00:00",
-        "access_count": 316
-      }
-    },
-    "832eda03d854": {
-      "id": "832eda03d854",
-      "type": "fact",
-      "key": "sap_borrar_items_7",
-      "fact": {
-        "rule": " are sequential from 1.\n            # For arbitrary positions, we need to be smarter.\n            #\n            # Simplification: since SAP re-indexes, to delete positions [2, 4]:\n            # - First delete position 2 (items shift: old 3->2, old 4->3)\n            # - Then delete posit",
-        "applies_to": "services",
-        "source": "FormFiller_IA\\services\\sap_borrar_items.py",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "python",
-        "py"
-      ],
-      "created_at": "2026-04-04T04:30:33.669862+00:00",
-      "updated_at": "2026-04-04T04:30:33.669862+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:45.757655+00:00",
-        "access_count": 297
-      }
-    },
-    "33c09cf9306b": {
-      "id": "33c09cf9306b",
-      "type": "fact",
-      "key": "sap_insertar_items_0",
-      "fact": {
-        "rule": "\"\"\"\nsap_insertar_items.py — SAP CRM Insert Items Service\n======================================================\nInsert N items (part_number:quantity) into an opportunity's Items section.\n\nCLI: python services/sap_insertar_items.py --opp 245451 --items \"E0256LL:1,E02HKLL:1\"\nReturns JSON result to stdout.\n\nProven technique:\n  1. scanner.click_in_section(\"Items\", \"Edit List\")\n  2. For each item:\n     a. Find empty input[id*='orderedprod'] or click Insert if none\n     b. locator.click() + type(part, delay=15) + press(\"Enter\") + wait 2s\n     c. Find quantity by same row index [N]\n     d. locator.click() + fill(\"\") + type(qty) + press(\"Enter\") + wait + press(\"Enter\") + wait 3s\n  3. scanner.execute_save()\n\nREGLA DE ORO: Servidor de produccion — no hacer nada masivo sin confirmacion.\n\"\"\"\n",
-        "applies_to": "services",
-        "source": "FormFiller_IA\\services\\sap_insertar_items.py",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "python",
-        "py"
-      ],
-      "created_at": "2026-04-04T04:30:33.747909+00:00",
-      "updated_at": "2026-04-04T04:30:33.747909+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:45.757655+00:00",
-        "access_count": 194
-      }
-    },
-    "fdaff29bb521": {
-      "id": "fdaff29bb521",
-      "type": "fact",
-      "key": "sap_insertar_items_1",
-      "fact": {
-        "rule": "r.execute_save()\n\nREGLA DE ORO: Servidor de produccion — no hacer nada masivo sin confirmacion.\n\"\"\"\nimport sys\nimport time\nimport argparse\nfrom pathlib import Path\nfrom datetime import datetime\n\n_PROJECT_ROOT = str(Path(__file__).resolve().parent.parent)\nif _PROJECT_ROOT not in sys.path:\n    sys.path.insert(0, _PROJECT_ROOT)\n\nfrom services.sap_session import get_session, SAPSession, log\nfrom services.sap_buscar_oportunidad import search_opportunity\n\ndef parse_items(items_str: str) -> list:\n    \"\"\"Parse 'PART:QTY,PART:QTY' into list of dicts.\"\"\"\n    items = []\n    for pair in items_str.split(\",\"):\n        pair = pair.strip()\n        if \":\" in pair:\n            part, qty = pair.split(\":\", 1)\n            items.append({\"part_number\": part.strip(), \"quantity\": qty.strip()})\n        else:\n",
-        "applies_to": "services",
-        "source": "FormFiller_IA\\services\\sap_insertar_items.py",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "python",
-        "py"
-      ],
-      "created_at": "2026-04-04T04:30:33.819654+00:00",
-      "updated_at": "2026-04-04T04:30:33.819654+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:45.757655+00:00",
-        "access_count": 157
-      }
-    },
-    "ccfdc4784297": {
-      "id": "ccfdc4784297",
-      "type": "fact",
-      "key": "sap_insertar_items_2",
-      "fact": {
-        "rule": ", 1)\n            items.append({\"part_number\": part.strip(), \"quantity\": qty.strip()})\n        else:\n            items.append({\"part_number\": pair.strip(), \"quantity\": \"1\"})\n    return items\n\ndef insert_items(opp_id: str, items_str: str, headless: bool = False) -> dict:\n    \"\"\"\n    Open opportunity and insert items into the Items table.\n    \"\"\"\n    items = parse_items(items_str)\n    if not items:\n        SAPSession.emit_result(False, error=\"No items to insert.\")\n        return {\"success\": False, \"error\": \"No items to insert.\"}\n\n    log(f\"Will insert {len(items)} items into opportunity {opp_id}\")\n\n    # Open the opportunity\n    opp_result = search_opportunity(opp_id, headless=headless)\n    if not opp_result[\"success\"]:\n        return opp_result\n\n    session = opp_result[\"session\"]\n",
-        "applies_to": "services",
-        "source": "FormFiller_IA\\services\\sap_insertar_items.py",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "python",
-        "py"
-      ],
-      "created_at": "2026-04-04T04:30:33.903543+00:00",
-      "updated_at": "2026-04-04T04:30:33.903543+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:45.757655+00:00",
-        "access_count": 244
-      }
-    },
-    "939aacb5962a": {
-      "id": "939aacb5962a",
-      "type": "fact",
-      "key": "sap_insertar_items_3",
-      "fact": {
-        "rule": "s)\n    if not opp_result[\"success\"]:\n        return opp_result\n\n    session = opp_result[\"session\"]\n    page = session.page\n    scanner = session.scanner\n\n    try:\n        # Step 1: Click \"Edit List\" in Items section\n        log(\"Clicking Edit List in Items section...\")\n        scanner.click_in_section(\"Items\", \"Edit List\")\n        time.sleep(3)\n        session.waiter.wait_ready(page, timeout_s=10)\n\n        work_frame = scanner.find_sap_work_frame()\n        if work_frame is None:\n            SAPSession.emit_result(False, error=\"Could not find SAP work frame.\")\n            return {\"success\": False, \"error\": \"Could not find SAP work frame.\"}\n\n        inserted = []\n        errors = []\n\n        for idx, item in enumerate(items):\n            part = item[\"part_number\"]\n",
-        "applies_to": "services",
-        "source": "FormFiller_IA\\services\\sap_insertar_items.py",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "python",
-        "py"
-      ],
-      "created_at": "2026-04-04T04:30:33.975284+00:00",
-      "updated_at": "2026-04-04T04:30:33.975284+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:45.757655+00:00",
-        "access_count": 120
-      }
-    },
-    "f40faff06d07": {
-      "id": "f40faff06d07",
-      "type": "fact",
-      "key": "sap_insertar_items_4",
-      "fact": {
-        "rule": "     errors = []\n\n        for idx, item in enumerate(items):\n            part = item[\"part_number\"]\n            qty = item[\"quantity\"]\n            log(f\"--- Inserting item {idx + 1}/{len(items)}: {part} x{qty} ---\")\n\n            try:\n                # Find empty product input\n                empty_input = scanner.find_empty_product_input(frame=work_frame)\n\n                if empty_input is None:\n                    # No empty row — click Insert to add one\n                    log(\"No empty product input found, clicking Insert...\")\n                    scanner.click_in_section(\"Items\", \"Insert\")\n                    time.sleep(3)\n                    session.waiter.wait_ready(page, timeout_s=10)\n                    empty_input = scanner.find_empty_product_input(frame=work_frame)\n\n",
-        "applies_to": "services",
-        "source": "FormFiller_IA\\services\\sap_insertar_items.py",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "python",
-        "py"
-      ],
-      "created_at": "2026-04-04T04:30:34.038973+00:00",
-      "updated_at": "2026-04-04T04:30:34.038973+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:45.757655+00:00",
-        "access_count": 114
-      }
-    },
-    "a9a1902ee82d": {
-      "id": "a9a1902ee82d",
-      "type": "fact",
-      "key": "sap_insertar_items_5",
-      "fact": {
-        "rule": "timeout_s=10)\n                    empty_input = scanner.find_empty_product_input(frame=work_frame)\n\n                if empty_input is None:\n                    error_msg = f\"Could not find empty product input for item {part}\"\n                    log(f\"ERROR: {error_msg}\")\n                    errors.append({\"part_number\": part, \"error\": error_msg})\n                    continue\n\n                input_id = empty_input[\"id\"]\n                row_index = empty_input.get(\"row_index\", 0)\n                log(f\"Found empty input: {input_id} (row {row_index})\")\n\n                # Fill product number\n                prod_locator = work_frame.locator(f\"#{input_id}\")\n                prod_locator.click()\n                time.sleep(0.3)\n                prod_locator.type(part, delay=15)\n",
-        "applies_to": "services",
-        "source": "FormFiller_IA\\services\\sap_insertar_items.py",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "python",
-        "py"
-      ],
-      "created_at": "2026-04-04T04:30:34.105513+00:00",
-      "updated_at": "2026-04-04T04:30:34.105513+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:45.757655+00:00",
-        "access_count": 122
-      }
-    },
-    "59e33d4aa90c": {
-      "id": "59e33d4aa90c",
-      "type": "fact",
-      "key": "sap_insertar_items_6",
-      "fact": {
-        "rule": "d_locator.click()\n                time.sleep(0.3)\n                prod_locator.type(part, delay=15)\n                prod_locator.press(\"Enter\")\n                log(f\"Typed product: {part}, pressed Enter. Waiting 2s...\")\n                time.sleep(2)\n\n                # Fill quantity — find by same row index pattern\n                log(f\"Looking for quantity input in row [{row_index}]...\")\n                qty_id = _find_quantity_input(work_frame, row_index)\n\n                if qty_id:\n                    log(f\"Found quantity input: {qty_id}\")\n                    qty_locator = work_frame.locator(f\"#{qty_id}\")\n                    qty_locator.click()\n                    time.sleep(0.3)\n                    qty_locator.fill(\"\")\n                    qty_locator.type(qty)\n",
-        "applies_to": "services",
-        "source": "FormFiller_IA\\services\\sap_insertar_items.py",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "python",
-        "py"
-      ],
-      "created_at": "2026-04-04T04:30:34.169697+00:00",
-      "updated_at": "2026-04-04T04:30:34.169697+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:45.757655+00:00",
-        "access_count": 134
-      }
-    },
-    "9c16267e0c6d": {
-      "id": "9c16267e0c6d",
-      "type": "fact",
-      "key": "sap_insertar_items_7",
-      "fact": {
-        "rule": " time.sleep(0.3)\n                    qty_locator.fill(\"\")\n                    qty_locator.type(qty)\n                    qty_locator.press(\"Enter\")\n                    time.sleep(0.5)\n                    qty_lo",
-        "applies_to": "services",
-        "source": "FormFiller_IA\\services\\sap_insertar_items.py",
-        "confidence": "observed",
-        "examples": [],
-        "exceptions": ""
-      },
-      "tags": [
-        "python",
-        "py"
-      ],
-      "created_at": "2026-04-04T04:30:34.227332+00:00",
-      "updated_at": "2026-04-04T04:30:34.227332+00:00",
-      "stats": {
-        "lookups": 0,
-        "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:45.757655+00:00",
-        "access_count": 101
-      }
-    },
     "ee90cef9d849": {
       "id": "ee90cef9d849",
       "type": "fact",
@@ -623,8 +23,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:45.757655+00:00",
-        "access_count": 225
+        "last_accessed": "2026-04-05T05:02:09.520210+00:00",
+        "access_count": 230
       }
     },
     "c9d0b3037e75": {
@@ -648,8 +48,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:45.757655+00:00",
-        "access_count": 248
+        "last_accessed": "2026-04-05T05:02:09.520210+00:00",
+        "access_count": 253
       }
     },
     "5546a95fc712": {
@@ -673,8 +73,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:45.757655+00:00",
-        "access_count": 315
+        "last_accessed": "2026-04-05T05:02:09.520210+00:00",
+        "access_count": 320
       }
     },
     "d11a92e4c8b2": {
@@ -698,8 +98,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:34:01.568642+00:00",
-        "access_count": 215
+        "last_accessed": "2026-04-05T05:26:00.775220+00:00",
+        "access_count": 222
       }
     },
     "55b0c0227c9f": {
@@ -723,8 +123,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:34:01.568642+00:00",
-        "access_count": 202
+        "last_accessed": "2026-04-05T05:26:00.775220+00:00",
+        "access_count": 208
       }
     },
     "38d377bcdb49": {
@@ -748,8 +148,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:34:01.568642+00:00",
-        "access_count": 185
+        "last_accessed": "2026-04-05T05:26:00.775220+00:00",
+        "access_count": 191
       }
     },
     "09eaf721d261": {
@@ -773,8 +173,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:45.757655+00:00",
-        "access_count": 311
+        "last_accessed": "2026-04-05T05:02:09.520210+00:00",
+        "access_count": 316
       }
     },
     "12b4c0993e2f": {
@@ -798,8 +198,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:45.757655+00:00",
-        "access_count": 185
+        "last_accessed": "2026-04-05T05:02:09.520210+00:00",
+        "access_count": 190
       }
     },
     "a4a1a8aa76df": {
@@ -823,8 +223,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:45.757655+00:00",
-        "access_count": 265
+        "last_accessed": "2026-04-05T05:02:09.520210+00:00",
+        "access_count": 270
       }
     },
     "733cde421b72": {
@@ -848,8 +248,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:45.757655+00:00",
-        "access_count": 260
+        "last_accessed": "2026-04-05T05:02:09.520210+00:00",
+        "access_count": 265
       }
     },
     "dd55dee8d7fa": {
@@ -873,8 +273,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:45.757655+00:00",
-        "access_count": 206
+        "last_accessed": "2026-04-05T05:02:09.520210+00:00",
+        "access_count": 211
       }
     },
     "ada7b951f666": {
@@ -898,8 +298,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:45.757655+00:00",
-        "access_count": 200
+        "last_accessed": "2026-04-05T05:02:09.520210+00:00",
+        "access_count": 205
       }
     },
     "8b011fe870ac": {
@@ -923,8 +323,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:45.757655+00:00",
-        "access_count": 243
+        "last_accessed": "2026-04-05T05:02:09.520210+00:00",
+        "access_count": 248
       }
     },
     "dd89c2a0fd62": {
@@ -948,8 +348,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:45.757655+00:00",
-        "access_count": 137
+        "last_accessed": "2026-04-05T05:02:09.520210+00:00",
+        "access_count": 142
       }
     },
     "947dab721754": {
@@ -973,8 +373,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:45.757655+00:00",
-        "access_count": 138
+        "last_accessed": "2026-04-05T05:02:09.520210+00:00",
+        "access_count": 143
       }
     },
     "2e850d713de0": {
@@ -998,8 +398,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:45.757655+00:00",
-        "access_count": 128
+        "last_accessed": "2026-04-05T05:02:09.520210+00:00",
+        "access_count": 133
       }
     },
     "2104fb468fe9": {
@@ -1023,8 +423,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:45.757655+00:00",
-        "access_count": 257
+        "last_accessed": "2026-04-05T05:02:09.520210+00:00",
+        "access_count": 262
       }
     },
     "ddfe07f4dc33": {
@@ -1048,8 +448,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:45.757655+00:00",
-        "access_count": 108
+        "last_accessed": "2026-04-05T05:02:09.520210+00:00",
+        "access_count": 113
       }
     },
     "12c2320c76f4": {
@@ -1073,8 +473,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:45.757655+00:00",
-        "access_count": 120
+        "last_accessed": "2026-04-05T05:02:09.520210+00:00",
+        "access_count": 125
       }
     },
     "d34bb43736c9": {
@@ -1098,37 +498,13 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T04:17:45.757655+00:00",
-        "access_count": 142
+        "last_accessed": "2026-04-05T05:02:09.520210+00:00",
+        "access_count": 147
       }
     }
   },
   "tag_index": {
     "python": [
-      "37639aec04ef",
-      "b29202febbc2",
-      "af6565a0b89d",
-      "7ad2ad2524f2",
-      "5bbbd06c2f06",
-      "92167013f1aa",
-      "89630b8f0688",
-      "783bed7e4865",
-      "1f82acac15dd",
-      "31d6ce75e6ce",
-      "4bd67c494a53",
-      "360179b8dd14",
-      "5e56cf1f98a0",
-      "45f10a8afcb4",
-      "c390f4ecb4a8",
-      "832eda03d854",
-      "33c09cf9306b",
-      "fdaff29bb521",
-      "ccfdc4784297",
-      "939aacb5962a",
-      "f40faff06d07",
-      "a9a1902ee82d",
-      "59e33d4aa90c",
-      "9c16267e0c6d",
       "ee90cef9d849",
       "c9d0b3037e75",
       "5546a95fc712",
@@ -1149,30 +525,6 @@
       "ddfe07f4dc33",
       "12c2320c76f4",
       "d34bb43736c9",
-      "37639aec04ef",
-      "b29202febbc2",
-      "af6565a0b89d",
-      "7ad2ad2524f2",
-      "5bbbd06c2f06",
-      "92167013f1aa",
-      "89630b8f0688",
-      "783bed7e4865",
-      "1f82acac15dd",
-      "31d6ce75e6ce",
-      "4bd67c494a53",
-      "360179b8dd14",
-      "5e56cf1f98a0",
-      "45f10a8afcb4",
-      "c390f4ecb4a8",
-      "832eda03d854",
-      "33c09cf9306b",
-      "fdaff29bb521",
-      "ccfdc4784297",
-      "939aacb5962a",
-      "f40faff06d07",
-      "a9a1902ee82d",
-      "59e33d4aa90c",
-      "9c16267e0c6d",
       "ee90cef9d849",
       "c9d0b3037e75",
       "5546a95fc712",
@@ -1195,30 +547,6 @@
       "d34bb43736c9"
     ],
     "py": [
-      "37639aec04ef",
-      "b29202febbc2",
-      "af6565a0b89d",
-      "7ad2ad2524f2",
-      "5bbbd06c2f06",
-      "92167013f1aa",
-      "89630b8f0688",
-      "783bed7e4865",
-      "1f82acac15dd",
-      "31d6ce75e6ce",
-      "4bd67c494a53",
-      "360179b8dd14",
-      "5e56cf1f98a0",
-      "45f10a8afcb4",
-      "c390f4ecb4a8",
-      "832eda03d854",
-      "33c09cf9306b",
-      "fdaff29bb521",
-      "ccfdc4784297",
-      "939aacb5962a",
-      "f40faff06d07",
-      "a9a1902ee82d",
-      "59e33d4aa90c",
-      "9c16267e0c6d",
       "ee90cef9d849",
       "c9d0b3037e75",
       "5546a95fc712",
@@ -1239,30 +567,6 @@
       "ddfe07f4dc33",
       "12c2320c76f4",
       "d34bb43736c9",
-      "37639aec04ef",
-      "b29202febbc2",
-      "af6565a0b89d",
-      "7ad2ad2524f2",
-      "5bbbd06c2f06",
-      "92167013f1aa",
-      "89630b8f0688",
-      "783bed7e4865",
-      "1f82acac15dd",
-      "31d6ce75e6ce",
-      "4bd67c494a53",
-      "360179b8dd14",
-      "5e56cf1f98a0",
-      "45f10a8afcb4",
-      "c390f4ecb4a8",
-      "832eda03d854",
-      "33c09cf9306b",
-      "fdaff29bb521",
-      "ccfdc4784297",
-      "939aacb5962a",
-      "f40faff06d07",
-      "a9a1902ee82d",
-      "59e33d4aa90c",
-      "9c16267e0c6d",
       "ee90cef9d849",
       "c9d0b3037e75",
       "5546a95fc712",
@@ -1286,8 +590,8 @@
     ]
   },
   "stats": {
-    "total_entries": 88,
-    "total_lookups": 569,
-    "total_hits": 420
+    "total_entries": 20,
+    "total_lookups": 577,
+    "total_hits": 427
   }
 }
