@@ -28,11 +28,17 @@ KNOWLEDGE_DIR = PROJECT_ROOT / 'knowledge'
 DASHBOARD_DIR = PROJECT_ROOT / 'dashboard'
 
 # Claude Code paths - use environment variable if available
+CLAUDE_CODE_DIR_ENV = os.environ.get('CLAUDE_CODE_DIR')
 CLAUDE_PROJECTS_ENV = os.environ.get('CLAUDE_PROJECTS_DIR')
+
+if CLAUDE_CODE_DIR_ENV:
+    CLAUDE_CODE_DIR = Path(CLAUDE_CODE_DIR_ENV)
+else:
+    CLAUDE_CODE_DIR = Path.home() / '.claude'
+
 if CLAUDE_PROJECTS_ENV:
     PROJECTS_DIR = Path(CLAUDE_PROJECTS_ENV)
 else:
-    CLAUDE_CODE_DIR = APPDATA_LOCAL / 'ClaudeCode' / '.claude'
     PROJECTS_DIR = CLAUDE_CODE_DIR / 'projects'
 
 # Log files
@@ -44,9 +50,6 @@ RESPONSE_VALIDATION_LOG = LOG_DIR / 'response_validation.log'
 # Reports
 MANDATORY_SOURCES_REPORT = CORE_DIR / 'MANDATORY_SOURCES_REPORT.txt'
 RESPONSE_VALIDATION_ERROR = CORE_DIR / 'RESPONSE_VALIDATION_ERROR.txt'
-
-# Mandatory protocol
-MANDATORY_PROTOCOL = PROJECT_ROOT / 'MANDATORY_PROTOCOL.txt'
 
 # Settings
 SETTINGS_JSON = CLAUDE_CODE_DIR / 'settings.json'
@@ -119,7 +122,7 @@ DASHBOARD_METRICS_ENABLED = True
 PASSIVE_CAPTURE_ENABLED = True
 SMART_FILE_ROUTING_ENABLED = True
 KB_VERSIONING_ENABLED = True
-MULTI_AGENT_ENABLED = True
+# MULTI_AGENT_ENABLED removed (module deleted)
 ASYNC_MEMORY_ENABLED = True
 
 # Graph DB
@@ -149,9 +152,7 @@ ROUTING_DB_FILE = DATA_DIR / 'file_routing.json'
 # KB versioning
 VERSION_LOG_FILE = DATA_DIR / 'kb_version_log.json'
 
-# Multi-agent
-AGENT_STATE_FILE = DATA_DIR / 'agent_state.json'
-AGENT_LOG_FILE = DATA_DIR / 'agent_log.json'
+# Multi-agent (removed - module deleted)
 
 # Async memory
 ASYNC_QUEUE_FILE = DATA_DIR / 'async_memory_queue.json'
@@ -173,10 +174,7 @@ SESSION_HARVEST_ENABLED = True
 HARVEST_FILE = DATA_DIR / 'session_harvest_results.json'
 HARVEST_METRICS_FILE = DATA_DIR / 'session_harvest_metrics.json'
 
-# KB REST API (Feature 14)
-KB_API_ENABLED = True
-KB_API_PORT = int(os.environ.get('HOOKS_IA_API_PORT', '7071'))
-KB_API_HOST = os.environ.get('HOOKS_IA_API_HOST', '127.0.0.1')
+# KB REST API (removed - module deleted, MCP server replaces it)
 
 # Typed graph (Feature 15)
 TYPED_GRAPH_ENABLED = True

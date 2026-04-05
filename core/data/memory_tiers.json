@@ -1,28 +1,6 @@
 {
   "hot": [
     {
-      "key": "no ejecutes desde el inicio ejecuta desde la prueba 503",
-      "value": "## 1000/1000 PASS - 0 ERRORES - PIPELINE REAL EXITOSO\n\n| Grupo | Casos | PASS | FAIL | CRASH | % |\n|---|---|---|---|---|---|\n| **KB-ONLY** | 200 | 200 | 0 | 0 | **100%** |\n| **INTERNET-ONLY** | 200 | 200 | 0 | 0 | **100%** |\n| **ML-ONLY** | 200 | 200 | 0 | 0 | **100%** |\n| **KB+INTERNET** | 200 | 200 | 0 | 0 | **100%** |\n| **KB+INTERNET+ML** | 200 | 200 | 0 | 0 | **100%** |\n| **TOTAL** | **1000** | **1000** | **0** | **0** | **100%** |\n\n### Correcciones aplicadas vs los 50 anteriores:\n\n| Problema | SoluciÃ³n |\n|---|---|\n| Internet no siempre encontraba (~30/50) | `force=True` + umbral de relevancia bajado de 0.15 a 0.08 + fallback al mejor resultado raw |\n| DDG se colgaba por rate-limiting | Timeout de 15s por bÃºsqueda con `threading` + delay de 1s entre bÃºsquedas |\n| Queries bloqueadas por META_PATTERNS | `force=True` bypassa optimize_query y extrae keywords manualmente |\n| 0 resultados con query larga | Retry automÃ¡tico con query mÃ¡s corta (3 keywords) |\n\n### WARN (200 en ML-only",
-      "domain": "ML 90%",
-      "source": "auto_save",
-      "tier": "hot",
-      "created_at": "2026-04-05T03:27:30.747223+00:00",
-      "last_access": "2026-04-05T03:27:30.747223+00:00",
-      "access_count": 0,
-      "promotion_count": 0
-    },
-    {
-      "key": "ok busca si quedo algo queda paths variables etc este proyecto tiene que ser 100% transportable",
-      "value": "## Resultado del escaneo de portabilidad\n\n### CODIGO (.py) â€” Lo que ejecuta el sistema:\n\n| Componente | Archivos | Hardcoded paths | Estado |\n|---|---|---|---|\n| **config.py** | 1 | 0 (corregido `CLAUDE_CODE_DIR`) | LIMPIO |\n| **hooks/** | 5 | 0 | LIMPIO |\n| **core/** | 33+ | 0 | LIMPIO |\n| **mcp_kb_server.py** | 1 | 0 | LIMPIO |\n| **adapters/** | 3 | 0 | LIMPIO |\n| **dashboard/** | 2 | 0 | LIMPIO |\n| **installer/** | 2 | 0 | LIMPIO |\n| **tests/regression_test.py** | 1 | **4 â†’ 0** (corregido) | LIMPIO |\n\n### Correcciones aplicadas:\n\n1. **[regression_test.py](tests/regression_test.py)** â€” 4 paths `C:\\Users\\ntoledo\\.claude\\settings.json` reemplazados por `Path.home() / \".claude\" / \"settings.json\"`. TambiÃ©n el backup check ahora usa glob en vez de path fijo.\n\n2. **[config.py](config.py)** â€” `CLAUDE_CODE_DIR` ahora usa `Path.home() / '.claude'` como fallback universal en vez de `APPDATA_LOCAL / 'ClaudeCode' / '.claude'` que solo funcionaba en Windows con estructura especÃ­fica. So",
-      "domain": "Internet 5% + ML 80%",
-      "source": "auto_save",
-      "tier": "hot",
-      "created_at": "2026-04-05T03:34:17.544928+00:00",
-      "last_access": "2026-04-05T03:34:17.544928+00:00",
-      "access_count": 0,
-      "promotion_count": 0
-    },
-    {
       "key": "el dashboard necesita alguna nueva modificacion por las actulizaciones realizadas?",
       "value": "El dashboard `_check_hooks` busca `UserPromptSubmit` y `Stop` que es correcto. Pero NO verifica `SessionStart` ni `SessionEnd`. Y hay un detalle: los hooks commands tienen `C:\\Hooks_IA` quemado en `settings.json` â€” pero eso es la configuraciÃ³n del USUARIO, no del proyecto, asÃ­ que es esperado (el instalador lo configura por mÃ¡quina).\n\nEl dashboard estÃ¡ **bien alineado**. No necesita cambios funcionales por las actualizaciones. Todo lo que cambiÃ³ (`web_search.py` con `force`, timeout, fallback) se loguea correctamente y el dashboard ya lo lee.\n\n**Resumen: el dashboard NO necesita modificaciones.** Las actualizaciones de `web_search.py` (force mode, timeout DDG, fallback al mejor resultado) se integran transparentemente porque:\n\n1. `web_search.py` loguea \"Web search:\" que el dashboard parsea en `_parse_motor_ia_log()`\n2. `_check_hooks()` ya usa `Path.home()` (portable)\n3. Las mÃ©tricas del dashboard (Queries, Cache Hits, Vector Hits, Web Searches, Auto-Saves, Errors) cubren todo e",
       "domain": "Internet 10% + ML 60%",
@@ -85,6 +63,50 @@
       "tier": "hot",
       "created_at": "2026-04-05T04:13:13.004771+00:00",
       "last_access": "2026-04-05T04:13:13.004771+00:00",
+      "access_count": 0,
+      "promotion_count": 0
+    },
+    {
+      "key": "si hay informacion que esta en mi disco C que no este en el KB favor de alimentarlo",
+      "value": "## Resultado de la ingesta\n\n**95 archivos** ingresados al KB desde el disco C:\n\n| CategorÃ­a | Archivos | Dominio KB |\n|---|---|---|\n| SOWs (Downloads) | 48 | `sow` |\n| Propuestas/BoM/IBM | 13 | `sow`, `bom` |\n| SAP JS internals + playbooks | 6 | `sap_js_internals` |\n| Textos Ãºtiles (IA, Prompts, BoM data) | 3 | `general`, `bom` |\n| Transcripciones FasterWhisper | 9 | `general` |\n| Personal (solar, inventario) | 2 | `personal` |\n| Calculadora Quote/Contrato | 1 | `business_rules` |\n| Docs extra (Banrural, ISR, Soporte, CapacitaciÃ³n) | 6 | `banco_banrural`, `contabilidad`, `sow`, `general` |\n| Convertidor mp4-texto | 1 | `tools` |\n| Cartas invitaciÃ³n RedHat | 6 | `general` |\n\nEl KB ahora tiene el conocimiento de tus SOWs recientes (Bantrab, BAC, Promerica, Banco de Agua, BI), los internals de SAP CRM JS, las transcripciones de reuniones, la calculadora de quotes, y documentos de clientes que antes solo estaban sueltos en Downloads.",
+      "domain": "Internet 5% + ML 85%",
+      "source": "auto_save",
+      "tier": "hot",
+      "created_at": "2026-04-05T04:17:11.486329+00:00",
+      "last_access": "2026-04-05T04:17:11.486329+00:00",
+      "access_count": 0,
+      "promotion_count": 0
+    },
+    {
+      "key": "cuanto de experiencia de pyhton hay en el KB?",
+      "value": "AquÃ­ estÃ¡ el panorama completo de experiencia Python en tu KB:\n\n## Experiencia Python en el KB\n\n**13 MB de conocimiento Python** distribuido en **48 dominios**:\n\n### Por categorÃ­a:\n\n| CategorÃ­a | Dominios principales | TamaÃ±o |\n|---|---|---|\n| **AutomatizaciÃ³n SAP/Web** | `sap_tierra` (885KB), `formfiller_ia` (592KB), `sapautomata_ia` (392KB), `sap_tierra_ia` (321KB) | ~2.6 MB |\n| **Herramientas IA propias** | `buscador_ia` (573KB), `ia_word` (576KB), `hooks_ia` (417KB), `motor_inteligente_ia` (231KB) | ~2.4 MB |\n| **Office Automation** | `outlook` (258KB), `ia_excel` (89KB), `ia_powerpoint` (49KB), `ia_correos` (70KB) | ~466 KB |\n| **Sessions/Files** | `files` (4.9MB), `sessions` (694KB), `sow` (530KB) | ~6.2 MB |\n| **Config/Infra** | `claude_config` (265KB), `editar_con_ia` (281KB), `core` (119KB) | ~1.3 MB |\n\n### Tipos de experiencia Python registrada:\n\n- **Playwright/CDP** â€” AutomatizaciÃ³n SAP CRM WebUI, selectores, iframes, SAP JS injection\n- **win32com.client** â€” COM A",
+      "domain": "Internet 5% + ML 10%",
+      "source": "auto_save",
+      "tier": "hot",
+      "created_at": "2026-04-05T04:19:16.992797+00:00",
+      "last_access": "2026-04-05T04:19:16.992797+00:00",
+      "access_count": 0,
+      "promotion_count": 0
+    },
+    {
+      "key": "busca algo masivo en el internet respecto al proyecto ia_word  y alimenta fuerte este kb",
+      "value": "**Listo. AlimentaciÃ³n masiva del KB ia_word completada.**\n\nResumen de lo que se inyectÃ³ â€” **32 entries nuevas** cubriendo:\n\n| # | Tema | Entry |\n|---|------|-------|\n| 1 | Formatting inline | `docx_inline_formatting_bold_italic_underline` |\n| 2 | Estilos | `docx_styles_paragraph_character` |\n| 3 | python-docx vs win32com | `docx_vs_win32com_comparison` |\n| 4 | Track changes | `win32com_track_changes_accept_reject` |\n| 5 | Sections/page setup | `docx_sections_page_setup_margins_orientation` |\n| 6 | Listas/bullets | `docx_lists_numbered_bullet_multilevel` |\n| 7 | Tabla de contenidos | `docx_table_of_contents_toc` |\n| 8 | Wordâ†’PDF | `docx2pdf_batch_conversion` |\n| 9 | Watermarks | `docx_watermarks_text_image` |\n| 10 | Headers/footers/pages | `docx_headers_footers_page_numbers` |\n| 11 | Find & replace | `docx_find_replace_advanced` |\n| 12 | docxtpl/Jinja2 | `docxtpl_template_engine_jinja2` |\n| 13 | Tablas avanzadas | `docx_tables_advanced_merge_borders_shading` |\n| 14 | Hyperlinks/bo",
+      "domain": "ML",
+      "source": "auto_save",
+      "tier": "hot",
+      "created_at": "2026-04-05T04:33:04.412683+00:00",
+      "last_access": "2026-04-05T04:33:04.412683+00:00",
+      "access_count": 0,
+      "promotion_count": 0
+    },
+    {
+      "key": "ahora busca temas relacionados a copiar tablas de excel y pegar en word que esten identicas que no pierdan formato, que se ajusten a la hoja del word etc etc y lo insertas en este kb",
+      "value": "**Listo.** 8 entries nuevas guardadas en ia_word sobre Excelâ†’Word. Resumen:\n\n| # | Entry | Tema |\n|---|-------|------|\n| 1 | `excel_to_word_win32com_paste_methods` | 3 mÃ©todos de pegado: PasteExcelTable, PasteSpecial, CopyPicture |\n| 2 | `excel_to_word_autofit_page_width` | AutoFitBehavior, ajustar al ancho de pÃ¡gina, columnas proporcionales |\n| 3 | `openpyxl_to_docx_table_with_formatting` | SoluciÃ³n cross-platform completa: leer Excel con openpyxl, recrear en python-docx con font, color, alignment, merge cells |\n| 4 | `excel_to_word_borders_complete` | Mapping de bordes openpyxl â†’ python-docx (thin, medium, thick, dotted, etc.) |\n| 5 | `excel_to_word_batch_multiple_sheets` | Batch: todas las hojas â†’ Word, mÃºltiples archivos â†’ un Word |\n| 6 | `excel_to_word_number_formats_preserve` | Preservar $, %, fechas â€” cell.Text en win32com, format_excel_value() en openpyxl |\n| 7 | `excel_to_word_row_height_vertical_alignment` | Alturas de fila, alineaciÃ³n vertical, padding de celd",
+      "domain": "Internet 40% + ML 50%",
+      "source": "auto_save",
+      "tier": "hot",
+      "created_at": "2026-04-05T04:38:05.954077+00:00",
+      "last_access": "2026-04-05T04:38:05.954077+00:00",
       "access_count": 0,
       "promotion_count": 0
     }
@@ -210,13 +232,35 @@
       "last_access": "2026-04-04T21:09:37.266374+00:00",
       "access_count": 0,
       "promotion_count": 0
+    },
+    {
+      "key": "no ejecutes desde el inicio ejecuta desde la prueba 503",
+      "value": "## 1000/1000 PASS - 0 ERRORES - PIPELINE REAL EXITOSO\n\n| Grupo | Casos | PASS | FAIL | CRASH | % |\n|---|---|---|---|---|---|\n| **KB-ONLY** | 200 | 200 | 0 | 0 | **100%** |\n| **INTERNET-ONLY** | 200 | 200 | 0 | 0 | **100%** |\n| **ML-ONLY** | 200 | 200 | 0 | 0 | **100%** |\n| **KB+INTERNET** | 200 | 200 | 0 | 0 | **100%** |\n| **KB+INTERNET+ML** | 200 | 200 | 0 | 0 | **100%** |\n| **TOTAL** | **1000** | **1000** | **0** | **0** | **100%** |\n\n### Correcciones aplicadas vs los 50 anteriores:\n\n| Problema | SoluciÃ³n |\n|---|---|\n| Internet no siempre encontraba (~30/50) | `force=True` + umbral de relevancia bajado de 0.15 a 0.08 + fallback al mejor resultado raw |\n| DDG se colgaba por rate-limiting | Timeout de 15s por bÃºsqueda con `threading` + delay de 1s entre bÃºsquedas |\n| Queries bloqueadas por META_PATTERNS | `force=True` bypassa optimize_query y extrae keywords manualmente |\n| 0 resultados con query larga | Retry automÃ¡tico con query mÃ¡s corta (3 keywords) |\n\n### WARN (200 en ML-only",
+      "domain": "ML 90%",
+      "source": "auto_save",
+      "tier": "warm",
+      "created_at": "2026-04-05T03:27:30.747223+00:00",
+      "last_access": "2026-04-05T03:27:30.747223+00:00",
+      "access_count": 0,
+      "promotion_count": 0
+    },
+    {
+      "key": "ok busca si quedo algo queda paths variables etc este proyecto tiene que ser 100% transportable",
+      "value": "## Resultado del escaneo de portabilidad\n\n### CODIGO (.py) â€” Lo que ejecuta el sistema:\n\n| Componente | Archivos | Hardcoded paths | Estado |\n|---|---|---|---|\n| **config.py** | 1 | 0 (corregido `CLAUDE_CODE_DIR`) | LIMPIO |\n| **hooks/** | 5 | 0 | LIMPIO |\n| **core/** | 33+ | 0 | LIMPIO |\n| **mcp_kb_server.py** | 1 | 0 | LIMPIO |\n| **adapters/** | 3 | 0 | LIMPIO |\n| **dashboard/** | 2 | 0 | LIMPIO |\n| **installer/** | 2 | 0 | LIMPIO |\n| **tests/regression_test.py** | 1 | **4 â†’ 0** (corregido) | LIMPIO |\n\n### Correcciones aplicadas:\n\n1. **[regression_test.py](tests/regression_test.py)** â€” 4 paths `C:\\Users\\ntoledo\\.claude\\settings.json` reemplazados por `Path.home() / \".claude\" / \"settings.json\"`. TambiÃ©n el backup check ahora usa glob en vez de path fijo.\n\n2. **[config.py](config.py)** â€” `CLAUDE_CODE_DIR` ahora usa `Path.home() / '.claude'` como fallback universal en vez de `APPDATA_LOCAL / 'ClaudeCode' / '.claude'` que solo funcionaba en Windows con estructura especÃ­fica. So",
+      "domain": "Internet 5% + ML 80%",
+      "source": "auto_save",
+      "tier": "warm",
+      "created_at": "2026-04-05T03:34:17.544928+00:00",
+      "last_access": "2026-04-05T03:34:17.544928+00:00",
+      "access_count": 0,
+      "promotion_count": 0
     }
   ],
   "cold": [],
-  "updated_at": "2026-04-05T04:13:13.004771+00:00",
+  "updated_at": "2026-04-05T04:39:03.915603+00:00",
   "counts": {
-    "hot": 8,
-    "warm": 11,
+    "hot": 10,
+    "warm": 13,
     "cold": 0
   }
 }

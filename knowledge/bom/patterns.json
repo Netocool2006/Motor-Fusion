@@ -48,8 +48,8 @@
         "lookups": 0,
         "reuses": 0,
         "success_rate": 1.0,
-        "last_accessed": "2026-04-04T23:15:59.312409+00:00",
-        "access_count": 106
+        "last_accessed": "2026-04-05T04:33:59.421091+00:00",
+        "access_count": 107
       }
     },
     "2c3f568db85d": {
@@ -186,8 +186,8 @@
         "lookups": 0,
         "reuses": 0,
         "success_rate": 1.0,
-        "last_accessed": "2026-04-04T23:16:07.026665+00:00",
-        "access_count": 302
+        "last_accessed": "2026-04-05T04:17:43.854541+00:00",
+        "access_count": 303
       }
     },
     "ac0732b257c5": {
@@ -300,8 +300,8 @@
         "lookups": 0,
         "reuses": 0,
         "success_rate": 1.0,
-        "last_accessed": "2026-04-04T23:16:07.026665+00:00",
-        "access_count": 361
+        "last_accessed": "2026-04-05T04:17:43.854541+00:00",
+        "access_count": 362
       }
     },
     "84330e69ac98": {
@@ -342,6 +342,73 @@
         "success_rate": 1.0,
         "last_accessed": "2026-04-04T23:16:07.026665+00:00",
         "access_count": 183
+      }
+    },
+    "b68d6dd0f6d8": {
+      "id": "b68d6dd0f6d8",
+      "type": "fact",
+      "key": "dl_BoM_BI_API_Connect_HA_Minimo_v1",
+      "fact": {
+        "rule": "ANEXO A\n“PROPUESTA TÉCNICA” \nGuatemala 18 de diciembre de 2023\nBanco Industrial\nPresente\nEstimado Ingeniero:\nGBM desea agradecer la confianza de su empresa hacia nuestros productos y servicios, especialmente para la Plataforma de Integración que se basa en el producto IBM API Connect y la reconfiguración mínima para mejorar la disponibilidad y las capacidades del producto. la cual permitirá a Banco Industrial una escalabilidad mayor a la actual, brindando beneficios de negocio a su organización.\nGBM les agradece la oportunidad de presentarles esta propuesta de los diferentes crecimientos de las plataformas, la cual queda detallada a continuación. \nSeguros que esta información será de su interés, quedamos a sus órdenes ante cualquier consulta que se les presente.\nAtentamente,\nMaximiliano Papescu \nGerente General y Representante Legal\nGBM de Guatemala, S.A. \nContenidos\n1.Proyecto reconfiguración mínima Solución IBM API Connect6\nAntecedentes6\nSituación Actual Banco Industrial7\nDescripción General de la Solución9\n2.Descripción de los componentes11\n2.1API Connect11\n2.2Infraestructura13\n2.3Observabilidad13\n2.4Migración y Remediación de API13\n2.5Distribución de Componentes por ambiente13\n3.Entregables de Proyecto15\n3.1Entregables de Hardware15\n3.2Entregables de Software17\n3.3Entregables de Servicio18\ni.Licenciamiento Vmware23\nii.Licenciamiento Red Hat23\ni.Veeam Backup & Replication24\nii.Veeam ONE24\nc.Licenciamiento Vmware24\ni.Descripción General-Licenciamiento VMWare24\nii.Uso de las licencias y modelo25\niii.Modalidad y Soporte26\nd.Licenciamiento Red Hat Enterprise Linux Premiun 3Yr26\ne.Alcances de la Implementación26\ni.Servidor Lenovo Principal26\nii.Crecimiento en Almacenamiento FS730026\nf.Veeam Backup26\ng.Servidores Proxies de DC Zona 4 y BRS27\nh.Servidor Pivote de Veeam Sure Backup / Recuperaciones27\ni.Diseño Conceptual29\nj.Acuerdos de Niveles de Servicio (SLA) para Vmware31\nk.Garantías32\nGarantía de los Equipos Lenovo:32\nAmbiente de Instalación32\nCobertura de la Garantía32\nExclusiones a la Cobertura de la Garantía33\nTiempo de entrega33\n32.Procedimiento, Reporte de llamadas y Acuerdos de Nivel de Servicio (SLA) de GBM34\n36\ni.Adición de nuevos nodos36\nii.Crecimiento nodos actuales37\niii.Distribución final de nodos producción/BRS38\niv.Balanceador F539\nv.Licenciamiento Solución de Monitoreo40\nvi.Resumen de Licenciamientos de la Propuesta IBM ACE e IBM MQ (HA).41\nb.Estrategia de implementación42\ni.Sesiones Iniciales para revisión de alcance42\nii.Instalación y configuración - Resumen42\niii.Instalación y configuración - Balanceador43\niv.Instalación y configuración – Base de Datos DB244\nv.Instalación Solución de Monitoreo45\nvi.Análisis de Impacto de HA a Nivel de Desarrollo45\nHitos de Productos de Integración47\nHitos de Análisis de Impacto de HA48\nc.Transferencia de Conocimientos48\ni.Productos de Integración48\n1.Análisis de Impacto de HA48\nd.Consideraciones del proyecto48\ni.Equipo requerido en el proyecto48\nii.El Banco proveerá:49\niii.Premisas del proyecto50",
+        "applies_to": "Propuesta economica GBM",
+        "source": "C:\\Users\\ntoledo\\Downloads\\BoM_BI_API Connect HA Minimo_v1.docx",
+        "confidence": "observed"
+      },
+      "tags": [
+        "bom",
+        "downloads"
+      ],
+      "created_at": "2026-04-05T04:16:33.263655+00:00",
+      "updated_at": "2026-04-05T04:16:33.263655+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-05T04:16:33.263655+00:00",
+        "access_count": 0
+      }
+    },
+    "2eb603e5ada1": {
+      "id": "2eb603e5ada1",
+      "type": "fact",
+      "key": "dl_PROMPT_Traductor_BoM_v2.0",
+      "fact": {
+        "rule": "# PROMPT: Traductor de BoM (Bill of Materials) — Versión 2.0\n# Salida: Página HTML autocontenida con diseño profesional dark-mode\n# Fecha de versión: 10 de marzo de 2026\n# Contexto: GBM Guatemala — mundo IBM, Red Hat, servicios profesionales IT para banca\n\n---\n\n## Rol que debes asumir\n\nEres un traductor de documentos técnicos de tecnología Y un advisor de preventa. Tu trabajo tiene DOS partes:\n\n**PARTE A — Traducción:** Leer un BoM (Bill of Materials / Lista de Materiales) que viene en un archivo Excel y explicar TODO lo que contiene como si el lector tuviera 10 años. Nada de lenguaje técnico innecesario. Si usas un término técnico, explícalo inmediatamente entre paréntesis.\n\n**PARTE B — Oportunidades:** Identificar qué le falta al BoM y sugerir oportunidades de venta adicional (upsell/cross-sell) realistas dentro del ecosistema IBM/GBM/Red Hat, clasificadas por nivel de confianza según el contexto disponible.\n\nTu objetivo NO es vender de manera agresiva. Es explicar con claridad absoluta Y señalar oportunidades reales con honestidad sobre lo que sabes y lo que no.\n\n---\n\n## Reglas de oro (NO negociables)\n\n1. **NO inventes información.** Si el BoM no dice algo, di textualmente: \"El BoM no dice esto.\"\n2. **NO asumas.** Si no está escrito en el Excel, no existe para ti.\n3. **NO omitas precios.** Todos los montos que aparezcan deben mencionarse tal cual.\n4. **Todos los montos son en dólares de Estados Unidos (USD)** a menos que el BoM diga lo contrario.\n5. **Usa lenguaje simple.** Imagina que le explicas a alguien que nunca ha trabajado en tecnología.\n6. **Marca con 🟢** cada sección que TÚ agregas (análisis, conclusiones, resúmenes, oportunidades) para diferenciarla de lo que viene directo del BoM.\n7. **Siempre convierte horas a días.** Cada vez que menciones horas de trabajo, incluye también la equivalencia en días hábiles (usando la variable \"Unidad de Horas\" del BoM, típicamente 8h = 1 día). Si el BoM dice 160h/mes, aclara que son 20 días hábiles.\n8. **Explica las horas no utilizadas con precisión.** Si el proyecto usa solo una fracción de las horas mensuales disponibles (ej: 20 de 160), explica claramente que al cliente NO le cobran el mes completo, que la variable de horas/mes es solo un divisor matemático para calcular la tarifa por hora, y que las horas restantes las asigna GBM a otros clientes o proyectos (NO son horas \"libres\" ni \"sobrantes\" — simplemente no pertenecen a este proyecto). Muestra el porcentaje del mes que realmente se utiliza.\n9. **Las oportunidades de venta adicional deben ser honestas.** Clasifícalas por nivel de confianza. Si no tienes contexto suficiente para recomendar algo, di \"Sin contexto suficiente\" y deja el espacio documentado con lo que se necesitaría saber.\n\n---\n\n## Input\n\nRecibirás un archivo Excel (BoM). Puede tener una o muchas hojas. Debes revisar TODAS las hojas.\n\n---\n\n## FORMATO DE SALIDA OBLIGATORIO: HTML\n\n**CRÍTICO:** La salida SIEMPRE debe ser una página HTML autocontenida (.html) con las siguientes carac",
+        "applies_to": "Herramientas y prompts GBM",
+        "source": "C:\\Users\\ntoledo\\Downloads\\PROMPT_Traductor_BoM_v2.0.txt",
+        "confidence": "observed"
+      },
+      "tags": [
+        "tools"
+      ],
+      "created_at": "2026-04-05T04:16:33.914465+00:00",
+      "updated_at": "2026-04-05T04:16:33.914465+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-05T04:33:59.421091+00:00",
+        "access_count": 1
+      }
+    },
+    "1988d2387a85": {
+      "id": "1988d2387a85",
+      "type": "fact",
+      "key": "dl_bom_data_extracted",
+      "fact": {
+        "rule": "{\n  \"archivo\": \"BOM_-_Bantrab_-_Modernización_Web_Core_TC_v1_0.xlsx\",\n  \"hojas\": [\n    \"Variables\",\n    \"Tarifas\",\n    \"Listas\",\n    \"Plan de Trabajo\",\n    \"Servicios\",\n    \"Gastos de Viaje\",\n    \"Resumen\",\n    \"Estimación\",\n    \"Manpower\",\n    \"Supuestos y Consideraciones\"\n  ],\n  \"hojas_detalle\": [\n    {\n      \"nombre\": \"Variables\",\n      \"filas_aprox\": 13,\n      \"muestra\": [\n        [\n          \"Variable\",\n          \"Valor\",\n          \"Unidad\"\n        ],\n        [\n          \"Horas por Mes - Servicios\",\n          \"160\",\n          \"Horas\"\n        ],\n        [\n          \"Unidad Horas - Plan de Trabajo\",\n          \"8\",\n          \"Horas\"\n        ]\n      ]\n    },\n    {\n      \"nombre\": \"Tarifas\",\n      \"filas_aprox\": 101,\n      \"muestra\": [\n        [\n          \"Tipo\",\n          \"ITEM\",\n          \"ITEM SAP\",\n          \"ITEM SAP PROYECTO\"\n        ],\n        [\n          \"Tarifas por hora Digital Factory\",\n          \"SWS_DF_ADM\",\n          \"SWS_DF_ADM\",\n          \"N/A\"\n        ],\n        [\n          \"SWS_DF_ADVI_L1_PS\",\n          \"SWS_DF_ADVI_L1_PS\",\n          \"SWS_DF_ADVI_L1_PS\",\n          \"5225.360285714286\"\n        ]\n      ]\n    },\n    {\n      \"nombre\": \"Listas\",\n      \"filas_aprox\": 10,\n      \"muestra\": [\n        [\n          \"#\",\n          \"País\",\n          \"IVA\"\n        ],\n        [\n          \"1\",\n          \"Guatemala\",\n          \"0.12\"\n        ],\n        [\n          \"2\",\n          \"República Dominicana\",\n          \"0.18\"\n        ]\n      ]\n    },\n    {\n      \"nombre\": \"Plan de Trabajo\",\n      \"filas_aprox\": 30,\n      \"muestra\": [\n        [\n          \"Month 1\",\n          \"Month 2\",\n          \"Month 3\",\n          \"Month 4\"\n        ],\n        [\n          \"Sprint 1\",\n          \"Sprint 2\",\n          \"Sprint 3\",\n          \"Sprint 4\"\n        ],\n        [\n          \"week 1\",\n          \"week 2\",\n          \"week 3\",\n          \"week 4\"\n        ]\n      ]\n    },\n    {\n      \"nombre\": \"Servicios\",\n      \"filas_aprox\": 43,\n      \"muestra\": [\n        [\n          \"Detalle de Servicios\"\n        ],\n        [\n          \"Proyecto:\",\n          \"Modernización Web Core TC\"\n        ],\n        [\n          \"Cliente:\",\n          \"Bantrab\"\n        ]\n      ]\n    },\n    {\n      \"nombre\": \"Gastos de Viaje\",\n      \"filas_aprox\": 29,\n      \"muestra\": [\n        [\n          \"Detalle de Gasto de Viajes\"\n        ]\n      ]\n    },\n    {\n      \"nombre\": \"Resumen\",\n      \"filas_aprox\": 15,\n      \"muestra\": [\n        [\n          \"Totales\"\n        ]\n      ]\n    },\n    {\n      \"nombre\": \"Estimación\",\n      \"filas_aprox\": 101,\n      \"muestra\": []\n    },\n    {\n      \"nombre\": \"Manpower\",\n      \"filas_aprox\": 33,\n      \"muestra\": [\n        [\n          \"GT \",\n          \"HN\",\n          \"ES\",\n          \"NI\"\n        ],\n        [\n          \"0.5266\",\n          \"0.5816\",\n          \"0.5011\",\n          \"0.5391\"\n        ],\n        [\n          \"% Finance Income (FI)\",\n          \"0.045\",\n          \"Costo financiero de la compañía para pagar antes d\"\n        ]\n      ]\n    },\n    {\n      \"nombre\": \"Supuestos y ",
+        "applies_to": "Herramientas y prompts GBM",
+        "source": "C:\\Users\\ntoledo\\Downloads\\bom_data_extracted.json",
+        "confidence": "observed"
+      },
+      "tags": [
+        "tools"
+      ],
+      "created_at": "2026-04-05T04:16:33.962385+00:00",
+      "updated_at": "2026-04-05T04:16:33.962385+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-05T04:16:33.962385+00:00",
+        "access_count": 0
       }
     }
   },
@@ -408,7 +475,8 @@
       "2c3f568db85d",
       "27bb92b9d114",
       "27bb92b9d114",
-      "84330e69ac98"
+      "84330e69ac98",
+      "b68d6dd0f6d8"
     ],
     "validacion": [
       "79ca047a3d18",
@@ -838,11 +906,18 @@
     ],
     "auto": [
       "84330e69ac98"
+    ],
+    "downloads": [
+      "b68d6dd0f6d8"
+    ],
+    "tools": [
+      "2eb603e5ada1",
+      "1988d2387a85"
     ]
   },
   "stats": {
-    "total_entries": 77,
-    "total_lookups": 2100,
-    "total_hits": 965
+    "total_entries": 80,
+    "total_lookups": 2102,
+    "total_hits": 967
   }
 }

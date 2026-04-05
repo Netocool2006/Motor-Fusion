@@ -38,16 +38,26 @@ def _get_embedder():
         import os
         import sys
         import warnings
-        # Silenciar TODA la salida del modelo
+        # Silenciar TODA la salida del modelo y evitar requests a HuggingFace
         os.environ["TOKENIZERS_PARALLELISM"] = "false"
         os.environ["TRANSFORMERS_NO_ADVISORY_WARNINGS"] = "1"
+        os.environ["HF_HUB_OFFLINE"] = "1"
+        os.environ["TRANSFORMERS_OFFLINE"] = "1"
         warnings.filterwarnings("ignore")
+        # Suprimir logs de httpx/httpcore/huggingface_hub
+        for noisy in ("httpx", "httpcore", "huggingface_hub", "sentence_transformers"):
+            logging.getLogger(noisy).setLevel(logging.WARNING)
         _real_stdout = sys.stdout
         _real_stderr = sys.stderr
         sys.stdout = open(os.devnull, "w")
         sys.stderr = open(os.devnull, "w")
         try:
             from sentence_transformers import SentenceTransformer
+            _embedder = SentenceTransformer("all-MiniLM-L6-v2")
+        except OSError:
+            # Si modo offline falla (modelo no en cache), reintentar con internet
+            os.environ.pop("HF_HUB_OFFLINE", None)
+            os.environ.pop("TRANSFORMERS_OFFLINE", None)
             _embedder = SentenceTransformer("all-MiniLM-L6-v2")
         finally:
             sys.stdout.close()

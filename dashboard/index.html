@@ -138,6 +138,23 @@ footer { text-align:center; padding:16px; color:var(--text2); font-size:11px; }
     </div>
   </div>
 
+  <!-- Token Budget -->
+  <div class="card">
+    <h3><span class="dot" id="token-dot"></span> Token Budget (Ahorro)</h3>
+    <div class="big-num" id="token-saved">--</div>
+    <div class="sub">tokens ahorrados en total</div>
+    <div style="margin-top:12px">
+      <div class="metric-row"><span class="metric-label">Eficiencia promedio</span><span class="metric-value" id="token-efficiency">--</span></div>
+      <div class="metric-row"><span class="metric-label">Tokens original (prom.)</span><span class="metric-value" id="token-avg-orig">--</span></div>
+      <div class="metric-row"><span class="metric-label">Tokens final (prom.)</span><span class="metric-value" id="token-avg-final">--</span></div>
+      <div class="metric-row"><span class="metric-label">Mediciones</span><span class="metric-value" id="token-measurements">--</span></div>
+    </div>
+    <div style="margin-top:8px">
+      <div class="sub">Compresion</div>
+      <div class="bar"><div class="bar-fill" id="token-bar" style="background:linear-gradient(90deg,var(--green),var(--blue));width:0%"></div></div>
+    </div>
+  </div>
+
   <!-- Knowledge Local -->
   <div class="card">
     <h3><span class="dot" id="kb-dot"></span> Knowledge Local (Backup)</h3>
@@ -191,7 +208,7 @@ footer { text-align:center; padding:16px; color:var(--text2); font-size:11px; }
   </div>
 </div>
 
-<footer>Motor_IA v2.2 | RAG: ChromaDB + DuckDuckGo + Claude | Auto-refresh 5s | Ingest log 10s</footer>
+<footer>Motor_IA v2.3 | RAG: ChromaDB + DuckDuckGo + Claude | Token Budget | Auto-refresh 5s</footer>
 
 <!-- Mass Ingest Modal -->
 <div class="modal-overlay" id="ingest-modal">
@@ -340,6 +357,19 @@ async function refresh() {
     const errEl = document.getElementById('m-errors');
     errEl.textContent = m.errors || 0;
     errEl.style.color = (m.errors > 0) ? 'var(--red)' : 'var(--green)';
+
+    // Token Budget
+    const tb = d.token_budget || {};
+    const saved = tb.total_saved || 0;
+    document.getElementById('token-saved').textContent = saved > 1000 ? (saved/1000).toFixed(1) + 'k' : saved;
+    const eff = tb.avg_efficiency || 0;
+    document.getElementById('token-efficiency').textContent = (eff * 100).toFixed(0) + '%';
+    document.getElementById('token-avg-orig').textContent = (tb.avg_original || 0).toLocaleString();
+    document.getElementById('token-avg-final').textContent = (tb.avg_final || 0).toLocaleString();
+    document.getElementById('token-measurements').textContent = tb.measurements || 0;
+    const comprPct = tb.avg_original > 0 ? Math.round((1 - (tb.avg_final || 0) / tb.avg_original) * 100) : 0;
+    document.getElementById('token-bar').style.width = Math.max(0, comprPct) + '%';
+    setDot('token-dot', tb.measurements > 0 ? 'OK' : 'PARTIAL');
 
     // Knowledge local
     const k = d.knowledge_local || {};

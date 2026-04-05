@@ -242,13 +242,15 @@ test("TC5.2", "Config", "Directorios apuntan a paths reales", tc5_2)
 
 # ===================== UC6: settings.json =====================
 
+_CLAUDE_SETTINGS = Path.home() / ".claude" / "settings.json"
+
 def tc6_1():
-    json.load(open(r"C:\Users\ntoledo\.claude\settings.json"))
+    json.load(open(_CLAUDE_SETTINGS))
     return True, "JSON valido"
 test("TC6.1", "settings.json", "JSON valido", tc6_1)
 
 def tc6_2():
-    d = json.load(open(r"C:\Users\ntoledo\.claude\settings.json"))
+    d = json.load(open(_CLAUDE_SETTINGS))
     hooks = d.get("hooks", {})
     expected = ["SessionStart", "UserPromptSubmit", "Stop", "SessionEnd"]
     missing = [e for e in expected if e not in hooks]
@@ -256,7 +258,7 @@ def tc6_2():
 test("TC6.2", "settings.json", "4 hooks registrados", tc6_2)
 
 def tc6_3():
-    d = json.load(open(r"C:\Users\ntoledo\.claude\settings.json"))
+    d = json.load(open(_CLAUDE_SETTINGS))
     hooks = d.get("hooks", {})
     for event, matchers in hooks.items():
         for m in matchers:
@@ -268,7 +270,8 @@ def tc6_3():
 test("TC6.3", "settings.json", "Hook files apuntan a archivos reales", tc6_3)
 
 def tc6_4():
-    return Path(r"C:\Users\ntoledo\.claude\settings.json.backup_20260403").exists(), "Backup existe"
+    backups = list(_CLAUDE_SETTINGS.parent.glob("settings.json.backup_*"))
+    return len(backups) > 0, f"{len(backups)} backup(s) encontrado(s)"
 test("TC6.4", "settings.json", "Backup de seguridad existe", tc6_4)
 
 

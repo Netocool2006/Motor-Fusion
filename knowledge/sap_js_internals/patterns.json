@@ -706,11 +706,131 @@
         "last_accessed": "2026-04-04T23:16:00.224659+00:00",
         "access_count": 116
       }
+    },
+    "6f8451929c28": {
+      "id": "6f8451929c28",
+      "type": "fact",
+      "key": "dl_sap_crmuifclient",
+      "fact": {
+        "rule": "\nvar crmuifClientClass = {\n    create: function() {\n        return function() {\n            this.constructor.apply(this, arguments);\n        };\n    }\n};\n\nvar crmuifClientC = crmuifClientClass.create();\ncrmuifClientC.prototype = {\n  serverFrame: null,\n  noServerError: new Error('No CRMUIF server in frame hierachy'),\n  winMan: null,\n  \n  constructor: function() {\n    var frame = window;\n    while(typeof(frame.crmuif) == 'undefined' && frame != top ) { frame = frame.parent };\n    if(typeof(frame.crmuif) != 'undefined' && frame.crmuif) {\n      this.serverFrame = frame;\n    } else {\n      throw this.noServerError;\n    }\n    this.winMan = this.serverFrame.crmuif.winMan;\n  },\n  sessionRestart: function() {\n    if(this.serverFrame) {\n      this.serverFrame.crmuif.sessionRestart();\n    } else {\n      throw this.noServerError;\n    }\n  },\n  addRSSFeedLink : function( url, title, type ) {\n    if(this.serverFrame) {\n      this.serverFrame.crmuif.addRSSFeedLink( url, title, type );\n    } else {\n      throw this.noServerError;\n    }\n  },\n  displayError : function( text ) {\n    if(this.serverFrame) {\n      this.serverFrame.crmuif.displayError( text );\n    } else {\n      throw this.noServerError;\n    }\n  },\n  logOff : function() {\n    if(this.serverFrame) {\n      this.serverFrame.crmuif.logOff( );\n    } else {\n      throw this.noServerError;\n    }\n  },\n  endAndRestartSession : function( roleName, oldLang, newLang ) {\n    if(this.serverFrame) {\n      this.serverFrame.crmuif.endAndRestartSession( roleName, oldLang, newLang );\n    } else {\n      throw this.noServerError;\n    }\n  },\n  afterLangSwitch : function( roleName, crmLogicalLink, wcfPersMessage, oldLang, newLang ) {\n    if(this.serverFrame) {\n      this.serverFrame.crmuif.afterLangSwitch( roleName, crmLogicalLink, wcfPersMessage, oldLang, newLang );\n    } else {\n      throw this.noServerError;\n    }\n  },\n  removeOnUnload : function() {\n    if(this.serverFrame) {\n      var serverC = this.serverFrame.crmuif;\n      serverC.removeEventHandler(\"unload\", serverC.onUnloadHandler);\n    } else {\n      throw this.noServerError;\n    }\n  }\n}\n\nvar crmuifClient = new crmuifClientC();\n\ntry {\n  if(typeof(thtmlbWrite) != 'undefined' && typeof(top.externalConsole) != 'undefined' && top.externalConsole) {\n    /* overwrite thtmlbWrite if external console is on */\n    thtmlbWrite = function(text, color) {\n      top.externalConsole.write(text, color);\n    }\n  }\n} catch(e) {}\n\n\n\n\nfunction getTopWindow() {\n  var childWindow = window;\n  var refWindow = childWindow.parent;\n  var WIDWindow;\n\n  if (childWindow.name.slice(0, 4) == \"WID(\") {\n    WIDWindow = childWindow;\n  }\n\n  try {\n    while (refWindow.name != childWindow.name) {\n      if (refWindow.name.slice(0, 4) == \"WID(\") {\n        WIDWindow = refWindow;\n      }\n\n      childWindow = refWindow;\n      refWindow = refWindow.parent;\n    }\n  } catch (e) {\n    if (WIDWindow) {\n      return WIDWindow;\n    }\n    return childWindow;\n  }\n\n  if (WIDWindow) {\n    return WIDWindow;\n  }\n  return ",
+        "applies_to": "SAP CRM WebUI JavaScript internals",
+        "source": "C:\\Users\\ntoledo\\Downloads\\sap_crmuifclient.js",
+        "confidence": "observed"
+      },
+      "tags": [],
+      "created_at": "2026-04-05T04:16:46.099867+00:00",
+      "updated_at": "2026-04-05T04:16:46.099867+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-05T04:16:46.099867+00:00",
+        "access_count": 0
+      }
+    },
+    "4ecbe04f948a": {
+      "id": "4ecbe04f948a",
+      "type": "fact",
+      "key": "dl_sap_crmuifServer",
+      "fact": {
+        "rule": "\nvar crmuifClass = {\n    create: function() {\n        return function() {\n            this.constructor.apply(this, arguments);\n        };\n    }\n};\nvar winManC = crmuifClass.create();\nwinManC.prototype = {\nwindows:new Array,\ndataBag:new Array,\nlisteners:new Array,\ncloseWarningText:'',\nregisterListener:function( handler ) {\n  this.listeners[this.listeners.length] = handler;\n},\nopen:function(uri, name, features, title) {\n  var newWin = window.open(uri, name, features);\n  if(newWin != null) {\n    this.windows[this.windows.length] = {instance:newWin, uri:uri, name:name, features:features};\n    for(var i=0;i<this.listeners.length;i++) {\n      this.listeners[i]('open', newWin, uri, name, features, title);\n    }\n    return newWin;\n  }\n},\naddWindow:function(instance, uri, name, features, title) {\n  this.windows[this.windows.length] = {instance:instance, uri:uri, name:name, features:features};\n  for(var i=0;i<this.listeners.length;i++) {\n    this.listeners[i]('add', instance, uri, name, features, title);\n  }\n},\ncloseAll:function() {\n  for(var i=0;i<this.windows.length;i++) {\n    if(!this.windows[i].instance.closed) {\n      try {\n        this.windows[i].instance.WCFWindow.clearDirtyState();\n      } catch(e) {}\n      this.windows[i].instance.close();\n    }\n  }\n  this.windows = new Array;\n},\nexistOpenWindows:function() {\n  var winCounter = 0;\n  var dirtyCounter = 0;\n  for(var i=0;i<this.windows.length;i++) {\n    if(!this.windows[i].instance.closed) {\n      winCounter++;\n      try {\n        if(this.windows[i].instance.WCFWindow.getDirty() ) dirtyCounter++;\n      } catch(e) {}\n    }\n  }\n  if(winCounter+dirtyCounter > 0) {\n    var text = this.closeWarningText.replace('&1',winCounter);\n    return text.replace('&2',dirtyCounter);\n  }\n},\nsetWindowDataBag:function(name, object) {\n  this.dataBag[name] = object;\n},\ngetWindowDataBag:function(name) {\n  return this.dataBag[name];\n}\n}\n\nvar crmuifC = crmuifClass.create();\ncrmuifC.prototype = {\n\nstartUrl:'',\nabortWarningText:'',\ninProgressBeforeUnload:false,\nbrowser:null,\ncallBackUrl:'',\nsessionManUrl:'',\niframeUrl:'',\nroleName:'',\nreloadText:'',\nsessionIdList:new Object(),\nmasterInstance:null,\npostLogoff:false,\nurlParameters:'',\niframe:null,\nwinMan:new winManC,\ngetOnUnloadHandler: null,\n\nconstructor: function(startUrl, callBackUrl, sessionManUrl, roleName, reloadText, closeWarningText, abortWarningText) {\n  var self = this; \n  self.startUrl = startUrl;\n  self.callBackUrl = callBackUrl;\n  self.sessionManUrl = sessionManUrl;\n  self.roleName = roleName;\n  if(!roleName){\n\n    var savedRole = localStorage.getItem('wcfRoleName');\n    if(savedRole) {\n      self.roleName = savedRole;\n      localStorage.removeItem('wcfRoleName');\n    }\n  }\n  self.reloadText = reloadText;\n  self.winMan.closeWarningText = closeWarningText;\n  self.abortWarningText = abortWarningText;\n  self.browser = thtmlbUtil.getBrowserAdvanced();\n  \n  self.swapHandler = function(event) {\n    self.fadeOut(document.getElementById('crmUIHostDialogContainer'));\n    sel",
+        "applies_to": "SAP CRM WebUI JavaScript internals",
+        "source": "C:\\Users\\ntoledo\\Downloads\\sap_crmuifServer.js",
+        "confidence": "observed"
+      },
+      "tags": [],
+      "created_at": "2026-04-05T04:16:46.132655+00:00",
+      "updated_at": "2026-04-05T04:16:46.132655+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-05T04:16:46.132655+00:00",
+        "access_count": 0
+      }
+    },
+    "1d036e356139": {
+      "id": "1d036e356139",
+      "type": "fact",
+      "key": "dl_sap_event_dictionary",
+      "fact": {
+        "rule": "                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    \nvar htmlbEDIC = new Array(''\n,'htmlb:breadCrumb:click'\n,'htmlb:button:click'\n,'htmlb:checkbox:click'\n,'htmlb:image:click'\n,'htmlb:link:click'\n,'htmlb:radioButton:click'\n,'htmlb:tabStrip:click'\n,'htmlb:tree:click'\n,'htmlb:dateNavigator:navigate'\n,'htmlb:dateNavigator:monthClick'\n,'htmlb:dateNavigator:weekClick'\n,'htmlb:dateNavigator:dayClick'\n,'htmlb:dateNavigator:next'\n,'htmlb:dateNavigator:previous'\n,'htmlb:dropdownListBox:select'\n,'htmlb:fileUpload:upload'\n,'htmlb:tableView:headerClick'\n,'htm",
+        "applies_to": "SAP CRM WebUI JavaScript internals",
+        "source": "C:\\Users\\ntoledo\\Downloads\\sap_event_dictionary.js",
+        "confidence": "observed"
+      },
+      "tags": [],
+      "created_at": "2026-04-05T04:16:46.178648+00:00",
+      "updated_at": "2026-04-05T04:16:46.178648+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-05T04:16:46.178648+00:00",
+        "access_count": 0
+      }
+    },
+    "950b434d53cd": {
+      "id": "950b434d53cd",
+      "type": "fact",
+      "key": "dl_sap_internal_functions",
+      "fact": {
+        "rule": "// ========== htmlbSubmitLib ==========\nfunction htmlbSubmitLib(library,elem,eventType,formID,objectID,eventName,paramCount,param1,param2,param3,param4,param5,param6,param7,param8,param9)\n{\n  /*if((typeof(eventName) != \"undefined\") && eventName.length>0 && eventName.indexOf(\"-\") > -1)\n  {\n    window.top.WCF_CurrentLogicalLink = eventName;\n  }*/\n  document.forms[formID].onInputProcessing.value = library;\n  htmlbSubmit(elem,eventType,formID,objectID,eventName,paramCount,param1,param2,param3,param4,param5,param6,param7,param8,param9);\n}\n\n// ========== htmlbSubmitFormAjax ==========\nfunction htmlbSubmitFormAjax(form)\n{\n\nvar returnvalue = false;\nif (isAjaxEnabled == true && ajax_submit == true)\n{\najax_submit = false;\nvar str = \"\";\nif (bindOnlyEvent == false)\n{\n\nstr = createFormInputString(form);\n\n}\nelse\n{\n\nstr = bindHtmlbEvent(form);\n\nvar targetValues = document.getElementById(\"sap-ajaxtarget\");\nif (targetValues)\n{\nstr = str + \"&sap-ajaxtarget=\" + targetValues.value;\n}\nvar modeValue = document.getElementById(\"sap-ajax_dh_mode\");\nif (modeValue != null)\n{\nstr = str + \"&sap-ajax_dh_mode=\" + modeValue.value;\n}\n\n}\n\nclearAjaxRequestOptions();\n\nif (str != null)\n{\n\nstr = str + \"&sap-ajax_request=X\";\n\nvar elementid = getElementIdToReplace(form);\n\nif (elementid != null)\n{\nvar ajaxObj = null;\ntry\n{\n\najaxObj = new AjaxRequest(form.action, {\nmethod: 'post',\nasynchronous: true,\nparameters: str,\nbindingMode: 'xml',\nonComplete: deltaRenderingCallback,\nsubmittedFormId: form.id,\nsapAjaxtarget: elementid,\npostProcess: dhPostProcess});\n\n}\ncatch(e)\n{\najaxObj = null;\n}\nif (ajaxObj != null)\n{\ntry\n{\n\nif ( ajaxObj.executeRequest() ) {\n\nreturnvalue = true;\nif (toDisable == true)\n{\n\ndisableForm(ajaxObj.options.submittedFormId, true);\n\n}\n}\n\n}\ncatch(e)\n{\n}\n}\n}\n}\n}\ntry{\n\n\nif (th_runningInPopup()){\nif (typeof WCFDialogAPI !== 'undefined' && WCFDialogAPI.isRunningInDialog){\nwindow.opener = WCFDialogAPI.getOpener();\n}else{\nvar getParent = getMainParent(window.parent);\nwindow.opener = getParent.opener;\n}\nif (window.opener.thtmlbGetHostWindow && window.opener.thtmlbGetHostWindow().reset_last_server_update){\nwindow.opener.thtmlbGetHostWindow().reset_last_server_update();\n}\n}else {\nif(thtmlbGetHostWindow().reset_last_server_update){\nthtmlbGetHostWindow().reset_last_server_update();\n}\n}\n} catch(e) {}\nreturn returnvalue;\n}\n\n// ========== preAjaxRequest ==========\nfunction preAjaxRequest(target)\n{\nif (isAjaxEnabled == true)\n{\najax_submit = true;\nif (target == null)\n{\najax_submit = false;\nreturn;\n}\nif (target.length == 0)\n{\najax_submit = false;\nreturn;\n}\nvar element = document.getElementById(\"sap-ajaxtarget\");\nif (element != null)\n{\nelement.value = target;\n}else{\najax_submit = false;\n}\n}\n}\n\n// ========== preAjaxRequest2 ==========\nfunction preAjaxRequest2(target)\n{\nvar element = document.getElementById(\"sap-ajax_dh_ssoptenabled\");\nif (element != null)\n{\nelement.value = \" \";\n}\npreAjaxRequest(target);\n}\n\n// ========== AjaxRequest ==========\nfunction AjaxRequest(targerUrl, reqOptions){\nthis.url",
+        "applies_to": "SAP CRM WebUI JavaScript internals",
+        "source": "C:\\Users\\ntoledo\\Downloads\\sap_internal_functions.js",
+        "confidence": "observed"
+      },
+      "tags": [],
+      "created_at": "2026-04-05T04:16:46.209096+00:00",
+      "updated_at": "2026-04-05T04:16:46.209096+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-05T04:16:46.209096+00:00",
+        "access_count": 0
+      }
+    },
+    "ae6ea27a771b": {
+      "id": "ae6ea27a771b",
+      "type": "fact",
+      "key": "dl_playbook_opportunity_detail",
+      "fact": {
+        "rule": "{\n  \"screen\": \"Opportunity_Detail\",\n  \"title\": \"Opp Multiservice: 245372, Agentes Virtuales IA para Mercadeo - BR, BANCO AGROMERCANTIL DE GUATEMALA, S. A. - [SAP]\",\n  \"timestamp\": \"2026-03-27T23:40:24.044Z\",\n  \"iframe_chain\": [\n    \"CRMApplicationFrame\",\n    \"CRMApplicationFrame\",\n    \"WorkAreaFrame1\"\n  ],\n  \"fields\": [\n    {\n      \"suffix\": \"SearchMenuAnchor1__toggled\",\n      \"type\": \"input:hidden\",\n      \"label\": \"\",\n      \"value\": \"UP\",\n      \"visible\": false,\n      \"readonly\": false\n    },\n    {\n      \"suffix\": \"SavedSearches\",\n      \"type\": \"input:text\",\n      \"label\": \"List Of Saved Searches\",\n      \"value\": \"\",\n      \"visible\": true,\n      \"readonly\": false\n    },\n    {\n      \"suffix\": \"SavedSearches__key\",\n      \"type\": \"input:hidden\",\n      \"label\": \"\",\n      \"value\": \"\",\n      \"visible\": false,\n      \"readonly\": false\n    },\n    {\n      \"suffix\": \"ZSD_ESP_isExpanded\",\n      \"type\": \"input:hidden\",\n      \"label\": \"\",\n      \"value\": \"yes\",\n      \"visible\": false,\n      \"readonly\": false\n    },\n    {\n      \"suffix\": \"RecentObjects_isExpanded\",\n      \"type\": \"input:hidden\",\n      \"label\": \"\",\n      \"value\": \"yes\",\n      \"visible\": false,\n      \"readonly\": false\n    },\n    {\n      \"suffix\": \"ZREP_FOREC_isExpanded\",\n      \"type\": \"input:hidden\",\n      \"label\": \"\",\n      \"value\": \"yes\",\n      \"visible\": false,\n      \"readonly\": false\n    },\n    {\n      \"suffix\": \"V3_V65_bchistory_selection\",\n      \"type\": \"input:hidden\",\n      \"label\": \"\",\n      \"value\": \"\",\n      \"visible\": false,\n      \"readonly\": false\n    },\n    {\n      \"suffix\": \"text_lines\",\n      \"type\": \"textarea:textarea\",\n      \"label\": \"El cliente ya púbico el RFP en Coupa para ofertar, debemos de entregar oferta a \",\n      \"value\": \"El cliente ya púbico el RFP en Coupa para ofertar, debemos d\",\n      \"visible\": true,\n      \"readonly\": true\n    },\n    {\n      \"suffix\": \"0001_iscollapsed\",\n      \"type\": \"input:hidden\",\n      \"label\": \"\",\n      \"value\": \"\",\n      \"visible\": false,\n      \"readonly\": false\n    },\n    {\n      \"suffix\": \"0001_displaymode\",\n      \"type\": \"input:hidden\",\n      \"label\": \"\",\n      \"value\": \"X\",\n      \"visible\": false,\n      \"readonly\": false\n    },\n    {\n      \"suffix\": \"0001_backendstate\",\n      \"type\": \"input:hidden\",\n      \"label\": \"\",\n      \"value\": \"yes\",\n      \"visible\": false,\n      \"readonly\": false\n    },\n    {\n      \"suffix\": \"0002_iscollapsed\",\n      \"type\": \"input:hidden\",\n      \"label\": \"\",\n      \"value\": \"\",\n      \"visible\": false,\n      \"readonly\": false\n    },\n    {\n      \"suffix\": \"0002_displaymode\",\n      \"type\": \"input:hidden\",\n      \"label\": \"\",\n      \"value\": \"X\",\n      \"visible\": false,\n      \"readonly\": false\n    },\n    {\n      \"suffix\": \"0002_backendstate\",\n      \"type\": \"input:hidden\",\n      \"label\": \"\",\n      \"value\": \"yes\",\n      \"visible\": false,\n      \"readonly\": false\n    },\n    {\n      \"suffix\": \"TABLE_omni_input_afh\",\n      \"type\": \"input:text\",\n      \"label\": \"\",\n      \"value\": \"\",\n      \"visible\": true,\n      \"readonly\": fals",
+        "applies_to": "SAP CRM WebUI JavaScript internals",
+        "source": "C:\\Users\\ntoledo\\Downloads\\playbook_opportunity_detail.json",
+        "confidence": "observed"
+      },
+      "tags": [],
+      "created_at": "2026-04-05T04:16:46.243410+00:00",
+      "updated_at": "2026-04-05T04:16:46.243410+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-05T04:16:46.243410+00:00",
+        "access_count": 0
+      }
+    },
+    "b4e11c28a136": {
+      "id": "b4e11c28a136",
+      "type": "fact",
+      "key": "dl_playbook_opp_detail_EDIT",
+      "fact": {
+        "rule": "{\n  \"screen\": \"Opportunity_Detail_EDIT\",\n  \"timestamp\": \"2026-03-27T23:42:07.238Z\",\n  \"iframe_chain\": [\n    \"CRMApplicationFrame\",\n    \"CRMApplicationFrame\",\n    \"WorkAreaFrame1\"\n  ],\n  \"fields\": [\n    {\n      \"stable_suffix\": \"btadminh_struct.proc_type_descr\",\n      \"selector\": \"[id$=\\\"btadminh_struct.proc_type_descr\\\"]\",\n      \"label\": \"Type\",\n      \"value\": \"Opp Multiservice\",\n      \"type\": \"input\",\n      \"editable\": false\n    },\n    {\n      \"stable_suffix\": \"btadminh_struct.object_id\",\n      \"selector\": \"[id$=\\\"btadminh_struct.object_id\\\"]\",\n      \"label\": \"ID\",\n      \"value\": \"245372\",\n      \"type\": \"input\",\n      \"editable\": false\n    },\n    {\n      \"stable_suffix\": \"btadminh_struct.description\",\n      \"selector\": \"[id$=\\\"btadminh_struct.description\\\"]\",\n      \"label\": \"Description\",\n      \"value\": \"Agentes Virtuales IA para Mercadeo - BR\",\n      \"type\": \"input\",\n      \"editable\": true\n    },\n    {\n      \"stable_suffix\": \"btpartnerprospect_partnerno\",\n      \"selector\": \"[id$=\\\"btpartnerprospect_partnerno\\\"]\",\n      \"label\": \"\",\n      \"value\": \"BANCO AGROMERCANTIL DE GUATEMALA, S. A.\",\n      \"type\": \"input\",\n      \"editable\": true\n    },\n    {\n      \"stable_suffix\": \"btpartnerprospect_struct.address_short\",\n      \"selector\": \"[id$=\\\"btpartnerprospect_struct.address_short\\\"]\",\n      \"label\": \"Prospect Address\",\n      \"value\": \"7A. AVENIDA 7-30 ZONA 9 / 01009 GUATEMALA\",\n      \"type\": \"input\",\n      \"editable\": false\n    },\n    {\n      \"stable_suffix\": \"btpartnermain_partnerno\",\n      \"selector\": \"[id$=\\\"btpartnermain_partnerno\\\"]\",\n      \"label\": \"\",\n      \"value\": \"Mr. LUIS VALLE\",\n      \"type\": \"input\",\n      \"editable\": true\n    },\n    {\n      \"stable_suffix\": \"btpartnerowner_partnerno\",\n      \"selector\": \"[id$=\\\"btpartnerowner_partnerno\\\"]\",\n      \"label\": \"\",\n      \"value\": \"Ms. BIANCA PAOLA RODAS\",\n      \"type\": \"input\",\n      \"editable\": true\n    },\n    {\n      \"stable_suffix\": \"btadminh_ext.zzfld00000e\",\n      \"selector\": \"[id$=\\\"btadminh_ext.zzfld00000e\\\"]\",\n      \"label\": \"Total Rev. Pipeline\",\n      \"value\": \"0,00\",\n      \"type\": \"input\",\n      \"editable\": true\n    },\n    {\n      \"stable_suffix\": \"btadminh_ext.zzfld00000q\",\n      \"selector\": \"[id$=\\\"btadminh_ext.zzfld00000q\\\"]\",\n      \"label\": \"Total Rev.Forecast\",\n      \"value\": \"0,00\",\n      \"type\": \"input\",\n      \"editable\": true\n    },\n    {\n      \"stable_suffix\": \"btadminh_ext.zzfld00000r\",\n      \"selector\": \"[id$=\\\"btadminh_ext.zzfld00000r\\\"]\",\n      \"label\": \"Total Rev. Best Est.\",\n      \"value\": \"0,00\",\n      \"type\": \"input\",\n      \"editable\": true\n    },\n    {\n      \"stable_suffix\": \"btadminh_ext.zzfld00000s\",\n      \"selector\": \"[id$=\\\"btadminh_ext.zzfld00000s\\\"]\",\n      \"label\": \"New Signings\",\n      \"value\": \"0,00\",\n      \"type\": \"input\",\n      \"editable\": true\n    },\n    {\n      \"stable_suffix\": \"btopporth_struct.startdate\",\n      \"selector\": \"[id$=\\\"btopporth_struct.startdate\\\"]\",\n      \"label\": \"\",\n      \"value\": \"05.02.2026\",\n      \"type\": \"input\",\n      \"editable\": ",
+        "applies_to": "SAP CRM WebUI JavaScript internals",
+        "source": "C:\\Users\\ntoledo\\Downloads\\playbook_opp_detail_EDIT.json",
+        "confidence": "observed"
+      },
+      "tags": [],
+      "created_at": "2026-04-05T04:16:46.271965+00:00",
+      "updated_at": "2026-04-05T04:16:46.271965+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-05T04:16:46.271965+00:00",
+        "access_count": 0
+      }
     }
   },
   "stats": {
-    "total_entries": 16,
-    "total_lookups": 619,
+    "total_entries": 22,
+    "total_lookups": 621,
     "total_hits": 304
   }
 }

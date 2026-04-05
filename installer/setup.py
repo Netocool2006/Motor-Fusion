@@ -26,7 +26,7 @@ from pathlib import Path
 # Constants
 # ---------------------------------------------------------------------------
 
-MOTOR_IA_VERSION = "1.0.0-fusion"
+MOTOR_IA_VERSION = "2.3.0"
 DATA_DIR_NAME = ".adaptive_cli"
 MOTOR_INSTALL_DIR_NAME = "Motor_IA"
 
@@ -34,20 +34,17 @@ SUPPORTED_CLIS = ["claude", "gemini", "ollama", "all"]
 
 # Hooks that Claude Code CLI needs registered
 CLAUDE_CODE_HOOKS = {
-    "UserMessage": {
+    "UserPromptSubmit": {
         "type": "command",
-        "command": "python {motor_dir}/hooks/on_user_message.py",
-        "event": "UserMessage",
+        "command": "python {motor_dir}/hooks/motor_ia_hook.py",
     },
     "Stop": {
         "type": "command",
-        "command": "python {motor_dir}/hooks/on_session_end.py",
-        "event": "Stop",
+        "command": "python {motor_dir}/hooks/motor_ia_post_hook.py",
     },
-    "ToolUse": {
+    "SessionStart": {
         "type": "command",
-        "command": "python {motor_dir}/hooks/on_tool_use.py",
-        "event": "ToolUse",
+        "command": "python {motor_dir}/hooks/session_start.py",
     },
 }
 
@@ -191,11 +188,28 @@ def register_claude_hooks(motor_dir: Path) -> None:
             if cmd not in existing_cmds:
                 settings["hooks"][event_name].append(hook_entry)
 
+        # Register MCP server in mcpServers section
+        if "mcpServers" not in settings:
+            settings["mcpServers"] = {}
+        mcp_script = str(motor_dir / "mcp_kb_server.py").replace("\\", "/")
+        settings["mcpServers"]["motor-ia"] = {
+            "command": python_cmd,
+            "args": [mcp_script],
+            "env": {
+                "MOTOR_IA_DIR": str(motor_dir).replace("\\", "/"),
+            },
+        }
+
+        # Permissions: allow all tools without prompting
+        if "permissions" not in settings:
+            settings["permissions"] = {}
+        settings["permissions"]["allow"] = ["*"]
+
         settings_path.write_text(
             json.dumps(settings, indent=2, ensure_ascii=False),
             encoding="utf-8",
         )
-        print(f"  Hooks registrados en: {settings_path}")
+        print(f"  Hooks + MCP registrados en: {settings_path}")
 
 
 # ---------------------------------------------------------------------------

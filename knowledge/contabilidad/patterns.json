@@ -1,11 +1,42 @@
 {
   "domain": "contabilidad",
   "description": "Facturas, IVA, balance, cuentas contables",
-  "entries": {},
-  "tag_index": {},
+  "entries": {
+    "d7f6fc6afed2": {
+      "id": "d7f6fc6afed2",
+      "type": "fact",
+      "key": "dl_ISR",
+      "fact": {
+        "rule": "ISR-20251216_163537-Grabación de la reunión\n16 de diciembre de 2025, 10:35p.m.\n8m 5s\nNestor Bernabe Toledo Iscopal inició la transcripción\nSandra Elizabeth Mejia   0:03Chao, ingrese al link que les mandé.\nNestor Bernabe Toledo Iscopal   0:09El link que nos mandó.\nSandra Elizabeth Mejia   0:11B.\nNestor Bernabe Toledo Iscopal   0:12eso está por correo.\nSandra Elizabeth Mejia   0:14Sí, sal punto gob punto gt y me comparte pantalla.\nNestor Bernabe Toledo Iscopal   0:15No.Yeah.Mhm.Eso no es.\nSandra Elizabeth Mejia   0:28Si no metas el triple W.\nNestor Bernabe Toledo Iscopal   0:28Dynamic and white.Si quieres le te voy a compartir, usted me va bien, señor.Pantalla, a mí me dice cuando ella vea mi pantalla.\nSandra Elizabeth Mejia   0:37Me dice cuando ya vea, ya estoy.\nNestor Bernabe Toledo Iscopal   0:40Adiós, sabe.Aquí sería sats.Give me a lay song.\nSandra Elizabeth Mejia   0:54Sat.\nNestor Bernabe Toledo Iscopal   0:55Esto es enano.What can I said?\nSandra Elizabeth Mejia   0:59Mhm.\nNestor Bernabe Toledo Iscopal   1:02¿Qué?\nSandra Elizabeth Mejia   1:04Dele donde dice servicios tributarios.\nNestor Bernabe Toledo Iscopal   1:09Yeah.\nSandra Elizabeth Mejia   1:10Ajá y váyase abajo donde dice contribuyentes.\nNestor Bernabe Toledo Iscopal   1:17Aquí esta.\nSandra Elizabeth Mejia   1:17Mhm, sí, hay un contribuyente.\nNestor Bernabe Toledo Iscopal   1:20Mhm.\nSandra Elizabeth Mejia   1:21Baje y le da allí donde dice ISR, cálculo ISR asalariado.Mhm.\nNestor Bernabe Toledo Iscopal   1:31Pero introduzco esto, supongo, sí.\nSandra Elizabeth Mejia   1:32No suena correcto.Mhm.\nNestor Bernabe Toledo Iscopal   1:39Take a minute.\nSandra Elizabeth Mejia   1:41Correcto su nit.\nNestor Bernabe Toledo Iscopal   1:47Ya y aquí pongo 26.Hola.\nSandra Elizabeth Mejia   1:51Correcto y enero.\nNestor Bernabe Toledo Iscopal   1:52And.6 dinero y aquí, pues supongo que también.No way you.\nSandra Elizabeth Mejia   2:0126.\nNestor Bernabe Toledo Iscopal   2:03Yeah.\nSandra Elizabeth Mejia   2:0426, correcto, a nit de GDM.\nNestor Bernabe Toledo Iscopal   2:08¿Eso dónde va aquí?\nSandra Elizabeth Mejia   2:10Allí 322.\nNestor Bernabe Toledo Iscopal   2:11Instalo 322.\nSandra Elizabeth Mejia   2:1433 cuatro.\nNestor Bernabe Toledo Iscopal   2:182233. Ahí está.\nSandra Elizabeth Mejia   2:19Sí, mhm.\nNestor Bernabe Toledo Iscopal   2:23Yeah, key.\nSandra Elizabeth Mejia   2:2512 salarios y todo lo vamos a poner al 100%.\nNestor Bernabe Toledo Iscopal   2:27Unclip.Aquí va porcentajes, entonces.\nSandra Elizabeth Mejia   2:32Todo, todo.\nNestor Bernabe Toledo Iscopal   2:36You see?\nSandra Elizabeth Mejia   2:36Coloca todo.Mhm.\nNestor Bernabe Toledo Iscopal   2:45Ahí se notó con 100 hasta diciembre.\nSandra Elizabeth Mejia   2:48Mhm.¿Ahora va como este solo ese ejercicio, después usted lo va a llenar con los datos reales, verdad? Entonces vamos a colocar ahora 250 * 12 serían 3000.\nNestor Bernabe Toledo Iscopal   3:01Bye.Acá en esta casilla.\nSandra Elizabeth Mejia   3:10Sí, 3000.\nNestor Bernabe Toledo Iscopal ",
+        "applies_to": "Documento isr",
+        "source": "C:\\Users\\ntoledo\\Downloads\\ISR.docx",
+        "confidence": "observed"
+      },
+      "tags": [
+        "isr",
+        "downloads"
+      ],
+      "created_at": "2026-04-05T04:16:35.122245+00:00",
+      "updated_at": "2026-04-05T04:16:35.122245+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-05T04:16:35.122245+00:00",
+        "access_count": 0
+      }
+    }
+  },
+  "tag_index": {
+    "isr": [
+      "d7f6fc6afed2"
+    ],
+    "downloads": [
+      "d7f6fc6afed2"
+    ]
+  },
   "stats": {
-    "total_entries": 0,
-    "total_lookups": 1337,
+    "total_entries": 1,
+    "total_lookups": 1339,
     "total_hits": 0
   }
 }

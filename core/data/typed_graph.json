@@ -751,6 +751,22 @@
       "properties": {},
       "created_at": "2026-04-05T04:13:13.054636+00:00",
       "updated_at": "2026-04-05T04:13:13.054636+00:00"
+    },
+    "4.9MB": {
+      "id": "4.9MB",
+      "type": "file",
+      "name": "4.9MB",
+      "properties": {},
+      "created_at": "2026-04-05T04:19:17.002557+00:00",
+      "updated_at": "2026-04-05T04:19:17.002557+00:00"
+    },
+    "win32com.clie": {
+      "id": "win32com.clie",
+      "type": "file",
+      "name": "win32com.clie",
+      "properties": {},
+      "created_at": "2026-04-05T04:19:17.006562+00:00",
+      "updated_at": "2026-04-05T04:19:17.006562+00:00"
     }
   },
   "relations": [
@@ -2445,11 +2461,20 @@
       "context": "algo que mas que este en este proyecto tipo basura que no ejecute nada es decir codigo muerto o que ",
       "created_at": "2026-04-05T04:13:13.061669+00:00",
       "updated_at": "2026-04-05T04:13:13.061669+00:00"
+    },
+    {
+      "source": "4.9MB",
+      "target": "win32com.clie",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "cuanto de experiencia de pyhton hay en el KB?",
+      "created_at": "2026-04-05T04:19:17.010567+00:00",
+      "updated_at": "2026-04-05T04:19:17.010567+00:00"
     }
   ],
-  "updated_at": "2026-04-05T04:13:13.062676+00:00",
+  "updated_at": "2026-04-05T04:19:17.010567+00:00",
   "stats": {
-    "entities": 94,
-    "relations": 188
+    "entities": 96,
+    "relations": 189
   }
 }

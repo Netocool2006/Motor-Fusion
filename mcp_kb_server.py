@@ -214,7 +214,7 @@ async def call_tool(name: str, arguments: dict) -> list[types.TextContent]:
                             notes = sol.get("notes", sol.get("rule", ""))[:300]
                         lines.append(f"[{key}] {notes}")
             else:
-                results = cross_domain_search(text_query=query, limit=5)
+                results = cross_domain_search(text_query=query)
                 if results:
                     for dom, entries in results.items():
                         lines.append(f"=== KB/{dom} ({len(entries)} resultados) ===")

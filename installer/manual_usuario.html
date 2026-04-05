@@ -354,19 +354,22 @@
 <aside class="sidebar">
   <div class="sidebar-header">
     <h1>Motor Fusion IA</h1>
-    <span class="version">v1.0 &mdash; Manual de Usuario</span>
+    <span class="version">v2.3 &mdash; Manual de Usuario</span>
   </div>
   <nav>
     <a href="#introduccion"><span class="num">1</span> Introduccion</a>
     <a href="#requisitos"><span class="num">2</span> Requisitos del Sistema</a>
     <a href="#instalacion"><span class="num">3</span> Instalacion</a>
     <a href="#como-funciona"><span class="num">4</span> Como Funciona</a>
-    <a href="#uso-diario"><span class="num">5</span> Uso Diario</a>
-    <a href="#respaldo"><span class="num">6</span> Respaldo y Sincronizacion</a>
-    <a href="#adaptadores"><span class="num">7</span> Adaptadores CLI</a>
-    <a href="#desinstalacion"><span class="num">8</span> Desinstalacion</a>
-    <a href="#faq"><span class="num">9</span> Solucion de Problemas</a>
-    <a href="#glosario"><span class="num">10</span> Glosario</a>
+    <a href="#pipeline-rag"><span class="num">5</span> Pipeline RAG Hibrido</a>
+    <a href="#dashboard"><span class="num">6</span> Dashboard (Monitor Web)</a>
+    <a href="#mcp-tools"><span class="num">7</span> MCP Tools</a>
+    <a href="#uso-diario"><span class="num">8</span> Uso Diario</a>
+    <a href="#respaldo"><span class="num">9</span> Respaldo y Sincronizacion</a>
+    <a href="#adaptadores"><span class="num">10</span> Adaptadores CLI</a>
+    <a href="#desinstalacion"><span class="num">11</span> Desinstalacion</a>
+    <a href="#faq"><span class="num">12</span> Solucion de Problemas</a>
+    <a href="#glosario"><span class="num">13</span> Glosario</a>
   </nav>
   <div class="sidebar-footer">
     &copy; 2026 Motor Fusion IA<br>Todos los derechos reservados
@@ -524,19 +527,25 @@ Instalacion completada exitosamente.</code></pre>
 
     <h3>Arquitectura General</h3>
     <div class="diagram">
-+----------+      +-----------+      +----------+      +------------------+
-|          |      |           |      |          |      |                  |
-|  Usuario | ---> |  CLI Tool | ---> |  Hooks   | ---> |  Motor Fusion IA |
-|          |      | (Claude,  |      | (pre/    |      |                  |
-|          |      |  Gemini,  |      |  post    |      +--------+---------+
-|          |      |  Ollama)  |      |  session)|               |
-+----------+      +-----------+      +----------+        +------+------+
-                                                         |             |
-                                                    +----+----+  +----+----+
-                                                    |Knowledge|  |Learning |
-                                                    |  Base   |  | Memory  |
-                                                    |(dominios)|  |(sesion) |
-                                                    +---------+  +---------+</div>
++----------+      +-----------+      +--------------+      +------------------+
+|          |      |           |      |              |      |                  |
+|  Usuario | ---> |  CLI Tool | ---> |    Hooks     | ---> |  Motor Fusion IA |
+|          |      | (Claude,  |      | UserPrompt   |      |  (Pipeline RAG)  |
+|          |      |  Gemini,  |      | SessionStart |      +--------+---------+
+|          |      |  Ollama)  |      | Stop         |               |
++----------+      +-----------+      +--------------+     +---------+---------+
+                                                          |         |         |
+                                                     +----+---+ +---+----+ +--+---+
+                                                     |ChromaDB| |DuckDuck| | ML   |
+                                                     |  + KB  | |  Go    | |(LLM) |
+                                                     |  JSON  | |Internet| |      |
+                                                     +--------+ +--------+ +------+
+                                                          |
+                                                    +-----+------+
+                                                    |  Dashboard  |
+                                                    | (Monitor +  |
+                                                    |  Ingesta)   |
+                                                    +-------------+</div>
 
     <h3>Aprendizaje Automatico</h3>
     <p>
@@ -562,10 +571,18 @@ Instalacion completada exitosamente.</code></pre>
         <tr><td><code>bom</code></td><td>Bills of Materials, referencias de productos, precios</td></tr>
         <tr><td><code>monday</code></td><td>Flujos de Monday.com, automatizaciones, campos personalizados</td></tr>
         <tr><td><code>business_rules</code></td><td>Reglas de negocio, politicas internas, validaciones</td></tr>
-        <tr><td><code>catalog</code></td><td>Catalogo de productos y servicios</td></tr>
+        <tr><td><code>hooks_ia</code></td><td>Conocimiento del propio Motor_IA (auto-referencia)</td></tr>
+        <tr><td><code>files</code></td><td>Patrones de archivos observados (3000+ entries)</td></tr>
+        <tr><td><code>sessions</code></td><td>Historial de sesiones (534 entries)</td></tr>
         <tr><td><code>general</code></td><td>Todo lo que no encaja en otro dominio</td></tr>
       </tbody>
     </table>
+    <div class="box box-info">
+      <strong>Nota</strong>
+      El sistema crea dominios automaticamente cuando detecta nuevos temas. Actualmente hay 70+ dominios
+      con mas de 11,000 entries en total. Usa la Ingesta Masiva del Dashboard para escanear carpetas y
+      crear dominios nuevos automaticamente.
+    </div>
 
     <h3>Tipos de Conocimiento</h3>
     <ul>
@@ -576,9 +593,143 @@ Instalacion completada exitosamente.</code></pre>
     </ul>
   </section>
 
-  <!-- 5. USO DIARIO -->
+  <!-- 5. PIPELINE RAG HIBRIDO -->
+  <section id="pipeline-rag">
+    <h2>5. Pipeline RAG Hibrido</h2>
+
+    <p>
+      Motor Fusion IA usa un pipeline de 3 pasos obligatorios para responder cada consulta.
+      Esto garantiza que las respuestas combinen conocimiento local, informacion de internet
+      y razonamiento del LLM.
+    </p>
+
+    <div class="diagram">
+Paso 1: KB Local         Paso 2: Internet        Paso 3: ML
+(ChromaDB + JSON)        (DuckDuckGo)            (Razonamiento LLM)
+      |                       |                        |
+      v                       v                        v
+  kb_pct %            internet_pct %              ml_pct %
+      |                       |                        |
+      +----------+------------+------------------------+
+                 |
+            Respuesta combinada
+         (kb + internet + ml = 100%)</div>
+
+    <h3>Paso 1: Busqueda en KB (Knowledge Base)</h3>
+    <p>
+      Busca en ChromaDB (vector store con embeddings) y en los archivos JSON locales
+      usando TF-IDF con decay temporal. Si encuentra una respuesta completa, asigna
+      alto porcentaje a <code>kb_pct</code>.
+    </p>
+
+    <h3>Paso 2: Busqueda en Internet</h3>
+    <p>
+      Busca en DuckDuckGo con la query optimizada (se eliminan stop-words y se extraen
+      keywords relevantes). Los resultados se filtran por relevancia real contra la pregunta
+      original. Si la KB ya tenia la respuesta, Internet valida y complementa.
+    </p>
+
+    <h3>Paso 3: ML (Razonamiento)</h3>
+    <p>
+      Con los insumos de KB e Internet, el LLM analiza, combina y genera la respuesta final.
+      Si ninguna fuente tenia informacion suficiente, el ML usa su propio conocimiento.
+    </p>
+
+    <h3>Token Budget (Ahorro de tokens)</h3>
+    <p>
+      Para evitar inyectar demasiado contexto y consumir tokens innecesariamente, el sistema
+      usa un presupuesto maximo de tokens (<strong>2,000 por defecto</strong>). El contenido se prioriza
+      (KB > Instrucciones > Session > Internet > ML) y se comprime automaticamente.
+    </p>
+    <div class="box box-tip">
+      <strong>Metricas de ahorro</strong>
+      El Dashboard muestra tokens originales vs finales, eficiencia promedio y total ahorrado.
+      Tipicamente se logra un <strong>40% de compresion</strong> sin perder informacion relevante.
+    </div>
+  </section>
+
+  <!-- 6. DASHBOARD -->
+  <section id="dashboard">
+    <h2>6. Dashboard (Monitor Web)</h2>
+
+    <p>
+      Motor Fusion IA incluye un dashboard web para monitorear el estado del sistema
+      en tiempo real. Para iniciarlo:
+    </p>
+    <pre><code>python dashboard/server.py
+# Abrir http://127.0.0.1:8080 en el navegador</code></pre>
+
+    <h3>Que muestra el Dashboard</h3>
+    <table>
+      <thead>
+        <tr><th>Seccion</th><th>Informacion</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>ChromaDB</strong></td><td>Total de documentos vectorizados, facts, patterns, learned, sessions</td></tr>
+        <tr><td><strong>Hooks</strong></td><td>Estado de los hooks (registrados o faltantes)</td></tr>
+        <tr><td><strong>Actividad del Dia</strong></td><td>Queries, cache hits, vector hits, web searches, auto-saves, errores</td></tr>
+        <tr><td><strong>Token Budget</strong></td><td>Tokens ahorrados, eficiencia promedio, mediciones, barra de compresion</td></tr>
+        <tr><td><strong>Knowledge Local</strong></td><td>Dominios, tamano en MB, cache TF-IDF</td></tr>
+        <tr><td><strong>Ultima Consulta</strong></td><td>Query, resultado, cobertura KB/Internet/ML</td></tr>
+        <tr><td><strong>Log</strong></td><td>Log en tiempo real del motor</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Ingesta Masiva</h3>
+    <p>
+      El boton <strong>"+ Ingesta Masiva"</strong> en el dashboard permite escanear una carpeta completa,
+      detectar dominios automaticamente, crear los que no existen e ingerir toda la informacion al KB.
+      Los duplicados se descartan usando similitud de embeddings en ChromaDB (> 92% = duplicado).
+    </p>
+    <div class="box box-info">
+      <strong>Parametros configurables</strong>
+      Profundidad de escaneo (1-10), minimo de archivos por dominio, maximo de archivos por dominio.
+      El progreso se muestra en tiempo real con estadisticas de dominios, archivos, facts y duplicados.
+    </div>
+
+    <h3>Variables de entorno</h3>
+    <table>
+      <thead>
+        <tr><th>Variable</th><th>Default</th><th>Descripcion</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><code>DASHBOARD_PORT</code></td><td>8080</td><td>Puerto del dashboard</td></tr>
+        <tr><td><code>DASHBOARD_HOST</code></td><td>127.0.0.1</td><td>Host del dashboard</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- 7. MCP TOOLS -->
+  <section id="mcp-tools">
+    <h2>7. MCP Tools (Herramientas de Servidor)</h2>
+
+    <p>
+      Motor Fusion IA expone un servidor MCP (Model Context Protocol) con 6 herramientas que
+      el LLM puede invocar directamente durante la conversacion:
+    </p>
+    <table>
+      <thead>
+        <tr><th>Herramienta</th><th>Descripcion</th><th>Cuando se usa</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><code>buscar_kb</code></td><td>Busca en Knowledge Base local</td><td>Siempre (Paso 1 del pipeline)</td></tr>
+        <tr><td><code>buscar_internet</code></td><td>Busca en DuckDuckGo</td><td>Siempre (Paso 2 del pipeline)</td></tr>
+        <tr><td><code>guardar_aprendizaje</code></td><td>Guarda patron/hecho nuevo al KB</td><td>Cuando se aprende algo nuevo</td></tr>
+        <tr><td><code>listar_patrones</code></td><td>Lista patrones por dominio</td><td>Consultar experiencia previa</td></tr>
+        <tr><td><code>registrar_error_resuelto</code></td><td>Registra error + solucion</td><td>Cuando se resuelve un problema</td></tr>
+        <tr><td><code>estadisticas</code></td><td>Metricas del sistema</td><td>Diagnostico y monitoreo</td></tr>
+      </tbody>
+    </table>
+    <div class="box box-tip">
+      <strong>Automatico</strong>
+      Las herramientas MCP se invocan automaticamente por el pipeline. No necesitas llamarlas manualmente.
+      El hook <code>UserPromptSubmit</code> inyecta instrucciones para que el LLM las use en cada consulta.
+    </div>
+  </section>
+
+  <!-- 8. USO DIARIO -->
   <section id="uso-diario">
-    <h2>5. Uso Diario</h2>
+    <h2>8. Uso Diario</h2>
 
     <div class="box box-tip">
       <strong>Lo mas importante</strong>
@@ -630,7 +781,7 @@ TOTAL                 33      29       12</code></pre>
 
   <!-- 6. RESPALDO -->
   <section id="respaldo">
-    <h2>6. Respaldo y Sincronizacion (GitHub Sync)</h2>
+    <h2>9. Respaldo y Sincronizacion (GitHub Sync)</h2>
 
     <p>
       Motor Fusion IA puede sincronizar tu Knowledge Base con un repositorio privado de GitHub,
@@ -670,7 +821,7 @@ TOTAL                 33      29       12</code></pre>
 
   <!-- 7. ADAPTADORES -->
   <section id="adaptadores">
-    <h2>7. Adaptadores CLI</h2>
+    <h2>10. Adaptadores CLI</h2>
     <p>
       Motor Fusion IA se conecta a diferentes herramientas CLI mediante <strong>adaptadores</strong>.
       Cada adaptador sabe como inyectar contexto y extraer aprendizajes del CLI correspondiente.
@@ -684,16 +835,20 @@ TOTAL                 33      29       12</code></pre>
     <pre><code>// ~/.claude/settings.json (configurado automaticamente)
 {
   "hooks": {
-    "PreToolUse": [...],
-    "PostToolUse": [...],
-    "PreSession": [...],
-    "PostSession": [...]
-  }
+    "SessionStart": [{ "type": "command", "command": "python .../hooks/session_start.py" }],
+    "UserPromptSubmit": [{ "type": "command", "command": "python .../hooks/motor_ia_hook.py" }],
+    "Stop": [{ "type": "command", "command": "python .../hooks/motor_ia_post_hook.py" }]
+  },
+  "mcpServers": {
+    "motor-ia": { "command": "python", "args": [".../mcp_kb_server.py"] }
+  },
+  "permissions": { "allow": ["*"] }
 }</code></pre>
     <ul>
-      <li>Inyeccion de contexto de KB al inicio de cada sesion.</li>
-      <li>Captura automatica de patrones y errores.</li>
-      <li>Soporte completo para todos los dominios.</li>
+      <li><strong>SessionStart:</strong> carga contexto de sesiones recientes, patrones aprendidos, e indice de KB.</li>
+      <li><strong>UserPromptSubmit:</strong> pipeline RAG completo (KB → Internet → ML) en cada mensaje del usuario.</li>
+      <li><strong>Stop:</strong> auto-save de aprendizajes nuevos al KB al finalizar sesion.</li>
+      <li><strong>MCP Server:</strong> 6 herramientas disponibles para buscar, guardar y consultar estadisticas.</li>
     </ul>
 
     <h3>Gemini CLI</h3>
@@ -723,7 +878,7 @@ python ollama_adapter.py chat --model llama3 --domain sap</code></pre>
 
   <!-- 8. DESINSTALACION -->
   <section id="desinstalacion">
-    <h2>8. Desinstalacion</h2>
+    <h2>11. Desinstalacion</h2>
     <p>Para desinstalar Motor Fusion IA, ejecuta:</p>
     <pre><code>python uninstall.py</code></pre>
 
@@ -752,7 +907,7 @@ python ollama_adapter.py chat --model llama3 --domain sap</code></pre>
 
   <!-- 9. FAQ -->
   <section id="faq">
-    <h2>9. Solucion de Problemas (FAQ)</h2>
+    <h2>12. Solucion de Problemas (FAQ)</h2>
 
     <div class="faq-item">
       <div class="q">"Los hooks no disparan"</div>
@@ -834,7 +989,7 @@ git ls-remote https://github.com/tu-usuario/tu-repo.git</code></pre>
 
   <!-- 10. GLOSARIO -->
   <section id="glosario">
-    <h2>10. Glosario</h2>
+    <h2>13. Glosario</h2>
 
     <div class="glossary-grid">
       <div class="glossary-item">
@@ -884,6 +1039,30 @@ git ls-remote https://github.com/tu-usuario/tu-repo.git</code></pre>
       <div class="glossary-item">
         <dt>Error Resuelto</dt>
         <dd>Registro que contiene un error encontrado, su causa raiz y la solucion aplicada. Permite al motor evitar repetir el mismo error.</dd>
+      </div>
+      <div class="glossary-item">
+        <dt>ChromaDB</dt>
+        <dd>Base de datos vectorial que almacena embeddings de los documentos de la KB. Permite busqueda semantica (por significado, no solo por palabras exactas).</dd>
+      </div>
+      <div class="glossary-item">
+        <dt>Pipeline RAG</dt>
+        <dd>Retrieval-Augmented Generation. Proceso de 3 pasos: buscar en KB local, buscar en Internet, y combinar con razonamiento ML para generar la respuesta.</dd>
+      </div>
+      <div class="glossary-item">
+        <dt>Token Budget</dt>
+        <dd>Sistema de compresion que limita la cantidad de tokens inyectados al LLM. Prioriza contenido por relevancia y comprime automaticamente para ahorrar tokens.</dd>
+      </div>
+      <div class="glossary-item">
+        <dt>MCP (Model Context Protocol)</dt>
+        <dd>Protocolo que permite al LLM invocar herramientas externas. Motor Fusion IA expone 6 herramientas via MCP para buscar, guardar y consultar el KB.</dd>
+      </div>
+      <div class="glossary-item">
+        <dt>Dashboard</dt>
+        <dd>Interfaz web de monitoreo en tiempo real. Muestra estado de ChromaDB, hooks, metricas del dia, token budget e ingesta masiva.</dd>
+      </div>
+      <div class="glossary-item">
+        <dt>Ingesta Masiva</dt>
+        <dd>Funcion del Dashboard que escanea una carpeta, detecta dominios automaticamente, y carga toda la informacion al KB con deduplicacion automatica.</dd>
       </div>
     </div>
   </section>

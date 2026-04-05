@@ -15,11 +15,39 @@ Usa DuckDuckGo (sin API key, sin límites duros).
 
 import logging
 import re
+import signal
+import threading
 
 try:
     from ddgs import DDGS
 except ImportError:
     from duckduckgo_search import DDGS
+
+
+def _ddgs_search_with_timeout(query, max_results=5, timeout_sec=15):
+    """Ejecuta DDGS.text() con timeout para evitar hangs por rate-limiting."""
+    result_container = [None]
+    error_container = [None]
+
+    def _search():
+        try:
+            with DDGS() as ddgs:
+                result_container[0] = list(ddgs.text(query, max_results=max_results, region="wt-wt"))
+        except Exception as e:
+            error_container[0] = e
+
+    t = threading.Thread(target=_search, daemon=True)
+    t.start()
+    t.join(timeout=timeout_sec)
+
+    if t.is_alive():
+        logging.getLogger("web_search").warning(f"DDG timeout ({timeout_sec}s) for: {query[:60]}")
+        return []
+
+    if error_container[0]:
+        raise error_container[0]
+
+    return result_container[0] or []
 
 log = logging.getLogger("web_search")
 
@@ -124,10 +152,15 @@ def compute_relevance(query_keywords, snippet):
     return round(overlap, 3)
 
 
-def search_web(query, max_results=5):
+def search_web(query, max_results=5, force=False):
     """
     Busca en internet via DuckDuckGo con query OPTIMIZADA
     y filtro de relevancia.
+
+    Args:
+        query: texto a buscar
+        max_results: máximo de resultados DDG
+        force: si True, bypassa optimize_query y fuerza búsqueda
 
     Returns:
         dict con:
@@ -149,14 +182,31 @@ def search_web(query, max_results=5):
         # PASO 1: Optimizar query
         optimized = optimize_query(query)
         if not optimized:
-            log.info(f"Web search SKIPPED: query not suitable for web search")
-            return base_result
+            if force:
+                # Modo forzado: extraer keywords manualmente sin META_PATTERNS
+                words = re.findall(r'\b\w+\b', query.lower())
+                keywords = [w for w in words if w not in STOP_WORDS and len(w) > 2]
+                if keywords:
+                    keywords.sort(key=len, reverse=True)
+                    optimized = " ".join(keywords[:6])
+                    log.info(f"Force mode: bypassed optimize_query → '{optimized}'")
+                else:
+                    log.info(f"Web search SKIPPED: no keywords even in force mode")
+                    return base_result
+            else:
+                log.info(f"Web search SKIPPED: query not suitable for web search")
+                return base_result
 
         base_result["optimized_query"] = optimized
 
         # PASO 2: Buscar en DuckDuckGo con query optimizada
-        with DDGS() as ddgs:
-            raw = list(ddgs.text(optimized, max_results=max_results, region="wt-wt"))
+        raw = _ddgs_search_with_timeout(optimized, max_results=max_results)
+
+        # Si 0 resultados con query optimizada, reintentar con keywords más cortas
+        if not raw and len(optimized.split()) > 3:
+            shorter = " ".join(optimized.split()[:3])
+            log.info(f"Web search: 0 results, retrying with shorter query: '{shorter}'")
+            raw = _ddgs_search_with_timeout(shorter, max_results=max_results)
 
         if not raw:
             log.info(f"Web search: 0 results for '{optimized}'")
@@ -175,8 +225,8 @@ def search_web(query, max_results=5):
             # Calcular relevancia de ESTE resultado vs la query
             relevance = compute_relevance(optimized, f"{title} {snippet}")
 
-            # Solo incluir resultados con relevancia mínima
-            if relevance < 0.15:
+            # Umbral de relevancia reducido (era 0.15)
+            if relevance < 0.08:
                 log.info(f"Web result FILTERED (relevance={relevance:.2f}): {title[:60]}")
                 continue
 
@@ -187,9 +237,19 @@ def search_web(query, max_results=5):
             summary_parts.append(f"{len(results)}. **{title}**\n   {snippet}\n   Fuente: {url}")
             total_relevance += relevance
 
-        if not results:
-            log.info(f"Web search: {len(raw)} raw results but ALL filtered as irrelevant")
-            return base_result
+        # FALLBACK: si todos fueron filtrados, conservar el mejor resultado raw
+        if not results and raw:
+            best = max(raw, key=lambda r: len(r.get("body", r.get("snippet", ""))))
+            title = best.get("title", "")
+            url = best.get("href", best.get("link", ""))
+            snippet = best.get("body", best.get("snippet", ""))
+            results.append({
+                "title": title, "url": url, "snippet": snippet,
+                "relevance": 0.05,
+            })
+            summary_parts.append(f"1. **{title}**\n   {snippet}\n   Fuente: {url}")
+            total_relevance = 0.05
+            log.info(f"Web search FALLBACK: kept best raw result: {title[:60]}")
 
         summary = "\n".join(summary_parts)
         avg_relevance = total_relevance / len(results)

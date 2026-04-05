@@ -38,8 +38,16 @@ def _load_model():
     if _model is not None:
         return _model
     try:
+        import os
+        os.environ["HF_HUB_OFFLINE"] = "1"
+        os.environ["TRANSFORMERS_OFFLINE"] = "1"
         from sentence_transformers import SentenceTransformer
-        _model = SentenceTransformer(MODEL_NAME)
+        try:
+            _model = SentenceTransformer(MODEL_NAME)
+        except OSError:
+            os.environ.pop("HF_HUB_OFFLINE", None)
+            os.environ.pop("TRANSFORMERS_OFFLINE", None)
+            _model = SentenceTransformer(MODEL_NAME)
         log.info(f"Loaded sentence-transformers model: {MODEL_NAME}")
         return _model
     except ImportError:
@@ -171,7 +179,10 @@ def semantic_search(query: str, entries: list[dict], top_n: int = 5,
     entry_indices = []
 
     for i, entry in enumerate(entries):
-        text = entry.get("key", "") + " " + entry.get("solution", entry.get("fact", ""))
+        sol = entry.get("solution", entry.get("fact", ""))
+        if isinstance(sol, dict):
+            sol = sol.get("notes", sol.get("rule", str(sol)))
+        text = entry.get("key", "") + " " + str(sol)
         cache_key = f"e:{text[:200]}"
         cached = _cache.get(cache_key)
         if cached is not None:
@@ -187,7 +198,10 @@ def semantic_search(query: str, entries: list[dict], top_n: int = 5,
         embeddings = encode_batch(texts_to_encode)
         for idx, emb in zip(entry_indices, embeddings):
             entry = entries[idx]
-            text = entry.get("key", "") + " " + entry.get("solution", entry.get("fact", ""))
+            sol = entry.get("solution", entry.get("fact", ""))
+            if isinstance(sol, dict):
+                sol = sol.get("notes", sol.get("rule", str(sol)))
+            text = entry.get("key", "") + " " + str(sol)
             _cache.put(f"e:{text[:200]}", emb)
             sim = cosine_similarity(query_emb, emb)
             if sim >= threshold:

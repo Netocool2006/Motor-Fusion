@@ -34,7 +34,7 @@ from tkinter.ttk import Progressbar, Style, Separator
 # ---------------------------------------------------------------------------
 # Constantes
 # ---------------------------------------------------------------------------
-APP_TITLE = "Motor Fusion IA - Instalador v1.0"
+APP_TITLE = "Motor Fusion IA - Instalador v2.3"
 WINDOW_W, WINDOW_H = 700, 500
 HEADER_BG = "#1a237e"
 HEADER_FG = "#ffffff"

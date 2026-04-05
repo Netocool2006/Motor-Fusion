@@ -473,6 +473,15 @@ def _parse_motor_ia_log():
     }
 
 
+def _check_token_budget():
+    """Obtiene estadísticas de token budget."""
+    try:
+        from core.token_budget import get_token_stats
+        return get_token_stats()
+    except Exception as e:
+        return {"avg_efficiency": 0, "total_saved": 0, "measurements": 0, "error": str(e)}
+
+
 def _check_state():
     """Lee el estado actual del motor."""
     state_file = _PROJECT / "core" / "motor_ia_state.json"
@@ -604,6 +613,7 @@ class Handler(BaseHTTPRequestHandler):
             hooks = _check_hooks()
             metrics = _parse_motor_ia_log()
             state = _check_state()
+            token_stats = _check_token_budget()
 
             # Overall health
             components_ok = sum([
@@ -643,6 +653,9 @@ class Handler(BaseHTTPRequestHandler):
 
                 # Estado actual
                 "current_state": state,
+
+                # Token budget
+                "token_budget": token_stats,
 
                 # Log reciente
                 "log_tail": _read_log_tail(_PROJECT / "core" / "motor_ia_hook.log", 15),

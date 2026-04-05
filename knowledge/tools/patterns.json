@@ -430,8 +430,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:00.945621+00:00",
-        "access_count": 130
+        "last_accessed": "2026-04-05T04:34:01.065301+00:00",
+        "access_count": 131
       }
     },
     "f48496827973": {
@@ -454,8 +454,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:00.945621+00:00",
-        "access_count": 128
+        "last_accessed": "2026-04-05T04:34:01.065301+00:00",
+        "access_count": 129
       }
     },
     "791493883214": {
@@ -1006,8 +1006,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:00.945621+00:00",
-        "access_count": 127
+        "last_accessed": "2026-04-05T04:34:01.065301+00:00",
+        "access_count": 128
       }
     },
     "79e01b5b9daa": {
@@ -1030,8 +1030,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:08.408022+00:00",
-        "access_count": 138
+        "last_accessed": "2026-04-05T04:34:01.065301+00:00",
+        "access_count": 139
       }
     },
     "048cf8389a24": {
@@ -1054,8 +1054,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:00.945621+00:00",
-        "access_count": 128
+        "last_accessed": "2026-04-05T04:34:01.065301+00:00",
+        "access_count": 129
       }
     },
     "c1490663c25b": {
@@ -1486,8 +1486,8 @@
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-04T23:16:08.408022+00:00",
-        "access_count": 173
+        "last_accessed": "2026-04-05T04:34:01.065301+00:00",
+        "access_count": 174
       }
     },
     "9a98ef00da4e": {
@@ -1685,6 +1685,30 @@
         "last_accessed": "2026-04-04T23:16:00.945621+00:00",
         "access_count": 96
       }
+    },
+    "949be5ea6102": {
+      "id": "949be5ea6102",
+      "type": "fact",
+      "key": "tool_convertidor",
+      "fact": {
+        "rule": "#!/usr/bin/env python3\nr\"\"\"\nScript para convertir MP4 a MP3 usando VLC y transcribir con faster-whisper-xxl.exe\n\nCONFIGURACIÓN DEL ENTORNO:\n- VLC: C:\\Program Files (x86)\\VideoLAN\\VLC\\vlc.exe\n- FasterWhisperXXL: C:\\Tools\\FasterWhisperXXL\\faster-whisper-xxl.exe (ejecutable compilado - MÁS POTENTE)\n- Modelos: Integrados en el ejecutable XXL\n\nUSO:\n    python mp4_to_transcription_v2.py video.mp4\n    python mp4_to_transcription_v2.py video.mp4 -l es -b 10\n\"\"\"\n\nimport os\nimport sys\nimport subprocess\nimport argparse\nfrom pathlib import Path\nfrom datetime import datetime\nimport threading\nimport time\nimport re\n\n\ndef find_vlc():\n    \"\"\"Busca VLC en rutas comunes de Windows\"\"\"\n    common_paths = [\n        r\"C:\\Program Files\\VideoLAN\\VLC\\vlc.exe\",\n        r\"C:\\Program Files (x86)\\VideoLAN\\VLC\\vlc.exe\",\n        r\"C:\\Program Files\\VideoLAN\\VLC\\cvlc.exe\",\n        r\"C:\\Program Files (x86)\\VideoLAN\\VLC\\cvlc.exe\",\n        r\"C:\\Tools\\VLC\\vlc.exe\",\n    ]\n    \n    for path in common_paths:\n        if Path(path).exists():\n            return path\n    \n    # Intentar encontrar con where\n    try:\n        for cmd in [\"vlc.exe\", \"cvlc.exe\"]:\n            result = subprocess.run([\"where\", cmd], capture_output=True, text=True)\n            if result.returncode == 0:\n                return result.stdout.strip().split('\\n')[0]\n    except:\n        pass\n    \n    return None\n\n\nclass ProgressBar:\n    \"\"\"Muestra una barra de progreso incremental de 0 a 100%\"\"\"\n    def __init__(self, message=\"Procesando\"):\n        self.message = message\n        self.running = False\n        self.thread = None\n        self.progress = 0\n        self.manual_progress = False  # Si se actualiza manualmente\n    \n    def start(self):\n        \"\"\"Inicia la barra de progreso\"\"\"\n        self.running = True\n        self.progress = 0\n        self.manual_progress = False\n        self.thread = threading.Thread(target=self._increment, daemon=True)\n        self.thread.start()\n    \n    def set_progress(self, value):\n        \"\"\"Actualiza el progreso manualmente (desde faster-whisper)\"\"\"\n        self.progress = min(int(value), 100)\n        self.manual_progress = True\n        self._show_progress(self.progress)\n    \n    def _increment(self):\n        \"\"\"Incrementa el progreso gradualmente si no hay actualización manual\"\"\"\n        while self.running and not self.manual_progress:\n            if self.progress < 50:\n                # Primeros 50% más lento\n                self.progress = min(self.progress + 0.3, 50)\n            else:\n                # Últimos 50% aún más lento\n                self.progress = min(self.progress + 0.15, 80)\n            self._show_progress(self.progress)\n            time.sleep(0.5)\n    \n    def _show_progress(self, progress):\n        \"\"\"Dibuja la barra de progreso\"\"\"\n        progress = min(int(progress), 100)\n        bar_length = 40\n        filled = int(bar_length * progress / 100)\n        bar = '█' * filled + '░' * (bar_length - filled)\n        sys.stdout.write(f'\\r   {self.message}: [{bar}] {progre",
+        "applies_to": "Script convertidor mp4 a texto",
+        "source": "C:\\Chance1\\Convertidor-mp4-texto\\convertidor.py",
+        "confidence": "observed"
+      },
+      "tags": [
+        "python",
+        "whisper",
+        "tools"
+      ],
+      "created_at": "2026-04-05T04:16:35.280559+00:00",
+      "updated_at": "2026-04-05T04:16:35.280559+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-05T04:17:45.432896+00:00",
+        "access_count": 1
+      }
     }
   },
   "tag_index": {
@@ -1771,11 +1795,20 @@
     ],
     "ps1": [
       "111e1f6d768a"
+    ],
+    "python": [
+      "949be5ea6102"
+    ],
+    "whisper": [
+      "949be5ea6102"
+    ],
+    "tools": [
+      "949be5ea6102"
     ]
   },
   "stats": {
-    "total_entries": 70,
-    "total_lookups": 541,
-    "total_hits": 417
+    "total_entries": 71,
+    "total_lookups": 543,
+    "total_hits": 419
   }
 }
