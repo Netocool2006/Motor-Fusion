@@ -75,6 +75,29 @@
     "mcp_kb_server.py",
     "tests/regression_test.py",
     "settings.json",
-    "web_search.py"
+    "web_search.py",
+    "server.py",
+    "dashboard/server.py",
+    "setup.py",
+    "installer/setup.py",
+    "on_user_message.py",
+    "on_session_end.py",
+    "on_tool_use.py",
+    "motor_ia_hook.py",
+    "motor_ia_post_hook.py",
+    "session_start.py"
+  ],
+  "20260405_04": [
+    "//huggingface.co",
+    "vector_kb.py",
+    "core/vector_kb.py",
+    "tests/pipeline_real_results.json",
+    "tests/pipeline_1000_real_results.json",
+    "tests/mega50_results.json",
+    "core/locks/kb_test_results.lock",
+    "core/kb_api.py",
+    "core/multi_agent.py",
+    "hooks/motor_ia_hook_legacy.py",
+    "motor_ia_hook.py"
   ]
 }

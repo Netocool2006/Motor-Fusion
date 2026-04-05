@@ -32,6 +32,61 @@
       "last_access": "2026-04-05T03:43:25.136515+00:00",
       "access_count": 0,
       "promotion_count": 0
+    },
+    {
+      "key": "sera que el dashboard puede dar informacion de tokens utilizados o tokens ahorrados por la tecnica que usamos en el proyecto?",
+      "value": "Funciona perfectamente. Ya hay datos reales: **11,600 tokens ahorrados** en 10 mediciones con **77% eficiencia promedio**.\n\nLa nueva card de **Token Budget** en el dashboard muestra:\n\n| MÃ©trica | Valor actual |\n|---|---|\n| Tokens ahorrados total | 11,600 |\n| Eficiencia promedio | 77% |\n| Tokens original (prom.) | 2,892 |\n| Tokens final (prom.) | 1,732 |\n| Mediciones | 10 |\n| Barra de compresiÃ³n | ~40% reducciÃ³n visual |\n\nLos cambios fueron:\n- [server.py:476-482](dashboard/server.py#L476-L482) - nueva funciÃ³n `_check_token_budget()` que llama a `get_token_stats()`\n- [server.py:608](dashboard/server.py#L608) - se agrega al endpoint `/api/status`\n- [index.html:141-158](dashboard/index.html#L141-L158) - nueva card visual con mÃ©tricas de tokens\n- [index.html](dashboard/index.html) - JS que actualiza la card cada 5 segundos con el auto-refresh",
+      "domain": "ML",
+      "source": "auto_save",
+      "tier": "hot",
+      "created_at": "2026-04-05T03:52:01.227779+00:00",
+      "last_access": "2026-04-05T03:52:01.227779+00:00",
+      "access_count": 0,
+      "promotion_count": 0
+    },
+    {
+      "key": "algo que actualizar en el instalador y o manuales tecnicos y de usuario?",
+      "value": "Todo compila correctamente. AquÃ­ el resumen de todo lo actualizado:\n\n## Resumen de actualizaciones\n\n### 1. [setup.py](installer/setup.py) (Instalador CLI)\n| Cambio | Antes | DespuÃ©s |\n|---|---|---|\n| VersiÃ³n | `1.0.0-fusion` | `2.3.0` |\n| Hooks | `UserMessage`, `Stop`, `ToolUse` | `UserPromptSubmit`, `Stop`, `SessionStart` |\n| Scripts referenciados | `on_user_message.py`, `on_session_end.py`, `on_tool_use.py` | `motor_ia_hook.py`, `motor_ia_post_hook.py`, `session_start.py` |\n| MCP Server | No se registraba | Se registra `motor-ia` en `mcpServers` |\n| Permisos | No se configuraban | `\"allow\": [\"*\"]` automÃ¡tico |\n\n### 2. [manual_usuario.html](installer/manual_usuario.html) (Manual de Usuario)\n| Cambio | Detalle |\n|---|---|\n| VersiÃ³n sidebar | v1.0 â†’ v2.3 |\n| 3 secciones nuevas | **5. Pipeline RAG HÃ­brido**, **6. Dashboard**, **7. MCP Tools** |\n| Diagrama arquitectura | Actualizado con ChromaDB, DuckDuckGo, ML, Dashboard |\n| Tabla de dominios | Expandida + nota de 70+ dominios y ",
+      "domain": "Internet 10% + ML 60%",
+      "source": "auto_save",
+      "tier": "hot",
+      "created_at": "2026-04-05T03:59:09.338512+00:00",
+      "last_access": "2026-04-05T03:59:09.338512+00:00",
+      "access_count": 0,
+      "promotion_count": 0
+    },
+    {
+      "key": "porque el log muestra esta url muy seguido HTTP Request: GET https://huggingface.co/ap",
+      "value": "Perfecto, carga sin ningÃºn HTTP a HuggingFace.\n\n## Resumen\n\nEl log mostraba `HTTP Request: GET https://huggingface.co/...` porque **cada vez** que `SentenceTransformer(\"all-MiniLM-L6-v2\")` se inicializaba, la librerÃ­a `huggingface-hub` hacÃ­a un request HTTP para verificar si habÃ­a una versiÃ³n nueva del modelo â€” aunque ya lo tenÃ­a en cache local.\n\n**Fix aplicado** en 2 archivos:\n\n| Archivo | Cambio |\n|---|---|\n| [vector_kb.py:42-43](core/vector_kb.py#L42-L43) | `HF_HUB_OFFLINE=1` + `TRANSFORMERS_OFFLINE=1` + silenciar loggers de httpx/huggingface |\n| [semantic_search.py:41-42](core/semantic_search.py#L41-L42) | `HF_HUB_OFFLINE=1` + `TRANSFORMERS_OFFLINE=1` |\n\nAmbos tienen **fallback**: si el modelo NO estÃ¡ en cache (primera vez), remueve las variables offline y descarga normalmente. DespuÃ©s de eso, nunca mÃ¡s toca HuggingFace.",
+      "domain": "ML 80%",
+      "source": "auto_save",
+      "tier": "hot",
+      "created_at": "2026-04-05T04:01:55.152966+00:00",
+      "last_access": "2026-04-05T04:01:55.152966+00:00",
+      "access_count": 0,
+      "promotion_count": 0
+    },
+    {
+      "key": "borra todos los datos de prueba utilizados",
+      "value": "Listo. Todo borrado:\n\n| Eliminado | Tipo |\n|---|---|\n| `tests/pipeline_real_results.json` | Resultados 50 casos reales |\n| `tests/pipeline_1000_real_results.json` | Resultados 1000 casos reales |\n| `tests/mega50_results.json` | Resultados mega-50 |\n| `core/locks/kb_test_results.lock` | Lock de pruebas |\n| `.pytest_cache/` | Cache de pytest |\n| `tests/__pycache__/` | Bytecode compilado de tests |\n| `knowledge/test/` | Dominio KB de prueba |\n| `knowledge/test_mega_50/` | Dominio KB mega-50 |\n| `knowledge/test_pattern_*` (x3) | Dominios KB de patrones test |\n| `knowledge/test_results/` | Dominio KB resultados |\n| `knowledge/tests/` | Dominio KB tests |\n| `knowledge/pruebas_reales/` | Dominio KB pruebas reales |\n| `knowledge/pytest_cache/` | Dominio KB pytest cache |\n\nLos archivos `.py` de los tests se conservan (son cÃ³digo, no datos).",
+      "domain": "ML",
+      "source": "auto_save",
+      "tier": "hot",
+      "created_at": "2026-04-05T04:04:11.201344+00:00",
+      "last_access": "2026-04-05T04:04:11.201344+00:00",
+      "access_count": 0,
+      "promotion_count": 0
+    },
+    {
+      "key": "algo que mas que este en este proyecto tipo basura que no ejecute nada es decir codigo muerto o que no sirve para la necesidad de este proyecto?",
+      "value": "Todo funciona. Resumen de la limpieza:\n\n## Limpieza completada\n\n### CÃ³digo muerto eliminado (Prioridad 1)\n| Archivo | RazÃ³n |\n|---|---|\n| `core/kb_api.py` | API REST nunca integrada, MCP server la reemplaza |\n| `core/multi_agent.py` | Feature incompleta, nunca importada |\n| `hooks/motor_ia_hook_legacy.py` | VersiÃ³n vieja, `motor_ia_hook.py` es la actual |\n\n### Backups y duplicados (Prioridad 2)\n| Eliminado | RazÃ³n |\n|---|---|\n| `knowledge/backups/` | Almacenamiento muerto |\n| `knowledge/deprecated/` | Entries obsoletas |\n| `knowledge/backup_asistente/` | Sistema legacy |\n| `knowledge/backup_ia/` | Snapshot viejo |\n| `knowledge/hooks_ia_backup_20260331_22050/` | Backup de hace 3 dÃ­as |\n| `dashboard_final/`, `dashboard_v2/` | Directorios vacÃ­os |\n| `dashboard/index.html.backup` | Copia redundante |\n| `dashboard/index_pro.html` | Copia redundante |\n\n### Artefactos runtime (Prioridad 3)\n| Eliminado | RazÃ³n |\n|---|---|\n| 13 archivos `.log` en `core/` | Logs de debug/test |\n| 6 direct",
+      "domain": "Internet 10% + ML 75%",
+      "source": "auto_save",
+      "tier": "hot",
+      "created_at": "2026-04-05T04:13:13.004771+00:00",
+      "last_access": "2026-04-05T04:13:13.004771+00:00",
+      "access_count": 0,
+      "promotion_count": 0
     }
   ],
   "warm": [
@@ -158,9 +213,9 @@
     }
   ],
   "cold": [],
-  "updated_at": "2026-04-05T03:43:25.136515+00:00",
+  "updated_at": "2026-04-05T04:13:13.004771+00:00",
   "counts": {
-    "hot": 3,
+    "hot": 8,
     "warm": 11,
     "cold": 0
   }
