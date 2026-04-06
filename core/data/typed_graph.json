@@ -911,6 +911,46 @@
       "properties": {},
       "created_at": "2026-04-06T19:44:19.408532+00:00",
       "updated_at": "2026-04-06T19:44:19.408532+00:00"
+    },
+    "maria.delp": {
+      "id": "maria.delp",
+      "type": "file",
+      "name": "maria.delp",
+      "properties": {},
+      "created_at": "2026-04-06T19:52:49.417311+00:00",
+      "updated_at": "2026-04-06T19:52:49.417311+00:00"
+    },
+    "redhat.com": {
+      "id": "redhat.com",
+      "type": "file",
+      "name": "redhat.com",
+      "properties": {},
+      "created_at": "2026-04-06T19:52:49.420318+00:00",
+      "updated_at": "2026-04-06T19:52:49.420318+00:00"
+    },
+    "src.outl": {
+      "id": "src.outl",
+      "type": "file",
+      "name": "src.outl",
+      "properties": {},
+      "created_at": "2026-04-06T19:54:15.198761+00:00",
+      "updated_at": "2026-04-06T19:54:15.198761+00:00"
+    },
+    "client.send": {
+      "id": "client.send",
+      "type": "file",
+      "name": "client.send",
+      "properties": {},
+      "created_at": "2026-04-06T19:54:15.203404+00:00",
+      "updated_at": "2026-04-06T19:54:15.203404+00:00"
+    },
+    "crear_correo_maria.py": {
+      "id": "crear_correo_maria.py",
+      "type": "file",
+      "name": "crear_correo_maria.py",
+      "properties": {},
+      "created_at": "2026-04-06T19:56:03.061337+00:00",
+      "updated_at": "2026-04-06T19:56:03.061337+00:00"
     }
   },
   "relations": [
@@ -2812,11 +2852,65 @@
       "context": "para hacer todo esto cuanto conocimiento tomaste del KB? del internet? del ML? en %",
       "created_at": "2026-04-06T19:44:19.414042+00:00",
       "updated_at": "2026-04-06T19:44:19.414042+00:00"
+    },
+    {
+      "source": "maria.delp",
+      "target": "redhat.com",
+      "type": "used_with",
+      "weight": 1.5,
+      "context": "ejecutarlo pero como te digo no vayas a enviar el correo",
+      "created_at": "2026-04-06T19:52:49.423929+00:00",
+      "updated_at": "2026-04-06T19:56:54.544657+00:00"
+    },
+    {
+      "source": "src.outl",
+      "target": "client.send",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pero no se abrio  nada en el outlook valida",
+      "created_at": "2026-04-06T19:54:15.207408+00:00",
+      "updated_at": "2026-04-06T19:54:15.207408+00:00"
+    },
+    {
+      "source": "src.outl",
+      "target": "maria.delp",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pero no se abrio  nada en el outlook valida",
+      "created_at": "2026-04-06T19:54:15.211920+00:00",
+      "updated_at": "2026-04-06T19:54:15.211920+00:00"
+    },
+    {
+      "source": "client.send",
+      "target": "maria.delp",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pero no se abrio  nada en el outlook valida",
+      "created_at": "2026-04-06T19:54:15.217428+00:00",
+      "updated_at": "2026-04-06T19:54:15.217428+00:00"
+    },
+    {
+      "source": "client.send",
+      "target": "redhat.com",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pero no se abrio  nada en el outlook valida",
+      "created_at": "2026-04-06T19:54:15.220935+00:00",
+      "updated_at": "2026-04-06T19:54:15.220935+00:00"
+    },
+    {
+      "source": "crear_correo_maria.py",
+      "target": "crear_correo_maria.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pero en el proyecto que te dije ya tienes como",
+      "created_at": "2026-04-06T19:56:03.066346+00:00",
+      "updated_at": "2026-04-06T19:56:03.066346+00:00"
     }
   ],
-  "updated_at": "2026-04-06T19:44:19.414042+00:00",
+  "updated_at": "2026-04-06T19:56:54.544657+00:00",
   "stats": {
-    "entities": 114,
-    "relations": 211
+    "entities": 119,
+    "relations": 217
   }
 }

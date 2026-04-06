@@ -32,6 +32,61 @@
       "last_access": "2026-04-06T19:50:26.066695+00:00",
       "access_count": 0,
       "promotion_count": 0
+    },
+    {
+      "key": "puedes redacatar el correo  puedes usar la logica de este proyecto C:\\Chance1\\IA\\IA_Correos  abrir el correo y escribirlo yo lo voy a enviar manualmente",
+      "value": "Perfecto. Ya entiendo la lÃ³gica del proyecto IA_Correos. Voy a redactar el correo a MarÃ­a del Pilar usando esa metodologÃ­a (profesional, claro, sin envÃ­o automÃ¡tico). AquÃ­ estÃ¡:\n\n---\n\n## **CORREO A REDACTAR (Borrador para Outlook)**\n\n**Para:** maria.delpilar@redhat.com  \n**Asunto:** Solicitud de cotizaciÃ³n - Licencias OpenShift Rosa para Banco de Guatemala (Proyecto VKCH)  \n**Tipo:** Nuevo correo (crear como borrador en Outlook)\n\n---\n\n### **Cuerpo del correo:**\n\n```\nEstimada MarÃ­a del Pilar,\n\nEspero te encuentres bien. Te escribo para actualizar sobre el proyecto de modernizaciÃ³n \nen infraestructura que estamos desarrollando en el Banco de Guatemala (Banco de Guatemala, \nproyecto VKCH - OpenShift en AWS Rosa).\n\nCONTEXTO DEL PROYECTO:\nEste es un proyecto que iniciamos hace aproximadamente un aÃ±o con actualizaciones recientes \nen el dimensionamiento tÃ©cnico. Ahora vamos a retomar la cotizaciÃ³n de licencias de \nRed Hat OpenShift con nuevos requisitos.\n\nSOLICITUD DE COTIZACIÃ“",
+      "domain": "Internet 10% + ML 60%",
+      "source": "auto_save",
+      "tier": "hot",
+      "created_at": "2026-04-06T19:52:49.408266+00:00",
+      "last_access": "2026-04-06T19:52:49.408266+00:00",
+      "access_count": 0,
+      "promotion_count": 0
+    },
+    {
+      "key": "pero no se abrio  nada en el outlook valida",
+      "value": "Claro, entiendo. Yo solo redactÃ© el **contenido del correo**, pero **no ejecutÃ© el cÃ³digo Python** para que se abra en Outlook como borrador.\n\nTienes 2 opciones:\n\n---\n\n## **OPCIÃ“N 1: Abrir automÃ¡ticamente en Outlook (requiere ejecutar Python)**\n\nNecesitas ejecutar este cÃ³digo en tu terminal:\n\n```bash\ncd C:\\Chance1\\IA\\IA_Correos\npython -c \"\nfrom src.outlook_com import OutlookClient\n\nwith OutlookClient() as client:\n    result = client.send_email(\n        to='maria.delpilar@redhat.com',\n        subject='Solicitud de cotizaciÃ³n - Licencias OpenShift Rosa para Banco de Guatemala (Proyecto VKCH)',\n        body='''Estimada MarÃ­a del Pilar,\n\nEspero te encuentres bien. Te escribo para actualizar sobre el proyecto de modernizaciÃ³n \nen infraestructura que estamos desarrollando en el Banco de Guatemala (Banco de Guatemala, \nproyecto VKCH - OpenShift en AWS Rosa).\n\nCONTEXTO DEL PROYECTO:\nEste es un proyecto que iniciamos hace aproximadamente un aÃ±o con actualizaciones recientes \nen el dim",
+      "domain": "Internet 20% + ML 10%",
+      "source": "auto_save",
+      "tier": "hot",
+      "created_at": "2026-04-06T19:54:15.186835+00:00",
+      "last_access": "2026-04-06T19:54:15.186835+00:00",
+      "access_count": 0,
+      "promotion_count": 0
+    },
+    {
+      "key": "opcion 1",
+      "value": "Perfecto. He creado el script listo para ejecutar. Ahora ejecuta esto en tu terminal (PowerShell o CMD):\n\n```bash\ncd C:\\Chance1\\IA\\IA_Correos\npython crear_correo_maria.py\n```\n\n**Requisitos antes de ejecutar:**\n\nâœ… **Outlook desktop clÃ¡sico debe estar ABIERTO** (no el Outlook nuevo de Windows)\n\nSi falta algo, ejecuta:\n```bash\npip install pywin32>=306\n```\n\n---\n\nCuando lo ejecutes, el borrador aparecerÃ¡ automÃ¡ticamente en la carpeta **Drafts** (Borradores) de Outlook. AllÃ­ podrÃ¡s:\n1. Revisarlo\n2. Ajustar si algo falta\n3. Enviarlo manualmente haciendo clic en **Send**\n\nÂ¿Lo ejecutas ahora o prefieres que lo hagas yo?",
+      "domain": "ML",
+      "source": "auto_save",
+      "tier": "hot",
+      "created_at": "2026-04-06T19:55:12.962219+00:00",
+      "last_access": "2026-04-06T19:55:12.962219+00:00",
+      "access_count": 0,
+      "promotion_count": 0
+    },
+    {
+      "key": "pero en el proyecto que te dije ya tienes como",
+      "value": "Tienes razÃ³n, disculpa. El proyecto IA_Correos ya tiene todo configurado. Lo mÃ¡s directo es ejecutar el script que acabo de crear. Simplemente abre tu terminal en Windows y ejecuta:\n\n```bash\ncd C:\\Chance1\\IA\\IA_Correos\npython crear_correo_maria.py\n```\n\n**Ese script usa la librerÃ­a OutlookClient que ya estÃ¡ en el proyecto**, asÃ­ que:\n- âœ… Outlook se abrirÃ¡ automÃ¡ticamente si no estÃ¡ abierto\n- âœ… El borrador se crearÃ¡ directamente en **Drafts**\n- âœ… PodrÃ¡s revisar y enviar manualmente desde Outlook\n\n**Si prefieres hacerlo mÃ¡s corto, usa directamente:**\n\n```bash\ncd C:\\Chance1\\IA\\IA_Correos && python crear_correo_maria.py\n```\n\nÂ¿Lo ejecutas?",
+      "domain": "ML",
+      "source": "auto_save",
+      "tier": "hot",
+      "created_at": "2026-04-06T19:56:03.051817+00:00",
+      "last_access": "2026-04-06T19:56:03.051817+00:00",
+      "access_count": 0,
+      "promotion_count": 0
+    },
+    {
+      "key": "ejecutarlo pero como te digo no vayas a enviar el correo",
+      "value": "âœ… **Â¡Listo!** El borrador se creÃ³ exitosamente en Outlook **sin enviar**.\n\n**Lo que sucediÃ³:**\n- âœ“ Correo a: `maria.delpilar@redhat.com`\n- âœ“ Asunto: `Solicitud de cotizaciÃ³n - Licencias OpenShift Rosa...`\n- âœ“ Guardado como **BORRADOR** en Outlook (no enviado)\n\n**Ahora:**\n1. Abre **Outlook desktop**\n2. Ve a la carpeta **Drafts** (Borradores)\n3. Busca el correo a MarÃ­a del Pilar\n4. Revisa el contenido\n5. Cuando estÃ© listo, haz clic en **Send** para enviarlo manualmente\n\nEl correo no se enviÃ³ automÃ¡ticamente, solo estÃ¡ esperando tu revisiÃ³n en Drafts.",
+      "domain": "ML",
+      "source": "auto_save",
+      "tier": "hot",
+      "created_at": "2026-04-06T19:56:54.534830+00:00",
+      "last_access": "2026-04-06T19:56:54.534830+00:00",
+      "access_count": 0,
+      "promotion_count": 0
     }
   ],
   "warm": [
@@ -434,9 +489,9 @@
       "promotion_count": 0
     }
   ],
-  "updated_at": "2026-04-06T19:50:26.066695+00:00",
+  "updated_at": "2026-04-06T19:56:54.534830+00:00",
   "counts": {
-    "hot": 3,
+    "hot": 8,
     "warm": 7,
     "cold": 29
   }
