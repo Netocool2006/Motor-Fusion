@@ -775,6 +775,126 @@
       "properties": {},
       "created_at": "2026-04-05T04:59:31.959097+00:00",
       "updated_at": "2026-04-05T04:59:31.959097+00:00"
+    },
+    "1.92": {
+      "id": "1.92",
+      "type": "file",
+      "name": "1.92",
+      "properties": {},
+      "created_at": "2026-04-06T15:28:07.941201+00:00",
+      "updated_at": "2026-04-06T15:28:07.941201+00:00"
+    },
+    "claude.ai": {
+      "id": "claude.ai",
+      "type": "file",
+      "name": "claude.ai",
+      "properties": {},
+      "created_at": "2026-04-06T15:28:07.945206+00:00",
+      "updated_at": "2026-04-06T15:28:07.945206+00:00"
+    },
+    "//claude.ai": {
+      "id": "//claude.ai",
+      "type": "file",
+      "name": "//claude.ai",
+      "properties": {},
+      "created_at": "2026-04-06T15:28:07.953167+00:00",
+      "updated_at": "2026-04-06T15:28:07.953167+00:00"
+    },
+    "V3.docx": {
+      "id": "V3.docx",
+      "type": "file",
+      "name": "V3.docx",
+      "properties": {},
+      "created_at": "2026-04-06T16:20:40.978224+00:00",
+      "updated_at": "2026-04-06T16:20:40.978224+00:00"
+    },
+    "2.docx": {
+      "id": "2.docx",
+      "type": "file",
+      "name": "2.docx",
+      "properties": {},
+      "created_at": "2026-04-06T16:20:40.980738+00:00",
+      "updated_at": "2026-04-06T16:20:40.980738+00:00"
+    },
+    "284.76": {
+      "id": "284.76",
+      "type": "file",
+      "name": "284.76",
+      "properties": {},
+      "created_at": "2026-04-06T16:27:42.822254+00:00",
+      "updated_at": "2026-04-06T16:27:42.822254+00:00"
+    },
+    "569.51": {
+      "id": "569.51",
+      "type": "file",
+      "name": "569.51",
+      "properties": {},
+      "created_at": "2026-04-06T16:27:42.826762+00:00",
+      "updated_at": "2026-04-06T16:27:42.826762+00:00"
+    },
+    "246.40": {
+      "id": "246.40",
+      "type": "file",
+      "name": "246.40",
+      "properties": {},
+      "created_at": "2026-04-06T16:35:58.812500+00:00",
+      "updated_at": "2026-04-06T16:35:58.812500+00:00"
+    },
+    "632.70": {
+      "id": "632.70",
+      "type": "file",
+      "name": "632.70",
+      "properties": {},
+      "created_at": "2026-04-06T16:35:58.818009+00:00",
+      "updated_at": "2026-04-06T16:35:58.818009+00:00"
+    },
+    "428.62": {
+      "id": "428.62",
+      "type": "file",
+      "name": "428.62",
+      "properties": {},
+      "created_at": "2026-04-06T16:35:58.827048+00:00",
+      "updated_at": "2026-04-06T16:35:58.827048+00:00"
+    },
+    "720.00": {
+      "id": "720.00",
+      "type": "file",
+      "name": "720.00",
+      "properties": {},
+      "created_at": "2026-04-06T16:35:58.841651+00:00",
+      "updated_at": "2026-04-06T16:35:58.841651+00:00"
+    },
+    "063.19": {
+      "id": "063.19",
+      "type": "file",
+      "name": "063.19",
+      "properties": {},
+      "created_at": "2026-04-06T16:35:58.866752+00:00",
+      "updated_at": "2026-04-06T16:35:58.866752+00:00"
+    },
+    "352.70": {
+      "id": "352.70",
+      "type": "file",
+      "name": "352.70",
+      "properties": {},
+      "created_at": "2026-04-06T16:35:58.881278+00:00",
+      "updated_at": "2026-04-06T16:35:58.881278+00:00"
+    },
+    "322.32": {
+      "id": "322.32",
+      "type": "file",
+      "name": "322.32",
+      "properties": {},
+      "created_at": "2026-04-06T16:35:58.896825+00:00",
+      "updated_at": "2026-04-06T16:35:58.896825+00:00"
+    },
+    "675.02": {
+      "id": "675.02",
+      "type": "file",
+      "name": "675.02",
+      "properties": {},
+      "created_at": "2026-04-06T16:35:58.910359+00:00",
+      "updated_at": "2026-04-06T16:35:58.910359+00:00"
     }
   },
   "relations": [
@@ -2487,11 +2607,191 @@
       "context": "no hay nada repetido en los kb verdad?",
       "created_at": "2026-04-05T04:59:31.962516+00:00",
       "updated_at": "2026-04-05T04:59:31.962516+00:00"
+    },
+    {
+      "source": "1.92",
+      "target": "claude.ai",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "me sale este error en claude cli  verifica si hay problemas locales  o con claude en este momento 06",
+      "created_at": "2026-04-06T15:28:07.949879+00:00",
+      "updated_at": "2026-04-06T15:28:07.949879+00:00"
+    },
+    {
+      "source": "1.92",
+      "target": "//claude.ai",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "me sale este error en claude cli  verifica si hay problemas locales  o con claude en este momento 06",
+      "created_at": "2026-04-06T15:28:07.957174+00:00",
+      "updated_at": "2026-04-06T15:28:07.957174+00:00"
+    },
+    {
+      "source": "claude.ai",
+      "target": "//claude.ai",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "me sale este error en claude cli  verifica si hay problemas locales  o con claude en este momento 06",
+      "created_at": "2026-04-06T15:28:07.961179+00:00",
+      "updated_at": "2026-04-06T15:28:07.961179+00:00"
+    },
+    {
+      "source": "V3.docx",
+      "target": "2.docx",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-06T16:20:40.984872+00:00",
+      "updated_at": "2026-04-06T16:20:40.984872+00:00"
+    },
+    {
+      "source": "284.76",
+      "target": "569.51",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "@C:\\Chance1\\Clientes\\Banco G&T\\PostgresSQL CE\\Propuesta de PostgreSQL CE On Prem Horas - Banco GyT V",
+      "created_at": "2026-04-06T16:27:42.830276+00:00",
+      "updated_at": "2026-04-06T16:27:42.830276+00:00"
+    },
+    {
+      "source": "246.40",
+      "target": "632.70",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "validaste el documento  final?",
+      "created_at": "2026-04-06T16:35:58.823030+00:00",
+      "updated_at": "2026-04-06T16:35:58.823030+00:00"
+    },
+    {
+      "source": "246.40",
+      "target": "428.62",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "validaste el documento  final?",
+      "created_at": "2026-04-06T16:35:58.832569+00:00",
+      "updated_at": "2026-04-06T16:35:58.832569+00:00"
+    },
+    {
+      "source": "632.70",
+      "target": "428.62",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "validaste el documento  final?",
+      "created_at": "2026-04-06T16:35:58.837078+00:00",
+      "updated_at": "2026-04-06T16:35:58.837078+00:00"
+    },
+    {
+      "source": "632.70",
+      "target": "720.00",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "validaste el documento  final?",
+      "created_at": "2026-04-06T16:35:58.847159+00:00",
+      "updated_at": "2026-04-06T16:35:58.847159+00:00"
+    },
+    {
+      "source": "428.62",
+      "target": "720.00",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "validaste el documento  final?",
+      "created_at": "2026-04-06T16:35:58.853201+00:00",
+      "updated_at": "2026-04-06T16:35:58.853201+00:00"
+    },
+    {
+      "source": "428.62",
+      "target": "569.51",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "validaste el documento  final?",
+      "created_at": "2026-04-06T16:35:58.857710+00:00",
+      "updated_at": "2026-04-06T16:35:58.857710+00:00"
+    },
+    {
+      "source": "720.00",
+      "target": "569.51",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "validaste el documento  final?",
+      "created_at": "2026-04-06T16:35:58.862221+00:00",
+      "updated_at": "2026-04-06T16:35:58.862221+00:00"
+    },
+    {
+      "source": "720.00",
+      "target": "063.19",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "validaste el documento  final?",
+      "created_at": "2026-04-06T16:35:58.871261+00:00",
+      "updated_at": "2026-04-06T16:35:58.871261+00:00"
+    },
+    {
+      "source": "569.51",
+      "target": "063.19",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "validaste el documento  final?",
+      "created_at": "2026-04-06T16:35:58.876264+00:00",
+      "updated_at": "2026-04-06T16:35:58.876264+00:00"
+    },
+    {
+      "source": "569.51",
+      "target": "352.70",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "validaste el documento  final?",
+      "created_at": "2026-04-06T16:35:58.886797+00:00",
+      "updated_at": "2026-04-06T16:35:58.886797+00:00"
+    },
+    {
+      "source": "063.19",
+      "target": "352.70",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "validaste el documento  final?",
+      "created_at": "2026-04-06T16:35:58.891312+00:00",
+      "updated_at": "2026-04-06T16:35:58.891312+00:00"
+    },
+    {
+      "source": "063.19",
+      "target": "322.32",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "validaste el documento  final?",
+      "created_at": "2026-04-06T16:35:58.901339+00:00",
+      "updated_at": "2026-04-06T16:35:58.901339+00:00"
+    },
+    {
+      "source": "352.70",
+      "target": "322.32",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "validaste el documento  final?",
+      "created_at": "2026-04-06T16:35:58.905852+00:00",
+      "updated_at": "2026-04-06T16:35:58.905852+00:00"
+    },
+    {
+      "source": "352.70",
+      "target": "675.02",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "validaste el documento  final?",
+      "created_at": "2026-04-06T16:35:58.915872+00:00",
+      "updated_at": "2026-04-06T16:35:58.915872+00:00"
+    },
+    {
+      "source": "322.32",
+      "target": "675.02",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "validaste el documento  final?",
+      "created_at": "2026-04-06T16:35:58.920884+00:00",
+      "updated_at": "2026-04-06T16:35:58.920884+00:00"
     }
   ],
-  "updated_at": "2026-04-05T04:59:31.962516+00:00",
+  "updated_at": "2026-04-06T16:35:58.921389+00:00",
   "stats": {
-    "entities": 97,
-    "relations": 190
+    "entities": 112,
+    "relations": 210
   }
 }

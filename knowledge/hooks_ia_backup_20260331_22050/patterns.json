@@ -1,10 +1,60 @@
 {
   "domain": "hooks_ia_backup_20260331_22050",
   "description": "Dominio auto-creado: hooks_ia_backup_20260331_22050",
-  "entries": {},
-  "tag_index": {},
+  "entries": {
+    "fc0947920514": {
+      "id": "fc0947920514",
+      "type": "pattern",
+      "key": "session_auto_20260406_090610",
+      "solution": {
+        "strategy": "auto_captured_from_session",
+        "notes": "Interacciones clave:\n  P: porque el log muestra esta url muy seguido HTTP Request: GET https://huggingface.co/ap\n  R:   Esa URL es de **HuggingFace** — es ChromaDB descargando el modelo de embeddings `all-MiniLM-L6-v2` cada vez que se inicializa. Déjame verificar dónd\n  P: encontraste muy poco de esto no hay mas?  Dominio\tEntradas previas\tNuevas\tTotal nuevas ia_excel\t0\t8\t\n  R:   Tenés razón, fue poco. Voy a buscar masivamente y alimentar fuerte cada dominio.\nResumen: si procede tu ya conoces que tiene los KB pudes armar 1000 casos reales no simulacion quiero tal cual el sistema usandose  para que el 20% se quede en -> [Request interrupted by user for tool use] -> \nEditados: web_search.py, test_1000_pipeline_real.py, regression_test.py, config.py, server.py, index.html, setup.py, manual_usuario.html\nCreados: test_1000_pipeline_real.py, README.md, ingest_from_disk.py\nDecisiones: usar 3 agentes en paralelo para generar las diferentes secciones.; lo que encontré como problemas reales:; leer los archivos del dashboard para implementarlo.; conectar `get_token_stats()` al dashboard en 3 puntos:; hacer el análisis y las correcciones.\nErrores resueltos: The user doesn't want to proceed with this tool use. The tool use was rejected (; File content (11511 tokens) exceeds maximum allowed tokens (10000). Use offset a; File content (14294 tokens) exceeds maximum allowed tokens (10000). Use offset a",
+        "auto_learned": true,
+        "source": "hook_session_end",
+        "files_touched": [
+          "C:\\Hooks_IA\\core\\web_search.py",
+          "C:\\Hooks_IA\\tests\\test_1000_pipeline_real.py",
+          "C:\\Hooks_IA\\tests\\regression_test.py",
+          "C:\\Hooks_IA\\config.py",
+          "C:\\Hooks_IA\\dashboard\\server.py",
+          "C:\\Hooks_IA\\dashboard\\index.html",
+          "C:\\Hooks_IA\\installer\\setup.py",
+          "C:\\Hooks_IA\\installer\\manual_usuario.html",
+          "C:\\Hooks_IA\\installer\\installer_gui.py",
+          "C:\\Hooks_IA\\core\\vector_kb.py"
+        ],
+        "domain_detected": "hooks_ia_backup_20260331_22050"
+      },
+      "tags": [
+        "auto-learned",
+        "session",
+        "hooks_ia_backup_20260331_22050"
+      ],
+      "error_context": null,
+      "created_at": "2026-04-06T15:06:10.113912+00:00",
+      "updated_at": "2026-04-06T15:06:10.113912+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-04-06T15:06:10.113912+00:00",
+        "access_count": 0
+      }
+    }
+  },
+  "tag_index": {
+    "auto-learned": [
+      "fc0947920514"
+    ],
+    "session": [
+      "fc0947920514"
+    ],
+    "hooks_ia_backup_20260331_22050": [
+      "fc0947920514"
+    ]
+  },
   "stats": {
-    "total_entries": 0,
+    "total_entries": 1,
     "total_lookups": 2,
     "total_hits": 0
   }
