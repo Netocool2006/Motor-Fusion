@@ -110,6 +110,13 @@ def ask_kb(query):
             log.info("Vector KB empty, no results")
             return {"answer": "", "raw": None, "found": False, "source": "vector_kb"}
 
+        # Validar que query sea string válido
+        if not isinstance(query, str):
+            query = str(query) if query is not None else ""
+        query = query.strip()
+        if not query:
+            return {"answer": "", "raw": None, "found": False, "source": "vector_kb"}
+
         embedder = _get_embedder()
         query_embedding = embedder.encode([query], show_progress_bar=False).tolist()
 
@@ -205,6 +212,20 @@ def save_to_kb(query, answer, source="ML"):
         timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         doc_id = f"learned_{int(datetime.now().timestamp())}"
 
+        # Validar que query y answer sean strings válidos
+        if not isinstance(query, str):
+            query = str(query) if query is not None else ""
+        if not isinstance(answer, str):
+            answer = str(answer) if answer is not None else ""
+
+        # Limpiar strings vacíos o muy cortos
+        query = query.strip()
+        answer = answer.strip()
+
+        if not query or not answer:
+            log.warning(f"Skipping empty query or answer: query={bool(query)}, answer={bool(answer)}")
+            return None
+
         # El documento es la pregunta + respuesta
         full_text = f"Pregunta: {query}\nRespuesta: {answer}"
 
@@ -241,6 +262,15 @@ def save_session_summary(summary):
 
         timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         doc_id = f"session_{int(datetime.now().timestamp())}"
+
+        # Validar que summary sea string válido
+        if not isinstance(summary, str):
+            summary = str(summary) if summary is not None else ""
+
+        summary = summary.strip()
+        if not summary:
+            log.warning("Skipping empty session summary")
+            return None
 
         embedding = embedder.encode([summary], show_progress_bar=False).tolist()
 
@@ -334,7 +364,16 @@ def index_knowledge_base():
                     except Exception:
                         pass
 
-                    embedding = embedder.encode([chunk["text"]], show_progress_bar=False).tolist()
+                    # Validar texto del chunk
+                    text = chunk.get("text", "")
+                    if not isinstance(text, str):
+                        text = str(text) if text is not None else ""
+                    text = text.strip()
+                    if not text:
+                        skipped += 1
+                        continue
+
+                    embedding = embedder.encode([text], show_progress_bar=False).tolist()
                     collection.add(
                         ids=[doc_id],
                         embeddings=embedding,
@@ -370,7 +409,16 @@ def index_knowledge_base():
                     except Exception:
                         pass
 
-                    embedding = embedder.encode([chunk["text"]], show_progress_bar=False).tolist()
+                    # Validar texto del chunk
+                    text = chunk.get("text", "")
+                    if not isinstance(text, str):
+                        text = str(text) if text is not None else ""
+                    text = text.strip()
+                    if not text:
+                        skipped += 1
+                        continue
+
+                    embedding = embedder.encode([text], show_progress_bar=False).tolist()
                     collection.add(
                         ids=[doc_id],
                         embeddings=embedding,
