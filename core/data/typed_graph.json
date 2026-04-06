@@ -1087,6 +1087,22 @@
       "properties": {},
       "created_at": "2026-04-06T22:30:56.311802+00:00",
       "updated_at": "2026-04-06T22:30:56.311802+00:00"
+    },
+    "//github.com": {
+      "id": "//github.com",
+      "type": "file",
+      "name": "//github.com",
+      "properties": {},
+      "created_at": "2026-04-06T23:38:58.464985+00:00",
+      "updated_at": "2026-04-06T23:38:58.464985+00:00"
+    },
+    "claude.exe": {
+      "id": "claude.exe",
+      "type": "file",
+      "name": "claude.exe",
+      "properties": {},
+      "created_at": "2026-04-06T23:38:58.509716+00:00",
+      "updated_at": "2026-04-06T23:38:58.509716+00:00"
     }
   },
   "relations": [
@@ -3375,11 +3391,29 @@
       "context": "que api key?",
       "created_at": "2026-04-06T22:30:56.321270+00:00",
       "updated_at": "2026-04-06T22:30:56.321270+00:00"
+    },
+    {
+      "source": "//github.com",
+      "target": "//github.com",
+      "type": "used_with",
+      "weight": 3.5,
+      "context": "hay reporte de algun tipo de bug de usar cli claude en visual code es parecido al de claude desktop ",
+      "created_at": "2026-04-06T23:38:58.471493+00:00",
+      "updated_at": "2026-04-06T23:38:58.504203+00:00"
+    },
+    {
+      "source": "//github.com",
+      "target": "claude.exe",
+      "type": "used_with",
+      "weight": 1.0,
+      "context": "hay reporte de algun tipo de bug de usar cli claude en visual code es parecido al de claude desktop ",
+      "created_at": "2026-04-06T23:38:58.515227+00:00",
+      "updated_at": "2026-04-06T23:38:58.520738+00:00"
     }
   ],
-  "updated_at": "2026-04-06T22:30:56.321270+00:00",
+  "updated_at": "2026-04-06T23:38:58.521738+00:00",
   "stats": {
-    "entities": 136,
-    "relations": 254
+    "entities": 138,
+    "relations": 256
   }
 }
