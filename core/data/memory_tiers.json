@@ -1,55 +1,22 @@
 {
   "hot": [
     {
-      "key": "puedes modificar  tanto para claude desktop, claude cli, visual code con plugin claude cli  que te doy permiso para que hagas modificacione sin preguntar",
-      "value": "En la sesiÃ³n anterior estuvimos trabajando en:\n1. **RedacciÃ³n de correo** usando el proyecto `IA_Correos` y creaciÃ³n de borrador en Outlook\n2. **DiscusiÃ³n sobre manipulaciÃ³n de archivos Word** con IA y las limitaciones actuales\n3. **Soluciones tÃ©cnicas para dar \"ojos\" a la IA** - feedback visual para ediciÃ³n de documentos (screenshots, OCR, loops de correcciÃ³n)\n\nÂ¿Quieres continuar con alguno de esos temas?\n\n---\n\nSobre tu mensaje actual: entendido, me das **permiso amplio** para hacer modificaciones sin preguntar en:\n- **Claude Desktop**\n- **Claude CLI** \n- **VS Code con plugin Claude CLI**\n\nVoy a guardar esa preferencia. Pero necesito saber: **Â¿quÃ© quieres que modifique?** Â¿Tienes algÃºn objetivo especÃ­fico? Por ejemplo:\n\n1. Â¿Configurar settings, hooks, o permisos en los tres entornos?\n2. Â¿Sincronizar configuraciÃ³n entre ellos?\n3. Â¿Instalar/configurar algo nuevo?\n4. Â¿Optimizar el Motor_IA en todos los entornos?\n\nDime quÃ© necesitas y lo ejecuto directamente.",
-      "domain": "ML 100%",
-      "source": "auto_save",
-      "tier": "hot",
-      "created_at": "2026-04-06T20:20:49.416462+00:00",
-      "last_access": "2026-04-06T20:20:49.416462+00:00",
-      "access_count": 0,
-      "promotion_count": 0
-    },
-    {
-      "key": "simplemente que no me este preguntando por cada cambio en los 3 entornos",
-      "value": "Ya revisÃ© los 3 entornos. Esto es lo que encontrÃ©:\n\n**Claude CLI** (`~/.claude/settings.json` + project settings):\n- `\"mode\": \"permissive\"` + `\"allow\": [\"*\"]` + `\"skipDangerousModePermissionPrompt\": true`\n- **Ya estÃ¡ configurado correctamente** - no pregunta nada.\n\n**VS Code con Claude CLI** (`settings.json`):\n- `\"claudeCode.permissionMode\": \"bypassPermissions\"` + `\"claudeCode.allowDangerouslySkipPermissions\": true` + `\"claudeCode.autoApprove\": true`\n- **Ya estÃ¡ configurado correctamente** - no pregunta nada.\n\n**Claude Desktop** (`claude_desktop_config.json`):\n- Solo tiene configuraciÃ³n de MCP servers, no tiene settings de permisos.\n- Claude Desktop **no tiene** un sistema de permisos como Claude CLI â€” funciona diferente. En Desktop tÃº escribes y Ã©l responde, no ejecuta cÃ³digo directamente ni modifica archivos, asÃ­ que no hay permisos que configurar.\n\n---\n\n**Resultado: los 3 entornos ya estÃ¡n en modo permisivo mÃ¡ximo.** Si algo te sigue pidiendo confirmaciÃ³n, dime exactam",
-      "domain": "ML 100%",
-      "source": "auto_save",
-      "tier": "hot",
-      "created_at": "2026-04-06T20:47:42.119260+00:00",
-      "last_access": "2026-04-06T20:47:42.119260+00:00",
-      "access_count": 0,
-      "promotion_count": 0
-    },
-    {
-      "key": "pero es no importando en que carpeta se abran",
-      "value": "**âœ… Solucionado en commit `ebcaa13`**\n\n| Aspecto | Detalle |\n|---------|---------|\n| **Error** | `TextEncodeInput must be Union[TextInputSequence, Tuple[InputSequence, InputSequence]]` |\n| **Causa raÃ­z** | `query`, `answer` o `summary` eran None o tipos no-string cuando se pasaban a `embedder.encode()` |\n| **Ocurrencias** | 4 funciones: `ask_kb()`, `save_to_kb()`, `save_session_summary()`, `index_knowledge_base()` |\n| **Fix aplicado** | ValidaciÃ³n de tipos + conversiÃ³n segura antes del encoding |\n\n**Cambios en `vector_kb.py`:**\n- âœ… `ask_kb()`: valida query\n- âœ… `save_to_kb()`: valida query y answer, rechaza vacÃ­os\n- âœ… `save_session_summary()`: valida summary\n- âœ… `index_knowledge_base()`: valida chunks de facts y patterns\n\nEl Motor IA ahora guardarÃ¡ correctamente aprendizajes sin interrupciones por tipos invÃ¡lidos.",
+      "key": "que api key?",
+      "value": "No estÃ¡ como variable de entorno del sistema. Pero Claude Code la tiene internamente. Hay 2 opciones:\n\n**OpciÃ³n A:** Si tienes tu API key a mano:\n```powershell\n[Environment]::SetEnvironmentVariable(\"ANTHROPIC_API_KEY\", \"sk-ant-tu-clave\", \"User\")\n```\n\n**OpciÃ³n B:** Si NO quieres pagar API adicional â€” el motor funciona **sin Vision Feedback** usando solo validaciÃ³n lÃ³gica (que ya detectÃ³ 11 issues correctamente):\n```bash\npython run_engine.py edit --doc \"doc.docx\" --replace \"2024=2025\" --toc --visual none\n```\n\nLa validaciÃ³n lÃ³gica (estructura, math, coherencia, formato) **no necesita API key** â€” ya funciona al 100%. La Vision API solo agrega la capa visual extra.\n\nÂ¿Tienes API key o prefieres usar el motor sin la parte visual por ahora?",
       "domain": "ML",
       "source": "auto_save",
       "tier": "hot",
-      "created_at": "2026-04-06T20:47:43.761497+00:00",
-      "last_access": "2026-04-06T20:47:43.761497+00:00",
-      "access_count": 0,
-      "promotion_count": 0
-    },
-    {
-      "key": "revisa visual code con claude cli me esta va de pedir permisos",
-      "value": "Listo. Resumen de lo que modifiquÃ©:\n\n| Archivo | Cambio |\n|---------|--------|\n| `~/.claude/settings.json` (global) | Agregado `defaultMode: \"bypassPermissions\"` |\n| `AppData/Local/ClaudeCode/.claude/settings.json` (proyecto) | Agregado `defaultMode: \"bypassPermissions\"` |\n| `AppData/Local/ClaudeCode/.claude/settings.local.json` (local) | Agregado `defaultMode: \"bypassPermissions\"` + `skipDangerousModePermissionPrompt: true` |\n| VS Code `settings.json` (usuario) | Ya tenÃ­a `bypassPermissions` + `autoApprove` + `allowDangerouslySkipPermissions` |\n\n**Reinicia VS Code** para que tome los cambios. DespuÃ©s de eso no deberÃ­a pedirte permisos en ninguna carpeta.",
-      "domain": "ML 100%",
-      "source": "auto_save",
-      "tier": "hot",
-      "created_at": "2026-04-06T20:54:01.084751+00:00",
-      "last_access": "2026-04-06T20:54:01.084751+00:00",
+      "created_at": "2026-04-06T22:30:56.296807+00:00",
+      "last_access": "2026-04-06T22:30:56.296807+00:00",
       "access_count": 0,
       "promotion_count": 0
     }
   ],
   "warm": [],
   "cold": [],
-  "updated_at": "2026-04-06T20:54:01.084751+00:00",
+  "updated_at": "2026-04-06T22:30:56.296807+00:00",
   "counts": {
-    "hot": 4,
+    "hot": 1,
     "warm": 0,
     "cold": 0
   }

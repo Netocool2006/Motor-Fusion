@@ -991,6 +991,102 @@
       "properties": {},
       "created_at": "2026-04-06T20:47:43.781637+00:00",
       "updated_at": "2026-04-06T20:47:43.781637+00:00"
+    },
+    "src/vision_feedback.py": {
+      "id": "src/vision_feedback.py",
+      "type": "file",
+      "name": "src/vision_feedback.py",
+      "properties": {},
+      "created_at": "2026-04-06T21:17:32.838227+00:00",
+      "updated_at": "2026-04-06T21:17:32.838227+00:00"
+    },
+    "capture_and_analyze.py": {
+      "id": "capture_and_analyze.py",
+      "type": "file",
+      "name": "capture_and_analyze.py",
+      "properties": {},
+      "created_at": "2026-04-06T21:17:32.843245+00:00",
+      "updated_at": "2026-04-06T21:17:32.843245+00:00"
+    },
+    "example_edit_with_validation.py": {
+      "id": "example_edit_with_validation.py",
+      "type": "file",
+      "name": "example_edit_with_validation.py",
+      "properties": {},
+      "created_at": "2026-04-06T21:17:32.852553+00:00",
+      "updated_at": "2026-04-06T21:17:32.852553+00:00"
+    },
+    "VISION_FEEDBACK_SETUP.md": {
+      "id": "VISION_FEEDBACK_SETUP.md",
+      "type": "file",
+      "name": "VISION_FEEDBACK_SETUP.md",
+      "properties": {},
+      "created_at": "2026-04-06T21:17:32.867146+00:00",
+      "updated_at": "2026-04-06T21:17:32.867146+00:00"
+    },
+    "requirements.txt": {
+      "id": "requirements.txt",
+      "type": "file",
+      "name": "requirements.txt",
+      "properties": {},
+      "created_at": "2026-04-06T21:17:32.880907+00:00",
+      "updated_at": "2026-04-06T21:17:32.880907+00:00"
+    },
+    "src.visi": {
+      "id": "src.visi",
+      "type": "file",
+      "name": "src.visi",
+      "properties": {},
+      "created_at": "2026-04-06T21:24:42.007832+00:00",
+      "updated_at": "2026-04-06T21:24:42.007832+00:00"
+    },
+    "V5.docx": {
+      "id": "V5.docx",
+      "type": "file",
+      "name": "V5.docx",
+      "properties": {},
+      "created_at": "2026-04-06T21:24:42.049021+00:00",
+      "updated_at": "2026-04-06T21:24:42.049021+00:00"
+    },
+    "\\temp\\validation.png": {
+      "id": "\\temp\\validation.png",
+      "type": "file",
+      "name": "\\temp\\validation.png",
+      "properties": {},
+      "created_at": "2026-04-06T22:16:36.244985+00:00",
+      "updated_at": "2026-04-06T22:16:36.244985+00:00"
+    },
+    "anthropic.Anth": {
+      "id": "anthropic.Anth",
+      "type": "file",
+      "name": "anthropic.Anth",
+      "properties": {},
+      "created_at": "2026-04-06T22:16:40.297371+00:00",
+      "updated_at": "2026-04-06T22:16:40.297371+00:00"
+    },
+    "run_engine.py": {
+      "id": "run_engine.py",
+      "type": "file",
+      "name": "run_engine.py",
+      "properties": {},
+      "created_at": "2026-04-06T22:16:40.303834+00:00",
+      "updated_at": "2026-04-06T22:16:40.303834+00:00"
+    },
+    "documento.docx": {
+      "id": "documento.docx",
+      "type": "file",
+      "name": "documento.docx",
+      "properties": {},
+      "created_at": "2026-04-06T22:16:40.321347+00:00",
+      "updated_at": "2026-04-06T22:16:40.321347+00:00"
+    },
+    "doc.docx": {
+      "id": "doc.docx",
+      "type": "file",
+      "name": "doc.docx",
+      "properties": {},
+      "created_at": "2026-04-06T22:30:56.311802+00:00",
+      "updated_at": "2026-04-06T22:30:56.311802+00:00"
     }
   },
   "relations": [
@@ -3090,11 +3186,200 @@
       "context": "revisa visual code con claude cli me esta va de pedir permisos",
       "created_at": "2026-04-06T20:54:01.159073+00:00",
       "updated_at": "2026-04-06T20:54:01.159073+00:00"
+    },
+    {
+      "source": "src/vision_feedback.py",
+      "target": "capture_and_analyze.py",
+      "type": "used_with",
+      "weight": 1.0,
+      "context": "realiza los 3   OpciÃ³n\tComplejidad\tFiabilidad\tTiempo setup\n1. Vision API + screenshot\tBaja\tAlta\t1 h",
+      "created_at": "2026-04-06T21:17:32.848032+00:00",
+      "updated_at": "2026-04-06T21:24:41.939951+00:00"
+    },
+    {
+      "source": "src/vision_feedback.py",
+      "target": "example_edit_with_validation.py",
+      "type": "used_with",
+      "weight": 1.0,
+      "context": "realiza los 3   OpciÃ³n\tComplejidad\tFiabilidad\tTiempo setup\n1. Vision API + screenshot\tBaja\tAlta\t1 h",
+      "created_at": "2026-04-06T21:17:32.857074+00:00",
+      "updated_at": "2026-04-06T21:24:41.947021+00:00"
+    },
+    {
+      "source": "capture_and_analyze.py",
+      "target": "example_edit_with_validation.py",
+      "type": "used_with",
+      "weight": 1.0,
+      "context": "realiza los 3   OpciÃ³n\tComplejidad\tFiabilidad\tTiempo setup\n1. Vision API + screenshot\tBaja\tAlta\t1 h",
+      "created_at": "2026-04-06T21:17:32.861082+00:00",
+      "updated_at": "2026-04-06T21:24:41.953043+00:00"
+    },
+    {
+      "source": "capture_and_analyze.py",
+      "target": "VISION_FEEDBACK_SETUP.md",
+      "type": "used_with",
+      "weight": 1.0,
+      "context": "realiza los 3   OpciÃ³n\tComplejidad\tFiabilidad\tTiempo setup\n1. Vision API + screenshot\tBaja\tAlta\t1 h",
+      "created_at": "2026-04-06T21:17:32.871171+00:00",
+      "updated_at": "2026-04-06T21:24:41.964038+00:00"
+    },
+    {
+      "source": "example_edit_with_validation.py",
+      "target": "VISION_FEEDBACK_SETUP.md",
+      "type": "used_with",
+      "weight": 1.0,
+      "context": "realiza los 3   OpciÃ³n\tComplejidad\tFiabilidad\tTiempo setup\n1. Vision API + screenshot\tBaja\tAlta\t1 h",
+      "created_at": "2026-04-06T21:17:32.876585+00:00",
+      "updated_at": "2026-04-06T21:24:41.971123+00:00"
+    },
+    {
+      "source": "example_edit_with_validation.py",
+      "target": "requirements.txt",
+      "type": "used_with",
+      "weight": 1.0,
+      "context": "realiza los 3   OpciÃ³n\tComplejidad\tFiabilidad\tTiempo setup\n1. Vision API + screenshot\tBaja\tAlta\t1 h",
+      "created_at": "2026-04-06T21:17:32.884928+00:00",
+      "updated_at": "2026-04-06T21:24:41.978880+00:00"
+    },
+    {
+      "source": "VISION_FEEDBACK_SETUP.md",
+      "target": "requirements.txt",
+      "type": "used_with",
+      "weight": 1.5,
+      "context": "realiza los 3   OpciÃ³n\tComplejidad\tFiabilidad\tTiempo setup\n1. Vision API + screenshot\tBaja\tAlta\t1 h",
+      "created_at": "2026-04-06T21:17:32.888937+00:00",
+      "updated_at": "2026-04-06T21:24:41.995187+00:00"
+    },
+    {
+      "source": "requirements.txt",
+      "target": "requirements.txt",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "realiza los 3   OpciÃ³n\tComplejidad\tFiabilidad\tTiempo setup\n1. Vision API + screenshot\tBaja\tAlta\t1 h",
+      "created_at": "2026-04-06T21:24:42.001274+00:00",
+      "updated_at": "2026-04-06T21:24:42.001274+00:00"
+    },
+    {
+      "source": "requirements.txt",
+      "target": "src.visi",
+      "type": "used_with",
+      "weight": 1.0,
+      "context": "realiza los 3   OpciÃ³n\tComplejidad\tFiabilidad\tTiempo setup\n1. Vision API + screenshot\tBaja\tAlta\t1 h",
+      "created_at": "2026-04-06T21:24:42.016970+00:00",
+      "updated_at": "2026-04-06T21:24:42.025606+00:00"
+    },
+    {
+      "source": "requirements.txt",
+      "target": "capture_and_analyze.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "realiza los 3   OpciÃ³n\tComplejidad\tFiabilidad\tTiempo setup\n1. Vision API + screenshot\tBaja\tAlta\t1 h",
+      "created_at": "2026-04-06T21:24:42.033257+00:00",
+      "updated_at": "2026-04-06T21:24:42.033257+00:00"
+    },
+    {
+      "source": "src.visi",
+      "target": "capture_and_analyze.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "realiza los 3   OpciÃ³n\tComplejidad\tFiabilidad\tTiempo setup\n1. Vision API + screenshot\tBaja\tAlta\t1 h",
+      "created_at": "2026-04-06T21:24:42.040892+00:00",
+      "updated_at": "2026-04-06T21:24:42.040892+00:00"
+    },
+    {
+      "source": "src.visi",
+      "target": "V5.docx",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "realiza los 3   OpciÃ³n\tComplejidad\tFiabilidad\tTiempo setup\n1. Vision API + screenshot\tBaja\tAlta\t1 h",
+      "created_at": "2026-04-06T21:24:42.057082+00:00",
+      "updated_at": "2026-04-06T21:24:42.057082+00:00"
+    },
+    {
+      "source": "capture_and_analyze.py",
+      "target": "V5.docx",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "realiza los 3   OpciÃ³n\tComplejidad\tFiabilidad\tTiempo setup\n1. Vision API + screenshot\tBaja\tAlta\t1 h",
+      "created_at": "2026-04-06T21:24:42.064062+00:00",
+      "updated_at": "2026-04-06T21:24:42.064062+00:00"
+    },
+    {
+      "source": "\\temp\\validation.png",
+      "target": "\\temp\\validation.png",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "y si haces un bridge  para para usar mi user y password pero para la parte visual sea un api key",
+      "created_at": "2026-04-06T22:16:36.250225+00:00",
+      "updated_at": "2026-04-06T22:16:36.250225+00:00"
+    },
+    {
+      "source": "anthropic.Anth",
+      "target": "run_engine.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "no tengo api key pago el plan max de antropic claude",
+      "created_at": "2026-04-06T22:16:40.311843+00:00",
+      "updated_at": "2026-04-06T22:16:40.311843+00:00"
+    },
+    {
+      "source": "anthropic.Anth",
+      "target": "documento.docx",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "no tengo api key pago el plan max de antropic claude",
+      "created_at": "2026-04-06T22:16:40.329249+00:00",
+      "updated_at": "2026-04-06T22:16:40.329249+00:00"
+    },
+    {
+      "source": "run_engine.py",
+      "target": "documento.docx",
+      "type": "used_with",
+      "weight": 1.5,
+      "context": "no tengo api key pago el plan max de antropic claude",
+      "created_at": "2026-04-06T22:16:40.338101+00:00",
+      "updated_at": "2026-04-06T22:16:40.410068+00:00"
+    },
+    {
+      "source": "run_engine.py",
+      "target": "run_engine.py",
+      "type": "used_with",
+      "weight": 1.0,
+      "context": "no tengo api key pago el plan max de antropic claude",
+      "created_at": "2026-04-06T22:16:40.347541+00:00",
+      "updated_at": "2026-04-06T22:16:40.380448+00:00"
+    },
+    {
+      "source": "documento.docx",
+      "target": "run_engine.py",
+      "type": "used_with",
+      "weight": 1.0,
+      "context": "no tengo api key pago el plan max de antropic claude",
+      "created_at": "2026-04-06T22:16:40.355655+00:00",
+      "updated_at": "2026-04-06T22:16:40.388827+00:00"
+    },
+    {
+      "source": "documento.docx",
+      "target": "documento.docx",
+      "type": "used_with",
+      "weight": 1.0,
+      "context": "no tengo api key pago el plan max de antropic claude",
+      "created_at": "2026-04-06T22:16:40.362812+00:00",
+      "updated_at": "2026-04-06T22:16:40.399907+00:00"
+    },
+    {
+      "source": "run_engine.py",
+      "target": "doc.docx",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "que api key?",
+      "created_at": "2026-04-06T22:30:56.321270+00:00",
+      "updated_at": "2026-04-06T22:30:56.321270+00:00"
     }
   ],
-  "updated_at": "2026-04-06T20:54:01.159073+00:00",
+  "updated_at": "2026-04-06T22:30:56.321270+00:00",
   "stats": {
-    "entities": 124,
-    "relations": 233
+    "entities": 136,
+    "relations": 254
   }
 }
