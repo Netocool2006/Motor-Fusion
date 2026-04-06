@@ -7144,6 +7144,28 @@
         "last_accessed": "2026-04-05T05:26:00.214760+00:00",
         "access_count": 143
       }
+    },
+    "9d55086ab28c": {
+      "id": "9d55086ab28c",
+      "type": "fact",
+      "key": "error_resuelto_20260406_142340",
+      "fact": {
+        "rule": "ERROR: Vector KB save error: TextEncodeInput must be Union[TextInputSequence, Tuple[InputSequence, InputSequence]]\nSOLUCION: Validar tipos de strings ANTES de pasar al embedder.encode(). Convertir non-strings a str con str(x), eliminar vacíos y None. Aplicar en: ask_kb(), save_to_kb(), save_session_summary(), index_knowledge_base().",
+        "source": "error_fix_mcp"
+      },
+      "tags": [
+        "hooks_ia",
+        "error_fix",
+        "auto_captured"
+      ],
+      "created_at": "2026-04-06T20:23:40.243007+00:00",
+      "updated_at": "2026-04-06T20:23:40.243007+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-06T20:23:40.243007+00:00",
+        "access_count": 0
+      }
     }
   },
   "tag_index": {
@@ -7924,10 +7946,19 @@
       "a2fe9b80d4f1",
       "d2093fcd7ff5",
       "5091d8c448fe"
+    ],
+    "hooks_ia": [
+      "9d55086ab28c"
+    ],
+    "error_fix": [
+      "9d55086ab28c"
+    ],
+    "auto_captured": [
+      "9d55086ab28c"
     ]
   },
   "stats": {
-    "total_entries": 396,
+    "total_entries": 397,
     "total_lookups": 640,
     "total_hits": 623
   }
