@@ -1,79 +1,56 @@
 {
   "hot": [
     {
-      "key": "Lee la imagen en C:\\Users\\ntoledo\\AppData\\Local\\Temp\\playwright_word_capture.png usando el tool Read. Describe brevemente que ves (max 3 lineas). Responde en JSON: {\"description\": \"...\", \"is_valid\": t",
-      "value": "```json\n{\n  \"description\": \"Documento de Microsoft Word capturado mostrando mÃºltiples pÃ¡ginas con contenido estructurado en secciones numeradas. Se observa texto formateado en pÃ¡rrafos y una estructura de documento formal con encabezados y contenido detallado.\",\n  \"is_valid\": true\n}\n```",
-      "domain": "ML 100%",
+      "key": "busca si hay algun IDE que si sea estable para cli claude o con todos es el problema",
+      "value": "## Resumen: estabilidad de Claude Code por IDE\n\n| IDE | Estabilidad con Claude | Notas |\n|-----|----------------------|-------|\n| **Terminal externa** (PowerShell, CMD, Windows Terminal) | **La mejor** | Sin freezes reportados. Proceso independiente. |\n| **Cursor** | **Buena** | Fork de VS Code pero con mejor manejo de AI. Menos freezes reportados. |\n| **JetBrains** (IntelliJ, WebStorm, PyCharm) | **Buena** | IntegraciÃ³n profunda con diff viewer nativo. Bug conocido solo al pegar texto copiado de JetBrains. |\n| **Windsurf** | **Buena** | Fork de VS Code con engine \"Cascade\". Optimizado para AI agents. |\n| **Zed** | **Parcial** | IntegraciÃ³n comunitaria, no oficial. BÃ¡sica pero ultrarrÃ¡pida (editor en Rust). |\n| **VS Code** (extensiÃ³n panel) | **La peor** | El mÃ¡s problemÃ¡tico con freezes frecuentes. |\n| **VS Code** (terminal integrado) | **Intermedia** | Mejor que la extensiÃ³n pero aÃºn con freezes en Windows. |\n\n### ConclusiÃ³n clave:\n\nEl problema **NO es de todos los IDEs** â",
+      "domain": "Internet 85% + ML 15%",
       "source": "auto_save",
       "tier": "hot",
-      "created_at": "2026-04-06T23:05:41.562833+00:00",
-      "last_access": "2026-04-06T23:05:41.562833+00:00",
-      "access_count": 0,
-      "promotion_count": 0
-    },
-    {
-      "key": "Lee la imagen en C:\\Users\\ntoledo\\AppData\\Local\\Temp\\playwright_word_capture.png usando el tool Read y analizala.\n\nAnaliza este screenshot de un documento Word.\nVerifica: estructura, formato, contenid",
-      "value": "```json\n{\n  \"visual_validation\": \"Documento Word profesional de mÃºltiples pÃ¡ginas con estructura coherente. Contiene secciones con texto estructurado, tablas bien formateadas, numeraciÃ³n de pÃ¡ginas visible, mÃ¡rgenes consistentes y una portada de diseÃ±o profesional con fondo azul. El formato se mantiene uniforme a lo largo del documento con espaciado apropiado entre elementos.\",\n  \"issues_found\": [\n    \"Documento extenso que podrÃ­a beneficiarse de mÃ¡s breaks visuales en pÃ¡ginas con mucho texto\",\n    \"Algunas secciones parecen densas en contenido textual sin elementos grÃ¡ficos intermedios\",\n    \"La longitud total del documento podrÃ­a requerir mejor navegaciÃ³n visual\"\n  ],\n  \"quality_score\": 85,\n  \"recommendations\": [\n    \"Considerar aÃ±adir mÃ¡s elementos visuales (grÃ¡ficos, diagramas) en secciones densas de texto\",\n    \"Implementar un Ã­ndice o tabla de contenidos visible para navegaciÃ³n\",\n    \"Revisar el balance entre texto y espacio en blanco en pÃ¡ginas centrales\",\n    ",
-      "domain": "ML 100%",
-      "source": "auto_save",
-      "tier": "hot",
-      "created_at": "2026-04-06T23:07:44.049459+00:00",
-      "last_access": "2026-04-06T23:07:44.049459+00:00",
+      "created_at": "2026-04-06T23:44:11.263175+00:00",
+      "last_access": "2026-04-06T23:44:11.263175+00:00",
       "access_count": 0,
       "promotion_count": 0
     },
     {
       "key": "Lee la imagen en C:\\Chance1\\IA\\IA_Word\\test_output\\test1_find_replace_screenshot.png usando el tool Read y analizala.\n\nAnaliza este screenshot de un documento Word.\nVerifica: estructura, formato, cont",
-      "value": "```json\n{\n  \"visual_validation\": \"Documento Word de mÃºltiples pÃ¡ginas con estructura visual profesional y coherente. Se observa un layout organizado con secciones de texto bien distribuidas, formato consistente entre pÃ¡ginas y diseÃ±o limpio. La imagen muestra aproximadamente 3-4 pÃ¡ginas con contenido estructurado, incluyendo lo que parecen ser pÃ¡rrafos, posibles encabezados y secciones organizadas. El documento mantiene mÃ¡rgenes uniformes y espaciado consistente.\",\n  \"issues_found\": [\n    \"ResoluciÃ³n de imagen insuficiente para anÃ¡lisis detallado del contenido textual\",\n    \"No es posible verificar ortografÃ­a o gramÃ¡tica especÃ­fica\",\n    \"Dificultad para evaluar coherencia del contenido por limitaciones de legibilidad\",\n    \"No se pueden distinguir detalles de formato como fuentes, tamaÃ±os o estilos especÃ­ficos\"\n  ],\n  \"quality_score\": 75,\n  \"recommendations\": [\n    \"Capturar screenshot en resoluciÃ³n mÃ¡s alta para anÃ¡lisis detallado\",\n    \"Realizar zoom en secciones es",
+      "value": "```json\n{\n  \"visual_validation\": \"Documento Word profesional de mÃºltiples pÃ¡ginas mostrando un 'SISTEMA DE GESTIÃ“N INTEGRADA - PROCEDIMIENTO PARA LA GESTIÃ“N DE RIESGOS LABORALES'. Presenta portada corporativa con encabezado azul, logo empresarial, estructura jerÃ¡rquica clara con tÃ­tulos y subtÃ­tulos, texto justificado, tablas bien formateadas, numeraciÃ³n de pÃ¡ginas consistente, y mÃ¡rgenes profesionales. El documento mantiene coherencia visual en todas las pÃ¡ginas con tipografÃ­a uniforme y espaciado adecuado.\",\n  \n  \"issues_found\": [\n    \"ResoluciÃ³n de imagen limita evaluaciÃ³n detallada del texto\",\n    \"No se puede verificar completamente la alineaciÃ³n de elementos pequeÃ±os\"\n  ],\n  \n  \"quality_score\": 92,\n  \n  \"recommendations\": [\n    \"El documento cumple con estÃ¡ndares profesionales de presentaciÃ³n\",\n    \"La estructura y formato son apropiados para documentaciÃ³n empresarial\",\n    \"Los colores corporativos y branding estÃ¡n bien implementados\",\n    \"La jerarquÃ­a visu",
       "domain": "ML 100%",
       "source": "auto_save",
       "tier": "hot",
-      "created_at": "2026-04-06T23:37:38.710776+00:00",
-      "last_access": "2026-04-06T23:37:38.710776+00:00",
+      "created_at": "2026-04-06T23:45:54.710537+00:00",
+      "last_access": "2026-04-06T23:45:54.710537+00:00",
       "access_count": 0,
       "promotion_count": 0
     },
     {
-      "key": "hay reporte de algun tipo de bug de usar cli claude en visual code es parecido al de claude desktop como que se queda pensando pero nunca responde busca en el internet",
-      "value": "## SÃ­, es un bug conocido y bastante reportado\n\nHay **mÃºltiples issues abiertos** en GitHub sobre exactamente lo que describes: Claude CLI en VS Code se queda \"pensando\" (Forging/Cooking/Pondering...) pero nunca responde. Es muy similar al comportamiento de Claude Desktop.\n\n### Bugs reportados mÃ¡s relevantes:\n\n| Issue | DescripciÃ³n |\n|-------|------------|\n| [#41031](https://github.com/anthropics/claude-code/issues/41031) | **Freezes en VS Code** - empezÃ³ ~29 marzo 2026, funciona en terminal nativa pero NO en VS Code |\n| [#39381](https://github.com/anthropics/claude-code/issues/39381) | \"Not responding - try stopping\" sin forma de recuperarse |\n| [#17926](https://github.com/anthropics/claude-code/issues/17926) | Stuck en \"Forging/Cooking/Pondering...\" indefinidamente |\n| [#38258](https://github.com/anthropics/claude-code/issues/38258) | Procesos cuelgan indefinidamente sin timeout |\n| [#24584](https://github.com/anthropics/claude-code/issues/24584) | **claude.exe freezes en VS Cod",
-      "domain": "Internet 90% + ML 10%",
+      "key": "Lee la imagen en C:\\Chance1\\IA\\IA_Word\\test_output\\test2_excel_table_screenshot.png usando el tool Read y analizala.\n\nAnaliza el formato visual de este documento Word.\nVerifica: fuentes, alineacion, e",
+      "value": "```json\n{\n  \"visual_validation\": \"Documento Word profesional de mÃºltiples pÃ¡ginas con estructura visual consistente. Presenta texto bien formateado con fuente estÃ¡ndar (aparenta ser Calibri), alineaciÃ³n correcta justificada al margen izquierdo, espaciado apropiado entre pÃ¡rrafos y secciones. Incluye tablas integradas que mantienen formato coherente con el resto del documento. Los mÃ¡rgenes son uniformes y apropiados para un documento profesional. El contraste es Ã³ptimo con texto negro sobre fondo blanco.\",\n  \"issues_found\": [\n    \"ResoluciÃ³n de imagen ligeramente pixelada que dificulta evaluaciÃ³n precisa de detalles tipogrÃ¡ficos menores\",\n    \"No se pueden verificar completamente los estilos de encabezados debido a la calidad de captura\"\n  ],\n  \"quality_score\": 85,\n  \"recommendations\": [\n    \"Verificar que las tablas mantengan el mismo estilo de fuente que el texto principal\",\n    \"Confirmar que el espaciado entre tabla y texto sea consistente en todo el documento\",\n    \"Revis",
+      "domain": "ML 80%",
       "source": "auto_save",
       "tier": "hot",
-      "created_at": "2026-04-06T23:38:58.456475+00:00",
-      "last_access": "2026-04-06T23:38:58.456475+00:00",
+      "created_at": "2026-04-06T23:48:17.130920+00:00",
+      "last_access": "2026-04-06T23:48:17.130920+00:00",
       "access_count": 0,
       "promotion_count": 0
     },
     {
-      "key": "Lee la imagen en C:\\Chance1\\IA\\IA_Word\\test_output\\test3_delete_renumber_screenshot.png usando el tool Read y analizala.\n\nAnaliza las secciones visibles en este documento Word.\nVerifica: numeracion co",
-      "value": "```json\n{\n  \"visual_validation\": \"Documento Word profesional de mÃºltiples pÃ¡ginas mostrando el resultado de una operaciÃ³n de eliminaciÃ³n y renumeraciÃ³n de secciones. Se observa estructura jerÃ¡rquica con secciones numeradas, contenido sobre servicios de consultorÃ­a, formato consistente con tÃ­tulos bien definidos, tablas estructuradas y layout profesional. El documento mantiene coherencia visual a lo largo de las pÃ¡ginas con espaciado adecuado y tipografÃ­a uniforme.\",\n  \"issues_found\": [\n    \"Algunas secciones podrÃ­an tener numeraciÃ³n inconsistente despuÃ©s de la operaciÃ³n de renumeraciÃ³n\",\n    \"Posible espaciado irregular entre algunas secciones\",\n    \"Dificultad para verificar la secuencia numÃ©rica completa desde esta vista panorÃ¡mica\"\n  ],\n  \"quality_score\": 85,\n  \"recommendations\": [\n    \"Verificar que la renumeraciÃ³n secuencial sea correcta en todo el documento\",\n    \"Revisar el espaciado entre secciones para mantener consistencia\",\n    \"Confirmar que todas las refe",
+      "key": "voy a usar mobaxtrem para usar la terminal se puede?",
+      "value": "SÃ­, se puede. MobaXterm tiene un terminal local que funciona como cualquier terminal externa. Solo necesitas:\n\n```bash\n# En MobaXterm, abrir \"Start local terminal\" y ejecutar:\nclaude\n```\n\nO si necesitas navegar primero:\n```bash\ncd \"/drives/c/Chance1/Clientes/Banco BAM/GestiÃ³n pagina web AMS\"\nclaude\n```\n\n> **Nota:** MobaXterm usa rutas estilo Unix, asÃ­ que `C:\\` se convierte en `/drives/c/` o `/cygdrive/c/` dependiendo de la versiÃ³n.\n\nComo es un proceso independiente fuera de VS Code, no deberÃ­a tener los freezes que mencionamos. Es equivalente a usar PowerShell o Windows Terminal por separado.",
       "domain": "ML 100%",
       "source": "auto_save",
       "tier": "hot",
-      "created_at": "2026-04-06T23:39:59.473925+00:00",
-      "last_access": "2026-04-06T23:39:59.473925+00:00",
+      "created_at": "2026-04-06T23:50:44.756815+00:00",
+      "last_access": "2026-04-06T23:50:44.756815+00:00",
       "access_count": 0,
       "promotion_count": 0
     }
   ],
-  "warm": [
-    {
-      "key": "que api key?",
-      "value": "No estÃ¡ como variable de entorno del sistema. Pero Claude Code la tiene internamente. Hay 2 opciones:\n\n**OpciÃ³n A:** Si tienes tu API key a mano:\n```powershell\n[Environment]::SetEnvironmentVariable(\"ANTHROPIC_API_KEY\", \"sk-ant-tu-clave\", \"User\")\n```\n\n**OpciÃ³n B:** Si NO quieres pagar API adicional â€” el motor funciona **sin Vision Feedback** usando solo validaciÃ³n lÃ³gica (que ya detectÃ³ 11 issues correctamente):\n```bash\npython run_engine.py edit --doc \"doc.docx\" --replace \"2024=2025\" --toc --visual none\n```\n\nLa validaciÃ³n lÃ³gica (estructura, math, coherencia, formato) **no necesita API key** â€” ya funciona al 100%. La Vision API solo agrega la capa visual extra.\n\nÂ¿Tienes API key o prefieres usar el motor sin la parte visual por ahora?",
-      "domain": "ML",
-      "source": "auto_save",
-      "tier": "warm",
-      "created_at": "2026-04-06T22:30:56.296807+00:00",
-      "last_access": "2026-04-06T22:30:56.296807+00:00",
-      "access_count": 0,
-      "promotion_count": 0
-    }
-  ],
+  "warm": [],
   "cold": [],
-  "updated_at": "2026-04-06T23:39:59.473925+00:00",
+  "updated_at": "2026-04-06T23:50:44.756815+00:00",
   "counts": {
-    "hot": 5,
-    "warm": 1,
+    "hot": 4,
+    "warm": 0,
     "cold": 0
   }
 }
