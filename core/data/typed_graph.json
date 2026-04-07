@@ -1495,6 +1495,14 @@
       "properties": {},
       "created_at": "2026-04-07T15:45:00.895795+00:00",
       "updated_at": "2026-04-07T15:45:00.895795+00:00"
+    },
+    "405.08": {
+      "id": "405.08",
+      "type": "file",
+      "name": "405.08",
+      "properties": {},
+      "created_at": "2026-04-07T15:55:14.247028+00:00",
+      "updated_at": "2026-04-07T15:55:14.247028+00:00"
     }
   },
   "relations": [
@@ -3788,10 +3796,10 @@
       "source": "//github.com",
       "target": "//github.com",
       "type": "used_with",
-      "weight": 3.5,
-      "context": "hay reporte de algun tipo de bug de usar cli claude en visual code es parecido al de claude desktop ",
+      "weight": 7.0,
+      "context": "y algo similiar open source a Google CLoude Vision Api que nos ayude a que tu puedas ver con tus ojo",
       "created_at": "2026-04-06T23:38:58.471493+00:00",
-      "updated_at": "2026-04-06T23:38:58.504203+00:00"
+      "updated_at": "2026-04-07T15:51:02.201104+00:00"
     },
     {
       "source": "//github.com",
@@ -4737,11 +4745,20 @@
       "context": "escuche de una libreria llamada cornea algo para ver los documentos la has escuchado y la vez util p",
       "created_at": "2026-04-07T15:45:00.912181+00:00",
       "updated_at": "2026-04-07T15:45:00.912181+00:00"
+    },
+    {
+      "source": "405.08",
+      "target": "720.00",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pero los ojos que tienes si realmente te sirven o solo te dan la idea necesito que con tus ojos pued",
+      "created_at": "2026-04-07T15:55:14.252033+00:00",
+      "updated_at": "2026-04-07T15:55:14.252033+00:00"
     }
   ],
-  "updated_at": "2026-04-07T15:45:00.912181+00:00",
+  "updated_at": "2026-04-07T15:55:14.252033+00:00",
   "stats": {
-    "entities": 187,
-    "relations": 360
+    "entities": 188,
+    "relations": 361
   }
 }
