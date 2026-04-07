@@ -1311,6 +1311,62 @@
       "properties": {},
       "created_at": "2026-04-07T00:14:29.128379+00:00",
       "updated_at": "2026-04-07T00:14:29.128379+00:00"
+    },
+    "doc.Para": {
+      "id": "doc.Para",
+      "type": "file",
+      "name": "doc.Para",
+      "properties": {},
+      "created_at": "2026-04-07T00:19:09.862533+00:00",
+      "updated_at": "2026-04-07T00:19:09.862533+00:00"
+    },
+    "graphs.Coun": {
+      "id": "graphs.Coun",
+      "type": "file",
+      "name": "graphs.Coun",
+      "properties": {},
+      "created_at": "2026-04-07T00:19:09.866541+00:00",
+      "updated_at": "2026-04-07T00:19:09.866541+00:00"
+    },
+    "para.Rang": {
+      "id": "para.Rang",
+      "type": "file",
+      "name": "para.Rang",
+      "properties": {},
+      "created_at": "2026-04-07T00:19:09.883569+00:00",
+      "updated_at": "2026-04-07T00:19:09.883569+00:00"
+    },
+    "e.Star": {
+      "id": "e.Star",
+      "type": "file",
+      "name": "e.Star",
+      "properties": {},
+      "created_at": "2026-04-07T00:19:09.896403+00:00",
+      "updated_at": "2026-04-07T00:19:09.896403+00:00"
+    },
+    "table.Rang": {
+      "id": "table.Rang",
+      "type": "file",
+      "name": "table.Rang",
+      "properties": {},
+      "created_at": "2026-04-07T00:19:09.910536+00:00",
+      "updated_at": "2026-04-07T00:19:09.910536+00:00"
+    },
+    "e.Para": {
+      "id": "e.Para",
+      "type": "file",
+      "name": "e.Para",
+      "properties": {},
+      "created_at": "2026-04-07T00:19:09.923898+00:00",
+      "updated_at": "2026-04-07T00:19:09.923898+00:00"
+    },
+    "time.slee": {
+      "id": "time.slee",
+      "type": "file",
+      "name": "time.slee",
+      "properties": {},
+      "created_at": "2026-04-07T00:23:24.901786+00:00",
+      "updated_at": "2026-04-07T00:23:24.901786+00:00"
     }
   },
   "relations": [
@@ -4022,11 +4078,182 @@
       "context": "Lee la imagen en C:\\Users\\ntoledo\\AppData\\Local\\Temp\\playwright_word_capture.png usando el tool Read",
       "created_at": "2026-04-07T00:14:29.138173+00:00",
       "updated_at": "2026-04-07T00:14:29.138173+00:00"
+    },
+    {
+      "source": "doc.Para",
+      "target": "graphs.Coun",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "Lee la imagen en C:\\Chance1\\IA\\IA_Word\\test_output\\test4_output_screenshot.png usando el tool Read y",
+      "created_at": "2026-04-07T00:19:09.869033+00:00",
+      "updated_at": "2026-04-07T00:19:09.869033+00:00"
+    },
+    {
+      "source": "doc.Para",
+      "target": "doc.Para",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "Lee la imagen en C:\\Chance1\\IA\\IA_Word\\test_output\\test4_output_screenshot.png usando el tool Read y",
+      "created_at": "2026-04-07T00:19:09.874550+00:00",
+      "updated_at": "2026-04-07T00:19:09.874550+00:00"
+    },
+    {
+      "source": "graphs.Coun",
+      "target": "doc.Para",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "Lee la imagen en C:\\Chance1\\IA\\IA_Word\\test_output\\test4_output_screenshot.png usando el tool Read y",
+      "created_at": "2026-04-07T00:19:09.879047+00:00",
+      "updated_at": "2026-04-07T00:19:09.879047+00:00"
+    },
+    {
+      "source": "graphs.Coun",
+      "target": "para.Rang",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "Lee la imagen en C:\\Chance1\\IA\\IA_Word\\test_output\\test4_output_screenshot.png usando el tool Read y",
+      "created_at": "2026-04-07T00:19:09.887581+00:00",
+      "updated_at": "2026-04-07T00:19:09.887581+00:00"
+    },
+    {
+      "source": "doc.Para",
+      "target": "para.Rang",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "Lee la imagen en C:\\Chance1\\IA\\IA_Word\\test_output\\test4_output_screenshot.png usando el tool Read y",
+      "created_at": "2026-04-07T00:19:09.891396+00:00",
+      "updated_at": "2026-04-07T00:19:09.891396+00:00"
+    },
+    {
+      "source": "doc.Para",
+      "target": "e.Star",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "Lee la imagen en C:\\Chance1\\IA\\IA_Word\\test_output\\test4_output_screenshot.png usando el tool Read y",
+      "created_at": "2026-04-07T00:19:09.900926+00:00",
+      "updated_at": "2026-04-07T00:19:09.900926+00:00"
+    },
+    {
+      "source": "para.Rang",
+      "target": "e.Star",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "Lee la imagen en C:\\Chance1\\IA\\IA_Word\\test_output\\test4_output_screenshot.png usando el tool Read y",
+      "created_at": "2026-04-07T00:19:09.906475+00:00",
+      "updated_at": "2026-04-07T00:19:09.906475+00:00"
+    },
+    {
+      "source": "para.Rang",
+      "target": "table.Rang",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "Lee la imagen en C:\\Chance1\\IA\\IA_Word\\test_output\\test4_output_screenshot.png usando el tool Read y",
+      "created_at": "2026-04-07T00:19:09.914546+00:00",
+      "updated_at": "2026-04-07T00:19:09.914546+00:00"
+    },
+    {
+      "source": "e.Star",
+      "target": "table.Rang",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "Lee la imagen en C:\\Chance1\\IA\\IA_Word\\test_output\\test4_output_screenshot.png usando el tool Read y",
+      "created_at": "2026-04-07T00:19:09.919673+00:00",
+      "updated_at": "2026-04-07T00:19:09.919673+00:00"
+    },
+    {
+      "source": "e.Star",
+      "target": "e.Para",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "Lee la imagen en C:\\Chance1\\IA\\IA_Word\\test_output\\test4_output_screenshot.png usando el tool Read y",
+      "created_at": "2026-04-07T00:19:09.928920+00:00",
+      "updated_at": "2026-04-07T00:19:09.928920+00:00"
+    },
+    {
+      "source": "table.Rang",
+      "target": "e.Para",
+      "type": "used_with",
+      "weight": 1.0,
+      "context": "hice algunos cambios re valida el proyecti y aplica todo esto rificar status o reducir   â”‚\n  â”œâ”",
+      "created_at": "2026-04-07T00:19:09.933608+00:00",
+      "updated_at": "2026-04-07T00:23:24.881120+00:00"
+    },
+    {
+      "source": "word_com.py",
+      "target": "table.Rang",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "hice algunos cambios re valida el proyecti y aplica todo esto rificar status o reducir   â”‚\n  â”œâ”",
+      "created_at": "2026-04-07T00:23:24.869246+00:00",
+      "updated_at": "2026-04-07T00:23:24.869246+00:00"
+    },
+    {
+      "source": "word_com.py",
+      "target": "e.Para",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "hice algunos cambios re valida el proyecti y aplica todo esto rificar status o reducir   â”‚\n  â”œâ”",
+      "created_at": "2026-04-07T00:23:24.875762+00:00",
+      "updated_at": "2026-04-07T00:23:24.875762+00:00"
+    },
+    {
+      "source": "table.Rang",
+      "target": "word_com.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "hice algunos cambios re valida el proyecti y aplica todo esto rificar status o reducir   â”‚\n  â”œâ”",
+      "created_at": "2026-04-07T00:23:24.887433+00:00",
+      "updated_at": "2026-04-07T00:23:24.887433+00:00"
+    },
+    {
+      "source": "e.Para",
+      "target": "word_com.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "hice algunos cambios re valida el proyecti y aplica todo esto rificar status o reducir   â”‚\n  â”œâ”",
+      "created_at": "2026-04-07T00:23:24.894036+00:00",
+      "updated_at": "2026-04-07T00:23:24.894036+00:00"
+    },
+    {
+      "source": "e.Para",
+      "target": "time.slee",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "hice algunos cambios re valida el proyecti y aplica todo esto rificar status o reducir   â”‚\n  â”œâ”",
+      "created_at": "2026-04-07T00:23:24.907410+00:00",
+      "updated_at": "2026-04-07T00:23:24.907410+00:00"
+    },
+    {
+      "source": "word_com.py",
+      "target": "time.slee",
+      "type": "used_with",
+      "weight": 1.0,
+      "context": "hice algunos cambios re valida el proyecti y aplica todo esto rificar status o reducir   â”‚\n  â”œâ”",
+      "created_at": "2026-04-07T00:23:24.914885+00:00",
+      "updated_at": "2026-04-07T00:23:24.918400+00:00"
+    },
+    {
+      "source": "time.slee",
+      "target": "time.slee",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "hice algunos cambios re valida el proyecti y aplica todo esto rificar status o reducir   â”‚\n  â”œâ”",
+      "created_at": "2026-04-07T00:23:24.924418+00:00",
+      "updated_at": "2026-04-07T00:23:24.924418+00:00"
+    },
+    {
+      "source": "time.slee",
+      "target": "word_com.py",
+      "type": "used_with",
+      "weight": 1.0,
+      "context": "hice algunos cambios re valida el proyecti y aplica todo esto rificar status o reducir   â”‚\n  â”œâ”",
+      "created_at": "2026-04-07T00:23:24.931644+00:00",
+      "updated_at": "2026-04-07T00:23:24.936649+00:00"
     }
   ],
-  "updated_at": "2026-04-07T00:14:29.138173+00:00",
+  "updated_at": "2026-04-07T00:23:24.936649+00:00",
   "stats": {
-    "entities": 164,
-    "relations": 301
+    "entities": 171,
+    "relations": 320
   }
 }
