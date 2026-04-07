@@ -1,0 +1,34 @@
+{
+  "hot": [
+    {
+      "key": "comprendo entonces prende y deja activo visionBridge",
+      "value": "Hecho. VisionBridge queda siempre activo. Ahora el pipeline completo es:\n\n```\n1. VBA batch replace (10s)\n2. smart_replace shapes/split-runs (3s)\n3. repair_footers + update TOC (3s)\n4. Verificar reemplazos (5s)\n5. ValidaciÃ³n lÃ³gica (20s)\n6. DocEyes render (5s)\n7. VisionBridge: Claude VE el documento (~15s)\n8. Guardar (1s)\n= ~60 segundos total estimado\n```",
+      "domain": "ML 100%",
+      "source": "auto_save",
+      "tier": "hot",
+      "created_at": "2026-04-07T20:53:04.484403+00:00",
+      "last_access": "2026-04-07T20:53:04.484403+00:00",
+      "access_count": 0,
+      "promotion_count": 0
+    },
+    {
+      "key": "Lee la imagen en C:\\Users\\ntoledo\\AppData\\Local\\Temp\\ia_word_eyes_oqqcxnkc\\page_001.png usando el tool Read y analizala.\n\nAnaliza este screenshot de un documento Word.\nVerifica: estructura, formato, c",
+      "value": "```json\n{\n  \"visual_validation\": \"Documento Word con portada profesional de propuesta tÃ©cnica. Presenta diseÃ±o moderno con elementos grÃ¡ficos tecnolÃ³gicos en tonos azules. Incluye eslogan 'We build your digital future //', logo corporativo CDM, y tÃ­tulo principal sobre renovaciÃ³n Oracle Database 23c CE y Apache Kafka Enterprise. Layout balanceado con tipografÃ­a clara y branding consistente.\",\n  \"issues_found\": [\n    \"Calidad de imagen ligeramente pixelada en elementos grÃ¡ficos\",\n    \"Contraste excesivo del texto 'digital' resaltado en magenta sobre fondo azul\",\n    \"Inconsistencia tipogrÃ¡fica en 'future //' que usa fuente estilo cÃ³digo\",\n    \"Posible problema de resoluciÃ³n que afecta nitidez general\"\n  ],\n  \"quality_score\": 78,\n  \"recommendations\": [\n    \"Mejorar resoluciÃ³n de elementos grÃ¡ficos para mayor nitidez\",\n    \"Ajustar contraste del texto resaltado para mejor legibilidad\",\n    \"Unificar familia tipogrÃ¡fica para mantener coherencia visual\",\n    \"Verificar que la ",
+      "domain": "ML 100%",
+      "source": "auto_save",
+      "tier": "hot",
+      "created_at": "2026-04-07T21:05:55.669634+00:00",
+      "last_access": "2026-04-07T21:05:55.669634+00:00",
+      "access_count": 0,
+      "promotion_count": 0
+    }
+  ],
+  "warm": [],
+  "cold": [],
+  "updated_at": "2026-04-07T21:05:55.669634+00:00",
+  "counts": {
+    "hot": 2,
+    "warm": 0,
+    "cold": 0
+  }
+}

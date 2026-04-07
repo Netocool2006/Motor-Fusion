@@ -1767,6 +1767,14 @@
       "properties": {},
       "created_at": "2026-04-07T20:18:30.028200+00:00",
       "updated_at": "2026-04-07T20:18:30.028200+00:00"
+    },
+    "fuente": {
+      "id": "fuente",
+      "type": "concept",
+      "name": "fuente",
+      "properties": {},
+      "created_at": "2026-04-07T21:05:55.680253+00:00",
+      "updated_at": "2026-04-07T21:05:55.680253+00:00"
     }
   },
   "relations": [
@@ -5540,11 +5548,20 @@
       "context": "esto es pura programacion o tiene MCP y/o ML ?",
       "created_at": "2026-04-07T20:43:14.108189+00:00",
       "updated_at": "2026-04-07T20:43:14.108189+00:00"
+    },
+    {
+      "source": "que",
+      "target": "fuente",
+      "type": "used_with",
+      "weight": 0.7,
+      "context": "Lee la imagen en C:\\Users\\ntoledo\\AppData\\Local\\Temp\\ia_word_eyes_oqqcxnkc\\page_001.png usando el to",
+      "created_at": "2026-04-07T21:05:55.687263+00:00",
+      "updated_at": "2026-04-07T21:05:55.687263+00:00"
     }
   ],
-  "updated_at": "2026-04-07T20:43:14.113246+00:00",
+  "updated_at": "2026-04-07T21:05:55.688765+00:00",
   "stats": {
-    "entities": 221,
-    "relations": 419
+    "entities": 222,
+    "relations": 420
   }
 }
