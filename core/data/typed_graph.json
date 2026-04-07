@@ -1279,6 +1279,38 @@
       "properties": {},
       "created_at": "2026-04-06T23:57:34.998919+00:00",
       "updated_at": "2026-04-06T23:57:34.998919+00:00"
+    },
+    "//yaw.sh": {
+      "id": "//yaw.sh",
+      "type": "file",
+      "name": "//yaw.sh",
+      "properties": {},
+      "created_at": "2026-04-07T00:06:06.457302+00:00",
+      "updated_at": "2026-04-07T00:06:06.457302+00:00"
+    },
+    "win.ps1": {
+      "id": "win.ps1",
+      "type": "file",
+      "name": "win.ps1",
+      "properties": {},
+      "created_at": "2026-04-07T00:06:06.461309+00:00",
+      "updated_at": "2026-04-07T00:06:06.461309+00:00"
+    },
+    "mcp_server.py": {
+      "id": "mcp_server.py",
+      "type": "file",
+      "name": "mcp_server.py",
+      "properties": {},
+      "created_at": "2026-04-07T00:14:29.120247+00:00",
+      "updated_at": "2026-04-07T00:14:29.120247+00:00"
+    },
+    "engine.py": {
+      "id": "engine.py",
+      "type": "file",
+      "name": "engine.py",
+      "properties": {},
+      "created_at": "2026-04-07T00:14:29.128379+00:00",
+      "updated_at": "2026-04-07T00:14:29.128379+00:00"
     }
   },
   "relations": [
@@ -3909,11 +3941,92 @@
       "context": "îƒ¨ 2026-04-06 î‚° îƒ© 17:55.44 î‚° îƒª /drives/c î‚° powershell.exe\nWindows PowerShell\nCopyright (C",
       "created_at": "2026-04-06T23:57:35.011416+00:00",
       "updated_at": "2026-04-06T23:57:35.011416+00:00"
+    },
+    {
+      "source": "//yaw.sh",
+      "target": "win.ps1",
+      "type": "used_with",
+      "weight": 1.5,
+      "context": "PS C:\\> irm https://yaw.sh/install-win.ps1 | iex\nInitializing...\nRunning the installer as administra",
+      "created_at": "2026-04-07T00:06:06.464908+00:00",
+      "updated_at": "2026-04-07T00:06:21.600011+00:00"
+    },
+    {
+      "source": "//yaw.sh",
+      "target": "//github.com",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-07T00:06:06.468756+00:00",
+      "updated_at": "2026-04-07T00:06:06.468756+00:00"
+    },
+    {
+      "source": "win.ps1",
+      "target": "//github.com",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-07T00:06:06.473113+00:00",
+      "updated_at": "2026-04-07T00:06:06.473113+00:00"
+    },
+    {
+      "source": "//yaw.sh",
+      "target": "//yaw.sh",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "PS C:\\> irm https://yaw.sh/install-win.ps1 | iex\nInitializing...\nRunning the installer as administra",
+      "created_at": "2026-04-07T00:06:21.579290+00:00",
+      "updated_at": "2026-04-07T00:06:21.579290+00:00"
+    },
+    {
+      "source": "win.ps1",
+      "target": "//yaw.sh",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "PS C:\\> irm https://yaw.sh/install-win.ps1 | iex\nInitializing...\nRunning the installer as administra",
+      "created_at": "2026-04-07T00:06:21.585635+00:00",
+      "updated_at": "2026-04-07T00:06:21.585635+00:00"
+    },
+    {
+      "source": "win.ps1",
+      "target": "win.ps1",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "PS C:\\> irm https://yaw.sh/install-win.ps1 | iex\nInitializing...\nRunning the installer as administra",
+      "created_at": "2026-04-07T00:06:21.593150+00:00",
+      "updated_at": "2026-04-07T00:06:21.593150+00:00"
+    },
+    {
+      "source": "mcp_server.py",
+      "target": "run_engine.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "Lee la imagen en C:\\Users\\ntoledo\\AppData\\Local\\Temp\\playwright_word_capture.png usando el tool Read",
+      "created_at": "2026-04-07T00:14:29.124749+00:00",
+      "updated_at": "2026-04-07T00:14:29.124749+00:00"
+    },
+    {
+      "source": "mcp_server.py",
+      "target": "engine.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "Lee la imagen en C:\\Users\\ntoledo\\AppData\\Local\\Temp\\playwright_word_capture.png usando el tool Read",
+      "created_at": "2026-04-07T00:14:29.133444+00:00",
+      "updated_at": "2026-04-07T00:14:29.133444+00:00"
+    },
+    {
+      "source": "run_engine.py",
+      "target": "engine.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "Lee la imagen en C:\\Users\\ntoledo\\AppData\\Local\\Temp\\playwright_word_capture.png usando el tool Read",
+      "created_at": "2026-04-07T00:14:29.138173+00:00",
+      "updated_at": "2026-04-07T00:14:29.138173+00:00"
     }
   ],
-  "updated_at": "2026-04-06T23:57:35.012424+00:00",
+  "updated_at": "2026-04-07T00:14:29.138173+00:00",
   "stats": {
-    "entities": 160,
-    "relations": 292
+    "entities": 164,
+    "relations": 301
   }
 }
