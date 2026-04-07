@@ -1,0 +1,23 @@
+{
+  "hot": [
+    {
+      "key": "esto pierde sentido con lo que has actualizado ahorita? \"y combinar lo que sugieres lo que ya tenemos en el motor + pymuPDF + SuperDoc de una manera eficiente e inteligente?\"",
+      "value": "No, no pierde sentido. Lo que cambiÃ³ es que **SuperDoc se cae de la ecuaciÃ³n**. El plan actualizado es mÃ¡s simple y mÃ¡s honesto:\n\n### Lo que se mantiene:\n\n| Componente | Status | Para quÃ© |\n|---|---|---|\n| **Motor COM** (manos) | Ya existe, cÃ³digo bueno | Editar Word |\n| **PyMuPDF/DocEyes** (ojos) | **Ya funciona** (11s, 19 pÃ¡ginas) | Ver resultado real |\n| **Loop VERâ†’CORREGIR** | Por construir | Certificar calidad |\n\n### Lo que se descartÃ³:\n\n| Componente | Por quÃ© NO |\n|---|---|\n| **SuperDoc** | Duplica COM, agrega Node.js, tiene 2 semanas de vida |\n| **Kornia** | Computer vision, no aplica a documentos |\n| **MinerU** | Overkill, 5GB, necesita GPU |\n| **VisionBridge/CLI** | Token que expira, screenshot borroso de 1 pÃ¡gina |\n\n### Lo que se agrega (nuevo, basado en lo que descubrimos hoy):\n\n| Mejora | QuÃ© resuelve |\n|---|---|\n| **VerificaciÃ³n post-operaciÃ³n** | COM dice \"5 reemplazos\" pero Â¿estÃ¡n todos? Verificar |\n| **Recovery RPC** | Word crashea â†’ reconectar automÃ",
+      "domain": "ML 100%",
+      "source": "auto_save",
+      "tier": "hot",
+      "created_at": "2026-04-07T16:28:12.179285+00:00",
+      "last_access": "2026-04-07T16:28:12.179285+00:00",
+      "access_count": 0,
+      "promotion_count": 0
+    }
+  ],
+  "warm": [],
+  "cold": [],
+  "updated_at": "2026-04-07T16:28:12.179285+00:00",
+  "counts": {
+    "hot": 1,
+    "warm": 0,
+    "cold": 0
+  }
+}
