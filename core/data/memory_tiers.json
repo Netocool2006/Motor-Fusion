@@ -21,13 +21,68 @@
       "last_access": "2026-04-07T21:05:55.669634+00:00",
       "access_count": 0,
       "promotion_count": 0
+    },
+    {
+      "key": "Lee la imagen en C:\\Users\\ntoledo\\AppData\\Local\\Temp\\test_bridge.png usando el tool Read y analizala.\n\nAnaliza este screenshot de un documento Word.\nVerifica: estructura, formato, contenido visible, c",
+      "value": "```json\n{\n  \"visual_validation\": \"Documento Word bÃ¡sico con estructura simple de tÃ­tulos. Contiene 'Banco Nacional' como tÃ­tulo principal, 'Propuesta de Servicios' como subtÃ­tulo y 'Test Document' como elemento adicional. Fondo blanco limpio con texto en negro, alineaciÃ³n izquierda estÃ¡ndar.\",\n  \"issues_found\": [\n    \"Falta de jerarquÃ­a visual clara entre tÃ­tulos\",\n    \"Ausencia de formateo profesional (negritas, tamaÃ±os diferenciados)\",\n    \"No hay elementos de branding o identificaciÃ³n visual\",\n    \"Estructura muy bÃ¡sica para un documento de propuesta comercial\",\n    \"Falta de fecha, numeraciÃ³n de pÃ¡gina o encabezados\"\n  ],\n  \"quality_score\": 35,\n  \"recommendations\": [\n    \"Aplicar jerarquÃ­a tipogrÃ¡fica con tamaÃ±os y pesos diferenciados\",\n    \"Agregar logo o elementos de identidad del Banco Nacional\",\n    \"Incluir encabezado y pie de pÃ¡gina profesional\",\n    \"Centrar o mejorar la alineaciÃ³n del tÃ­tulo principal\",\n    \"Agregar fecha, nÃºmero de versiÃ³n y datos de c",
+      "domain": "ML 100%",
+      "source": "auto_save",
+      "tier": "hot",
+      "created_at": "2026-04-07T21:11:47.905460+00:00",
+      "last_access": "2026-04-07T21:11:47.905460+00:00",
+      "access_count": 0,
+      "promotion_count": 0
+    },
+    {
+      "key": "Lee la imagen en C:\\Users\\ntoledo\\AppData\\Local\\Temp\\ia_word_eyes_dv7ys5x5\\page_001.png usando el tool Read y analizala.\n\nAnaliza este screenshot de un documento Word.\nVerifica: estructura, formato, c",
+      "value": "```json\n{\n  \"visual_validation\": \"Portada profesional de propuesta tÃ©cnica para Oracle Database 23c CE y soporte Apache Kafka Enterprise. DiseÃ±o moderno con elementos visuales tecnolÃ³gicos: laptop, cÃ³digos, interfaz futurÃ­stica. Layout dividido: izquierda con imagen de manos en laptop, derecha con mensaje corporativo 'We build your digital future' sobre fondo azul oscuro. Marca CDM en esquina inferior derecha. TÃ­tulo descriptivo del proyecto en parte inferior en espaÃ±ol.\",\n  \"issues_found\": [\n    \"Inconsistencia idiomÃ¡tica: mensaje principal en inglÃ©s ('We build your digital future') vs tÃ­tulo del proyecto en espaÃ±ol\",\n    \"Falta informaciÃ³n corporativa: no se ve logo del cliente o datos de contacto completos\",\n    \"Ausencia de fecha o versiÃ³n del documento\",\n    \"No hay numeraciÃ³n de pÃ¡gina visible\",\n    \"Texto del tÃ­tulo podrÃ­a beneficiarse de mayor contraste\"\n  ],\n  \"quality_score\": 78,\n  \"recommendations\": [\n    \"Unificar idioma: usar espaÃ±ol para consistencia con",
+      "domain": "Internet 35% + ML 65%",
+      "source": "auto_save",
+      "tier": "hot",
+      "created_at": "2026-04-07T21:14:32.015594+00:00",
+      "last_access": "2026-04-07T21:14:32.015594+00:00",
+      "access_count": 0,
+      "promotion_count": 0
+    },
+    {
+      "key": "Lee la imagen en C:\\Users\\ntoledo\\AppData\\Local\\Temp\\ia_word_eyes_1t2sep54\\page_001.png usando el tool Read y analizala.\n\nAnaliza este screenshot de un documento Word.\nVerifica: estructura, formato, c",
+      "value": "```json\n{\n  \"visual_validation\": \"Portada profesional de propuesta tÃ©cnica con diseÃ±o moderno y tecnolÃ³gico. Presenta una composiciÃ³n equilibrada con elementos grÃ¡ficos de alta calidad: imagen de manos en laptop con efectos hologrÃ¡ficos, paleta de colores azul-magenta coherente, tipografÃ­a clara y legible. El tÃ­tulo 'Propuesta Integral de RenovaciÃ³n: Oracle Database 23c CE y Soporte Apache Kafka Enterprise' estÃ¡ bien posicionado. Logo corporativo CDM visible en esquina inferior derecha. Mensaje principal 'We build your digital future // }' con estilo de cÃ³digo que refuerza el concepto tecnolÃ³gico.\",\n  \"issues_found\": [\n    \"Posible inconsistencia idiomÃ¡tica: tÃ­tulo principal en espaÃ±ol pero mensaje clave en inglÃ©s\",\n    \"El sÃ­mbolo '// }' podrÃ­a generar confusiÃ³n si no estÃ¡ contextualizado como cÃ³digo\",\n    \"Falta informaciÃ³n de contacto o fecha en la portada\"\n  ],\n  \"quality_score\": 85,\n  \"recommendations\": [\n    \"Unificar idioma del documento (todo en espaÃ±ol o",
+      "domain": "Internet 30% + ML 70%",
+      "source": "auto_save",
+      "tier": "hot",
+      "created_at": "2026-04-07T21:22:36.316698+00:00",
+      "last_access": "2026-04-07T21:22:36.316698+00:00",
+      "access_count": 0,
+      "promotion_count": 0
+    },
+    {
+      "key": "Lee la imagen en C:\\Users\\ntoledo\\AppData\\Local\\Temp\\test_bigpage_small.png usando el tool Read y analizala.\n\nAnaliza este screenshot de un documento Word.\nVerifica: estructura, formato, contenido vis",
+      "value": "```json\n{\n  \"visual_validation\": \"Documento Word con portada de propuesta tÃ©cnica. Presenta encabezado azul profesional con 'PROPUESTA INTEGRAL' y 'Banco Nacional de Guatemala'. Contiene informaciÃ³n bÃ¡sica del proyecto: Oracle Database 23c, Apache Kafka, preparado por Tech Solutions CA, fecha 15 octubre 2027, versiÃ³n 6.0, oportunidad 776-856. El resto de la pÃ¡gina estÃ¡ mayormente vacÃ­a, sugiriendo contenido incompleto o captura parcial del documento.\",\n  \n  \"issues_found\": [\n    \"Fecha futura (2027) que puede ser error tipogrÃ¡fico\",\n    \"Amplio espacio en blanco sugiere contenido faltante\",\n    \"Falta de elementos grÃ¡ficos profesionales (logos, grÃ¡ficos)\",\n    \"Estructura muy bÃ¡sica para una propuesta tÃ©cnica integral\",\n    \"No se observa numeraciÃ³n de pÃ¡ginas\",\n    \"Ausencia de Ã­ndice o estructura de contenido visible\"\n  ],\n  \n  \"quality_score\": 65,\n  \n  \"recommendations\": [\n    \"Corregir fecha si 2027 es un error\",\n    \"Agregar contenido al cuerpo del documento\",\n    \"",
+      "domain": "ML 100%",
+      "source": "auto_save",
+      "tier": "hot",
+      "created_at": "2026-04-07T21:30:24.404434+00:00",
+      "last_access": "2026-04-07T21:30:24.404434+00:00",
+      "access_count": 0,
+      "promotion_count": 0
+    },
+    {
+      "key": "Lee la imagen en C:\\Users\\ntoledo\\AppData\\Local\\Temp\\ia_word_eyes_8y73j_iq\\page_001_small.png usando el tool Read y analizala.\n\nAnaliza este screenshot de un documento Word.\nVerifica: estructura, form",
+      "value": "```json\n{\n  \"visual_validation\": \"Portada profesional de propuesta tÃ©cnica con diseÃ±o moderno y atractivo. Presenta estructura empresarial clara con tÃ­tulo principal 'We build your DATABASE Future /1.1', subtÃ­tulo descriptivo en espaÃ±ol sobre renovaciÃ³n Oracle Database 23c y soporte Apache Kafka Enterprise, logo corporativo GOAL bien posicionado. Esquema de colores azul-violeta con elementos grÃ¡ficos abstractos que transmiten modernidad tecnolÃ³gica. TipografÃ­a legible y jerarquÃ­a visual apropiada.\",\n  \n  \"issues_found\": [\n    \"Posible inconsistencia idiomÃ¡tica: tÃ­tulo principal en inglÃ©s vs subtÃ­tulo en espaÃ±ol\",\n    \"Densidad de texto en subtitle podrÃ­a ser excesiva para lectura rÃ¡pida\",\n    \"Falta informaciÃ³n de contacto visible en portada\"\n  ],\n  \n  \"quality_score\": 85,\n  \n  \"recommendations\": [\n    \"Considerar unificar idioma entre tÃ­tulo principal y subtÃ­tulo\",\n    \"Reducir longitud del subtÃ­tulo o dividirlo en lÃ­neas mÃ¡s cortas\",\n    \"Agregar informaciÃ³n b",
+      "domain": "Internet 30% + ML 30%",
+      "source": "auto_save",
+      "tier": "hot",
+      "created_at": "2026-04-07T21:32:49.370344+00:00",
+      "last_access": "2026-04-07T21:32:49.370344+00:00",
+      "access_count": 0,
+      "promotion_count": 0
     }
   ],
   "warm": [],
   "cold": [],
-  "updated_at": "2026-04-07T21:05:55.669634+00:00",
+  "updated_at": "2026-04-07T21:32:49.370344+00:00",
   "counts": {
-    "hot": 2,
+    "hot": 7,
     "warm": 0,
     "cold": 0
   }
