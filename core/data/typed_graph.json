@@ -1463,6 +1463,38 @@
       "properties": {},
       "created_at": "2026-04-07T15:19:59.550014+00:00",
       "updated_at": "2026-04-07T15:19:59.550014+00:00"
+    },
+    "self._aut": {
+      "id": "self._aut",
+      "type": "file",
+      "name": "self._aut",
+      "properties": {},
+      "created_at": "2026-04-07T15:43:40.607318+00:00",
+      "updated_at": "2026-04-07T15:43:40.608325+00:00"
+    },
+    "bridge.is_a": {
+      "id": "bridge.is_a",
+      "type": "file",
+      "name": "bridge.is_a",
+      "properties": {},
+      "created_at": "2026-04-07T15:43:40.615008+00:00",
+      "updated_at": "2026-04-07T15:43:40.615008+00:00"
+    },
+    "Aspose.Word": {
+      "id": "Aspose.Word",
+      "type": "file",
+      "name": "Aspose.Word",
+      "properties": {},
+      "created_at": "2026-04-07T15:45:00.881508+00:00",
+      "updated_at": "2026-04-07T15:45:00.881508+00:00"
+    },
+    "Spire.Doc": {
+      "id": "Spire.Doc",
+      "type": "file",
+      "name": "Spire.Doc",
+      "properties": {},
+      "created_at": "2026-04-07T15:45:00.895795+00:00",
+      "updated_at": "2026-04-07T15:45:00.895795+00:00"
     }
   },
   "relations": [
@@ -4651,11 +4683,65 @@
       "context": "revisa tu memoria Kb local y tu propia claude estabas probando este proyecto C:\\Chance1\\IA\\IA_Word",
       "created_at": "2026-04-07T15:19:59.563914+00:00",
       "updated_at": "2026-04-07T15:19:59.563914+00:00"
+    },
+    {
+      "source": "self._aut",
+      "target": "bridge.is_a",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "Responde solo: OK",
+      "created_at": "2026-04-07T15:43:40.622557+00:00",
+      "updated_at": "2026-04-07T15:43:40.622557+00:00"
+    },
+    {
+      "source": "self._aut",
+      "target": "engine.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "Responde solo: OK",
+      "created_at": "2026-04-07T15:43:40.629618+00:00",
+      "updated_at": "2026-04-07T15:43:40.629618+00:00"
+    },
+    {
+      "source": "bridge.is_a",
+      "target": "engine.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "Responde solo: OK",
+      "created_at": "2026-04-07T15:43:40.638226+00:00",
+      "updated_at": "2026-04-07T15:43:40.638226+00:00"
+    },
+    {
+      "source": "//github.com",
+      "target": "Aspose.Word",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "escuche de una libreria llamada cornea algo para ver los documentos la has escuchado y la vez util p",
+      "created_at": "2026-04-07T15:45:00.888534+00:00",
+      "updated_at": "2026-04-07T15:45:00.888534+00:00"
+    },
+    {
+      "source": "//github.com",
+      "target": "Spire.Doc",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "escuche de una libreria llamada cornea algo para ver los documentos la has escuchado y la vez util p",
+      "created_at": "2026-04-07T15:45:00.904456+00:00",
+      "updated_at": "2026-04-07T15:45:00.904456+00:00"
+    },
+    {
+      "source": "Aspose.Word",
+      "target": "Spire.Doc",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "escuche de una libreria llamada cornea algo para ver los documentos la has escuchado y la vez util p",
+      "created_at": "2026-04-07T15:45:00.912181+00:00",
+      "updated_at": "2026-04-07T15:45:00.912181+00:00"
     }
   ],
-  "updated_at": "2026-04-07T15:19:59.563914+00:00",
+  "updated_at": "2026-04-07T15:45:00.912181+00:00",
   "stats": {
-    "entities": 183,
-    "relations": 354
+    "entities": 187,
+    "relations": 360
   }
 }

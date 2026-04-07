@@ -43,6 +43,61 @@
       "last_access": "2026-04-07T15:22:20.336511+00:00",
       "access_count": 0,
       "promotion_count": 0
+    },
+    {
+      "key": "Responde solo: OK si puedes leer esto",
+      "value": "**En la sesiÃ³n anterior estuvimos trabajando en:**\n- El proyecto C:\\Chance1\\IA\\IA_Word con optimizaciones de documentos\n- ValidaciÃ³n de una propuesta comercial generada\n- ResoluciÃ³n de problemas con Claude CLI (error 401 y actualizaciÃ³n bloqueada)\n- **Test 5 que quedÃ³ pendiente**\n\n**Â¿Quieres continuar con el Test 5 pendiente o prefieres trabajar en algo diferente?**\n\n---\n\n**OK** - Puedo leer perfectamente tu mensaje.",
+      "domain": "ML 100%",
+      "source": "auto_save",
+      "tier": "hot",
+      "created_at": "2026-04-07T15:32:02.545765+00:00",
+      "last_access": "2026-04-07T15:32:02.545765+00:00",
+      "access_count": 0,
+      "promotion_count": 0
+    },
+    {
+      "key": "Lee la imagen en C:\\Chance1\\IA\\IA_Word\\test_output\\test5_debug_screenshot.png usando el tool Read y analizala.\n\nAnaliza este screenshot de un documento Word.\nVerifica: estructura, formato, contenido v",
+      "value": "```json\n{\n  \"visual_validation\": \"Documento de propuesta comercial con portada profesional dividida en dos secciones. Lado izquierdo: imagen corporativa con persona trabajando en tecnologÃ­a en tonos azul/cyan. Lado derecho: fondo azul marino con texto 'We build your digital future // }' en tipografÃ­a moderna y logo CDM. TÃ­tulo descriptivo en parte inferior: 'Propuesta de Servicios para PostgreSQL CE y Licenciamiento y soporte Redis Enterprise'.\",\n  \n  \"issues_found\": [\n    \"El texto '// }' parece incompleto o cÃ³digo mal formateado\",\n    \"Contraste del tÃ­tulo inferior podrÃ­a mejorarse (texto gris sobre fondo claro)\",\n    \"Falta informaciÃ³n de contacto o empresa en portada\",\n    \"No se visualiza numeraciÃ³n de pÃ¡gina o estructura de navegaciÃ³n\"\n  ],\n  \n  \"quality_score\": 75,\n  \n  \"recommendations\": [\n    \"Completar o corregir el texto '// }' por un mensaje mÃ¡s profesional\",\n    \"Aumentar contraste del tÃ­tulo principal para mejor legibilidad\", \n    \"Agregar informaciÃ³n corpora",
+      "domain": "ML 100%",
+      "source": "auto_save",
+      "tier": "hot",
+      "created_at": "2026-04-07T15:33:45.933004+00:00",
+      "last_access": "2026-04-07T15:33:45.933004+00:00",
+      "access_count": 0,
+      "promotion_count": 0
+    },
+    {
+      "key": "pero este brigde esta generando problemas con el Token que se expira?",
+      "value": "AquÃ­ estÃ¡ el problema. Cuando el token expira:\n\n1. `claude --print` retorna **returncode=1** con stderr `\"API Error: 401\"`\n2. El cÃ³digo en lÃ­nea 174-177 captura el error â†’ `{\"error\": \"...\", \"is_valid\": False}`\n3. El Engine ve `is_valid: False` â†’ **marca test como FAIL con score=0**\n4. **No hay retry ni notificaciÃ³n clara** al usuario de que es un problema de autenticaciÃ³n\n\nEl token OAuth de Claude Code expira cada ~7 dÃ­as. Cada vez que eso pase, **todos los tests con visual=True fallarÃ¡n silenciosamente**.\n\nHay 3 opciones para resolver esto:\n\n### OpciÃ³n A: Detectar 401 y dar error claro (mÃ­nimo)\nDetectar \"401\" en el error y lanzar excepciÃ³n explÃ­cita.\n\n### OpciÃ³n B: Fallback graceful (recomendado)\nSi el CLI falla por auth, el Engine continÃºa sin validaciÃ³n visual y reporta `confidence=75%` en vez de `score=0`.\n\n### OpciÃ³n C: Pre-check del token antes de correr tests\nVerificar que `claude --print -p \"ok\"` funciona antes de iniciar el pipeline.\n\nÂ¿Quieres que implemen",
+      "domain": "ML 100%",
+      "source": "auto_save",
+      "tier": "hot",
+      "created_at": "2026-04-07T15:40:41.194565+00:00",
+      "last_access": "2026-04-07T15:40:41.194565+00:00",
+      "access_count": 0,
+      "promotion_count": 0
+    },
+    {
+      "key": "Responde solo: OK",
+      "value": "## Cambios aplicados\n\n### OpciÃ³n C â€” Pre-check (`_pre_check_auth`)\n- Al crear `VisionBridge()`, ejecuta `claude --print -p \"Responde solo: OK\"` (30s timeout)\n- Si falla (401, timeout, etc) â†’ `self._auth_ok = False` + warning en log\n- Propiedad `bridge.is_available` para consultar externamente\n\n### OpciÃ³n B â€” Fallback graceful\n**En `analyze_image()`:**\n- Si `_auth_ok = False` â†’ retorna `is_valid: True, quality_score: -1, skipped: True`\n- No penaliza el score, no falla el test\n- Incluye `reason` con instrucciones claras (\"Run: claude /login\")\n\n**En `_analyze_cli()`:**\n- Si detecta \"401\" en stderr â†’ mismo fallback graceful\n- Marca `_auth_ok = False` para que futuros calls no vuelvan a intentar\n\n**En `engine.py`:**\n- Si visual fue `skipped` â†’ `success=True, confidence=75%`\n- Log claro: \"Exito con confianza 75%: visual no disponible\"\n\n### Comportamiento ahora:\n\n| Escenario | Antes | Ahora |\n|---|---|---|\n| Token OK | score=75, success=true | Igual |\n| Token expirado | **score=",
+      "domain": "ML 100%",
+      "source": "auto_save",
+      "tier": "hot",
+      "created_at": "2026-04-07T15:43:40.593779+00:00",
+      "last_access": "2026-04-07T15:43:40.593779+00:00",
+      "access_count": 0,
+      "promotion_count": 0
+    },
+    {
+      "key": "escuche de una libreria llamada cornea algo para ver los documentos la has escuchado y la vez util para este proyecto?",
+      "value": "## Resultados de la bÃºsqueda\n\nEncontrÃ© **dos cosas** llamadas \"Cornea\":\n\n### 1. **Cornea (PyPI)** â€” SegmentaciÃ³n de imÃ¡genes\nEs una librerÃ­a de **segmentaciÃ³n de imÃ¡genes** para robÃ³tica y computer vision (SAM, BiRefNet, SLIC). **No tiene nada que ver con documentos Word.**\n\n### 2. **Kornia** â€” Computer Vision (quizÃ¡s la confundiste?)\n[Kornia](https://github.com/kornia/kornia) es una librerÃ­a de visiÃ³n por computadora diferenciable para PyTorch. Tampoco es para documentos.\n\n### Â¿QuizÃ¡s te referÃ­as a alguna de estas?\n\n| LibrerÃ­a | Para quÃ© sirve | Ãštil para IA_Word? |\n|---|---|---|\n| **python-docx** | Leer/escribir .docx via XML | Ya no la usas (usas COM) |\n| **Aspose.Words** | Renderizar/convertir docs | SÃ­, pero es de pago |\n| **Spire.Doc** | Leer/extraer de Word | Parcialmente |\n| **docx2pdf** | Convertir docx a PDF | PodrÃ­a servir para screenshots |\n| **LibreOffice headless** | Renderizar docs sin GUI | Alternativa a COM para screenshots |\n\nPara tu proyecto **",
+      "domain": "Internet 80% + ML 20%",
+      "source": "auto_save",
+      "tier": "hot",
+      "created_at": "2026-04-07T15:45:00.868926+00:00",
+      "last_access": "2026-04-07T15:45:00.868926+00:00",
+      "access_count": 0,
+      "promotion_count": 0
     }
   ],
   "warm": [
@@ -92,9 +147,9 @@
     }
   ],
   "cold": [],
-  "updated_at": "2026-04-07T15:22:20.336511+00:00",
+  "updated_at": "2026-04-07T15:45:00.869941+00:00",
   "counts": {
-    "hot": 4,
+    "hot": 9,
     "warm": 4,
     "cold": 0
   }
