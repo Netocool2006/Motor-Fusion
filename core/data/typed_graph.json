@@ -1727,6 +1727,46 @@
       "properties": {},
       "created_at": "2026-04-07T19:44:47.826726+00:00",
       "updated_at": "2026-04-07T19:44:47.826726+00:00"
+    },
+    "4.5s": {
+      "id": "4.5s",
+      "type": "file",
+      "name": "4.5s",
+      "properties": {},
+      "created_at": "2026-04-07T19:54:14.722366+00:00",
+      "updated_at": "2026-04-07T19:54:14.722366+00:00"
+    },
+    "6.8s": {
+      "id": "6.8s",
+      "type": "file",
+      "name": "6.8s",
+      "properties": {},
+      "created_at": "2026-04-07T19:54:14.729376+00:00",
+      "updated_at": "2026-04-07T19:54:14.729376+00:00"
+    },
+    "Range.Text": {
+      "id": "Range.Text",
+      "type": "file",
+      "name": "Range.Text",
+      "properties": {},
+      "created_at": "2026-04-07T20:10:23.966108+00:00",
+      "updated_at": "2026-04-07T20:10:23.966108+00:00"
+    },
+    "Range.Info": {
+      "id": "Range.Info",
+      "type": "file",
+      "name": "Range.Info",
+      "properties": {},
+      "created_at": "2026-04-07T20:10:23.992142+00:00",
+      "updated_at": "2026-04-07T20:10:23.992142+00:00"
+    },
+    "6.7s": {
+      "id": "6.7s",
+      "type": "file",
+      "name": "6.7s",
+      "properties": {},
+      "created_at": "2026-04-07T20:18:30.028200+00:00",
+      "updated_at": "2026-04-07T20:18:30.028200+00:00"
     }
   },
   "relations": [
@@ -4452,10 +4492,10 @@
       "source": "doc.Para",
       "target": "doc.Para",
       "type": "used_with",
-      "weight": 0.5,
-      "context": "Lee la imagen en C:\\Chance1\\IA\\IA_Word\\test_output\\test4_output_screenshot.png usando el tool Read y",
+      "weight": 1.5,
+      "context": "necesito saber que pasa cual es el cuello de botella pero la pregunta clave y quiero respuesta hones",
       "created_at": "2026-04-07T00:19:09.874550+00:00",
-      "updated_at": "2026-04-07T00:19:09.874550+00:00"
+      "updated_at": "2026-04-07T20:10:23.986896+00:00"
     },
     {
       "source": "graphs.Coun",
@@ -5428,11 +5468,56 @@
       "context": "casi ningun test paso porque?",
       "created_at": "2026-04-07T19:44:47.841252+00:00",
       "updated_at": "2026-04-07T19:44:47.841252+00:00"
+    },
+    {
+      "source": "4.5s",
+      "target": "6.8s",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "termina el ciclo por test no los mezcles realizas el uno cuando ya termine todo el 2 etc?",
+      "created_at": "2026-04-07T19:54:14.737385+00:00",
+      "updated_at": "2026-04-07T19:54:14.737385+00:00"
+    },
+    {
+      "source": "doc.Para",
+      "target": "Range.Text",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "necesito saber que pasa cual es el cuello de botella pero la pregunta clave y quiero respuesta hones",
+      "created_at": "2026-04-07T20:10:23.970319+00:00",
+      "updated_at": "2026-04-07T20:10:23.970319+00:00"
+    },
+    {
+      "source": "Range.Text",
+      "target": "doc.Para",
+      "type": "used_with",
+      "weight": 1.0,
+      "context": "necesito saber que pasa cual es el cuello de botella pero la pregunta clave y quiero respuesta hones",
+      "created_at": "2026-04-07T20:10:23.978871+00:00",
+      "updated_at": "2026-04-07T20:10:23.982898+00:00"
+    },
+    {
+      "source": "doc.Para",
+      "target": "Range.Info",
+      "type": "used_with",
+      "weight": 1.0,
+      "context": "necesito saber que pasa cual es el cuello de botella pero la pregunta clave y quiero respuesta hones",
+      "created_at": "2026-04-07T20:10:23.996141+00:00",
+      "updated_at": "2026-04-07T20:10:24.000770+00:00"
+    },
+    {
+      "source": "4.5s",
+      "target": "6.7s",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pero tu hablabas maravillas del COM?",
+      "created_at": "2026-04-07T20:18:30.035219+00:00",
+      "updated_at": "2026-04-07T20:18:30.035219+00:00"
     }
   ],
-  "updated_at": "2026-04-07T19:44:47.842252+00:00",
+  "updated_at": "2026-04-07T20:18:30.035219+00:00",
   "stats": {
-    "entities": 216,
-    "relations": 411
+    "entities": 221,
+    "relations": 416
   }
 }
