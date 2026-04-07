@@ -1639,6 +1639,62 @@
       "properties": {},
       "created_at": "2026-04-07T16:44:43.216971+00:00",
       "updated_at": "2026-04-07T16:44:43.216971+00:00"
+    },
+    "realmente": {
+      "id": "realmente",
+      "type": "concept",
+      "name": "realmente",
+      "properties": {},
+      "created_at": "2026-04-07T17:08:02.436064+00:00",
+      "updated_at": "2026-04-07T17:08:02.436064+00:00"
+    },
+    "tu problema": {
+      "id": "tu problema",
+      "type": "concept",
+      "name": "tu problema",
+      "properties": {},
+      "created_at": "2026-04-07T17:08:02.440086+00:00",
+      "updated_at": "2026-04-07T17:08:02.440086+00:00"
+    },
+    "ent.Text": {
+      "id": "ent.Text",
+      "type": "file",
+      "name": "ent.Text",
+      "properties": {},
+      "created_at": "2026-04-07T17:15:09.642480+00:00",
+      "updated_at": "2026-04-07T17:15:09.642480+00:00"
+    },
+    "3.7s": {
+      "id": "3.7s",
+      "type": "file",
+      "name": "3.7s",
+      "properties": {},
+      "created_at": "2026-04-07T17:54:57.208849+00:00",
+      "updated_at": "2026-04-07T17:54:57.208849+00:00"
+    },
+    "0.2s": {
+      "id": "0.2s",
+      "type": "file",
+      "name": "0.2s",
+      "properties": {},
+      "created_at": "2026-04-07T17:54:57.216316+00:00",
+      "updated_at": "2026-04-07T17:54:57.216316+00:00"
+    },
+    "Open.Name": {
+      "id": "Open.Name",
+      "type": "file",
+      "name": "Open.Name",
+      "properties": {},
+      "created_at": "2026-04-07T17:54:57.246296+00:00",
+      "updated_at": "2026-04-07T17:54:57.246296+00:00"
+    },
+    "99.87": {
+      "id": "99.87",
+      "type": "file",
+      "name": "99.87",
+      "properties": {},
+      "created_at": "2026-04-07T17:54:57.269794+00:00",
+      "updated_at": "2026-04-07T17:54:57.269794+00:00"
     }
   },
   "relations": [
@@ -5178,11 +5234,92 @@
       "context": "si procede solo una recomendacion extra agrega que tengas una logica de revision por bloques hay .do",
       "created_at": "2026-04-07T16:44:43.238965+00:00",
       "updated_at": "2026-04-07T16:44:43.238965+00:00"
+    },
+    {
+      "source": "realmente",
+      "target": "tu problema",
+      "type": "solves",
+      "weight": 0.7,
+      "context": "pre-hook query",
+      "created_at": "2026-04-07T17:08:02.446548+00:00",
+      "updated_at": "2026-04-07T17:08:02.446548+00:00"
+    },
+    {
+      "source": "doc.Cont",
+      "target": "ent.Text",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "lo que aun no entiendo es porque tarda tano en el primer intento colocaste 10 mins de time out es ex",
+      "created_at": "2026-04-07T17:15:09.649504+00:00",
+      "updated_at": "2026-04-07T17:15:09.649504+00:00"
+    },
+    {
+      "source": "3.7s",
+      "target": "0.2s",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pero si esperas tiempos de 20 a 35 segundos entonces no pongas timeout del comando Bash (por precauc",
+      "created_at": "2026-04-07T17:54:57.224104+00:00",
+      "updated_at": "2026-04-07T17:54:57.224104+00:00"
+    },
+    {
+      "source": "3.7s",
+      "target": "doc.Cont",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pero si esperas tiempos de 20 a 35 segundos entonces no pongas timeout del comando Bash (por precauc",
+      "created_at": "2026-04-07T17:54:57.231683+00:00",
+      "updated_at": "2026-04-07T17:54:57.231683+00:00"
+    },
+    {
+      "source": "0.2s",
+      "target": "doc.Cont",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pero si esperas tiempos de 20 a 35 segundos entonces no pongas timeout del comando Bash (por precauc",
+      "created_at": "2026-04-07T17:54:57.239366+00:00",
+      "updated_at": "2026-04-07T17:54:57.239366+00:00"
+    },
+    {
+      "source": "0.2s",
+      "target": "Open.Name",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pero si esperas tiempos de 20 a 35 segundos entonces no pongas timeout del comando Bash (por precauc",
+      "created_at": "2026-04-07T17:54:57.253887+00:00",
+      "updated_at": "2026-04-07T17:54:57.253887+00:00"
+    },
+    {
+      "source": "doc.Cont",
+      "target": "Open.Name",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pero si esperas tiempos de 20 a 35 segundos entonces no pongas timeout del comando Bash (por precauc",
+      "created_at": "2026-04-07T17:54:57.262284+00:00",
+      "updated_at": "2026-04-07T17:54:57.262284+00:00"
+    },
+    {
+      "source": "doc.Cont",
+      "target": "99.87",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pero si esperas tiempos de 20 a 35 segundos entonces no pongas timeout del comando Bash (por precauc",
+      "created_at": "2026-04-07T17:54:57.277075+00:00",
+      "updated_at": "2026-04-07T17:54:57.277075+00:00"
+    },
+    {
+      "source": "Open.Name",
+      "target": "99.87",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pero si esperas tiempos de 20 a 35 segundos entonces no pongas timeout del comando Bash (por precauc",
+      "created_at": "2026-04-07T17:54:57.284892+00:00",
+      "updated_at": "2026-04-07T17:54:57.284892+00:00"
     }
   ],
-  "updated_at": "2026-04-07T16:44:43.238965+00:00",
+  "updated_at": "2026-04-07T17:54:57.284892+00:00",
   "stats": {
-    "entities": 205,
-    "relations": 393
+    "entities": 212,
+    "relations": 402
   }
 }

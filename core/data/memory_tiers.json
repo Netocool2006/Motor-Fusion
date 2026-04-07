@@ -1,77 +1,55 @@
 {
   "hot": [
     {
-      "key": "esto pierde sentido con lo que has actualizado ahorita? \"y combinar lo que sugieres lo que ya tenemos en el motor + pymuPDF + SuperDoc de una manera eficiente e inteligente?\"",
-      "value": "No, no pierde sentido. Lo que cambiÃ³ es que **SuperDoc se cae de la ecuaciÃ³n**. El plan actualizado es mÃ¡s simple y mÃ¡s honesto:\n\n### Lo que se mantiene:\n\n| Componente | Status | Para quÃ© |\n|---|---|---|\n| **Motor COM** (manos) | Ya existe, cÃ³digo bueno | Editar Word |\n| **PyMuPDF/DocEyes** (ojos) | **Ya funciona** (11s, 19 pÃ¡ginas) | Ver resultado real |\n| **Loop VERâ†’CORREGIR** | Por construir | Certificar calidad |\n\n### Lo que se descartÃ³:\n\n| Componente | Por quÃ© NO |\n|---|---|\n| **SuperDoc** | Duplica COM, agrega Node.js, tiene 2 semanas de vida |\n| **Kornia** | Computer vision, no aplica a documentos |\n| **MinerU** | Overkill, 5GB, necesita GPU |\n| **VisionBridge/CLI** | Token que expira, screenshot borroso de 1 pÃ¡gina |\n\n### Lo que se agrega (nuevo, basado en lo que descubrimos hoy):\n\n| Mejora | QuÃ© resuelve |\n|---|---|\n| **VerificaciÃ³n post-operaciÃ³n** | COM dice \"5 reemplazos\" pero Â¿estÃ¡n todos? Verificar |\n| **Recovery RPC** | Word crashea â†’ reconectar automÃ",
-      "domain": "ML 100%",
+      "key": "que piensas de esto: \"Capa 2: Document Structure Recognition (DSR)\nEsto es lo que realmente resuelve tu problema. ABBYY no lee el XML del Word â€” renderiza el documento visualmente y luego lo reinter",
+      "value": "Analisis honesto de esto vs tu caso de uso:\n\n## Lo que describe es real y poderoso â€” pero para un problema DIFERENTE\n\nEl pipeline ABBYY (DSR) resuelve: **documentos rotos â†’ reconstruir desde visual â†’ generar nuevo .docx limpio**.\n\nTu problema es: **documento .docx VALIDO â†’ editar contenido â†’ que quede bien**.\n\n### Donde SI aplica a tu caso\n\nSolo en **un** escenario que ya enfrentamos: documentos convertidos desde PDF (los \"split runs\" que detecta `_detect_document_type()` en engine.py). Ahi si, el .docx esta \"roto\" estructuralmente aunque se ve bien visualmente.\n\n### Donde NO aplica\n\nTus SOWs de BAC, Bantrab, G&T son .docx nativos bien formados. No necesitas reconstruirlos â€” necesitas **editarlos** sin romperlos. ABBYY destruiria la estructura existente para reconstruirla.\n\n### Los modelos open source que menciona\n\n| Modelo | Que hace | Te sirve? |\n|--------|----------|-----------|\n| LayoutLM (Microsoft) | Clasifica zonas de documentos | No â€” tu ya sabes donde estan las s",
+      "domain": "ML 70%",
       "source": "auto_save",
       "tier": "hot",
-      "created_at": "2026-04-07T16:28:12.179285+00:00",
-      "last_access": "2026-04-07T16:28:12.179285+00:00",
+      "created_at": "2026-04-07T17:08:38.995793+00:00",
+      "last_access": "2026-04-07T17:08:38.995793+00:00",
       "access_count": 0,
       "promotion_count": 0
     },
     {
-      "key": "nada que refozar en las manos?",
-      "value": "Tienes razÃ³n, sÃ­ hay que reforzar. DÃ©jame ser especÃ­fico con lo que mis ojos acaban de encontrar:\n\n## Lo que las manos NO saben hacer hoy (problemas reales que vi):\n\n### 1. Pegar tabla Excel sin que se monte\n```python\n# HOY: pegar y rezar\nword.Selection.PasteExcelTable(False, False, False)\n# Resultado: tabla se monta encima del texto siguiente\n\n# NECESITA: pegar + verificar posiciÃ³n + ajustar\n```\n\n### 2. Aplicar formato a un heading COMPLETO\n```python\n# HOY: Find busca texto â†’ aplica formato al match\n# Resultado: solo pinta \"3.1\" en azul, no \"3.1 Horas de Soporte\" completo\n\n# NECESITA: detectar el pÃ¡rrafo del heading â†’ aplicar al rango completo\n```\n\n### 3. Ajustar ancho de tabla al margen\n```python\n# HOY: AutoFitBehavior(1) y listo\n# Resultado: tabla se desborda si tiene muchas columnas\n\n# NECESITA: calcular ancho disponible â†’ ajustar columnas proporcionalmente\n```\n\n### 4. Insertar page break inteligente\n```python\n# HOY: InsertBreak(7) en posiciÃ³n fija\n# Resultado: a veces",
-      "domain": "ML 100%",
+      "key": "es que hay words que vienen de pdfs no necesito re construilo a nivel de xml ni nada quiero editarlo como lo realizaria un humano y usarlo ?",
+      "value": "## Respuesta a tu pregunta\n\nPara docs de PDF, ahora el pipeline hace **exactamente como un humano**:\n\n```\nDoc nativo (.docx):\n  â†’ find_replace normal (rapido, COM directo)\n  â†’ si falla â†’ VBA batch â†’ smart_replace\n\nDoc de PDF (.docx convertido):\n  â†’ smart_replace SIEMPRE (find_then_set: busca visual â†’ selecciona â†’ reescribe)\n  â†’ ignora los split runs, trabaja a nivel visual como un humano\n  â†’ footers via TextRange.Text (asignacion directa)\n```\n\n### Lo que NO necesitas de ABBYY/LayoutLM/Donut\n\nNo necesitas reconstruir el documento desde cero. Lo que necesitas es que **cuando editas, el metodo de edicion sea apropiado para el tipo de documento**. Eso ya lo resolvimos:\n\n- `find_then_set()` = \"seleccionar y reescribir\" (como humano)\n- `smart_replace()` = busca en body + footer shapes con el metodo correcto\n- `_detect_document_type()` = detecta automaticamente si viene de PDF\n- `_auto_correct()` = si falla, usa la estrategia alternativa\n\nLa deteccion es automatica. El usuar",
+      "domain": "ML 50%",
       "source": "auto_save",
       "tier": "hot",
-      "created_at": "2026-04-07T16:30:14.622942+00:00",
-      "last_access": "2026-04-07T16:30:14.622942+00:00",
+      "created_at": "2026-04-07T17:12:03.326641+00:00",
+      "last_access": "2026-04-07T17:12:03.326641+00:00",
       "access_count": 0,
       "promotion_count": 0
     },
     {
-      "key": "entonces no hay manos que nos resuelva esto?",
-      "value": "## La verdad sobre las \"manos\" disponibles en 2026\n\n### Opciones que existen:\n\n| Herramienta | Tipo | Pegar Excel | TOC real | Headers/Footers | Formato fiel | Precio |\n|---|---|---|---|---|---|---|\n| **Word COM** (tu actual) | Motor de Word real | **SÃ­** | **SÃ­** | **SÃ­** | **99%** | Gratis |\n| **python-docx** | XML directo | No | No (hack) | Parcial | ~70% | Gratis |\n| **Aspose.Words** | Motor propio | SÃ­ | SÃ­ | SÃ­ | ~95% | **$1,199/aÃ±o** |\n| **Spire.Doc** | Motor propio | SÃ­ | Parcial | SÃ­ | ~90% | **$999/aÃ±o** |\n| **SuperDoc** | OOXML | No | No | Parcial | ~80% | Gratis (AGPL) |\n| **LibreOffice UNO** | Motor LO | SÃ­ | SÃ­ | SÃ­ | ~85% | Gratis |\n\n### La realidad:\n\n**No hay nada gratis que sea mejor que COM para tu caso.** COM ES el motor de Word â€” tiene acceso a todo lo que Word puede hacer porque ES Word.\n\nLo que existe mejor que COM son **Aspose.Words** ($1,199/aÃ±o) que es un motor independiente sin necesitar Word instalado. Pero para tu caso (Windows + Word instala",
-      "domain": "Internet 50% + ML 50%",
-      "source": "auto_save",
-      "tier": "hot",
-      "created_at": "2026-04-07T16:35:22.794821+00:00",
-      "last_access": "2026-04-07T16:35:22.794821+00:00",
-      "access_count": 0,
-      "promotion_count": 0
-    },
-    {
-      "key": "y que logres editar el word con visual basic?  sera mejor o lo que el com no puede?  pero sigue siendo pregunta y necesito respuesta honesta",
-      "value": "## La prueba:\n\n```\nVBA (dentro de Word):\n    ActiveDocument.Content.Find.Execute \"GBM\", , , , , , , , , \"GBM Corp\", 2\n\nPython COM (lo que usamos):\n    doc.Content.Find.Execute(\"GBM\", False,False,False,False,False,True,1,False, \"GBM Corp\", 2)\n```\n\n**Es la misma llamada, al mismo motor, con los mismos parÃ¡metros.** La diferencia es solo el idioma: VBA habla \"desde dentro de Word\", Python COM habla \"desde fuera de Word\". Pero el motor que ejecuta la operaciÃ³n es **idÃ©ntico**.\n\n### Lo que VBA puede que COM no:\n\n| Capacidad | VBA | COM (Python) | Â¿Diferencia? |\n|---|---|---|---|\n| Find/Replace | SÃ­ | SÃ­ | **IdÃ©ntico** |\n| Pegar Excel | SÃ­ | SÃ­ | **IdÃ©ntico** |\n| TOC Update | SÃ­ | SÃ­ | **IdÃ©ntico** |\n| Headers/Footers | SÃ­ | SÃ­ | **IdÃ©ntico** |\n| Formatear | SÃ­ | SÃ­ | **IdÃ©ntico** |\n| Macro execution | Nativo | `Application.Run(\"macro\")` | **IdÃ©ntico** |\n| Eventos Word (OnOpen, etc) | SÃ­ | No fÃ¡cilmente | VBA gana |\n| Velocidad | MÃ¡s rÃ¡pido (in-process) | MÃ¡s lento (",
-      "domain": "ML 100%",
-      "source": "auto_save",
-      "tier": "hot",
-      "created_at": "2026-04-07T16:37:21.812961+00:00",
-      "last_access": "2026-04-07T16:37:21.812961+00:00",
-      "access_count": 0,
-      "promotion_count": 0
-    },
-    {
-      "key": "ok entonces en resumen que es todo lo que implementarias que nos da mejora?",
-      "value": "## Plan final â€” Solo lo que da mejora real\n\n### 1. OJOS: DocEyes (PyMuPDF) â€” **YA IMPLEMENTADO**\n```\nWord â†’ PDF â†’ PNG cada pÃ¡gina â†’ Claude analiza\n11 segundos, 19 pÃ¡ginas, calidad perfecta\n```\n**Mejora:** Puedo VER errores en vez de adivinar.\n\n### 2. MANOS: VBA batch para operaciones pesadas â€” **POR IMPLEMENTAR**\n```python\n# Inyectar macro VBA que hace 20 reemplazos en 1 sola llamada\n# En vez de 20 llamadas RPC que pueden crashear\n```\n**Mejora:** Elimina crashes RPC (el error que matÃ³ test5 por 49 minutos).\n\n### 3. VERIFICACIÃ“N: verify_all_replaced() â€” **POR IMPLEMENTAR**\n```python\n# DespuÃ©s de cada replace, buscar si old_text sigue existiendo\n# En body + footers + shapes + tables\n# Si sigue â†’ reintentar con mÃ©todo alternativo\n```\n**Mejora:** Nunca mÃ¡s \"5 reemplazos\" cuando habÃ­a 8.\n\n### 4. REPARACIÃ“N: repair_footers() â€” **POR IMPLEMENTAR**\n```python\n# No buscar/reemplazar â†’ FORZAR el valor correcto\n# En CADA secciÃ³n, CADA footer, CADA shape\n```\n**Mejora:*",
-      "domain": "ML 100%",
-      "source": "auto_save",
-      "tier": "hot",
-      "created_at": "2026-04-07T16:38:49.187645+00:00",
-      "last_access": "2026-04-07T16:38:49.187645+00:00",
-      "access_count": 0,
-      "promotion_count": 0
-    },
-    {
-      "key": "si procede solo una recomendacion extra agrega que tengas una logica de revision por bloques hay .docs de mas de 200 paginas te recomiendo divir todo el proceso en bloques para no colapsar",
-      "value": "All improvements implemented. Here's the summary of everything that's now in place:\n\n### Completado\n\n**Manos (word_com.py) â€” 5 metodos nuevos:**\n- `vba_batch_replace()` â€” reemplazos masivos via macro VBA (evita crashes RPC)\n- `vba_batch_format_headings()` â€” formato de titulos en batch via VBA\n- `verify_all_replaced()` â€” verifica que texto viejo NO existe en ningun lugar (body, headers, footers, shapes, tablas)\n- `repair_footers()` â€” fuerza valores correctos en TODOS los footers de TODAS las secciones\n- `count_occurrences()` â€” cuenta apariciones por ubicacion\n\n**Ojos (doc_eyes.py) â€” procesamiento por bloques:**\n- `render_blocks()` â€” generator que procesa N paginas a la vez (default: 20), libera memoria entre bloques\n- `get_page_count()` â€” obtiene total de paginas sin renderizar todo\n- Parametro `block_size` configurable en constructor\n\n**Fallback graceful (vision_bridge.py):**\n- Pre-check de autenticacion CLI al inicializar\n- Si token expirado: `quality_score=-1` en ve",
+      "key": "lo que aun no entiendo es porque tarda tano en el primer intento colocaste 10 mins de time out es exagerado el tiempo de ejecucion esto es normal?",
+      "value": "## Respuesta directa a tu pregunta\n\n**No, 10 minutos NO es normal.** Los 10 min eran el timeout del comando Bash (por precaucion), no lo que deberia tardar. Los tiempos esperados:\n\n| Operacion | Tiempo esperado | Tiempo que estaba tardando |\n|-----------|----------------|---------------------------|\n| Abrir Word + doc | 3-5s | 3-5s (OK) |\n| 15 find_replace | 5-10s | 5-10s (OK) |\n| 15 verify_all_replaced | **30-60s** (era el cuello) | Ahora: **2-5s** (fast check) |\n| DocEyes (PDF+render) | 8-15s | 8-15s (OK) |\n| VisionBridge CLI | **30-120s** | **Desactivado** (no necesario con DocEyes) |\n| Total esperado | **20-35s** | Antes: **2-5 min** |\n\n### Lo que optimice ahora:\n\n1. **verify_all_replaced rapido**: lee `doc.Content.Text` UNA vez (1 llamada COM), y solo si encuentra texto residual hace la busqueda detallada. Antes: 15 x 100 llamadas COM = 1500. Ahora: 1 + (solo los que fallen x 100).\n\n2. **VisionBridge eliminado del pipeline default**: DocEyes hace la validacion visual sin necesitar",
       "domain": "ML 60%",
       "source": "auto_save",
       "tier": "hot",
-      "created_at": "2026-04-07T16:44:43.204526+00:00",
-      "last_access": "2026-04-07T16:44:43.204526+00:00",
+      "created_at": "2026-04-07T17:15:09.632462+00:00",
+      "last_access": "2026-04-07T17:15:09.632462+00:00",
+      "access_count": 0,
+      "promotion_count": 0
+    },
+    {
+      "key": "pero si esperas tiempos de 20 a 35 segundos entonces no pongas timeout del comando Bash (por precaucion) de 10 mins colocarlos de 1 min o 2 si mucho segun tu logica de que se tardara 20 a 35 (si esto ",
+      "value": "## Resultado HONESTO de las 5 pruebas\n\n| Test | Resultado | Tiempo | DiagnÃ³stico |\n|------|-----------|--------|-------------|\n| **1. Massive Replace** | PASS (parcial) | 154s | 796/797 reemplazos OK. \"Guatemala\" resistiÃ³ en un shape. VBA bloqueado por seguridad |\n| **2. Tabla EconÃ³mica** | FAIL | 3.7s | Estilo \"Table Grid\" no existe en Word espaÃ±ol. Ya corregido |\n| **3. Propuesta Bantrab** | FAIL | 110s | \"Fase II\" residual en body. **Footers SI se repararon** (Ficohsa OK en 3 secciones). Portada no cambiÃ³ en render |\n| **4. Formato Complejo** | FAIL | 0.2s | COM sucio â€” `doc.Content` de instancia anterior. Kill entre tests ya corregido |\n| **5. Engine Pipeline** | FAIL | 13s | `Open.Name` â€” COM sucio. Kill entre tests ya corregido |\n\n### Lo bueno (evidencia real):\n- **repair_footers FUNCIONA**: Las 3 secciones muestran \"Cliente: Banco Ficohsa\", \"Oportunidad 500123\", \"v4.2\" âœ“\n- **796 de 797 reemplazos** se aplicaron correctamente (99.87%)\n- **DocEyes renderizÃ³** 34 pÃ¡gin",
+      "domain": "ML 70%",
+      "source": "auto_save",
+      "tier": "hot",
+      "created_at": "2026-04-07T17:54:57.197575+00:00",
+      "last_access": "2026-04-07T17:54:57.197575+00:00",
       "access_count": 0,
       "promotion_count": 0
     }
   ],
   "warm": [],
   "cold": [],
-  "updated_at": "2026-04-07T16:44:43.206034+00:00",
+  "updated_at": "2026-04-07T17:54:57.198577+00:00",
   "counts": {
-    "hot": 6,
+    "hot": 4,
     "warm": 0,
     "cold": 0
   }
