@@ -1583,6 +1583,62 @@
       "properties": {},
       "created_at": "2026-04-07T16:18:28.752602+00:00",
       "updated_at": "2026-04-07T16:18:28.752602+00:00"
+    },
+    "word.Sele": {
+      "id": "word.Sele",
+      "type": "file",
+      "name": "word.Sele",
+      "properties": {},
+      "created_at": "2026-04-07T16:30:14.634964+00:00",
+      "updated_at": "2026-04-07T16:30:14.634964+00:00"
+    },
+    "ction.Past": {
+      "id": "ction.Past",
+      "type": "file",
+      "name": "ction.Past",
+      "properties": {},
+      "created_at": "2026-04-07T16:30:14.642831+00:00",
+      "updated_at": "2026-04-07T16:30:14.642831+00:00"
+    },
+    "ActiveDocument.Cont": {
+      "id": "ActiveDocument.Cont",
+      "type": "file",
+      "name": "ActiveDocument.Cont",
+      "properties": {},
+      "created_at": "2026-04-07T16:37:21.818942+00:00",
+      "updated_at": "2026-04-07T16:37:21.818942+00:00"
+    },
+    "ent.Find": {
+      "id": "ent.Find",
+      "type": "file",
+      "name": "ent.Find",
+      "properties": {},
+      "created_at": "2026-04-07T16:37:21.822941+00:00",
+      "updated_at": "2026-04-07T16:37:21.822941+00:00"
+    },
+    "doc.Cont": {
+      "id": "doc.Cont",
+      "type": "file",
+      "name": "doc.Cont",
+      "properties": {},
+      "created_at": "2026-04-07T16:37:21.831034+00:00",
+      "updated_at": "2026-04-07T16:37:21.831034+00:00"
+    },
+    "Application.Run": {
+      "id": "Application.Run",
+      "type": "file",
+      "name": "Application.Run",
+      "properties": {},
+      "created_at": "2026-04-07T16:37:21.852210+00:00",
+      "updated_at": "2026-04-07T16:37:21.852210+00:00"
+    },
+    "doc_eyes.py": {
+      "id": "doc_eyes.py",
+      "type": "file",
+      "name": "doc_eyes.py",
+      "properties": {},
+      "created_at": "2026-04-07T16:44:43.216971+00:00",
+      "updated_at": "2026-04-07T16:44:43.216971+00:00"
     }
   },
   "relations": [
@@ -4821,10 +4877,10 @@
       "source": "Aspose.Word",
       "target": "Spire.Doc",
       "type": "used_with",
-      "weight": 0.5,
-      "context": "escuche de una libreria llamada cornea algo para ver los documentos la has escuchado y la vez util p",
+      "weight": 1.0,
+      "context": "entonces no hay manos que nos resuelva esto?",
       "created_at": "2026-04-07T15:45:00.912181+00:00",
-      "updated_at": "2026-04-07T15:45:00.912181+00:00"
+      "updated_at": "2026-04-07T16:35:22.803838+00:00"
     },
     {
       "source": "405.08",
@@ -5005,11 +5061,128 @@
       "context": "si lo recomiendas honestamente o estamos mejor como estamos ahorita si nos da valor o solo estamos a",
       "created_at": "2026-04-07T16:18:28.783881+00:00",
       "updated_at": "2026-04-07T16:18:28.783881+00:00"
+    },
+    {
+      "source": "word.Sele",
+      "target": "ction.Past",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "nada que refozar en las manos?",
+      "created_at": "2026-04-07T16:30:14.650054+00:00",
+      "updated_at": "2026-04-07T16:30:14.650054+00:00"
+    },
+    {
+      "source": "Aspose.Word",
+      "target": "Aspose.Word",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "entonces no hay manos que nos resuelva esto?",
+      "created_at": "2026-04-07T16:35:22.811739+00:00",
+      "updated_at": "2026-04-07T16:35:22.811739+00:00"
+    },
+    {
+      "source": "Spire.Doc",
+      "target": "Aspose.Word",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "entonces no hay manos que nos resuelva esto?",
+      "created_at": "2026-04-07T16:35:22.818759+00:00",
+      "updated_at": "2026-04-07T16:35:22.818759+00:00"
+    },
+    {
+      "source": "ActiveDocument.Cont",
+      "target": "ent.Find",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "y que logres editar el word con visual basic?  sera mejor o lo que el com no puede?  pero sigue sien",
+      "created_at": "2026-04-07T16:37:21.827018+00:00",
+      "updated_at": "2026-04-07T16:37:21.827018+00:00"
+    },
+    {
+      "source": "ActiveDocument.Cont",
+      "target": "doc.Cont",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "y que logres editar el word con visual basic?  sera mejor o lo que el com no puede?  pero sigue sien",
+      "created_at": "2026-04-07T16:37:21.834710+00:00",
+      "updated_at": "2026-04-07T16:37:21.834710+00:00"
+    },
+    {
+      "source": "ent.Find",
+      "target": "doc.Cont",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "y que logres editar el word con visual basic?  sera mejor o lo que el com no puede?  pero sigue sien",
+      "created_at": "2026-04-07T16:37:21.839219+00:00",
+      "updated_at": "2026-04-07T16:37:21.839219+00:00"
+    },
+    {
+      "source": "ent.Find",
+      "target": "ent.Find",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "y que logres editar el word con visual basic?  sera mejor o lo que el com no puede?  pero sigue sien",
+      "created_at": "2026-04-07T16:37:21.843222+00:00",
+      "updated_at": "2026-04-07T16:37:21.843222+00:00"
+    },
+    {
+      "source": "doc.Cont",
+      "target": "ent.Find",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "y que logres editar el word con visual basic?  sera mejor o lo que el com no puede?  pero sigue sien",
+      "created_at": "2026-04-07T16:37:21.847211+00:00",
+      "updated_at": "2026-04-07T16:37:21.847211+00:00"
+    },
+    {
+      "source": "doc.Cont",
+      "target": "Application.Run",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "y que logres editar el word con visual basic?  sera mejor o lo que el com no puede?  pero sigue sien",
+      "created_at": "2026-04-07T16:37:21.856225+00:00",
+      "updated_at": "2026-04-07T16:37:21.856225+00:00"
+    },
+    {
+      "source": "ent.Find",
+      "target": "Application.Run",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "y que logres editar el word con visual basic?  sera mejor o lo que el com no puede?  pero sigue sien",
+      "created_at": "2026-04-07T16:37:21.861844+00:00",
+      "updated_at": "2026-04-07T16:37:21.861844+00:00"
+    },
+    {
+      "source": "word_com.py",
+      "target": "doc_eyes.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "si procede solo una recomendacion extra agrega que tengas una logica de revision por bloques hay .do",
+      "created_at": "2026-04-07T16:44:43.224478+00:00",
+      "updated_at": "2026-04-07T16:44:43.224478+00:00"
+    },
+    {
+      "source": "word_com.py",
+      "target": "vision_bridge.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "si procede solo una recomendacion extra agrega que tengas una logica de revision por bloques hay .do",
+      "created_at": "2026-04-07T16:44:43.231733+00:00",
+      "updated_at": "2026-04-07T16:44:43.231733+00:00"
+    },
+    {
+      "source": "doc_eyes.py",
+      "target": "vision_bridge.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "si procede solo una recomendacion extra agrega que tengas una logica de revision por bloques hay .do",
+      "created_at": "2026-04-07T16:44:43.238965+00:00",
+      "updated_at": "2026-04-07T16:44:43.238965+00:00"
     }
   ],
-  "updated_at": "2026-04-07T16:18:28.783881+00:00",
+  "updated_at": "2026-04-07T16:44:43.238965+00:00",
   "stats": {
-    "entities": 198,
-    "relations": 380
+    "entities": 205,
+    "relations": 393
   }
 }

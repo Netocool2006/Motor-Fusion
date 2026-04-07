@@ -10,13 +10,68 @@
       "last_access": "2026-04-07T16:28:12.179285+00:00",
       "access_count": 0,
       "promotion_count": 0
+    },
+    {
+      "key": "nada que refozar en las manos?",
+      "value": "Tienes razÃ³n, sÃ­ hay que reforzar. DÃ©jame ser especÃ­fico con lo que mis ojos acaban de encontrar:\n\n## Lo que las manos NO saben hacer hoy (problemas reales que vi):\n\n### 1. Pegar tabla Excel sin que se monte\n```python\n# HOY: pegar y rezar\nword.Selection.PasteExcelTable(False, False, False)\n# Resultado: tabla se monta encima del texto siguiente\n\n# NECESITA: pegar + verificar posiciÃ³n + ajustar\n```\n\n### 2. Aplicar formato a un heading COMPLETO\n```python\n# HOY: Find busca texto â†’ aplica formato al match\n# Resultado: solo pinta \"3.1\" en azul, no \"3.1 Horas de Soporte\" completo\n\n# NECESITA: detectar el pÃ¡rrafo del heading â†’ aplicar al rango completo\n```\n\n### 3. Ajustar ancho de tabla al margen\n```python\n# HOY: AutoFitBehavior(1) y listo\n# Resultado: tabla se desborda si tiene muchas columnas\n\n# NECESITA: calcular ancho disponible â†’ ajustar columnas proporcionalmente\n```\n\n### 4. Insertar page break inteligente\n```python\n# HOY: InsertBreak(7) en posiciÃ³n fija\n# Resultado: a veces",
+      "domain": "ML 100%",
+      "source": "auto_save",
+      "tier": "hot",
+      "created_at": "2026-04-07T16:30:14.622942+00:00",
+      "last_access": "2026-04-07T16:30:14.622942+00:00",
+      "access_count": 0,
+      "promotion_count": 0
+    },
+    {
+      "key": "entonces no hay manos que nos resuelva esto?",
+      "value": "## La verdad sobre las \"manos\" disponibles en 2026\n\n### Opciones que existen:\n\n| Herramienta | Tipo | Pegar Excel | TOC real | Headers/Footers | Formato fiel | Precio |\n|---|---|---|---|---|---|---|\n| **Word COM** (tu actual) | Motor de Word real | **SÃ­** | **SÃ­** | **SÃ­** | **99%** | Gratis |\n| **python-docx** | XML directo | No | No (hack) | Parcial | ~70% | Gratis |\n| **Aspose.Words** | Motor propio | SÃ­ | SÃ­ | SÃ­ | ~95% | **$1,199/aÃ±o** |\n| **Spire.Doc** | Motor propio | SÃ­ | Parcial | SÃ­ | ~90% | **$999/aÃ±o** |\n| **SuperDoc** | OOXML | No | No | Parcial | ~80% | Gratis (AGPL) |\n| **LibreOffice UNO** | Motor LO | SÃ­ | SÃ­ | SÃ­ | ~85% | Gratis |\n\n### La realidad:\n\n**No hay nada gratis que sea mejor que COM para tu caso.** COM ES el motor de Word â€” tiene acceso a todo lo que Word puede hacer porque ES Word.\n\nLo que existe mejor que COM son **Aspose.Words** ($1,199/aÃ±o) que es un motor independiente sin necesitar Word instalado. Pero para tu caso (Windows + Word instala",
+      "domain": "Internet 50% + ML 50%",
+      "source": "auto_save",
+      "tier": "hot",
+      "created_at": "2026-04-07T16:35:22.794821+00:00",
+      "last_access": "2026-04-07T16:35:22.794821+00:00",
+      "access_count": 0,
+      "promotion_count": 0
+    },
+    {
+      "key": "y que logres editar el word con visual basic?  sera mejor o lo que el com no puede?  pero sigue siendo pregunta y necesito respuesta honesta",
+      "value": "## La prueba:\n\n```\nVBA (dentro de Word):\n    ActiveDocument.Content.Find.Execute \"GBM\", , , , , , , , , \"GBM Corp\", 2\n\nPython COM (lo que usamos):\n    doc.Content.Find.Execute(\"GBM\", False,False,False,False,False,True,1,False, \"GBM Corp\", 2)\n```\n\n**Es la misma llamada, al mismo motor, con los mismos parÃ¡metros.** La diferencia es solo el idioma: VBA habla \"desde dentro de Word\", Python COM habla \"desde fuera de Word\". Pero el motor que ejecuta la operaciÃ³n es **idÃ©ntico**.\n\n### Lo que VBA puede que COM no:\n\n| Capacidad | VBA | COM (Python) | Â¿Diferencia? |\n|---|---|---|---|\n| Find/Replace | SÃ­ | SÃ­ | **IdÃ©ntico** |\n| Pegar Excel | SÃ­ | SÃ­ | **IdÃ©ntico** |\n| TOC Update | SÃ­ | SÃ­ | **IdÃ©ntico** |\n| Headers/Footers | SÃ­ | SÃ­ | **IdÃ©ntico** |\n| Formatear | SÃ­ | SÃ­ | **IdÃ©ntico** |\n| Macro execution | Nativo | `Application.Run(\"macro\")` | **IdÃ©ntico** |\n| Eventos Word (OnOpen, etc) | SÃ­ | No fÃ¡cilmente | VBA gana |\n| Velocidad | MÃ¡s rÃ¡pido (in-process) | MÃ¡s lento (",
+      "domain": "ML 100%",
+      "source": "auto_save",
+      "tier": "hot",
+      "created_at": "2026-04-07T16:37:21.812961+00:00",
+      "last_access": "2026-04-07T16:37:21.812961+00:00",
+      "access_count": 0,
+      "promotion_count": 0
+    },
+    {
+      "key": "ok entonces en resumen que es todo lo que implementarias que nos da mejora?",
+      "value": "## Plan final â€” Solo lo que da mejora real\n\n### 1. OJOS: DocEyes (PyMuPDF) â€” **YA IMPLEMENTADO**\n```\nWord â†’ PDF â†’ PNG cada pÃ¡gina â†’ Claude analiza\n11 segundos, 19 pÃ¡ginas, calidad perfecta\n```\n**Mejora:** Puedo VER errores en vez de adivinar.\n\n### 2. MANOS: VBA batch para operaciones pesadas â€” **POR IMPLEMENTAR**\n```python\n# Inyectar macro VBA que hace 20 reemplazos en 1 sola llamada\n# En vez de 20 llamadas RPC que pueden crashear\n```\n**Mejora:** Elimina crashes RPC (el error que matÃ³ test5 por 49 minutos).\n\n### 3. VERIFICACIÃ“N: verify_all_replaced() â€” **POR IMPLEMENTAR**\n```python\n# DespuÃ©s de cada replace, buscar si old_text sigue existiendo\n# En body + footers + shapes + tables\n# Si sigue â†’ reintentar con mÃ©todo alternativo\n```\n**Mejora:** Nunca mÃ¡s \"5 reemplazos\" cuando habÃ­a 8.\n\n### 4. REPARACIÃ“N: repair_footers() â€” **POR IMPLEMENTAR**\n```python\n# No buscar/reemplazar â†’ FORZAR el valor correcto\n# En CADA secciÃ³n, CADA footer, CADA shape\n```\n**Mejora:*",
+      "domain": "ML 100%",
+      "source": "auto_save",
+      "tier": "hot",
+      "created_at": "2026-04-07T16:38:49.187645+00:00",
+      "last_access": "2026-04-07T16:38:49.187645+00:00",
+      "access_count": 0,
+      "promotion_count": 0
+    },
+    {
+      "key": "si procede solo una recomendacion extra agrega que tengas una logica de revision por bloques hay .docs de mas de 200 paginas te recomiendo divir todo el proceso en bloques para no colapsar",
+      "value": "All improvements implemented. Here's the summary of everything that's now in place:\n\n### Completado\n\n**Manos (word_com.py) â€” 5 metodos nuevos:**\n- `vba_batch_replace()` â€” reemplazos masivos via macro VBA (evita crashes RPC)\n- `vba_batch_format_headings()` â€” formato de titulos en batch via VBA\n- `verify_all_replaced()` â€” verifica que texto viejo NO existe en ningun lugar (body, headers, footers, shapes, tablas)\n- `repair_footers()` â€” fuerza valores correctos en TODOS los footers de TODAS las secciones\n- `count_occurrences()` â€” cuenta apariciones por ubicacion\n\n**Ojos (doc_eyes.py) â€” procesamiento por bloques:**\n- `render_blocks()` â€” generator que procesa N paginas a la vez (default: 20), libera memoria entre bloques\n- `get_page_count()` â€” obtiene total de paginas sin renderizar todo\n- Parametro `block_size` configurable en constructor\n\n**Fallback graceful (vision_bridge.py):**\n- Pre-check de autenticacion CLI al inicializar\n- Si token expirado: `quality_score=-1` en ve",
+      "domain": "ML 60%",
+      "source": "auto_save",
+      "tier": "hot",
+      "created_at": "2026-04-07T16:44:43.204526+00:00",
+      "last_access": "2026-04-07T16:44:43.204526+00:00",
+      "access_count": 0,
+      "promotion_count": 0
     }
   ],
   "warm": [],
   "cold": [],
-  "updated_at": "2026-04-07T16:28:12.179285+00:00",
+  "updated_at": "2026-04-07T16:44:43.206034+00:00",
   "counts": {
-    "hot": 1,
+    "hot": 6,
     "warm": 0,
     "cold": 0
   }
