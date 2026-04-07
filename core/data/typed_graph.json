@@ -1783,6 +1783,126 @@
       "properties": {},
       "created_at": "2026-04-07T22:27:29.395674+00:00",
       "updated_at": "2026-04-07T22:27:29.395674+00:00"
+    },
+    "src/engine.py": {
+      "id": "src/engine.py",
+      "type": "file",
+      "name": "src/engine.py",
+      "properties": {},
+      "created_at": "2026-04-07T22:28:13.457003+00:00",
+      "updated_at": "2026-04-07T22:28:13.457003+00:00"
+    },
+    "src/doc_eyes.py": {
+      "id": "src/doc_eyes.py",
+      "type": "file",
+      "name": "src/doc_eyes.py",
+      "properties": {},
+      "created_at": "2026-04-07T22:28:13.464516+00:00",
+      "updated_at": "2026-04-07T22:28:13.464516+00:00"
+    },
+    "src/vision_bridge.py": {
+      "id": "src/vision_bridge.py",
+      "type": "file",
+      "name": "src/vision_bridge.py",
+      "properties": {},
+      "created_at": "2026-04-07T22:28:13.480549+00:00",
+      "updated_at": "2026-04-07T22:28:13.480549+00:00"
+    },
+    "src/playwright_feedback.py": {
+      "id": "src/playwright_feedback.py",
+      "type": "file",
+      "name": "src/playwright_feedback.py",
+      "properties": {},
+      "created_at": "2026-04-07T22:28:13.519617+00:00",
+      "updated_at": "2026-04-07T22:28:13.520618+00:00"
+    },
+    "src/computer_use_feedback.py": {
+      "id": "src/computer_use_feedback.py",
+      "type": "file",
+      "name": "src/computer_use_feedback.py",
+      "properties": {},
+      "created_at": "2026-04-07T22:28:13.541645+00:00",
+      "updated_at": "2026-04-07T22:28:13.541645+00:00"
+    },
+    "test_stress_5.py": {
+      "id": "test_stress_5.py",
+      "type": "file",
+      "name": "test_stress_5.py",
+      "properties": {},
+      "created_at": "2026-04-07T22:28:13.564697+00:00",
+      "updated_at": "2026-04-07T22:28:13.564697+00:00"
+    },
+    "src/word_com.py": {
+      "id": "src/word_com.py",
+      "type": "file",
+      "name": "src/word_com.py",
+      "properties": {},
+      "created_at": "2026-04-07T22:28:13.587129+00:00",
+      "updated_at": "2026-04-07T22:28:13.587129+00:00"
+    },
+    "src/business_rules.py": {
+      "id": "src/business_rules.py",
+      "type": "file",
+      "name": "src/business_rules.py",
+      "properties": {},
+      "created_at": "2026-04-07T22:28:13.608270+00:00",
+      "updated_at": "2026-04-07T22:28:13.608270+00:00"
+    },
+    "src/validators.py": {
+      "id": "src/validators.py",
+      "type": "file",
+      "name": "src/validators.py",
+      "properties": {},
+      "created_at": "2026-04-07T22:28:13.623313+00:00",
+      "updated_at": "2026-04-07T22:28:13.623313+00:00"
+    },
+    "998.83": {
+      "id": "998.83",
+      "type": "file",
+      "name": "998.83",
+      "properties": {},
+      "created_at": "2026-04-07T22:49:24.226785+00:00",
+      "updated_at": "2026-04-07T22:49:24.226785+00:00"
+    },
+    "440.34": {
+      "id": "440.34",
+      "type": "file",
+      "name": "440.34",
+      "properties": {},
+      "created_at": "2026-04-07T22:49:24.231100+00:00",
+      "updated_at": "2026-04-07T22:49:24.231100+00:00"
+    },
+    "721.91": {
+      "id": "721.91",
+      "type": "file",
+      "name": "721.91",
+      "properties": {},
+      "created_at": "2026-04-07T22:49:24.241668+00:00",
+      "updated_at": "2026-04-07T22:49:24.241668+00:00"
+    },
+    "2.779": {
+      "id": "2.779",
+      "type": "file",
+      "name": "2.779",
+      "properties": {},
+      "created_at": "2026-04-07T22:49:24.259279+00:00",
+      "updated_at": "2026-04-07T22:49:24.259279+00:00"
+    },
+    "1182.94": {
+      "id": "1182.94",
+      "type": "file",
+      "name": "1182.94",
+      "properties": {},
+      "created_at": "2026-04-07T22:49:24.284540+00:00",
+      "updated_at": "2026-04-07T22:49:24.284540+00:00"
+    },
+    "describes": {
+      "id": "describes",
+      "type": "concept",
+      "name": "describes",
+      "properties": {},
+      "created_at": "2026-04-07T22:49:53.206840+00:00",
+      "updated_at": "2026-04-07T22:49:53.206840+00:00"
     }
   },
   "relations": [
@@ -5574,11 +5694,236 @@
       "context": "tienes el repo del git de este proyecto?",
       "created_at": "2026-04-07T22:27:29.403102+00:00",
       "updated_at": "2026-04-07T22:27:29.403102+00:00"
+    },
+    {
+      "source": "src/engine.py",
+      "target": "src/doc_eyes.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "hay algo en el git que no este en esta carpeta local?",
+      "created_at": "2026-04-07T22:28:13.473540+00:00",
+      "updated_at": "2026-04-07T22:28:13.473540+00:00"
+    },
+    {
+      "source": "src/engine.py",
+      "target": "src/vision_bridge.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "hay algo en el git que no este en esta carpeta local?",
+      "created_at": "2026-04-07T22:28:13.488567+00:00",
+      "updated_at": "2026-04-07T22:28:13.488567+00:00"
+    },
+    {
+      "source": "src/doc_eyes.py",
+      "target": "src/vision_bridge.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "hay algo en el git que no este en esta carpeta local?",
+      "created_at": "2026-04-07T22:28:13.496568+00:00",
+      "updated_at": "2026-04-07T22:28:13.496568+00:00"
+    },
+    {
+      "source": "src/doc_eyes.py",
+      "target": "src/vision_feedback.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "hay algo en el git que no este en esta carpeta local?",
+      "created_at": "2026-04-07T22:28:13.504580+00:00",
+      "updated_at": "2026-04-07T22:28:13.504580+00:00"
+    },
+    {
+      "source": "src/vision_bridge.py",
+      "target": "src/vision_feedback.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "hay algo en el git que no este en esta carpeta local?",
+      "created_at": "2026-04-07T22:28:13.512602+00:00",
+      "updated_at": "2026-04-07T22:28:13.512602+00:00"
+    },
+    {
+      "source": "src/vision_bridge.py",
+      "target": "src/playwright_feedback.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "hay algo en el git que no este en esta carpeta local?",
+      "created_at": "2026-04-07T22:28:13.528020+00:00",
+      "updated_at": "2026-04-07T22:28:13.528020+00:00"
+    },
+    {
+      "source": "src/vision_feedback.py",
+      "target": "src/playwright_feedback.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "hay algo en el git que no este en esta carpeta local?",
+      "created_at": "2026-04-07T22:28:13.535529+00:00",
+      "updated_at": "2026-04-07T22:28:13.535529+00:00"
+    },
+    {
+      "source": "src/vision_feedback.py",
+      "target": "src/computer_use_feedback.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "hay algo en el git que no este en esta carpeta local?",
+      "created_at": "2026-04-07T22:28:13.548660+00:00",
+      "updated_at": "2026-04-07T22:28:13.548660+00:00"
+    },
+    {
+      "source": "src/playwright_feedback.py",
+      "target": "src/computer_use_feedback.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "hay algo en el git que no este en esta carpeta local?",
+      "created_at": "2026-04-07T22:28:13.556169+00:00",
+      "updated_at": "2026-04-07T22:28:13.556169+00:00"
+    },
+    {
+      "source": "src/playwright_feedback.py",
+      "target": "test_stress_5.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "hay algo en el git que no este en esta carpeta local?",
+      "created_at": "2026-04-07T22:28:13.572727+00:00",
+      "updated_at": "2026-04-07T22:28:13.572727+00:00"
+    },
+    {
+      "source": "src/computer_use_feedback.py",
+      "target": "test_stress_5.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "hay algo en el git que no este en esta carpeta local?",
+      "created_at": "2026-04-07T22:28:13.580075+00:00",
+      "updated_at": "2026-04-07T22:28:13.580075+00:00"
+    },
+    {
+      "source": "src/computer_use_feedback.py",
+      "target": "src/word_com.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "hay algo en el git que no este en esta carpeta local?",
+      "created_at": "2026-04-07T22:28:13.594713+00:00",
+      "updated_at": "2026-04-07T22:28:13.594713+00:00"
+    },
+    {
+      "source": "test_stress_5.py",
+      "target": "src/word_com.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "hay algo en el git que no este en esta carpeta local?",
+      "created_at": "2026-04-07T22:28:13.601746+00:00",
+      "updated_at": "2026-04-07T22:28:13.601746+00:00"
+    },
+    {
+      "source": "test_stress_5.py",
+      "target": "src/business_rules.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "hay algo en el git que no este en esta carpeta local?",
+      "created_at": "2026-04-07T22:28:13.613787+00:00",
+      "updated_at": "2026-04-07T22:28:13.613787+00:00"
+    },
+    {
+      "source": "src/word_com.py",
+      "target": "src/business_rules.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "hay algo en el git que no este en esta carpeta local?",
+      "created_at": "2026-04-07T22:28:13.617876+00:00",
+      "updated_at": "2026-04-07T22:28:13.617876+00:00"
+    },
+    {
+      "source": "src/word_com.py",
+      "target": "src/validators.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "hay algo en el git que no este en esta carpeta local?",
+      "created_at": "2026-04-07T22:28:13.627341+00:00",
+      "updated_at": "2026-04-07T22:28:13.627341+00:00"
+    },
+    {
+      "source": "src/business_rules.py",
+      "target": "src/validators.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "hay algo en el git que no este en esta carpeta local?",
+      "created_at": "2026-04-07T22:28:13.632863+00:00",
+      "updated_at": "2026-04-07T22:28:13.632863+00:00"
+    },
+    {
+      "source": "998.83",
+      "target": "440.34",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-07T22:49:24.235628+00:00",
+      "updated_at": "2026-04-07T22:49:24.235628+00:00"
+    },
+    {
+      "source": "998.83",
+      "target": "721.91",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-07T22:49:24.247572+00:00",
+      "updated_at": "2026-04-07T22:49:24.247572+00:00"
+    },
+    {
+      "source": "440.34",
+      "target": "721.91",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-07T22:49:24.253090+00:00",
+      "updated_at": "2026-04-07T22:49:24.253090+00:00"
+    },
+    {
+      "source": "440.34",
+      "target": "2.779",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-07T22:49:24.270856+00:00",
+      "updated_at": "2026-04-07T22:49:24.270856+00:00"
+    },
+    {
+      "source": "721.91",
+      "target": "2.779",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-07T22:49:24.277566+00:00",
+      "updated_at": "2026-04-07T22:49:24.277566+00:00"
+    },
+    {
+      "source": "721.91",
+      "target": "1182.94",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-07T22:49:24.288780+00:00",
+      "updated_at": "2026-04-07T22:49:24.288780+00:00"
+    },
+    {
+      "source": "2.779",
+      "target": "1182.94",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-07T22:49:24.295136+00:00",
+      "updated_at": "2026-04-07T22:49:24.295136+00:00"
+    },
+    {
+      "source": "describes",
+      "target": "que",
+      "type": "depends_on",
+      "weight": 0.7,
+      "context": "no, no entendiste quiero esto te doy un ejemplo:\"agrega esto en la secciÃ³n  \"propuesta economica\" s",
+      "created_at": "2026-04-07T22:49:53.213088+00:00",
+      "updated_at": "2026-04-07T22:49:53.214122+00:00"
     }
   ],
-  "updated_at": "2026-04-07T22:27:29.403102+00:00",
+  "updated_at": "2026-04-07T22:49:53.214122+00:00",
   "stats": {
-    "entities": 223,
-    "relations": 421
+    "entities": 238,
+    "relations": 446
   }
 }

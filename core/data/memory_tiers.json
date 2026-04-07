@@ -1,44 +1,33 @@
 {
   "hot": [
     {
-      "key": "pero tu estas hablando de los casos de uso especificos que generaste que son de ejemplo pero que pasara cuando te enfrentes a un caso de uso diferente a los que armaste en los test?",
-      "value": "Pregunta fundamental y honesta respuesta:\n\n**Tienes razÃ³n.** Los 5 tests son escenarios controlados que yo diseÃ±Ã©. Son como un examen donde el profesor ya sabe las respuestas.\n\n**Lo que los tests prueban:**\n- El mecanismo funciona (COM, VBA, DocEyes, VisionBridge)\n- El pipeline no se cuelga, no deja zombies, maneja timeouts\n- Los reemplazos se aplican y se verifican\n\n**Lo que los tests NO prueban:**\n- Documentos con layouts que nunca he visto\n- Tablas anidadas o que cruzan pÃ¡ginas\n- Documentos con Track Changes activo\n- Campos de formulario (Content Controls)\n- Objetos OLE incrustados\n- Documentos de 200+ pÃ¡ginas\n- Textos donde el reemplazo cambia el layout (reflow)\n- Caracteres especiales que rompen el Find/Replace\n- Secciones protegidas con contraseÃ±a\n- Documentos corruptos o de versiones viejas de Word\n\n**La verdad incÃ³moda:** el sistema hoy solo sabe hacer lo que yo codifiquÃ©:\n1. `find_replace` / `vba_batch_replace`\n2. `repair_footers`\n3. `update_toc`\n4. `insert_table`\n5. F",
+      "key": "ahorita no tengo ningun trabajo masivo es en si modificar un documento word a diferentes escalas pero hacerlo bien luego tendre otro pero no necesito masificacion pero si mucha precision",
+      "value": "Entonces tu caso real es: **1 documento a la vez, con precisiÃ³n mÃ¡xima**.\n\nEso cambia completamente el enfoque. No necesitas automatizaciÃ³n batch â€” necesitas un **asistente que te ayude mientras tÃº editas**, no que edite por ti.\n\n**Lo que ya tienes y funciona hoy sin IA_Word:**\n- TÃº abres el documento\n- Ctrl+H para reemplazos\n- Editas footers manualmente\n- Actualizas TOC con clic derecho\n- Revisas visualmente\n- 10-15 min, 100% bien hecho\n\n**Donde IA_Word sÃ­ podrÃ­a agregarte valor:**\nNo editando por ti, sino **verificando despuÃ©s de que tÃº editas**:\n\n```\nTÃº editas a mano (10-15 min)\n    â†“\nIA_Word verifica (15-20 seg):\n    âœ“ \"GyT\" no aparece en ningÃºn lado (body + footers + shapes)\n    âœ“ Footers consistentes en las 34 pÃ¡ginas\n    âœ“ TOC coincide con headings reales\n    âœ“ Tablas econÃ³micas: matemÃ¡ticas cuadran\n    âœ— \"GBM\" todavÃ­a aparece en pÃ¡gina 12, footer secciÃ³n 3\n```\n\nEso ya existe en el cÃ³digo â€” `verify_all_replaced`, `validate_logic`, `DocEyes`. Sol",
       "domain": "ML 100%",
       "source": "auto_save",
       "tier": "hot",
-      "created_at": "2026-04-07T22:21:51.797634+00:00",
-      "last_access": "2026-04-07T22:21:51.797634+00:00",
+      "created_at": "2026-04-07T22:47:20.019788+00:00",
+      "last_access": "2026-04-07T22:47:20.019788+00:00",
       "access_count": 0,
       "promotion_count": 0
     },
     {
-      "key": "es que no tengo tiempo para que estes en prueba y error en lo que lo logras yo ya lo logre editandolo a mano",
-      "value": "Entendido. Tienes toda la razÃ³n.\n\nSi tÃº editas el documento a mano en 10-15 minutos y el sistema tarda 3-6 minutos **solo cuando funciona con escenarios que Ã©l mismo diseÃ±Ã³** â€” y ante un caso nuevo podrÃ­a fallar y requerir intervenciÃ³n manual de todos modos â€” entonces **no te estÃ¡ ahorrando tiempo, te lo estÃ¡ quitando**.\n\n**La realidad dura:**\n- TÃº: 10-15 min a mano, 100% confiable, cualquier escenario\n- IA_Word: 3-6 min cuando funciona + riesgo de fallar + tÃº revisÃ¡ndolo de todos modos\n\n**El valor real solo existe si:**\n1. Procesas **muchos documentos iguales** (mismo template, solo cambian datos del cliente) â€” batch de 10-20 propuestas\n2. O alguien **menos experto que tÃº** necesita hacer el trabajo con la misma calidad\n\nPara tu caso actual â€” editando 1-2 propuestas con criterio experto â€” **a mano es mÃ¡s rÃ¡pido y mÃ¡s seguro**.\n\nÂ¿Quieres que dejemos IA_Word donde estÃ¡ como herramienta auxiliar para cuando haga sentido (batch masivo, delegaciÃ³n) y nos enfoqu",
+      "key": "no, no entendiste quiero esto te doy un ejemplo:\"agrega esto en la secciÃ³n  \"propuesta economica\" si hay algo alli quitarlo  del documento Word  ImplementaciÃ³n=$10,998.83 (220 hrs)  / Lider Tecnico=",
+      "value": "Ahora sÃ­ entiendo. Lo que quieres es **ediciÃ³n libre por instrucciÃ³n natural** â€” no reemplazos predefinidos.\n\nEso es un nivel completamente diferente a lo que IA_Word hace hoy:\n\n```\nLo que IA_Word hace hoy:          Lo que tÃº necesitas:\nâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€          â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€\n\"Cambia GyT por Banco X\"          \"Agrega esta tabla aquÃ­ con estos datos,\n                                    en este formato, con estos colores,\n                                    calcula el IVA, y ponla en esta secciÃ³n\"\n\nFind/Replace mecÃ¡nico              ComprensiÃ³n + decisiÃ³n + creaciÃ³n\n\nDeterminÃ­stico                     Requiere inteligencia\n```\n\n**El problema real:** lo que describes necesita que Claude **entienda** el documento, **decida** dÃ³nde y cÃ³mo modificar, y **cree** contenido nuevo (tablas, formatos, fusiones). No es automatizaciÃ³n â€” es un agente inteligente que edita Wor",
       "domain": "ML 100%",
       "source": "auto_save",
       "tier": "hot",
-      "created_at": "2026-04-07T22:26:14.538322+00:00",
-      "last_access": "2026-04-07T22:26:14.538322+00:00",
-      "access_count": 0,
-      "promotion_count": 0
-    },
-    {
-      "key": "tienes el repo del git de este proyecto?",
-      "value": "SÃ­, el repo existe: `https://github.com/Netocool2006/IA_Word.git` en branch `master`.\n\nHay cambios sin commitear (todo lo que trabajamos hoy: VisionBridge, DocEyes optimizado, engine restructurado, tests arreglados). Â¿Quieres que haga commit y push?",
-      "domain": "ML 100%",
-      "source": "auto_save",
-      "tier": "hot",
-      "created_at": "2026-04-07T22:27:29.385640+00:00",
-      "last_access": "2026-04-07T22:27:29.385640+00:00",
+      "created_at": "2026-04-07T22:49:53.196014+00:00",
+      "last_access": "2026-04-07T22:49:53.196014+00:00",
       "access_count": 0,
       "promotion_count": 0
     }
   ],
   "warm": [],
   "cold": [],
-  "updated_at": "2026-04-07T22:27:29.386672+00:00",
+  "updated_at": "2026-04-07T22:49:53.196014+00:00",
   "counts": {
-    "hot": 3,
+    "hot": 2,
     "warm": 0,
     "cold": 0
   }
