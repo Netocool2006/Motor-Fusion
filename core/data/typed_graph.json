@@ -1775,6 +1775,14 @@
       "properties": {},
       "created_at": "2026-04-07T21:05:55.680253+00:00",
       "updated_at": "2026-04-07T21:05:55.680253+00:00"
+    },
+    "/Netocool2006/IA_Word.git": {
+      "id": "/Netocool2006/IA_Word.git",
+      "type": "file",
+      "name": "/Netocool2006/IA_Word.git",
+      "properties": {},
+      "created_at": "2026-04-07T22:27:29.395674+00:00",
+      "updated_at": "2026-04-07T22:27:29.395674+00:00"
     }
   },
   "relations": [
@@ -5557,11 +5565,20 @@
       "context": "Lee la imagen en C:\\Users\\ntoledo\\AppData\\Local\\Temp\\ia_word_eyes_oqqcxnkc\\page_001.png usando el to",
       "created_at": "2026-04-07T21:05:55.687263+00:00",
       "updated_at": "2026-04-07T21:05:55.687263+00:00"
+    },
+    {
+      "source": "//github.com",
+      "target": "/Netocool2006/IA_Word.git",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "tienes el repo del git de este proyecto?",
+      "created_at": "2026-04-07T22:27:29.403102+00:00",
+      "updated_at": "2026-04-07T22:27:29.403102+00:00"
     }
   ],
-  "updated_at": "2026-04-07T21:05:55.688765+00:00",
+  "updated_at": "2026-04-07T22:27:29.403102+00:00",
   "stats": {
-    "entities": 222,
-    "relations": 420
+    "entities": 223,
+    "relations": 421
   }
 }
