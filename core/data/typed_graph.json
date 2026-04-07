@@ -1503,6 +1503,54 @@
       "properties": {},
       "created_at": "2026-04-07T15:55:14.247028+00:00",
       "updated_at": "2026-04-07T15:55:14.247028+00:00"
+    },
+    "doc.Expo": {
+      "id": "doc.Expo",
+      "type": "file",
+      "name": "doc.Expo",
+      "properties": {},
+      "created_at": "2026-04-07T16:00:30.890966+00:00",
+      "updated_at": "2026-04-07T16:00:30.890966+00:00"
+    },
+    "page.get_": {
+      "id": "page.get_",
+      "type": "file",
+      "name": "page.get_",
+      "properties": {},
+      "created_at": "2026-04-07T16:00:30.899493+00:00",
+      "updated_at": "2026-04-07T16:00:30.899493+00:00"
+    },
+    "1.1s": {
+      "id": "1.1s",
+      "type": "file",
+      "name": "1.1s",
+      "properties": {},
+      "created_at": "2026-04-07T16:00:30.916641+00:00",
+      "updated_at": "2026-04-07T16:00:30.916641+00:00"
+    },
+    "0.5s": {
+      "id": "0.5s",
+      "type": "file",
+      "name": "0.5s",
+      "properties": {},
+      "created_at": "2026-04-07T16:00:30.940750+00:00",
+      "updated_at": "2026-04-07T16:00:30.940750+00:00"
+    },
+    "2.0s": {
+      "id": "2.0s",
+      "type": "file",
+      "name": "2.0s",
+      "properties": {},
+      "created_at": "2026-04-07T16:00:30.967052+00:00",
+      "updated_at": "2026-04-07T16:00:30.967052+00:00"
+    },
+    "//mcpmarket.com": {
+      "id": "//mcpmarket.com",
+      "type": "file",
+      "name": "//mcpmarket.com",
+      "properties": {},
+      "created_at": "2026-04-07T16:12:52.188307+00:00",
+      "updated_at": "2026-04-07T16:12:52.188307+00:00"
     }
   },
   "relations": [
@@ -4754,11 +4802,83 @@
       "context": "pero los ojos que tienes si realmente te sirven o solo te dan la idea necesito que con tus ojos pued",
       "created_at": "2026-04-07T15:55:14.252033+00:00",
       "updated_at": "2026-04-07T15:55:14.252033+00:00"
+    },
+    {
+      "source": "doc.Expo",
+      "target": "page.get_",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "alguna otra opcion mejor o combinada con esta que este en el internet que te de una excelente vista?",
+      "created_at": "2026-04-07T16:00:30.907529+00:00",
+      "updated_at": "2026-04-07T16:00:30.907529+00:00"
+    },
+    {
+      "source": "doc.Expo",
+      "target": "1.1s",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "alguna otra opcion mejor o combinada con esta que este en el internet que te de una excelente vista?",
+      "created_at": "2026-04-07T16:00:30.924350+00:00",
+      "updated_at": "2026-04-07T16:00:30.924350+00:00"
+    },
+    {
+      "source": "page.get_",
+      "target": "1.1s",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "alguna otra opcion mejor o combinada con esta que este en el internet que te de una excelente vista?",
+      "created_at": "2026-04-07T16:00:30.932527+00:00",
+      "updated_at": "2026-04-07T16:00:30.932527+00:00"
+    },
+    {
+      "source": "page.get_",
+      "target": "0.5s",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "alguna otra opcion mejor o combinada con esta que este en el internet que te de una excelente vista?",
+      "created_at": "2026-04-07T16:00:30.950922+00:00",
+      "updated_at": "2026-04-07T16:00:30.950922+00:00"
+    },
+    {
+      "source": "1.1s",
+      "target": "0.5s",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "alguna otra opcion mejor o combinada con esta que este en el internet que te de una excelente vista?",
+      "created_at": "2026-04-07T16:00:30.957446+00:00",
+      "updated_at": "2026-04-07T16:00:30.957446+00:00"
+    },
+    {
+      "source": "1.1s",
+      "target": "2.0s",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "alguna otra opcion mejor o combinada con esta que este en el internet que te de una excelente vista?",
+      "created_at": "2026-04-07T16:00:30.975702+00:00",
+      "updated_at": "2026-04-07T16:00:30.975702+00:00"
+    },
+    {
+      "source": "0.5s",
+      "target": "2.0s",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "alguna otra opcion mejor o combinada con esta que este en el internet que te de una excelente vista?",
+      "created_at": "2026-04-07T16:00:30.984281+00:00",
+      "updated_at": "2026-04-07T16:00:30.984281+00:00"
+    },
+    {
+      "source": "//github.com",
+      "target": "//mcpmarket.com",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pero lo que me sorprende es en pleno 07 de abril de 2026 con las capacidades de la IA en estos tiemp",
+      "created_at": "2026-04-07T16:12:52.196860+00:00",
+      "updated_at": "2026-04-07T16:12:52.196860+00:00"
     }
   ],
-  "updated_at": "2026-04-07T15:55:14.252033+00:00",
+  "updated_at": "2026-04-07T16:12:52.196860+00:00",
   "stats": {
-    "entities": 188,
-    "relations": 361
+    "entities": 194,
+    "relations": 369
   }
 }
