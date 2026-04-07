@@ -1,11 +1,57 @@
 {
   "hot": [
     {
+      "key": "tengo este problema en claude cliÂ   âŽ¿ Â Please run /login Â· API Error: 401 {\"type\":\"error\",\"error\":{\"type\":\"authentication_error\",\"message\":\"OAuth token\n     has expired. Please obtain a new token",
+      "value": "El error es claro: tu token OAuth expirÃ³. Solo ejecuta:\n\n```\n/login\n```\n\nEso te redirige al navegador para re-autenticarte y obtener un token nuevo.\n\nSi `/login` no funciona, intenta:\n\n```bash\nclaude logout\nclaude login\n```",
+      "domain": "ML 100%",
+      "source": "auto_save",
+      "tier": "hot",
+      "created_at": "2026-04-07T15:09:40.606539+00:00",
+      "last_access": "2026-04-07T15:09:40.606539+00:00",
+      "access_count": 0,
+      "promotion_count": 0
+    },
+    {
+      "key": "ahora tengo este error: \"PS C:\\> winget upgrade Anthropic.ClaudeCode\nFound Claude Code [Anthropic.ClaudeCode] Version 2.1.92\nThis application is licensed to you by its owner.\nMicrosoft is not responsi",
+      "value": "El archivo `claude.exe` estÃ¡ bloqueado porque Claude Code estÃ¡ corriendo. Cierra todas las instancias primero:\n\n```powershell\ntaskkill /F /IM claude.exe\n```\n\nLuego vuelve a ejecutar:\n\n```powershell\nwinget upgrade Anthropic.ClaudeCode\n```\n\nSi sigue fallando, cierra tambiÃ©n VS Code (si tiene la extensiÃ³n Claude Code) y cualquier terminal donde estÃ© abierto.",
+      "domain": "ML 100%",
+      "source": "auto_save",
+      "tier": "hot",
+      "created_at": "2026-04-07T15:16:12.368852+00:00",
+      "last_access": "2026-04-07T15:16:12.368852+00:00",
+      "access_count": 0,
+      "promotion_count": 0
+    },
+    {
+      "key": "revisa tu memoria Kb local y tu propia claude estabas probando este proyecto C:\\Chance1\\IA\\IA_Word",
+      "value": "## Resumen de sesiÃ³n anterior y estado del proyecto\n\nEn la **sesiÃ³n anterior (3 de abril)** estuvimos trabajando en **IA_Word** â€” tu proyecto de automatizaciÃ³n de documentos Word vÃ­a COM + MCP Server. EspecÃ­ficamente:\n\n1. **ValidaciÃ³n visual** de los tests de salida (screenshots de test3, test4)\n2. **DiagramÃ© la arquitectura** completa del proyecto\n3. **ApliquÃ© optimizaciones** al cÃ³digo\n4. **Discutimos** si quedaban mÃ¡s optimizaciones (conclusiÃ³n: las de mayor impacto ya estaban hechas)\n5. **Estimamos tiempos** para el test 5 (full pipeline)\n6. Al final resolvimos un problema de **login/token expirado** en Claude CLI\n\n### Estado actual del proyecto\n\n| Componente | Archivos |\n|---|---|\n| **Core** | `engine.py`, `word_com.py`, `validators.py`, `business_rules.py` |\n| **MCP** | `mcp_server.py` |\n| **Vision/Feedback** | `vision_bridge.py`, `vision_feedback.py`, `playwright_feedback.py`, `computer_use_feedback.py` |\n| **Tests** | 8 archivos de test (funcional, stress, e2e, adv",
+      "domain": "ML 100%",
+      "source": "auto_save",
+      "tier": "hot",
+      "created_at": "2026-04-07T15:19:59.409915+00:00",
+      "last_access": "2026-04-07T15:19:59.409915+00:00",
+      "access_count": 0,
+      "promotion_count": 0
+    },
+    {
+      "key": "revisa estabas haciendo teste hay un test5 que quedo pendiente",
+      "value": "## Estado del Test 5\n\nAquÃ­ estÃ¡ el diagnÃ³stico completo:\n\n### Resultados anteriores (6 de abril):\n| Test | Estado | Score |\n|---|---|---|\n| Test 4 (save as .doc) | **PASS** | 75/100 |\n| Test 5 (full pipeline) | **FAIL** | 0/100 |\n\n### Por quÃ© fallÃ³ Test 5:\n\nTest 5 (`test_engine_full.py:test_5_full_pipeline`) usa el Engine con **`vision_mode=\"bridge\"`** y **`enable_visual=True`**. Esto significa que:\n\n1. Ejecuta las operaciones (find_replace x3 + update_toc) - probablemente OK\n2. Valida lÃ³gica (validators) - puede fallar por reglas estrictas\n3. **Valida visualmente via VisionBridge** - lanza un subproceso `claude --print` que:\n   - Convierte .docx a HTML via Playwright\n   - Captura screenshot\n   - Llama a Claude CLI para analizar la imagen\n   - Si el CLI falla (token expirado, timeout, etc.) â†’ `is_valid: false` â†’ **FAIL**\n\nEl test5 tiene `confidence: 100, iterations: 2, score: 0` â€” lo que sugiere que el **pipeline ejecutÃ³ las operaciones correctamente** pero la **validaciÃ³",
+      "domain": "ML 100%",
+      "source": "auto_save",
+      "tier": "hot",
+      "created_at": "2026-04-07T15:22:20.336511+00:00",
+      "last_access": "2026-04-07T15:22:20.336511+00:00",
+      "access_count": 0,
+      "promotion_count": 0
+    }
+  ],
+  "warm": [
+    {
       "key": "hice algunos cambios re valida el proyecti y aplica todo esto rificar status o reducir   â”‚\n  â”œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¼â”€",
       "value": "Todo carga correctamente. Resumen de los 3 cambios aplicados:\n\n## Optimizaciones aplicadas\n\n| # | Problema | Cambio | Archivo:lÃ­nea |\n|---|---------|--------|---------------|\n| 1 | **Doble pasada para contar** | `_find_replace_in_range` ahora usa `WD_REPLACE_ONE` en un solo loop â€” cuenta y reemplaza simultÃ¡neamente en vez de escanear 2 veces | `word_com.py:289` |\n| 2 | **IteraciÃ³n O(n) en tablas** | `replace_in_tables` ahora usa `table.Range.Paragraphs` en vez de iterar todos los pÃ¡rrafos del documento completo | `word_com.py:444` |\n| 3 | **sleep(2) hardcodeado** | Eliminado el `time.sleep(2)` antes de buscar headings en `move_section_before`. Movido un `time.sleep(0.5)` solo despuÃ©s del `FormattedText` insert donde realmente se necesita estabilizar Ã­ndices | `word_com.py:645,708` |\n\n**Impacto estimado en un documento de 200 pÃ¡ginas (~500 pÃ¡rrafos, 10 tablas):**\n- Opt 1: ~40% mÃ¡s rÃ¡pido en find_replace (1 pasada vs 2)\n- Opt 2: ~80% mÃ¡s rÃ¡pido en replace_in_tables (solo pÃ",
       "domain": "ML 100%",
       "source": "auto_save",
-      "tier": "hot",
+      "tier": "warm",
       "created_at": "2026-04-07T00:23:24.858285+00:00",
       "last_access": "2026-04-07T00:23:24.858285+00:00",
       "access_count": 0,
@@ -16,7 +62,7 @@
       "value": "```json\n{\n  \"visual_validation\": \"Documento de propuesta comercial con portada profesional que incluye imagen corporativa de equipo, branding de CBM, tÃ­tulo claro 'Propuesta de Servicios: ACH en Tiempo Real y ACH Batch en AWS' dirigida a BAC Credomatic, fechada diciembre 2025. La estructura visual es limpia con jerarquÃ­a clara: imagen destacada arriba, tÃ­tulo centrado, informaciÃ³n del cliente y fecha, y tabla de contenidos al final.\",\n  \"issues_found\": [\n    \"La imagen corporativa ocupa demasiado espacio vertical proporcionalmente\",\n    \"El logo CBM podrÃ­a ser mÃ¡s prominente en la composiciÃ³n\",\n    \"Falta informaciÃ³n de contacto o autor de la propuesta\",\n    \"La tabla de contenidos aparece cortada/incompleta en la vista\"\n  ],\n  \"quality_score\": 75,\n  \"recommendations\": [\n    \"Reducir el tamaÃ±o de la imagen corporativa para balancear mejor la pÃ¡gina\",\n    \"Agregar informaciÃ³n de contacto del equipo o empresa\",\n    \"Mejorar la jerarquÃ­a visual del logo CBM\",\n    \"Completar la",
       "domain": "ML 100%",
       "source": "auto_save",
-      "tier": "hot",
+      "tier": "warm",
       "created_at": "2026-04-07T00:25:22.724486+00:00",
       "last_access": "2026-04-07T00:25:22.724486+00:00",
       "access_count": 0,
@@ -27,19 +73,29 @@
       "value": "Honestamente, ya se aplicaron las optimizaciones de mayor impacto. Lo que queda son mejoras menores con rendimiento decreciente:\n\n| Pendiente | Impacto | Vale la pena? |\n|---|---|---|\n| `move_section_before` tiene 5 escaneos de pÃ¡rrafos â†’ consolidar en 1 | Medio | SÃ­ pero requiere refactor grande |\n| `get_sections()` itera todos los pÃ¡rrafos â†’ usar Find API | Bajo (ya estÃ¡ cacheado en validators) | No urgente |\n| `get_tables()` hace Cell(r,c) por celda â†’ usar Row/Cell iteradores | Bajo | No urgente |\n| Lazy imports en engine.py (vision_bridge, playwright) | Bajo | Son opcionales, estÃ¡ bien lazy |\n| `Information(3)` por pÃ¡rrafo en get_sections (page number) | Bajo | Es solo 1 llamada por heading, no por pÃ¡rrafo |\n\n**Mi recomendaciÃ³n:** el proyecto ya estÃ¡ bien optimizado. Las 10 optimizaciones aplicadas cubren el 90% del impacto. Lo que queda darÃ­a mejoras marginales y el riesgo de romper algo no justifica el beneficio.\n\nEl siguiente paso que realmente agregarÃ­a valor s",
       "domain": "ML 100%",
       "source": "auto_save",
-      "tier": "hot",
+      "tier": "warm",
       "created_at": "2026-04-07T00:32:07.817730+00:00",
       "last_access": "2026-04-07T00:32:07.817730+00:00",
       "access_count": 0,
       "promotion_count": 0
+    },
+    {
+      "key": "cuanto tardaria pasar el test 5 en minutos?",
+      "value": "EstimaciÃ³n por test:\n\n| Test | Operaciones | Tiempo estimado |\n|---|---|---|\n| ADV1 | Abrir + scan pÃ¡rrafos + FormattedText copy + find_then_set + save | ~15-20s |\n| ADV2 | Abrir + insertar 2 Fields + update all + save | ~10-15s |\n| ADV3 | Abrir + protect/unprotect + find_then_set + save | ~10-12s |\n| ADV4 | Abrir + track changes + find_then_set + AcceptAll + save | ~10-15s |\n| ADV5 | Abrir + bookmarks + 4 delete_section + renumber + move_section + smart_replaceÃ—3 + table edits + page break + save + validaciÃ³n | ~30-45s |\n| **Overhead** | fresh() entre tests (copy file + sleep + open) = ~3-4s Ã— 5 | ~15-20s |\n\n**Total estimado: ~1.5 a 2 minutos.**\n\nEl test mÃ¡s pesado es ADV5 (hace de todo: bookmarks, delete, renumber, move, replace, tablas, page break). Los otros 4 son relativamente rÃ¡pidos.\n\nCon las optimizaciones que aplicamos, deberÃ­a ser ~20-30% mÃ¡s rÃ¡pido que antes (menos sleeps, menos iteraciones redundantes).\n\nÂ¿Lo corro?",
+      "domain": "ML 100%",
+      "source": "auto_save",
+      "tier": "warm",
+      "created_at": "2026-04-07T00:33:06.142530+00:00",
+      "last_access": "2026-04-07T00:33:06.142530+00:00",
+      "access_count": 0,
+      "promotion_count": 0
     }
   ],
-  "warm": [],
   "cold": [],
-  "updated_at": "2026-04-07T00:32:07.818742+00:00",
+  "updated_at": "2026-04-07T15:22:20.336511+00:00",
   "counts": {
-    "hot": 3,
-    "warm": 0,
+    "hot": 4,
+    "warm": 4,
     "cold": 0
   }
 }

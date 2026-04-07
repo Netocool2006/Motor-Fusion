@@ -1367,6 +1367,102 @@
       "properties": {},
       "created_at": "2026-04-07T00:23:24.901786+00:00",
       "updated_at": "2026-04-07T00:23:24.901786+00:00"
+    },
+    "Anthropic.Clau": {
+      "id": "Anthropic.Clau",
+      "type": "file",
+      "name": "Anthropic.Clau",
+      "properties": {},
+      "created_at": "2026-04-07T15:15:45.377741+00:00",
+      "updated_at": "2026-04-07T15:15:45.377741+00:00"
+    },
+    "//storage.goog": {
+      "id": "//storage.goog",
+      "type": "file",
+      "name": "//storage.goog",
+      "properties": {},
+      "created_at": "2026-04-07T15:15:45.396027+00:00",
+      "updated_at": "2026-04-07T15:15:45.396027+00:00"
+    },
+    "leapis.com": {
+      "id": "leapis.com",
+      "type": "file",
+      "name": "leapis.com",
+      "properties": {},
+      "created_at": "2026-04-07T15:15:45.410057+00:00",
+      "updated_at": "2026-04-07T15:15:45.410057+00:00"
+    },
+    "x64/claude.exe": {
+      "id": "x64/claude.exe",
+      "type": "file",
+      "name": "x64/claude.exe",
+      "properties": {},
+      "created_at": "2026-04-07T15:15:45.433041+00:00",
+      "updated_at": "2026-04-07T15:15:45.433041+00:00"
+    },
+    "\\Users\\ntoledo\\AppData\\Local\\ClaudeCode\\AppData\\Local\\Microsoft\\WinGet\\Packages\\Anthropic.Clau": {
+      "id": "\\Users\\ntoledo\\AppData\\Local\\ClaudeCode\\AppData\\Local\\Microsoft\\WinGet\\Packages\\Anthropic.Clau",
+      "type": "file",
+      "name": "\\Users\\ntoledo\\AppData\\Local\\ClaudeCode\\AppData\\Local\\Microsoft\\WinGet\\Packages\\Anthropic.Clau",
+      "properties": {},
+      "created_at": "2026-04-07T15:15:45.446192+00:00",
+      "updated_at": "2026-04-07T15:15:45.446192+00:00"
+    },
+    "ce_8wekyb3d8bbwe\\claude.exe": {
+      "id": "ce_8wekyb3d8bbwe\\claude.exe",
+      "type": "file",
+      "name": "ce_8wekyb3d8bbwe\\claude.exe",
+      "properties": {},
+      "created_at": "2026-04-07T15:15:45.478443+00:00",
+      "updated_at": "2026-04-07T15:15:45.478443+00:00"
+    },
+    "validators.py": {
+      "id": "validators.py",
+      "type": "file",
+      "name": "validators.py",
+      "properties": {},
+      "created_at": "2026-04-07T15:19:59.430856+00:00",
+      "updated_at": "2026-04-07T15:19:59.430856+00:00"
+    },
+    "business_rules.py": {
+      "id": "business_rules.py",
+      "type": "file",
+      "name": "business_rules.py",
+      "properties": {},
+      "created_at": "2026-04-07T15:19:59.451618+00:00",
+      "updated_at": "2026-04-07T15:19:59.451618+00:00"
+    },
+    "vision_bridge.py": {
+      "id": "vision_bridge.py",
+      "type": "file",
+      "name": "vision_bridge.py",
+      "properties": {},
+      "created_at": "2026-04-07T15:19:59.485689+00:00",
+      "updated_at": "2026-04-07T15:19:59.485689+00:00"
+    },
+    "vision_feedback.py": {
+      "id": "vision_feedback.py",
+      "type": "file",
+      "name": "vision_feedback.py",
+      "properties": {},
+      "created_at": "2026-04-07T15:19:59.505632+00:00",
+      "updated_at": "2026-04-07T15:19:59.505632+00:00"
+    },
+    "playwright_feedback.py": {
+      "id": "playwright_feedback.py",
+      "type": "file",
+      "name": "playwright_feedback.py",
+      "properties": {},
+      "created_at": "2026-04-07T15:19:59.527822+00:00",
+      "updated_at": "2026-04-07T15:19:59.527822+00:00"
+    },
+    "computer_use_feedback.py": {
+      "id": "computer_use_feedback.py",
+      "type": "file",
+      "name": "computer_use_feedback.py",
+      "properties": {},
+      "created_at": "2026-04-07T15:19:59.550014+00:00",
+      "updated_at": "2026-04-07T15:19:59.550014+00:00"
     }
   },
   "relations": [
@@ -3993,10 +4089,10 @@
       "source": "deCode_Microsoft.Wing",
       "target": "et.Sour",
       "type": "used_with",
-      "weight": 0.5,
-      "context": "îƒ¨ 2026-04-06 î‚° îƒ© 17:55.44 î‚° îƒª /drives/c î‚° powershell.exe\nWindows PowerShell\nCopyright (C",
+      "weight": 1.0,
+      "context": "pre-hook query",
       "created_at": "2026-04-06T23:57:35.011416+00:00",
-      "updated_at": "2026-04-06T23:57:35.011416+00:00"
+      "updated_at": "2026-04-07T15:15:45.474370+00:00"
     },
     {
       "source": "//yaw.sh",
@@ -4249,11 +4345,317 @@
       "context": "hice algunos cambios re valida el proyecti y aplica todo esto rificar status o reducir   â”‚\n  â”œâ”",
       "created_at": "2026-04-07T00:23:24.931644+00:00",
       "updated_at": "2026-04-07T00:23:24.936649+00:00"
+    },
+    {
+      "source": "Anthropic.Clau",
+      "target": "Anthropic.Clau",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-07T15:15:45.382159+00:00",
+      "updated_at": "2026-04-07T15:15:45.382159+00:00"
+    },
+    {
+      "source": "Anthropic.Clau",
+      "target": "1.92",
+      "type": "used_with",
+      "weight": 1.0,
+      "context": "pre-hook query",
+      "created_at": "2026-04-07T15:15:45.387778+00:00",
+      "updated_at": "2026-04-07T15:15:45.391858+00:00"
+    },
+    {
+      "source": "Anthropic.Clau",
+      "target": "//storage.goog",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-07T15:15:45.399987+00:00",
+      "updated_at": "2026-04-07T15:15:45.399987+00:00"
+    },
+    {
+      "source": "1.92",
+      "target": "//storage.goog",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-07T15:15:45.406064+00:00",
+      "updated_at": "2026-04-07T15:15:45.406064+00:00"
+    },
+    {
+      "source": "1.92",
+      "target": "leapis.com",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-07T15:15:45.414795+00:00",
+      "updated_at": "2026-04-07T15:15:45.414795+00:00"
+    },
+    {
+      "source": "//storage.goog",
+      "target": "leapis.com",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-07T15:15:45.418814+00:00",
+      "updated_at": "2026-04-07T15:15:45.418814+00:00"
+    },
+    {
+      "source": "//storage.goog",
+      "target": "1.92",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-07T15:15:45.425097+00:00",
+      "updated_at": "2026-04-07T15:15:45.425097+00:00"
+    },
+    {
+      "source": "leapis.com",
+      "target": "1.92",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-07T15:15:45.428151+00:00",
+      "updated_at": "2026-04-07T15:15:45.428151+00:00"
+    },
+    {
+      "source": "leapis.com",
+      "target": "x64/claude.exe",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-07T15:15:45.438496+00:00",
+      "updated_at": "2026-04-07T15:15:45.438496+00:00"
+    },
+    {
+      "source": "1.92",
+      "target": "x64/claude.exe",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-07T15:15:45.442020+00:00",
+      "updated_at": "2026-04-07T15:15:45.442020+00:00"
+    },
+    {
+      "source": "1.92",
+      "target": "\\Users\\ntoledo\\AppData\\Local\\ClaudeCode\\AppData\\Local\\Microsoft\\WinGet\\Packages\\Anthropic.Clau",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-07T15:15:45.451853+00:00",
+      "updated_at": "2026-04-07T15:15:45.451853+00:00"
+    },
+    {
+      "source": "x64/claude.exe",
+      "target": "\\Users\\ntoledo\\AppData\\Local\\ClaudeCode\\AppData\\Local\\Microsoft\\WinGet\\Packages\\Anthropic.Clau",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-07T15:15:45.455936+00:00",
+      "updated_at": "2026-04-07T15:15:45.455936+00:00"
+    },
+    {
+      "source": "x64/claude.exe",
+      "target": "deCode_Microsoft.Wing",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-07T15:15:45.459950+00:00",
+      "updated_at": "2026-04-07T15:15:45.459950+00:00"
+    },
+    {
+      "source": "\\Users\\ntoledo\\AppData\\Local\\ClaudeCode\\AppData\\Local\\Microsoft\\WinGet\\Packages\\Anthropic.Clau",
+      "target": "deCode_Microsoft.Wing",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-07T15:15:45.464806+00:00",
+      "updated_at": "2026-04-07T15:15:45.464806+00:00"
+    },
+    {
+      "source": "\\Users\\ntoledo\\AppData\\Local\\ClaudeCode\\AppData\\Local\\Microsoft\\WinGet\\Packages\\Anthropic.Clau",
+      "target": "et.Sour",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-07T15:15:45.469815+00:00",
+      "updated_at": "2026-04-07T15:15:45.469815+00:00"
+    },
+    {
+      "source": "deCode_Microsoft.Wing",
+      "target": "ce_8wekyb3d8bbwe\\claude.exe",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-07T15:15:45.482940+00:00",
+      "updated_at": "2026-04-07T15:15:45.482940+00:00"
+    },
+    {
+      "source": "et.Sour",
+      "target": "ce_8wekyb3d8bbwe\\claude.exe",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-07T15:15:45.488638+00:00",
+      "updated_at": "2026-04-07T15:15:45.488638+00:00"
+    },
+    {
+      "source": "claude.exe",
+      "target": "claude.exe",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "ahora tengo este error: \"PS C:\\> winget upgrade Anthropic.ClaudeCode\nFound Claude Code [Anthropic.Cl",
+      "created_at": "2026-04-07T15:16:12.378724+00:00",
+      "updated_at": "2026-04-07T15:16:12.378724+00:00"
+    },
+    {
+      "source": "claude.exe",
+      "target": "Anthropic.Clau",
+      "type": "used_with",
+      "weight": 1.0,
+      "context": "ahora tengo este error: \"PS C:\\> winget upgrade Anthropic.ClaudeCode\nFound Claude Code [Anthropic.Cl",
+      "created_at": "2026-04-07T15:16:12.386141+00:00",
+      "updated_at": "2026-04-07T15:16:12.393763+00:00"
+    },
+    {
+      "source": "engine.py",
+      "target": "word_com.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "revisa tu memoria Kb local y tu propia claude estabas probando este proyecto C:\\Chance1\\IA\\IA_Word",
+      "created_at": "2026-04-07T15:19:59.422483+00:00",
+      "updated_at": "2026-04-07T15:19:59.422483+00:00"
+    },
+    {
+      "source": "engine.py",
+      "target": "validators.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "revisa tu memoria Kb local y tu propia claude estabas probando este proyecto C:\\Chance1\\IA\\IA_Word",
+      "created_at": "2026-04-07T15:19:59.438020+00:00",
+      "updated_at": "2026-04-07T15:19:59.438020+00:00"
+    },
+    {
+      "source": "word_com.py",
+      "target": "validators.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "revisa tu memoria Kb local y tu propia claude estabas probando este proyecto C:\\Chance1\\IA\\IA_Word",
+      "created_at": "2026-04-07T15:19:59.444542+00:00",
+      "updated_at": "2026-04-07T15:19:59.444542+00:00"
+    },
+    {
+      "source": "word_com.py",
+      "target": "business_rules.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "revisa tu memoria Kb local y tu propia claude estabas probando este proyecto C:\\Chance1\\IA\\IA_Word",
+      "created_at": "2026-04-07T15:19:59.457686+00:00",
+      "updated_at": "2026-04-07T15:19:59.457686+00:00"
+    },
+    {
+      "source": "validators.py",
+      "target": "business_rules.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "revisa tu memoria Kb local y tu propia claude estabas probando este proyecto C:\\Chance1\\IA\\IA_Word",
+      "created_at": "2026-04-07T15:19:59.464736+00:00",
+      "updated_at": "2026-04-07T15:19:59.464736+00:00"
+    },
+    {
+      "source": "validators.py",
+      "target": "mcp_server.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "revisa tu memoria Kb local y tu propia claude estabas probando este proyecto C:\\Chance1\\IA\\IA_Word",
+      "created_at": "2026-04-07T15:19:59.471742+00:00",
+      "updated_at": "2026-04-07T15:19:59.471742+00:00"
+    },
+    {
+      "source": "business_rules.py",
+      "target": "mcp_server.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "revisa tu memoria Kb local y tu propia claude estabas probando este proyecto C:\\Chance1\\IA\\IA_Word",
+      "created_at": "2026-04-07T15:19:59.478828+00:00",
+      "updated_at": "2026-04-07T15:19:59.478828+00:00"
+    },
+    {
+      "source": "business_rules.py",
+      "target": "vision_bridge.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "revisa tu memoria Kb local y tu propia claude estabas probando este proyecto C:\\Chance1\\IA\\IA_Word",
+      "created_at": "2026-04-07T15:19:59.492700+00:00",
+      "updated_at": "2026-04-07T15:19:59.492700+00:00"
+    },
+    {
+      "source": "mcp_server.py",
+      "target": "vision_bridge.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "revisa tu memoria Kb local y tu propia claude estabas probando este proyecto C:\\Chance1\\IA\\IA_Word",
+      "created_at": "2026-04-07T15:19:59.498090+00:00",
+      "updated_at": "2026-04-07T15:19:59.498090+00:00"
+    },
+    {
+      "source": "mcp_server.py",
+      "target": "vision_feedback.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "revisa tu memoria Kb local y tu propia claude estabas probando este proyecto C:\\Chance1\\IA\\IA_Word",
+      "created_at": "2026-04-07T15:19:59.512951+00:00",
+      "updated_at": "2026-04-07T15:19:59.512951+00:00"
+    },
+    {
+      "source": "vision_bridge.py",
+      "target": "vision_feedback.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "revisa tu memoria Kb local y tu propia claude estabas probando este proyecto C:\\Chance1\\IA\\IA_Word",
+      "created_at": "2026-04-07T15:19:59.519653+00:00",
+      "updated_at": "2026-04-07T15:19:59.519653+00:00"
+    },
+    {
+      "source": "vision_bridge.py",
+      "target": "playwright_feedback.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "revisa tu memoria Kb local y tu propia claude estabas probando este proyecto C:\\Chance1\\IA\\IA_Word",
+      "created_at": "2026-04-07T15:19:59.535415+00:00",
+      "updated_at": "2026-04-07T15:19:59.535415+00:00"
+    },
+    {
+      "source": "vision_feedback.py",
+      "target": "playwright_feedback.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "revisa tu memoria Kb local y tu propia claude estabas probando este proyecto C:\\Chance1\\IA\\IA_Word",
+      "created_at": "2026-04-07T15:19:59.543185+00:00",
+      "updated_at": "2026-04-07T15:19:59.543185+00:00"
+    },
+    {
+      "source": "vision_feedback.py",
+      "target": "computer_use_feedback.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "revisa tu memoria Kb local y tu propia claude estabas probando este proyecto C:\\Chance1\\IA\\IA_Word",
+      "created_at": "2026-04-07T15:19:59.557353+00:00",
+      "updated_at": "2026-04-07T15:19:59.557353+00:00"
+    },
+    {
+      "source": "playwright_feedback.py",
+      "target": "computer_use_feedback.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "revisa tu memoria Kb local y tu propia claude estabas probando este proyecto C:\\Chance1\\IA\\IA_Word",
+      "created_at": "2026-04-07T15:19:59.563914+00:00",
+      "updated_at": "2026-04-07T15:19:59.563914+00:00"
     }
   ],
-  "updated_at": "2026-04-07T00:23:24.936649+00:00",
+  "updated_at": "2026-04-07T15:19:59.563914+00:00",
   "stats": {
-    "entities": 171,
-    "relations": 320
+    "entities": 183,
+    "relations": 354
   }
 }
