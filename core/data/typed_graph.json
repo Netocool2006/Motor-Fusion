@@ -1695,6 +1695,38 @@
       "properties": {},
       "created_at": "2026-04-07T17:54:57.269794+00:00",
       "updated_at": "2026-04-07T17:54:57.269794+00:00"
+    },
+    "Word.Appl": {
+      "id": "Word.Appl",
+      "type": "file",
+      "name": "Word.Appl",
+      "properties": {},
+      "created_at": "2026-04-07T19:44:47.755103+00:00",
+      "updated_at": "2026-04-07T19:44:47.755103+00:00"
+    },
+    "word.Visi": {
+      "id": "word.Visi",
+      "type": "file",
+      "name": "word.Visi",
+      "properties": {},
+      "created_at": "2026-04-07T19:44:47.769141+00:00",
+      "updated_at": "2026-04-07T19:44:47.769141+00:00"
+    },
+    "DocEyes._exp": {
+      "id": "DocEyes._exp",
+      "type": "file",
+      "name": "DocEyes._exp",
+      "properties": {},
+      "created_at": "2026-04-07T19:44:47.790174+00:00",
+      "updated_at": "2026-04-07T19:44:47.790174+00:00"
+    },
+    "Find.Exec": {
+      "id": "Find.Exec",
+      "type": "file",
+      "name": "Find.Exec",
+      "properties": {},
+      "created_at": "2026-04-07T19:44:47.826726+00:00",
+      "updated_at": "2026-04-07T19:44:47.826726+00:00"
     }
   },
   "relations": [
@@ -5315,11 +5347,92 @@
       "context": "pero si esperas tiempos de 20 a 35 segundos entonces no pongas timeout del comando Bash (por precauc",
       "created_at": "2026-04-07T17:54:57.284892+00:00",
       "updated_at": "2026-04-07T17:54:57.284892+00:00"
+    },
+    {
+      "source": "doc_eyes.py",
+      "target": "Word.Appl",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "casi ningun test paso porque?",
+      "created_at": "2026-04-07T19:44:47.762110+00:00",
+      "updated_at": "2026-04-07T19:44:47.762110+00:00"
+    },
+    {
+      "source": "doc_eyes.py",
+      "target": "word.Visi",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "casi ningun test paso porque?",
+      "created_at": "2026-04-07T19:44:47.777152+00:00",
+      "updated_at": "2026-04-07T19:44:47.777152+00:00"
+    },
+    {
+      "source": "Word.Appl",
+      "target": "word.Visi",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "casi ningun test paso porque?",
+      "created_at": "2026-04-07T19:44:47.784152+00:00",
+      "updated_at": "2026-04-07T19:44:47.784152+00:00"
+    },
+    {
+      "source": "Word.Appl",
+      "target": "DocEyes._exp",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "casi ningun test paso porque?",
+      "created_at": "2026-04-07T19:44:47.796680+00:00",
+      "updated_at": "2026-04-07T19:44:47.796680+00:00"
+    },
+    {
+      "source": "word.Visi",
+      "target": "DocEyes._exp",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "casi ningun test paso porque?",
+      "created_at": "2026-04-07T19:44:47.805191+00:00",
+      "updated_at": "2026-04-07T19:44:47.805191+00:00"
+    },
+    {
+      "source": "word.Visi",
+      "target": "Word.Appl",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "casi ningun test paso porque?",
+      "created_at": "2026-04-07T19:44:47.812202+00:00",
+      "updated_at": "2026-04-07T19:44:47.812202+00:00"
+    },
+    {
+      "source": "DocEyes._exp",
+      "target": "Word.Appl",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "casi ningun test paso porque?",
+      "created_at": "2026-04-07T19:44:47.820219+00:00",
+      "updated_at": "2026-04-07T19:44:47.820219+00:00"
+    },
+    {
+      "source": "DocEyes._exp",
+      "target": "Find.Exec",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "casi ningun test paso porque?",
+      "created_at": "2026-04-07T19:44:47.834233+00:00",
+      "updated_at": "2026-04-07T19:44:47.834233+00:00"
+    },
+    {
+      "source": "Word.Appl",
+      "target": "Find.Exec",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "casi ningun test paso porque?",
+      "created_at": "2026-04-07T19:44:47.841252+00:00",
+      "updated_at": "2026-04-07T19:44:47.841252+00:00"
     }
   ],
-  "updated_at": "2026-04-07T17:54:57.284892+00:00",
+  "updated_at": "2026-04-07T19:44:47.842252+00:00",
   "stats": {
-    "entities": 212,
-    "relations": 402
+    "entities": 216,
+    "relations": 411
   }
 }

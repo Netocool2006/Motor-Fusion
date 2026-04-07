@@ -1,55 +1,22 @@
 {
   "hot": [
     {
-      "key": "que piensas de esto: \"Capa 2: Document Structure Recognition (DSR)\nEsto es lo que realmente resuelve tu problema. ABBYY no lee el XML del Word â€” renderiza el documento visualmente y luego lo reinter",
-      "value": "Analisis honesto de esto vs tu caso de uso:\n\n## Lo que describe es real y poderoso â€” pero para un problema DIFERENTE\n\nEl pipeline ABBYY (DSR) resuelve: **documentos rotos â†’ reconstruir desde visual â†’ generar nuevo .docx limpio**.\n\nTu problema es: **documento .docx VALIDO â†’ editar contenido â†’ que quede bien**.\n\n### Donde SI aplica a tu caso\n\nSolo en **un** escenario que ya enfrentamos: documentos convertidos desde PDF (los \"split runs\" que detecta `_detect_document_type()` en engine.py). Ahi si, el .docx esta \"roto\" estructuralmente aunque se ve bien visualmente.\n\n### Donde NO aplica\n\nTus SOWs de BAC, Bantrab, G&T son .docx nativos bien formados. No necesitas reconstruirlos â€” necesitas **editarlos** sin romperlos. ABBYY destruiria la estructura existente para reconstruirla.\n\n### Los modelos open source que menciona\n\n| Modelo | Que hace | Te sirve? |\n|--------|----------|-----------|\n| LayoutLM (Microsoft) | Clasifica zonas de documentos | No â€” tu ya sabes donde estan las s",
-      "domain": "ML 70%",
+      "key": "casi ningun test paso porque?",
+      "value": "Porque hay **2 bugs raÃ­z** que bloquean casi todo:\n\n## Bug #1: DocEyes crea COM zombie (mata tests 2, 4)\n\nEn `doc_eyes.py:256`, `_export_to_pdf` abre un **nuevo** `Word.Application` cada vez que renderiza. Pero ya hay uno abierto del test â†’ el nuevo queda zombie â†’ `word.Visible = False` falla con `AttributeError`.\n\n```\nDocEyes._export_to_pdf() â†’ Dispatch(\"Word.Application\") â†’ ZOMBIE\n```\n\n**SoluciÃ³n**: que DocEyes reutilice el COM existente en vez de crear uno nuevo.\n\n## Bug #2: VBA no alcanza footer shapes (mata tests 3, 5)\n\n`vba_batch_replace` usa `Find.Execute` que solo busca en body + headers/footers normales. Pero \"GBM\" estÃ¡ dentro de **VML Shapes** en los footers (cuadros de texto). VBA Find no entra ahÃ­ â†’ queda sin reemplazar.\n\nY `_auto_correct` reintenta con VBA otra vez â†’ mismo resultado.\n\n## Resumen honesto por test:\n\n| Test | Por quÃ© falla | Bug |\n|------|---------------|-----|\n| 1 | **PASA** (81s) | â€” |\n| 2 | DocEyes crea COM zombie | #1 |\n| 3 | \"GBM\" en s",
+      "domain": "ML 100%",
       "source": "auto_save",
       "tier": "hot",
-      "created_at": "2026-04-07T17:08:38.995793+00:00",
-      "last_access": "2026-04-07T17:08:38.995793+00:00",
-      "access_count": 0,
-      "promotion_count": 0
-    },
-    {
-      "key": "es que hay words que vienen de pdfs no necesito re construilo a nivel de xml ni nada quiero editarlo como lo realizaria un humano y usarlo ?",
-      "value": "## Respuesta a tu pregunta\n\nPara docs de PDF, ahora el pipeline hace **exactamente como un humano**:\n\n```\nDoc nativo (.docx):\n  â†’ find_replace normal (rapido, COM directo)\n  â†’ si falla â†’ VBA batch â†’ smart_replace\n\nDoc de PDF (.docx convertido):\n  â†’ smart_replace SIEMPRE (find_then_set: busca visual â†’ selecciona â†’ reescribe)\n  â†’ ignora los split runs, trabaja a nivel visual como un humano\n  â†’ footers via TextRange.Text (asignacion directa)\n```\n\n### Lo que NO necesitas de ABBYY/LayoutLM/Donut\n\nNo necesitas reconstruir el documento desde cero. Lo que necesitas es que **cuando editas, el metodo de edicion sea apropiado para el tipo de documento**. Eso ya lo resolvimos:\n\n- `find_then_set()` = \"seleccionar y reescribir\" (como humano)\n- `smart_replace()` = busca en body + footer shapes con el metodo correcto\n- `_detect_document_type()` = detecta automaticamente si viene de PDF\n- `_auto_correct()` = si falla, usa la estrategia alternativa\n\nLa deteccion es automatica. El usuar",
-      "domain": "ML 50%",
-      "source": "auto_save",
-      "tier": "hot",
-      "created_at": "2026-04-07T17:12:03.326641+00:00",
-      "last_access": "2026-04-07T17:12:03.326641+00:00",
-      "access_count": 0,
-      "promotion_count": 0
-    },
-    {
-      "key": "lo que aun no entiendo es porque tarda tano en el primer intento colocaste 10 mins de time out es exagerado el tiempo de ejecucion esto es normal?",
-      "value": "## Respuesta directa a tu pregunta\n\n**No, 10 minutos NO es normal.** Los 10 min eran el timeout del comando Bash (por precaucion), no lo que deberia tardar. Los tiempos esperados:\n\n| Operacion | Tiempo esperado | Tiempo que estaba tardando |\n|-----------|----------------|---------------------------|\n| Abrir Word + doc | 3-5s | 3-5s (OK) |\n| 15 find_replace | 5-10s | 5-10s (OK) |\n| 15 verify_all_replaced | **30-60s** (era el cuello) | Ahora: **2-5s** (fast check) |\n| DocEyes (PDF+render) | 8-15s | 8-15s (OK) |\n| VisionBridge CLI | **30-120s** | **Desactivado** (no necesario con DocEyes) |\n| Total esperado | **20-35s** | Antes: **2-5 min** |\n\n### Lo que optimice ahora:\n\n1. **verify_all_replaced rapido**: lee `doc.Content.Text` UNA vez (1 llamada COM), y solo si encuentra texto residual hace la busqueda detallada. Antes: 15 x 100 llamadas COM = 1500. Ahora: 1 + (solo los que fallen x 100).\n\n2. **VisionBridge eliminado del pipeline default**: DocEyes hace la validacion visual sin necesitar",
-      "domain": "ML 60%",
-      "source": "auto_save",
-      "tier": "hot",
-      "created_at": "2026-04-07T17:15:09.632462+00:00",
-      "last_access": "2026-04-07T17:15:09.632462+00:00",
-      "access_count": 0,
-      "promotion_count": 0
-    },
-    {
-      "key": "pero si esperas tiempos de 20 a 35 segundos entonces no pongas timeout del comando Bash (por precaucion) de 10 mins colocarlos de 1 min o 2 si mucho segun tu logica de que se tardara 20 a 35 (si esto ",
-      "value": "## Resultado HONESTO de las 5 pruebas\n\n| Test | Resultado | Tiempo | DiagnÃ³stico |\n|------|-----------|--------|-------------|\n| **1. Massive Replace** | PASS (parcial) | 154s | 796/797 reemplazos OK. \"Guatemala\" resistiÃ³ en un shape. VBA bloqueado por seguridad |\n| **2. Tabla EconÃ³mica** | FAIL | 3.7s | Estilo \"Table Grid\" no existe en Word espaÃ±ol. Ya corregido |\n| **3. Propuesta Bantrab** | FAIL | 110s | \"Fase II\" residual en body. **Footers SI se repararon** (Ficohsa OK en 3 secciones). Portada no cambiÃ³ en render |\n| **4. Formato Complejo** | FAIL | 0.2s | COM sucio â€” `doc.Content` de instancia anterior. Kill entre tests ya corregido |\n| **5. Engine Pipeline** | FAIL | 13s | `Open.Name` â€” COM sucio. Kill entre tests ya corregido |\n\n### Lo bueno (evidencia real):\n- **repair_footers FUNCIONA**: Las 3 secciones muestran \"Cliente: Banco Ficohsa\", \"Oportunidad 500123\", \"v4.2\" âœ“\n- **796 de 797 reemplazos** se aplicaron correctamente (99.87%)\n- **DocEyes renderizÃ³** 34 pÃ¡gin",
-      "domain": "ML 70%",
-      "source": "auto_save",
-      "tier": "hot",
-      "created_at": "2026-04-07T17:54:57.197575+00:00",
-      "last_access": "2026-04-07T17:54:57.197575+00:00",
+      "created_at": "2026-04-07T19:44:47.745088+00:00",
+      "last_access": "2026-04-07T19:44:47.745088+00:00",
       "access_count": 0,
       "promotion_count": 0
     }
   ],
   "warm": [],
   "cold": [],
-  "updated_at": "2026-04-07T17:54:57.198577+00:00",
+  "updated_at": "2026-04-07T19:44:47.745088+00:00",
   "counts": {
-    "hot": 4,
+    "hot": 1,
     "warm": 0,
     "cold": 0
   }
