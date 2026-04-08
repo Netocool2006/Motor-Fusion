@@ -1,34 +1,57 @@
 {
   "hot": [
     {
-      "key": "ahorita no tengo ningun trabajo masivo es en si modificar un documento word a diferentes escalas pero hacerlo bien luego tendre otro pero no necesito masificacion pero si mucha precision",
-      "value": "Entonces tu caso real es: **1 documento a la vez, con precisiÃ³n mÃ¡xima**.\n\nEso cambia completamente el enfoque. No necesitas automatizaciÃ³n batch â€” necesitas un **asistente que te ayude mientras tÃº editas**, no que edite por ti.\n\n**Lo que ya tienes y funciona hoy sin IA_Word:**\n- TÃº abres el documento\n- Ctrl+H para reemplazos\n- Editas footers manualmente\n- Actualizas TOC con clic derecho\n- Revisas visualmente\n- 10-15 min, 100% bien hecho\n\n**Donde IA_Word sÃ­ podrÃ­a agregarte valor:**\nNo editando por ti, sino **verificando despuÃ©s de que tÃº editas**:\n\n```\nTÃº editas a mano (10-15 min)\n    â†“\nIA_Word verifica (15-20 seg):\n    âœ“ \"GyT\" no aparece en ningÃºn lado (body + footers + shapes)\n    âœ“ Footers consistentes en las 34 pÃ¡ginas\n    âœ“ TOC coincide con headings reales\n    âœ“ Tablas econÃ³micas: matemÃ¡ticas cuadran\n    âœ— \"GBM\" todavÃ­a aparece en pÃ¡gina 12, footer secciÃ³n 3\n```\n\nEso ya existe en el cÃ³digo â€” `verify_all_replaced`, `validate_logic`, `DocEyes`. Sol",
+      "key": "10 mins de bash es demasiado",
+      "value": "Tienes razÃ³n. El problema de fondo es que **iterar pÃ¡rrafos via COM es inherentemente lento** â€” cada `doc.Paragraphs(i)` es un round-trip interprocess. Un documento de 500 pÃ¡rrafos = 500 llamadas remotas.\n\n`get_sections()` toma 85s en el documento base de 36 secciones. El source de 108 secciones toma aÃºn mÃ¡s. Y `copy_section_from` abre/cierra el source doc por cada secciÃ³n copiada.\n\n**El merge realista con estos documentos va a tomar 3-5 minutos mÃ­nimo** con el enfoque actual de COM paragraph-by-paragraph.\n\nOpciones reales:\n\n1. **Optimizar `get_sections()` con bulk read** â€” leer `doc.Content.Text` de un golpe y parsear headings por regex, sin iterar pÃ¡rrafos. ReducirÃ­a de 85s a ~2s.\n2. **Optimizar `copy_section_from`** para no abrir/cerrar el source doc en cada iteraciÃ³n (el merge ya lo tiene pero copy_section_from lo re-abre).\n3. **Aceptar que merge de documentos grandes es lento** y enfocarse en los otros tools (insert_table, replace_section, etc.) que son rÃ¡pidos.\n\nÂ¿",
       "domain": "ML 100%",
       "source": "auto_save",
       "tier": "hot",
-      "created_at": "2026-04-07T22:47:20.019788+00:00",
-      "last_access": "2026-04-07T22:47:20.019788+00:00",
+      "created_at": "2026-04-08T02:46:42.006291+00:00",
+      "last_access": "2026-04-08T02:46:42.006291+00:00",
       "access_count": 0,
       "promotion_count": 0
     },
     {
-      "key": "no, no entendiste quiero esto te doy un ejemplo:\"agrega esto en la secciÃ³n  \"propuesta economica\" si hay algo alli quitarlo  del documento Word  ImplementaciÃ³n=$10,998.83 (220 hrs)  / Lider Tecnico=",
-      "value": "Ahora sÃ­ entiendo. Lo que quieres es **ediciÃ³n libre por instrucciÃ³n natural** â€” no reemplazos predefinidos.\n\nEso es un nivel completamente diferente a lo que IA_Word hace hoy:\n\n```\nLo que IA_Word hace hoy:          Lo que tÃº necesitas:\nâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€          â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€\n\"Cambia GyT por Banco X\"          \"Agrega esta tabla aquÃ­ con estos datos,\n                                    en este formato, con estos colores,\n                                    calcula el IVA, y ponla en esta secciÃ³n\"\n\nFind/Replace mecÃ¡nico              ComprensiÃ³n + decisiÃ³n + creaciÃ³n\n\nDeterminÃ­stico                     Requiere inteligencia\n```\n\n**El problema real:** lo que describes necesita que Claude **entienda** el documento, **decida** dÃ³nde y cÃ³mo modificar, y **cree** contenido nuevo (tablas, formatos, fusiones). No es automatizaciÃ³n â€” es un agente inteligente que edita Wor",
+      "key": "realiza 1 y 2",
+      "value": "**Resultados dramÃ¡ticos:**\n\n| MÃ©trica | Antes | DespuÃ©s |\n|---------|-------|---------|\n| `get_sections()` | 85s | **0.1s** (850x mÃ¡s rÃ¡pido) |\n| merge completo | 578s (9.6 min) | **6.7s** |\n| **Total** | **~10 min** | **14s** |\n\n`merge_sections_from` pasÃ³: copiÃ³ \"Observability Center\" del source BAC al base G&T en 6.7 segundos. El fix clave fue:\n1. Bulk text read en vez de iterar pÃ¡rrafos COM (85s â†’ 0.1s)\n2. Source doc abierto una sola vez (no N aperturas)\n3. `Find.Execute` para localizar headings (vs iterar todos los pÃ¡rrafos)",
       "domain": "ML 100%",
       "source": "auto_save",
       "tier": "hot",
-      "created_at": "2026-04-07T22:49:53.196014+00:00",
-      "last_access": "2026-04-07T22:49:53.196014+00:00",
+      "created_at": "2026-04-08T02:53:42.223673+00:00",
+      "last_access": "2026-04-08T02:53:42.223673+00:00",
       "access_count": 0,
       "promotion_count": 0
     }
   ],
-  "warm": [],
+  "warm": [
+    {
+      "key": "realiza el commit",
+      "value": "Ya estÃ¡ todo commiteado y pusheado. Lo Ãºnico sin trackear es `test_output/` que son archivos temporales de pruebas (PNGs, .docx copiados).\n\n```\nÃšltimo commit: 50c55ba â†’ origin/master\n\"Add 6 agent MCP tools: view_page, insert_table, insert_paragraph,\n replace_section_content, format_table, merge_documents\"\n```\n\nNo hay cambios pendientes.",
+      "domain": "ML 100%",
+      "source": "auto_save",
+      "tier": "warm",
+      "created_at": "2026-04-07T23:53:29.814552+00:00",
+      "last_access": "2026-04-07T23:53:29.814552+00:00",
+      "access_count": 0,
+      "promotion_count": 0
+    },
+    {
+      "key": "hiciste pruebas?",
+      "value": "SÃ­, hice pruebas de 3 de los 6 tools nuevos con un documento real (SOW Banco G&T):\n\n```\ninsert_table:     3.5s âœ“  (tabla 4x3 con colores header, bordes, anchos)\ninsert_paragraph: 1.4s âœ“  (texto bold despuÃ©s de heading)\nformat_table:     0.6s âœ“  (header con colores aplicados a tabla existente)\nview_page:        6.6s âœ“  (renderizÃ³ PNG de pÃ¡gina 1)\n```\n\n**Lo que NO probÃ©:**\n- `replace_section_content` â€” no lo ejecutÃ© con documento real\n- `merge_documents` â€” no lo ejecutÃ©\n- El flujo completo MCP (servidor stdio â†’ Claude llama tools)\n\nÂ¿Quieres que haga una prueba completa de los 6 tools, o que probemos el flujo real con el MCP server activo?",
+      "domain": "ML 100%",
+      "source": "auto_save",
+      "tier": "warm",
+      "created_at": "2026-04-08T00:10:31.829048+00:00",
+      "last_access": "2026-04-08T00:10:31.829048+00:00",
+      "access_count": 0,
+      "promotion_count": 0
+    }
+  ],
   "cold": [],
-  "updated_at": "2026-04-07T22:49:53.196014+00:00",
+  "updated_at": "2026-04-08T02:53:42.223673+00:00",
   "counts": {
     "hot": 2,
-    "warm": 0,
+    "warm": 2,
     "cold": 0
   }
 }
