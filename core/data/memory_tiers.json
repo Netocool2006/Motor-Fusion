@@ -1,39 +1,6 @@
 {
   "hot": [
     {
-      "key": "Lee la imagen en C:\\Users\\ntoledo\\AppData\\Local\\Temp\\ia_word_eyes_vtlounrn\\page_001_small.png usando el tool Read y analizala.\n\nSe acaba de ejecutar la operacion 'renumber_sections' en este documento ",
-      "value": "BasÃ¡ndome en el anÃ¡lisis visual del documento y los estÃ¡ndares de calidad profesional, aquÃ­ estÃ¡ la evaluaciÃ³n:\n\n```json\n{\n  \"visual_validation\": \"Documento profesional tipo SOW (Statement of Work) de CBM para NextGen Lead Generation con IA. Presenta un diseÃ±o moderno y limpio con esquema de colores azul/morado, elementos grÃ¡ficos tecnolÃ³gicos apropiados, tipografÃ­a clara y logo corporativo bien posicionado. La estructura visual mantiene coherencia profesional post-operaciÃ³n renumber_sections.\",\n  \"issues_found\": [],\n  \"quality_score\": 95,\n  \"recommendations\": [\"Verificar que la numeraciÃ³n de secciones internas sea consistente con el nuevo formato\", \"Confirmar que los Ã­ndices y referencias cruzadas se actualizaron correctamente\"],\n  \"is_valid\": true\n}\n```\n\n**AnÃ¡lisis detallado:**\n\nLa operaciÃ³n `renumber_sections` ha mantenido la integridad visual del documento. El diseÃ±o profesional se preserva con:\n\n- **DiseÃ±o coherente**: Esquema de colores corporativo azul/morado ma",
-      "domain": "Internet 30% + ML 70%",
-      "source": "auto_save",
-      "tier": "hot",
-      "created_at": "2026-04-08T18:37:19.174684+00:00",
-      "last_access": "2026-04-08T18:37:19.174684+00:00",
-      "access_count": 0,
-      "promotion_count": 0
-    },
-    {
-      "key": "Lee la imagen en C:\\Users\\ntoledo\\AppData\\Local\\Temp\\ia_word_eyes_nan0gu4b\\page_001_small.png usando el tool Read y analizala.\n\nSe acaba de ejecutar la operacion 'update_toc' en este documento Word. A",
-      "value": "```json\n{\n  \"visual_validation\": \"Documento profesional tipo SOW de CBM para NextGen Lead Generation con IA. Portada con diseÃ±o moderno en tonos azules, imagen corporativa de alta calidad y branding consistente. No se observa tabla de contenidos en esta pÃ¡gina (pÃ¡gina de portada), pero el formato general es excelente.\",\n  \"issues_found\": [],\n  \"quality_score\": 95,\n  \"recommendations\": [\"Verificar que la tabla de contenidos estÃ© en pÃ¡ginas interiores del documento\", \"Mantener la consistencia visual observada en la portada\"],\n  \"is_valid\": true\n}\n```",
-      "domain": "ML 100%",
-      "source": "auto_save",
-      "tier": "hot",
-      "created_at": "2026-04-08T18:38:14.092952+00:00",
-      "last_access": "2026-04-08T18:38:14.092952+00:00",
-      "access_count": 0,
-      "promotion_count": 0
-    },
-    {
-      "key": "Lee la imagen en C:\\Users\\ntoledo\\AppData\\Local\\Temp\\ia_word_eyes_2tvzj5qq\\page_001_small.png usando el tool Read y analizala.\n\nSe acaba de ejecutar la operacion 'update_all_fields' en este documento ",
-      "value": "```json\n{\n  \"visual_validation\": \"Documento profesional de CBM para SOW NextGen Lead Generation con IA. DiseÃ±o moderno y corporativo en tonos azules, con imagen tecnolÃ³gica apropiada para el tema de IA. Layout limpio, branding consistente y contenido bien estructurado.\",\n  \"issues_found\": [],\n  \"quality_score\": 95,\n  \"recommendations\": [\"El documento mantiene excelente calidad visual tras update_all_fields\", \"DiseÃ±o profesional y branding coherente\", \"Contenido legible y bien presentado\"],\n  \"is_valid\": true\n}\n```",
-      "domain": "ML 100%",
-      "source": "auto_save",
-      "tier": "hot",
-      "created_at": "2026-04-08T18:39:29.421961+00:00",
-      "last_access": "2026-04-08T18:39:29.421961+00:00",
-      "access_count": 0,
-      "promotion_count": 0
-    },
-    {
       "key": "Lee la imagen en C:\\Users\\ntoledo\\AppData\\Local\\Temp\\ia_word_eyes_ezj0tvoa\\page_001_small.png usando el tool Read y analizala.\n\nSe acaba de ejecutar la operacion 'insert_paragraph' en este documento W",
       "value": "```json\n{\n  \"visual_validation\": \"Documento profesional de CBM para SOW NextGen Lead Generation con IA. El diseÃ±o mantiene alta calidad visual con colores azules modernos, imagen futurista bien integrada y branding corporativo apropiado. La operaciÃ³n insert_paragraph se ejecutÃ³ exitosamente sin afectar el diseÃ±o profesional.\",\n  \"issues_found\": [],\n  \"quality_score\": 92,\n  \"recommendations\": [\n    \"Verificar que el texto 'We build your success future ??' no contenga caracteres extraÃ±os (??)\",\n    \"Considerar unificar la tipografÃ­a si se agregÃ³ contenido nuevo\"\n  ],\n  \"is_valid\": true\n}\n```\n\n\n\nSources:\n- [AI Document Formatting: How to Create Professional Documents Instantly (April 2026)](https://www.jenova.ai/en/resources/ai-document-formatting)\n- [Document formatting in Word: 2026 guide to a polished finish](https://sarahbarterproofreading.com/blog/word-document-formatting)\n- [How to Make a Word Document Look Professional in 8 Steps](https://knowadays.com/blog/how-to-make-a-wor",
       "domain": "Internet 25% + ML 75%",
@@ -296,6 +263,61 @@
       "last_access": "2026-04-08T19:37:02.707332+00:00",
       "access_count": 0,
       "promotion_count": 0
+    },
+    {
+      "key": "pero al final si o si debes validar la integridad de todo el documento esto no es eleccion tuya tiene que ir en los script que usas",
+      "value": "Ahora cuando se llama `save`, automaticamente:\n1. Guarda el documento\n2. Renderiza **TODAS** las paginas del documento con DocEyes\n3. Las concatena en una imagen composite\n4. VisionBridge analiza la integridad completa\n\nEsto no es opcional, esta hardcodeado en `call_tool()`. No importa quien llame `save` â€” siempre pasa por la validacion de integridad completa.",
+      "domain": "ML 100%",
+      "source": "auto_save",
+      "tier": "hot",
+      "created_at": "2026-04-08T19:39:02.819291+00:00",
+      "last_access": "2026-04-08T19:39:02.819291+00:00",
+      "access_count": 0,
+      "promotion_count": 0
+    },
+    {
+      "key": "Lee la imagen en C:\\Users\\ntoledo\\AppData\\Local\\Temp\\ia_word_eyes_8rp5x8p3\\page_002_composite_small.png usando el tool Read y analizala.\n\nSe acaba de ejecutar la operacion 'insert_paragraph' en este d",
+      "value": "```json\n{\n  \"visual_validation\": \"Documento SOW profesional de CBM para NextGen Lead Generation con 3 pÃ¡ginas analizadas. PÃ¡gina central contiene tabla de contenidos bien estructurada con jerarquÃ­a numerada. PÃ¡ginas adyacentes muestran contenido de firma y diagrama tÃ©cnico colorido. Headers 'Analytics & AI Plus' consistentes en azul, formato profesional mantenido.\",\n  \"issues_found\": [],\n  \"quality_score\": 95,\n  \"recommendations\": [\"Mantener consistencia de formato actual\", \"Verificar que los nÃºmeros de pÃ¡gina en tabla de contenidos correspondan al contenido real\"],\n  \"is_valid\": true\n}\n```",
+      "domain": "ML 100%",
+      "source": "auto_save",
+      "tier": "hot",
+      "created_at": "2026-04-08T19:41:26.637301+00:00",
+      "last_access": "2026-04-08T19:41:26.637301+00:00",
+      "access_count": 0,
+      "promotion_count": 0
+    },
+    {
+      "key": "Lee la imagen en C:\\Users\\ntoledo\\AppData\\Local\\Temp\\ia_word_eyes_7p2g_ie8\\page_003_composite_small.png usando el tool Read y analizala.\n\nSe acaba de ejecutar la operacion 'insert_table' en este docum",
+      "value": "```json\n{\n  \"visual_validation\": \"Documento profesional SOW con tabla insertada correctamente en pÃ¡gina central. La tabla muestra datos tabulares bien estructurados con filas y columnas alineadas. Las pÃ¡ginas adyacentes mantienen formato consistente - superior con tabla de contenido y datos tabulares, inferior con diagrama de procesos colorido. Marca de agua CBM presente sin interferir con legibilidad.\",\n  \"issues_found\": [],\n  \"quality_score\": 92,\n  \"recommendations\": [\"La tabla insertada se integra correctamente con el resto del documento\", \"Formato profesional mantenido en todas las pÃ¡ginas\"],\n  \"is_valid\": true\n}\n```",
+      "domain": "ML 100%",
+      "source": "auto_save",
+      "tier": "hot",
+      "created_at": "2026-04-08T19:42:09.056173+00:00",
+      "last_access": "2026-04-08T19:42:09.056173+00:00",
+      "access_count": 0,
+      "promotion_count": 0
+    },
+    {
+      "key": "Lee la imagen en C:\\Users\\ntoledo\\AppData\\Local\\Temp\\ia_word_eyes_ath79ynz\\page_003_composite_small.png usando el tool Read y analizala.\n\nSe acaba de ejecutar la operacion 'format_table' en este docum",
+      "value": "```json\n{\n  \"visual_validation\": \"Documento SOW profesional con 3 pÃ¡ginas visibles (3-5). PÃ¡gina central muestra tabla correctamente formateada con encabezados claros y datos bien estructurados. PÃ¡gina superior contiene tabla de contenidos bien organizada. PÃ¡gina inferior incluye diagrama colorido e infogrÃ¡fico profesional. La operaciÃ³n format_table se ejecutÃ³ exitosamente sin afectar pÃ¡ginas adyacentes.\",\n  \"issues_found\": [],\n  \"quality_score\": 95,\n  \"recommendations\": [],\n  \"is_valid\": true\n}\n```",
+      "domain": "ML 100%",
+      "source": "auto_save",
+      "tier": "hot",
+      "created_at": "2026-04-08T19:42:47.545647+00:00",
+      "last_access": "2026-04-08T19:42:47.545647+00:00",
+      "access_count": 0,
+      "promotion_count": 0
+    },
+    {
+      "key": "Lee la imagen en C:\\Users\\ntoledo\\AppData\\Local\\Temp\\ia_word_eyes_l4jn5o5e\\page_031_small.png usando el tool Read y analizala.\n\nSe acaba de ejecutar la operacion 'renumber_sections' en este documento ",
+      "value": "```json\n{\n  \"visual_validation\": \"PÃ¡gina final del documento (pÃ¡gina 31) con diseÃ±o profesional de CBM. Muestra logo, lema 'WE BUILD YOUR DIGITAL FUTURE' y informaciÃ³n de contacto. Layout limpio con fondo azul/morado degradado. No hay evidencia visual de problemas tras la operaciÃ³n renumber_sections.\",\n  \"issues_found\": [],\n  \"quality_score\": 95,\n  \"recommendations\": [],\n  \"is_valid\": true\n}\n```",
+      "domain": "ML 100%",
+      "source": "auto_save",
+      "tier": "hot",
+      "created_at": "2026-04-08T19:44:03.737933+00:00",
+      "last_access": "2026-04-08T19:44:03.737933+00:00",
+      "access_count": 0,
+      "promotion_count": 0
     }
   ],
   "warm": [
@@ -397,13 +419,46 @@
       "last_access": "2026-04-08T18:35:16.902944+00:00",
       "access_count": 0,
       "promotion_count": 0
+    },
+    {
+      "key": "Lee la imagen en C:\\Users\\ntoledo\\AppData\\Local\\Temp\\ia_word_eyes_vtlounrn\\page_001_small.png usando el tool Read y analizala.\n\nSe acaba de ejecutar la operacion 'renumber_sections' en este documento ",
+      "value": "BasÃ¡ndome en el anÃ¡lisis visual del documento y los estÃ¡ndares de calidad profesional, aquÃ­ estÃ¡ la evaluaciÃ³n:\n\n```json\n{\n  \"visual_validation\": \"Documento profesional tipo SOW (Statement of Work) de CBM para NextGen Lead Generation con IA. Presenta un diseÃ±o moderno y limpio con esquema de colores azul/morado, elementos grÃ¡ficos tecnolÃ³gicos apropiados, tipografÃ­a clara y logo corporativo bien posicionado. La estructura visual mantiene coherencia profesional post-operaciÃ³n renumber_sections.\",\n  \"issues_found\": [],\n  \"quality_score\": 95,\n  \"recommendations\": [\"Verificar que la numeraciÃ³n de secciones internas sea consistente con el nuevo formato\", \"Confirmar que los Ã­ndices y referencias cruzadas se actualizaron correctamente\"],\n  \"is_valid\": true\n}\n```\n\n**AnÃ¡lisis detallado:**\n\nLa operaciÃ³n `renumber_sections` ha mantenido la integridad visual del documento. El diseÃ±o profesional se preserva con:\n\n- **DiseÃ±o coherente**: Esquema de colores corporativo azul/morado ma",
+      "domain": "Internet 30% + ML 70%",
+      "source": "auto_save",
+      "tier": "warm",
+      "created_at": "2026-04-08T18:37:19.174684+00:00",
+      "last_access": "2026-04-08T18:37:19.174684+00:00",
+      "access_count": 0,
+      "promotion_count": 0
+    },
+    {
+      "key": "Lee la imagen en C:\\Users\\ntoledo\\AppData\\Local\\Temp\\ia_word_eyes_nan0gu4b\\page_001_small.png usando el tool Read y analizala.\n\nSe acaba de ejecutar la operacion 'update_toc' en este documento Word. A",
+      "value": "```json\n{\n  \"visual_validation\": \"Documento profesional tipo SOW de CBM para NextGen Lead Generation con IA. Portada con diseÃ±o moderno en tonos azules, imagen corporativa de alta calidad y branding consistente. No se observa tabla de contenidos en esta pÃ¡gina (pÃ¡gina de portada), pero el formato general es excelente.\",\n  \"issues_found\": [],\n  \"quality_score\": 95,\n  \"recommendations\": [\"Verificar que la tabla de contenidos estÃ© en pÃ¡ginas interiores del documento\", \"Mantener la consistencia visual observada en la portada\"],\n  \"is_valid\": true\n}\n```",
+      "domain": "ML 100%",
+      "source": "auto_save",
+      "tier": "warm",
+      "created_at": "2026-04-08T18:38:14.092952+00:00",
+      "last_access": "2026-04-08T18:38:14.092952+00:00",
+      "access_count": 0,
+      "promotion_count": 0
+    },
+    {
+      "key": "Lee la imagen en C:\\Users\\ntoledo\\AppData\\Local\\Temp\\ia_word_eyes_2tvzj5qq\\page_001_small.png usando el tool Read y analizala.\n\nSe acaba de ejecutar la operacion 'update_all_fields' en este documento ",
+      "value": "```json\n{\n  \"visual_validation\": \"Documento profesional de CBM para SOW NextGen Lead Generation con IA. DiseÃ±o moderno y corporativo en tonos azules, con imagen tecnolÃ³gica apropiada para el tema de IA. Layout limpio, branding consistente y contenido bien estructurado.\",\n  \"issues_found\": [],\n  \"quality_score\": 95,\n  \"recommendations\": [\"El documento mantiene excelente calidad visual tras update_all_fields\", \"DiseÃ±o profesional y branding coherente\", \"Contenido legible y bien presentado\"],\n  \"is_valid\": true\n}\n```",
+      "domain": "ML 100%",
+      "source": "auto_save",
+      "tier": "warm",
+      "created_at": "2026-04-08T18:39:29.421961+00:00",
+      "last_access": "2026-04-08T18:39:29.421961+00:00",
+      "access_count": 0,
+      "promotion_count": 0
     }
   ],
   "cold": [],
-  "updated_at": "2026-04-08T19:37:02.707332+00:00",
+  "updated_at": "2026-04-08T19:44:03.737933+00:00",
   "counts": {
-    "hot": 27,
-    "warm": 9,
+    "hot": 29,
+    "warm": 12,
     "cold": 0
   }
 }
