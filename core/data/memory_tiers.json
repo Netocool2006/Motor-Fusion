@@ -21,13 +21,79 @@
       "last_access": "2026-04-08T23:32:47.902122+00:00",
       "access_count": 0,
       "promotion_count": 0
+    },
+    {
+      "key": "Lee la imagen en C:\\Users\\ntoledo\\AppData\\Local\\Temp\\ia_word_eyes_vpfsrzxd\\page_002_composite.png usando el tool Read y analizala.\n\nSe acaba de ejecutar la operacion 'insert_paragraph' en este documen",
+      "value": "```json\n{\n  \"is_valid\": false,\n  \"quality_score\": 30,\n  \"columns_counted\": 0,\n  \"headers_read\": [],\n  \"issues_found\": [\n    \"No puedo confirmar la presencia del texto 'Tabla detalle AWS Amazon utilizado'\",\n    \"ResoluciÃ³n insuficiente para leer contenido especÃ­fico\",\n    \"No se observa claramente una tabla con columnas contables\",\n    \"El texto insertado con estilo Heading 2 no es visible en la pÃ¡gina central\"\n  ],\n  \"fix_suggestions\": [\n    \"Aumentar resoluciÃ³n de captura de imagen\",\n    \"Hacer zoom especÃ­fico en la zona donde se insertÃ³ el texto\",\n    \"Verificar que la operaciÃ³n insert_paragraph se ejecutÃ³ correctamente\",\n    \"Capturar imagen con mayor DPI para mejor legibilidad\"\n  ],\n  \"summary\": \"Veo tres pÃ¡ginas apiladas: superior con texto y posible tabla, central con lo que parece un Ã­ndice/TOC, inferior con elementos grÃ¡ficos. No puedo confirmar que el texto 'Tabla detalle AWS Amazon utilizado' estÃ© presente en la pÃ¡gina central donde deberÃ­a haber ocurrido la ins",
+      "domain": "ML 100%",
+      "source": "auto_save",
+      "tier": "hot",
+      "created_at": "2026-04-08T23:33:43.653382+00:00",
+      "last_access": "2026-04-08T23:33:43.653382+00:00",
+      "access_count": 0,
+      "promotion_count": 0
+    },
+    {
+      "key": "Lee la imagen en C:\\Users\\ntoledo\\AppData\\Local\\Temp\\ia_word_eyes_ve2kx47g\\page_002_composite.png usando el tool Read y analizala.\n\nSe acaba de ejecutar la operacion 'insert_paragraph' en este documen",
+      "value": "```json\n{\n  \"is_valid\": true,\n  \"quality_score\": 85,\n  \"columns_counted\": 0,\n  \"headers_read\": [],\n  \"issues_found\": [],\n  \"fix_suggestions\": [],\n  \"summary\": \"OperaciÃ³n 'insert_paragraph' exitosa. El texto 'Tabla detalle AWS Amazon utilizado' estÃ¡ visible en la pÃ¡gina central con formato Heading 2 correcto. Las pÃ¡ginas adyacentes (superior e inferior) permanecen intactas. La tabla AWS colorida en la pÃ¡gina inferior se ve completa. No se detectaron problemas de layout o texto cortado.\"\n}\n```",
+      "domain": "ML 100%",
+      "source": "auto_save",
+      "tier": "hot",
+      "created_at": "2026-04-08T23:34:28.589730+00:00",
+      "last_access": "2026-04-08T23:34:28.589730+00:00",
+      "access_count": 0,
+      "promotion_count": 0
+    },
+    {
+      "key": "Lee la imagen en C:\\Users\\ntoledo\\AppData\\Local\\Temp\\ia_word_eyes_g2jgfsue\\page_003_composite.png usando el tool Read y analizala.\n\nSe acaba de ejecutar la operacion 'insert_table' en este documento W",
+      "value": "```json\n{\n  \"is_valid\": false,\n  \"quality_score\": 35,\n  \"columns_counted\": 0,\n  \"headers_read\": [],\n  \"issues_found\": [\n    \"ResoluciÃ³n insuficiente para leer headers especÃ­ficos\",\n    \"No puedo contar exactamente las 10 columnas esperadas\",\n    \"Headers no legibles para verificar coincidencia con ['Group', 'Region', 'Description', 'Service', 'Upfront', 'Monthly', 'First 12 mo.', 'Currency', 'Status', 'Config summary']\",\n    \"No puedo verificar el contenido de las 13 filas de datos esperadas\"\n  ],\n  \"fix_suggestions\": [\n    \"Aumentar resoluciÃ³n de la imagen generada\",\n    \"Verificar que DocEyes capture con mayor calidad\",\n    \"Posible reducir zoom o ajustar configuraciÃ³n de captura para mejor legibilidad\"\n  ],\n  \"summary\": \"Veo una tabla insertada en la pÃ¡gina central con estructura correcta, pero la resoluciÃ³n es insuficiente para validar los headers especÃ­ficos, conteo exacto de columnas (10 esperadas) y contenido de filas (13 esperadas). La tabla parece estar presente y forma",
+      "domain": "ML 100%",
+      "source": "auto_save",
+      "tier": "hot",
+      "created_at": "2026-04-08T23:35:31.193291+00:00",
+      "last_access": "2026-04-08T23:35:31.193291+00:00",
+      "access_count": 0,
+      "promotion_count": 0
+    },
+    {
+      "key": "Lee la imagen en C:\\Users\\ntoledo\\AppData\\Local\\Temp\\ia_word_eyes_oy172zuu\\page_003_composite.png usando el tool Read y analizala.\n\nSe acaba de ejecutar la operacion 'insert_table' en este documento W",
+      "value": "```json\n{\n  \"is_valid\": true,\n  \"quality_score\": 90,\n  \"columns_counted\": 10,\n  \"headers_read\": [\"Group\", \"Region\", \"Description\", \"Service\", \"Upfront\", \"Monthly\", \"First 12 mo.\", \"Currency\", \"Status\", \"Config summary\"],\n  \"issues_found\": [],\n  \"fix_suggestions\": [],\n  \"summary\": \"Tabla insertada correctamente con las 10 columnas esperadas. Headers coinciden exactamente con los requerimientos. La tabla estÃ¡ bien formateada, posicionada correctamente despuÃ©s del heading 'Tabla detalle AWS Amazon utilizado', y todas las columnas son visibles sin desbordamiento. Se pueden ver mÃºltiples filas de datos. Las pÃ¡ginas adyacentes no se vieron afectadas.\"\n}\n```",
+      "domain": "ML 100%",
+      "source": "auto_save",
+      "tier": "hot",
+      "created_at": "2026-04-08T23:36:34.677630+00:00",
+      "last_access": "2026-04-08T23:36:34.677630+00:00",
+      "access_count": 0,
+      "promotion_count": 0
+    },
+    {
+      "key": "Lee la imagen en C:\\Users\\ntoledo\\AppData\\Local\\Temp\\ia_word_eyes_2_o0oys6\\page_030_composite.png usando el tool Read y analizala.\n\nSe acaba de ejecutar la operacion 'format_table' en este documento W",
+      "value": "```json\n{\n  \"is_valid\": false,\n  \"quality_score\": 25,\n  \"columns_counted\": 0,\n  \"headers_read\": [],\n  \"issues_found\": [\n    \"La pÃ¡gina central (30) donde supuestamente ocurriÃ³ format_table estÃ¡ prÃ¡cticamente vacÃ­a\",\n    \"No se ve ninguna tabla prominente que haya sido formateada\",\n    \"La pÃ¡gina central solo muestra encabezado y pie de pÃ¡gina, sin contenido de tabla visible\",\n    \"No puedo verificar si la operaciÃ³n format_table se ejecutÃ³ correctamente\"\n  ],\n  \"fix_suggestions\": [\n    \"Verificar que el comando format_table se ejecutÃ³ en la pÃ¡gina correcta\",\n    \"Revisar si hay contenido de tabla que deberÃ­a estar visible\",\n    \"Comprobar si la tabla se moviÃ³ a otra pÃ¡gina por el formateo\",\n    \"Ejecutar nuevamente la operaciÃ³n si no se aplicÃ³ correctamente\"\n  ],\n  \"summary\": \"Imagen muestra 3 pÃ¡ginas apiladas. PÃ¡gina superior tiene contenido del Instituto de la Juventud de Bolivia con tabla pequeÃ±a. PÃ¡gina central (donde debÃ­a ocurrir el cambio) estÃ¡ prÃ¡cticament",
+      "domain": "ML 100%",
+      "source": "auto_save",
+      "tier": "hot",
+      "created_at": "2026-04-08T23:37:31.067925+00:00",
+      "last_access": "2026-04-08T23:37:31.067925+00:00",
+      "access_count": 0,
+      "promotion_count": 0
+    },
+    {
+      "key": "Lee la imagen en C:\\Users\\ntoledo\\AppData\\Local\\Temp\\ia_word_eyes_6bi7kuhx\\page_030_composite.png usando el tool Read y analizala.\n\nSe acaba de ejecutar la operacion 'format_table' en este documento W",
+      "value": "BasÃ¡ndome en mi anÃ¡lisis de la imagen compuesta de las pÃ¡ginas 30-31-32, aquÃ­ estÃ¡ mi evaluaciÃ³n como revisor experto de documentos:\n\n```json\n{\n  \"is_valid\": false,\n  \"quality_score\": 25,\n  \"columns_counted\": 0,\n  \"headers_read\": [],\n  \"issues_found\": [\n    \"La pÃ¡gina central (31) donde deberÃ­a estar la tabla formateada aparece prÃ¡cticamente en blanco\",\n    \"No se puede identificar ninguna tabla con formato en la pÃ¡gina objetivo\",\n    \"La operaciÃ³n format_table no parece haberse ejecutado correctamente\",\n    \"ResoluciÃ³n insuficiente para leer detalles especÃ­ficos de las tablas visibles en pÃ¡gina 30\"\n  ],\n  \"fix_suggestions\": [\n    \"Verificar que la operaciÃ³n format_table se ejecutÃ³ en la pÃ¡gina correcta\",\n    \"Revisar si hay contenido oculto o fuera del Ã¡rea visible\",\n    \"Considerar aumentar la resoluciÃ³n de captura para mejor legibilidad\",\n    \"Verificar que la tabla no se moviÃ³ a otra pÃ¡gina por problemas de layout\"\n  ],\n  \"summary\": \"Imagen compuesta muestra pÃ",
+      "domain": "ML 100%",
+      "source": "auto_save",
+      "tier": "hot",
+      "created_at": "2026-04-08T23:38:21.720403+00:00",
+      "last_access": "2026-04-08T23:38:21.720403+00:00",
+      "access_count": 0,
+      "promotion_count": 0
     }
   ],
   "warm": [],
   "cold": [],
-  "updated_at": "2026-04-08T23:32:47.902122+00:00",
+  "updated_at": "2026-04-08T23:38:21.720403+00:00",
   "counts": {
-    "hot": 2,
+    "hot": 8,
     "warm": 0,
     "cold": 0
   }
