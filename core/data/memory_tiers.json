@@ -1,11 +1,35 @@
 {
   "hot": [
     {
+      "key": "ya no hacen falta commits que hacer?",
+      "value": "Limpio. Cero cambios pendientes. Todo estÃ¡ commiteado.",
+      "domain": "ML 20%",
+      "source": "auto_save",
+      "tier": "hot",
+      "created_at": "2026-04-08T16:17:54.826742+00:00",
+      "last_access": "2026-04-08T16:17:54.826742+00:00",
+      "access_count": 0,
+      "promotion_count": 0
+    },
+    {
+      "key": "decirme como quedo la arquitectura y si todos lo componentes estan activos y funcionando?",
+      "value": "Son **40 tools**, no 34 â€” contÃ© mal antes. AquÃ­ estÃ¡ la arquitectura completa:\n\n## Arquitectura IA_Word\n\n```\nUsuario (chat) â†’ Claude (cerebro) â†’ MCP stdio â†’ mcp_server.py â†’ word_com.py â†’ Word COM\n                                                       â†“\n                                                  doc_eyes.py â†’ PNGs (Claude VE el documento)\n                                                       â†“\n                                                vision_bridge.py â†’ Claude Vision (valida visualmente)\n```\n\n### Componentes â€” 6/7 activos\n\n| Componente | Archivo | LÃ­neas | Estado |\n|-----------|---------|--------|--------|\n| **Word COM Engine** | `word_com.py` | 4,348 | **OK** â€” motor principal, 40+ mÃ©todos |\n| **MCP Server** | `mcp_server.py` | 1,462 | **OK** â€” 40 tools expuestos a Claude |\n| **DocEyes** | `doc_eyes.py` | 420 | **OK** â€” Wordâ†’PDFâ†’PNG para visiÃ³n |\n| **VisionBridge** | `vision_bridge.py` | 495 | **OK** â€” Claude Vision para validaciÃ³n",
+      "domain": "ML 40%",
+      "source": "auto_save",
+      "tier": "hot",
+      "created_at": "2026-04-08T16:19:22.720966+00:00",
+      "last_access": "2026-04-08T16:19:22.720966+00:00",
+      "access_count": 0,
+      "promotion_count": 0
+    }
+  ],
+  "warm": [
+    {
       "key": "busca si en el internet ya pasaron todas estas diferentes casos de uso exitosos para que no estes en prueba y error",
       "value": "## Resultado de la bÃºsqueda\n\n**No existe ninguna librerÃ­a ni MCP server que resuelva estos casos de uso.** BusquÃ© en todo lo que hay:\n\n### Lo que existe y por quÃ© no sirve\n\n| LibrerÃ­a | QuÃ© hace | Por quÃ© no sirve |\n|----------|----------|-------------------|\n| **docxcompose** | Concatena documentos completos | No puede copiar secciones especÃ­ficas por heading |\n| **python-docx-replace** | Find/replace con formato | Solo texto, no secciones ni tablas |\n| **GongRzhe/Office-Word-MCP-Server** | MCP con python-docx | Sin awareness de secciones, merge bÃ¡sico |\n| **OfficeMCP/OfficeMCP** | COM wrapper genÃ©rico | Thin wrapper, no tiene operaciones de secciÃ³n |\n| **Microsoft Word MCP** (oficial) | OneDrive/Graph API | Solo cloud, sin manipulaciÃ³n local |\n| **Spire.Doc / Aspose.Words** | Full manipulation | Comerciales, caros, licencia por servidor |\n\n### Lo que significa\n\nLo que construimos en `word_com.py` â€” merge por heading, insert table con formato, replace section content, bu",
       "domain": "Internet 70% + ML 30%",
       "source": "auto_save",
-      "tier": "hot",
+      "tier": "warm",
       "created_at": "2026-04-08T03:04:57.571389+00:00",
       "last_access": "2026-04-08T03:04:57.571389+00:00",
       "access_count": 0,
@@ -16,7 +40,7 @@
       "value": "## Resultados de GitHub â€” bÃºsqueda exhaustiva\n\n### Lo mÃ¡s relevante encontrado:\n\n**1. [ykarapazar/word-mcp-live](https://github.com/ykarapazar/word-mcp-live)** (31 stars, activo)\n- **115 tools MCP** usando win32com (mismo enfoque que nosotros)\n- Tiene `replace_paragraph_block_below_header` â€” busca heading por texto, borra contenido debajo, inserta nuevo\n- Tablas formateadas vÃ­a COM con bordes, shading, merge cells\n- UndoRecord wrapping, tracked changes\n- **Es el mÃ¡s cercano a lo que estamos construyendo**\n\n**2. [GongRzhe/Office-Word-MCP-Server](https://github.com/GongRzhe/Office-Word-MCP-Server)** (1,820 stars)\n- El MCP server de Word mÃ¡s popular\n- Tiene `replace_paragraph_block_below_header` y `delete_block_under_header`\n- Basado en python-docx (no COM), solo opera con archivos cerrados\n- Insert tables con formato completo\n\n**3. [dealfluence/adeu](https://github.com/dealfluence/adeu)** (55 stars)\n- Track Changes nativo vÃ­a XML (w:ins, w:del)\n- Trata el DOCX como \"Virtual DOM",
       "domain": "Internet 85% + ML 15%",
       "source": "auto_save",
-      "tier": "hot",
+      "tier": "warm",
       "created_at": "2026-04-08T03:16:18.467063+00:00",
       "last_access": "2026-04-08T03:16:18.467063+00:00",
       "access_count": 0,
@@ -27,7 +51,7 @@
       "value": "Todo funciona. Resumen de lo integrado:\n\n**Integrado de repos externos:**\n\n| PatrÃ³n | Status | Impacto |\n|--------|--------|---------|\n| **UndoRecord** | Funcionando | Cada tool MCP = 1 Ctrl+Z para deshacer |\n| **ROT Scanner** | Funcionando | Conecta al Word del usuario si ya estÃ¡ abierto |\n| **get_sections(fast=True)** | Funcionando | 85s â†’ 0.1s (optimizaciÃ³n propia validada por la investigaciÃ³n) |\n| **Source doc reutilizable** | Funcionando | Merge 2 secciones en 10s (antes ~10min) |\n\n**Test merge exitoso:**\n- 2 secciones copiadas: \"Plataforma de contenedores\" + \"Observability Center\"\n- Tiempo total: 19.8s\n- UndoRecord activo (Ctrl+Z deshace todo el merge)",
       "domain": "Internet 60% + ML 40%",
       "source": "auto_save",
-      "tier": "hot",
+      "tier": "warm",
       "created_at": "2026-04-08T03:23:35.213725+00:00",
       "last_access": "2026-04-08T03:23:35.213725+00:00",
       "access_count": 0,
@@ -38,19 +62,51 @@
       "value": "Merge **PASS** con todas las mejoras integradas. El aumento de 34 â†’ 140 secciones es correcto: `\\HeadingLevel` copia la secciÃ³n completa con TODAS sus subsecciones (antes solo copiaba el heading). Ahora es un merge real.\n\n**Resumen de mejoras integradas en esta sesiÃ³n:**\n\n| Mejora | Antes | DespuÃ©s | Fuente |\n|--------|-------|---------|--------|\n| `get_sections()` bulk | 85s | **0.1s** | OptimizaciÃ³n propia |\n| Source doc reutilizable | N aberturas | **1 abertura** | OptimizaciÃ³n propia |\n| `FormattedText` | Copy/Paste (clipboard) | **Sin clipboard** | VBA forums, MS Learn |\n| `\\HeadingLevel` bookmark | Iterar pÃ¡rrafos para boundaries | **1 llamada COM** | MS Learn predefined bookmarks |\n| `word_fast_mode` | Spell/grammar activos | **Deshabilitados** | Word MVP, SO |\n| `undo_record` | Sin undo | **1 Ctrl+Z por operaciÃ³n** | word-mcp-live repo |\n| ROT Scanner | Siempre crea nueva instancia | **Conecta al Word existente** | word-mcp-live repo |\n| **Merge total** | **~10 min** |",
       "domain": "Internet 65% + ML 35%",
       "source": "auto_save",
-      "tier": "hot",
+      "tier": "warm",
       "created_at": "2026-04-08T03:32:06.478486+00:00",
       "last_access": "2026-04-08T03:32:06.478486+00:00",
       "access_count": 0,
       "promotion_count": 0
+    },
+    {
+      "key": "ahora busca en lugares que no hayas buscado especializados en estos temas",
+      "value": "Todo pasÃ³. Resumen final de las 3 rondas de investigaciÃ³n e integraciÃ³n:\n\n### Estado final del proyecto con todos los patrones integrados:\n\n| OperaciÃ³n | Tiempo | Origen del patrÃ³n |\n|-----------|--------|-------------------|\n| `get_sections()` | **0.07s** | Bulk text read (propio) |\n| `insert_table` 3x3 | **1.9s** | AllowAutoFit=False, HeadingFormat (wordmvp.com) |\n| `merge` 1 secciÃ³n | **4.8s** | FormattedText + \\HeadingLevel (MS Learn, VBA forums) |\n| **Total 3 operaciones** | **16s** | â€” |\n\n### Patrones integrados por fuente:\n\n| Fuente | Patrones tomados |\n|--------|-----------------|\n| **wordmvp.com** | word_fast_mode (Pagination=False), AllowAutoFit=False, HeadingFormat, Visible vs ScreenUpdating |\n| **MS Learn** | \\HeadingLevel bookmark, FormattedText (sin clipboard), GoTo constants |\n| **word-mcp-live (GitHub)** | UndoRecord, ROT Scanner |\n| **timgolden.me.uk** | DispatchEx para instancias aisladas |\n| **VBA forums** | Border order (LineStyle antes de Width/Color), fina",
+      "domain": "Internet 80% + ML 20%",
+      "source": "auto_save",
+      "tier": "warm",
+      "created_at": "2026-04-08T03:42:02.802433+00:00",
+      "last_access": "2026-04-08T03:42:02.802433+00:00",
+      "access_count": 0,
+      "promotion_count": 0
+    },
+    {
+      "key": "para que sirve el de insertar documentos completos?",
+      "value": "`InsertFile` sirve para insertar un documento `.docx` completo en una posiciÃ³n del documento actual **en una sola llamada COM**, preservando todo: estilos, tablas, imÃ¡genes, headers, footers, secciones.\n\n**Caso de uso real para ti:**\n\nImagina que tienes una \"librerÃ­a de secciones\" â€” archivos .docx individuales:\n- `seccion_por_que_gbm.docx`\n- `seccion_propuesta_economica.docx`\n- `seccion_terminos_condiciones.docx`\n- `seccion_acuerdos_sla.docx`\n\nY quieres armar una propuesta nueva diciendo: *\"Crea una propuesta con: Por quÃ© GBM + SLA + Propuesta EconÃ³mica + TÃ©rminos\"*\n\nCon `InsertFile`:\n```python\nrng = doc.Content\nrng.Collapse(Direction=0)  # al final\nrng.InsertFile(\"seccion_por_que_gbm.docx\")\nrng.InsertFile(\"seccion_acuerdos_sla.docx\")\nrng.InsertFile(\"seccion_propuesta_economica.docx\")\n```\n\n**vs lo que hacemos hoy** con `merge_sections_from`: abrir source doc â†’ buscar heading â†’ extraer rango â†’ FormattedText â†’ cerrar. SecciÃ³n por secciÃ³n.\n\n**La diferencia:**\n- `InsertFi",
+      "domain": "Internet 40% + ML 60%",
+      "source": "auto_save",
+      "tier": "warm",
+      "created_at": "2026-04-08T03:43:29.908028+00:00",
+      "last_access": "2026-04-08T03:43:29.908028+00:00",
+      "access_count": 0,
+      "promotion_count": 0
+    },
+    {
+      "key": "agrega un archivo .log para ver estos temas cuando resuelvas seguiras buscando funciones por todo el internet que nos agreguen valor solo que nos agregue valor a lo que ya tenemos lo probaras e implem",
+      "value": "Tengo 2 agentes buscando en internet. Cuando regresen con resultados, evaluarÃ© cada tÃ©cnica y las que agreguen valor real las implementarÃ©, probarÃ© con documentos reales, y harÃ© commit. Mientras esperamos, el estado actual es:\n\n**Resumen del progreso:**\n\n| Logro | Estado |\n|-------|--------|\n| Merge 6 secciones SOW | 10min â†’ **14.9s** |\n| Logging a archivo | `logs/word_com.log` |\n| python-docx hybrid (no mÃ¡s COM hang) | Probado y commiteado |\n| TOC skip + deduplicaciÃ³n | Implementado |\n| UndoRecord + word_fast_mode | Integrado |\n| Commit `f4be188` | Hecho |\n| BÃºsqueda internet (2 agentes) | En progreso... |",
+      "domain": "ML 100%",
+      "source": "auto_save",
+      "tier": "warm",
+      "created_at": "2026-04-08T05:09:01.597158+00:00",
+      "last_access": "2026-04-08T05:09:01.597158+00:00",
+      "access_count": 0,
+      "promotion_count": 0
     }
   ],
-  "warm": [],
   "cold": [],
-  "updated_at": "2026-04-08T03:32:06.479485+00:00",
+  "updated_at": "2026-04-08T16:19:22.721972+00:00",
   "counts": {
-    "hot": 4,
-    "warm": 0,
+    "hot": 2,
+    "warm": 7,
     "cold": 0
   }
 }

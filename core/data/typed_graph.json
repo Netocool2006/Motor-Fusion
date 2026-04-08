@@ -1991,6 +1991,110 @@
       "properties": {},
       "created_at": "2026-04-08T03:23:35.223750+00:00",
       "updated_at": "2026-04-08T03:23:35.223750+00:00"
+    },
+    "0.07s": {
+      "id": "0.07s",
+      "type": "file",
+      "name": "0.07s",
+      "properties": {},
+      "created_at": "2026-04-08T03:42:02.812578+00:00",
+      "updated_at": "2026-04-08T03:42:02.812578+00:00"
+    },
+    "1.9s": {
+      "id": "1.9s",
+      "type": "file",
+      "name": "1.9s",
+      "properties": {},
+      "created_at": "2026-04-08T03:42:02.819093+00:00",
+      "updated_at": "2026-04-08T03:42:02.819093+00:00"
+    },
+    "wordmvp.com": {
+      "id": "wordmvp.com",
+      "type": "file",
+      "name": "wordmvp.com",
+      "properties": {},
+      "created_at": "2026-04-08T03:42:02.838023+00:00",
+      "updated_at": "2026-04-08T03:42:02.838023+00:00"
+    },
+    "4.8s": {
+      "id": "4.8s",
+      "type": "file",
+      "name": "4.8s",
+      "properties": {},
+      "created_at": "2026-04-08T03:42:02.864383+00:00",
+      "updated_at": "2026-04-08T03:42:02.864383+00:00"
+    },
+    "timgolden.me": {
+      "id": "timgolden.me",
+      "type": "file",
+      "name": "timgolden.me",
+      "properties": {},
+      "created_at": "2026-04-08T03:42:02.909501+00:00",
+      "updated_at": "2026-04-08T03:42:02.909501+00:00"
+    },
+    "seccion_por_que_gbm.docx": {
+      "id": "seccion_por_que_gbm.docx",
+      "type": "file",
+      "name": "seccion_por_que_gbm.docx",
+      "properties": {},
+      "created_at": "2026-04-08T03:43:29.920041+00:00",
+      "updated_at": "2026-04-08T03:43:29.920041+00:00"
+    },
+    "seccion_propuesta_economica.docx": {
+      "id": "seccion_propuesta_economica.docx",
+      "type": "file",
+      "name": "seccion_propuesta_economica.docx",
+      "properties": {},
+      "created_at": "2026-04-08T03:43:29.929057+00:00",
+      "updated_at": "2026-04-08T03:43:29.929057+00:00"
+    },
+    "seccion_terminos_condiciones.docx": {
+      "id": "seccion_terminos_condiciones.docx",
+      "type": "file",
+      "name": "seccion_terminos_condiciones.docx",
+      "properties": {},
+      "created_at": "2026-04-08T03:43:29.947081+00:00",
+      "updated_at": "2026-04-08T03:43:29.947081+00:00"
+    },
+    "seccion_acuerdos_sla.docx": {
+      "id": "seccion_acuerdos_sla.docx",
+      "type": "file",
+      "name": "seccion_acuerdos_sla.docx",
+      "properties": {},
+      "created_at": "2026-04-08T03:43:29.972613+00:00",
+      "updated_at": "2026-04-08T03:43:29.972613+00:00"
+    },
+    "rng.Coll": {
+      "id": "rng.Coll",
+      "type": "file",
+      "name": "rng.Coll",
+      "properties": {},
+      "created_at": "2026-04-08T03:43:30.017269+00:00",
+      "updated_at": "2026-04-08T03:43:30.017269+00:00"
+    },
+    "rng.Inse": {
+      "id": "rng.Inse",
+      "type": "file",
+      "name": "rng.Inse",
+      "properties": {},
+      "created_at": "2026-04-08T03:43:30.042595+00:00",
+      "updated_at": "2026-04-08T03:43:30.042595+00:00"
+    },
+    "14.9s": {
+      "id": "14.9s",
+      "type": "file",
+      "name": "14.9s",
+      "properties": {},
+      "created_at": "2026-04-08T05:09:01.609172+00:00",
+      "updated_at": "2026-04-08T05:09:01.609172+00:00"
+    },
+    "logs/word_com.log": {
+      "id": "logs/word_com.log",
+      "type": "file",
+      "name": "logs/word_com.log",
+      "properties": {},
+      "created_at": "2026-04-08T05:09:01.617778+00:00",
+      "updated_at": "2026-04-08T05:09:01.617778+00:00"
     }
   },
   "relations": [
@@ -5121,10 +5225,10 @@
       "source": "mcp_server.py",
       "target": "vision_bridge.py",
       "type": "used_with",
-      "weight": 1.0,
-      "context": "esto es pura programacion o tiene MCP y/o ML ?",
+      "weight": 1.5,
+      "context": "decirme como quedo la arquitectura y si todos lo componentes estan activos y funcionando?",
       "created_at": "2026-04-07T15:19:59.498090+00:00",
-      "updated_at": "2026-04-07T20:43:14.095730+00:00"
+      "updated_at": "2026-04-08T16:19:22.836690+00:00"
     },
     {
       "source": "mcp_server.py",
@@ -5508,28 +5612,28 @@
       "source": "word_com.py",
       "target": "doc_eyes.py",
       "type": "used_with",
-      "weight": 1.0,
-      "context": "esto es pura programacion o tiene MCP y/o ML ?",
+      "weight": 2.0,
+      "context": "decirme como quedo la arquitectura y si todos lo componentes estan activos y funcionando?",
       "created_at": "2026-04-07T16:44:43.224478+00:00",
-      "updated_at": "2026-04-07T20:43:14.061777+00:00"
+      "updated_at": "2026-04-08T16:19:22.818474+00:00"
     },
     {
       "source": "word_com.py",
       "target": "vision_bridge.py",
       "type": "used_with",
-      "weight": 0.5,
-      "context": "si procede solo una recomendacion extra agrega que tengas una logica de revision por bloques hay .do",
+      "weight": 1.0,
+      "context": "decirme como quedo la arquitectura y si todos lo componentes estan activos y funcionando?",
       "created_at": "2026-04-07T16:44:43.231733+00:00",
-      "updated_at": "2026-04-07T16:44:43.231733+00:00"
+      "updated_at": "2026-04-08T16:19:22.763504+00:00"
     },
     {
       "source": "doc_eyes.py",
       "target": "vision_bridge.py",
       "type": "used_with",
-      "weight": 0.5,
-      "context": "si procede solo una recomendacion extra agrega que tengas una logica de revision por bloques hay .do",
+      "weight": 1.5,
+      "context": "decirme como quedo la arquitectura y si todos lo componentes estan activos y funcionando?",
       "created_at": "2026-04-07T16:44:43.238965+00:00",
-      "updated_at": "2026-04-07T16:44:43.238965+00:00"
+      "updated_at": "2026-04-08T16:19:22.846223+00:00"
     },
     {
       "source": "realmente",
@@ -6169,11 +6273,335 @@
       "context": "toma todo lo que nos agregue valor al proyecto",
       "created_at": "2026-04-08T03:23:35.232767+00:00",
       "updated_at": "2026-04-08T03:23:35.232767+00:00"
+    },
+    {
+      "source": "0.07s",
+      "target": "1.9s",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "ahora busca en lugares que no hayas buscado especializados en estos temas",
+      "created_at": "2026-04-08T03:42:02.827770+00:00",
+      "updated_at": "2026-04-08T03:42:02.827770+00:00"
+    },
+    {
+      "source": "0.07s",
+      "target": "wordmvp.com",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "ahora busca en lugares que no hayas buscado especializados en estos temas",
+      "created_at": "2026-04-08T03:42:02.847140+00:00",
+      "updated_at": "2026-04-08T03:42:02.847140+00:00"
+    },
+    {
+      "source": "1.9s",
+      "target": "wordmvp.com",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "ahora busca en lugares que no hayas buscado especializados en estos temas",
+      "created_at": "2026-04-08T03:42:02.855681+00:00",
+      "updated_at": "2026-04-08T03:42:02.855681+00:00"
+    },
+    {
+      "source": "1.9s",
+      "target": "4.8s",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "ahora busca en lugares que no hayas buscado especializados en estos temas",
+      "created_at": "2026-04-08T03:42:02.874339+00:00",
+      "updated_at": "2026-04-08T03:42:02.874339+00:00"
+    },
+    {
+      "source": "wordmvp.com",
+      "target": "4.8s",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "ahora busca en lugares que no hayas buscado especializados en estos temas",
+      "created_at": "2026-04-08T03:42:02.882968+00:00",
+      "updated_at": "2026-04-08T03:42:02.882968+00:00"
+    },
+    {
+      "source": "wordmvp.com",
+      "target": "wordmvp.com",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "ahora busca en lugares que no hayas buscado especializados en estos temas",
+      "created_at": "2026-04-08T03:42:02.891543+00:00",
+      "updated_at": "2026-04-08T03:42:02.891543+00:00"
+    },
+    {
+      "source": "4.8s",
+      "target": "wordmvp.com",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "ahora busca en lugares que no hayas buscado especializados en estos temas",
+      "created_at": "2026-04-08T03:42:02.900076+00:00",
+      "updated_at": "2026-04-08T03:42:02.900076+00:00"
+    },
+    {
+      "source": "4.8s",
+      "target": "timgolden.me",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "ahora busca en lugares que no hayas buscado especializados en estos temas",
+      "created_at": "2026-04-08T03:42:02.919510+00:00",
+      "updated_at": "2026-04-08T03:42:02.919510+00:00"
+    },
+    {
+      "source": "wordmvp.com",
+      "target": "timgolden.me",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "ahora busca en lugares que no hayas buscado especializados en estos temas",
+      "created_at": "2026-04-08T03:42:02.928540+00:00",
+      "updated_at": "2026-04-08T03:42:02.928540+00:00"
+    },
+    {
+      "source": "seccion_por_que_gbm.docx",
+      "target": "seccion_propuesta_economica.docx",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "para que sirve el de insertar documentos completos?",
+      "created_at": "2026-04-08T03:43:29.938068+00:00",
+      "updated_at": "2026-04-08T03:43:29.938068+00:00"
+    },
+    {
+      "source": "seccion_por_que_gbm.docx",
+      "target": "seccion_terminos_condiciones.docx",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "para que sirve el de insertar documentos completos?",
+      "created_at": "2026-04-08T03:43:29.955092+00:00",
+      "updated_at": "2026-04-08T03:43:29.955092+00:00"
+    },
+    {
+      "source": "seccion_propuesta_economica.docx",
+      "target": "seccion_terminos_condiciones.docx",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "para que sirve el de insertar documentos completos?",
+      "created_at": "2026-04-08T03:43:29.964604+00:00",
+      "updated_at": "2026-04-08T03:43:29.964604+00:00"
+    },
+    {
+      "source": "seccion_propuesta_economica.docx",
+      "target": "seccion_acuerdos_sla.docx",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "para que sirve el de insertar documentos completos?",
+      "created_at": "2026-04-08T03:43:29.982201+00:00",
+      "updated_at": "2026-04-08T03:43:29.982201+00:00"
+    },
+    {
+      "source": "seccion_terminos_condiciones.docx",
+      "target": "seccion_acuerdos_sla.docx",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "para que sirve el de insertar documentos completos?",
+      "created_at": "2026-04-08T03:43:29.991220+00:00",
+      "updated_at": "2026-04-08T03:43:29.991220+00:00"
+    },
+    {
+      "source": "seccion_terminos_condiciones.docx",
+      "target": "doc.Cont",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "para que sirve el de insertar documentos completos?",
+      "created_at": "2026-04-08T03:43:29.999725+00:00",
+      "updated_at": "2026-04-08T03:43:29.999725+00:00"
+    },
+    {
+      "source": "seccion_acuerdos_sla.docx",
+      "target": "doc.Cont",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "para que sirve el de insertar documentos completos?",
+      "created_at": "2026-04-08T03:43:30.008258+00:00",
+      "updated_at": "2026-04-08T03:43:30.008258+00:00"
+    },
+    {
+      "source": "seccion_acuerdos_sla.docx",
+      "target": "rng.Coll",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "para que sirve el de insertar documentos completos?",
+      "created_at": "2026-04-08T03:43:30.026288+00:00",
+      "updated_at": "2026-04-08T03:43:30.026288+00:00"
+    },
+    {
+      "source": "doc.Cont",
+      "target": "rng.Coll",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "para que sirve el de insertar documentos completos?",
+      "created_at": "2026-04-08T03:43:30.034300+00:00",
+      "updated_at": "2026-04-08T03:43:30.035304+00:00"
+    },
+    {
+      "source": "doc.Cont",
+      "target": "rng.Inse",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "para que sirve el de insertar documentos completos?",
+      "created_at": "2026-04-08T03:43:30.048119+00:00",
+      "updated_at": "2026-04-08T03:43:30.048119+00:00"
+    },
+    {
+      "source": "rng.Coll",
+      "target": "rng.Inse",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "para que sirve el de insertar documentos completos?",
+      "created_at": "2026-04-08T03:43:30.054130+00:00",
+      "updated_at": "2026-04-08T03:43:30.054130+00:00"
+    },
+    {
+      "source": "rng.Coll",
+      "target": "seccion_por_que_gbm.docx",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "para que sirve el de insertar documentos completos?",
+      "created_at": "2026-04-08T03:43:30.060145+00:00",
+      "updated_at": "2026-04-08T03:43:30.060145+00:00"
+    },
+    {
+      "source": "rng.Inse",
+      "target": "seccion_por_que_gbm.docx",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "para que sirve el de insertar documentos completos?",
+      "created_at": "2026-04-08T03:43:30.064721+00:00",
+      "updated_at": "2026-04-08T03:43:30.064721+00:00"
+    },
+    {
+      "source": "rng.Inse",
+      "target": "rng.Inse",
+      "type": "used_with",
+      "weight": 1.0,
+      "context": "para que sirve el de insertar documentos completos?",
+      "created_at": "2026-04-08T03:43:30.071311+00:00",
+      "updated_at": "2026-04-08T03:43:30.099119+00:00"
+    },
+    {
+      "source": "seccion_por_que_gbm.docx",
+      "target": "rng.Inse",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "para que sirve el de insertar documentos completos?",
+      "created_at": "2026-04-08T03:43:30.078285+00:00",
+      "updated_at": "2026-04-08T03:43:30.078285+00:00"
+    },
+    {
+      "source": "seccion_por_que_gbm.docx",
+      "target": "seccion_acuerdos_sla.docx",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "para que sirve el de insertar documentos completos?",
+      "created_at": "2026-04-08T03:43:30.085083+00:00",
+      "updated_at": "2026-04-08T03:43:30.085083+00:00"
+    },
+    {
+      "source": "rng.Inse",
+      "target": "seccion_acuerdos_sla.docx",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "para que sirve el de insertar documentos completos?",
+      "created_at": "2026-04-08T03:43:30.092592+00:00",
+      "updated_at": "2026-04-08T03:43:30.092592+00:00"
+    },
+    {
+      "source": "seccion_acuerdos_sla.docx",
+      "target": "rng.Inse",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "para que sirve el de insertar documentos completos?",
+      "created_at": "2026-04-08T03:43:30.108867+00:00",
+      "updated_at": "2026-04-08T03:43:30.108867+00:00"
+    },
+    {
+      "source": "seccion_acuerdos_sla.docx",
+      "target": "seccion_propuesta_economica.docx",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "para que sirve el de insertar documentos completos?",
+      "created_at": "2026-04-08T03:43:30.117423+00:00",
+      "updated_at": "2026-04-08T03:43:30.117423+00:00"
+    },
+    {
+      "source": "rng.Inse",
+      "target": "seccion_propuesta_economica.docx",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "para que sirve el de insertar documentos completos?",
+      "created_at": "2026-04-08T03:43:30.125351+00:00",
+      "updated_at": "2026-04-08T03:43:30.125351+00:00"
+    },
+    {
+      "source": "14.9s",
+      "target": "logs/word_com.log",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "agrega un archivo .log para ver estos temas cuando resuelvas seguiras buscando funciones por todo el",
+      "created_at": "2026-04-08T05:09:01.627521+00:00",
+      "updated_at": "2026-04-08T05:09:01.627521+00:00"
+    },
+    {
+      "source": "mcp_server.py",
+      "target": "word_com.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "decirme como quedo la arquitectura y si todos lo componentes estan activos y funcionando?",
+      "created_at": "2026-04-08T16:19:22.733012+00:00",
+      "updated_at": "2026-04-08T16:19:22.733012+00:00"
+    },
+    {
+      "source": "mcp_server.py",
+      "target": "doc_eyes.py",
+      "type": "used_with",
+      "weight": 1.0,
+      "context": "decirme como quedo la arquitectura y si todos lo componentes estan activos y funcionando?",
+      "created_at": "2026-04-08T16:19:22.744433+00:00",
+      "updated_at": "2026-04-08T16:19:22.827879+00:00"
+    },
+    {
+      "source": "doc_eyes.py",
+      "target": "word_com.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "decirme como quedo la arquitectura y si todos lo componentes estan activos y funcionando?",
+      "created_at": "2026-04-08T16:19:22.782435+00:00",
+      "updated_at": "2026-04-08T16:19:22.782435+00:00"
+    },
+    {
+      "source": "vision_bridge.py",
+      "target": "word_com.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "decirme como quedo la arquitectura y si todos lo componentes estan activos y funcionando?",
+      "created_at": "2026-04-08T16:19:22.791356+00:00",
+      "updated_at": "2026-04-08T16:19:22.791356+00:00"
+    },
+    {
+      "source": "vision_bridge.py",
+      "target": "mcp_server.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "decirme como quedo la arquitectura y si todos lo componentes estan activos y funcionando?",
+      "created_at": "2026-04-08T16:19:22.800397+00:00",
+      "updated_at": "2026-04-08T16:19:22.800397+00:00"
+    },
+    {
+      "source": "word_com.py",
+      "target": "mcp_server.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "decirme como quedo la arquitectura y si todos lo componentes estan activos y funcionando?",
+      "created_at": "2026-04-08T16:19:22.809935+00:00",
+      "updated_at": "2026-04-08T16:19:22.809935+00:00"
     }
   ],
-  "updated_at": "2026-04-08T03:23:35.232767+00:00",
+  "updated_at": "2026-04-08T16:19:22.846223+00:00",
   "stats": {
-    "entities": 249,
-    "relations": 464
+    "entities": 262,
+    "relations": 500
   }
 }
