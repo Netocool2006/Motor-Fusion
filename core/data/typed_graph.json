@@ -3079,6 +3079,38 @@
       "properties": {},
       "created_at": "2026-04-08T20:00:31.598390+00:00",
       "updated_at": "2026-04-08T20:00:31.598390+00:00"
+    },
+    "src/cerebro.py": {
+      "id": "src/cerebro.py",
+      "type": "file",
+      "name": "src/cerebro.py",
+      "properties": {},
+      "created_at": "2026-04-08T23:20:14.784267+00:00",
+      "updated_at": "2026-04-08T23:20:14.784267+00:00"
+    },
+    "cerebro.py": {
+      "id": "cerebro.py",
+      "type": "file",
+      "name": "cerebro.py",
+      "properties": {},
+      "created_at": "2026-04-08T23:23:12.148096+00:00",
+      "updated_at": "2026-04-08T23:23:12.148096+00:00"
+    },
+    "tool_builder.py": {
+      "id": "tool_builder.py",
+      "type": "file",
+      "name": "tool_builder.py",
+      "properties": {},
+      "created_at": "2026-04-08T23:23:12.162652+00:00",
+      "updated_at": "2026-04-08T23:23:12.162652+00:00"
+    },
+    "prueba_cerebro.py": {
+      "id": "prueba_cerebro.py",
+      "type": "file",
+      "name": "prueba_cerebro.py",
+      "properties": {},
+      "created_at": "2026-04-08T23:23:12.190714+00:00",
+      "updated_at": "2026-04-08T23:23:12.190714+00:00"
     }
   },
   "relations": [
@@ -11703,11 +11735,56 @@
       "context": "Lee la imagen en C:\\Users\\ntoledo\\AppData\\Local\\Temp\\ia_word_eyes_xl592wtl\\page_001_small.png usando",
       "created_at": "2026-04-08T20:00:31.612439+00:00",
       "updated_at": "2026-04-08T20:00:31.612439+00:00"
+    },
+    {
+      "source": "mcp_server.py",
+      "target": "src/cerebro.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pero solo corregiste los ojos que pasa con lo demas ?",
+      "created_at": "2026-04-08T23:20:14.798138+00:00",
+      "updated_at": "2026-04-08T23:20:14.798138+00:00"
+    },
+    {
+      "source": "cerebro.py",
+      "target": "tool_builder.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "como se usa y como me das garantias que funcione tal cual lo pedi como me das garantias de que el pr",
+      "created_at": "2026-04-08T23:23:12.177189+00:00",
+      "updated_at": "2026-04-08T23:23:12.177189+00:00"
+    },
+    {
+      "source": "cerebro.py",
+      "target": "prueba_cerebro.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "como se usa y como me das garantias que funcione tal cual lo pedi como me das garantias de que el pr",
+      "created_at": "2026-04-08T23:23:12.205252+00:00",
+      "updated_at": "2026-04-08T23:23:12.205252+00:00"
+    },
+    {
+      "source": "tool_builder.py",
+      "target": "prueba_cerebro.py",
+      "type": "used_with",
+      "weight": 1.0,
+      "context": "como se usa y como me das garantias que funcione tal cual lo pedi como me das garantias de que el pr",
+      "created_at": "2026-04-08T23:23:12.219929+00:00",
+      "updated_at": "2026-04-08T23:23:12.234327+00:00"
+    },
+    {
+      "source": "prueba_cerebro.py",
+      "target": "prueba_cerebro.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "como se usa y como me das garantias que funcione tal cual lo pedi como me das garantias de que el pr",
+      "created_at": "2026-04-08T23:23:12.248924+00:00",
+      "updated_at": "2026-04-08T23:23:12.248924+00:00"
     }
   ],
-  "updated_at": "2026-04-08T20:00:31.613942+00:00",
+  "updated_at": "2026-04-08T23:23:12.248924+00:00",
   "stats": {
-    "entities": 385,
-    "relations": 958
+    "entities": 389,
+    "relations": 963
   }
 }
