@@ -11592,11 +11592,20 @@
       "context": "no veo el paso donde se use vision brigde y/o doc eye?",
       "created_at": "2026-04-08T18:03:50.230528+00:00",
       "updated_at": "2026-04-08T18:03:50.230528+00:00"
+    },
+    {
+      "source": "claude_desktop_config.json",
+      "target": "mcp_server.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "si estas usando el motor es decir este proyecto de la carpeta para realizar esta tarea verdad?",
+      "created_at": "2026-04-08T18:28:54.611899+00:00",
+      "updated_at": "2026-04-08T18:28:54.611899+00:00"
     }
   ],
-  "updated_at": "2026-04-08T18:03:50.239819+00:00",
+  "updated_at": "2026-04-08T18:28:54.611899+00:00",
   "stats": {
     "entities": 379,
-    "relations": 951
+    "relations": 952
   }
 }
