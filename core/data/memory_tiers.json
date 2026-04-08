@@ -1,0 +1,67 @@
+{
+  "hot": [
+    {
+      "key": "dame el paso a paso de por donde pasa un requerimiento cuando se pide? ejemplo paso 1: el usuario escribe en el chat 2. el mcp toma lo escrito y lo lleva a etc etc?",
+      "value": "Ahora tengo todo el flujo real. Aqui va el paso a paso completo:\n\n---\n\n## Flujo completo de un requerimiento â€” ejemplo real\n\n> **Ejemplo:** El usuario escribe en Claude Desktop: *\"Abre el archivo P01.docx y cambia 'Bantrab' por 'BAC' en todo el documento\"*\n\n---\n\n### PASO 1 â€” Usuario escribe en el chat\n\n```\nUsuario â†’ Claude Desktop (chat)\n\"Abre P01.docx y cambia Bantrab por BAC\"\n```\n\nClaude (el LLM) lee el mensaje y **piensa**: \"Necesito 2 operaciones: primero `open_document`, luego `find_replace`\". Claude NO toca Word directamente â€” solo sabe que tiene 40 tools MCP disponibles.\n\n---\n\n### PASO 2 â€” Claude decide que tool usar y envia JSON-RPC via stdio\n\nClaude genera un `tool_call` en formato JSON-RPC y lo envia por **stdin** al proceso `mcp_server.py`:\n\n```json\n{\n  \"method\": \"tools/call\",\n  \"params\": {\n    \"name\": \"open_document\",\n    \"arguments\": {\"path\": \"C:/Chance1/IA/IA_Word/P01.docx\"}\n  }\n}\n```\n\nEl transporte es **stdio** (stdin/stdout del proceso Python). Definido en `mc",
+      "domain": "ML 100%",
+      "source": "auto_save",
+      "tier": "hot",
+      "created_at": "2026-04-08T17:58:27.062087+00:00",
+      "last_access": "2026-04-08T17:58:27.062087+00:00",
+      "access_count": 0,
+      "promotion_count": 0
+    },
+    {
+      "key": "no veo el paso donde se use vision brigde y/o doc eye?",
+      "value": "Ahora si tengo el cuadro completo. Hay **2 flujos diferentes** donde entran DocEyes y VisionBridge:\n\n---\n\n## Flujo A: Via MCP (Claude en chat) â€” DocEyes MANUAL\n\nCuando Claude usa el tool `view_page`, DocEyes se activa **bajo demanda**:\n\n```\nPASO 1: Usuario pide algo en chat\nPASO 2: Claude decide que necesita VER el documento\nPASO 3: Claude llama â†’ view_page(pages=[1,5])\nPASO 4: mcp_server.py:1065 â†’ _handle_view_page()\nPASO 5: DocEyes renderiza:\n         Word COM â†’ exporta PDF temporal\n         PyMuPDF â†’ renderiza PDF a PNG (150 DPI)\nPASO 6: PNG se codifica en base64\nPASO 7: Se devuelve como ImageContent a Claude\nPASO 8: Claude VE la imagen (es multimodal)\nPASO 9: Claude decide si el resultado visual esta bien\n```\n\n**Problema actual:** Claude tiene que decidir por si mismo llamar `view_page`. No es automatico. Si Claude no lo llama, no hay validacion visual.\n\n---\n\n## Flujo B: Via Engine (batch) â€” DocEyes + VisionBridge AUTOMATICO\n\nCuando se usa `engine.py` (el orquestador), ",
+      "domain": "ML 100%",
+      "source": "auto_save",
+      "tier": "hot",
+      "created_at": "2026-04-08T18:03:50.211544+00:00",
+      "last_access": "2026-04-08T18:03:50.211544+00:00",
+      "access_count": 0,
+      "promotion_count": 0
+    },
+    {
+      "key": "que diferencia hay entre estos 2 que te pregunte par que sirven?",
+      "value": "Clarisimo. Son complementarios, no redundantes:\n\n## DocEyes = La CAMARA\n\n```\nWord COM â†’ exporta PDF â†’ PyMuPDF renderiza â†’ PNG por pagina\n```\n\n- **Solo toma la foto.** Convierte el .docx a imagenes PNG de alta fidelidad.\n- Retorna: imagen (ruta al PNG), texto extraido, dimensiones\n- **No opina, no analiza, no decide nada.** Solo genera las imagenes.\n- Es como sacarle una foto al documento.\n\n## VisionBridge = El CEREBRO que mira la foto\n\n```\nPNG (de DocEyes) â†’ lo envia a Claude Vision â†’ Claude analiza â†’ \"se ve bien\" / \"hay problemas\"\n```\n\n- **No genera imagenes.** Recibe un PNG ya hecho (por DocEyes) y lo envia a Claude Vision para que lo analice.\n- Retorna: `is_valid: true/false`, observaciones de que se ve mal\n- Es como mostrarle la foto a alguien inteligente y preguntarle \"esto esta bien?\"\n- Usa tu suscripcion Max (CLI) o API key como fallback.\n\n## En resumen\n\n| | DocEyes | VisionBridge |\n|--|---------|--------------|\n| **Funcion** | Tomar la foto | Analizar la foto |\n| **",
+      "domain": "ML 100%",
+      "source": "auto_save",
+      "tier": "hot",
+      "created_at": "2026-04-08T18:05:10.746287+00:00",
+      "last_access": "2026-04-08T18:05:10.746287+00:00",
+      "access_count": 0,
+      "promotion_count": 0
+    },
+    {
+      "key": "Lee la imagen en C:\\Users\\ntoledo\\AppData\\Local\\Temp\\ia_word_eyes_pmyn9lme\\page_001_small.png usando el tool Read y analizala.\n\nDescribe brevemente que ves. Responde en JSON: {\"is_valid\": true/false, ",
+      "value": "```json\n{\n  \"visual_validation\": \"Documento profesional de propuesta de servicios para FortiClient CS con diseÃ±o moderno en azul/rosa, logo GBIT, texto bilingÃ¼e (espaÃ±ol/inglÃ©s) y estructura visual clara\",\n  \"issues_found\": [],\n  \"quality_score\": 92,\n  \"recommendations\": [\n    \"Excelente contraste de colores y legibilidad\",\n    \"DiseÃ±o profesional apropiado para propuesta comercial\",\n    \"Elementos grÃ¡ficos bien balanceados\"\n  ],\n  \"is_valid\": true\n}\n```",
+      "domain": "ML 100%",
+      "source": "auto_save",
+      "tier": "hot",
+      "created_at": "2026-04-08T18:10:59.858657+00:00",
+      "last_access": "2026-04-08T18:10:59.858657+00:00",
+      "access_count": 0,
+      "promotion_count": 0
+    },
+    {
+      "key": "Lee la imagen en C:\\Users\\ntoledo\\AppData\\Local\\Temp\\ia_word_eyes_pnu1vxd4\\page_001_small.png usando el tool Read y analizala.\n\nSe acaba de ejecutar la operacion 'find_replace' en este documento Word.",
+      "value": "```json\n{\n  \"visual_validation\": \"Documento profesional de propuesta de servicios para FortiClient CE. DiseÃ±o moderno con elementos grÃ¡ficos en azul y morado, logo GOAL visible, texto bien estructurado y alineado. La operaciÃ³n find_replace se ejecutÃ³ correctamente sin afectar el formato visual.\",\n  \"issues_found\": [],\n  \"quality_score\": 95,\n  \"recommendations\": [\"Excelente calidad visual\", \"Formato profesional mantenido\", \"Elementos grÃ¡ficos intactos\"],\n  \"is_valid\": true\n}\n```",
+      "domain": "ML 100%",
+      "source": "auto_save",
+      "tier": "hot",
+      "created_at": "2026-04-08T18:12:19.269493+00:00",
+      "last_access": "2026-04-08T18:12:19.269493+00:00",
+      "access_count": 0,
+      "promotion_count": 0
+    }
+  ],
+  "warm": [],
+  "cold": [],
+  "updated_at": "2026-04-08T18:12:19.269493+00:00",
+  "counts": {
+    "hot": 5,
+    "warm": 0,
+    "cold": 0
+  }
+}

@@ -3007,6 +3007,30 @@
       "properties": {},
       "created_at": "2026-04-08T17:51:41.203555+00:00",
       "updated_at": "2026-04-08T17:51:41.203555+00:00"
+    },
+    "P01.docx": {
+      "id": "P01.docx",
+      "type": "file",
+      "name": "P01.docx",
+      "properties": {},
+      "created_at": "2026-04-08T17:58:27.069558+00:00",
+      "updated_at": "2026-04-08T17:58:27.069558+00:00"
+    },
+    "/Chance1/IA/IA_Word/P01.docx": {
+      "id": "/Chance1/IA/IA_Word/P01.docx",
+      "type": "file",
+      "name": "/Chance1/IA/IA_Word/P01.docx",
+      "properties": {},
+      "created_at": "2026-04-08T17:58:27.102880+00:00",
+      "updated_at": "2026-04-08T17:58:27.102880+00:00"
+    },
+    "ver": {
+      "id": "ver",
+      "type": "concept",
+      "name": "ver",
+      "properties": {},
+      "created_at": "2026-04-08T18:03:50.222843+00:00",
+      "updated_at": "2026-04-08T18:03:50.222843+00:00"
     }
   },
   "relations": [
@@ -5705,10 +5729,10 @@
       "source": "mcp_server.py",
       "target": "engine.py",
       "type": "used_with",
-      "weight": 0.5,
-      "context": "Lee la imagen en C:\\Users\\ntoledo\\AppData\\Local\\Temp\\playwright_word_capture.png usando el tool Read",
+      "weight": 1.0,
+      "context": "no veo el paso donde se use vision brigde y/o doc eye?",
       "created_at": "2026-04-07T00:14:29.133444+00:00",
-      "updated_at": "2026-04-07T00:14:29.133444+00:00"
+      "updated_at": "2026-04-08T18:03:50.239819+00:00"
     },
     {
       "source": "run_engine.py",
@@ -11523,11 +11547,56 @@
       "context": "pre-hook query",
       "created_at": "2026-04-08T17:51:41.241051+00:00",
       "updated_at": "2026-04-08T17:51:41.251183+00:00"
+    },
+    {
+      "source": "P01.docx",
+      "target": "P01.docx",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "dame el paso a paso de por donde pasa un requerimiento cuando se pide? ejemplo paso 1: el usuario es",
+      "created_at": "2026-04-08T17:58:27.077219+00:00",
+      "updated_at": "2026-04-08T17:58:27.077219+00:00"
+    },
+    {
+      "source": "P01.docx",
+      "target": "mcp_server.py",
+      "type": "used_with",
+      "weight": 1.0,
+      "context": "dame el paso a paso de por donde pasa un requerimiento cuando se pide? ejemplo paso 1: el usuario es",
+      "created_at": "2026-04-08T17:58:27.086260+00:00",
+      "updated_at": "2026-04-08T17:58:27.094639+00:00"
+    },
+    {
+      "source": "P01.docx",
+      "target": "/Chance1/IA/IA_Word/P01.docx",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "dame el paso a paso de por donde pasa un requerimiento cuando se pide? ejemplo paso 1: el usuario es",
+      "created_at": "2026-04-08T17:58:27.111863+00:00",
+      "updated_at": "2026-04-08T17:58:27.111863+00:00"
+    },
+    {
+      "source": "mcp_server.py",
+      "target": "/Chance1/IA/IA_Word/P01.docx",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "dame el paso a paso de por donde pasa un requerimiento cuando se pide? ejemplo paso 1: el usuario es",
+      "created_at": "2026-04-08T17:58:27.123148+00:00",
+      "updated_at": "2026-04-08T17:58:27.123148+00:00"
+    },
+    {
+      "source": "que",
+      "target": "ver",
+      "type": "depends_on",
+      "weight": 0.7,
+      "context": "no veo el paso donde se use vision brigde y/o doc eye?",
+      "created_at": "2026-04-08T18:03:50.230528+00:00",
+      "updated_at": "2026-04-08T18:03:50.230528+00:00"
     }
   ],
-  "updated_at": "2026-04-08T17:53:55.223511+00:00",
+  "updated_at": "2026-04-08T18:03:50.239819+00:00",
   "stats": {
-    "entities": 376,
-    "relations": 946
+    "entities": 379,
+    "relations": 951
   }
 }
