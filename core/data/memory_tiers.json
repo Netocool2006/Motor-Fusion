@@ -1,17 +1,6 @@
 {
   "hot": [
     {
-      "key": "Lee la imagen en C:\\Users\\ntoledo\\AppData\\Local\\Temp\\ia_word_eyes_pmyn9lme\\page_001_small.png usando el tool Read y analizala.\n\nDescribe brevemente que ves. Responde en JSON: {\"is_valid\": true/false, ",
-      "value": "```json\n{\n  \"visual_validation\": \"Documento profesional de propuesta de servicios para FortiClient CS con diseÃ±o moderno en azul/rosa, logo GBIT, texto bilingÃ¼e (espaÃ±ol/inglÃ©s) y estructura visual clara\",\n  \"issues_found\": [],\n  \"quality_score\": 92,\n  \"recommendations\": [\n    \"Excelente contraste de colores y legibilidad\",\n    \"DiseÃ±o profesional apropiado para propuesta comercial\",\n    \"Elementos grÃ¡ficos bien balanceados\"\n  ],\n  \"is_valid\": true\n}\n```",
-      "domain": "ML 100%",
-      "source": "auto_save",
-      "tier": "hot",
-      "created_at": "2026-04-08T18:10:59.858657+00:00",
-      "last_access": "2026-04-08T18:10:59.858657+00:00",
-      "access_count": 0,
-      "promotion_count": 0
-    },
-    {
       "key": "Lee la imagen en C:\\Users\\ntoledo\\AppData\\Local\\Temp\\ia_word_eyes_pnu1vxd4\\page_001_small.png usando el tool Read y analizala.\n\nSe acaba de ejecutar la operacion 'find_replace' en este documento Word.",
       "value": "```json\n{\n  \"visual_validation\": \"Documento profesional de propuesta de servicios para FortiClient CE. DiseÃ±o moderno con elementos grÃ¡ficos en azul y morado, logo GOAL visible, texto bien estructurado y alineado. La operaciÃ³n find_replace se ejecutÃ³ correctamente sin afectar el formato visual.\",\n  \"issues_found\": [],\n  \"quality_score\": 95,\n  \"recommendations\": [\"Excelente calidad visual\", \"Formato profesional mantenido\", \"Elementos grÃ¡ficos intactos\"],\n  \"is_valid\": true\n}\n```",
       "domain": "ML 100%",
@@ -186,6 +175,61 @@
       "last_access": "2026-04-08T19:06:06.356602+00:00",
       "access_count": 0,
       "promotion_count": 0
+    },
+    {
+      "key": "Lee la imagen en C:\\Users\\ntoledo\\AppData\\Local\\Temp\\ia_word_eyes_4cxg0jfh\\page_001_small.png usando el tool Read y analizala.\n\nSe acaba de ejecutar la operacion 'renumber_sections' en este documento ",
+      "value": "```json\n{\n  \"visual_validation\": \"Documento profesional SOW de CBM para NextGen Lead Generation con IA. Portada con diseÃ±o corporativo limpio, branding consistente y layout bien estructurado. No se observan secciones numeradas en esta pÃ¡gina (es la portada), pero el formato general es correcto.\",\n  \"issues_found\": [],\n  \"quality_score\": 95,\n  \"recommendations\": [\"Verificar numeraciÃ³n de secciones en pÃ¡ginas interiores del documento\", \"Confirmar que la operaciÃ³n renumber_sections se aplicÃ³ correctamente en el contenido interno\"],\n  \"is_valid\": true\n}\n```",
+      "domain": "ML 100%",
+      "source": "auto_save",
+      "tier": "hot",
+      "created_at": "2026-04-08T19:07:50.105640+00:00",
+      "last_access": "2026-04-08T19:07:50.105640+00:00",
+      "access_count": 0,
+      "promotion_count": 0
+    },
+    {
+      "key": "Lee la imagen en C:\\Users\\ntoledo\\AppData\\Local\\Temp\\ia_word_eyes_m62nqzrn\\page_001_small.png usando el tool Read y analizala.\n\nSe acaba de ejecutar la operacion 'insert_paragraph' en este documento W",
+      "value": "```json\n{\n  \"visual_validation\": \"Documento profesional SOW de CBM para NextGen Lead Generation con IA presenta diseÃ±o moderno y atractivo con gradiente azul, imÃ¡genes tecnolÃ³gicas coherentes, logo CBM bien posicionado y tipografÃ­a clara. La operaciÃ³n insert_paragraph no ha afectado negativamente la presentaciÃ³n visual de la portada.\",\n  \"issues_found\": [],\n  \"quality_score\": 92,\n  \"recommendations\": [\"Verificar que el signo de interrogaciÃ³n en 'future ?!' sea intencional\", \"Revisar consistencia del tÃ­tulo bilingÃ¼e si es requerimiento del proyecto\"],\n  \"is_valid\": true\n}\n```",
+      "domain": "ML 100%",
+      "source": "auto_save",
+      "tier": "hot",
+      "created_at": "2026-04-08T19:08:49.597723+00:00",
+      "last_access": "2026-04-08T19:08:49.597723+00:00",
+      "access_count": 0,
+      "promotion_count": 0
+    },
+    {
+      "key": "Lee la imagen en C:\\Users\\ntoledo\\AppData\\Local\\Temp\\ia_word_eyes_mgkp2w01\\page_001_small.png usando el tool Read y analizala.\n\nSe acaba de ejecutar la operacion 'insert_table' en este documento Word.",
+      "value": "```json\n{\n  \"visual_validation\": \"Documento profesional SOW de CBM para NextGen Lead Generation con IA. Portada bien diseÃ±ada con branding corporativo, elementos grÃ¡ficos modernos en tonos azules y mensaje 'We build your success!' con 'Future AI'. DiseÃ±o profesional y atractivo con logo CBM visible.\",\n  \"issues_found\": [],\n  \"quality_score\": 92,\n  \"recommendations\": [\"Verificar si la operaciÃ³n insert_table se ejecutÃ³ en pÃ¡gina interior ya que esta imagen muestra la portada del documento\"],\n  \"is_valid\": true\n}\n```",
+      "domain": "ML 100%",
+      "source": "auto_save",
+      "tier": "hot",
+      "created_at": "2026-04-08T19:09:48.174197+00:00",
+      "last_access": "2026-04-08T19:09:48.174197+00:00",
+      "access_count": 0,
+      "promotion_count": 0
+    },
+    {
+      "key": "Lee la imagen en C:\\Users\\ntoledo\\AppData\\Local\\Temp\\ia_word_eyes_gh5natvx\\page_001_small.png usando el tool Read y analizala.\n\nSe acaba de ejecutar la operacion 'format_table' en este documento Word.",
+      "value": "```json\n{\n  \"visual_validation\": \"Documento SOW profesional de CBM para NextGen Lead Generation con IA. DiseÃ±o moderno con elementos grÃ¡ficos de alta calidad, colores corporativos azul/pÃºrpura, logo CBM visible, y mensaje 'We build your success future' con flecha de crecimiento. Formato limpio y presentaciÃ³n profesional.\",\n  \"issues_found\": [],\n  \"quality_score\": 88,\n  \"recommendations\": [\"Verificar contenido de tablas en pÃ¡ginas internas del documento\", \"Confirmar que el formato de tabla aplicado mantenga la coherencia visual con el diseÃ±o de portada\"],\n  \"is_valid\": true\n}\n```",
+      "domain": "ML 100%",
+      "source": "auto_save",
+      "tier": "hot",
+      "created_at": "2026-04-08T19:10:43.425567+00:00",
+      "last_access": "2026-04-08T19:10:43.425567+00:00",
+      "access_count": 0,
+      "promotion_count": 0
+    },
+    {
+      "key": "Lee la imagen en C:\\Users\\ntoledo\\AppData\\Local\\Temp\\ia_word_eyes_za3nxs8u\\page_001_small.png usando el tool Read y analizala.\n\nSe acaba de ejecutar la operacion 'renumber_sections' en este documento ",
+      "value": "```json\n{\n  \"visual_validation\": \"Documento SOW profesional de CBM para NextGen Lead Generation con IA. Portada con diseÃ±o corporativo moderno, logo CBM visible, tipografÃ­a profesional y elementos bien alineados. No se observan errores visuales en esta pÃ¡gina de portada.\",\n  \"issues_found\": [],\n  \"quality_score\": 95,\n  \"recommendations\": [\"La portada no muestra la numeraciÃ³n de secciones internas - verificar pÃ¡ginas interiores para confirmar que renumber_sections funcionÃ³ correctamente\"],\n  \"is_valid\": true\n}\n```",
+      "domain": "ML 100%",
+      "source": "auto_save",
+      "tier": "hot",
+      "created_at": "2026-04-08T19:12:29.602898+00:00",
+      "last_access": "2026-04-08T19:12:29.602898+00:00",
+      "access_count": 0,
+      "promotion_count": 0
     }
   ],
   "warm": [
@@ -221,13 +265,24 @@
       "last_access": "2026-04-08T18:05:10.746287+00:00",
       "access_count": 0,
       "promotion_count": 0
+    },
+    {
+      "key": "Lee la imagen en C:\\Users\\ntoledo\\AppData\\Local\\Temp\\ia_word_eyes_pmyn9lme\\page_001_small.png usando el tool Read y analizala.\n\nDescribe brevemente que ves. Responde en JSON: {\"is_valid\": true/false, ",
+      "value": "```json\n{\n  \"visual_validation\": \"Documento profesional de propuesta de servicios para FortiClient CS con diseÃ±o moderno en azul/rosa, logo GBIT, texto bilingÃ¼e (espaÃ±ol/inglÃ©s) y estructura visual clara\",\n  \"issues_found\": [],\n  \"quality_score\": 92,\n  \"recommendations\": [\n    \"Excelente contraste de colores y legibilidad\",\n    \"DiseÃ±o profesional apropiado para propuesta comercial\",\n    \"Elementos grÃ¡ficos bien balanceados\"\n  ],\n  \"is_valid\": true\n}\n```",
+      "domain": "ML 100%",
+      "source": "auto_save",
+      "tier": "warm",
+      "created_at": "2026-04-08T18:10:59.858657+00:00",
+      "last_access": "2026-04-08T18:10:59.858657+00:00",
+      "access_count": 0,
+      "promotion_count": 0
     }
   ],
   "cold": [],
-  "updated_at": "2026-04-08T19:06:06.357110+00:00",
+  "updated_at": "2026-04-08T19:12:29.603902+00:00",
   "counts": {
-    "hot": 17,
-    "warm": 3,
+    "hot": 21,
+    "warm": 4,
     "cold": 0
   }
 }
