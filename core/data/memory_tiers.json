@@ -1,17 +1,6 @@
 {
   "hot": [
     {
-      "key": "Lee la imagen en C:\\Users\\ntoledo\\AppData\\Local\\Temp\\ia_word_eyes_pnu1vxd4\\page_001_small.png usando el tool Read y analizala.\n\nSe acaba de ejecutar la operacion 'find_replace' en este documento Word.",
-      "value": "```json\n{\n  \"visual_validation\": \"Documento profesional de propuesta de servicios para FortiClient CE. DiseÃ±o moderno con elementos grÃ¡ficos en azul y morado, logo GOAL visible, texto bien estructurado y alineado. La operaciÃ³n find_replace se ejecutÃ³ correctamente sin afectar el formato visual.\",\n  \"issues_found\": [],\n  \"quality_score\": 95,\n  \"recommendations\": [\"Excelente calidad visual\", \"Formato profesional mantenido\", \"Elementos grÃ¡ficos intactos\"],\n  \"is_valid\": true\n}\n```",
-      "domain": "ML 100%",
-      "source": "auto_save",
-      "tier": "hot",
-      "created_at": "2026-04-08T18:12:19.269493+00:00",
-      "last_access": "2026-04-08T18:12:19.269493+00:00",
-      "access_count": 0,
-      "promotion_count": 0
-    },
-    {
       "key": "si estas usando el motor es decir este proyecto de la carpeta para realizar esta tarea verdad?",
       "value": "No. Siendo honesto, **no estoy usando el MCP server**. Estoy escribiendo scripts Python que llaman directamente a `WordCOM`, `DocEyes`, etc. â€” saltandome el MCP completamente.\n\nEl flujo correcto seria:\n\n```\nClaude (yo) â†’ MCP tools (open_document, insert_table, etc.) â†’ Word COM\n```\n\nPero lo que estoy haciendo es:\n\n```\nClaude (yo) â†’ script Python crudo â†’ WordCOM directo\n```\n\nEl problema es que yo (Claude Code en terminal) no tengo los MCP tools conectados como herramientas. El MCP server esta disenado para conectarse via `claude_desktop_config.json` en Claude Desktop, no aqui.\n\n**Opciones:**\n\n1. **Simular el flujo MCP** â€” llamar las mismas funciones `call_tool()` de `mcp_server.py` desde el script (que es lo mas cercano al flujo real)\n2. **Usar WordCOM directo** â€” funciona igual pero sin la capa MCP (sin validacion visual automatica)\n3. **Hacer el trabajo desde Claude Desktop** â€” donde si tendrias los 40 tools disponibles como herramientas nativas\n\nCual prefieres? La opci",
       "domain": "ML 100%",
@@ -230,6 +219,72 @@
       "last_access": "2026-04-08T19:12:29.602898+00:00",
       "access_count": 0,
       "promotion_count": 0
+    },
+    {
+      "key": "Lee la imagen en C:\\Users\\ntoledo\\AppData\\Local\\Temp\\ia_word_eyes_7re11a2r\\page_001_small.png usando el tool Read y analizala.\n\nSe acaba de ejecutar la operacion 'update_toc' en este documento Word. A",
+      "value": "```json\n{\n  \"visual_validation\": \"Documento SOW profesional de CBM para NextGen Lead Generation con IA. Portada con diseÃ±o moderno en colores azul y morado, elementos grÃ¡ficos tecnolÃ³gicos, logo corporativo CBM bien posicionado y estructura visual clara.\",\n  \"issues_found\": [],\n  \"quality_score\": 95,\n  \"recommendations\": [\"El documento mantiene un diseÃ±o profesional y corporativo adecuado\"],\n  \"is_valid\": true\n}\n```",
+      "domain": "ML 100%",
+      "source": "auto_save",
+      "tier": "hot",
+      "created_at": "2026-04-08T19:13:17.510194+00:00",
+      "last_access": "2026-04-08T19:13:17.510194+00:00",
+      "access_count": 0,
+      "promotion_count": 0
+    },
+    {
+      "key": "Lee la imagen en C:\\Users\\ntoledo\\AppData\\Local\\Temp\\ia_word_eyes_eecsy7kk\\page_001_small.png usando el tool Read y analizala.\n\nSe acaba de ejecutar la operacion 'insert_paragraph' en este documento W",
+      "value": "```json\n{\n  \"visual_validation\": \"Documento SOW profesional de CBM para NextGen Lead Generation con IA. DiseÃ±o corporativo limpio con logo, tÃ­tulo claro, elementos grÃ¡ficos tecnolÃ³gicos y colores institucionales. La operaciÃ³n insert_paragraph se ejecutÃ³ correctamente manteniendo la estructura y formato profesional del documento.\",\n  \"issues_found\": [],\n  \"quality_score\": 88,\n  \"recommendations\": [\"Mantener la consistencia visual en futuras modificaciones\", \"Verificar que el nuevo pÃ¡rrafo insertado mantenga el mismo estilo de fuente y espaciado\"],\n  \"is_valid\": true\n}\n```",
+      "domain": "ML 100%",
+      "source": "auto_save",
+      "tier": "hot",
+      "created_at": "2026-04-08T19:13:57.742120+00:00",
+      "last_access": "2026-04-08T19:13:57.742120+00:00",
+      "access_count": 0,
+      "promotion_count": 0
+    },
+    {
+      "key": "Lee la imagen en C:\\Users\\ntoledo\\AppData\\Local\\Temp\\ia_word_eyes_uqdp5iej\\page_001_small.png usando el tool Read y analizala.\n\nSe acaba de ejecutar la operacion 'insert_table' en este documento Word.",
+      "value": "```json\n{\n  \"visual_validation\": \"Documento SOW profesional de CBM para NextGen Lead Generation con IA. DiseÃ±o corporativo limpio con elementos visuales en azul, logo CBM posicionado correctamente. No se observan problemas de formato o alineaciÃ³n. El documento mantiene la identidad visual profesional esperada.\",\n  \"issues_found\": [],\n  \"quality_score\": 95,\n  \"recommendations\": [\"Documento visualmente correcto\", \"Mantiene estÃ¡ndares profesionales de diseÃ±o\", \"Identidad corporativa CBM preservada\"],\n  \"is_valid\": true\n}\n```",
+      "domain": "ML 100%",
+      "source": "auto_save",
+      "tier": "hot",
+      "created_at": "2026-04-08T19:14:44.873282+00:00",
+      "last_access": "2026-04-08T19:14:44.873282+00:00",
+      "access_count": 0,
+      "promotion_count": 0
+    },
+    {
+      "key": "Lee la imagen en C:\\Users\\ntoledo\\AppData\\Local\\Temp\\ia_word_eyes_5lrs469_\\page_001_small.png usando el tool Read y analizala.\n\nSe acaba de ejecutar la operacion 'format_table' en este documento Word.",
+      "value": "```json\n{\n  \"visual_validation\": \"Documento SOW profesional de CBM para NextGen Lead Generation con IA. Portada con diseÃ±o moderno, colores corporativos azul/blanco, logo CBM presente. Texto principal 'We build your success with AI' bien posicionado. Formato limpio y profesional sin errores visuales aparentes.\",\n  \"issues_found\": [],\n  \"quality_score\": 95,\n  \"recommendations\": [\"Documento mantiene estÃ¡ndar profesional\", \"DiseÃ±o corporativo consistente\", \"Elementos visuales bien balanceados\"],\n  \"is_valid\": true\n}\n```",
+      "domain": "ML 100%",
+      "source": "auto_save",
+      "tier": "hot",
+      "created_at": "2026-04-08T19:15:32.085117+00:00",
+      "last_access": "2026-04-08T19:15:32.085117+00:00",
+      "access_count": 0,
+      "promotion_count": 0
+    },
+    {
+      "key": "Lee la imagen en C:\\Users\\ntoledo\\AppData\\Local\\Temp\\ia_word_eyes_n6nync01\\page_001_small.png usando el tool Read y analizala.\n\nSe acaba de ejecutar la operacion 'renumber_sections' en este documento ",
+      "value": "```json\n{\n  \"visual_validation\": \"Documento SOW profesional de CBM para NextGen Lead Generation con IA, con diseÃ±o moderno y colores corporativos coherentes. La portada muestra elementos grÃ¡ficos bien estructurados con el eslogan 'We build your EXPONENTIAL FUTURE' y branding corporativo apropiado.\",\n  \"issues_found\": [],\n  \"quality_score\": 95,\n  \"recommendations\": [\"El documento mantiene excelente calidad visual despuÃ©s de la renumeraciÃ³n\", \"La portada presenta un diseÃ±o profesional consistente\"],\n  \"is_valid\": true\n}\n```",
+      "domain": "ML 100%",
+      "source": "auto_save",
+      "tier": "hot",
+      "created_at": "2026-04-08T19:16:45.887117+00:00",
+      "last_access": "2026-04-08T19:16:45.887117+00:00",
+      "access_count": 0,
+      "promotion_count": 0
+    },
+    {
+      "key": "Lee la imagen en C:\\Users\\ntoledo\\AppData\\Local\\Temp\\ia_word_eyes_2ptr0z9j\\page_001_small.png usando el tool Read y analizala.\n\nSe acaba de ejecutar la operacion 'update_toc' en este documento Word. A",
+      "value": "```json\n{\n  \"visual_validation\": \"Documento SOW profesional de CBM para NextGen Lead Generation con IA. Portada bien estructurada con imagen tecnolÃ³gica, branding corporativo claro y diseÃ±o limpio. La operaciÃ³n update_toc no es visible en esta pÃ¡gina inicial.\",\n  \"issues_found\": [],\n  \"quality_score\": 95,\n  \"recommendations\": [\"Verificar que la TOC actualizada aparezca correctamente en pÃ¡ginas posteriores del documento\"],\n  \"is_valid\": true\n}\n```",
+      "domain": "ML 100%",
+      "source": "auto_save",
+      "tier": "hot",
+      "created_at": "2026-04-08T19:17:37.019504+00:00",
+      "last_access": "2026-04-08T19:17:37.019504+00:00",
+      "access_count": 0,
+      "promotion_count": 0
     }
   ],
   "warm": [
@@ -276,13 +331,24 @@
       "last_access": "2026-04-08T18:10:59.858657+00:00",
       "access_count": 0,
       "promotion_count": 0
+    },
+    {
+      "key": "Lee la imagen en C:\\Users\\ntoledo\\AppData\\Local\\Temp\\ia_word_eyes_pnu1vxd4\\page_001_small.png usando el tool Read y analizala.\n\nSe acaba de ejecutar la operacion 'find_replace' en este documento Word.",
+      "value": "```json\n{\n  \"visual_validation\": \"Documento profesional de propuesta de servicios para FortiClient CE. DiseÃ±o moderno con elementos grÃ¡ficos en azul y morado, logo GOAL visible, texto bien estructurado y alineado. La operaciÃ³n find_replace se ejecutÃ³ correctamente sin afectar el formato visual.\",\n  \"issues_found\": [],\n  \"quality_score\": 95,\n  \"recommendations\": [\"Excelente calidad visual\", \"Formato profesional mantenido\", \"Elementos grÃ¡ficos intactos\"],\n  \"is_valid\": true\n}\n```",
+      "domain": "ML 100%",
+      "source": "auto_save",
+      "tier": "warm",
+      "created_at": "2026-04-08T18:12:19.269493+00:00",
+      "last_access": "2026-04-08T18:12:19.269493+00:00",
+      "access_count": 0,
+      "promotion_count": 0
     }
   ],
   "cold": [],
-  "updated_at": "2026-04-08T19:12:29.603902+00:00",
+  "updated_at": "2026-04-08T19:17:37.019504+00:00",
   "counts": {
-    "hot": 21,
-    "warm": 4,
+    "hot": 26,
+    "warm": 5,
     "cold": 0
   }
 }
