@@ -1959,6 +1959,38 @@
       "properties": {},
       "created_at": "2026-04-08T02:53:42.233225+00:00",
       "updated_at": "2026-04-08T02:53:42.233225+00:00"
+    },
+    "inserciã³n": {
+      "id": "inserciã³n",
+      "type": "concept",
+      "name": "inserciã³n",
+      "properties": {},
+      "created_at": "2026-04-08T02:55:12.567897+00:00",
+      "updated_at": "2026-04-08T02:55:12.567897+00:00"
+    },
+    "mejorar": {
+      "id": "mejorar",
+      "type": "concept",
+      "name": "mejorar",
+      "properties": {},
+      "created_at": "2026-04-08T02:55:12.576124+00:00",
+      "updated_at": "2026-04-08T02:55:12.576124+00:00"
+    },
+    "insertar": {
+      "id": "insertar",
+      "type": "concept",
+      "name": "insertar",
+      "properties": {},
+      "created_at": "2026-04-08T02:55:12.617663+00:00",
+      "updated_at": "2026-04-08T02:55:12.617663+00:00"
+    },
+    "19.8s": {
+      "id": "19.8s",
+      "type": "file",
+      "name": "19.8s",
+      "properties": {},
+      "created_at": "2026-04-08T03:23:35.223750+00:00",
+      "updated_at": "2026-04-08T03:23:35.223750+00:00"
     }
   },
   "relations": [
@@ -4252,10 +4284,10 @@
       "source": "//github.com",
       "target": "//github.com",
       "type": "used_with",
-      "weight": 7.0,
-      "context": "y algo similiar open source a Google CLoude Vision Api que nos ayude a que tu puedas ver con tus ojo",
+      "weight": 8.5,
+      "context": "y buscastes en  repos publicos de git?",
       "created_at": "2026-04-06T23:38:58.471493+00:00",
-      "updated_at": "2026-04-07T15:51:02.201104+00:00"
+      "updated_at": "2026-04-08T03:16:18.496616+00:00"
     },
     {
       "source": "//github.com",
@@ -5404,10 +5436,10 @@
       "source": "Spire.Doc",
       "target": "Aspose.Word",
       "type": "used_with",
-      "weight": 0.5,
-      "context": "entonces no hay manos que nos resuelva esto?",
+      "weight": 1.0,
+      "context": "busca si en el internet ya pasaron todas estas diferentes casos de uso exitosos para que no estes en",
       "created_at": "2026-04-07T16:35:22.818759+00:00",
-      "updated_at": "2026-04-07T16:35:22.818759+00:00"
+      "updated_at": "2026-04-08T03:04:57.582951+00:00"
     },
     {
       "source": "ActiveDocument.Cont",
@@ -6092,11 +6124,56 @@
       "context": "realiza 1 y 2",
       "created_at": "2026-04-08T02:53:42.275884+00:00",
       "updated_at": "2026-04-08T02:53:42.275884+00:00"
+    },
+    {
+      "source": "inserciã³n",
+      "target": "mejorar",
+      "type": "depends_on",
+      "weight": 0.7,
+      "context": "ok y que tal salio el merge?",
+      "created_at": "2026-04-08T02:55:12.593360+00:00",
+      "updated_at": "2026-04-08T02:55:12.593360+00:00"
+    },
+    {
+      "source": "insertar",
+      "target": "que",
+      "type": "depends_on",
+      "weight": 0.7,
+      "context": "ok y que tal salio el merge?",
+      "created_at": "2026-04-08T02:55:12.636114+00:00",
+      "updated_at": "2026-04-08T02:55:12.636114+00:00"
+    },
+    {
+      "source": "Spire.Doc",
+      "target": "word_com.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "busca si en el internet ya pasaron todas estas diferentes casos de uso exitosos para que no estes en",
+      "created_at": "2026-04-08T03:04:57.592567+00:00",
+      "updated_at": "2026-04-08T03:04:57.592567+00:00"
+    },
+    {
+      "source": "Aspose.Word",
+      "target": "word_com.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "busca si en el internet ya pasaron todas estas diferentes casos de uso exitosos para que no estes en",
+      "created_at": "2026-04-08T03:04:57.600581+00:00",
+      "updated_at": "2026-04-08T03:04:57.600581+00:00"
+    },
+    {
+      "source": "0.1s",
+      "target": "19.8s",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "toma todo lo que nos agregue valor al proyecto",
+      "created_at": "2026-04-08T03:23:35.232767+00:00",
+      "updated_at": "2026-04-08T03:23:35.232767+00:00"
     }
   ],
-  "updated_at": "2026-04-08T02:53:42.275884+00:00",
+  "updated_at": "2026-04-08T03:23:35.232767+00:00",
   "stats": {
-    "entities": 245,
-    "relations": 459
+    "entities": 249,
+    "relations": 464
   }
 }
