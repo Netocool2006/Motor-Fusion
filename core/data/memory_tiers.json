@@ -1,39 +1,6 @@
 {
   "hot": [
     {
-      "key": "Lee la imagen en C:\\Users\\ntoledo\\AppData\\Local\\Temp\\ia_word_eyes_ezj0tvoa\\page_001_small.png usando el tool Read y analizala.\n\nSe acaba de ejecutar la operacion 'insert_paragraph' en este documento W",
-      "value": "```json\n{\n  \"visual_validation\": \"Documento profesional de CBM para SOW NextGen Lead Generation con IA. El diseÃ±o mantiene alta calidad visual con colores azules modernos, imagen futurista bien integrada y branding corporativo apropiado. La operaciÃ³n insert_paragraph se ejecutÃ³ exitosamente sin afectar el diseÃ±o profesional.\",\n  \"issues_found\": [],\n  \"quality_score\": 92,\n  \"recommendations\": [\n    \"Verificar que el texto 'We build your success future ??' no contenga caracteres extraÃ±os (??)\",\n    \"Considerar unificar la tipografÃ­a si se agregÃ³ contenido nuevo\"\n  ],\n  \"is_valid\": true\n}\n```\n\n\n\nSources:\n- [AI Document Formatting: How to Create Professional Documents Instantly (April 2026)](https://www.jenova.ai/en/resources/ai-document-formatting)\n- [Document formatting in Word: 2026 guide to a polished finish](https://sarahbarterproofreading.com/blog/word-document-formatting)\n- [How to Make a Word Document Look Professional in 8 Steps](https://knowadays.com/blog/how-to-make-a-wor",
-      "domain": "Internet 25% + ML 75%",
-      "source": "auto_save",
-      "tier": "hot",
-      "created_at": "2026-04-08T18:48:39.265483+00:00",
-      "last_access": "2026-04-08T18:48:39.265483+00:00",
-      "access_count": 0,
-      "promotion_count": 0
-    },
-    {
-      "key": "Lee la imagen en C:\\Users\\ntoledo\\AppData\\Local\\Temp\\ia_word_eyes_bcasanho\\page_001_small.png usando el tool Read y analizala.\n\nSe acaba de ejecutar la operacion 'insert_table' en este documento Word.",
-      "value": "```json\n{\n  \"visual_validation\": \"Documento profesional de CBM para SOW NextGen Lead Generation con IA. DiseÃ±o moderno en tonos azules, layout profesional con logo corporativo. No se observa tabla visible en esta secciÃ³n de portada del documento.\",\n  \"issues_found\": [\"No se visualiza la tabla insertada en esta secciÃ³n del documento\", \"La validaciÃ³n estÃ¡ limitada a la portada visible\"],\n  \"quality_score\": 85,\n  \"recommendations\": [\"Verificar que la tabla se insertÃ³ en la secciÃ³n correcta del documento\", \"Validar el contenido completo del documento para confirmar la presencia de la tabla\"],\n  \"is_valid\": true\n}\n```",
-      "domain": "ML 100%",
-      "source": "auto_save",
-      "tier": "hot",
-      "created_at": "2026-04-08T18:49:55.623168+00:00",
-      "last_access": "2026-04-08T18:49:55.623168+00:00",
-      "access_count": 0,
-      "promotion_count": 0
-    },
-    {
-      "key": "Lee la imagen en C:\\Users\\ntoledo\\AppData\\Local\\Temp\\ia_word_eyes_pclkezyj\\page_001_small.png usando el tool Read y analizala.\n\nSe acaba de ejecutar la operacion 'format_table' en este documento Word.",
-      "value": "```json\n{\n  \"visual_validation\": \"Documento profesional de CBM para SOW NextGen Lead Generation con IA. DiseÃ±o moderno con tonos azules, texto legible, logo corporativo bien posicionado. La operaciÃ³n format_table parece haberse ejecutado correctamente manteniendo la integridad visual del documento.\",\n  \"issues_found\": [],\n  \"quality_score\": 92,\n  \"recommendations\": [\"Verificar que el signo de interrogaciÃ³n en 'future ?!' sea intencional\", \"Considerar ajustar el espaciado del tÃ­tulo si fuera necesario\"],\n  \"is_valid\": true\n}\n```",
-      "domain": "ML 100%",
-      "source": "auto_save",
-      "tier": "hot",
-      "created_at": "2026-04-08T18:50:47.208229+00:00",
-      "last_access": "2026-04-08T18:50:47.208229+00:00",
-      "access_count": 0,
-      "promotion_count": 0
-    },
-    {
       "key": "Lee la imagen en C:\\Users\\ntoledo\\AppData\\Local\\Temp\\ia_word_eyes_ci7bcrsd\\page_001_small.png usando el tool Read y analizala.\n\nSe acaba de ejecutar la operacion 'renumber_sections' en este documento ",
       "value": "```json\n{\n  \"visual_validation\": \"Documento profesional SOW de CBM para NextGen Lead Generation con IA. Portada con diseÃ±o moderno en tonos azules, logo CBM posicionado correctamente, tipografÃ­a clara y elementos grÃ¡ficos bien integrados. La operaciÃ³n de renumerado no afecta la portada, la cual mantiene su aspecto profesional.\",\n  \"issues_found\": [],\n  \"quality_score\": 95,\n  \"recommendations\": [\"Verificar pÃ¡ginas internas para confirmar que la renumeraciÃ³n de secciones se aplicÃ³ correctamente\", \"Revisar que los nÃºmeros de secciÃ³n mantengan consistencia tipogrÃ¡fica\"],\n  \"is_valid\": true\n}\n```",
       "domain": "ML 100%",
@@ -318,6 +285,61 @@
       "last_access": "2026-04-08T19:44:03.737933+00:00",
       "access_count": 0,
       "promotion_count": 0
+    },
+    {
+      "key": "Lee la imagen en C:\\Users\\ntoledo\\AppData\\Local\\Temp\\ia_word_eyes_nah3w780\\page_001_small.png usando el tool Read y analizala.\n\nSe acaba de ejecutar la operacion 'update_toc' en este documento Word. E",
+      "value": "```json\n{\n  \"visual_validation\": \"Portada profesional del documento SOW CBM NextGen Lead Generation con IA. DiseÃ±o moderno con elementos grÃ¡ficos futuristas en azul y rosa, tÃ­tulo 'We build your SUCCESS future', logo CBM y texto identificativo en la parte inferior. La pÃ¡gina se ve correctamente formateada y profesional.\",\n  \"issues_found\": [],\n  \"quality_score\": 95,\n  \"recommendations\": [],\n  \"is_valid\": true\n}\n```",
+      "domain": "ML 100%",
+      "source": "auto_save",
+      "tier": "hot",
+      "created_at": "2026-04-08T19:44:54.102183+00:00",
+      "last_access": "2026-04-08T19:44:54.102183+00:00",
+      "access_count": 0,
+      "promotion_count": 0
+    },
+    {
+      "key": "Lee la imagen en C:\\Users\\ntoledo\\AppData\\Local\\Temp\\ia_word_eyes_t11nk_5s\\page_001_small.png usando el tool Read y analizala.\n\nSe acaba de ejecutar la operacion 'update_all_fields' en este documento ",
+      "value": "```json\n{\n  \"visual_validation\": \"Portada profesional del documento SOW CBM NextGen Lead Generation con IA. DiseÃ±o corporativo limpio con colores azul/violeta, logo CBM bien posicionado, imÃ¡genes modernas relacionadas con IA y tecnologÃ­a, texto 'We build your SUCCESS Future ?!?' legible. Layout profesional y bien estructurado tras la operaciÃ³n update_all_fields.\",\n  \"issues_found\": [],\n  \"quality_score\": 92,\n  \"recommendations\": [\"El documento mantiene excelente presentaciÃ³n profesional\", \"Todos los elementos visuales estÃ¡n correctamente alineados\"],\n  \"is_valid\": true\n}\n```",
+      "domain": "ML 100%",
+      "source": "auto_save",
+      "tier": "hot",
+      "created_at": "2026-04-08T19:45:43.760607+00:00",
+      "last_access": "2026-04-08T19:45:43.760607+00:00",
+      "access_count": 0,
+      "promotion_count": 0
+    },
+    {
+      "key": "Lee la imagen en C:\\Users\\ntoledo\\AppData\\Local\\Temp\\ia_word_eyes_2dn_s2wd\\page_001_composite_small.png usando el tool Read y analizala.\n\nSe acaba de ejecutar la operacion 'save_integrity_check' en es",
+      "value": "```json\n{\n  \"visual_validation\": \"Documento Word de 31 pÃ¡ginas renderizado correctamente con formato profesional y consistente. Portada bien estructurada, contenido textual legible en todas las pÃ¡ginas, sin elementos visuales rotos o desalineados. La operaciÃ³n save_integrity_check preservÃ³ la integridad visual completa del documento.\",\n  \"issues_found\": [],\n  \"quality_score\": 95,\n  \"recommendations\": [],\n  \"is_valid\": true\n}\n```",
+      "domain": "ML 100%",
+      "source": "auto_save",
+      "tier": "hot",
+      "created_at": "2026-04-08T19:46:55.372754+00:00",
+      "last_access": "2026-04-08T19:46:55.372754+00:00",
+      "access_count": 0,
+      "promotion_count": 0
+    },
+    {
+      "key": "abre el documento lo quiero ver",
+      "value": "Listo, abierto en Word. La tabla AWS esta en los Anexos (paginas ~28-29). No lo cierro.",
+      "domain": "ML 100%",
+      "source": "auto_save",
+      "tier": "hot",
+      "created_at": "2026-04-08T19:49:14.266519+00:00",
+      "last_access": "2026-04-08T19:49:14.266519+00:00",
+      "access_count": 0,
+      "promotion_count": 0
+    },
+    {
+      "key": "Lee la imagen en C:\\Users\\ntoledo\\AppData\\Local\\Temp\\ia_word_eyes_fvvdfqvh\\page_002_composite_small.png usando el tool Read y analizala.\n\nSe acaba de ejecutar la operacion 'insert_paragraph' en este d",
+      "value": "```json\n{\n  \"visual_validation\": \"Documento profesional SOW CBM NextGen con 3 pÃ¡ginas renderizadas correctamente. PÃ¡gina 2 muestra contenido textual limpio, pÃ¡gina 3 contiene Ã­ndice bien estructurado, pÃ¡gina 4 presenta diagrama de procesos con elementos hexagonales coloridos y diseÃ±o profesional. Branding consistente, sin elementos rotos o desalineados.\",\n  \"issues_found\": [],\n  \"quality_score\": 95,\n  \"recommendations\": [\"Mantener la consistencia visual actual\", \"El formato y diseÃ±o se ve Ã³ptimo para un documento empresarial\"],\n  \"is_valid\": true\n}\n```",
+      "domain": "ML 100%",
+      "source": "auto_save",
+      "tier": "hot",
+      "created_at": "2026-04-08T19:52:44.879942+00:00",
+      "last_access": "2026-04-08T19:52:44.879942+00:00",
+      "access_count": 0,
+      "promotion_count": 0
     }
   ],
   "warm": [
@@ -452,13 +474,46 @@
       "last_access": "2026-04-08T18:39:29.421961+00:00",
       "access_count": 0,
       "promotion_count": 0
+    },
+    {
+      "key": "Lee la imagen en C:\\Users\\ntoledo\\AppData\\Local\\Temp\\ia_word_eyes_ezj0tvoa\\page_001_small.png usando el tool Read y analizala.\n\nSe acaba de ejecutar la operacion 'insert_paragraph' en este documento W",
+      "value": "```json\n{\n  \"visual_validation\": \"Documento profesional de CBM para SOW NextGen Lead Generation con IA. El diseÃ±o mantiene alta calidad visual con colores azules modernos, imagen futurista bien integrada y branding corporativo apropiado. La operaciÃ³n insert_paragraph se ejecutÃ³ exitosamente sin afectar el diseÃ±o profesional.\",\n  \"issues_found\": [],\n  \"quality_score\": 92,\n  \"recommendations\": [\n    \"Verificar que el texto 'We build your success future ??' no contenga caracteres extraÃ±os (??)\",\n    \"Considerar unificar la tipografÃ­a si se agregÃ³ contenido nuevo\"\n  ],\n  \"is_valid\": true\n}\n```\n\n\n\nSources:\n- [AI Document Formatting: How to Create Professional Documents Instantly (April 2026)](https://www.jenova.ai/en/resources/ai-document-formatting)\n- [Document formatting in Word: 2026 guide to a polished finish](https://sarahbarterproofreading.com/blog/word-document-formatting)\n- [How to Make a Word Document Look Professional in 8 Steps](https://knowadays.com/blog/how-to-make-a-wor",
+      "domain": "Internet 25% + ML 75%",
+      "source": "auto_save",
+      "tier": "warm",
+      "created_at": "2026-04-08T18:48:39.265483+00:00",
+      "last_access": "2026-04-08T18:48:39.265483+00:00",
+      "access_count": 0,
+      "promotion_count": 0
+    },
+    {
+      "key": "Lee la imagen en C:\\Users\\ntoledo\\AppData\\Local\\Temp\\ia_word_eyes_bcasanho\\page_001_small.png usando el tool Read y analizala.\n\nSe acaba de ejecutar la operacion 'insert_table' en este documento Word.",
+      "value": "```json\n{\n  \"visual_validation\": \"Documento profesional de CBM para SOW NextGen Lead Generation con IA. DiseÃ±o moderno en tonos azules, layout profesional con logo corporativo. No se observa tabla visible en esta secciÃ³n de portada del documento.\",\n  \"issues_found\": [\"No se visualiza la tabla insertada en esta secciÃ³n del documento\", \"La validaciÃ³n estÃ¡ limitada a la portada visible\"],\n  \"quality_score\": 85,\n  \"recommendations\": [\"Verificar que la tabla se insertÃ³ en la secciÃ³n correcta del documento\", \"Validar el contenido completo del documento para confirmar la presencia de la tabla\"],\n  \"is_valid\": true\n}\n```",
+      "domain": "ML 100%",
+      "source": "auto_save",
+      "tier": "warm",
+      "created_at": "2026-04-08T18:49:55.623168+00:00",
+      "last_access": "2026-04-08T18:49:55.623168+00:00",
+      "access_count": 0,
+      "promotion_count": 0
+    },
+    {
+      "key": "Lee la imagen en C:\\Users\\ntoledo\\AppData\\Local\\Temp\\ia_word_eyes_pclkezyj\\page_001_small.png usando el tool Read y analizala.\n\nSe acaba de ejecutar la operacion 'format_table' en este documento Word.",
+      "value": "```json\n{\n  \"visual_validation\": \"Documento profesional de CBM para SOW NextGen Lead Generation con IA. DiseÃ±o moderno con tonos azules, texto legible, logo corporativo bien posicionado. La operaciÃ³n format_table parece haberse ejecutado correctamente manteniendo la integridad visual del documento.\",\n  \"issues_found\": [],\n  \"quality_score\": 92,\n  \"recommendations\": [\"Verificar que el signo de interrogaciÃ³n en 'future ?!' sea intencional\", \"Considerar ajustar el espaciado del tÃ­tulo si fuera necesario\"],\n  \"is_valid\": true\n}\n```",
+      "domain": "ML 100%",
+      "source": "auto_save",
+      "tier": "warm",
+      "created_at": "2026-04-08T18:50:47.208229+00:00",
+      "last_access": "2026-04-08T18:50:47.208229+00:00",
+      "access_count": 0,
+      "promotion_count": 0
     }
   ],
   "cold": [],
-  "updated_at": "2026-04-08T19:44:03.737933+00:00",
+  "updated_at": "2026-04-08T19:52:44.879942+00:00",
   "counts": {
-    "hot": 29,
-    "warm": 12,
+    "hot": 31,
+    "warm": 15,
     "cold": 0
   }
 }
