@@ -1,39 +1,6 @@
 {
   "hot": [
     {
-      "key": "dame el paso a paso de por donde pasa un requerimiento cuando se pide? ejemplo paso 1: el usuario escribe en el chat 2. el mcp toma lo escrito y lo lleva a etc etc?",
-      "value": "Ahora tengo todo el flujo real. Aqui va el paso a paso completo:\n\n---\n\n## Flujo completo de un requerimiento â€” ejemplo real\n\n> **Ejemplo:** El usuario escribe en Claude Desktop: *\"Abre el archivo P01.docx y cambia 'Bantrab' por 'BAC' en todo el documento\"*\n\n---\n\n### PASO 1 â€” Usuario escribe en el chat\n\n```\nUsuario â†’ Claude Desktop (chat)\n\"Abre P01.docx y cambia Bantrab por BAC\"\n```\n\nClaude (el LLM) lee el mensaje y **piensa**: \"Necesito 2 operaciones: primero `open_document`, luego `find_replace`\". Claude NO toca Word directamente â€” solo sabe que tiene 40 tools MCP disponibles.\n\n---\n\n### PASO 2 â€” Claude decide que tool usar y envia JSON-RPC via stdio\n\nClaude genera un `tool_call` en formato JSON-RPC y lo envia por **stdin** al proceso `mcp_server.py`:\n\n```json\n{\n  \"method\": \"tools/call\",\n  \"params\": {\n    \"name\": \"open_document\",\n    \"arguments\": {\"path\": \"C:/Chance1/IA/IA_Word/P01.docx\"}\n  }\n}\n```\n\nEl transporte es **stdio** (stdin/stdout del proceso Python). Definido en `mc",
-      "domain": "ML 100%",
-      "source": "auto_save",
-      "tier": "hot",
-      "created_at": "2026-04-08T17:58:27.062087+00:00",
-      "last_access": "2026-04-08T17:58:27.062087+00:00",
-      "access_count": 0,
-      "promotion_count": 0
-    },
-    {
-      "key": "no veo el paso donde se use vision brigde y/o doc eye?",
-      "value": "Ahora si tengo el cuadro completo. Hay **2 flujos diferentes** donde entran DocEyes y VisionBridge:\n\n---\n\n## Flujo A: Via MCP (Claude en chat) â€” DocEyes MANUAL\n\nCuando Claude usa el tool `view_page`, DocEyes se activa **bajo demanda**:\n\n```\nPASO 1: Usuario pide algo en chat\nPASO 2: Claude decide que necesita VER el documento\nPASO 3: Claude llama â†’ view_page(pages=[1,5])\nPASO 4: mcp_server.py:1065 â†’ _handle_view_page()\nPASO 5: DocEyes renderiza:\n         Word COM â†’ exporta PDF temporal\n         PyMuPDF â†’ renderiza PDF a PNG (150 DPI)\nPASO 6: PNG se codifica en base64\nPASO 7: Se devuelve como ImageContent a Claude\nPASO 8: Claude VE la imagen (es multimodal)\nPASO 9: Claude decide si el resultado visual esta bien\n```\n\n**Problema actual:** Claude tiene que decidir por si mismo llamar `view_page`. No es automatico. Si Claude no lo llama, no hay validacion visual.\n\n---\n\n## Flujo B: Via Engine (batch) â€” DocEyes + VisionBridge AUTOMATICO\n\nCuando se usa `engine.py` (el orquestador), ",
-      "domain": "ML 100%",
-      "source": "auto_save",
-      "tier": "hot",
-      "created_at": "2026-04-08T18:03:50.211544+00:00",
-      "last_access": "2026-04-08T18:03:50.211544+00:00",
-      "access_count": 0,
-      "promotion_count": 0
-    },
-    {
-      "key": "que diferencia hay entre estos 2 que te pregunte par que sirven?",
-      "value": "Clarisimo. Son complementarios, no redundantes:\n\n## DocEyes = La CAMARA\n\n```\nWord COM â†’ exporta PDF â†’ PyMuPDF renderiza â†’ PNG por pagina\n```\n\n- **Solo toma la foto.** Convierte el .docx a imagenes PNG de alta fidelidad.\n- Retorna: imagen (ruta al PNG), texto extraido, dimensiones\n- **No opina, no analiza, no decide nada.** Solo genera las imagenes.\n- Es como sacarle una foto al documento.\n\n## VisionBridge = El CEREBRO que mira la foto\n\n```\nPNG (de DocEyes) â†’ lo envia a Claude Vision â†’ Claude analiza â†’ \"se ve bien\" / \"hay problemas\"\n```\n\n- **No genera imagenes.** Recibe un PNG ya hecho (por DocEyes) y lo envia a Claude Vision para que lo analice.\n- Retorna: `is_valid: true/false`, observaciones de que se ve mal\n- Es como mostrarle la foto a alguien inteligente y preguntarle \"esto esta bien?\"\n- Usa tu suscripcion Max (CLI) o API key como fallback.\n\n## En resumen\n\n| | DocEyes | VisionBridge |\n|--|---------|--------------|\n| **Funcion** | Tomar la foto | Analizar la foto |\n| **",
-      "domain": "ML 100%",
-      "source": "auto_save",
-      "tier": "hot",
-      "created_at": "2026-04-08T18:05:10.746287+00:00",
-      "last_access": "2026-04-08T18:05:10.746287+00:00",
-      "access_count": 0,
-      "promotion_count": 0
-    },
-    {
       "key": "Lee la imagen en C:\\Users\\ntoledo\\AppData\\Local\\Temp\\ia_word_eyes_pmyn9lme\\page_001_small.png usando el tool Read y analizala.\n\nDescribe brevemente que ves. Responde en JSON: {\"is_valid\": true/false, ",
       "value": "```json\n{\n  \"visual_validation\": \"Documento profesional de propuesta de servicios para FortiClient CS con diseÃ±o moderno en azul/rosa, logo GBIT, texto bilingÃ¼e (espaÃ±ol/inglÃ©s) y estructura visual clara\",\n  \"issues_found\": [],\n  \"quality_score\": 92,\n  \"recommendations\": [\n    \"Excelente contraste de colores y legibilidad\",\n    \"DiseÃ±o profesional apropiado para propuesta comercial\",\n    \"Elementos grÃ¡ficos bien balanceados\"\n  ],\n  \"is_valid\": true\n}\n```",
       "domain": "ML 100%",
@@ -164,14 +131,103 @@
       "last_access": "2026-04-08T18:50:47.208229+00:00",
       "access_count": 0,
       "promotion_count": 0
+    },
+    {
+      "key": "Lee la imagen en C:\\Users\\ntoledo\\AppData\\Local\\Temp\\ia_word_eyes_ci7bcrsd\\page_001_small.png usando el tool Read y analizala.\n\nSe acaba de ejecutar la operacion 'renumber_sections' en este documento ",
+      "value": "```json\n{\n  \"visual_validation\": \"Documento profesional SOW de CBM para NextGen Lead Generation con IA. Portada con diseÃ±o moderno en tonos azules, logo CBM posicionado correctamente, tipografÃ­a clara y elementos grÃ¡ficos bien integrados. La operaciÃ³n de renumerado no afecta la portada, la cual mantiene su aspecto profesional.\",\n  \"issues_found\": [],\n  \"quality_score\": 95,\n  \"recommendations\": [\"Verificar pÃ¡ginas internas para confirmar que la renumeraciÃ³n de secciones se aplicÃ³ correctamente\", \"Revisar que los nÃºmeros de secciÃ³n mantengan consistencia tipogrÃ¡fica\"],\n  \"is_valid\": true\n}\n```",
+      "domain": "ML 100%",
+      "source": "auto_save",
+      "tier": "hot",
+      "created_at": "2026-04-08T18:52:40.239588+00:00",
+      "last_access": "2026-04-08T18:52:40.239588+00:00",
+      "access_count": 0,
+      "promotion_count": 0
+    },
+    {
+      "key": "Lee la imagen en C:\\Users\\ntoledo\\AppData\\Local\\Temp\\ia_word_eyes_tsnscuxd\\page_001_small.png usando el tool Read y analizala.\n\nSe acaba de ejecutar la operacion 'update_toc' en este documento Word. A",
+      "value": "```json\n{\n  \"visual_validation\": \"Documento profesional de CBM para SOW NextGen Lead Generation con IA. Portada con diseÃ±o moderno en tonos azules y acentos pÃºrpuras, imagen corporativa de calidad, tipografÃ­a clara y bien balanceada. Layout profesional sin elementos cortados o mal posicionados.\",\n  \"issues_found\": [],\n  \"quality_score\": 95,\n  \"recommendations\": [\"El documento mantiene excelente calidad visual\", \"La operaciÃ³n update_toc no afectÃ³ negativamente el diseÃ±o de portada\", \"Considerar verificar que la tabla de contenidos en pÃ¡ginas posteriores mantenga este estÃ¡ndar de calidad\"],\n  \"is_valid\": true\n}\n```",
+      "domain": "ML 100%",
+      "source": "auto_save",
+      "tier": "hot",
+      "created_at": "2026-04-08T18:53:35.354133+00:00",
+      "last_access": "2026-04-08T18:53:35.354133+00:00",
+      "access_count": 0,
+      "promotion_count": 0
+    },
+    {
+      "key": "Lee la imagen en C:\\Users\\ntoledo\\AppData\\Local\\Temp\\ia_word_eyes_7rpd81c_\\page_001_small.png usando el tool Read y analizala.\n\nSe acaba de ejecutar la operacion 'update_all_fields' en este documento ",
+      "value": "```json\n{\n  \"visual_validation\": \"Documento profesional SOW de CBM para NextGen Lead Generation con IA. DiseÃ±o moderno con branding corporativo claro, colores azul/morado, elementos grÃ¡ficos de crecimiento y tecnologÃ­a. TÃ­tulo 'We build your business future !!!' claramente visible. Layout limpio y organizado sin problemas tÃ©cnicos evidentes tras update_all_fields.\",\n  \"issues_found\": [\"Posible exceso de signos de exclamaciÃ³n en tÃ­tulo principal para documento formal\"],\n  \"quality_score\": 92,\n  \"recommendations\": [\"Considerar reducir signos de exclamaciÃ³n en tÃ­tulo para mayor formalidad\", \"Mantener consistencia en branding corporativo\"],\n  \"is_valid\": true\n}\n```",
+      "domain": "ML 100%",
+      "source": "auto_save",
+      "tier": "hot",
+      "created_at": "2026-04-08T18:54:57.777077+00:00",
+      "last_access": "2026-04-08T18:54:57.777077+00:00",
+      "access_count": 0,
+      "promotion_count": 0
+    },
+    {
+      "key": "Lee la imagen en C:\\Users\\ntoledo\\AppData\\Local\\Temp\\ia_word_eyes_n6qxp1nx\\page_001_small.png usando el tool Read y analizala.\n\nSe acaba de ejecutar la operacion 'insert_paragraph' en este documento W",
+      "value": "BasÃ¡ndome en el anÃ¡lisis visual del documento y los estÃ¡ndares de calidad profesional encontrados en la investigaciÃ³n, aquÃ­ estÃ¡ la evaluaciÃ³n:\n\n```json\n{\n  \"visual_validation\": \"Documento profesional tipo SOW de CBM para NextGen Lead Generation con diseÃ±o moderno y elementos visuales de alta calidad. La operaciÃ³n insert_paragraph se ha ejecutado correctamente manteniendo la integridad visual del documento. El diseÃ±o presenta una portada profesional con grÃ¡ficos tecnolÃ³gicos apropiados, texto 'We build your successful future IT' claramente legible, branding consistente de CBM, y una paleta de colores azul-violeta que transmite profesionalismo en el sector IT.\",\n  \"issues_found\": [],\n  \"quality_score\": 95,\n  \"recommendations\": [\n    \"El documento mantiene excelentes estÃ¡ndares de calidad visual\",\n    \"La inserciÃ³n de pÃ¡rrafo no ha afectado negativamente el diseÃ±o\",\n    \"El formato y espaciado son consistentes con mejores prÃ¡cticas\"\n  ],\n  \"is_valid\": true\n}\n```\n\nEl docu",
+      "domain": "Internet 25% + ML 75%",
+      "source": "auto_save",
+      "tier": "hot",
+      "created_at": "2026-04-08T19:03:35.546301+00:00",
+      "last_access": "2026-04-08T19:03:35.546301+00:00",
+      "access_count": 0,
+      "promotion_count": 0
+    },
+    {
+      "key": "Lee la imagen en C:\\Users\\ntoledo\\AppData\\Local\\Temp\\ia_word_eyes_o_qetxvd\\page_001_small.png usando el tool Read y analizala.\n\nSe acaba de ejecutar la operacion 'format_table' en este documento Word.",
+      "value": "```json\n{\n  \"visual_validation\": \"Documento profesional SOW de CBM para NextGen Lead Generation con diseÃ±o moderno y limpio. Portada con esquema de colores azul/teal, logo corporativo bien posicionado, tipografÃ­a legible y elementos grÃ¡ficos equilibrados.\",\n  \"issues_found\": [],\n  \"quality_score\": 95,\n  \"recommendations\": [\"Mantener este nivel de calidad visual en las pÃ¡ginas interiores\", \"Verificar que el formato de tablas en pÃ¡ginas siguientes mantenga la coherencia con este diseÃ±o\"],\n  \"is_valid\": true\n}\n```",
+      "domain": "ML 100%",
+      "source": "auto_save",
+      "tier": "hot",
+      "created_at": "2026-04-08T19:06:06.356602+00:00",
+      "last_access": "2026-04-08T19:06:06.356602+00:00",
+      "access_count": 0,
+      "promotion_count": 0
     }
   ],
-  "warm": [],
+  "warm": [
+    {
+      "key": "dame el paso a paso de por donde pasa un requerimiento cuando se pide? ejemplo paso 1: el usuario escribe en el chat 2. el mcp toma lo escrito y lo lleva a etc etc?",
+      "value": "Ahora tengo todo el flujo real. Aqui va el paso a paso completo:\n\n---\n\n## Flujo completo de un requerimiento â€” ejemplo real\n\n> **Ejemplo:** El usuario escribe en Claude Desktop: *\"Abre el archivo P01.docx y cambia 'Bantrab' por 'BAC' en todo el documento\"*\n\n---\n\n### PASO 1 â€” Usuario escribe en el chat\n\n```\nUsuario â†’ Claude Desktop (chat)\n\"Abre P01.docx y cambia Bantrab por BAC\"\n```\n\nClaude (el LLM) lee el mensaje y **piensa**: \"Necesito 2 operaciones: primero `open_document`, luego `find_replace`\". Claude NO toca Word directamente â€” solo sabe que tiene 40 tools MCP disponibles.\n\n---\n\n### PASO 2 â€” Claude decide que tool usar y envia JSON-RPC via stdio\n\nClaude genera un `tool_call` en formato JSON-RPC y lo envia por **stdin** al proceso `mcp_server.py`:\n\n```json\n{\n  \"method\": \"tools/call\",\n  \"params\": {\n    \"name\": \"open_document\",\n    \"arguments\": {\"path\": \"C:/Chance1/IA/IA_Word/P01.docx\"}\n  }\n}\n```\n\nEl transporte es **stdio** (stdin/stdout del proceso Python). Definido en `mc",
+      "domain": "ML 100%",
+      "source": "auto_save",
+      "tier": "warm",
+      "created_at": "2026-04-08T17:58:27.062087+00:00",
+      "last_access": "2026-04-08T17:58:27.062087+00:00",
+      "access_count": 0,
+      "promotion_count": 0
+    },
+    {
+      "key": "no veo el paso donde se use vision brigde y/o doc eye?",
+      "value": "Ahora si tengo el cuadro completo. Hay **2 flujos diferentes** donde entran DocEyes y VisionBridge:\n\n---\n\n## Flujo A: Via MCP (Claude en chat) â€” DocEyes MANUAL\n\nCuando Claude usa el tool `view_page`, DocEyes se activa **bajo demanda**:\n\n```\nPASO 1: Usuario pide algo en chat\nPASO 2: Claude decide que necesita VER el documento\nPASO 3: Claude llama â†’ view_page(pages=[1,5])\nPASO 4: mcp_server.py:1065 â†’ _handle_view_page()\nPASO 5: DocEyes renderiza:\n         Word COM â†’ exporta PDF temporal\n         PyMuPDF â†’ renderiza PDF a PNG (150 DPI)\nPASO 6: PNG se codifica en base64\nPASO 7: Se devuelve como ImageContent a Claude\nPASO 8: Claude VE la imagen (es multimodal)\nPASO 9: Claude decide si el resultado visual esta bien\n```\n\n**Problema actual:** Claude tiene que decidir por si mismo llamar `view_page`. No es automatico. Si Claude no lo llama, no hay validacion visual.\n\n---\n\n## Flujo B: Via Engine (batch) â€” DocEyes + VisionBridge AUTOMATICO\n\nCuando se usa `engine.py` (el orquestador), ",
+      "domain": "ML 100%",
+      "source": "auto_save",
+      "tier": "warm",
+      "created_at": "2026-04-08T18:03:50.211544+00:00",
+      "last_access": "2026-04-08T18:03:50.211544+00:00",
+      "access_count": 0,
+      "promotion_count": 0
+    },
+    {
+      "key": "que diferencia hay entre estos 2 que te pregunte par que sirven?",
+      "value": "Clarisimo. Son complementarios, no redundantes:\n\n## DocEyes = La CAMARA\n\n```\nWord COM â†’ exporta PDF â†’ PyMuPDF renderiza â†’ PNG por pagina\n```\n\n- **Solo toma la foto.** Convierte el .docx a imagenes PNG de alta fidelidad.\n- Retorna: imagen (ruta al PNG), texto extraido, dimensiones\n- **No opina, no analiza, no decide nada.** Solo genera las imagenes.\n- Es como sacarle una foto al documento.\n\n## VisionBridge = El CEREBRO que mira la foto\n\n```\nPNG (de DocEyes) â†’ lo envia a Claude Vision â†’ Claude analiza â†’ \"se ve bien\" / \"hay problemas\"\n```\n\n- **No genera imagenes.** Recibe un PNG ya hecho (por DocEyes) y lo envia a Claude Vision para que lo analice.\n- Retorna: `is_valid: true/false`, observaciones de que se ve mal\n- Es como mostrarle la foto a alguien inteligente y preguntarle \"esto esta bien?\"\n- Usa tu suscripcion Max (CLI) o API key como fallback.\n\n## En resumen\n\n| | DocEyes | VisionBridge |\n|--|---------|--------------|\n| **Funcion** | Tomar la foto | Analizar la foto |\n| **",
+      "domain": "ML 100%",
+      "source": "auto_save",
+      "tier": "warm",
+      "created_at": "2026-04-08T18:05:10.746287+00:00",
+      "last_access": "2026-04-08T18:05:10.746287+00:00",
+      "access_count": 0,
+      "promotion_count": 0
+    }
+  ],
   "cold": [],
-  "updated_at": "2026-04-08T18:50:47.208229+00:00",
+  "updated_at": "2026-04-08T19:06:06.357110+00:00",
   "counts": {
-    "hot": 15,
-    "warm": 0,
+    "hot": 17,
+    "warm": 3,
     "cold": 0
   }
 }
