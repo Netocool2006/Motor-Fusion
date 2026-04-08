@@ -3063,6 +3063,22 @@
       "properties": {},
       "created_at": "2026-04-08T18:48:39.361906+00:00",
       "updated_at": "2026-04-08T18:48:39.361906+00:00"
+    },
+    "//learn.micr": {
+      "id": "//learn.micr",
+      "type": "file",
+      "name": "//learn.micr",
+      "properties": {},
+      "created_at": "2026-04-08T20:00:31.582462+00:00",
+      "updated_at": "2026-04-08T20:00:31.582462+00:00"
+    },
+    "osoft.com": {
+      "id": "osoft.com",
+      "type": "file",
+      "name": "osoft.com",
+      "properties": {},
+      "created_at": "2026-04-08T20:00:31.598390+00:00",
+      "updated_at": "2026-04-08T20:00:31.598390+00:00"
     }
   },
   "relations": [
@@ -11678,11 +11694,20 @@
       "context": "Lee la imagen en C:\\Users\\ntoledo\\AppData\\Local\\Temp\\ia_word_eyes_ezj0tvoa\\page_001_small.png usando",
       "created_at": "2026-04-08T18:48:39.392527+00:00",
       "updated_at": "2026-04-08T18:48:39.392527+00:00"
+    },
+    {
+      "source": "//learn.micr",
+      "target": "osoft.com",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "Lee la imagen en C:\\Users\\ntoledo\\AppData\\Local\\Temp\\ia_word_eyes_xl592wtl\\page_001_small.png usando",
+      "created_at": "2026-04-08T20:00:31.612439+00:00",
+      "updated_at": "2026-04-08T20:00:31.612439+00:00"
     }
   ],
-  "updated_at": "2026-04-08T19:29:53.661862+00:00",
+  "updated_at": "2026-04-08T20:00:31.613942+00:00",
   "stats": {
-    "entities": 383,
-    "relations": 957
+    "entities": 385,
+    "relations": 958
   }
 }
