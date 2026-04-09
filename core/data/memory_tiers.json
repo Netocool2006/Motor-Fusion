@@ -1,66 +1,33 @@
 {
   "hot": [
     {
-      "key": "procede",
-      "value": "Ahora hacÃ© `/exit` y volvÃ© a entrar. Esta vez el MCP server al arrancar va a matar cualquier Word zombie y limpiar locks automÃ¡ticamente.",
+      "key": "necesito mas detalle de que problemas hay porque estamos re iniciando la sesion a cada rato?",
+      "value": "Tienes toda la razÃ³n. El problema es claro:\n\n## Por quÃ© reiniciamos tanto\n\nCada vez que corrijo un bug en el cÃ³digo Python del MCP server (`mcp_server.py` o `word_com.py`), el MCP server **ya estÃ¡ corriendo en memoria con el cÃ³digo viejo**. Los cambios que hago al archivo `.py` **no se reflejan** hasta que el MCP server se reinicie.\n\n```\nSesiÃ³n activa:\n  Claude Code â”€â”€â”€ MCP Server (cÃ³digo VIEJO en memoria) â”€â”€â”€ Word\n                      â”‚\n                      â”‚  Yo edito mcp_server.py en disco\n                      â”‚  pero el proceso en memoria sigue\n                      â”‚  con la versiÃ³n vieja\n                      â”‚\n                      â””â”€â”€ Para cargar el cÃ³digo nuevo:\n                          /exit â†’ reabrir Claude Code\n                          â†’ MCP server se reinicia\n                          â†’ carga cÃ³digo nuevo\n```\n\n## Timeline de reinicios hoy\n\n| # | Reinicio | Por quÃ© |\n|---|---|---|\n| 1 | `false`â†’`False` | MCP server no arra",
       "domain": "ML 100%",
       "source": "auto_save",
       "tier": "hot",
-      "created_at": "2026-04-09T21:18:23.471828+00:00",
-      "last_access": "2026-04-09T21:18:23.471828+00:00",
+      "created_at": "2026-04-09T21:55:04.509231+00:00",
+      "last_access": "2026-04-09T21:55:04.509231+00:00",
       "access_count": 0,
       "promotion_count": 0
     },
     {
-      "key": "me indicas que haces 84 llamadas a COM ? en este de \"GBM \" GBM Internacional\"",
-      "value": "SÃ­, `smart_replace` para \"GBM\" â†’ \"GBM International\" hace esto internamente:\n\n```\nfind_then_set(include_headers_footers=True):\n  Body: Find \"GBM\" â†’ Replace â†’ Find next â†’ Replace â†’ ... (67 veces = 67 COM calls)\n  Headers: 14 secciones Ã— 3 tipos = hasta 42 COM calls\n  Footers: 14 secciones Ã— 3 tipos = hasta 42 COM calls\n  \nreplace_in_footer_shapes:\n  14 secciones Ã— 3 tipos Ã— shapes = mÃ¡s COM calls\n```\n\nAproximadamente **~150+ COM calls** para un solo smart_replace en un doc de 14 secciones con 67 ocurrencias de \"GBM\". Cada COM call es un roundtrip inter-proceso (Python â†” WINWORD.EXE).\n\nPor eso tardÃ³ ~25 segundos en los tests anteriores.\n\n### El problema real\n\n`find_then_set` itera uno por uno:\n```python\nwhile True:\n    find.Execute()     # COM call 1\n    rng.Text = new     # COM call 2  \n    # repeat para cada ocurrencia\n```\n\n### La soluciÃ³n mÃ¡s rÃ¡pida\n\nUsar `Find.Execute(Replace=wdReplaceAll)` que hace **1 sola COM call** para TODAS las ocurrencias en body. Ya lo u",
+      "key": "pero quiero entender el problema dame detalle el problema es en los test es el proyecto donde es el problema?",
+      "value": "El problema NO es en los tests ni en el proyecto. El problema es **en cÃ³mo funciona el MCP server de Claude Code**:\n\n## El problema exacto\n\nEl MCP server es un **proceso Python que se lanza 1 vez** cuando Claude Code arranca. Ese proceso carga el cÃ³digo de `mcp_server.py` y `word_com.py` **en memoria** y se queda corriendo.\n\n```\nCuando Claude Code arranca:\n  1. Lee .mcp.json\n  2. Ejecuta: python -m src.mcp_server\n  3. Ese proceso Python CARGA todo el cÃ³digo en RAM\n  4. Se queda escuchando llamadas MCP\n  5. NUNCA recarga los archivos .py del disco\n```\n\n**Entonces:**\n\n```\nYo edito word_com.py (arreglo un bug) â†’ el archivo en DISCO cambia\nPero el proceso MCP en MEMORIA sigue con el cÃ³digo VIEJO\nâ†’ La tool MCP sigue ejecutando el cÃ³digo viejo\nâ†’ El bug sigue ahÃ­ aunque ya lo arreglÃ© en disco\nâ†’ La ÃšNICA forma de cargar el cÃ³digo nuevo es matar y reiniciar el MCP server\nâ†’ Eso solo pasa con /exit + reabrir Claude Code\n```\n\n## DÃ³nde estÃ¡ el problema: NO es cÃ³digo, es ARQUIT",
       "domain": "ML 100%",
       "source": "auto_save",
       "tier": "hot",
-      "created_at": "2026-04-09T21:30:55.010537+00:00",
-      "last_access": "2026-04-09T21:30:55.010537+00:00",
-      "access_count": 0,
-      "promotion_count": 0
-    },
-    {
-      "key": "regla genera solo se puede una llamada a com a la vez si son 500 llamadas a call sera 1 por 1",
-      "value": "Correcto. COM es single-threaded. Solo puede hacer **1 llamada a la vez**. No hay forma de paralelizar COM calls contra la misma instancia de Word.\n\nPero sÃ­ hay forma de **reducir el nÃºmero de calls**:\n\n| MÃ©todo | COM calls para 67 ocurrencias | Tiempo aprox |\n|---|---|---|\n| `find_then_set` (loop actual) | 134 calls (67 Find + 67 Set) | ~25s |\n| `Find.Execute(Replace=wdReplaceAll)` | **1 call** | ~0.1s |\n| VBA macro batch | **1 call** | ~0.2s |\n\n`Find.Execute(Replace=wdReplaceAll)` ya existe en `find_replace()` y hace todo en **1 sola COM call**. Lo mismo para body + cada header/footer.\n\nPara un doc de 14 secciones:\n```\nActual:    134 (body) + 84 (headers) + 84 (footers) = ~300 COM calls\nOptimizado: 1 (body) + 14 (headers) + 14 (footers) = ~29 COM calls\n```\n\nDe 300 â†’ 29 COM calls. Â¿Procedo a optimizar `smart_replace`?",
-      "domain": "ML 100%",
-      "source": "auto_save",
-      "tier": "hot",
-      "created_at": "2026-04-09T21:32:20.984751+00:00",
-      "last_access": "2026-04-09T21:32:20.984751+00:00",
-      "access_count": 0,
-      "promotion_count": 0
-    },
-    {
-      "key": "cualquier cosa del proyecto no se realizara en masivo se realizara uno por uno cambias las logicas donde nos afecte y evitar cualquier tipo de cuelgue",
-      "value": "Â¿ContinÃºo con Ciclo 2 (otra tool), o querÃ©s que haga `/exit` para que cargue el fix de verify_text y luego siga?",
-      "domain": "ML 100%",
-      "source": "auto_save",
-      "tier": "hot",
-      "created_at": "2026-04-09T21:38:31.041798+00:00",
-      "last_access": "2026-04-09T21:38:31.041798+00:00",
-      "access_count": 0,
-      "promotion_count": 0
-    },
-    {
-      "key": "ya estamos post re inicio",
-      "value": "En la sesiÃ³n anterior completamos el **Ciclo 1** de tests MCP (smart_replace: abrir â†’ reemplazar â†’ guardar â†’ cerrar â†’ 0 zombies). Se corrigiÃ³ el bug de `verify_text` y se optimizÃ³ `smart_replace` de 300 COM calls a 29.\n\nÂ¿ContinÃºo con el Ciclo 2 de tests MCP?",
-      "domain": "ML 100%",
-      "source": "auto_save",
-      "tier": "hot",
-      "created_at": "2026-04-09T21:40:41.085590+00:00",
-      "last_access": "2026-04-09T21:40:41.085590+00:00",
+      "created_at": "2026-04-09T21:56:35.753042+00:00",
+      "last_access": "2026-04-09T21:56:35.753042+00:00",
       "access_count": 0,
       "promotion_count": 0
     }
   ],
   "warm": [],
   "cold": [],
-  "updated_at": "2026-04-09T21:40:41.085590+00:00",
+  "updated_at": "2026-04-09T21:56:35.754548+00:00",
   "counts": {
-    "hot": 5,
+    "hot": 2,
     "warm": 0,
     "cold": 0
   }

@@ -3991,6 +3991,22 @@
       "properties": {},
       "created_at": "2026-04-09T21:30:55.039372+00:00",
       "updated_at": "2026-04-09T21:30:55.039372+00:00"
+    },
+    "mcp.json": {
+      "id": "mcp.json",
+      "type": "file",
+      "name": "mcp.json",
+      "properties": {},
+      "created_at": "2026-04-09T21:56:35.785757+00:00",
+      "updated_at": "2026-04-09T21:56:35.785757+00:00"
+    },
+    "src.mcp_": {
+      "id": "src.mcp_",
+      "type": "file",
+      "name": "src.mcp_",
+      "properties": {},
+      "created_at": "2026-04-09T21:56:35.837652+00:00",
+      "updated_at": "2026-04-09T21:56:35.837652+00:00"
     }
   },
   "relations": [
@@ -8444,10 +8460,10 @@
       "source": "mcp_server.py",
       "target": "word_com.py",
       "type": "used_with",
-      "weight": 2.0,
-      "context": "dame toda la arquitectura de este proyecto",
+      "weight": 3.0,
+      "context": "pero quiero entender el problema dame detalle el problema es en los test es el proyecto donde es el ",
       "created_at": "2026-04-08T16:19:22.733012+00:00",
-      "updated_at": "2026-04-08T17:53:55.205424+00:00"
+      "updated_at": "2026-04-09T21:56:35.768594+00:00"
     },
     {
       "source": "mcp_server.py",
@@ -8489,10 +8505,10 @@
       "source": "word_com.py",
       "target": "mcp_server.py",
       "type": "used_with",
-      "weight": 6.5,
-      "context": "pre-hook query",
+      "weight": 7.0,
+      "context": "necesito mas detalle de que problemas hay porque estamos re iniciando la sesion a cada rato?",
       "created_at": "2026-04-08T16:19:22.809935+00:00",
-      "updated_at": "2026-04-09T20:41:37.527899+00:00"
+      "updated_at": "2026-04-09T21:55:04.561772+00:00"
     },
     {
       "source": "las",
@@ -13259,10 +13275,10 @@
       "source": "Find.Exec",
       "target": "Range.Text",
       "type": "used_with",
-      "weight": 1.0,
-      "context": "y esta correcion ayudaria a un paso posterior de poder editarlo mejor o es irrelevante?",
+      "weight": 1.5,
+      "context": "procede",
       "created_at": "2026-04-09T03:27:04.389340+00:00",
-      "updated_at": "2026-04-09T03:27:04.404831+00:00"
+      "updated_at": "2026-04-09T21:53:47.664172+00:00"
     },
     {
       "source": "Find.Exec",
@@ -13457,10 +13473,10 @@
       "source": "mcp_server.py",
       "target": "mcp_server.py",
       "type": "used_with",
-      "weight": 0.5,
-      "context": "si antes valida la situacion actual de todo el codigo para saber donde debes hacer la inserccion C:\\",
+      "weight": 1.0,
+      "context": "necesito mas detalle de que problemas hay porque estamos re iniciando la sesion a cada rato?",
       "created_at": "2026-04-09T03:33:55.342906+00:00",
-      "updated_at": "2026-04-09T03:33:55.342906+00:00"
+      "updated_at": "2026-04-09T21:55:04.543655+00:00"
     },
     {
       "source": "P01_5pass.docx",
@@ -14847,11 +14863,83 @@
       "context": "regla genera solo se puede una llamada a com a la vez si son 500 llamadas a call sera 1 por 1",
       "created_at": "2026-04-09T21:32:21.059437+00:00",
       "updated_at": "2026-04-09T21:32:21.059437+00:00"
+    },
+    {
+      "source": "Range.Text",
+      "target": "Find.Exec",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "procede",
+      "created_at": "2026-04-09T21:53:47.628257+00:00",
+      "updated_at": "2026-04-09T21:53:47.628257+00:00"
+    },
+    {
+      "source": "Range.Text",
+      "target": "Range.Text",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "procede",
+      "created_at": "2026-04-09T21:53:47.646635+00:00",
+      "updated_at": "2026-04-09T21:53:47.646635+00:00"
+    },
+    {
+      "source": "mcp_server.py",
+      "target": "mcp.json",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pero quiero entender el problema dame detalle el problema es en los test es el proyecto donde es el ",
+      "created_at": "2026-04-09T21:56:35.803864+00:00",
+      "updated_at": "2026-04-09T21:56:35.803864+00:00"
+    },
+    {
+      "source": "word_com.py",
+      "target": "mcp.json",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pero quiero entender el problema dame detalle el problema es en los test es el proyecto donde es el ",
+      "created_at": "2026-04-09T21:56:35.819985+00:00",
+      "updated_at": "2026-04-09T21:56:35.819985+00:00"
+    },
+    {
+      "source": "word_com.py",
+      "target": "src.mcp_",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pero quiero entender el problema dame detalle el problema es en los test es el proyecto donde es el ",
+      "created_at": "2026-04-09T21:56:35.855916+00:00",
+      "updated_at": "2026-04-09T21:56:35.855916+00:00"
+    },
+    {
+      "source": "mcp.json",
+      "target": "src.mcp_",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pero quiero entender el problema dame detalle el problema es en los test es el proyecto donde es el ",
+      "created_at": "2026-04-09T21:56:35.872422+00:00",
+      "updated_at": "2026-04-09T21:56:35.872422+00:00"
+    },
+    {
+      "source": "mcp.json",
+      "target": "word_com.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pero quiero entender el problema dame detalle el problema es en los test es el proyecto donde es el ",
+      "created_at": "2026-04-09T21:56:35.883512+00:00",
+      "updated_at": "2026-04-09T21:56:35.883512+00:00"
+    },
+    {
+      "source": "src.mcp_",
+      "target": "word_com.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pero quiero entender el problema dame detalle el problema es en los test es el proyecto donde es el ",
+      "created_at": "2026-04-09T21:56:35.900561+00:00",
+      "updated_at": "2026-04-09T21:56:35.900561+00:00"
     }
   ],
-  "updated_at": "2026-04-09T21:32:21.059437+00:00",
+  "updated_at": "2026-04-09T21:56:35.900561+00:00",
   "stats": {
-    "entities": 499,
-    "relations": 1206
+    "entities": 501,
+    "relations": 1214
   }
 }

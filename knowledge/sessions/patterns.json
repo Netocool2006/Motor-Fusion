@@ -13108,6 +13108,30 @@
         "last_accessed": "2026-04-09T21:39:52.604337+00:00",
         "access_count": 0
       }
+    },
+    "d6cfe193f094": {
+      "id": "d6cfe193f094",
+      "type": "fact",
+      "key": "episodic_20260409_154705",
+      "fact": {
+        "rule": "el archivo corrupto de tests anteriores. Ahora ejecuto el test plan completo con la copia limpia:",
+        "applies_to": "sesion 20260409_154705, dominio hooks_ia_backup_20260331_22050",
+        "confidence": "observed",
+        "source": "auto_episodic_extraction"
+      },
+      "tags": [
+        "episodic",
+        "auto-learned",
+        "hooks_ia_backup_20260331_22050"
+      ],
+      "created_at": "2026-04-09T21:47:05.254506+00:00",
+      "updated_at": "2026-04-09T21:47:05.254506+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T21:47:05.254506+00:00",
+        "access_count": 0
+      }
     }
   },
   "tag_index": {
@@ -13616,7 +13640,8 @@
       "576bb6577b12",
       "193082fbe4e6",
       "41666fb2d87c",
-      "29dadf3f3242"
+      "29dadf3f3242",
+      "d6cfe193f094"
     ],
     "iteration": [
       "99ea64471b21",
@@ -14153,7 +14178,8 @@
       "576bb6577b12",
       "193082fbe4e6",
       "41666fb2d87c",
-      "29dadf3f3242"
+      "29dadf3f3242",
+      "d6cfe193f094"
     ],
     "files": [
       "e6022665fe1c",
@@ -14655,11 +14681,12 @@
       "576bb6577b12",
       "193082fbe4e6",
       "41666fb2d87c",
-      "29dadf3f3242"
+      "29dadf3f3242",
+      "d6cfe193f094"
     ]
   },
   "stats": {
-    "total_entries": 505,
+    "total_entries": 506,
     "total_lookups": 1141,
     "total_hits": 886
   }
