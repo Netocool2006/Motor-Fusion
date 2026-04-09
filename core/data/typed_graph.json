@@ -3575,6 +3575,22 @@
       "properties": {},
       "created_at": "2026-04-09T04:35:19.190876+00:00",
       "updated_at": "2026-04-09T04:35:19.190876+00:00"
+    },
+    "P01_Solo_Soporte.docx": {
+      "id": "P01_Solo_Soporte.docx",
+      "type": "file",
+      "name": "P01_Solo_Soporte.docx",
+      "properties": {},
+      "created_at": "2026-04-09T14:25:02.936877+00:00",
+      "updated_at": "2026-04-09T14:25:02.936877+00:00"
+    },
+    "P01_full_pipeline.docx": {
+      "id": "P01_full_pipeline.docx",
+      "type": "file",
+      "name": "P01_full_pipeline.docx",
+      "properties": {},
+      "created_at": "2026-04-09T14:25:02.953895+00:00",
+      "updated_at": "2026-04-09T14:25:02.953895+00:00"
     }
   },
   "relations": [
@@ -13144,11 +13160,20 @@
       "context": "si solo el orden es el que tiene que ser bien pensado para no daÃ±ar lo visual y al mismo tiempo arr",
       "created_at": "2026-04-09T04:35:19.216648+00:00",
       "updated_at": "2026-04-09T04:35:19.216648+00:00"
+    },
+    {
+      "source": "P01_Solo_Soporte.docx",
+      "target": "P01_full_pipeline.docx",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pesimo solo tenia como 3 hojas el formato malo, letra mala etc no creo por alli no va",
+      "created_at": "2026-04-09T14:25:02.970423+00:00",
+      "updated_at": "2026-04-09T14:25:02.970423+00:00"
     }
   ],
-  "updated_at": "2026-04-09T04:35:19.216648+00:00",
+  "updated_at": "2026-04-09T14:25:02.970926+00:00",
   "stats": {
-    "entities": 447,
-    "relations": 1063
+    "entities": 449,
+    "relations": 1064
   }
 }
