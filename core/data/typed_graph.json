@@ -3591,6 +3591,38 @@
       "properties": {},
       "created_at": "2026-04-09T14:25:02.953895+00:00",
       "updated_at": "2026-04-09T14:25:02.953895+00:00"
+    },
+    "mi_documento.docx": {
+      "id": "mi_documento.docx",
+      "type": "file",
+      "name": "mi_documento.docx",
+      "properties": {},
+      "created_at": "2026-04-09T15:22:29.330777+00:00",
+      "updated_at": "2026-04-09T15:22:29.330777+00:00"
+    },
+    "core.xml": {
+      "id": "core.xml",
+      "type": "file",
+      "name": "core.xml",
+      "properties": {},
+      "created_at": "2026-04-09T15:22:29.430534+00:00",
+      "updated_at": "2026-04-09T15:22:29.430534+00:00"
+    },
+    "word/document.xml": {
+      "id": "word/document.xml",
+      "type": "file",
+      "name": "word/document.xml",
+      "properties": {},
+      "created_at": "2026-04-09T15:22:29.463117+00:00",
+      "updated_at": "2026-04-09T15:22:29.463117+00:00"
+    },
+    "docx_sanitizer.py": {
+      "id": "docx_sanitizer.py",
+      "type": "file",
+      "name": "docx_sanitizer.py",
+      "properties": {},
+      "created_at": "2026-04-09T15:29:53.434403+00:00",
+      "updated_at": "2026-04-09T15:29:53.434403+00:00"
     }
   },
   "relations": [
@@ -6289,10 +6321,10 @@
       "source": "mcp_server.py",
       "target": "engine.py",
       "type": "used_with",
-      "weight": 1.0,
-      "context": "no veo el paso donde se use vision brigde y/o doc eye?",
+      "weight": 1.5,
+      "context": "que ventajas y desventajas tenemos respecto a lo que ya tenemos dale una scan al proyecto actual de ",
       "created_at": "2026-04-07T00:14:29.133444+00:00",
-      "updated_at": "2026-04-08T18:03:50.239819+00:00"
+      "updated_at": "2026-04-09T15:29:53.535504+00:00"
     },
     {
       "source": "run_engine.py",
@@ -7342,10 +7374,10 @@
       "source": "doc_eyes.py",
       "target": "validators.py",
       "type": "used_with",
-      "weight": 1.5,
-      "context": "pre-hook query",
+      "weight": 2.0,
+      "context": "que ventajas y desventajas tenemos respecto a lo que ya tenemos dale una scan al proyecto actual de ",
       "created_at": "2026-04-07T20:43:14.068899+00:00",
-      "updated_at": "2026-04-08T17:51:47.521124+00:00"
+      "updated_at": "2026-04-09T15:29:53.649153+00:00"
     },
     {
       "source": "doc_eyes.py",
@@ -8089,10 +8121,10 @@
       "source": "word_com.py",
       "target": "mcp_server.py",
       "type": "used_with",
-      "weight": 3.5,
-      "context": "pre-hook query",
+      "weight": 4.5,
+      "context": "valida el proyecto actual de esta carpeta y repara esto que sale en el log f82b 4db3 5b77 61ce 278b ",
       "created_at": "2026-04-08T16:19:22.809935+00:00",
-      "updated_at": "2026-04-08T17:51:47.476042+00:00"
+      "updated_at": "2026-04-09T15:47:30.252810+00:00"
     },
     {
       "source": "las",
@@ -11419,10 +11451,10 @@
       "source": "vision_bridge.py",
       "target": "validators.py",
       "type": "used_with",
-      "weight": 1.0,
-      "context": "pre-hook query",
+      "weight": 1.5,
+      "context": "que ventajas y desventajas tenemos respecto a lo que ya tenemos dale una scan al proyecto actual de ",
       "created_at": "2026-04-08T17:51:40.025182+00:00",
-      "updated_at": "2026-04-08T17:51:47.529377+00:00"
+      "updated_at": "2026-04-09T15:29:53.617387+00:00"
     },
     {
       "source": "vision_bridge.py",
@@ -12634,28 +12666,28 @@
       "source": "document.xml",
       "target": "styles.xml",
       "type": "used_with",
-      "weight": 0.5,
-      "context": "y esto que es  formato .doc binario y OOXML?",
+      "weight": 1.0,
+      "context": "abri un .docx en sublime text  y saco esto tu lo entiendes?  f82b 4db3 5b77 61ce 278b a116 e9ad 0e12",
       "created_at": "2026-04-09T02:13:08.338825+00:00",
-      "updated_at": "2026-04-09T02:13:08.338825+00:00"
+      "updated_at": "2026-04-09T15:22:29.386876+00:00"
     },
     {
       "source": "document.xml",
       "target": "numbering.xml",
       "type": "used_with",
-      "weight": 0.5,
-      "context": "y esto que es  formato .doc binario y OOXML?",
+      "weight": 1.0,
+      "context": "abri un .docx en sublime text  y saco esto tu lo entiendes?  f82b 4db3 5b77 61ce 278b a116 e9ad 0e12",
       "created_at": "2026-04-09T02:13:08.374340+00:00",
-      "updated_at": "2026-04-09T02:13:08.374340+00:00"
+      "updated_at": "2026-04-09T15:22:29.398360+00:00"
     },
     {
       "source": "styles.xml",
       "target": "numbering.xml",
       "type": "used_with",
-      "weight": 0.5,
-      "context": "y esto que es  formato .doc binario y OOXML?",
+      "weight": 1.0,
+      "context": "abri un .docx en sublime text  y saco esto tu lo entiendes?  f82b 4db3 5b77 61ce 278b a116 e9ad 0e12",
       "created_at": "2026-04-09T02:13:08.407087+00:00",
-      "updated_at": "2026-04-09T02:13:08.407087+00:00"
+      "updated_at": "2026-04-09T15:22:29.420036+00:00"
     },
     {
       "source": "styles.xml",
@@ -13178,11 +13210,218 @@
       "context": "busca",
       "created_at": "2026-04-09T15:14:58.070073+00:00",
       "updated_at": "2026-04-09T15:14:58.070073+00:00"
+    },
+    {
+      "source": "mi_documento.docx",
+      "target": "document.xml",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "abri un .docx en sublime text  y saco esto tu lo entiendes?  f82b 4db3 5b77 61ce 278b a116 e9ad 0e12",
+      "created_at": "2026-04-09T15:22:29.349169+00:00",
+      "updated_at": "2026-04-09T15:22:29.349169+00:00"
+    },
+    {
+      "source": "mi_documento.docx",
+      "target": "styles.xml",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "abri un .docx en sublime text  y saco esto tu lo entiendes?  f82b 4db3 5b77 61ce 278b a116 e9ad 0e12",
+      "created_at": "2026-04-09T15:22:29.366614+00:00",
+      "updated_at": "2026-04-09T15:22:29.366614+00:00"
+    },
+    {
+      "source": "styles.xml",
+      "target": "core.xml",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "abri un .docx en sublime text  y saco esto tu lo entiendes?  f82b 4db3 5b77 61ce 278b a116 e9ad 0e12",
+      "created_at": "2026-04-09T15:22:29.442167+00:00",
+      "updated_at": "2026-04-09T15:22:29.442167+00:00"
+    },
+    {
+      "source": "numbering.xml",
+      "target": "core.xml",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "abri un .docx en sublime text  y saco esto tu lo entiendes?  f82b 4db3 5b77 61ce 278b a116 e9ad 0e12",
+      "created_at": "2026-04-09T15:22:29.452599+00:00",
+      "updated_at": "2026-04-09T15:22:29.452599+00:00"
+    },
+    {
+      "source": "numbering.xml",
+      "target": "word/document.xml",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "abri un .docx en sublime text  y saco esto tu lo entiendes?  f82b 4db3 5b77 61ce 278b a116 e9ad 0e12",
+      "created_at": "2026-04-09T15:22:29.492831+00:00",
+      "updated_at": "2026-04-09T15:22:29.492831+00:00"
+    },
+    {
+      "source": "core.xml",
+      "target": "word/document.xml",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "abri un .docx en sublime text  y saco esto tu lo entiendes?  f82b 4db3 5b77 61ce 278b a116 e9ad 0e12",
+      "created_at": "2026-04-09T15:22:29.511378+00:00",
+      "updated_at": "2026-04-09T15:22:29.511378+00:00"
+    },
+    {
+      "source": "core.xml",
+      "target": "mi_documento.docx",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "abri un .docx en sublime text  y saco esto tu lo entiendes?  f82b 4db3 5b77 61ce 278b a116 e9ad 0e12",
+      "created_at": "2026-04-09T15:22:29.523443+00:00",
+      "updated_at": "2026-04-09T15:22:29.523443+00:00"
+    },
+    {
+      "source": "word/document.xml",
+      "target": "mi_documento.docx",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "abri un .docx en sublime text  y saco esto tu lo entiendes?  f82b 4db3 5b77 61ce 278b a116 e9ad 0e12",
+      "created_at": "2026-04-09T15:22:29.541272+00:00",
+      "updated_at": "2026-04-09T15:22:29.541272+00:00"
+    },
+    {
+      "source": "word/document.xml",
+      "target": "word/document.xml",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "abri un .docx en sublime text  y saco esto tu lo entiendes?  f82b 4db3 5b77 61ce 278b a116 e9ad 0e12",
+      "created_at": "2026-04-09T15:22:29.559089+00:00",
+      "updated_at": "2026-04-09T15:22:29.559089+00:00"
+    },
+    {
+      "source": "mi_documento.docx",
+      "target": "word/document.xml",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "abri un .docx en sublime text  y saco esto tu lo entiendes?  f82b 4db3 5b77 61ce 278b a116 e9ad 0e12",
+      "created_at": "2026-04-09T15:22:29.580646+00:00",
+      "updated_at": "2026-04-09T15:22:29.580646+00:00"
+    },
+    {
+      "source": "word_com.py",
+      "target": "Word.Appl",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "que ventajas y desventajas tenemos respecto a lo que ya tenemos dale una scan al proyecto actual de ",
+      "created_at": "2026-04-09T15:29:53.418375+00:00",
+      "updated_at": "2026-04-09T15:29:53.418375+00:00"
+    },
+    {
+      "source": "word_com.py",
+      "target": "docx_sanitizer.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "que ventajas y desventajas tenemos respecto a lo que ya tenemos dale una scan al proyecto actual de ",
+      "created_at": "2026-04-09T15:29:53.449918+00:00",
+      "updated_at": "2026-04-09T15:29:53.449918+00:00"
+    },
+    {
+      "source": "Word.Appl",
+      "target": "docx_sanitizer.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "que ventajas y desventajas tenemos respecto a lo que ya tenemos dale una scan al proyecto actual de ",
+      "created_at": "2026-04-09T15:29:53.465944+00:00",
+      "updated_at": "2026-04-09T15:29:53.465944+00:00"
+    },
+    {
+      "source": "Word.Appl",
+      "target": "mcp_server.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "que ventajas y desventajas tenemos respecto a lo que ya tenemos dale una scan al proyecto actual de ",
+      "created_at": "2026-04-09T15:29:53.481463+00:00",
+      "updated_at": "2026-04-09T15:29:53.481463+00:00"
+    },
+    {
+      "source": "docx_sanitizer.py",
+      "target": "mcp_server.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "que ventajas y desventajas tenemos respecto a lo que ya tenemos dale una scan al proyecto actual de ",
+      "created_at": "2026-04-09T15:29:53.494427+00:00",
+      "updated_at": "2026-04-09T15:29:53.494427+00:00"
+    },
+    {
+      "source": "docx_sanitizer.py",
+      "target": "cerebro.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "que ventajas y desventajas tenemos respecto a lo que ya tenemos dale una scan al proyecto actual de ",
+      "created_at": "2026-04-09T15:29:53.510945+00:00",
+      "updated_at": "2026-04-09T15:29:53.510945+00:00"
+    },
+    {
+      "source": "mcp_server.py",
+      "target": "cerebro.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "que ventajas y desventajas tenemos respecto a lo que ya tenemos dale una scan al proyecto actual de ",
+      "created_at": "2026-04-09T15:29:53.527008+00:00",
+      "updated_at": "2026-04-09T15:29:53.527008+00:00"
+    },
+    {
+      "source": "cerebro.py",
+      "target": "engine.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "que ventajas y desventajas tenemos respecto a lo que ya tenemos dale una scan al proyecto actual de ",
+      "created_at": "2026-04-09T15:29:53.550041+00:00",
+      "updated_at": "2026-04-09T15:29:53.550041+00:00"
+    },
+    {
+      "source": "cerebro.py",
+      "target": "vision_bridge.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "que ventajas y desventajas tenemos respecto a lo que ya tenemos dale una scan al proyecto actual de ",
+      "created_at": "2026-04-09T15:29:53.561077+00:00",
+      "updated_at": "2026-04-09T15:29:53.561077+00:00"
+    },
+    {
+      "source": "engine.py",
+      "target": "vision_bridge.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "que ventajas y desventajas tenemos respecto a lo que ya tenemos dale una scan al proyecto actual de ",
+      "created_at": "2026-04-09T15:29:53.570600+00:00",
+      "updated_at": "2026-04-09T15:29:53.570600+00:00"
+    },
+    {
+      "source": "engine.py",
+      "target": "doc_eyes.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "que ventajas y desventajas tenemos respecto a lo que ya tenemos dale una scan al proyecto actual de ",
+      "created_at": "2026-04-09T15:29:53.581127+00:00",
+      "updated_at": "2026-04-09T15:29:53.581127+00:00"
+    },
+    {
+      "source": "vision_bridge.py",
+      "target": "doc_eyes.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "que ventajas y desventajas tenemos respecto a lo que ya tenemos dale una scan al proyecto actual de ",
+      "created_at": "2026-04-09T15:29:53.595194+00:00",
+      "updated_at": "2026-04-09T15:29:53.595194+00:00"
+    },
+    {
+      "source": "word_com.py",
+      "target": "word_com.py",
+      "type": "used_with",
+      "weight": 1.5,
+      "context": "valida el proyecto actual de esta carpeta y repara esto que sale en el log f82b 4db3 5b77 61ce 278b ",
+      "created_at": "2026-04-09T15:47:30.097739+00:00",
+      "updated_at": "2026-04-09T15:47:30.165026+00:00"
     }
   ],
-  "updated_at": "2026-04-09T15:14:58.071072+00:00",
+  "updated_at": "2026-04-09T15:47:30.253795+00:00",
   "stats": {
-    "entities": 449,
-    "relations": 1065
+    "entities": 453,
+    "relations": 1088
   }
 }
