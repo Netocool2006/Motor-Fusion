@@ -3295,6 +3295,46 @@
       "properties": {},
       "created_at": "2026-04-09T02:02:50.743134+00:00",
       "updated_at": "2026-04-09T02:02:50.743134+00:00"
+    },
+    "arquitectura": {
+      "id": "arquitectura",
+      "type": "concept",
+      "name": "arquitectura",
+      "properties": {},
+      "created_at": "2026-04-09T02:03:59.296799+00:00",
+      "updated_at": "2026-04-09T02:03:59.296799+00:00"
+    },
+    "document.xml": {
+      "id": "document.xml",
+      "type": "file",
+      "name": "document.xml",
+      "properties": {},
+      "created_at": "2026-04-09T02:13:08.244995+00:00",
+      "updated_at": "2026-04-09T02:13:08.244995+00:00"
+    },
+    "styles.xml": {
+      "id": "styles.xml",
+      "type": "file",
+      "name": "styles.xml",
+      "properties": {},
+      "created_at": "2026-04-09T02:13:08.289530+00:00",
+      "updated_at": "2026-04-09T02:13:08.289530+00:00"
+    },
+    "numbering.xml": {
+      "id": "numbering.xml",
+      "type": "file",
+      "name": "numbering.xml",
+      "properties": {},
+      "created_at": "2026-04-09T02:13:08.350594+00:00",
+      "updated_at": "2026-04-09T02:13:08.350594+00:00"
+    },
+    "image1.png": {
+      "id": "image1.png",
+      "type": "file",
+      "name": "image1.png",
+      "properties": {},
+      "created_at": "2026-04-09T02:13:08.420677+00:00",
+      "updated_at": "2026-04-09T02:13:08.420677+00:00"
     }
   },
   "relations": [
@@ -12306,11 +12346,92 @@
       "context": "ok dejando a un lado lo de la vista la tabla esta bien o esta mal?  y cuando me refiero a bien si ti",
       "created_at": "2026-04-09T02:02:50.884917+00:00",
       "updated_at": "2026-04-09T02:02:50.884917+00:00"
+    },
+    {
+      "source": "arquitectura",
+      "target": "aspose",
+      "type": "used_with",
+      "weight": 0.7,
+      "context": "pre-hook query",
+      "created_at": "2026-04-09T02:03:59.321471+00:00",
+      "updated_at": "2026-04-09T02:03:59.321471+00:00"
+    },
+    {
+      "source": "documento.docx",
+      "target": "document.xml",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "y esto que es  formato .doc binario y OOXML?",
+      "created_at": "2026-04-09T02:13:08.266726+00:00",
+      "updated_at": "2026-04-09T02:13:08.266726+00:00"
+    },
+    {
+      "source": "documento.docx",
+      "target": "styles.xml",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "y esto que es  formato .doc binario y OOXML?",
+      "created_at": "2026-04-09T02:13:08.325002+00:00",
+      "updated_at": "2026-04-09T02:13:08.325002+00:00"
+    },
+    {
+      "source": "document.xml",
+      "target": "styles.xml",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "y esto que es  formato .doc binario y OOXML?",
+      "created_at": "2026-04-09T02:13:08.338825+00:00",
+      "updated_at": "2026-04-09T02:13:08.338825+00:00"
+    },
+    {
+      "source": "document.xml",
+      "target": "numbering.xml",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "y esto que es  formato .doc binario y OOXML?",
+      "created_at": "2026-04-09T02:13:08.374340+00:00",
+      "updated_at": "2026-04-09T02:13:08.374340+00:00"
+    },
+    {
+      "source": "styles.xml",
+      "target": "numbering.xml",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "y esto que es  formato .doc binario y OOXML?",
+      "created_at": "2026-04-09T02:13:08.407087+00:00",
+      "updated_at": "2026-04-09T02:13:08.407087+00:00"
+    },
+    {
+      "source": "styles.xml",
+      "target": "image1.png",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "y esto que es  formato .doc binario y OOXML?",
+      "created_at": "2026-04-09T02:13:08.445448+00:00",
+      "updated_at": "2026-04-09T02:13:08.445448+00:00"
+    },
+    {
+      "source": "numbering.xml",
+      "target": "image1.png",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "y esto que es  formato .doc binario y OOXML?",
+      "created_at": "2026-04-09T02:13:08.460143+00:00",
+      "updated_at": "2026-04-09T02:13:08.460143+00:00"
+    },
+    {
+      "source": "word_com.py",
+      "target": "Find.Exec",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "y los pdfs convertidos a docx en que formato quedan en xml o bytes?",
+      "created_at": "2026-04-09T02:28:25.150048+00:00",
+      "updated_at": "2026-04-09T02:28:25.150048+00:00"
     }
   ],
-  "updated_at": "2026-04-09T02:02:50.922688+00:00",
+  "updated_at": "2026-04-09T02:28:25.151051+00:00",
   "stats": {
-    "entities": 412,
-    "relations": 1001
+    "entities": 417,
+    "relations": 1010
   }
 }
