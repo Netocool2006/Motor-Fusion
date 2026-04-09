@@ -10,13 +10,68 @@
       "last_access": "2026-04-09T03:14:58.008140+00:00",
       "access_count": 0,
       "promotion_count": 0
+    },
+    {
+      "key": "tampoco para ver fotos mejor abro el documento y lo veo en vivo hoy tus ideas no estan muy buenas creo que ya no tienes ideas mas top",
+      "value": "Tienes razÃ³n, estuve dando vueltas en cÃ­rculos. Todas mis ideas apuntaban a validar DESPUÃ‰S del error en vez de **no cometer el error**.\n\nLa verdadera soluciÃ³n es arreglar las herramientas para que hagan bien el trabajo desde el inicio:\n\n1. **NumeraciÃ³n** â†’ `insert_paragraph` con estilo Heading debe calcular el nÃºmero correcto segÃºn la secciÃ³n padre. No depender de `renumber_sections` despuÃ©s.\n\n2. **Texto completo** â†’ Nunca truncar datos fuente. El `[:60]` fue un error mÃ­o en el script.\n\n3. **Tabla ancha** â†’ `insert_table` debe calcular anchos de columna vs ancho de pÃ¡gina y decidir: reducir columnas, cambiar a landscape, o ajustar automÃ¡ticamente.\n\n4. **TÃ­tulos huÃ©rfanos** â†’ Todo heading debe tener `KeepWithNext = True` por defecto en COM.\n\nEso es genÃ©rico â€” aplica a cualquier tabla, cualquier heading, cualquier documento.\n\nPero siendo honesto: eso mejora el resultado, no lo garantiza al 100%. Siempre puede aparecer un caso nuevo que no anticipÃ©. Y ahÃ­ es do",
+      "domain": "ML 70%",
+      "source": "auto_save",
+      "tier": "hot",
+      "created_at": "2026-04-09T03:16:48.673520+00:00",
+      "last_access": "2026-04-09T03:16:48.673520+00:00",
+      "access_count": 0,
+      "promotion_count": 0
+    },
+    {
+      "key": "las fotos eran para ti",
+      "value": "Entendido. Las fotos son para que **yo** vea los errores y los corrija, no para que tÃº los revises.\n\nEntonces el ciclo correcto es:\n\n```\nYo hago el trabajo\n  â†’ CÃ³digo toma fotos zoom automÃ¡ticamente\n  â†’ CÃ³digo me las manda con prompt: \"quÃ© estÃ¡ mal aquÃ­?\"\n  â†’ Yo analizo buscando errores (no confirmaciones)\n  â†’ Si encuentro errores â†’ los corrijo\n  â†’ Cuando ya no encuentre errores â†’ te entrego\n```\n\nY ya demostrÃ© que con zoom 5x **sÃ­ puedo ver** los errores. El problema fue que no los busquÃ© â€” busquÃ© confirmaciones.\n\nLa pieza que falta es el prompt adversarial hardcodeado en el cÃ³digo. No me pregunta \"estÃ¡ bien?\" â€” me pregunta \"quÃ© estÃ¡ mal?\" Eso cambia cÃ³mo analizo la foto.\n\nLo implemento en `cerebro.ejecutar()`: despuÃ©s de guardar, toma fotos zoom, me las envÃ­a con el prompt adversarial, y si encuentro errores, ejecuta auto-fix y repite hasta que no queden o se llegue al lÃ­mite de intentos.",
+      "domain": "ML 70%",
+      "source": "auto_save",
+      "tier": "hot",
+      "created_at": "2026-04-09T03:17:25.632064+00:00",
+      "last_access": "2026-04-09T03:17:25.632064+00:00",
+      "access_count": 0,
+      "promotion_count": 0
+    },
+    {
+      "key": "pregunta un prompt no me obliga a revisar como se debe porque a veces no lo sigues verdad?",
+      "value": "Correcto. Un prompt no me obliga. Es una sugerencia que puedo ignorar igual que ignoro CLAUDE.md, memoria o instrucciones.\n\nLa Ãºnica variante que podrÃ­a funcionar diferente: un **segundo Claude que no hizo el trabajo**. El que hizo el trabajo tiene sesgo de confirmaciÃ³n â€” yo quiero creer que lo hice bien. Un segundo Claude que solo recibe las fotos y \"quÃ© errores ves?\" no tiene ese sesgo porque no sabe quÃ© se \"suponÃ­a\" que estuviera bien.\n\nPero siendo honesto: es el mismo modelo, podrÃ­a fallar igual.\n\nLa realidad es que no existe hoy una forma de **garantizar** que un ML sea honesto y riguroso el 100% de las veces. Puedo reducir la probabilidad de error con mejores herramientas, fotos con zoom, y revisiÃ³n separada. Pero garantizar â€” no.\n\nTÃº decides si ese nivel de riesgo es aceptable para tu caso de uso, o si necesitas un humano en el loop para el paso final.",
+      "domain": "ML 100%",
+      "source": "auto_save",
+      "tier": "hot",
+      "created_at": "2026-04-09T03:18:54.921762+00:00",
+      "last_access": "2026-04-09T03:18:54.921762+00:00",
+      "access_count": 0,
+      "promotion_count": 0
+    },
+    {
+      "key": "que pasa si se abre un .docx que viene de ser pdf y se abre con open office y se guarda como .docx se arregla su estructura o se mantiene?",
+      "value": "## Â¿Se arreglan los split-runs al abrir y guardar en LibreOffice/Word?\n\n### Respuesta corta: **Depende de quiÃ©n lo guarde**\n\n| AcciÃ³n | Â¿Se arreglan los split-runs? |\n|--------|------------------------------|\n| Abrir en **Word** â†’ Guardar como .docx | **Parcialmente** â€” Word consolida runs adyacentes con formato idÃ©ntico, pero agrega sus propios atributos (rsid, proofErr) que crean NUEVOS splits |\n| Abrir en **LibreOffice** â†’ Guardar como .docx | **Mejor** â€” LibreOffice no usa rsid ni proofErr, asÃ­ que tiende a producir XML mÃ¡s limpio |\n| Abrir en **Aspose** â†’ Guardar como .docx | **SÃ­** â€” Tiene funciÃ³n explÃ­cita de [combinar runs adyacentes con formato idÃ©ntico](https://forum.aspose.com/t/combining-runs-with-identical-formatting/49546) |\n\n### Â¿QuÃ© pasa exactamente?\n\n**PDF â†’ DOCX original (el problema):**\n```xml\n<w:r><w:t>H</w:t></w:r>\n<w:r><w:t>o</w:t></w:r>\n<w:r><w:t>l</w:t></w:r>\n<w:r><w:t>a</w:t></w:r>\n```\n\n**DespuÃ©s de abrir en Word y guardar:**\n```xml\n",
+      "domain": "Internet 55% + ML 35%",
+      "source": "auto_save",
+      "tier": "hot",
+      "created_at": "2026-04-09T03:25:00.819257+00:00",
+      "last_access": "2026-04-09T03:25:00.819257+00:00",
+      "access_count": 0,
+      "promotion_count": 0
+    },
+    {
+      "key": "y esta correcion ayudaria a un paso posterior de poder editarlo mejor o es irrelevante?",
+      "value": "Respuesta directa: **SÃ­, ayuda muchÃ­simo.** Es probablemente el paso mÃ¡s impactante que podrÃ­as agregar.\n\n## Por quÃ© limpiar split-runs ANTES de editar cambia todo\n\n### Sin limpieza (como funciona hoy):\n\n```\nPDF â†’ DOCX (split-runs) â†’ Editar con COM â†’ Find.Execute FALLA â†’ workarounds feos\n```\n\n### Con limpieza previa:\n\n```\nPDF â†’ DOCX (split-runs) â†’ LIMPIAR runs â†’ Editar con COM â†’ Find.Execute FUNCIONA âœ…\n```\n\n### Impacto concreto en tu sistema IA_Word:\n\n| OperaciÃ³n | Sin limpieza | Con limpieza |\n|-----------|-------------|--------------|\n| `Find.Execute(Replace)` | Falla silenciosamente | **Funciona normal** |\n| `Range.Text` (workaround actual) | Necesario, pierde formato | **Ya no lo necesitas** |\n| Buscar texto | Falla en headings | **Funciona** |\n| TOC / campos | Se corrompen | **Estables** |\n| Estilos | Se fragmentan | **Se mantienen** |\n\n### La matemÃ¡tica es simple:\n\n```\nTu word_com.py tiene 5 estrategias distintas para manejar split-runs:\n  - Body text nor",
+      "domain": "Internet 20% + ML 50%",
+      "source": "auto_save",
+      "tier": "hot",
+      "created_at": "2026-04-09T03:27:04.329713+00:00",
+      "last_access": "2026-04-09T03:27:04.329713+00:00",
+      "access_count": 0,
+      "promotion_count": 0
     }
   ],
   "warm": [],
   "cold": [],
-  "updated_at": "2026-04-09T03:14:58.008140+00:00",
+  "updated_at": "2026-04-09T03:27:04.329713+00:00",
   "counts": {
-    "hot": 1,
+    "hot": 6,
     "warm": 0,
     "cold": 0
   }

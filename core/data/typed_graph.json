@@ -3391,6 +3391,22 @@
       "properties": {},
       "created_at": "2026-04-09T03:14:58.020267+00:00",
       "updated_at": "2026-04-09T03:14:58.020267+00:00"
+    },
+    "//forum.aspo": {
+      "id": "//forum.aspo",
+      "type": "file",
+      "name": "//forum.aspo",
+      "properties": {},
+      "created_at": "2026-04-09T03:25:00.833577+00:00",
+      "updated_at": "2026-04-09T03:25:00.833577+00:00"
+    },
+    "se.com": {
+      "id": "se.com",
+      "type": "file",
+      "name": "se.com",
+      "properties": {},
+      "created_at": "2026-04-09T03:25:00.845103+00:00",
+      "updated_at": "2026-04-09T03:25:00.845103+00:00"
     }
   },
   "relations": [
@@ -12636,11 +12652,56 @@
       "context": "respecto a python de nuevo te estas enfocando de nuevo en el caso de uso especifico estaria quemado ",
       "created_at": "2026-04-09T03:14:58.033288+00:00",
       "updated_at": "2026-04-09T03:14:58.033288+00:00"
+    },
+    {
+      "source": "//forum.aspo",
+      "target": "se.com",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "que pasa si se abre un .docx que viene de ser pdf y se abre con open office y se guarda como .docx s",
+      "created_at": "2026-04-09T03:25:00.861523+00:00",
+      "updated_at": "2026-04-09T03:25:00.861523+00:00"
+    },
+    {
+      "source": "Find.Exec",
+      "target": "Find.Exec",
+      "type": "used_with",
+      "weight": 1.5,
+      "context": "y esta correcion ayudaria a un paso posterior de poder editarlo mejor o es irrelevante?",
+      "created_at": "2026-04-09T03:27:04.342758+00:00",
+      "updated_at": "2026-04-09T03:27:04.373508+00:00"
+    },
+    {
+      "source": "Find.Exec",
+      "target": "Range.Text",
+      "type": "used_with",
+      "weight": 1.0,
+      "context": "y esta correcion ayudaria a un paso posterior de poder editarlo mejor o es irrelevante?",
+      "created_at": "2026-04-09T03:27:04.389340+00:00",
+      "updated_at": "2026-04-09T03:27:04.404831+00:00"
+    },
+    {
+      "source": "Find.Exec",
+      "target": "word_com.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "y esta correcion ayudaria a un paso posterior de poder editarlo mejor o es irrelevante?",
+      "created_at": "2026-04-09T03:27:04.419559+00:00",
+      "updated_at": "2026-04-09T03:27:04.419559+00:00"
+    },
+    {
+      "source": "Range.Text",
+      "target": "word_com.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "y esta correcion ayudaria a un paso posterior de poder editarlo mejor o es irrelevante?",
+      "created_at": "2026-04-09T03:27:04.435019+00:00",
+      "updated_at": "2026-04-09T03:27:04.435019+00:00"
     }
   ],
-  "updated_at": "2026-04-09T03:14:58.033288+00:00",
+  "updated_at": "2026-04-09T03:27:04.436019+00:00",
   "stats": {
-    "entities": 424,
-    "relations": 1027
+    "entities": 426,
+    "relations": 1032
   }
 }
