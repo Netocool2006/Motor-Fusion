@@ -3519,6 +3519,62 @@
       "properties": {},
       "created_at": "2026-04-09T04:09:35.759292+00:00",
       "updated_at": "2026-04-09T04:09:35.759292+00:00"
+    },
+    "2.crea": {
+      "id": "2.crea",
+      "type": "file",
+      "name": "2.crea",
+      "properties": {},
+      "created_at": "2026-04-09T04:28:00.347368+00:00",
+      "updated_at": "2026-04-09T04:28:00.347368+00:00"
+    },
+    "3.sele": {
+      "id": "3.sele",
+      "type": "file",
+      "name": "3.sele",
+      "properties": {},
+      "created_at": "2026-04-09T04:28:00.381767+00:00",
+      "updated_at": "2026-04-09T04:28:00.381767+00:00"
+    },
+    "4.copy": {
+      "id": "4.copy",
+      "type": "file",
+      "name": "4.copy",
+      "properties": {},
+      "created_at": "2026-04-09T04:28:00.436877+00:00",
+      "updated_at": "2026-04-09T04:28:00.436877+00:00"
+    },
+    "5.past": {
+      "id": "5.past",
+      "type": "file",
+      "name": "5.past",
+      "properties": {},
+      "created_at": "2026-04-09T04:28:00.539003+00:00",
+      "updated_at": "2026-04-09T04:28:00.539003+00:00"
+    },
+    "paste": {
+      "id": "paste",
+      "type": "concept",
+      "name": "paste",
+      "properties": {},
+      "created_at": "2026-04-09T04:31:47.845573+00:00",
+      "updated_at": "2026-04-09T04:31:47.845573+00:00"
+    },
+    "lo visual, el sanitizer arregla lo estructural que": {
+      "id": "lo visual, el sanitizer arregla lo estructural que",
+      "type": "concept",
+      "name": "lo visual, el sanitizer arregla lo estructural que",
+      "properties": {},
+      "created_at": "2026-04-09T04:31:47.870468+00:00",
+      "updated_at": "2026-04-09T04:31:47.870468+00:00"
+    },
+    "P01_hybrid.docx": {
+      "id": "P01_hybrid.docx",
+      "type": "file",
+      "name": "P01_hybrid.docx",
+      "properties": {},
+      "created_at": "2026-04-09T04:35:19.190876+00:00",
+      "updated_at": "2026-04-09T04:35:19.190876+00:00"
     }
   },
   "relations": [
@@ -13025,11 +13081,74 @@
       "context": "abre el documento quiero ver como quedo",
       "created_at": "2026-04-09T04:09:35.792960+00:00",
       "updated_at": "2026-04-09T04:09:35.792960+00:00"
+    },
+    {
+      "source": "2.crea",
+      "target": "3.sele",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-09T04:28:00.406105+00:00",
+      "updated_at": "2026-04-09T04:28:00.406105+00:00"
+    },
+    {
+      "source": "2.crea",
+      "target": "4.copy",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-09T04:28:00.463005+00:00",
+      "updated_at": "2026-04-09T04:28:00.463005+00:00"
+    },
+    {
+      "source": "3.sele",
+      "target": "4.copy",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-09T04:28:00.506744+00:00",
+      "updated_at": "2026-04-09T04:28:00.506744+00:00"
+    },
+    {
+      "source": "3.sele",
+      "target": "5.past",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-09T04:28:00.566711+00:00",
+      "updated_at": "2026-04-09T04:28:00.566711+00:00"
+    },
+    {
+      "source": "4.copy",
+      "target": "5.past",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-09T04:28:00.607651+00:00",
+      "updated_at": "2026-04-09T04:28:00.607651+00:00"
+    },
+    {
+      "source": "paste",
+      "target": "lo visual, el sanitizer arregla lo estructural que",
+      "type": "solves",
+      "weight": 0.7,
+      "context": "tecnicamente backend lo supera el sanitizador pero visualmente que es lo que el humano mira y lee lo",
+      "created_at": "2026-04-09T04:31:47.897583+00:00",
+      "updated_at": "2026-04-09T04:31:47.897583+00:00"
+    },
+    {
+      "source": "P01_hybrid.docx",
+      "target": "Find.Exec",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "si solo el orden es el que tiene que ser bien pensado para no daÃ±ar lo visual y al mismo tiempo arr",
+      "created_at": "2026-04-09T04:35:19.216648+00:00",
+      "updated_at": "2026-04-09T04:35:19.216648+00:00"
     }
   ],
-  "updated_at": "2026-04-09T04:09:35.793964+00:00",
+  "updated_at": "2026-04-09T04:35:19.216648+00:00",
   "stats": {
-    "entities": 440,
-    "relations": 1056
+    "entities": 447,
+    "relations": 1063
   }
 }
