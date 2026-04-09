@@ -3975,6 +3975,14 @@
       "properties": {},
       "created_at": "2026-04-09T20:33:18.560905+00:00",
       "updated_at": "2026-04-09T20:33:18.560905+00:00"
+    },
+    "MCP_TEST.docx": {
+      "id": "MCP_TEST.docx",
+      "type": "file",
+      "name": "MCP_TEST.docx",
+      "properties": {},
+      "created_at": "2026-04-09T21:16:04.127869+00:00",
+      "updated_at": "2026-04-09T21:16:04.127869+00:00"
     }
   },
   "relations": [
@@ -7510,10 +7518,10 @@
       "source": "doc_eyes.py",
       "target": "vision_bridge.py",
       "type": "used_with",
-      "weight": 4.5,
-      "context": "ahora dime que componentes de la arquitectura se usaron en estas pruebas y cuales no se usaron?",
+      "weight": 5.5,
+      "context": "pre-hook query",
       "created_at": "2026-04-07T16:44:43.238965+00:00",
-      "updated_at": "2026-04-09T20:33:18.550835+00:00"
+      "updated_at": "2026-04-09T20:41:37.610407+00:00"
     },
     {
       "source": "realmente",
@@ -8473,10 +8481,10 @@
       "source": "word_com.py",
       "target": "mcp_server.py",
       "type": "used_with",
-      "weight": 5.5,
-      "context": "ahora dime que componentes de la arquitectura se usaron en estas pruebas y cuales no se usaron?",
+      "weight": 6.5,
+      "context": "pre-hook query",
       "created_at": "2026-04-08T16:19:22.809935+00:00",
-      "updated_at": "2026-04-09T20:33:18.429915+00:00"
+      "updated_at": "2026-04-09T20:41:37.527899+00:00"
     },
     {
       "source": "las",
@@ -12613,10 +12621,10 @@
       "source": "cerebro.py",
       "target": "tool_builder.py",
       "type": "used_with",
-      "weight": 0.5,
-      "context": "como se usa y como me das garantias que funcione tal cual lo pedi como me das garantias de que el pr",
+      "weight": 1.0,
+      "context": "pre-hook query",
       "created_at": "2026-04-08T23:23:12.177189+00:00",
-      "updated_at": "2026-04-08T23:23:12.177189+00:00"
+      "updated_at": "2026-04-09T20:41:37.705887+00:00"
     },
     {
       "source": "cerebro.py",
@@ -13666,10 +13674,10 @@
       "source": "word_com.py",
       "target": "docx_sanitizer.py",
       "type": "used_with",
-      "weight": 1.0,
-      "context": "ahora dime que componentes de la arquitectura se usaron en estas pruebas y cuales no se usaron?",
+      "weight": 2.0,
+      "context": "pre-hook query",
       "created_at": "2026-04-09T15:29:53.449918+00:00",
-      "updated_at": "2026-04-09T20:33:18.448153+00:00"
+      "updated_at": "2026-04-09T20:41:37.538693+00:00"
     },
     {
       "source": "Word.Appl",
@@ -13720,10 +13728,10 @@
       "source": "cerebro.py",
       "target": "engine.py",
       "type": "used_with",
-      "weight": 0.5,
-      "context": "que ventajas y desventajas tenemos respecto a lo que ya tenemos dale una scan al proyecto actual de ",
+      "weight": 1.0,
+      "context": "pre-hook query",
       "created_at": "2026-04-09T15:29:53.550041+00:00",
-      "updated_at": "2026-04-09T15:29:53.550041+00:00"
+      "updated_at": "2026-04-09T20:41:37.695984+00:00"
     },
     {
       "source": "cerebro.py",
@@ -13954,28 +13962,28 @@
       "source": "mcp_server.py",
       "target": "docx_sanitizer.py",
       "type": "used_with",
-      "weight": 1.0,
-      "context": "ahora dime que componentes de la arquitectura se usaron en estas pruebas y cuales no se usaron?",
+      "weight": 2.0,
+      "context": "pre-hook query",
       "created_at": "2026-04-09T16:42:16.668258+00:00",
-      "updated_at": "2026-04-09T20:33:18.461673+00:00"
+      "updated_at": "2026-04-09T20:41:37.548001+00:00"
     },
     {
       "source": "mcp_server.py",
       "target": "validators.py",
       "type": "used_with",
-      "weight": 1.0,
-      "context": "ahora dime que componentes de la arquitectura se usaron en estas pruebas y cuales no se usaron?",
+      "weight": 2.0,
+      "context": "pre-hook query",
       "created_at": "2026-04-09T16:42:16.685910+00:00",
-      "updated_at": "2026-04-09T20:33:18.479874+00:00"
+      "updated_at": "2026-04-09T20:41:37.558115+00:00"
     },
     {
       "source": "docx_sanitizer.py",
       "target": "validators.py",
       "type": "used_with",
-      "weight": 1.0,
-      "context": "ahora dime que componentes de la arquitectura se usaron en estas pruebas y cuales no se usaron?",
+      "weight": 2.0,
+      "context": "pre-hook query",
       "created_at": "2026-04-09T16:42:16.703067+00:00",
-      "updated_at": "2026-04-09T20:33:18.496905+00:00"
+      "updated_at": "2026-04-09T20:41:37.569593+00:00"
     },
     {
       "source": "docx_sanitizer.py",
@@ -13990,19 +13998,19 @@
       "source": "validators.py",
       "target": "vision_bridge.py",
       "type": "used_with",
-      "weight": 1.0,
-      "context": "ahora dime que componentes de la arquitectura se usaron en estas pruebas y cuales no se usaron?",
+      "weight": 1.5,
+      "context": "pre-hook query",
       "created_at": "2026-04-09T16:42:16.724905+00:00",
-      "updated_at": "2026-04-09T20:33:18.541756+00:00"
+      "updated_at": "2026-04-09T20:41:37.600753+00:00"
     },
     {
       "source": "validators.py",
       "target": "doc_eyes.py",
       "type": "used_with",
-      "weight": 1.0,
-      "context": "ahora dime que componentes de la arquitectura se usaron en estas pruebas y cuales no se usaron?",
+      "weight": 2.0,
+      "context": "pre-hook query",
       "created_at": "2026-04-09T16:42:16.728211+00:00",
-      "updated_at": "2026-04-09T20:33:18.531963+00:00"
+      "updated_at": "2026-04-09T20:41:37.589698+00:00"
     },
     {
       "source": "vision_bridge.py",
@@ -14620,51 +14628,141 @@
       "source": "docx_sanitizer.py",
       "target": "doc_eyes.py",
       "type": "used_with",
-      "weight": 0.5,
-      "context": "ahora dime que componentes de la arquitectura se usaron en estas pruebas y cuales no se usaron?",
+      "weight": 1.0,
+      "context": "pre-hook query",
       "created_at": "2026-04-09T20:33:18.514432+00:00",
-      "updated_at": "2026-04-09T20:33:18.514432+00:00"
+      "updated_at": "2026-04-09T20:41:37.578948+00:00"
     },
     {
       "source": "doc_eyes.py",
       "target": "kb_reference.py",
       "type": "used_with",
-      "weight": 0.5,
-      "context": "ahora dime que componentes de la arquitectura se usaron en estas pruebas y cuales no se usaron?",
+      "weight": 1.0,
+      "context": "pre-hook query",
       "created_at": "2026-04-09T20:33:18.569950+00:00",
-      "updated_at": "2026-04-09T20:33:18.569950+00:00"
+      "updated_at": "2026-04-09T20:41:37.620869+00:00"
     },
     {
       "source": "vision_bridge.py",
       "target": "kb_reference.py",
       "type": "used_with",
-      "weight": 0.5,
-      "context": "ahora dime que componentes de la arquitectura se usaron en estas pruebas y cuales no se usaron?",
+      "weight": 1.0,
+      "context": "pre-hook query",
       "created_at": "2026-04-09T20:33:18.578998+00:00",
-      "updated_at": "2026-04-09T20:33:18.578998+00:00"
+      "updated_at": "2026-04-09T20:41:37.632330+00:00"
     },
     {
       "source": "vision_bridge.py",
       "target": "business_rules.py",
       "type": "used_with",
-      "weight": 0.5,
-      "context": "ahora dime que componentes de la arquitectura se usaron en estas pruebas y cuales no se usaron?",
+      "weight": 1.0,
+      "context": "pre-hook query",
       "created_at": "2026-04-09T20:33:18.589135+00:00",
-      "updated_at": "2026-04-09T20:33:18.589135+00:00"
+      "updated_at": "2026-04-09T20:41:37.643426+00:00"
     },
     {
       "source": "kb_reference.py",
       "target": "business_rules.py",
       "type": "used_with",
-      "weight": 0.5,
-      "context": "ahora dime que componentes de la arquitectura se usaron en estas pruebas y cuales no se usaron?",
+      "weight": 1.0,
+      "context": "pre-hook query",
       "created_at": "2026-04-09T20:33:18.599578+00:00",
-      "updated_at": "2026-04-09T20:33:18.599578+00:00"
+      "updated_at": "2026-04-09T20:41:37.653089+00:00"
+    },
+    {
+      "source": "docx_sanitizer.py",
+      "target": "kb_reference.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "\"usando todos y exclusivamente los recursos del proyecto\"",
+      "created_at": "2026-04-09T20:35:07.497499+00:00",
+      "updated_at": "2026-04-09T20:35:07.497499+00:00"
+    },
+    {
+      "source": "validators.py",
+      "target": "kb_reference.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "\"usando todos y exclusivamente los recursos del proyecto\"",
+      "created_at": "2026-04-09T20:35:07.510526+00:00",
+      "updated_at": "2026-04-09T20:35:07.510526+00:00"
+    },
+    {
+      "source": "kb_reference.py",
+      "target": "doc_eyes.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "\"usando todos y exclusivamente los recursos del proyecto\"",
+      "created_at": "2026-04-09T20:35:07.536357+00:00",
+      "updated_at": "2026-04-09T20:35:07.536357+00:00"
+    },
+    {
+      "source": "kb_reference.py",
+      "target": "vision_bridge.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "\"usando todos y exclusivamente los recursos del proyecto\"",
+      "created_at": "2026-04-09T20:35:07.544889+00:00",
+      "updated_at": "2026-04-09T20:35:07.544889+00:00"
+    },
+    {
+      "source": "kb_reference.py",
+      "target": "cerebro.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-09T20:41:37.664855+00:00",
+      "updated_at": "2026-04-09T20:41:37.664855+00:00"
+    },
+    {
+      "source": "business_rules.py",
+      "target": "cerebro.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-09T20:41:37.675169+00:00",
+      "updated_at": "2026-04-09T20:41:37.675169+00:00"
+    },
+    {
+      "source": "business_rules.py",
+      "target": "engine.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-09T20:41:37.684873+00:00",
+      "updated_at": "2026-04-09T20:41:37.684873+00:00"
+    },
+    {
+      "source": "engine.py",
+      "target": "tool_builder.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-09T20:41:37.716760+00:00",
+      "updated_at": "2026-04-09T20:41:37.716760+00:00"
+    },
+    {
+      "source": "WINWORD.EXE",
+      "target": "MCP_TEST.docx",
+      "type": "used_with",
+      "weight": 1.0,
+      "context": "necesito entender mejor para ayudarte que pasa dame mas detalles y explica a nivel funcional",
+      "created_at": "2026-04-09T21:16:04.145018+00:00",
+      "updated_at": "2026-04-09T21:16:04.163576+00:00"
+    },
+    {
+      "source": "MCP_TEST.docx",
+      "target": "MCP_TEST.docx",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "necesito entender mejor para ayudarte que pasa dame mas detalles y explica a nivel funcional",
+      "created_at": "2026-04-09T21:16:04.181391+00:00",
+      "updated_at": "2026-04-09T21:16:04.181391+00:00"
     }
   ],
-  "updated_at": "2026-04-09T20:33:18.599578+00:00",
+  "updated_at": "2026-04-09T21:16:04.181391+00:00",
   "stats": {
-    "entities": 497,
-    "relations": 1187
+    "entities": 498,
+    "relations": 1197
   }
 }
