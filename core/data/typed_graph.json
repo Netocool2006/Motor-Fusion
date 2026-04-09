@@ -3407,6 +3407,86 @@
       "properties": {},
       "created_at": "2026-04-09T03:25:00.845103+00:00",
       "updated_at": "2026-04-09T03:25:00.845103+00:00"
+    },
+    "xml.etre": {
+      "id": "xml.etre",
+      "type": "file",
+      "name": "xml.etre",
+      "properties": {},
+      "created_at": "2026-04-09T03:29:04.432216+00:00",
+      "updated_at": "2026-04-09T03:29:04.432216+00:00"
+    },
+    "zipfile.ZipF": {
+      "id": "zipfile.ZipF",
+      "type": "file",
+      "name": "zipfile.ZipF",
+      "properties": {},
+      "created_at": "2026-04-09T03:29:04.451578+00:00",
+      "updated_at": "2026-04-09T03:29:04.451578+00:00"
+    },
+    "app.xml": {
+      "id": "app.xml",
+      "type": "file",
+      "name": "app.xml",
+      "properties": {},
+      "created_at": "2026-04-09T03:29:04.502972+00:00",
+      "updated_at": "2026-04-09T03:29:04.502972+00:00"
+    },
+    "ET.pars": {
+      "id": "ET.pars",
+      "type": "file",
+      "name": "ET.pars",
+      "properties": {},
+      "created_at": "2026-04-09T03:29:04.577393+00:00",
+      "updated_at": "2026-04-09T03:29:04.577393+00:00"
+    },
+    "z.open": {
+      "id": "z.open",
+      "type": "file",
+      "name": "z.open",
+      "properties": {},
+      "created_at": "2026-04-09T03:29:04.639659+00:00",
+      "updated_at": "2026-04-09T03:29:04.639659+00:00"
+    },
+    "docProps/app.xml": {
+      "id": "docProps/app.xml",
+      "type": "file",
+      "name": "docProps/app.xml",
+      "properties": {},
+      "created_at": "2026-04-09T03:29:04.747632+00:00",
+      "updated_at": "2026-04-09T03:29:04.747632+00:00"
+    },
+    "//schemas.open": {
+      "id": "//schemas.open",
+      "type": "file",
+      "name": "//schemas.open",
+      "properties": {},
+      "created_at": "2026-04-09T03:29:04.800601+00:00",
+      "updated_at": "2026-04-09T03:29:04.800601+00:00"
+    },
+    "xmlformats.org": {
+      "id": "xmlformats.org",
+      "type": "file",
+      "name": "xmlformats.org",
+      "properties": {},
+      "created_at": "2026-04-09T03:29:04.854542+00:00",
+      "updated_at": "2026-04-09T03:29:04.854542+00:00"
+    },
+    "app_xml.find": {
+      "id": "app_xml.find",
+      "type": "file",
+      "name": "app_xml.find",
+      "properties": {},
+      "created_at": "2026-04-09T03:29:04.912197+00:00",
+      "updated_at": "2026-04-09T03:29:04.912197+00:00"
+    },
+    "app.text": {
+      "id": "app.text",
+      "type": "file",
+      "name": "app.text",
+      "properties": {},
+      "created_at": "2026-04-09T03:29:04.982759+00:00",
+      "updated_at": "2026-04-09T03:29:04.982759+00:00"
     }
   },
   "relations": [
@@ -12697,11 +12777,191 @@
       "context": "y esta correcion ayudaria a un paso posterior de poder editarlo mejor o es irrelevante?",
       "created_at": "2026-04-09T03:27:04.435019+00:00",
       "updated_at": "2026-04-09T03:27:04.435019+00:00"
+    },
+    {
+      "source": "xml.etre",
+      "target": "zipfile.ZipF",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "si pero prumero valida si es un .docx convertido o nativo para evitar hacer trabajo donde no aplica",
+      "created_at": "2026-04-09T03:29:04.468963+00:00",
+      "updated_at": "2026-04-09T03:29:04.468963+00:00"
+    },
+    {
+      "source": "xml.etre",
+      "target": "app.xml",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "si pero prumero valida si es un .docx convertido o nativo para evitar hacer trabajo donde no aplica",
+      "created_at": "2026-04-09T03:29:04.528025+00:00",
+      "updated_at": "2026-04-09T03:29:04.528025+00:00"
+    },
+    {
+      "source": "zipfile.ZipF",
+      "target": "app.xml",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "si pero prumero valida si es un .docx convertido o nativo para evitar hacer trabajo donde no aplica",
+      "created_at": "2026-04-09T03:29:04.551833+00:00",
+      "updated_at": "2026-04-09T03:29:04.551833+00:00"
+    },
+    {
+      "source": "zipfile.ZipF",
+      "target": "ET.pars",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "si pero prumero valida si es un .docx convertido o nativo para evitar hacer trabajo donde no aplica",
+      "created_at": "2026-04-09T03:29:04.589056+00:00",
+      "updated_at": "2026-04-09T03:29:04.589056+00:00"
+    },
+    {
+      "source": "app.xml",
+      "target": "ET.pars",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "si pero prumero valida si es un .docx convertido o nativo para evitar hacer trabajo donde no aplica",
+      "created_at": "2026-04-09T03:29:04.601476+00:00",
+      "updated_at": "2026-04-09T03:29:04.601476+00:00"
+    },
+    {
+      "source": "app.xml",
+      "target": "z.open",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "si pero prumero valida si es un .docx convertido o nativo para evitar hacer trabajo donde no aplica",
+      "created_at": "2026-04-09T03:29:04.679552+00:00",
+      "updated_at": "2026-04-09T03:29:04.679552+00:00"
+    },
+    {
+      "source": "ET.pars",
+      "target": "z.open",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "si pero prumero valida si es un .docx convertido o nativo para evitar hacer trabajo donde no aplica",
+      "created_at": "2026-04-09T03:29:04.719577+00:00",
+      "updated_at": "2026-04-09T03:29:04.719577+00:00"
+    },
+    {
+      "source": "ET.pars",
+      "target": "docProps/app.xml",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "si pero prumero valida si es un .docx convertido o nativo para evitar hacer trabajo donde no aplica",
+      "created_at": "2026-04-09T03:29:04.770520+00:00",
+      "updated_at": "2026-04-09T03:29:04.770520+00:00"
+    },
+    {
+      "source": "z.open",
+      "target": "docProps/app.xml",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "si pero prumero valida si es un .docx convertido o nativo para evitar hacer trabajo donde no aplica",
+      "created_at": "2026-04-09T03:29:04.790484+00:00",
+      "updated_at": "2026-04-09T03:29:04.790484+00:00"
+    },
+    {
+      "source": "z.open",
+      "target": "//schemas.open",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "si pero prumero valida si es un .docx convertido o nativo para evitar hacer trabajo donde no aplica",
+      "created_at": "2026-04-09T03:29:04.817716+00:00",
+      "updated_at": "2026-04-09T03:29:04.817716+00:00"
+    },
+    {
+      "source": "docProps/app.xml",
+      "target": "//schemas.open",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "si pero prumero valida si es un .docx convertido o nativo para evitar hacer trabajo donde no aplica",
+      "created_at": "2026-04-09T03:29:04.834713+00:00",
+      "updated_at": "2026-04-09T03:29:04.834713+00:00"
+    },
+    {
+      "source": "docProps/app.xml",
+      "target": "xmlformats.org",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "si pero prumero valida si es un .docx convertido o nativo para evitar hacer trabajo donde no aplica",
+      "created_at": "2026-04-09T03:29:04.866804+00:00",
+      "updated_at": "2026-04-09T03:29:04.866804+00:00"
+    },
+    {
+      "source": "//schemas.open",
+      "target": "xmlformats.org",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "si pero prumero valida si es un .docx convertido o nativo para evitar hacer trabajo donde no aplica",
+      "created_at": "2026-04-09T03:29:04.886385+00:00",
+      "updated_at": "2026-04-09T03:29:04.886385+00:00"
+    },
+    {
+      "source": "//schemas.open",
+      "target": "app_xml.find",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "si pero prumero valida si es un .docx convertido o nativo para evitar hacer trabajo donde no aplica",
+      "created_at": "2026-04-09T03:29:04.926789+00:00",
+      "updated_at": "2026-04-09T03:29:04.926789+00:00"
+    },
+    {
+      "source": "xmlformats.org",
+      "target": "app_xml.find",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "si pero prumero valida si es un .docx convertido o nativo para evitar hacer trabajo donde no aplica",
+      "created_at": "2026-04-09T03:29:04.962088+00:00",
+      "updated_at": "2026-04-09T03:29:04.962088+00:00"
+    },
+    {
+      "source": "xmlformats.org",
+      "target": "app.text",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "si pero prumero valida si es un .docx convertido o nativo para evitar hacer trabajo donde no aplica",
+      "created_at": "2026-04-09T03:29:05.027293+00:00",
+      "updated_at": "2026-04-09T03:29:05.027293+00:00"
+    },
+    {
+      "source": "app_xml.find",
+      "target": "app.text",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "si pero prumero valida si es un .docx convertido o nativo para evitar hacer trabajo donde no aplica",
+      "created_at": "2026-04-09T03:29:05.043386+00:00",
+      "updated_at": "2026-04-09T03:29:05.043386+00:00"
+    },
+    {
+      "source": "engine.py",
+      "target": "engine.py",
+      "type": "used_with",
+      "weight": 1.5,
+      "context": "si antes valida la situacion actual de todo el codigo para saber donde debes hacer la inserccion C:\\",
+      "created_at": "2026-04-09T03:33:55.222323+00:00",
+      "updated_at": "2026-04-09T03:33:55.250294+00:00"
+    },
+    {
+      "source": "engine.py",
+      "target": "mcp_server.py",
+      "type": "used_with",
+      "weight": 1.5,
+      "context": "si antes valida la situacion actual de todo el codigo para saber donde debes hacer la inserccion C:\\",
+      "created_at": "2026-04-09T03:33:55.267900+00:00",
+      "updated_at": "2026-04-09T03:33:55.320382+00:00"
+    },
+    {
+      "source": "mcp_server.py",
+      "target": "mcp_server.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "si antes valida la situacion actual de todo el codigo para saber donde debes hacer la inserccion C:\\",
+      "created_at": "2026-04-09T03:33:55.342906+00:00",
+      "updated_at": "2026-04-09T03:33:55.342906+00:00"
     }
   ],
-  "updated_at": "2026-04-09T03:27:04.436019+00:00",
+  "updated_at": "2026-04-09T03:33:55.342906+00:00",
   "stats": {
-    "entities": 426,
-    "relations": 1032
+    "entities": 436,
+    "relations": 1052
   }
 }

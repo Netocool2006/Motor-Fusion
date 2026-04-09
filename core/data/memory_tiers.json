@@ -65,13 +65,68 @@
       "last_access": "2026-04-09T03:27:04.329713+00:00",
       "access_count": 0,
       "promotion_count": 0
+    },
+    {
+      "key": "si pero prumero valida si es un .docx convertido o nativo para evitar hacer trabajo donde no aplica",
+      "value": "## DetecciÃ³n inteligente: Â¿viene de PDF o es nativo?\n\nHay **3 niveles de detecciÃ³n**, de rÃ¡pido a certero:\n\n### Nivel 1: Metadata (instantÃ¡neo)\n```python\nimport zipfile\nfrom xml.etree import ElementTree as ET\n\ndef check_metadata(docx_path):\n    \"\"\"Revisa quiÃ©n creÃ³ el archivo.\"\"\"\n    with zipfile.ZipFile(docx_path) as z:\n        # app.xml tiene el campo \"Application\"\n        app_xml = ET.parse(z.open(\"docProps/app.xml\"))\n        ns = {\"ep\": \"http://schemas.openxmlformats.org/officeDocument/2006/extended-properties\"}\n        app = app_xml.find(\".//ep:Application\", ns)\n        \n        if app is not None:\n            app_text = app.text.lower()\n            # Conversores conocidos\n            if any(x in app_text for x in [\"pdf2docx\", \"libreoffice\", \"adobe\", \"nitro\", \"foxit\", \"smallpdf\"]):\n                return \"convertido\"\n    return \"posiblemente_nativo\"\n```\n\n### Nivel 2: Estructura de runs (certero, ~100ms)\n```python\ndef check_split_runs(docx_path):\n    \"\"\"Cuenta runs de 1 carÃ",
+      "domain": "Internet 40% + ML 45%",
+      "source": "auto_save",
+      "tier": "hot",
+      "created_at": "2026-04-09T03:29:04.413517+00:00",
+      "last_access": "2026-04-09T03:29:04.413517+00:00",
+      "access_count": 0,
+      "promotion_count": 0
+    },
+    {
+      "key": "si antes valida la situacion actual de todo el codigo para saber donde debes hacer la inserccion C:\\Chance1\\IA\\IA_Word",
+      "value": "Excelente anÃ¡lisis. Ya tengo el mapa completo. AquÃ­ estÃ¡ lo que encontrÃ©:\n\n## Estado actual del cÃ³digo\n\n### Ya existe detecciÃ³n de PDF en `engine.py` (lÃ­nea 282)\n\n```python\n# engine.py::_detect_document_type() - YA detecta PDF vs nativo\navg_chars_per_run < 2.5 â†’ \"pdf_converted\"\nratio > 0.3 â†’ \"pdf_converted\"\n```\n\nPero **solo detecta, no limpia**. Y solo lo usa `engine.py`, no `mcp_server.py`.\n\n### El flujo actual es:\n\n```\nopen_document() â†’ editar â†’ workarounds para split-runs â†’ validar\n                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n                           (parches en cada operaciÃ³n)\n```\n\n### Lo que falta (el sanitizer):\n\n```\nopen_document() â†’ DETECTAR â†’ LIMPIAR si aplica â†’ editar normal â†’ validar\n                  ^^^^^^^^^   ^^^^^^^^^^^^^^^^\n                  (ya existe)  (NO existe)\n```\n\n## Punto exacto de inserciÃ³n: `mcp_server.py::_handle_open_document()` (lÃ­nea ~1720)\n\nEs el mejor lugar porque:\n1. Corre **despuÃ©s** de abrir y **antes** de cua",
+      "domain": "Internet 10% + ML 30%",
+      "source": "auto_save",
+      "tier": "hot",
+      "created_at": "2026-04-09T03:33:55.195982+00:00",
+      "last_access": "2026-04-09T03:33:55.195982+00:00",
+      "access_count": 0,
+      "promotion_count": 0
+    },
+    {
+      "key": "ok realiza  una prueba con un documento real luego abres el convertido quiero ver como queda",
+      "value": "Word lo abriÃ³ sin error. 20 pÃ¡ginas, 14 secciones, 598 pÃ¡rrafos. El documento estÃ¡ abierto en tu pantalla â€” revÃ­salo visualmente.\n\n### Resumen del test:\n\n```\nANTES:     18,783 runs  |  81.1% single-char  |  Word corrupto? NO, pero Find.Execute falla\nDESPUÃ‰S:      419 runs  |  10.7% single-char  |  Word abre perfecto\nTexto:     34,255 chars |  100% intacto\nReducciÃ³n: 97.8% de runs eliminados\n```\n\nEl documento sanitizado deberÃ­a verse **idÃ©ntico** al original visualmente. Â¿Lo ves abierto? Â¿Se ve bien?",
+      "domain": "Internet 10% + ML 40%",
+      "source": "auto_save",
+      "tier": "hot",
+      "created_at": "2026-04-09T03:45:16.880633+00:00",
+      "last_access": "2026-04-09T03:45:16.880633+00:00",
+      "access_count": 0,
+      "promotion_count": 0
+    },
+    {
+      "key": "abrelo para que yo lo vea el santizado",
+      "value": "DeberÃ­a estar abriÃ©ndose en Word ahora. Revisa tu barra de tareas â€” el documento `P01_sanitized.docx` deberÃ­a aparecer. Â¿Lo ves?",
+      "domain": "ML",
+      "source": "auto_save",
+      "tier": "hot",
+      "created_at": "2026-04-09T03:48:33.657612+00:00",
+      "last_access": "2026-04-09T03:48:33.657612+00:00",
+      "access_count": 0,
+      "promotion_count": 0
+    },
+    {
+      "key": "y cuanto % lo pudiste sanitizar?",
+      "value": "Del documento `P01_Solo_Soporte.docx`:\n\n| MÃ©trica | Antes | DespuÃ©s | Cambio |\n|---------|-------|---------|--------|\n| **Runs totales** | 18,783 | 419 | **-97.8%** |\n| **Runs de 1 carÃ¡cter** | 81.1% | 10.7% | **-70.4 puntos** |\n| **Texto (chars)** | 34,255 | 34,255 | **0% perdido** |\n| **PÃ¡ginas** | 20 | 20 | Sin cambio |\n| **Secciones** | 14 | 14 | Sin cambio |\n| **Archivo (bytes)** | 5,576,983 | 5,420,513 | **-2.8%** mÃ¡s liviano |\n\n### En resumen: **97.8% de los runs basura eliminados**, texto 100% intacto.\n\nEl 10.7% restante de single-char runs son legÃ­timos (letras con formato realmente diferente, no basura de conversiÃ³n).\n\nÂ¿Se ve bien el documento visualmente?",
+      "domain": "ML",
+      "source": "auto_save",
+      "tier": "hot",
+      "created_at": "2026-04-09T03:49:47.692640+00:00",
+      "last_access": "2026-04-09T03:49:47.692640+00:00",
+      "access_count": 0,
+      "promotion_count": 0
     }
   ],
   "warm": [],
   "cold": [],
-  "updated_at": "2026-04-09T03:27:04.329713+00:00",
+  "updated_at": "2026-04-09T03:49:47.692640+00:00",
   "counts": {
-    "hot": 6,
+    "hot": 11,
     "warm": 0,
     "cold": 0
   }
