@@ -10,13 +10,57 @@
       "last_access": "2026-04-09T16:58:39.202964+00:00",
       "access_count": 0,
       "promotion_count": 0
+    },
+    {
+      "key": "agrega todas",
+      "value": "**67 tools MCP.** Todo compila. Resumen:\n\n## De 42 â†’ 67 tools (+25 nuevas)\n\n### 12 mÃ©todos ocultos ahora expuestos\n\n| # | Tool | QuÃ© hace |\n|---|---|---|\n| 14 | **smart_replace** | Replace en body+headers+footers+shapes (100%) |\n| 15 | **find_then_set** | El mÃ¡s confiable para split-runs PDF |\n| 16 | **verify_text** | Â¿Existe este texto? (validaciÃ³n post-ediciÃ³n) |\n| 17 | **count_occurrences** | Â¿CuÃ¡ntas veces aparece? (diagnÃ³stico) |\n| 18 | **move_section** | Mover secciÃ³n de lugar |\n| 19 | **copy_section_from** | Copiar secciÃ³n de otro doc |\n| 20 | **get_sections** | Lista detallada de secciones |\n| 21 | **get_paragraph_text** | Texto de pÃ¡rrafo especÃ­fico |\n| 22 | **repair_footers** | Reparar footers daÃ±ados |\n| 23 | **vba_batch_replace** | Batch replace via VBA (rÃ¡pido) |\n| 24 | **vba_batch_format_headings** | Formato headings via VBA |\n| 25 | **replicate_document** | Clonar documento |\n\n### 15 nuevas operaciones del Word Object Model (13 implementadas)\n\n| # | Tool",
+      "domain": "Internet 60% + ML 40%",
+      "source": "auto_save",
+      "tier": "hot",
+      "created_at": "2026-04-09T17:10:51.325948+00:00",
+      "last_access": "2026-04-09T17:10:51.325948+00:00",
+      "access_count": 0,
+      "promotion_count": 0
+    },
+    {
+      "key": "inserta las 20",
+      "value": "**85 tools MCP.** Todo compila. De 42 â†’ 85 en esta sesiÃ³n.\n\n## Resumen final: 85 tools\n\n| CategorÃ­a | Cant | Ejemplos |\n|---|---|---|\n| **Lectura original** | 11 | open_document, analyze, validate, get_tables, view_page |\n| **Escritura original** | 29 | find_replace, insert_table, format_table, merge, watermark |\n| **Ocultos expuestos** | 13 | smart_replace, verify_text, count_occurrences, move_section, vba_batch |\n| **Word Object Model** | 14 | footnotes, comments, mail_merge, form_fields, content_controls, equations |\n| **Batch 3 (hoy)** | 18 | hyperlinks, fields, chart, textbox, caption, shapes, columns, borders |\n| **Total** | **85** | |\n\n### Las 18 nuevas de hoy\n\n| # | Tool | QuÃ© hace |\n|---|---|---|\n| 68 | **manage_hyperlinks** | Links: add/list/delete |\n| 69 | **manage_fields** | Campos: insert/update/unlink (DATE, PAGE, etc.) |\n| 70 | **document_statistics** | Conteo completo: palabras, chars, pÃ¡ginas, tablas, etc. |\n| 71 | **insert_chart** | GrÃ¡ficos: lÃ­nea, columna, p",
+      "domain": "Internet 60% + ML 40%",
+      "source": "auto_save",
+      "tier": "hot",
+      "created_at": "2026-04-09T17:16:40.128057+00:00",
+      "last_access": "2026-04-09T17:16:40.128057+00:00",
+      "access_count": 0,
+      "promotion_count": 0
+    },
+    {
+      "key": "valida en el internet foros,repos,paginas especialidas,redes,webs de programadores,especialistas,internet genal si hay mas",
+      "value": "BusquÃ© en 6 bÃºsquedas distintas (foros, repos, Microsoft Learn, Reddit, GitHub topics). AquÃ­ estÃ¡ el resultado consolidado:\n\n## Operaciones adicionales encontradas (que NO tenemos)\n\n### Encontradas con valor real (7 nuevas)\n\n| # | OperaciÃ³n | COM Object | Fuente | Ya similar? |\n|---|---|---|---|---|\n| 1 | **Encrypt/Password document** | `doc.Password`, `doc.SetPasswordEncryptionOptions` | Microsoft Learn | `protect_document` parcial â€” no encripta |\n| 2 | **Master/Subdocuments** | `doc.Subdocuments.AddFromFile()`, `.Merge()` | Microsoft Learn | No tenemos |\n| 3 | **GoTo (navigation)** | `doc.GoTo(What, Which, Count, Name)` | COM Reference | No tenemos |\n| 4 | **StoryRanges** (all text areas) | `doc.StoryRanges` â€” body, headers, footers, footnotes, etc. | Microsoft Learn | Parcial via smart_replace |\n| 5 | **Delete ink annotations** | `doc.DeleteAllInkAnnotations()` | Microsoft Learn | No tenemos |\n| 6 | **Set View/Zoom** | `doc.ActiveWindow.View.Type`, `.Zoom.Percentage` | COM ",
+      "domain": "Internet 70% + ML 30%",
+      "source": "auto_save",
+      "tier": "hot",
+      "created_at": "2026-04-09T17:18:48.532788+00:00",
+      "last_access": "2026-04-09T17:18:48.532788+00:00",
+      "access_count": 0,
+      "promotion_count": 0
+    },
+    {
+      "key": "busca para manejo de indices, que se autorelicen los indicies, creacion e inserccion de tablas de diferetes formas, inserccion de fotos, validar los tamaÃ±os, alguna  logica que nos ayude a que un tit",
+      "value": "Excelente investigaciÃ³n. Ahora tengo todo lo que necesitas. Estas son funcionalidades **especÃ­ficas y prÃ¡cticas** que nos faltan:\n\n## Operaciones encontradas â€” Alto valor para ediciÃ³n profesional\n\n### 1. Control de flujo de texto (tÃ­tulos que no queden al final de hoja)\n\n| OperaciÃ³n | COM Property | QuÃ© resuelve |\n|---|---|---|\n| **keep_with_next** | `para.Format.KeepWithNext = True` | TÃ­tulo NO queda solo al final de pÃ¡gina |\n| **keep_together** | `para.Format.KeepTogether = True` | PÃ¡rrafo no se parte entre 2 pÃ¡ginas |\n| **page_break_before** | `para.Format.PageBreakBefore = True` | Fuerza pÃ¡gina nueva antes del tÃ­tulo |\n| **widow_orphan** | `para.Format.WidowControl = True` | Evita lÃ­neas sueltas arriba/abajo |\n\n### 2. Tablas avanzadas\n\n| OperaciÃ³n | COM Method | QuÃ© resuelve |\n|---|---|---|\n| **autofit_content** | `table.AutoFitBehavior(1)` | Tabla se ajusta al contenido |\n| **autofit_window** | `table.AutoFitBehavior(2)` | Tabla se ajusta al ancho de pÃ¡gina |\n| ",
+      "domain": "Internet 75% + ML 25%",
+      "source": "auto_save",
+      "tier": "hot",
+      "created_at": "2026-04-09T17:22:20.695465+00:00",
+      "last_access": "2026-04-09T17:22:20.695465+00:00",
+      "access_count": 0,
+      "promotion_count": 0
     }
   ],
   "warm": [],
   "cold": [],
-  "updated_at": "2026-04-09T16:58:39.202964+00:00",
+  "updated_at": "2026-04-09T17:22:20.695465+00:00",
   "counts": {
-    "hot": 1,
+    "hot": 5,
     "warm": 0,
     "cold": 0
   }
