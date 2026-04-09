@@ -255,19 +255,19 @@
     },
     {
       "key": "dimelo en espaÃ±ol",
-      "value": "## Cuadro de CertificaciÃ³n â€” Caso AWS Table End-to-End\n\n**Tarea:** Insertar tabla AWS (10 columnas) del BOM Excel en secciÃ³n Anexos del SOW, con formato azul #1F3864, Calibri 7pt, IVA 12% Guatemala, factor 1.4526, y actualizar Ã­ndice.\n\n**Documento:** SOW_GBM_NextGen_Lead_Generation_con_IA_BAM_Guatemala_V4.docx\n\n---\n\n### EjecuciÃ³n paso a paso (9/9 exitosos)\n\n| # | FunciÃ³n | MÃ³dulo | Args clave | Resultado | Tiempo | ValidaciÃ³n |\n|---|---------|--------|-----------|-----------|--------|------------|\n| 1 | `open_document` | mcp_server â†’ WordCOM | path=SOW_V4_CEREBRO.docx | 30 pÃ¡ginas, abierto | 3.8s | -- |\n| 2 | `analyze_document` | mcp_server â†’ WordCOM | -- | 24 secciones, 30p | 1.5s | -- |\n| 3 | `insert_paragraph` | WordCOM._find_heading_range + insert | text=\"Tabla detalle AWS...\", style=Heading 2, after_heading=\"Anexos\" | Heading insertado pÃ¡g 27 | 35.5s | Structural PASS |\n| 4 | `insert_table` | WordCOM.insert_table (formato atÃ³mico) | 10 headers, 13 filas, bg=#1F3864",
-      "domain": "ML 20%",
+      "value": "Buena pregunta. SÃ­, **tÃ©cnicamente Claude in Chrome podrÃ­a interactuar con Word Online**, pero con limitaciones importantes.\n\n## Â¿QuÃ© puede hacer Claude in Chrome con Word Online?\n\n| AcciÃ³n | Â¿Funciona? | Calidad |\n|--------|-----------|---------|\n| **Leer texto del documento** | SÃ­ (`get_page_text`, `read_page`) | Buena |\n| **Hacer click en menÃºs/botones** | SÃ­ (`computer`, `find`) | FrÃ¡gil â€” UI cambia |\n| **Escribir texto** | SÃ­ (`form_input`, teclas) | Funciona pero lento |\n| **Formato (negrita, fuente, etc.)** | SÃ­, vÃ­a clicks en ribbon | Muy frÃ¡gil |\n| **Operaciones complejas (tablas, TOC, estilos)** | DifÃ­cil | Poco confiable |\n\n## El problema fundamental\n\nWord Online usa un **canvas/rendering propio**, no HTML estÃ¡ndar con `contenteditable`. Esto significa:\n\n1. **No hay DOM predecible** â€” los selectores CSS cambian entre versiones\n2. **Es como controlar Word con el mouse** â€” cada operaciÃ³n requiere navegar menÃºs visuales\n3. **Sin undo programÃ¡tico** â€”",
+      "domain": "Internet 30% + ML 50%",
       "source": "auto_save",
       "tier": "hot",
-      "created_at": "2026-04-09T00:22:26.815999+00:00",
-      "last_access": "2026-04-09T00:22:26.815999+00:00",
+      "created_at": "2026-04-09T00:22:32.793043+00:00",
+      "last_access": "2026-04-09T00:22:32.793043+00:00",
       "access_count": 0,
       "promotion_count": 0
     }
   ],
   "warm": [],
   "cold": [],
-  "updated_at": "2026-04-09T00:22:26.815999+00:00",
+  "updated_at": "2026-04-09T00:22:32.793043+00:00",
   "counts": {
     "hot": 24,
     "warm": 0,
