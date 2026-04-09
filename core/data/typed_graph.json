@@ -3927,6 +3927,14 @@
       "properties": {},
       "created_at": "2026-04-09T17:22:20.962774+00:00",
       "updated_at": "2026-04-09T17:22:20.962774+00:00"
+    },
+    "como": {
+      "id": "como",
+      "type": "concept",
+      "name": "como",
+      "properties": {},
+      "created_at": "2026-04-09T17:34:14.193976+00:00",
+      "updated_at": "2026-04-09T17:34:14.193976+00:00"
     }
   },
   "relations": [
@@ -14495,11 +14503,20 @@
       "context": "busca para manejo de indices, que se autorelicen los indicies, creacion e inserccion de tablas de di",
       "created_at": "2026-04-09T17:22:21.022634+00:00",
       "updated_at": "2026-04-09T17:22:21.022634+00:00"
+    },
+    {
+      "source": "como",
+      "target": "que",
+      "type": "used_with",
+      "weight": 0.7,
+      "context": "pre-hook query",
+      "created_at": "2026-04-09T17:34:14.203742+00:00",
+      "updated_at": "2026-04-09T17:34:14.203742+00:00"
     }
   ],
-  "updated_at": "2026-04-09T17:22:21.022634+00:00",
+  "updated_at": "2026-04-09T17:34:14.203742+00:00",
   "stats": {
-    "entities": 491,
-    "relations": 1174
+    "entities": 492,
+    "relations": 1175
   }
 }
