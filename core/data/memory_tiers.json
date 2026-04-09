@@ -43,13 +43,68 @@
       "last_access": "2026-04-09T04:09:35.705907+00:00",
       "access_count": 0,
       "promotion_count": 0
+    },
+    {
+      "key": "si se daÃ±o bastante pero no quiero que corrigas el documento que podremos corregir del algoritmo para que no se daÃ±e tanto?",
+      "value": "El documento conservador estÃ¡ abierto en Word â€” 20 pÃ¡ginas, 14 secciones, 591 pÃ¡rrafos. RevÃ­salo visualmente y dime cÃ³mo se ve comparado con el original. Â¿Se redujo el daÃ±o o sigue habiendo problemas visibles?",
+      "domain": "ML 20%",
+      "source": "auto_save",
+      "tier": "hot",
+      "created_at": "2026-04-09T04:15:38.095205+00:00",
+      "last_access": "2026-04-09T04:15:38.095205+00:00",
+      "access_count": 0,
+      "promotion_count": 0
+    },
+    {
+      "key": "abrelo",
+      "value": "AhÃ­ lo tienes. Las primeras 3 pÃ¡ginas se ven bastante bien:\n\n- **PÃ¡gina 1**: Portada con imagen, tÃ­tulo y logo GBM intactos\n- **PÃ¡gina 2**: Carta de presentaciÃ³n con formato correcto, firmas bien posicionadas, footer con fecha/versiÃ³n/pÃ¡gina OK\n- **PÃ¡gina 3**: Tabla de contenidos â€” se nota un defecto menor en la numeraciÃ³n (ej. \"52.1.\" junto a \"InformaciÃ³n inicial\", \"73.4.\" junto a \"Equipo requerido\") que son artefactos del PDF original, no daÃ±o del sanitizer\n\nÂ¿Quieres que muestre mÃ¡s pÃ¡ginas para que revises el resto del documento? Â¿O cÃ³mo lo ves comparado con la versiÃ³n anterior que se daÃ±Ã³ bastante?",
+      "domain": "ML 15%",
+      "source": "auto_save",
+      "tier": "hot",
+      "created_at": "2026-04-09T04:17:15.852525+00:00",
+      "last_access": "2026-04-09T04:17:15.852525+00:00",
+      "access_count": 0,
+      "promotion_count": 0
+    },
+    {
+      "key": "abrelo como voy a ver si no lo abres",
+      "value": "Listo, deberÃ­a estar abriÃ©ndose `P01_conservative.docx` en Word ahora. Revisa tu barra de tareas. Dime cÃ³mo se ve comparado con la versiÃ³n que se daÃ±Ã³.",
+      "domain": "ML 20%",
+      "source": "auto_save",
+      "tier": "hot",
+      "created_at": "2026-04-09T04:19:00.903367+00:00",
+      "last_access": "2026-04-09T04:19:00.903367+00:00",
+      "access_count": 0,
+      "promotion_count": 0
+    },
+    {
+      "key": "esta mejor perdiste algunas cosas pero si lo daÃ±as bastante es en formatos, colores, fuentes,tablas, etc eso si lo lastimas fuertes",
+      "value": "`P01_safe.docx` deberÃ­a estar abriÃ©ndose en Word. \n\n## ComparaciÃ³n de versiones:\n\n| VersiÃ³n | Fixes | QuÃ© hace | Riesgo visual |\n|---------|-------|----------|---------------|\n| Anterior (5 passes) | 47,717 | Borra formato + fusiona | **ALTO** - daÃ±Ã³ bastante |\n| Conservadora | 40,656 | Borra menos formato + fusiona | **MEDIO** - mejorÃ³ pero daÃ±Ã³ |\n| **Nueva (3 passes)** | **18,383** | **Solo fusiona, NO borra nada** | **BAJO** - no toca formato |\n\nLa diferencia clave: 18,783 runs â†’ 411 runs (97.8% reducciÃ³n) **sin eliminar ni un solo elemento de formato**. El `_rpr_equal()` ignora el noise al comparar pero **deja los elementos XML intactos**.\n\nY respondiendo tu pregunta: **sÃ­, esto aplica para cualquier documento** que pase por estos filtros. El sanitizer:\n1. Detecta automÃ¡ticamente si es PDFâ†’DOCX (ratio chars Ãºnicos >40%)\n2. Si es nativo, no toca nada\n3. Si es convertido, ejecuta los 3 passes obligatoriamente\n\nEs genÃ©rico â€” no estÃ¡ atado a ningÃºn documento espe",
+      "domain": "ML 30%",
+      "source": "auto_save",
+      "tier": "hot",
+      "created_at": "2026-04-09T04:23:01.124977+00:00",
+      "last_access": "2026-04-09T04:23:01.124977+00:00",
+      "access_count": 0,
+      "promotion_count": 0
+    },
+    {
+      "key": "pregunta curisoa si abres uno de estos .docx que viene de pdf  y le das save as .docx hereda los problemas o se sanitiza solo?",
+      "value": "Buena pregunta. La respuesta corta: **NO se sanitiza solo, hereda los problemas.**\n\nLo que pasa cuando abres un PDFâ†’DOCX en Word y haces Save As:\n\n| QuÃ© hace Word al guardar | Â¿Arregla split-runs? |\n|---------------------------|---------------------|\n| Re-serializa el XML | No â€” conserva la misma estructura de runs |\n| Normaliza namespaces | SÃ­ â€” limpia algunos xmlns duplicados |\n| Recalcula paginaciÃ³n | SÃ­ â€” pero no toca los `<w:r>` |\n| Regenera rsid attributes | SÃ­ â€” pero agrega nuevos, no quita los viejos |\n| Fusiona runs fragmentados | **NO** â€” Word respeta la estructura existente |\n\nWord trata cada `<w:r>` como una unidad intencional. No tiene lÃ³gica para decir \"estos 15 runs de 1 carÃ¡cter deberÃ­an ser 1 solo run\". Simplemente los guarda tal cual.\n\n**Prueba rÃ¡pida mental**: si Word arreglara esto automÃ¡ticamente, `Find.Execute` no fallarÃ­a en documentos PDFâ†’DOCX â€” pero falla, precisamente porque los split-runs persisten despuÃ©s de abrir y guardar.\n\nLo ",
+      "domain": "ML 90%",
+      "source": "auto_save",
+      "tier": "hot",
+      "created_at": "2026-04-09T04:24:43.273863+00:00",
+      "last_access": "2026-04-09T04:24:43.273863+00:00",
+      "access_count": 0,
+      "promotion_count": 0
     }
   ],
   "warm": [],
   "cold": [],
-  "updated_at": "2026-04-09T04:09:35.705907+00:00",
+  "updated_at": "2026-04-09T04:24:43.273863+00:00",
   "counts": {
-    "hot": 4,
+    "hot": 9,
     "warm": 0,
     "cold": 0
   }
