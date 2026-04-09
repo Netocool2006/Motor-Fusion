@@ -1,20 +1,20 @@
 {
   "hot": [
     {
-      "key": "busca mas funciones en el KB local  C:\\Hooks_IA que puedan ayudar y en el repo git https://github.com/Netocool2006/IA_Word",
-      "value": "## Hallazgos de ambas fuentes\n\n### De C:\\Hooks_IA â€” Lo Ãºtil para IA_Word\n\n**1. `core/file_extractor.py` â€” Lector DOCX via XML puro (sin COM)**\n\n```python\ndef _read_docx(path, max_chars) -> str\n```\nLee .docx como ZIP â†’ parsea `word/document.xml` â†’ extrae texto de `<w:p>`, `<w:r>`, `<w:t>`. Esto es exactamente lo que necesitarÃ­amos para un **fast-path XML** sin necesitar Word abierto (lectura rÃ¡pida de contenido).\n\n**2. `knowledge/ia_word/patterns.json` â€” 477 patrones documentados**\n\nEsto es oro. Contiene patrones reales de ediciÃ³n categorizados:\n\n| PatrÃ³n | QuÃ© hace |\n|---|---|\n| `A01_replace_client` | Reemplazo de nombre de cliente |\n| `A02_replace_date` | Reemplazo de fechas |\n| `A03_replace_currency` | Reemplazo de moneda |\n| `A04-A14` | Producto, cobertura, email, telÃ©fono, pago, validez, servicio |\n| `A15_smart_replace_all` | Batch replacement |\n| `ADV1_Merge_Compose` | Merge de documentos |\n| `ADV2_Campos_Word` | Fields y bookmarks |\n| `ADV3_Proteccion` | Protecci",
-      "domain": "ML 70%",
+      "key": "tiene 31 mÃ©todos NO expuestos exponer los 31 y valida en el internet foros,repos,paginas especialidas,redes,webs de programadores,especialistas,internet genal si hay mas",
+      "value": "Ahora con toda la investigaciÃ³n, te doy el mapa completo. Primero expongo los 31 ocultos, luego las operaciones **que NO tenemos de ninguna forma**:\n\n## Mapa completo: 31 ocultos + operaciones faltantes de Internet\n\n### Los 31 mÃ©todos ocultos â†’ Exponerlos como tools\n\n| # | MÃ©todo | QuÃ© hace | Prioridad |\n|---|---|---|---|\n| 1 | **smart_replace** | Replace en body+headers+footers+shapes (100% cobertura) | ðŸ”´ Alta |\n| 2 | **find_then_set** | El mÃ¡s confiable para split-runs PDF | ðŸ”´ Alta |\n| 3 | **verify_all_replaced** | Verifica que un texto ya NO existe | ðŸ”´ Alta |\n| 4 | **count_occurrences** | Cuenta apariciones de un texto | ðŸ”´ Alta |\n| 5 | **move_section_before** | Mover secciÃ³n de posiciÃ³n | ðŸ”´ Alta |\n| 6 | **copy_section_from** | Copiar secciÃ³n de otro doc | ðŸŸ¡ Media |\n| 7 | **merge_sections_from** | Merge selectivo de secciones | ðŸŸ¡ Media |\n| 8 | **repair_footers** | Reparar footers daÃ±ados | ðŸŸ¡ Media |\n| 9 | **get_sections** | Detalle de todas las secc",
+      "domain": "Internet 60% + ML 40%",
       "source": "auto_save",
       "tier": "hot",
-      "created_at": "2026-04-09T16:35:08.324264+00:00",
-      "last_access": "2026-04-09T16:35:08.324264+00:00",
+      "created_at": "2026-04-09T16:58:39.202964+00:00",
+      "last_access": "2026-04-09T16:58:39.202964+00:00",
       "access_count": 0,
       "promotion_count": 0
     }
   ],
   "warm": [],
   "cold": [],
-  "updated_at": "2026-04-09T16:35:08.324264+00:00",
+  "updated_at": "2026-04-09T16:58:39.202964+00:00",
   "counts": {
     "hot": 1,
     "warm": 0,

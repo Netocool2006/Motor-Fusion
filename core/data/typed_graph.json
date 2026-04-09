@@ -3679,6 +3679,22 @@
       "properties": {},
       "created_at": "2026-04-09T16:35:08.373333+00:00",
       "updated_at": "2026-04-09T16:35:08.373333+00:00"
+    },
+    "file_extractor._rea": {
+      "id": "file_extractor._rea",
+      "type": "file",
+      "name": "file_extractor._rea",
+      "properties": {},
+      "created_at": "2026-04-09T16:37:09.713907+00:00",
+      "updated_at": "2026-04-09T16:37:09.713907+00:00"
+    },
+    "patterns.json": {
+      "id": "patterns.json",
+      "type": "file",
+      "name": "patterns.json",
+      "properties": {},
+      "created_at": "2026-04-09T16:37:09.744489+00:00",
+      "updated_at": "2026-04-09T16:37:09.744489+00:00"
     }
   },
   "relations": [
@@ -8177,10 +8193,10 @@
       "source": "word_com.py",
       "target": "mcp_server.py",
       "type": "used_with",
-      "weight": 4.5,
-      "context": "valida el proyecto actual de esta carpeta y repara esto que sale en el log f82b 4db3 5b77 61ce 278b ",
+      "weight": 5.0,
+      "context": "vuelve darme una tabla explicando arquitectura para ver como quedo",
       "created_at": "2026-04-08T16:19:22.809935+00:00",
-      "updated_at": "2026-04-09T15:47:30.252810+00:00"
+      "updated_at": "2026-04-09T16:42:16.617140+00:00"
     },
     {
       "source": "las",
@@ -13361,10 +13377,10 @@
       "source": "word_com.py",
       "target": "Word.Appl",
       "type": "used_with",
-      "weight": 0.5,
-      "context": "que ventajas y desventajas tenemos respecto a lo que ya tenemos dale una scan al proyecto actual de ",
+      "weight": 1.0,
+      "context": "vuelve darme una tabla explicando arquitectura para ver como quedo",
       "created_at": "2026-04-09T15:29:53.418375+00:00",
-      "updated_at": "2026-04-09T15:29:53.418375+00:00"
+      "updated_at": "2026-04-09T16:42:16.600453+00:00"
     },
     {
       "source": "word_com.py",
@@ -13379,19 +13395,19 @@
       "source": "Word.Appl",
       "target": "docx_sanitizer.py",
       "type": "used_with",
-      "weight": 0.5,
-      "context": "que ventajas y desventajas tenemos respecto a lo que ya tenemos dale una scan al proyecto actual de ",
+      "weight": 1.0,
+      "context": "vuelve darme una tabla explicando arquitectura para ver como quedo",
       "created_at": "2026-04-09T15:29:53.465944+00:00",
-      "updated_at": "2026-04-09T15:29:53.465944+00:00"
+      "updated_at": "2026-04-09T16:42:16.651473+00:00"
     },
     {
       "source": "Word.Appl",
       "target": "mcp_server.py",
       "type": "used_with",
-      "weight": 0.5,
-      "context": "que ventajas y desventajas tenemos respecto a lo que ya tenemos dale una scan al proyecto actual de ",
+      "weight": 1.0,
+      "context": "vuelve darme una tabla explicando arquitectura para ver como quedo",
       "created_at": "2026-04-09T15:29:53.481463+00:00",
-      "updated_at": "2026-04-09T15:29:53.481463+00:00"
+      "updated_at": "2026-04-09T16:42:16.633246+00:00"
     },
     {
       "source": "docx_sanitizer.py",
@@ -13460,10 +13476,10 @@
       "source": "vision_bridge.py",
       "target": "doc_eyes.py",
       "type": "used_with",
-      "weight": 0.5,
-      "context": "que ventajas y desventajas tenemos respecto a lo que ya tenemos dale una scan al proyecto actual de ",
+      "weight": 1.0,
+      "context": "vuelve darme una tabla explicando arquitectura para ver como quedo",
       "created_at": "2026-04-09T15:29:53.595194+00:00",
-      "updated_at": "2026-04-09T15:29:53.595194+00:00"
+      "updated_at": "2026-04-09T16:42:16.747012+00:00"
     },
     {
       "source": "word_com.py",
@@ -13626,11 +13642,110 @@
       "context": "busca mas funciones en el KB local  C:\\Hooks_IA que puedan ayudar y en el repo git https://github.co",
       "created_at": "2026-04-09T16:35:08.406809+00:00",
       "updated_at": "2026-04-09T16:35:08.406809+00:00"
+    },
+    {
+      "source": "file_extractor._rea",
+      "target": "docx_sanitizer.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "cuales nos dan valor todos o solo algunos en % de valor?",
+      "created_at": "2026-04-09T16:37:09.727220+00:00",
+      "updated_at": "2026-04-09T16:37:09.727220+00:00"
+    },
+    {
+      "source": "file_extractor._rea",
+      "target": "patterns.json",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "cuales nos dan valor todos o solo algunos en % de valor?",
+      "created_at": "2026-04-09T16:37:09.761452+00:00",
+      "updated_at": "2026-04-09T16:37:09.761452+00:00"
+    },
+    {
+      "source": "docx_sanitizer.py",
+      "target": "patterns.json",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "cuales nos dan valor todos o solo algunos en % de valor?",
+      "created_at": "2026-04-09T16:37:09.777282+00:00",
+      "updated_at": "2026-04-09T16:37:09.777282+00:00"
+    },
+    {
+      "source": "mcp_server.py",
+      "target": "docx_sanitizer.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "vuelve darme una tabla explicando arquitectura para ver como quedo",
+      "created_at": "2026-04-09T16:42:16.668258+00:00",
+      "updated_at": "2026-04-09T16:42:16.668258+00:00"
+    },
+    {
+      "source": "mcp_server.py",
+      "target": "validators.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "vuelve darme una tabla explicando arquitectura para ver como quedo",
+      "created_at": "2026-04-09T16:42:16.685910+00:00",
+      "updated_at": "2026-04-09T16:42:16.685910+00:00"
+    },
+    {
+      "source": "docx_sanitizer.py",
+      "target": "validators.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "vuelve darme una tabla explicando arquitectura para ver como quedo",
+      "created_at": "2026-04-09T16:42:16.703067+00:00",
+      "updated_at": "2026-04-09T16:42:16.703067+00:00"
+    },
+    {
+      "source": "docx_sanitizer.py",
+      "target": "vision_bridge.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "vuelve darme una tabla explicando arquitectura para ver como quedo",
+      "created_at": "2026-04-09T16:42:16.714437+00:00",
+      "updated_at": "2026-04-09T16:42:16.714437+00:00"
+    },
+    {
+      "source": "validators.py",
+      "target": "vision_bridge.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "vuelve darme una tabla explicando arquitectura para ver como quedo",
+      "created_at": "2026-04-09T16:42:16.724905+00:00",
+      "updated_at": "2026-04-09T16:42:16.724905+00:00"
+    },
+    {
+      "source": "validators.py",
+      "target": "doc_eyes.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "vuelve darme una tabla explicando arquitectura para ver como quedo",
+      "created_at": "2026-04-09T16:42:16.728211+00:00",
+      "updated_at": "2026-04-09T16:42:16.728211+00:00"
+    },
+    {
+      "source": "vision_bridge.py",
+      "target": "cerebro.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "vuelve darme una tabla explicando arquitectura para ver como quedo",
+      "created_at": "2026-04-09T16:42:16.758142+00:00",
+      "updated_at": "2026-04-09T16:42:16.758142+00:00"
+    },
+    {
+      "source": "doc_eyes.py",
+      "target": "cerebro.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "vuelve darme una tabla explicando arquitectura para ver como quedo",
+      "created_at": "2026-04-09T16:42:16.765522+00:00",
+      "updated_at": "2026-04-09T16:42:16.765522+00:00"
     }
   ],
-  "updated_at": "2026-04-09T16:35:08.406809+00:00",
+  "updated_at": "2026-04-09T16:42:16.765522+00:00",
   "stats": {
-    "entities": 460,
-    "relations": 1105
+    "entities": 462,
+    "relations": 1116
   }
 }
