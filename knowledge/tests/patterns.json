@@ -1,10 +1,367 @@
 {
   "domain": "tests",
   "description": "Dominio auto-creado: tests",
-  "entries": {},
-  "tag_index": {},
+  "entries": {
+    "626a3dcc48ec": {
+      "id": "626a3dcc48ec",
+      "type": "fact",
+      "key": "run_5_advanced_1",
+      "fact": {
+        "rule": "hance1\\IA_Word\\pruebas_reales'\nos.makedirs(OUT, exist_ok=True)\n\npassed = 0\nfailed = 0\nresults = []\n\ndef run_test(num, name, func):\n    global passed, failed\n    print(f'\\n{\"=\" * 70}')\n    print(f'ADV{num}: {name}')\n    print(\"=\" * 70)\n    try:\n        func()\n        passed += 1\n        results.append((num, name, 'PASS'))\n        print(f'  >>> PASS')\n    except Exception as e:\n        failed += 1\n        results.append((num, name, f'FAIL: {e}'))\n        print(f'  >>> FAIL: {e}')\n        import traceback\n        traceback.print_exc()\n\nw = WordCOM(visible=False)\n\ndef fresh(name):\n    try: w.close_document(save=False)\n    except: pass\n    time.sleep(1)\n    dest = os.path.join(OUT, f'{name}.docx')\n    for attempt in range(5):\n        try:\n            if os.path.exists(dest): os.remove(dest)\n",
+        "applies_to": "tests",
+        "source": "C:\\Chance1\\IA\\IA_Word\\tests\\run_5_advanced.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-09T18:11:09.224943+00:00",
+      "updated_at": "2026-04-09T18:11:09.224943+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:11:09.224943+00:00",
+        "access_count": 0
+      }
+    },
+    "c0cb48b41e21": {
+      "id": "c0cb48b41e21",
+      "type": "fact",
+      "key": "run_5_advanced_4",
+      "fact": {
+        "rule": "= source.FormattedText\n\n    # 3. Insert a copy at the end (before Anexos) as \"3.1.3. Horas Premium\"\n    for i in range(1, doc.Paragraphs.Count + 1):\n        text = doc.Paragraphs(i).Range.Text.strip()\n        if text.startswith('7.') and 'Anexos' in text and '...' not in text:\n            target = doc.Range(doc.Paragraphs(i).Range.Start, doc.Paragraphs(i).Range.Start)\n            target.FormattedText = formatted\n            print('  Seccion copiada antes de Anexos')\n            break\n\n    # 4. Rename the copy\n    w.find_then_set('3.1.1.    Horas de Soporte, Asistencia y Preventivo', '3.1.3.    Horas Premium de Soporte')\n\n    # 5. Verify both sections exist\n    secs = w.get_sections()\n    texts = ' '.join(s['text'] for s in secs)\n",
+        "applies_to": "tests",
+        "source": "C:\\Chance1\\IA\\IA_Word\\tests\\run_5_advanced.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-09T18:11:09.418338+00:00",
+      "updated_at": "2026-04-09T18:11:09.418338+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:11:09.418338+00:00",
+        "access_count": 0
+      }
+    },
+    "bc1e2e0a8190": {
+      "id": "bc1e2e0a8190",
+      "type": "fact",
+      "key": "run_5_advanced_5",
+      "fact": {
+        "rule": "erify both sections exist\n    secs = w.get_sections()\n    texts = ' '.join(s['text'] for s in secs)\n    assert 'Horas de Soporte, Asistencia' in texts, \"Original section missing\"\n    # The renamed one might be found by find_then_set\n    w.save()\n    print(f'  Secciones: {len(secs)}')\n\nrun_test(1, 'Merge: copiar seccion y componer documento', test_adv1)\n\n# ============================================================\ndef test_adv2():\n    \"\"\"Campos Word: insertar DATE, NUMPAGES, IF y actualizar.\"\"\"\n    fresh('ADV2_Campos_Word')\n    doc = w.doc\n\n    # 1. Insert a DATE field at end of document\n    end_range = doc.Range(doc.Content.End - 1, doc.Content.End - 1)\n    end_range.Text = \"\\rFecha de generacion: \"\n    # Move to after the text we just inserted\n    insert_pos = doc.Content.End - 1\n",
+        "applies_to": "tests",
+        "source": "C:\\Chance1\\IA\\IA_Word\\tests\\run_5_advanced.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-09T18:11:09.547466+00:00",
+      "updated_at": "2026-04-09T18:11:09.547466+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:11:09.547466+00:00",
+        "access_count": 0
+      }
+    },
+    "35787932f8aa": {
+      "id": "35787932f8aa",
+      "type": "fact",
+      "key": "run_5_advanced_6",
+      "fact": {
+        "rule": "de generacion: \"\n    # Move to after the text we just inserted\n    insert_pos = doc.Content.End - 1\n    field_range = doc.Range(insert_pos, insert_pos)\n    doc.Fields.Add(field_range, 31, r'\\@ \"dd/MM/yyyy\"', True)  # wdFieldDate=31\n    print('  Campo DATE insertado')\n\n    # 2. Insert NUMPAGES field\n    end2 = doc.Content.End - 1\n    doc.Range(end2, end2).Text = \"\\rTotal paginas: \"\n    end3 = doc.Content.End - 1\n    doc.Fields.Add(doc.Range(end3, end3), 26, '', True)  # wdFieldNumPages=26\n    print('  Campo NUMPAGES insertado')\n\n    # 3. Count all fields\n    field_count = doc.Fields.Count\n    print(f'  Total campos en documento: {field_count}')\n    assert field_count >= 2, f\"Should have at least 2 fields, got {field_count}\"\n\n    # 4. Update all fields\n    for f in doc.Fields:\n        try:\n",
+        "applies_to": "tests",
+        "source": "C:\\Chance1\\IA\\IA_Word\\tests\\run_5_advanced.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-09T18:11:09.662654+00:00",
+      "updated_at": "2026-04-09T18:11:09.662654+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:11:09.662654+00:00",
+        "access_count": 0
+      }
+    },
+    "27a62d06dd63": {
+      "id": "27a62d06dd63",
+      "type": "fact",
+      "key": "run_5_advanced_7",
+      "fact": {
+        "rule": "east 2 fields, got {field_count}\"\n\n    # 4. Update all fields\n    for f in doc.Fields:\n        try:\n            f.Update()\n        except:\n            pass\n    print('  Todos los campos actualizados')\n\n    # 5. Read field results\n    for f in doc.Fields:\n        try:",
+        "applies_to": "tests",
+        "source": "C:\\Chance1\\IA\\IA_Word\\tests\\run_5_advanced.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-09T18:11:09.771118+00:00",
+      "updated_at": "2026-04-09T18:11:09.771118+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:11:09.771118+00:00",
+        "access_count": 0
+      }
+    },
+    "31e5099134a1": {
+      "id": "31e5099134a1",
+      "type": "fact",
+      "key": "test_stress_0",
+      "fact": {
+        "rule": "\"\"\"\nStress test suite for WordCOM engine.\nUses a SINGLE Word instance to avoid COM RPC crashes between test classes.\n\"\"\"\n\nimport os\nimport re\nimport shutil\nimport sys\nimport unittest\n\nsys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', 'src'))\nfrom word_com import WordCOM, WordCOMError\n\nINPUT = r'C:\\Chance1\\temp2\\Propuesta de PostgreSQL CE On Prem Horas - Banco GyT 30032026 (1).docx'\nWORK = r'C:\\Chance1\\temp2\\TEST_STRESS.docx'\n\n# Single shared Word instance\n_word = None\n\ndef get_word():\n    global _word\n    if _word is None:\n        _word = WordCOM(visible=False)\n    return _word\n\ndef reload_doc():\n    \"\"\"Fresh copy + open.\"\"\"\n    w = get_word()\n    try:\n        w.close_document(save=False)\n    except Exception:\n        pass\n    shutil.copy2(INPUT, WORK)\n",
+        "applies_to": "tests",
+        "source": "C:\\Chance1\\IA\\IA_Word\\tests\\test_stress.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-09T18:11:10.282358+00:00",
+      "updated_at": "2026-04-09T18:11:10.282358+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:11:10.282358+00:00",
+        "access_count": 0
+      }
+    },
+    "b2430ff358ff": {
+      "id": "b2430ff358ff",
+      "type": "fact",
+      "key": "test_stress_1",
+      "fact": {
+        "rule": "      w.close_document(save=False)\n    except Exception:\n        pass\n    shutil.copy2(INPUT, WORK)\n    return w.open_document(WORK)\n\nclass Test01_FindReplace(unittest.TestCase):\n    \"\"\"Find/Replace edge cases.\"\"\"\n\n    @classmethod\n    def setUpClass(cls):\n        if not os.path.exists(INPUT):\n            raise unittest.SkipTest(f\"Input not found\")\n        reload_doc()\n\n    def test_unicode_accents(self):\n        \"\"\"Spanish accented characters don't crash.\"\"\"\n        w = get_word()\n        w.find_replace('Información inicial', 'Información inicial')\n\n    def test_currency_in_tables(self):\n        \"\"\"Dollar signs exist in document tables.\"\"\"\n        w = get_word()\n        tables = w.get_tables()\n        all_text = ' '.join(cell for t in tables for row in t['data'] for cell in row)\n",
+        "applies_to": "tests",
+        "source": "C:\\Chance1\\IA\\IA_Word\\tests\\test_stress.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-09T18:11:10.401770+00:00",
+      "updated_at": "2026-04-09T18:11:10.401770+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:11:10.401770+00:00",
+        "access_count": 0
+      }
+    },
+    "a6cdd1781e94": {
+      "id": "a6cdd1781e94",
+      "type": "fact",
+      "key": "test_stress_2",
+      "fact": {
+        "rule": "get_tables()\n        all_text = ' '.join(cell for t in tables for row in t['data'] for cell in row)\n        self.assertIn('$', all_text)\n\n    def test_find_nonexistent(self):\n        \"\"\"Finding non-existent text returns 0.\"\"\"\n        self.assertEqual(get_word().find_replace('ZZZNOTEXIST999', 'x'), 0)\n\n    def test_empty_replacement(self):\n        \"\"\"Replace with empty string doesn't crash.\"\"\"\n        get_word().find_replace('NONEXIST123', '')\n\n    def test_smart_replace_structure(self):\n        \"\"\"smart_replace returns dict with all 3 areas.\"\"\"\n        r = get_word().smart_replace('NONEXIST', 'x')\n        self.assertIn('body', r)\n        self.assertIn('footer_shapes', r)\n        self.assertIn('tables', r)\n\n    def test_long_text_search(self):\n",
+        "applies_to": "tests",
+        "source": "C:\\Chance1\\IA\\IA_Word\\tests\\test_stress.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-09T18:11:10.536961+00:00",
+      "updated_at": "2026-04-09T18:11:10.536961+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:11:10.536961+00:00",
+        "access_count": 0
+      }
+    },
+    "e96f58616a79": {
+      "id": "e96f58616a79",
+      "type": "fact",
+      "key": "test_stress_3",
+      "fact": {
+        "rule": "sertIn('footer_shapes', r)\n        self.assertIn('tables', r)\n\n    def test_long_text_search(self):\n        \"\"\"Very long search string doesn't crash.\"\"\"\n        get_word().find_replace('x' * 200, 'short')\n\n    def test_footer_shape_replace_nonexistent(self):\n        \"\"\"Footer shape replace with non-existent text returns 0.\"\"\"\n        self.assertEqual(get_word().replace_in_footer_shapes('NONEXIST', 'x'), 0)\n\nclass Test02_HeadingDetection(unittest.TestCase):\n    \"\"\"Heading level detection patterns.\"\"\"\n\n    @classmethod\n    def setUpClass(cls):\n        reload_doc()\n\n    def test_level_1(self):\n        self.assertEqual(get_word()._detect_heading_level('1.  Something'), 1)\n\n    def test_level_2(self):\n        self.assertEqual(get_word()._detect_heading_level('2.1.  Something'), 2)\n\n",
+        "applies_to": "tests",
+        "source": "C:\\Chance1\\IA\\IA_Word\\tests\\test_stress.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-09T18:11:10.655206+00:00",
+      "updated_at": "2026-04-09T18:11:10.655206+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:11:10.655206+00:00",
+        "access_count": 0
+      }
+    },
+    "55e458fc5d6c": {
+      "id": "55e458fc5d6c",
+      "type": "fact",
+      "key": "test_stress_4",
+      "fact": {
+        "rule": "st_level_2(self):\n        self.assertEqual(get_word()._detect_heading_level('2.1.  Something'), 2)\n\n    def test_level_3(self):\n        self.assertEqual(get_word()._detect_heading_level('3.1.2.  Something'), 3)\n\n    def test_not_heading(self):\n        self.assertEqual(get_word()._detect_heading_level('Normal text'), 0)\n\n    def test_empty(self):\n        self.assertEqual(get_word()._detect_heading_level(''), 0)\n\n    def test_no_space_after_dot(self):\n        \"\"\"'1.Something' without space is not a heading.\"\"\"\n        self.assertEqual(get_word()._detect_heading_level('1.Something'), 0)\n\n    def test_deep_nesting(self):\n        self.assertEqual(get_word()._detect_heading_level('1.2.3.4.  Deep'), 4)\n\nclass Test03_Sections(unittest.TestCase):\n    \"\"\"Section listing and properties.\"\"\"\n\n",
+        "applies_to": "tests",
+        "source": "C:\\Chance1\\IA\\IA_Word\\tests\\test_stress.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-09T18:11:10.782475+00:00",
+      "updated_at": "2026-04-09T18:11:10.782475+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:11:10.782475+00:00",
+        "access_count": 0
+      }
+    },
+    "fec46a9a8aa6": {
+      "id": "fec46a9a8aa6",
+      "type": "fact",
+      "key": "test_stress_5",
+      "fact": {
+        "rule": ".  Deep'), 4)\n\nclass Test03_Sections(unittest.TestCase):\n    \"\"\"Section listing and properties.\"\"\"\n\n    @classmethod\n    def setUpClass(cls):\n        reload_doc()\n\n    def test_sections_nonempty(self):\n        sections = get_word().get_sections()\n        self.assertGreater(len(sections), 10)\n\n    def test_section_fields(self):\n        for s in get_word().get_sections():\n            self.assertIn('text', s)\n            self.assertIn('level', s)\n            self.assertIn('page', s)\n\n    def test_levels_valid(self):\n        for s in get_word().get_sections():\n            self.assertGreaterEqual(s['level'], 1)\n            self.assertLessEqual(s['level'], 4)\n\n    def test_pages_positive(self):\n        for s in get_word().get_sections():\n            self.assertGreater(s['page'], 0)\n\n",
+        "applies_to": "tests",
+        "source": "C:\\Chance1\\IA\\IA_Word\\tests\\test_stress.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-09T18:11:10.888526+00:00",
+      "updated_at": "2026-04-09T18:11:10.888526+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:11:10.888526+00:00",
+        "access_count": 0
+      }
+    },
+    "d1a7f78b8353": {
+      "id": "d1a7f78b8353",
+      "type": "fact",
+      "key": "test_stress_6",
+      "fact": {
+        "rule": "ve(self):\n        for s in get_word().get_sections():\n            self.assertGreater(s['page'], 0)\n\n    def test_no_toc_entries(self):\n        for s in get_word().get_sections():\n            self.assertNotIn('...', s['text'])\n\n    def test_known_sections_exist(self):\n        texts = ' '.join(s['text'] for s in get_word().get_sections())\n        for pat in ['Por qu', 'Alcance', 'Propuesta', 'rminos', 'Aceptaci', 'Anexos']:\n            self.assertIn(pat, texts, f\"'{pat}' not found in sections\")\n\nclass Test04_Tables(unittest.TestCase):\n    \"\"\"Table reading.\"\"\"\n\n    @classmethod\n    def setUpClass(cls):\n        reload_doc()\n\n    def test_tables_exist(self):\n        tables = get_word().get_tables()\n        self.assertGreater(len(tables), 0)\n\n    def test_table_fields(self):\n",
+        "applies_to": "tests",
+        "source": "C:\\Chance1\\IA\\IA_Word\\tests\\test_stress.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-09T18:11:11.016048+00:00",
+      "updated_at": "2026-04-09T18:11:11.016048+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:11:11.016048+00:00",
+        "access_count": 0
+      }
+    },
+    "48cdaf62bd80": {
+      "id": "48cdaf62bd80",
+      "type": "fact",
+      "key": "test_stress_7",
+      "fact": {
+        "rule": "et_word().get_tables()\n        self.assertGreater(len(tables), 0)\n\n    def test_table_fields(self):\n        for t in get_word().get_tables():\n            self.assertIn('rows', t)\n            self.assertIn('columns', t)",
+        "applies_to": "tests",
+        "source": "C:\\Chance1\\IA\\IA_Word\\tests\\test_stress.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-09T18:11:11.191843+00:00",
+      "updated_at": "2026-04-09T18:11:11.191843+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:11:11.191843+00:00",
+        "access_count": 0
+      }
+    }
+  },
+  "tag_index": {
+    "python": [
+      "626a3dcc48ec",
+      "c0cb48b41e21",
+      "bc1e2e0a8190",
+      "35787932f8aa",
+      "27a62d06dd63",
+      "31e5099134a1",
+      "b2430ff358ff",
+      "a6cdd1781e94",
+      "e96f58616a79",
+      "55e458fc5d6c",
+      "fec46a9a8aa6",
+      "d1a7f78b8353",
+      "48cdaf62bd80"
+    ],
+    "py": [
+      "626a3dcc48ec",
+      "c0cb48b41e21",
+      "bc1e2e0a8190",
+      "35787932f8aa",
+      "27a62d06dd63",
+      "31e5099134a1",
+      "b2430ff358ff",
+      "a6cdd1781e94",
+      "e96f58616a79",
+      "55e458fc5d6c",
+      "fec46a9a8aa6",
+      "d1a7f78b8353",
+      "48cdaf62bd80"
+    ]
+  },
   "stats": {
-    "total_entries": 0,
+    "total_entries": 13,
     "total_lookups": 3,
     "total_hits": 0
   }

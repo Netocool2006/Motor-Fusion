@@ -32,9 +32,9 @@
       "type": "fact",
       "key": "word_com_1",
       "fact": {
-        "rule": "uns in all contexts\n\"\"\"\n\nfrom __future__ import annotations\n\nimport functools\nimport os\nimport time\nfrom contextlib import contextmanager\nfrom typing import Any, Callable, Generator, Optional, TypeVar\n\nimport win32com.client\nimport pythoncom\nfrom pywintypes import com_error\n\nT = TypeVar(\"T\")\n\ndef com_retry(\n    max_retries: int = 3,\n    delay: float = 1.0,\n    backoff: float = 2.0,\n) -> Callable:\n    \"\"\"\n    Decorator that retries COM calls on transient failures.\n\n    Word COM raises RPC errors when busy processing a previous operation\n    (e.g., after heavy deletions, under TrackRevisions mode, or during\n    paragraph reindexing). This decorator catches those errors and retries\n    with exponential backoff.\n\n    Retried error codes:\n",
+        "rule": "from __future__ import annotations\n\nimport functools\nimport logging\nimport os\nimport re\nimport time\nfrom contextlib import contextmanager\nfrom pathlib import Path\nfrom typing import Any, Callable, Generator, Optional, TypeVar\n\nimport win32com.client\nimport pythoncom\nfrom pywintypes import com_error\n\nT = TypeVar(\"T\")\n\n# --- Module-level logger: file + console ---\n_LOG_DIR = Path(__file__).resolve().parent.parent / \"logs\"\n_LOG_DIR.mkdir(exist_ok=True)\n_log_file = _LOG_DIR / \"word_com.log\"\n\nlog = logging.getLogger(\"ia_word.com\")\nif not log.handlers:\n    log.setLevel(logging.DEBUG)\n    _fh = logging.FileHandler(_log_file, encoding=\"utf-8\")\n    _fh.setLevel(logging.DEBUG)\n    _fh.setFormatter(logging.Formatter(\n        \"%(asctime)s [%(levelname)s] %(message)s\", datefmt=\"%H:%M:%S\"\n    ))\n",
         "applies_to": "src",
-        "source": "IA_Word\\src\\word_com.py",
+        "source": "C:\\Chance1\\IA\\IA_Word\\src\\word_com.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -43,13 +43,13 @@
         "python",
         "py"
       ],
-      "created_at": "2026-04-04T04:33:58.052228+00:00",
-      "updated_at": "2026-04-04T04:33:58.052228+00:00",
+      "created_at": "2026-04-09T18:10:56.054804+00:00",
+      "updated_at": "2026-04-09T18:10:56.054804+00:00",
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-06T19:52:16.288028+00:00",
-        "access_count": 194
+        "last_accessed": "2026-04-09T18:10:56.054804+00:00",
+        "access_count": 0
       }
     },
     "c6d68e5d658c": {
@@ -57,9 +57,9 @@
       "type": "fact",
       "key": "word_com_2",
       "fact": {
-        "rule": " decorator catches those errors and retries\n    with exponential backoff.\n\n    Retried error codes:\n        -2147418111 (0x80010001): RPC_E_CALL_REJECTED - call rejected by callee\n        -2147352567 (0x80020009): DISP_E_EXCEPTION - element doesn't exist (stale index)\n        0x800706be: RPC remote procedure call failed\n        0x800706ba: RPC server unavailable\n\n    Args:\n        max_retries: Maximum number of retry attempts.\n        delay: Initial delay in seconds between retries.\n        backoff: Multiplier for delay on each subsequent retry.\n    \"\"\"\n    RETRYABLE_HRESULTS = {-2147418111, -2147352567}\n    RETRYABLE_CODES = {'0x800706be', '0x800706ba', '0x80010001', '0x80020009'}\n\n    def decorator(func: Callable[..., T]) -> Callable[..., T]:\n        @functools.wraps(func)\n",
+        "rule": "ter(logging.Formatter(\n        \"%(asctime)s [%(levelname)s] %(message)s\", datefmt=\"%H:%M:%S\"\n    ))\n    log.addHandler(_fh)\n    _ch = logging.StreamHandler()\n    _ch.setLevel(logging.INFO)\n    _ch.setFormatter(logging.Formatter(\"[%(levelname)s] %(message)s\"))\n    log.addHandler(_ch)\n\ndef com_retry(\n    max_retries: int = 3,\n    delay: float = 1.0,\n    backoff: float = 2.0,\n) -> Callable:\n    \"\"\"\n    Decorator that retries COM calls on transient failures.\n\n    Word COM raises RPC errors when busy processing a previous operation\n    (e.g., after heavy deletions, under TrackRevisions mode, or during\n    paragraph reindexing). This decorator catches those errors and retries\n    with exponential backoff.\n\n    Retried error codes:\n",
         "applies_to": "src",
-        "source": "IA_Word\\src\\word_com.py",
+        "source": "C:\\Chance1\\IA\\IA_Word\\src\\word_com.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -68,13 +68,13 @@
         "python",
         "py"
       ],
-      "created_at": "2026-04-04T04:33:58.127882+00:00",
-      "updated_at": "2026-04-04T04:33:58.127882+00:00",
+      "created_at": "2026-04-09T18:10:56.167463+00:00",
+      "updated_at": "2026-04-09T18:10:56.167463+00:00",
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T05:26:01.421311+00:00",
-        "access_count": 251
+        "last_accessed": "2026-04-09T18:10:56.167463+00:00",
+        "access_count": 0
       }
     },
     "efe4dac73890": {
@@ -132,9 +132,9 @@
       "type": "fact",
       "key": "word_com_5",
       "fact": {
-        "rule": "Y = 6\nWD_UNITS_CHARACTER = 1\nWD_GO_TO_PAGE = 1\nWD_OUTLINE_LEVEL_BODY = 10\nWD_SAVE_FORMAT_DOCX = 16\n\nclass WordCOMError(Exception):\n    \"\"\"Raised when a COM operation on Word fails.\"\"\"\n    pass\n\nclass WordCOM:\n    \"\"\"\n    Wrapper around Microsoft Word COM Automation.\n\n    Provides high-level methods for document manipulation while ensuring\n    proper cleanup of COM resources. Always use as a context manager or\n    call quit() explicitly when done.\n\n    Example:\n        with WordCOM() as word:\n            word.open_document(\"C:/docs/proposal.docx\")\n            word.find_replace(\"2024\", \"2025\")\n            word.update_toc()\n            word.save_as(\"C:/docs/proposal_updated.docx\")\n    \"\"\"\n\n    def __init__(self, visible: bool = False) -> None:\n        \"\"\"\n",
+        "rule": "\n                        or 'rejected' in err_str\n                        or 'no existe' in err_str\n                    )\n\n                    if is_retryable and attempt < max_retries:\n                        wait = delay * (backoff ** attempt)\n                        time.sleep(wait)\n                        continue\n                    raise\n            raise last_error  # type: ignore\n        return wrapper\n    return decorator\n\n# ---------------------------------------------------------------------------\n# UndoRecord: groups COM mutations into a single Ctrl+Z entry\n# Pattern from ykarapazar/word-mcp-live (MIT license)\n# ---------------------------------------------------------------------------\n@contextmanager\ndef undo_record(app, name: str = \"IA_Word operation\"):\n",
         "applies_to": "src",
-        "source": "IA_Word\\src\\word_com.py",
+        "source": "C:\\Chance1\\IA\\IA_Word\\src\\word_com.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -143,13 +143,13 @@
         "python",
         "py"
       ],
-      "created_at": "2026-04-04T04:33:58.339985+00:00",
-      "updated_at": "2026-04-04T04:33:58.339985+00:00",
+      "created_at": "2026-04-09T18:10:56.298352+00:00",
+      "updated_at": "2026-04-09T18:10:56.298352+00:00",
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T05:26:01.421311+00:00",
-        "access_count": 107
+        "last_accessed": "2026-04-09T18:10:56.298352+00:00",
+        "access_count": 0
       }
     },
     "424e9bd2c417": {
@@ -157,9 +157,9 @@
       "type": "fact",
       "key": "word_com_6",
       "fact": {
-        "rule": "proposal_updated.docx\")\n    \"\"\"\n\n    def __init__(self, visible: bool = False) -> None:\n        \"\"\"\n        Initialize COM connection to Microsoft Word.\n\n        Args:\n            visible: If True, Word window is shown. False for headless operation.\n        \"\"\"\n        self._app: Any = None\n        self._doc: Any = None\n        self._visible = visible\n        self._initialized = False\n\n    def _ensure_app(self) -> None:\n        \"\"\"Create the Word application COM object if not already created.\"\"\"\n        if self._app is None:\n            try:\n                pythoncom.CoInitialize()\n                self._app = win32com.client.Dispatch(\"Word.Application\")\n                self._app.Visible = self._visible\n                self._app.DisplayAlerts = 0  # wdAlertsNone\n",
+        "rule": "----------------------------\n@contextmanager\ndef undo_record(app, name: str = \"IA_Word operation\"):\n    \"\"\"Wrap COM mutations in a single Word UndoRecord (one Ctrl+Z to undo all).\n\n    Degrades gracefully on Word 2007 or if UndoRecord is unavailable.\n    \"\"\"\n    rec = None\n    try:\n        rec = app.UndoRecord\n        if rec.IsRecordingCustomRecord:\n            try:\n                rec.EndCustomRecord()\n            except Exception:\n                pass\n        rec.StartCustomRecord(name[:64])\n    except Exception:\n        rec = None\n    try:\n        yield\n    finally:\n        if rec is not None:\n            try:\n                rec.EndCustomRecord()\n            except Exception:\n                pass\n\n# ---------------------------------------------------------------------------\n",
         "applies_to": "src",
-        "source": "IA_Word\\src\\word_com.py",
+        "source": "C:\\Chance1\\IA\\IA_Word\\src\\word_com.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -168,13 +168,13 @@
         "python",
         "py"
       ],
-      "created_at": "2026-04-04T04:33:58.407881+00:00",
-      "updated_at": "2026-04-04T04:33:58.407881+00:00",
+      "created_at": "2026-04-09T18:10:56.414210+00:00",
+      "updated_at": "2026-04-09T18:10:56.414210+00:00",
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T05:26:01.421311+00:00",
-        "access_count": 202
+        "last_accessed": "2026-04-09T18:10:56.414210+00:00",
+        "access_count": 0
       }
     },
     "8801c5a579c9": {
@@ -182,9 +182,9 @@
       "type": "fact",
       "key": "word_com_7",
       "fact": {
-        "rule": "      self._app.Visible = self._visible\n                self._app.DisplayAlerts = 0  # wdAlertsNone\n                self._initialized = True\n            except com_error as e:\n                raise WordCOMError(\n                    f\"Failed to start Microsoft Word. Is it inst",
+        "rule": "                pass\n\n# ---------------------------------------------------------------------------\n# ROT Scanner: connect to an existing Word instance instead of creating new\n# Pattern from ykarapazar/word-mcp-live (MIT license)",
         "applies_to": "src",
-        "source": "IA_Word\\src\\word_com.py",
+        "source": "C:\\Chance1\\IA\\IA_Word\\src\\word_com.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -193,13 +193,13 @@
         "python",
         "py"
       ],
-      "created_at": "2026-04-04T04:33:58.469126+00:00",
-      "updated_at": "2026-04-04T04:33:58.469126+00:00",
+      "created_at": "2026-04-09T18:10:56.511452+00:00",
+      "updated_at": "2026-04-09T18:10:56.511452+00:00",
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T05:26:01.421311+00:00",
-        "access_count": 56
+        "last_accessed": "2026-04-09T18:10:56.511452+00:00",
+        "access_count": 0
       }
     },
     "2cf1d810abbf": {
@@ -282,9 +282,9 @@
       "type": "fact",
       "key": "validators_3",
       "fact": {
-        "rule": "\"\"\"\n        self.word = word_com\n\n    def validate_structure(self) -> ValidationResult:\n        \"\"\"\n        Validate that required sections exist in the document.\n\n        Checks:\n            - Cover page exists on page 1 (has image/logo)\n            - Presentation letter on page 2\n            - Table of contents with clickable links\n            - All required sections from business rules\n            - Correct section ordering\n\n        Returns:\n            ValidationResult with pass/fail and list of issues.\n        \"\"\"\n        issues: list[str] = []\n\n        # Get all headings from the document\n        sections = self.word.get_sections()\n        section_texts = [s[\"text\"].lower().strip() for s in sections]\n\n        # Remove numbering prefixes for matching (e.g., \"1. Misión\" -> \"misión\")\n",
+        "rule": "      self._sections_cache: Optional[list[dict]] = None\n\n    def _get_sections(self) -> list[dict]:\n        \"\"\"Get sections with caching to avoid repeated full-document scans.\"\"\"\n        if self._sections_cache is None:\n            self._sections_cache = self.word.get_sections()\n        return self._sections_cache\n\n    def validate_structure(self) -> ValidationResult:\n        \"\"\"\n        Validate that required sections exist in the document.\n\n        Checks:\n            - Cover page exists on page 1 (has image/logo)\n            - Presentation letter on page 2\n            - Table of contents with clickable links\n            - All required sections from business rules\n            - Correct section ordering\n\n        Returns:\n            ValidationResult with pass/fail and list of issues.\n",
         "applies_to": "src",
-        "source": "IA_Word\\src\\validators.py",
+        "source": "C:\\Chance1\\IA\\IA_Word\\src\\validators.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -293,13 +293,13 @@
         "python",
         "py"
       ],
-      "created_at": "2026-04-04T04:33:58.736204+00:00",
-      "updated_at": "2026-04-04T04:33:58.736204+00:00",
+      "created_at": "2026-04-09T18:11:00.849573+00:00",
+      "updated_at": "2026-04-09T18:11:00.849573+00:00",
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-06T19:52:16.288028+00:00",
-        "access_count": 205
+        "last_accessed": "2026-04-09T18:11:00.849573+00:00",
+        "access_count": 0
       }
     },
     "e49cd60d310c": {
@@ -307,9 +307,9 @@
       "type": "fact",
       "key": "validators_4",
       "fact": {
-        "rule": "or s in sections]\n\n        # Remove numbering prefixes for matching (e.g., \"1. Misión\" -> \"misión\")\n        normalized_sections: list[str] = []\n        for text in section_texts:\n            cleaned = re.sub(r'^\\d+[\\.\\)]\\s*', '', text).strip()\n            normalized_sections.append(cleaned)\n\n        # Check page count (minimum for a valid proposal)\n        try:\n            doc_info = self.word.get_document_info()\n            page_count = doc_info.get(\"page_count\", 0)\n            if page_count < 5:\n                issues.append(\n                    f\"Document has only {page_count} pages. A complete proposal \"\n                    f\"typically has at least 10 pages.\"\n                )\n        except Exception:\n            issues.append(\"Could not determine page count.\")\n\n",
+        "rule": " section ordering\n\n        Returns:\n            ValidationResult with pass/fail and list of issues.\n        \"\"\"\n        issues: list[str] = []\n\n        # Get all headings from the document\n        sections = self._get_sections()\n        section_texts = [s[\"text\"].lower().strip() for s in sections]\n\n        # Remove numbering prefixes for matching (e.g., \"1. Misión\" -> \"misión\")\n        normalized_sections: list[str] = []\n        for text in section_texts:\n            cleaned = re.sub(r'^\\d+[\\.\\)]\\s*', '', text).strip()\n            normalized_sections.append(cleaned)\n\n        # Check page count (minimum for a valid proposal)\n        try:\n            doc_info = self.word.get_document_info()\n            page_count = doc_info.get(\"page_count\", 0)\n            if page_count < 5:\n",
         "applies_to": "src",
-        "source": "IA_Word\\src\\validators.py",
+        "source": "C:\\Chance1\\IA\\IA_Word\\src\\validators.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -318,13 +318,13 @@
         "python",
         "py"
       ],
-      "created_at": "2026-04-04T04:33:58.809168+00:00",
-      "updated_at": "2026-04-04T04:33:58.809168+00:00",
+      "created_at": "2026-04-09T18:11:00.951169+00:00",
+      "updated_at": "2026-04-09T18:11:00.951169+00:00",
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T05:26:01.421311+00:00",
-        "access_count": 79
+        "last_accessed": "2026-04-09T18:11:00.951169+00:00",
+        "access_count": 0
       }
     },
     "858c406a2788": {
@@ -332,9 +332,9 @@
       "type": "fact",
       "key": "validators_5",
       "fact": {
-        "rule": "          )\n        except Exception:\n            issues.append(\"Could not determine page count.\")\n\n        # Check cover page (page 1 should have an image)\n        try:\n            doc = self.word.doc\n            first_page_has_image = False\n            for shape in doc.InlineShapes:\n                if shape.Range.Information(3) == 1:  # wdActiveEndPageNumber\n                    first_page_has_image = True\n                    break\n            if not first_page_has_image:\n                for shape in doc.Shapes:\n                    try:\n                        anchor_page = shape.Anchor.Information(3)\n                        if anchor_page == 1:\n                            first_page_has_image = True\n                            break\n                    except Exception:\n",
+        "rule": "cument_info()\n            page_count = doc_info.get(\"page_count\", 0)\n            if page_count < 5:\n                issues.append(\n                    f\"Document has only {page_count} pages. A complete proposal \"\n                    f\"typically has at least 10 pages.\"\n                )\n        except Exception:\n            issues.append(\"Could not determine page count.\")\n\n        # Check cover page (page 1 should have an image)\n        try:\n            doc = self.word.doc\n            first_page_has_image = False\n            for shape in doc.InlineShapes:\n                if shape.Range.Information(3) == 1:  # wdActiveEndPageNumber\n                    first_page_has_image = True\n                    break\n            if not first_page_has_image:\n                for shape in doc.Shapes:\n",
         "applies_to": "src",
-        "source": "IA_Word\\src\\validators.py",
+        "source": "C:\\Chance1\\IA\\IA_Word\\src\\validators.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -343,13 +343,13 @@
         "python",
         "py"
       ],
-      "created_at": "2026-04-04T04:33:58.877121+00:00",
-      "updated_at": "2026-04-04T04:33:58.877121+00:00",
+      "created_at": "2026-04-09T18:11:01.040920+00:00",
+      "updated_at": "2026-04-09T18:11:01.040920+00:00",
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T05:26:01.421311+00:00",
-        "access_count": 77
+        "last_accessed": "2026-04-09T18:11:01.040920+00:00",
+        "access_count": 0
       }
     },
     "b4dad75eb282": {
@@ -357,9 +357,9 @@
       "type": "fact",
       "key": "validators_6",
       "fact": {
-        "rule": "first_page_has_image = True\n                            break\n                    except Exception:\n                        continue\n            if not first_page_has_image:\n                issues.append(\n                    \"Cover page (page 1) does not appear to have a logo/image.\"\n                )\n        except Exception:\n            issues.append(\"Could not verify cover page image.\")\n\n        # Check for Table of Contents\n        try:\n            toc_count = doc.TablesOfContents.Count\n            if toc_count == 0:\n                # Also check for TOC fields\n                has_toc_field = False\n                for fld in doc.Fields:\n                    if fld.Type == 13:  # wdFieldTOC\n                        has_toc_field = True\n                        break\n",
+        "rule": "            break\n            if not first_page_has_image:\n                for shape in doc.Shapes:\n                    try:\n                        anchor_page = shape.Anchor.Information(3)\n                        if anchor_page == 1:\n                            first_page_has_image = True\n                            break\n                    except Exception:\n                        continue\n            if not first_page_has_image:\n                issues.append(\n                    \"Cover page (page 1) does not appear to have a logo/image.\"\n                )\n        except Exception:\n            issues.append(\"Could not verify cover page image.\")\n\n        # Check for Table of Contents\n        try:\n            toc_count = doc.TablesOfContents.Count\n            if toc_count == 0:\n",
         "applies_to": "src",
-        "source": "IA_Word\\src\\validators.py",
+        "source": "C:\\Chance1\\IA\\IA_Word\\src\\validators.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -368,13 +368,13 @@
         "python",
         "py"
       ],
-      "created_at": "2026-04-04T04:33:58.939855+00:00",
-      "updated_at": "2026-04-04T04:33:58.939855+00:00",
+      "created_at": "2026-04-09T18:11:01.136802+00:00",
+      "updated_at": "2026-04-09T18:11:01.136802+00:00",
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T05:26:01.421311+00:00",
-        "access_count": 114
+        "last_accessed": "2026-04-09T18:11:01.136802+00:00",
+        "access_count": 0
       }
     },
     "41cc7b260ab2": {
@@ -382,9 +382,9 @@
       "type": "fact",
       "key": "validators_7",
       "fact": {
-        "rule": "ype == 13:  # wdFieldTOC\n                        has_toc_field = True\n                        break\n                if not has_toc_field:\n                    issues.append(\"No Table of Contents found in the document.\")\n        except Exception:",
+        "rule": "ents\n        try:\n            toc_count = doc.TablesOfContents.Count\n            if toc_count == 0:\n                # Also check for TOC fields\n                has_toc_field = False",
         "applies_to": "src",
-        "source": "IA_Word\\src\\validators.py",
+        "source": "C:\\Chance1\\IA\\IA_Word\\src\\validators.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -393,13 +393,13 @@
         "python",
         "py"
       ],
-      "created_at": "2026-04-04T04:33:59.001798+00:00",
-      "updated_at": "2026-04-04T04:33:59.001798+00:00",
+      "created_at": "2026-04-09T18:11:01.233849+00:00",
+      "updated_at": "2026-04-09T18:11:01.233849+00:00",
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T05:26:01.421311+00:00",
-        "access_count": 168
+        "last_accessed": "2026-04-09T18:11:01.233849+00:00",
+        "access_count": 0
       }
     },
     "4e1cbae22728": {
@@ -432,9 +432,9 @@
       "type": "fact",
       "key": "mcp_server_1",
       "fact": {
-        "rule": "(sys.stderr)],\n)\nlogger = logging.getLogger(\"ia_powerpoint\")\n\n_ppt: Optional[PowerPointCOM] = None\n\ndef get_ppt() -> PowerPointCOM:\n    global _ppt\n    if _ppt is None:\n        _ppt = PowerPointCOM(visible=False)\n        _ppt._ensure_app()\n    return _ppt\n\ndef result_json(data: Any) -> list[TextContent]:\n    return [TextContent(type=\"text\", text=json.dumps(data, ensure_ascii=False, indent=2, default=str))]\n\ndef error_json(message: str, details: str = \"\") -> list[TextContent]:\n    payload = {\"error\": message}\n    if details:\n        payload[\"details\"] = details\n    return [TextContent(type=\"text\", text=json.dumps(payload, ensure_ascii=False, indent=2))]\n\napp = Server(\"ia_powerpoint\")\n\n@app.list_tools()\nasync def list_tools() -> list[Tool]:\n    return [\n        Tool(\n",
+        "rule": "import VisionBridge\nfrom .tool_builder import ToolBuilder\nfrom .docx_sanitizer import DocxSanitizer\nfrom .kb_reference import lookup_patterns_for_issues, get_fix_hints\n\n# Configure logging\nlogging.basicConfig(\n    level=logging.INFO,\n    format=\"%(asctime)s [%(levelname)s] %(name)s: %(message)s\",\n    handlers=[logging.StreamHandler(sys.stderr)],\n)\nlogger = logging.getLogger(\"ia_word\")\n\n# Global state\n_word: Optional[WordCOM] = None\n_eyes: Optional[DocEyes] = None\n_bridge: Optional[VisionBridge] = None\n_tool_builder: Optional[ToolBuilder] = None\n_pre_edit_snapshot: Optional[dict] = None\n\ndef _cleanup_word():\n    \"\"\"Garantiza que Word se cierre al terminar el proceso.\n\n    Se registra con atexit para evitar zombies de WINWORD.EXE cuando el\n",
         "applies_to": "src",
-        "source": "IA_PowerPoint\\src\\mcp_server.py",
+        "source": "C:\\Chance1\\IA\\IA_Word\\src\\mcp_server.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -443,13 +443,13 @@
         "python",
         "py"
       ],
-      "created_at": "2026-04-04T04:36:28.957423+00:00",
-      "updated_at": "2026-04-04T04:36:28.957423+00:00",
+      "created_at": "2026-04-09T18:10:57.543891+00:00",
+      "updated_at": "2026-04-09T18:10:57.543891+00:00",
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T05:02:10.400609+00:00",
-        "access_count": 84
+        "last_accessed": "2026-04-09T18:10:57.543891+00:00",
+        "access_count": 0
       }
     },
     "3d53e0c7cb5a": {
@@ -457,9 +457,9 @@
       "type": "fact",
       "key": "mcp_server_2",
       "fact": {
-        "rule": "ia_powerpoint\")\n\n@app.list_tools()\nasync def list_tools() -> list[Tool]:\n    return [\n        Tool(\n            name=\"open_presentation\",\n            description=\"Open a PowerPoint file (.pptx/.ppt). Must be called before any other operation.\",\n            inputSchema={\n                \"type\": \"object\",\n                \"properties\": {\n                    \"path\": {\"type\": \"string\", \"description\": \"Absolute path to the PowerPoint file.\"},\n                    \"read_only\": {\"type\": \"boolean\", \"description\": \"Open in read-only mode. Default: false.\", \"default\": False},\n                },\n                \"required\": [\"path\"],\n            },\n        ),\n        Tool(\n            name=\"analyze_presentation\",\n            description=(\n",
+        "rule": "re al terminar el proceso.\n\n    Se registra con atexit para evitar zombies de WINWORD.EXE cuando el\n    script falla a mitad de ejecucion o el usuario lo interrumpe.\n    \"\"\"\n    global _word\n    if _word is not None:\n        try:\n            logger.info(\"atexit: cerrando Word para evitar zombie...\")\n            _word.quit()\n        except Exception as e:\n            logger.warning(\"atexit: error cerrando Word: %s\", e)\n        finally:\n            _word = None\n\natexit.register(_cleanup_word)\n\n# Tools that MODIFY the document — require visual validation after execution\n# Mutable set: ToolBuilder can add custom write tools at runtime\nWRITE_TOOLS: set[str] = {\n    \"find_replace\", \"find_replace_wildcard\", \"delete_section\", \"renumber_sections\",\n",
         "applies_to": "src",
-        "source": "IA_PowerPoint\\src\\mcp_server.py",
+        "source": "C:\\Chance1\\IA\\IA_Word\\src\\mcp_server.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -468,13 +468,13 @@
         "python",
         "py"
       ],
-      "created_at": "2026-04-04T04:36:29.040948+00:00",
-      "updated_at": "2026-04-04T04:36:29.040948+00:00",
+      "created_at": "2026-04-09T18:10:57.644758+00:00",
+      "updated_at": "2026-04-09T18:10:57.644758+00:00",
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-06T19:52:16.288028+00:00",
-        "access_count": 196
+        "last_accessed": "2026-04-09T18:10:57.644758+00:00",
+        "access_count": 0
       }
     },
     "78b69e8c9a5d": {
@@ -482,9 +482,9 @@
       "type": "fact",
       "key": "mcp_server_3",
       "fact": {
-        "rule": "     },\n        ),\n        Tool(\n            name=\"analyze_presentation\",\n            description=(\n                \"Full analysis of the open presentation: slides, shapes, tables, \"\n                \"charts, images, notes, transitions, animations, layouts. \"\n                \"Use this first to understand the presentation structure.\"\n            ),\n            inputSchema={\"type\": \"object\", \"properties\": {}},\n        ),\n        Tool(\n            name=\"get_slide_text\",\n            description=\"Get all text content from a specific slide.\",\n            inputSchema={\n                \"type\": \"object\",\n                \"properties\": {\n                    \"slide_number\": {\"type\": \"integer\", \"description\": \"1-based slide number.\"},\n                },\n                \"required\": [\"slide_number\"],\n",
+        "rule": "S: set[str] = {\n    \"find_replace\", \"find_replace_wildcard\", \"delete_section\", \"renumber_sections\",\n    \"update_footer\", \"update_toc\", \"insert_table\", \"insert_paragraph\",\n    \"replace_section_content\", \"format_table\", \"merge_documents\",\n    \"update_all_fields\", \"add_watermark\", \"remove_watermark\", \"insert_image\",\n    \"set_page_layout\", \"manage_bookmarks\", \"manage_track_changes\",\n    \"set_document_properties\", \"copy_styles_from\", \"protect_document\",\n    \"manage_headers_footers\", \"merge_table_cells\", \"split_table_cell\",\n    \"insert_list\", \"insert_cross_reference\", \"table_formula\",\n    \"bulk_font_change\", \"set_paragraph_spacing\",\n    # New exposed hidden methods\n    \"smart_replace\", \"find_then_set\", \"move_section\", \"copy_section_from\",\n",
         "applies_to": "src",
-        "source": "IA_PowerPoint\\src\\mcp_server.py",
+        "source": "C:\\Chance1\\IA\\IA_Word\\src\\mcp_server.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -493,13 +493,13 @@
         "python",
         "py"
       ],
-      "created_at": "2026-04-04T04:36:29.117815+00:00",
-      "updated_at": "2026-04-04T04:36:29.117815+00:00",
+      "created_at": "2026-04-09T18:10:57.751407+00:00",
+      "updated_at": "2026-04-09T18:10:57.751407+00:00",
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-06T19:52:16.288028+00:00",
-        "access_count": 210
+        "last_accessed": "2026-04-09T18:10:57.751407+00:00",
+        "access_count": 0
       }
     },
     "7447ce90bc9c": {
@@ -507,9 +507,9 @@
       "type": "fact",
       "key": "mcp_server_4",
       "fact": {
-        "rule": "iption\": \"1-based slide number.\"},\n                },\n                \"required\": [\"slide_number\"],\n            },\n        ),\n        Tool(\n            name=\"get_all_slides_text\",\n            description=\"Get text content from all slides. Good for understanding the full presentation.\",\n            inputSchema={\"type\": \"object\", \"properties\": {}},\n        ),\n        Tool(\n            name=\"find_replace\",\n            description=(\n                \"Find and replace text across all slides, notes, tables, and masters. \"\n                \"Works on rendered text, handles grouped shapes and table cells.\"\n            ),\n            inputSchema={\n                \"type\": \"object\",\n                \"properties\": {\n                    \"old_text\": {\"type\": \"string\", \"description\": \"Text to find.\"},\n",
+        "rule": "w exposed hidden methods\n    \"smart_replace\", \"find_then_set\", \"move_section\", \"copy_section_from\",\n    \"repair_footers\", \"vba_batch_replace\", \"vba_batch_format_headings\",\n    # New Word Object Model operations\n    \"manage_footnotes\", \"manage_endnotes\", \"manage_comments\",\n    \"accept_reject_changes\", \"fill_form_fields\", \"manage_content_controls\",\n    \"mail_merge\", \"insert_equation\", \"set_text_direction\",\n    \"insert_ole_object\", \"restrict_editing\",\n    # Batch 3\n    # Batch 7\n    \"remove_blank_pages\", \"fix_orphan_headings\", \"auto_fix_layout\",\n    # Batch 6\n    \"insert_toc\", \"format_toc\", \"delete_toc\", \"add_image_watermark\", \"auto_adjust_margins\",\n    # Batch 5\n    \"set_table_repeat_headers\", \"set_paragraph_alignment\", \"format_text_range\",\n",
         "applies_to": "src",
-        "source": "IA_PowerPoint\\src\\mcp_server.py",
+        "source": "C:\\Chance1\\IA\\IA_Word\\src\\mcp_server.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -518,13 +518,13 @@
         "python",
         "py"
       ],
-      "created_at": "2026-04-04T04:36:29.195415+00:00",
-      "updated_at": "2026-04-04T04:36:29.195415+00:00",
+      "created_at": "2026-04-09T18:10:57.843013+00:00",
+      "updated_at": "2026-04-09T18:10:57.843013+00:00",
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-06T19:52:16.288028+00:00",
-        "access_count": 212
+        "last_accessed": "2026-04-09T18:10:57.843013+00:00",
+        "access_count": 0
       }
     },
     "f1ccd1d6f0ce": {
@@ -532,9 +532,9 @@
       "type": "fact",
       "key": "mcp_server_6",
       "fact": {
-        "rule": "roperties\": {\n                    \"text\": {\"type\": \"string\", \"description\": \"Text to search for.\"},\n                    \"match_case\": {\"type\": \"boolean\", \"description\": \"Case-sensitive. Default: false.\", \"default\": False},\n                },\n                \"required\": [\"text\"],\n            },\n        ),\n        Tool(\n            name=\"manage_slide\",\n            description=\"Add, delete, duplicate, or move slides.\",\n            inputSchema={\n                \"type\": \"object\",\n                \"properties\": {\n                    \"action\": {\n                        \"type\": \"string\",\n                        \"enum\": [\"add\", \"delete\", \"duplicate\", \"move\"],\n                        \"description\": \"Action to perform.\",\n                    },\n",
+        "rule": "ert_autotext\", \"create_envelope\", \"create_labels\",\n}\n\n# Tools that only READ — no validation needed\nREAD_TOOLS: set[str] = {\n    \"open_document\", \"analyze_document\", \"validate\", \"get_tables\",\n    \"get_footer_text\", \"get_document_properties\", \"view_page\",\n    \"save\", \"close\", \"export_pdf\", \"compare_documents\",\n}\n\ndef get_word() -> WordCOM:\n    \"\"\"Get the global WordCOM instance, creating it if needed.\"\"\"\n    global _word\n    if _word is None:\n        _word = WordCOM(visible=False)\n        _word._ensure_app()\n    return _word\n\ndef get_eyes() -> DocEyes:\n    \"\"\"Get the global DocEyes instance (singleton).\"\"\"\n    global _eyes\n    if _eyes is None:\n        _eyes = DocEyes(dpi=150, keep_pdf=False)\n    return _eyes\n\ndef get_bridge() -> VisionBridge:\n",
         "applies_to": "src",
-        "source": "IA_PowerPoint\\src\\mcp_server.py",
+        "source": "C:\\Chance1\\IA\\IA_Word\\src\\mcp_server.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -543,13 +543,13 @@
         "python",
         "py"
       ],
-      "created_at": "2026-04-04T04:36:29.287889+00:00",
-      "updated_at": "2026-04-04T04:36:29.287889+00:00",
+      "created_at": "2026-04-09T18:10:58.053260+00:00",
+      "updated_at": "2026-04-09T18:10:58.053260+00:00",
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-06T19:52:16.288028+00:00",
-        "access_count": 95
+        "last_accessed": "2026-04-09T18:10:58.053260+00:00",
+        "access_count": 0
       }
     },
     "f970b3a321d1": {
@@ -557,9 +557,9 @@
       "type": "fact",
       "key": "mcp_server_7",
       "fact": {
-        "rule": "cate\", \"move\"],\n                        \"description\": \"Action to perform.\",\n                    },\n                    \"slide_number\": {\"type\": \"integer\", \"description\": \"Target slide number.\"},\n                    \"layout\": {\"type\": \"integer\", \"description\": \"Layout index for add action. Default: 2 (Title and Content).\"",
+        "rule": "       _eyes = DocEyes(dpi=150, keep_pdf=False)\n    return _eyes\n\ndef get_bridge() -> VisionBridge:\n    \"\"\"Get the global VisionBridge instance (singleton).\"\"\"\n    global _bridge\n    if _bridge is None:\n        _bridge = VisionBridge()\n    return _bridge\n\ndef get_tool_builder() -> ToolBuilder:\n    \"\"\"Get the global ToolBuilder instance (singleton). Loads custom tools fr",
         "applies_to": "src",
-        "source": "IA_PowerPoint\\src\\mcp_server.py",
+        "source": "C:\\Chance1\\IA\\IA_Word\\src\\mcp_server.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -568,13 +568,13 @@
         "python",
         "py"
       ],
-      "created_at": "2026-04-04T04:36:29.368702+00:00",
-      "updated_at": "2026-04-04T04:36:29.368702+00:00",
+      "created_at": "2026-04-09T18:10:58.151365+00:00",
+      "updated_at": "2026-04-09T18:10:58.151365+00:00",
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T05:02:10.400609+00:00",
-        "access_count": 130
+        "last_accessed": "2026-04-09T18:10:58.151365+00:00",
+        "access_count": 0
       }
     },
     "e7e69c07ffe9": {
@@ -607,9 +607,9 @@
       "type": "fact",
       "key": "business_rules_1",
       "fact": {
-        "rule": "          # Cover page (page 1)\n    \"Carta de Presentación\",         # Presentation letter (page 2)\n    \"Tabla de Contenido\",            # Table of contents\n    \"¿Por qué GBM?\",                # Why GBM section\n    \"Misión\",                        # Mission section\n    \"Términos y Condiciones\",        # Terms and conditions\n    \"Aceptación de la Propuesta\",    # Proposal acceptance\n    \"Anexos\",                        # Annexes\n]\n\n# --- Optional sections ---\n# These sections appear based on what the proposal includes.\n\nOPTIONAL_SECTIONS: dict[str, list[str]] = {\n    \"hardware\": [\n        \"Propuesta de Hardware\",\n        \"Especificaciones Técnicas de Hardware\",\n        \"Garantía de Hardware\",\n    ],\n    \"software\": [\n        \"Propuesta de Software\",\n        \"Licenciamiento\",\n",
+        "rule": "          # Cover page (page 1)\n    \"Carta de Presentación\",         # Presentation letter (page 2)\n    \"Tabla de Contenido\",            # Table of contents\n    \"¿Por qué\",                      # Why [company]? section (flexible match)\n    \"Misión\",                        # Mission section\n    \"Términos y Condiciones\",        # Terms and conditions\n    \"Aceptación de la Propuesta\",    # Proposal acceptance\n    \"Anexos\",                        # Annexes\n]\n\n# --- Optional sections ---\n# These sections appear based on what the proposal includes.\n\nOPTIONAL_SECTIONS: dict[str, list[str]] = {\n    \"hardware\": [\n        \"Propuesta de Hardware\",\n        \"Especificaciones Técnicas de Hardware\",\n        \"Garantía de Hardware\",\n    ],\n    \"software\": [\n        \"Propuesta de Software\",\n",
         "applies_to": "src",
-        "source": "IA_Word\\src\\business_rules.py",
+        "source": "C:\\Chance1\\IA\\IA_Word\\src\\business_rules.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -618,13 +618,13 @@
         "python",
         "py"
       ],
-      "created_at": "2026-04-04T04:33:59.795571+00:00",
-      "updated_at": "2026-04-04T04:33:59.795571+00:00",
+      "created_at": "2026-04-09T18:11:07.483563+00:00",
+      "updated_at": "2026-04-09T18:11:07.483563+00:00",
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-06T19:52:16.288028+00:00",
-        "access_count": 228
+        "last_accessed": "2026-04-09T18:11:07.483563+00:00",
+        "access_count": 0
       }
     },
     "50695fdd26fa": {
@@ -657,9 +657,9 @@
       "type": "fact",
       "key": "business_rules_3",
       "fact": {
-        "rule": "naged_services\": [\n        \"Servicios Administrados\",\n        \"Alcance de Servicios Administrados\",\n        \"Niveles de Servicio (SLA)\",\n    ],\n    \"cloud\": [\n        \"Propuesta de Nube\",\n        \"Arquitectura Cloud\",\n        \"Servicios Cloud\",\n    ],\n    \"database\": [\n        \"Base de Datos\",\n        \"Arquitectura de Base de Datos\",\n        \"Licenciamiento de Base de Datos\",\n    ],\n}\n\n# --- Correct section order ---\n\nSECTION_ORDER: list[str] = [\n    \"Portada\",\n    \"Carta de Presentación\",\n    \"Tabla de Contenido\",\n    \"¿Por qué GBM?\",\n    \"Misión\",\n    # -- Optional sections go here, in the order they appear in OPTIONAL_SECTIONS --\n    \"Propuesta Económica\",\n    \"Términos y Condiciones\",\n    \"Aceptación de la Propuesta\",\n    \"Anexos\",\n]\n\n# --- Footer fields ---\n\n",
+        "rule": "        \"Plan de Capacitación\",\n    ],\n    \"managed_services\": [\n        \"Servicios Administrados\",\n        \"Alcance de Servicios Administrados\",\n        \"Niveles de Servicio (SLA)\",\n    ],\n    \"cloud\": [\n        \"Propuesta de Nube\",\n        \"Arquitectura Cloud\",\n        \"Servicios Cloud\",\n    ],\n    \"database\": [\n        \"Base de Datos\",\n        \"Arquitectura de Base de Datos\",\n        \"Licenciamiento de Base de Datos\",\n    ],\n}\n\n# --- Correct section order ---\n\nSECTION_ORDER: list[str] = [\n    \"Portada\",\n    \"Carta de Presentación\",\n    \"Tabla de Contenido\",\n    \"¿Por qué GBM?\",\n    \"Misión\",\n    # -- Optional sections go here, in the order they appear in OPTIONAL_SECTIONS --\n    \"Propuesta Económica\",\n    \"Términos y Condiciones\",\n    \"Aceptación de la Propuesta\",\n    \"Anexos\",\n]\n\n",
         "applies_to": "src",
-        "source": "IA_Word\\src\\business_rules.py",
+        "source": "C:\\Chance1\\IA\\IA_Word\\src\\business_rules.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -668,13 +668,13 @@
         "python",
         "py"
       ],
-      "created_at": "2026-04-04T04:33:59.940819+00:00",
-      "updated_at": "2026-04-04T04:33:59.940819+00:00",
+      "created_at": "2026-04-09T18:11:07.638193+00:00",
+      "updated_at": "2026-04-09T18:11:07.638193+00:00",
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T05:26:01.421311+00:00",
-        "access_count": 213
+        "last_accessed": "2026-04-09T18:11:07.638193+00:00",
+        "access_count": 0
       }
     },
     "07a84401f4ad": {
@@ -707,9 +707,9 @@
       "type": "fact",
       "key": "business_rules_5",
       "fact": {
-        "rule": "ms from the economic proposal, determine which\n    optional sections are required in the document.\n\n    The economic proposal items are typically line items like:\n    - \"Servicio de implementación PostgreSQL\"\n    - \"Licencia Oracle Database Enterprise\"\n    - \"Soporte técnico 24x7\"\n    - \"Instalación y configuración de servidores\"\n\n    Args:\n        economic_proposal_items: List of item descriptions from the economic proposal.\n\n    Returns:\n        List of section names that should be present in the document,\n        in the correct order.\n    \"\"\"\n    all_items_text = \" \".join(economic_proposal_items).lower()\n\n    detected_categories: set[str] = set()\n\n    # Keyword mapping to categories\n    keyword_categories: dict[str, list[str]] = {\n",
+        "rule": "str],\n) -> list[str]:\n    \"\"\"\n    Given a list of items from the economic proposal, determine which\n    optional sections are required in the document.\n\n    The economic proposal items are typically line items like:\n    - \"Servicio de implementación PostgreSQL\"\n    - \"Licencia Oracle Database Enterprise\"\n    - \"Soporte técnico 24x7\"\n    - \"Instalación y configuración de servidores\"\n\n    Args:\n        economic_proposal_items: List of item descriptions from the economic proposal.\n\n    Returns:\n        List of section names that should be present in the document,\n        in the correct order.\n    \"\"\"\n    all_items_text = \" \".join(economic_proposal_items).lower()\n\n    detected_categories: set[str] = set()\n\n    # Keyword mapping to categories\n    keyword_categories: dict[str, list[str]] = {\n",
         "applies_to": "src",
-        "source": "IA_Word\\src\\business_rules.py",
+        "source": "C:\\Chance1\\IA\\IA_Word\\src\\business_rules.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -718,13 +718,13 @@
         "python",
         "py"
       ],
-      "created_at": "2026-04-04T04:34:00.092636+00:00",
-      "updated_at": "2026-04-04T04:34:00.092636+00:00",
+      "created_at": "2026-04-09T18:11:07.808786+00:00",
+      "updated_at": "2026-04-09T18:11:07.808786+00:00",
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-06T19:52:16.288028+00:00",
-        "access_count": 226
+        "last_accessed": "2026-04-09T18:11:07.808786+00:00",
+        "access_count": 0
       }
     },
     "2d8c946172b5": {
@@ -882,9 +882,9 @@
       "type": "fact",
       "key": "__init___0",
       "fact": {
-        "rule": "# -*- coding: utf-8 -*-\n\"\"\"IA_PowerPoint - PowerPoint COM Automation via MCP.\"\"\"",
+        "rule": "# Custom tools auto-generated by ToolBuilder.\n# Each .py file in this directory is a tool that gets loaded automatically.",
         "applies_to": "src",
-        "source": "IA_PowerPoint\\src\\__init__.py",
+        "source": "C:\\Chance1\\IA\\IA_Word\\src\\tools_custom\\__init__.py",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -893,13 +893,13 @@
         "python",
         "py"
       ],
-      "created_at": "2026-04-04T04:36:30.078435+00:00",
-      "updated_at": "2026-04-04T04:36:30.078435+00:00",
+      "created_at": "2026-04-09T18:11:07.997878+00:00",
+      "updated_at": "2026-04-09T18:11:07.997878+00:00",
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-05T05:26:01.421311+00:00",
-        "access_count": 53
+        "last_accessed": "2026-04-09T18:11:07.997878+00:00",
+        "access_count": 0
       }
     },
     "6cfd10c1b4a9": {
@@ -1376,6 +1376,2231 @@
         "last_accessed": "2026-04-05T05:02:10.400609+00:00",
         "access_count": 83
       }
+    },
+    "49a8da06ff7b": {
+      "id": "49a8da06ff7b",
+      "type": "fact",
+      "key": "kb_patterns_export_0",
+      "fact": {
+        "rule": "{\n  \"docx_inline_formatting_bold_italic_underline\": \"Formateo inline con python-docx: Bold, Italic, Underline.\\n\\nCÓDIGO EJEMPLO:\\n```python\\nfrom docx import Document\\nfrom docx.shared import Pt, RGBColor\\n\\ndoc = Document()\\np = doc.add_paragraph()\\n\\n# Run con bold\\nrun_bold = p.add_run(\\\"Texto en negrita\\\")\\nrun_bold.bold = True\\n\\n# Run con italic\\nrun_italic = p.add_run(\\\" texto en cursiva\\\")\\nrun_italic.italic = True\\n\\n# Run con underline\\nrun_under = p.add_run(\\\" texto subrayado\\\")\\nrun_under.underline = True\\n\\n# Combinar formatos\\nrun_combo = p.add_run(\\\" todo junto\\\")\\nrun_combo.bold = True\\nrun_combo.italic = True\\nrun_combo.underline = True\\n\\n# Cambiar fuente y tamaño\\nrun_font = p.add_run(\\\" con fuente personalizada\\\")\\nrun_font.font.name = \\\"Arial\\\"\\nrun_font.font.size = P",
+        "applies_to": "src",
+        "source": "C:\\Chance1\\IA\\IA_Word\\src\\kb_patterns_export.json",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "json",
+        "json"
+      ],
+      "created_at": "2026-04-09T18:10:56.625904+00:00",
+      "updated_at": "2026-04-09T18:10:56.625904+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:10:56.625904+00:00",
+        "access_count": 0
+      }
+    },
+    "b91950aaff42": {
+      "id": "b91950aaff42",
+      "type": "fact",
+      "key": "kb_patterns_export_1",
+      "fact": {
+        "rule": "t = p.add_run(\\\" con fuente personalizada\\\")\\nrun_font.font.name = \\\"Arial\\\"\\nrun_font.font.size = Pt(14)\\nrun_font.font.color.rgb = RGBColor(0xFF, 0x00, 0x00)  # Rojo\\n```\\n\\nCONCEPTOS:\\n- Un paragraph contiene múltiples runs\\n- Cada run puede tener formato independiente\\n- font.name cambia la tipografía\\n- font.size usa Pt() para puntos\\n- font.color.rgb usa RGBColor(r,g,b)\\n- Se pueden combinar bold+italic+underline en un mismo run\\n\\nFuente: PyTutorial, python-docx docs\",\n  \"docx_styles_paragraph_character\": \"Estilos en python-docx: paragraph styles, character styles, table styles.\\n\\nTIPOS DE ESTILOS:\\n1. Paragraph style: aplica a todo el párrafo (Heading 1, Normal, List Bullet)\\n2. Character style: aplica a runs específicos (Emphasis, Strong)\\n3. ",
+        "applies_to": "src",
+        "source": "C:\\Chance1\\IA\\IA_Word\\src\\kb_patterns_export.json",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "json",
+        "json"
+      ],
+      "created_at": "2026-04-09T18:10:56.755340+00:00",
+      "updated_at": "2026-04-09T18:10:56.755340+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:10:56.755340+00:00",
+        "access_count": 0
+      }
+    },
+    "90c5fbe65fcc": {
+      "id": "90c5fbe65fcc",
+      "type": "fact",
+      "key": "kb_patterns_export_2",
+      "fact": {
+        "rule": "ading 1, Normal, List Bullet)\\n2. Character style: aplica a runs específicos (Emphasis, Strong)\\n3. Table style: aplica formato a tablas completas\\n\\nCÓDIGO EJEMPLO:\\n```python\\nfrom docx import Document\\nfrom docx.enum.style import WD_STYLE_TYPE\\n\\ndoc = Document()\\n\\n# Usar estilos predefinidos\\ndoc.add_paragraph(\\\"Título\\\", style=\\\"Heading 1\\\")\\ndoc.add_paragraph(\\\"Subtítulo\\\", style=\\\"Heading 2\\\")\\ndoc.add_paragraph(\\\"Texto normal\\\", style=\\\"Normal\\\")\\ndoc.add_paragraph(\\\"Item de lista\\\", style=\\\"List Bullet\\\")\\ndoc.add_paragraph(\\\"Item numerado\\\", style=\\\"List Number\\\")\\n\\n# Crear estilo personalizado\\nstyles = doc.styles\\nnew_style = styles.add_style(\\\"MiEstilo\\\", WD_STYLE_TYPE.PARAGRAPH)\\nnew_style.font.name = \\\"Calibri\\\"\\nnew_style.font.size = Pt(11)\\nnew_style.font.bold = True\\nne",
+        "applies_to": "src",
+        "source": "C:\\Chance1\\IA\\IA_Word\\src\\kb_patterns_export.json",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "json",
+        "json"
+      ],
+      "created_at": "2026-04-09T18:10:56.872780+00:00",
+      "updated_at": "2026-04-09T18:10:56.872780+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:10:56.872780+00:00",
+        "access_count": 0
+      }
+    },
+    "4cfd38bc36f8": {
+      "id": "4cfd38bc36f8",
+      "type": "fact",
+      "key": "kb_patterns_export_3",
+      "fact": {
+        "rule": "PH)\\nnew_style.font.name = \\\"Calibri\\\"\\nnew_style.font.size = Pt(11)\\nnew_style.font.bold = True\\nnew_style.paragraph_format.space_after = Pt(6)\\n\\n# Aplicar estilo personalizado\\ndoc.add_paragraph(\\\"Con mi estilo\\\", style=\\\"MiEstilo\\\")\\n\\n# Character style en un run\\np = doc.add_paragraph(\\\"Texto con \\\")\\nrun = p.add_run(\\\"énfasis\\\")\\nrun.style = doc.styles[\\\"Emphasis\\\"]\\n```\\n\\nACCESO A font DESDE STYLE:\\n- style.font.name, .size, .bold, .italic, .underline\\n- style.font.color.rgb, .color.theme_color\\n- style.paragraph_format.alignment, .space_before, .space_after, .line_spacing\\n\\nFuente: python-docx.readthedocs.io\",\n  \"docx_vs_win32com_comparison\": \"Comparación python-docx vs win32com para automatización Word.\\n\\nPYTHON-DOCX:\\n- No necesita Word instalado\\n- Cross-platform (Windows, Li",
+        "applies_to": "src",
+        "source": "C:\\Chance1\\IA\\IA_Word\\src\\kb_patterns_export.json",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "json",
+        "json"
+      ],
+      "created_at": "2026-04-09T18:10:56.991094+00:00",
+      "updated_at": "2026-04-09T18:10:56.991094+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:10:56.991094+00:00",
+        "access_count": 0
+      }
+    },
+    "a9fd9a6ab1a6": {
+      "id": "a9fd9a6ab1a6",
+      "type": "fact",
+      "key": "kb_patterns_export_4",
+      "fact": {
+        "rule": "ra automatización Word.\\n\\nPYTHON-DOCX:\\n- No necesita Word instalado\\n- Cross-platform (Windows, Linux, Mac)\\n- Solo formato .docx (no .doc)\\n- API pythónica y limpia\\n- No soporta: macros, track changes nativo, TOC update, print\\n- Ideal para: crear/modificar documentos, templates, batch processing\\n\\nWIN32COM:\\n- Requiere Microsoft Word instalado\\n- Solo Windows\\n- Soporta .doc y .docx\\n- Acceso completo a la API COM de Word\\n- Soporta: macros, track changes, TOC, print, PDF export nativo\\n- Más lento (abre instancia de Word)\\n\\nCÓDIGO WIN32COM BÁSICO:\\n```python\\nimport win32com.client\\n\\nword = win32com.client.Dispatch(\\\"Word.Application\\\")\\nword.Visible = False  # No mostrar Word\\n\\n# Abrir documento\\ndoc = word.Documents.Open(r\\\"C:\\\\ruta\\\\documento.docx\\\")\\n\\n# Leer contenido\\ntext ",
+        "applies_to": "src",
+        "source": "C:\\Chance1\\IA\\IA_Word\\src\\kb_patterns_export.json",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "json",
+        "json"
+      ],
+      "created_at": "2026-04-09T18:10:57.101898+00:00",
+      "updated_at": "2026-04-09T18:10:57.101898+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:10:57.101898+00:00",
+        "access_count": 0
+      }
+    },
+    "491a00466e67": {
+      "id": "491a00466e67",
+      "type": "fact",
+      "key": "kb_patterns_export_5",
+      "fact": {
+        "rule": "Abrir documento\\ndoc = word.Documents.Open(r\\\"C:\\\\ruta\\\\documento.docx\\\")\\n\\n# Leer contenido\\ntext = doc.Content.Text\\n\\n# Aceptar todos los cambios (track changes)\\ndoc.AcceptAllRevisions()\\n\\n# Exportar a PDF\\ndoc.SaveAs2(r\\\"C:\\\\ruta\\\\output.pdf\\\", FileFormat=17)  # 17 = wdFormatPDF\\n\\n# Actualizar tabla de contenidos\\nfor toc in doc.TablesOfContents:\\n    toc.Update()\\n\\n# Cerrar\\ndoc.Close()\\nword.Quit()\\n```\\n\\nCUÁNDO USAR CADA UNO:\\n- Crear docs desde cero → python-docx\\n- Modificar templates simples → python-docx\\n- Track changes, TOC, macros → win32com\\n- Batch processing en servidor → python-docx\\n- Convertir a PDF nativo → win32com\\n\\nFuente: PyTutorial, CodeRivers, pbpython.com\",\n",
+        "applies_to": "src",
+        "source": "C:\\Chance1\\IA\\IA_Word\\src\\kb_patterns_export.json",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "json",
+        "json"
+      ],
+      "created_at": "2026-04-09T18:10:57.202242+00:00",
+      "updated_at": "2026-04-09T18:10:57.202242+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:10:57.202242+00:00",
+        "access_count": 0
+      }
+    },
+    "5d12714bade8": {
+      "id": "5d12714bade8",
+      "type": "fact",
+      "key": "kb_patterns_export_6",
+      "fact": {
+        "rule": " python-docx\\n- Convertir a PDF nativo → win32com\\n\\nFuente: PyTutorial, CodeRivers, pbpython.com\",\n  \"win32com_track_changes_accept_reject\": \"Manejar Track Changes en Word con win32com.\\n\\nCÓDIGO PARA ACEPTAR TODOS LOS CAMBIOS:\\n```python\\nimport win32com.client\\n\\nword = win32com.client.Dispatch(\\\"Word.Application\\\")\\nword.Visible = False\\ndoc = word.Documents.Open(r\\\"C:\\\\ruta\\\\documento.docx\\\")\\n\\n# Aceptar TODOS los cambios\\ndoc.AcceptAllRevisions()\\n\\n# O rechazar todos\\n# doc.RejectAllRevisions()\\n\\ndoc.Save()\\ndoc.Close()\\nword.Quit()\\n```\\n\\nACEPTAR/RECHAZAR INDIVIDUALMENTE:\\n```python\\n# Iterar sobre revisiones\\nfor rev in doc.Revisions:\\n    print(f\\\"Tipo: {rev.Type}, Autor: {rev.Author}, Texto: {rev.Range.Text}\\\")\\n    if rev.Author == \\\"usuario_especifico\\\":\\n        rev.Accept",
+        "applies_to": "src",
+        "source": "C:\\Chance1\\IA\\IA_Word\\src\\kb_patterns_export.json",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "json",
+        "json"
+      ],
+      "created_at": "2026-04-09T18:10:57.311630+00:00",
+      "updated_at": "2026-04-09T18:10:57.311630+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:10:57.311630+00:00",
+        "access_count": 0
+      }
+    },
+    "e51cd6adf79d": {
+      "id": "e51cd6adf79d",
+      "type": "fact",
+      "key": "kb_patterns_export_7",
+      "fact": {
+        "rule": "uthor}, Texto: {rev.Range.Text}\\\")\\n    if rev.Author == \\\"usuario_especifico\\\":\\n        rev.Accept()\\n    else:\\n        rev.Reject()\\n```\\n\\nTIPOS DE REVISIÓN (rev.Type):\\n- 1 = wdRevisionInsert (texto insertado)\\n- 2 = wdRevisionDel",
+        "applies_to": "src",
+        "source": "C:\\Chance1\\IA\\IA_Word\\src\\kb_patterns_export.json",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "json",
+        "json"
+      ],
+      "created_at": "2026-04-09T18:10:57.424108+00:00",
+      "updated_at": "2026-04-09T18:10:57.424108+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:10:57.424108+00:00",
+        "access_count": 0
+      }
+    },
+    "249b8795cb6a": {
+      "id": "249b8795cb6a",
+      "type": "fact",
+      "key": "mcp_server_5",
+      "fact": {
+        "rule": "ins\",\n    # Batch 5\n    \"set_table_repeat_headers\", \"set_paragraph_alignment\", \"format_text_range\",\n    \"insert_paragraph_after_image\", \"insert_image_in_header\", \"insert_image_in_footer\",\n    # Batch 4\n    \"set_paragraph_flow\", \"fix_headings_flow\", \"table_autofit\", \"apply_table_style\",\n    \"set_table_overlap\", \"update_toc_with_pages\", \"mark_index_entry\",\n    \"fit_image_to_page\",\n    # Batch 3\n    \"manage_hyperlinks\", \"manage_fields\", \"insert_chart\", \"insert_textbox\",\n    \"insert_caption\", \"insert_table_of_figures\", \"insert_index\",\n    \"manage_bibliography\", \"set_tab_stops\", \"set_page_borders\",\n    \"set_columns\", \"set_line_numbers\", \"set_drop_cap\", \"manage_shapes\",\n    \"insert_autotext\", \"create_envelope\", \"create_labels\",\n}\n\n# Tools that only READ — no validation needed\n",
+        "applies_to": "src",
+        "source": "C:\\Chance1\\IA\\IA_Word\\src\\mcp_server.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-09T18:10:57.948692+00:00",
+      "updated_at": "2026-04-09T18:10:57.948692+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:10:57.948692+00:00",
+        "access_count": 0
+      }
+    },
+    "cb63eff4d1f1": {
+      "id": "cb63eff4d1f1",
+      "type": "fact",
+      "key": "engine_0",
+      "fact": {
+        "rule": "\"\"\"\nMotor Gestionador IA_Word - Orquestador central.\n\nCombina TODOS los recursos del proyecto para lograr 100% de fiabilidad\nen edicion de archivos Word (nativos y convertidos desde PDF).\n\nArquitectura:\n    ┌─────────────────────────────────────┐\n    │          ENGINE (Orquestador)        │\n    │                                     │\n    │  ┌─────────┐   ┌──────────────┐    │\n    │  │ WordCOM  │   │  Validators  │    │\n    │  │ (editar) │   │ (verificar)  │    │\n    │  └────┬─────┘   └──────┬───────┘    │\n    │       │                │            │\n    │  ┌────┴────────────────┴───────┐    │\n    │  │      PIPELINE DE EDICION    │    │\n    │  │                             │    │\n    │  │  1. Abrir documento         │    │\n    │  │  2. Detectar tipo (PDF/nat) │    │\n    │  │  3. ",
+        "applies_to": "src",
+        "source": "C:\\Chance1\\IA\\IA_Word\\src\\engine.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-09T18:10:58.240788+00:00",
+      "updated_at": "2026-04-09T18:10:58.240788+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:10:58.240788+00:00",
+        "access_count": 0
+      }
+    },
+    "0055cc2589d7": {
+      "id": "0055cc2589d7",
+      "type": "fact",
+      "key": "engine_1",
+      "fact": {
+        "rule": "   │  │  1. Abrir documento         │    │\n    │  │  2. Detectar tipo (PDF/nat) │    │\n    │  │  3. Analizar estructura     │    │\n    │  │  4. Ejecutar operaciones    │    │\n    │  │  5. Validar (logica)        │    │\n    │  │  6. Validar (visual)        │    │\n    │  │  7. Si falla → corregir     │    │\n    │  │  8. Loop hasta 100%         │    │\n    │  │  9. Guardar                 │    │\n    │  └─────────────────────────────┘    │\n    │                                     │\n    │  ┌─────────┐ ┌──────┐ ┌─────────┐  │\n    │  │ Vision  │ │Playw.│ │Computer │  │\n    │  │ API     │ │HTML  │ │Use      │  │\n    │  │ (opt 1) │ │(op 2)│ │(opt 3)  │  │\n    │  └─────────┘ └──────┘ └─────────┘  │\n    │       FEEDBACK VISUAL               │\n    └─────────────────────────────────────┘\n\nUso:\n",
+        "applies_to": "src",
+        "source": "C:\\Chance1\\IA\\IA_Word\\src\\engine.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-09T18:10:58.344150+00:00",
+      "updated_at": "2026-04-09T18:10:58.344150+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:10:58.344150+00:00",
+        "access_count": 0
+      }
+    },
+    "df7530281516": {
+      "id": "df7530281516",
+      "type": "fact",
+      "key": "engine_2",
+      "fact": {
+        "rule": "─┘  │\n    │       FEEDBACK VISUAL               │\n    └─────────────────────────────────────┘\n\nUso:\n    from src.engine import Engine\n\n    engine = Engine()\n    result = engine.edit_document(\n        path=\"document.docx\",\n        operations=[\n            {\"type\": \"find_replace\", \"old\": \"2024\", \"new\": \"2025\"},\n            {\"type\": \"update_toc\"},\n        ]\n    )\n\"\"\"\n\nfrom __future__ import annotations\n\nimport copy\nimport json\nimport logging\nimport os\nimport shutil\nimport time\nfrom dataclasses import dataclass, field\nfrom pathlib import Path\nfrom typing import Any, Optional\n\nfrom .word_com import WordCOM, WordCOMError\nfrom .validators import DocumentValidator, ValidationReport\nfrom .doc_eyes import DocEyes\n\nlogger = logging.getLogger(__name__)\n\n# --- Data classes ---\n\n@dataclass\n",
+        "applies_to": "src",
+        "source": "C:\\Chance1\\IA\\IA_Word\\src\\engine.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-09T18:10:58.444255+00:00",
+      "updated_at": "2026-04-09T18:10:58.444255+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:10:58.444255+00:00",
+        "access_count": 0
+      }
+    },
+    "c4d8f8212955": {
+      "id": "c4d8f8212955",
+      "type": "fact",
+      "key": "engine_3",
+      "fact": {
+        "rule": " .doc_eyes import DocEyes\n\nlogger = logging.getLogger(__name__)\n\n# --- Data classes ---\n\n@dataclass\nclass OperationResult:\n    \"\"\"Resultado de una operacion individual.\"\"\"\n    operation: str\n    success: bool\n    details: str = \"\"\n    error: str = \"\"\n\n@dataclass\nclass StepResult:\n    \"\"\"Resultado de un paso del pipeline.\"\"\"\n    step: str\n    passed: bool\n    operations: list[OperationResult] = field(default_factory=list)\n    validation: Optional[dict] = None\n    visual_validation: Optional[dict] = None\n    duration_seconds: float = 0.0\n\n@dataclass\nclass EngineReport:\n    \"\"\"Reporte completo de ejecucion del engine.\"\"\"\n    document_path: str\n    document_type: str  # \"native\" o \"pdf_converted\"\n    total_iterations: int\n    max_iterations: int\n",
+        "applies_to": "src",
+        "source": "C:\\Chance1\\IA\\IA_Word\\src\\engine.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-09T18:10:58.538036+00:00",
+      "updated_at": "2026-04-09T18:10:58.538036+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:10:58.538036+00:00",
+        "access_count": 0
+      }
+    },
+    "ec8def8527f0": {
+      "id": "ec8def8527f0",
+      "type": "fact",
+      "key": "engine_4",
+      "fact": {
+        "rule": " document_type: str  # \"native\" o \"pdf_converted\"\n    total_iterations: int\n    max_iterations: int\n    steps: list[StepResult] = field(default_factory=list)\n    final_validation: Optional[dict] = None\n    final_visual: Optional[dict] = None\n    success: bool = False\n    confidence: float = 0.0\n\n    def to_dict(self) -> dict:\n        return {\n            \"document_path\": self.document_path,\n            \"document_type\": self.document_type,\n            \"total_iterations\": self.total_iterations,\n            \"max_iterations\": self.max_iterations,\n            \"success\": self.success,\n            \"confidence\": self.confidence,\n            \"steps\": [\n                {\n                    \"step\": s.step,\n                    \"passed\": s.passed,\n                    \"operations\": [\n",
+        "applies_to": "src",
+        "source": "C:\\Chance1\\IA\\IA_Word\\src\\engine.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-09T18:10:58.644391+00:00",
+      "updated_at": "2026-04-09T18:10:58.644391+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:10:58.644391+00:00",
+        "access_count": 0
+      }
+    },
+    "3714cf520c01": {
+      "id": "3714cf520c01",
+      "type": "fact",
+      "key": "engine_5",
+      "fact": {
+        "rule": "        \"step\": s.step,\n                    \"passed\": s.passed,\n                    \"operations\": [\n                        {\"op\": o.operation, \"ok\": o.success, \"detail\": o.details, \"error\": o.error}\n                        for o in s.operations\n                    ],\n                    \"validation\": s.validation,\n                    \"visual\": s.visual_validation,\n                    \"duration\": s.duration_seconds,\n                }\n                for s in self.steps\n            ],\n            \"final_validation\": self.final_validation,\n            \"final_visual\": self.final_visual,\n        }\n\n    def format_report(self) -> str:\n        \"\"\"Formatea reporte para consola.\"\"\"\n        lines = [\n            \"=\" * 70,\n            \"ENGINE REPORT\",\n            \"=\" * 70,\n",
+        "applies_to": "src",
+        "source": "C:\\Chance1\\IA\\IA_Word\\src\\engine.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-09T18:10:58.750439+00:00",
+      "updated_at": "2026-04-09T18:10:58.750439+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:10:58.750439+00:00",
+        "access_count": 0
+      }
+    },
+    "98a02b98093e": {
+      "id": "98a02b98093e",
+      "type": "fact",
+      "key": "engine_6",
+      "fact": {
+        "rule": "sola.\"\"\"\n        lines = [\n            \"=\" * 70,\n            \"ENGINE REPORT\",\n            \"=\" * 70,\n            f\"Documento: {Path(self.document_path).name}\",\n            f\"Tipo: {self.document_type}\",\n            f\"Iteraciones: {self.total_iterations}/{self.max_iterations}\",\n            f\"Exito: {'SI' if self.success else 'NO'}\",\n            f\"Confianza: {self.confidence:.0f}%\",\n            \"\",\n        ]\n\n        for step in self.steps:\n            icon = \"[OK]\" if step.passed else \"[FAIL]\"\n            lines.append(f\"  {icon} {step.step} ({step.duration_seconds:.1f}s)\")\n            for op in step.operations:\n                op_icon = \"[OK]\" if op.success else \"[FAIL]\"\n                detail = f\": {op.details}\" if op.details else \"\"\n",
+        "applies_to": "src",
+        "source": "C:\\Chance1\\IA\\IA_Word\\src\\engine.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-09T18:10:58.873180+00:00",
+      "updated_at": "2026-04-09T18:10:58.873180+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:10:58.873180+00:00",
+        "access_count": 0
+      }
+    },
+    "16461cc31f4c": {
+      "id": "16461cc31f4c",
+      "type": "fact",
+      "key": "engine_7",
+      "fact": {
+        "rule": "\"[OK]\" if op.success else \"[FAIL]\"\n                detail = f\": {op.details}\" if op.details else \"\"\n                err = f\" ERROR: {op.error}\" if op.error else \"\"\n                lines.append(f\"      {op_icon} {op.operation}{detail}{err}\")\n\n        if self.final_validation:",
+        "applies_to": "src",
+        "source": "C:\\Chance1\\IA\\IA_Word\\src\\engine.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-09T18:10:58.973091+00:00",
+      "updated_at": "2026-04-09T18:10:58.973091+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:10:58.973091+00:00",
+        "access_count": 0
+      }
+    },
+    "3871c63b974f": {
+      "id": "3871c63b974f",
+      "type": "fact",
+      "key": "docx_sanitizer_0",
+      "fact": {
+        "rule": "\"\"\"\nDOCX Sanitizer — Multi-pass normalizer for PDF-converted .docx files.\n\nWhen a PDF is converted to .docx, the resulting XML is full of artifacts:\n  - Single-character runs (split-runs) that break Find.Execute\n  - Broken paragraphs (one visual line = multiple <w:p>)\n  - Fragmented tables (one visual table = multiple <w:tbl>)\n\nThis module detects PDF-converted documents and runs 3 mandatory passes\nto normalize the XML structure BEFORE any editing takes place.\n\nDESIGN PRINCIPLE: Never delete formatting elements (rPr, spacing, position).\nThe run-merge comparison ignores noise tags without removing them, preserving\nthe document's visual appearance (fonts, colors, kerning) intact.\n\nUsage:\n    sanitizer = DocxSanitizer(path)\n    if sanitizer.needs_sanitization():\n",
+        "applies_to": "src",
+        "source": "C:\\Chance1\\IA\\IA_Word\\src\\docx_sanitizer.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-09T18:10:59.061338+00:00",
+      "updated_at": "2026-04-09T18:10:59.061338+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:10:59.061338+00:00",
+        "access_count": 0
+      }
+    },
+    "1058a833aff6": {
+      "id": "1058a833aff6",
+      "type": "fact",
+      "key": "docx_sanitizer_1",
+      "fact": {
+        "rule": "kerning) intact.\n\nUsage:\n    sanitizer = DocxSanitizer(path)\n    if sanitizer.needs_sanitization():\n        result = sanitizer.sanitize()\n\"\"\"\n\nfrom __future__ import annotations\n\nimport copy\nimport logging\nimport os\nimport shutil\nimport zipfile\nfrom typing import Any, Optional\n\nfrom lxml import etree as ET\n\nlog = logging.getLogger(\"ia_word.sanitizer\")\n\n_OOXML_NS = {\n    \"w\": \"http://schemas.openxmlformats.org/wordprocessingml/2006/main\",\n    \"ep\": \"http://schemas.openxmlformats.org/officeDocument/2006/extended-properties\",\n}\n_W = _OOXML_NS[\"w\"]\n\n# Known PDF-to-DOCX converters (lowercase for matching)\n_PDF_CONVERTERS = [\n    \"pdf2docx\", \"libreoffice\", \"adobe\", \"nitro\", \"foxit\",\n    \"smallpdf\", \"ilovepdf\", \"zamzar\", \"cloudconvert\",\n    \"convertio\", \"pdf\", \"acrobat\", \"phantom\", \"pdfium\",\n",
+        "applies_to": "src",
+        "source": "C:\\Chance1\\IA\\IA_Word\\src\\docx_sanitizer.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-09T18:10:59.184992+00:00",
+      "updated_at": "2026-04-09T18:10:59.184992+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:10:59.184992+00:00",
+        "access_count": 0
+      }
+    },
+    "73bf10ef0759": {
+      "id": "73bf10ef0759",
+      "type": "fact",
+      "key": "docx_sanitizer_2",
+      "fact": {
+        "rule": "pdf\", \"ilovepdf\", \"zamzar\", \"cloudconvert\",\n    \"convertio\", \"pdf\", \"acrobat\", \"phantom\", \"pdfium\",\n    \"calibre\", \"abbyy\", \"nuance\", \"kofax\", \"wondershare\",\n]\n\n# rPr child tags that are PDF-conversion noise, NOT real formatting\n_NOISE_TAGS = frozenset({\"spacing\", \"position\", \"proofErr\"})\n\n# Attributes that are revision tracking noise\n_NOISE_ATTRIB_PATTERNS = (\"rsid\",)\n\nclass DocxSanitizer:\n    \"\"\"\n    Multi-pass sanitizer for PDF-converted .docx files.\n\n    3 safe passes are MANDATORY and run in order when a document is\n    detected as PDF-converted. This is hardcoded — not optional.\n    No pass deletes formatting — only merges structure.\n    \"\"\"\n\n    def __init__(self, docx_path: str):\n        self.path = os.path.abspath(docx_path)\n        self._detection: Optional[dict] = None\n\n",
+        "applies_to": "src",
+        "source": "C:\\Chance1\\IA\\IA_Word\\src\\docx_sanitizer.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-09T18:10:59.286306+00:00",
+      "updated_at": "2026-04-09T18:10:59.286306+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:10:59.286306+00:00",
+        "access_count": 0
+      }
+    },
+    "ddccac4dcebc": {
+      "id": "ddccac4dcebc",
+      "type": "fact",
+      "key": "docx_sanitizer_3",
+      "fact": {
+        "rule": "tr):\n        self.path = os.path.abspath(docx_path)\n        self._detection: Optional[dict] = None\n\n    # ------------------------------------------------------------------\n    # Public API\n    # ------------------------------------------------------------------\n\n    def needs_sanitization(self) -> bool:\n        \"\"\"Detect if this .docx needs sanitization (was converted from PDF).\"\"\"\n        if not self.path.lower().endswith(\".docx\"):\n            return False\n        self._detection = self._detect()\n        return self._detection[\"is_converted\"]\n\n    def get_detection(self) -> dict:\n        \"\"\"Return detection results (call needs_sanitization first).\"\"\"\n        if self._detection is None:\n            self.needs_sanitization()\n        return self._detection\n\n",
+        "applies_to": "src",
+        "source": "C:\\Chance1\\IA\\IA_Word\\src\\docx_sanitizer.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-09T18:10:59.389225+00:00",
+      "updated_at": "2026-04-09T18:10:59.389225+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:10:59.389225+00:00",
+        "access_count": 0
+      }
+    },
+    "df692f586b0c": {
+      "id": "df692f586b0c",
+      "type": "fact",
+      "key": "docx_sanitizer_4",
+      "fact": {
+        "rule": "  if self._detection is None:\n            self.needs_sanitization()\n        return self._detection\n\n    # Maximum sanitization rounds (prevents infinite loops)\n    MAX_ROUNDS = 4\n\n    def sanitize(self) -> dict[str, Any]:\n        \"\"\"\n        Run mandatory sanitization in optimal order:\n\n        Phase 0a — RTF Roundtrip (format laundering):\n          .docx → SaveAs .rtf → Open .rtf → SaveAs .docx\n          RTF uses a completely different format schema, so the PDF\n          fingerprint (split-runs, noise attributes, absolute positioning)\n          is washed away. Word rebuilds clean OOXML from scratch.\n\n        Phase 0b — COM Repaste (visual polish):\n          Open in Word, Select All, Copy, Paste into new blank .docx.\n          Word's rendering engine re-interprets the content, fixing\n",
+        "applies_to": "src",
+        "source": "C:\\Chance1\\IA\\IA_Word\\src\\docx_sanitizer.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-09T18:10:59.495866+00:00",
+      "updated_at": "2026-04-09T18:10:59.495866+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:10:59.495866+00:00",
+        "access_count": 0
+      }
+    },
+    "107902518d4f": {
+      "id": "107902518d4f",
+      "type": "fact",
+      "key": "docx_sanitizer_5",
+      "fact": {
+        "rule": "py, Paste into new blank .docx.\n          Word's rendering engine re-interprets the content, fixing\n          any remaining visual artifacts after the RTF roundtrip.\n\n        Phase 1 — XML Sanitizer (backend cleanup, iterative):\n          1. Merge runs       — fuse remaining split-runs (enables Find.Execute)\n          2. Merge paragraphs — join broken lines (conservative heuristic)\n          3. Repair tables    — merge fragmented tables (strict column match)\n\n        ORDER MATTERS: RTF first (deepest clean), then repaste (visual),\n        then XML sanitizer (catch stragglers). Each phase operates on the\n        output of the previous one.\n        \"\"\"\n        log.info(\"Starting sanitization on: %s\", os.path.basename(self.path))\n\n        # --- PHASE 0a: RTF Roundtrip (format laundering) ---\n",
+        "applies_to": "src",
+        "source": "C:\\Chance1\\IA\\IA_Word\\src\\docx_sanitizer.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-09T18:10:59.590190+00:00",
+      "updated_at": "2026-04-09T18:10:59.590190+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:10:59.590190+00:00",
+        "access_count": 0
+      }
+    },
+    "8114cc7c6717": {
+      "id": "8114cc7c6717",
+      "type": "fact",
+      "key": "docx_sanitizer_6",
+      "fact": {
+        "rule": "n: %s\", os.path.basename(self.path))\n\n        # --- PHASE 0a: RTF Roundtrip (format laundering) ---\n        rtf_result = self._phase0a_rtf_roundtrip()\n\n        # --- PHASE 0b: COM Repaste (visual polish) ---\n        repaste_result = self._phase0b_com_repaste()\n\n        # --- PHASE 1: XML Sanitizer (backend cleanup) ---\n        doc_root, zip_names, zip_data = self._load_docx()\n        if doc_root is None:\n            return {\"error\": \"Failed to load document XML\", \"repaste\": repaste_result}\n\n        all_rounds = []\n        grand_total = 0\n\n        for round_num in range(1, self.MAX_ROUNDS + 1):\n            round_results = {}\n\n            # STEP 1: Merge split-runs (main fix — enables Find.Execute)\n            round_results[\"merge_runs\"] = self._pass1_merge_split_runs(doc_root)\n\n",
+        "applies_to": "src",
+        "source": "C:\\Chance1\\IA\\IA_Word\\src\\docx_sanitizer.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-09T18:10:59.704665+00:00",
+      "updated_at": "2026-04-09T18:10:59.704665+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:10:59.704665+00:00",
+        "access_count": 0
+      }
+    },
+    "2153d58a0398": {
+      "id": "2153d58a0398",
+      "type": "fact",
+      "key": "docx_sanitizer_7",
+      "fact": {
+        "rule": "les Find.Execute)\n            round_results[\"merge_runs\"] = self._pass1_merge_split_runs(doc_root)\n\n            # STEP 2: Merge broken paragraphs (benefits from merged runs)\n            round",
+        "applies_to": "src",
+        "source": "C:\\Chance1\\IA\\IA_Word\\src\\docx_sanitizer.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-09T18:10:59.815946+00:00",
+      "updated_at": "2026-04-09T18:10:59.815946+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:10:59.815946+00:00",
+        "access_count": 0
+      }
+    },
+    "96210101f30f": {
+      "id": "96210101f30f",
+      "type": "fact",
+      "key": "cerebro_0",
+      "fact": {
+        "rule": "\"\"\"\nCerebro: Orquestador autonomo de IA_Word.\n\nEl Cerebro es el \"ML inteligente\" que:\n  1. Recibe un requerimiento en lenguaje natural\n  2. Analiza el documento con sus OJOS (DocEyes + VisionBridge)\n  3. Planifica una secuencia de pasos (MCP tool calls)\n  4. Ejecuta cada paso con sus MANOS (call_tool → WordCOM)\n  5. Cada paso se auto-valida (structural + visual) dentro de call_tool\n  6. Si la validación falla 3 veces, el Cerebro decide qué hacer\n  7. Al final, revisión de integridad completa\n  8. Entrega SOLO cuando todo está correcto\n\nArquitectura:\n    ┌──────────────────────────────────────────────┐\n    │              CEREBRO (Orquestador)            │\n    │                                              │\n    │  Usuario: \"Inserta tabla AWS en Anexos\"      │\n",
+        "applies_to": "src",
+        "source": "C:\\Chance1\\IA\\IA_Word\\src\\cerebro.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-09T18:10:59.933069+00:00",
+      "updated_at": "2026-04-09T18:10:59.933069+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:10:59.933069+00:00",
+        "access_count": 0
+      }
+    },
+    "cef4be40a0df": {
+      "id": "cef4be40a0df",
+      "type": "fact",
+      "key": "cerebro_1",
+      "fact": {
+        "rule": "                                             │\n    │  Usuario: \"Inserta tabla AWS en Anexos\"      │\n    │         ↓                                    │\n    │  [1] ENTENDER: Parsear requerimiento         │\n    │         ↓                                    │\n    │  [2] VER: analyze_document + view_page       │\n    │         ↓                                    │\n    │  [3] PLANIFICAR: Secuencia de tools          │\n    │         ↓                                    │\n    │  [4] EJECUTAR: call_tool() uno por uno       │\n    │      (cada call_tool ya valida+autofix)      │\n    │         ↓                                    │\n    │  [5] REVISAR: Integridad completa en save    │\n    │         ↓                                    │\n    │  [6] ENTREGAR o REINTENTAR                   │\n",
+        "applies_to": "src",
+        "source": "C:\\Chance1\\IA\\IA_Word\\src\\cerebro.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-09T18:11:00.052036+00:00",
+      "updated_at": "2026-04-09T18:11:00.052036+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:11:00.052036+00:00",
+        "access_count": 0
+      }
+    },
+    "3326f1421b61": {
+      "id": "3326f1421b61",
+      "type": "fact",
+      "key": "cerebro_2",
+      "fact": {
+        "rule": "        ↓                                    │\n    │  [6] ENTREGAR o REINTENTAR                   │\n    └──────────────────────────────────────────────┘\n\nUso:\n    from src.cerebro import Cerebro\n\n    cerebro = Cerebro()\n    resultado = await cerebro.ejecutar(\n        documento=\"ruta/al/sow.docx\",\n        tarea=\"Inserta la tabla AWS del BOM en Anexos con formato azul\",\n        datos_extra={\"aws_data\": {...}},\n    )\n\"\"\"\n\nfrom __future__ import annotations\n\nimport asyncio\nimport copy\nimport json\nimport logging\nimport os\nimport shutil\nimport time\nfrom dataclasses import dataclass, field\nfrom pathlib import Path\nfrom typing import Any, Optional\n\nlogger = logging.getLogger(\"ia_word.cerebro\")\n\n# --- Resultado del Cerebro ---\n\n@dataclass\nclass PasoResultado:\n",
+        "applies_to": "src",
+        "source": "C:\\Chance1\\IA\\IA_Word\\src\\cerebro.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-09T18:11:00.155191+00:00",
+      "updated_at": "2026-04-09T18:11:00.155191+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:11:00.155191+00:00",
+        "access_count": 0
+      }
+    },
+    "f7c13ed9ea8d": {
+      "id": "f7c13ed9ea8d",
+      "type": "fact",
+      "key": "cerebro_3",
+      "fact": {
+        "rule": "ging.getLogger(\"ia_word.cerebro\")\n\n# --- Resultado del Cerebro ---\n\n@dataclass\nclass PasoResultado:\n    \"\"\"Resultado de un paso individual.\"\"\"\n    paso: int\n    tool: str\n    args: dict\n    success: bool\n    resultado: Any = None\n    error: str = \"\"\n    validation_passed: bool = True\n    auto_fix_applied: bool = False\n    duracion_s: float = 0.0\n\n@dataclass\nclass CerebroResultado:\n    \"\"\"Resultado completo de una ejecución del Cerebro.\"\"\"\n    tarea: str\n    documento: str\n    pasos: list[PasoResultado] = field(default_factory=list)\n    integridad_ok: bool = False\n    exito: bool = False\n    duracion_total_s: float = 0.0\n    errores: list[str] = field(default_factory=list)\n    resumen: str = \"\"\n\n    def to_dict(self) -> dict:\n        return {\n            \"tarea\": self.tarea,\n",
+        "applies_to": "src",
+        "source": "C:\\Chance1\\IA\\IA_Word\\src\\cerebro.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-09T18:11:00.256379+00:00",
+      "updated_at": "2026-04-09T18:11:00.256379+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:11:00.256379+00:00",
+        "access_count": 0
+      }
+    },
+    "a0aa40e97688": {
+      "id": "a0aa40e97688",
+      "type": "fact",
+      "key": "cerebro_4",
+      "fact": {
+        "rule": "resumen: str = \"\"\n\n    def to_dict(self) -> dict:\n        return {\n            \"tarea\": self.tarea,\n            \"documento\": self.documento,\n            \"exito\": self.exito,\n            \"integridad_ok\": self.integridad_ok,\n            \"duracion_total_s\": round(self.duracion_total_s, 1),\n            \"pasos_total\": len(self.pasos),\n            \"pasos_exitosos\": sum(1 for p in self.pasos if p.success),\n            \"pasos_fallidos\": sum(1 for p in self.pasos if not p.success),\n            \"auto_fixes\": sum(1 for p in self.pasos if p.auto_fix_applied),\n            \"errores\": self.errores,\n            \"resumen\": self.resumen,\n            \"pasos\": [\n                {\n                    \"paso\": p.paso,\n                    \"tool\": p.tool,\n                    \"success\": p.success,\n",
+        "applies_to": "src",
+        "source": "C:\\Chance1\\IA\\IA_Word\\src\\cerebro.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-09T18:11:00.368436+00:00",
+      "updated_at": "2026-04-09T18:11:00.368436+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:11:00.368436+00:00",
+        "access_count": 0
+      }
+    },
+    "b76f44ac4ee2": {
+      "id": "b76f44ac4ee2",
+      "type": "fact",
+      "key": "cerebro_5",
+      "fact": {
+        "rule": "      \"paso\": p.paso,\n                    \"tool\": p.tool,\n                    \"success\": p.success,\n                    \"validation_passed\": p.validation_passed,\n                    \"auto_fix\": p.auto_fix_applied,\n                    \"error\": p.error,\n                    \"duracion_s\": round(p.duracion_s, 1),\n                }\n                for p in self.pasos\n            ],\n        }\n\n    def formato_consola(self) -> str:\n        lines = [\n            \"=\" * 60,\n            \"CEREBRO - RESULTADO\",\n            \"=\" * 60,\n            f\"Tarea: {self.tarea[:80]}\",\n            f\"Documento: {Path(self.documento).name}\",\n            f\"Éxito: {'SÍ' if self.exito else 'NO'}\",\n            f\"Integridad: {'OK' if self.integridad_ok else 'FALLO'}\",\n            f\"Duración: {self.duracion_total_s:.1f}s\",\n",
+        "applies_to": "src",
+        "source": "C:\\Chance1\\IA\\IA_Word\\src\\cerebro.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-09T18:11:00.473608+00:00",
+      "updated_at": "2026-04-09T18:11:00.473608+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:11:00.473608+00:00",
+        "access_count": 0
+      }
+    },
+    "0292ccfdf363": {
+      "id": "0292ccfdf363",
+      "type": "fact",
+      "key": "cerebro_6",
+      "fact": {
+        "rule": " {'OK' if self.integridad_ok else 'FALLO'}\",\n            f\"Duración: {self.duracion_total_s:.1f}s\",\n            f\"Pasos: {sum(1 for p in self.pasos if p.success)}/{len(self.pasos)} exitosos\",\n            \"\",\n        ]\n        for p in self.pasos:\n            icon = \"[OK]\" if p.success else \"[FAIL]\"\n            fix = \" [AUTO-FIX]\" if p.auto_fix_applied else \"\"\n            lines.append(f\"  {icon} Paso {p.paso}: {p.tool}{fix} ({p.duracion_s:.1f}s)\")\n            if p.error:\n                lines.append(f\"        Error: {p.error}\")\n        if self.errores:\n            lines.append(\"\")\n            lines.append(\"  Errores:\")\n            for e in self.errores:\n                lines.append(f\"    - {e}\")\n        lines.append(\"\")\n        lines.append(f\"  Resumen: {self.resumen}\")\n",
+        "applies_to": "src",
+        "source": "C:\\Chance1\\IA\\IA_Word\\src\\cerebro.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-09T18:11:00.585828+00:00",
+      "updated_at": "2026-04-09T18:11:00.585828+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:11:00.585828+00:00",
+        "access_count": 0
+      }
+    },
+    "f3a36b8c3cf3": {
+      "id": "f3a36b8c3cf3",
+      "type": "fact",
+      "key": "cerebro_7",
+      "fact": {
+        "rule": "es.append(f\"    - {e}\")\n        lines.append(\"\")\n        lines.append(f\"  Resumen: {self.resumen}\")\n        lines.append(\"=\" * 60)\n        return \"\\n\".join(lines)\n\n# --- Cerebro ---\n\nclass Cerebro:\n    \"\"\"\n    Orquestador autónomo",
+        "applies_to": "src",
+        "source": "C:\\Chance1\\IA\\IA_Word\\src\\cerebro.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-09T18:11:00.685102+00:00",
+      "updated_at": "2026-04-09T18:11:00.685102+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:11:00.685102+00:00",
+        "access_count": 0
+      }
+    },
+    "fa97de99b5be": {
+      "id": "fa97de99b5be",
+      "type": "fact",
+      "key": "vision_bridge_0",
+      "fact": {
+        "rule": "\"\"\"\nVision Bridge: Conecta la suscripcion Max de Claude con Vision Feedback.\n\nEn lugar de usar ANTHROPIC_API_KEY (de pago), este bridge usa la\nsuscripcion Max del usuario para analizar screenshots via el CLI de\nClaude Code o el SDK claude-max.\n\nMetodos de autenticacion (en orden de prioridad):\n    1. Claude CLI (claude --print) - usa tu suscripcion Max directamente\n    2. claude-max SDK (query async) - wrapper oficial del CLI\n    3. Anthropic API key (fallback si existe ANTHROPIC_API_KEY)\n\nUso:\n    from src.vision_bridge import VisionBridge\n\n    bridge = VisionBridge()\n    result = bridge.analyze_image(\"screenshot.png\", \"Valida este documento Word\")\n\"\"\"\n\nfrom __future__ import annotations\n\nimport base64\nimport json\nimport logging\nimport os\nimport shutil\nimport subprocess\nimport tempfile\n",
+        "applies_to": "src",
+        "source": "C:\\Chance1\\IA\\IA_Word\\src\\vision_bridge.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-09T18:11:01.339389+00:00",
+      "updated_at": "2026-04-09T18:11:01.339389+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:11:01.339389+00:00",
+        "access_count": 0
+      }
+    },
+    "764209096442": {
+      "id": "764209096442",
+      "type": "fact",
+      "key": "vision_bridge_1",
+      "fact": {
+        "rule": "\nimport base64\nimport json\nimport logging\nimport os\nimport shutil\nimport subprocess\nimport tempfile\nimport time\nfrom pathlib import Path\nfrom typing import Optional\n\nlogger = logging.getLogger(__name__)\n\nclass VisionBridge:\n    \"\"\"\n    Bridge entre suscripcion Max de Claude y analisis visual de documentos.\n\n    Soporta 3 backends:\n        - 'cli': Claude CLI directo (mas rapido, recomendado)\n        - 'sdk': claude-max SDK async\n        - 'api': Anthropic API key (fallback)\n    \"\"\"\n\n    def __init__(\n        self,\n        backend: str = \"auto\",\n        claude_path: Optional[str] = None,\n        api_key: Optional[str] = None,\n        model: str = \"claude-sonnet-4-20250514\",\n        timeout: int = 90,\n    ):\n        \"\"\"\n        Args:\n",
+        "applies_to": "src",
+        "source": "C:\\Chance1\\IA\\IA_Word\\src\\vision_bridge.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-09T18:11:01.445957+00:00",
+      "updated_at": "2026-04-09T18:11:01.445957+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:11:01.445957+00:00",
+        "access_count": 0
+      }
+    },
+    "6de55aafb291": {
+      "id": "6de55aafb291",
+      "type": "fact",
+      "key": "vision_bridge_2",
+      "fact": {
+        "rule": "odel: str = \"claude-sonnet-4-20250514\",\n        timeout: int = 90,\n    ):\n        \"\"\"\n        Args:\n            backend: 'cli', 'sdk', 'api', o 'auto' (detecta automaticamente)\n            claude_path: Ruta al binario de Claude CLI\n            api_key: API key de Anthropic (solo para backend='api')\n            model: Modelo a usar\n            timeout: Timeout en segundos para llamadas CLI\n        \"\"\"\n        self.model = model\n        self.timeout = timeout\n        self.api_key = api_key or os.getenv(\"ANTHROPIC_API_KEY\")\n\n        # Detectar claude CLI\n        self.claude_path = claude_path or shutil.which(\"claude\")\n\n        # Auto-detectar backend\n        if backend == \"auto\":\n            if self.claude_path:\n                self.backend = \"cli\"\n            elif self._check_sdk():\n",
+        "applies_to": "src",
+        "source": "C:\\Chance1\\IA\\IA_Word\\src\\vision_bridge.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-09T18:11:01.548169+00:00",
+      "updated_at": "2026-04-09T18:11:01.548169+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:11:01.548169+00:00",
+        "access_count": 0
+      }
+    },
+    "8234ac83203f": {
+      "id": "8234ac83203f",
+      "type": "fact",
+      "key": "vision_bridge_3",
+      "fact": {
+        "rule": "      if self.claude_path:\n                self.backend = \"cli\"\n            elif self._check_sdk():\n                self.backend = \"sdk\"\n            elif self.api_key:\n                self.backend = \"api\"\n            else:\n                raise RuntimeError(\n                    \"No se encontro ningun backend de Vision.\\n\"\n                    \"Opciones:\\n\"\n                    \"  1. Instalar Claude CLI: npm install -g @anthropic-ai/claude-code\\n\"\n                    \"  2. pip install claude-max\\n\"\n                    \"  3. Configurar ANTHROPIC_API_KEY\\n\"\n                )\n        else:\n            self.backend = backend\n\n        # Pre-check: verificar que el backend funciona (Opcion C)\n        self._auth_ok = self._pre_check_auth()\n        if not self._auth_ok:\n            logger.warning(\n",
+        "applies_to": "src",
+        "source": "C:\\Chance1\\IA\\IA_Word\\src\\vision_bridge.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-09T18:11:01.645515+00:00",
+      "updated_at": "2026-04-09T18:11:01.645515+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:11:01.645515+00:00",
+        "access_count": 0
+      }
+    },
+    "1e8371f3c020": {
+      "id": "1e8371f3c020",
+      "type": "fact",
+      "key": "vision_bridge_4",
+      "fact": {
+        "rule": "   self._auth_ok = self._pre_check_auth()\n        if not self._auth_ok:\n            logger.warning(\n                \"VisionBridge: autenticacion CLI fallida (token expirado?). \"\n                \"La validacion visual sera skipped con fallback graceful.\"\n            )\n\n        logger.info(f\"VisionBridge inicializado: backend={self.backend}, auth_ok={self._auth_ok}\")\n\n    @staticmethod\n    def _check_sdk() -> bool:\n        try:\n            import claude_max\n            return True\n        except ImportError:\n            return False\n\n    # --- Pre-check (Opcion C) ---\n\n    def _pre_check_auth(self) -> bool:\n        \"\"\"Verifica que el backend CLI responde antes de usarlo en el pipeline.\"\"\"\n        if self.backend != \"cli\" or not self.claude_path:\n",
+        "applies_to": "src",
+        "source": "C:\\Chance1\\IA\\IA_Word\\src\\vision_bridge.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-09T18:11:01.755822+00:00",
+      "updated_at": "2026-04-09T18:11:01.755822+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:11:01.755822+00:00",
+        "access_count": 0
+      }
+    },
+    "6380c5f45d3d": {
+      "id": "6380c5f45d3d",
+      "type": "fact",
+      "key": "vision_bridge_5",
+      "fact": {
+        "rule": "sponde antes de usarlo en el pipeline.\"\"\"\n        if self.backend != \"cli\" or not self.claude_path:\n            return True  # Solo aplica al backend CLI\n\n        try:\n            result = subprocess.run(\n                [self.claude_path, \"--print\", \"-p\", \"Responde solo: OK\"],\n                capture_output=True,\n                text=True,\n                encoding=\"utf-8\",\n                errors=\"replace\",\n                timeout=30,\n            )\n            if result.returncode != 0:\n                stderr = result.stderr or result.stdout or \"\"\n                if \"401\" in stderr or \"authentication\" in stderr.lower():\n                    logger.error(f\"Token OAuth expirado. Ejecuta: claude /login\")\n                return False\n            return \"OK\" in result.stdout\n",
+        "applies_to": "src",
+        "source": "C:\\Chance1\\IA\\IA_Word\\src\\vision_bridge.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-09T18:11:01.858476+00:00",
+      "updated_at": "2026-04-09T18:11:01.858476+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:11:01.858476+00:00",
+        "access_count": 0
+      }
+    },
+    "0c4a2ee4ed84": {
+      "id": "0c4a2ee4ed84",
+      "type": "fact",
+      "key": "vision_bridge_6",
+      "fact": {
+        "rule": "ado. Ejecuta: claude /login\")\n                return False\n            return \"OK\" in result.stdout\n        except Exception as e:\n            logger.error(f\"Pre-check fallido: {e}\")\n            return False\n\n    @property\n    def is_available(self) -> bool:\n        \"\"\"True si el backend esta autenticado y listo.\"\"\"\n        return self._auth_ok\n\n    # --- Core: Analizar imagen ---\n\n    def analyze_image(\n        self,\n        image_path: str,\n        prompt: str,\n        system_prompt: str = None,\n    ) -> dict:\n        \"\"\"\n        Analiza una imagen con Claude Vision usando tu suscripcion Max.\n\n        Args:\n            image_path: Ruta al archivo PNG/JPG\n            prompt: Instruccion de analisis\n            system_prompt: Prompt de sistema opcional\n\n        Returns:\n",
+        "applies_to": "src",
+        "source": "C:\\Chance1\\IA\\IA_Word\\src\\vision_bridge.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-09T18:11:01.958437+00:00",
+      "updated_at": "2026-04-09T18:11:01.958437+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:11:01.958437+00:00",
+        "access_count": 0
+      }
+    },
+    "af3e8491ecc9": {
+      "id": "af3e8491ecc9",
+      "type": "fact",
+      "key": "vision_bridge_7",
+      "fact": {
+        "rule": "pt: Instruccion de analisis\n            system_prompt: Prompt de sistema opcional\n\n        Returns:\n            Dict con resultado del analisis (parsea JSON si es posible)\n        \"\"\"\n        # Fallback graceful (Opcion B): si auth fallo, skip visual en v",
+        "applies_to": "src",
+        "source": "C:\\Chance1\\IA\\IA_Word\\src\\vision_bridge.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-09T18:11:02.055974+00:00",
+      "updated_at": "2026-04-09T18:11:02.055974+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:11:02.055974+00:00",
+        "access_count": 0
+      }
+    },
+    "a22900b782f5": {
+      "id": "a22900b782f5",
+      "type": "fact",
+      "key": "doc_eyes_0",
+      "fact": {
+        "rule": "\"\"\"\nDocEyes: Ojos reales para IA_Word.\n\nConvierte documentos Word a imagenes de alta calidad por pagina\nusando Word COM (export PDF) + PyMuPDF (render PNG).\n\nEsto permite que Claude VEA el documento real como lo veria un humano:\n- Todas las paginas (no solo la primera)\n- Fidelidad 100% (Word genera el PDF, no conversion HTML)\n- Headers, footers, TOC con numeros de pagina reales\n- Tablas, imagenes, formato exacto\n\nUso:\n    from src.doc_eyes import DocEyes\n\n    eyes = DocEyes()\n\n    # Opcion 1: desde archivo .docx (abre Word, exporta, cierra)\n    pages = eyes.render_document(\"propuesta.docx\")\n\n    # Opcion 2: desde Word COM ya abierto (mas eficiente)\n    pages = eyes.render_from_com(word_com_instance)\n\n    # Cada pagina es un dict con:\n    #   page[\"number\"]     -> 1, 2, 3...\n",
+        "applies_to": "src",
+        "source": "C:\\Chance1\\IA\\IA_Word\\src\\doc_eyes.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-09T18:11:02.158169+00:00",
+      "updated_at": "2026-04-09T18:11:02.158169+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:11:02.158169+00:00",
+        "access_count": 0
+      }
+    },
+    "6def30bd2cd8": {
+      "id": "6def30bd2cd8",
+      "type": "fact",
+      "key": "doc_eyes_1",
+      "fact": {
+        "rule": "_com(word_com_instance)\n\n    # Cada pagina es un dict con:\n    #   page[\"number\"]     -> 1, 2, 3...\n    #   page[\"image_path\"] -> ruta al PNG\n    #   page[\"text\"]       -> texto extraido de esa pagina\n    #   page[\"width\"]      -> ancho en pixels\n    #   page[\"height\"]     -> alto en pixels\n\"\"\"\n\nfrom __future__ import annotations\n\nimport logging\nimport os\nimport tempfile\nimport time\nfrom pathlib import Path\nfrom typing import Optional\n\nlogger = logging.getLogger(__name__)\n\nclass DocEyes:\n    \"\"\"\n    Renderiza documentos Word como imagenes de alta calidad por pagina.\n\n    Pipeline: Word COM -> PDF (nativo) -> PyMuPDF -> PNG por pagina\n    \"\"\"\n\n    def __init__(\n        self,\n        dpi: int = 200,\n        output_dir: Optional[str] = None,\n        keep_pdf: bool = False,\n",
+        "applies_to": "src",
+        "source": "C:\\Chance1\\IA\\IA_Word\\src\\doc_eyes.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-09T18:11:02.272369+00:00",
+      "updated_at": "2026-04-09T18:11:02.272369+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:11:02.272369+00:00",
+        "access_count": 0
+      }
+    },
+    "561e3e0894d0": {
+      "id": "561e3e0894d0",
+      "type": "fact",
+      "key": "doc_eyes_2",
+      "fact": {
+        "rule": ",\n        dpi: int = 200,\n        output_dir: Optional[str] = None,\n        keep_pdf: bool = False,\n        block_size: int = 20,\n    ):\n        \"\"\"\n        Args:\n            dpi: Resolucion de renderizado (200 = buena calidad, ~1700x2200px por pagina)\n            output_dir: Directorio para guardar PNGs. Si None, usa temp.\n            keep_pdf: Si True, conserva el PDF intermedio.\n            block_size: Paginas por bloque para procesamiento de docs grandes (200+ pags).\n        \"\"\"\n        self.dpi = dpi\n        self.output_dir = output_dir\n        self.keep_pdf = keep_pdf\n        self.block_size = block_size\n\n    def render_document(\n        self,\n        docx_path: str,\n        pages: Optional[list[int]] = None,\n        word_app=None,\n    ) -> list[dict]:\n        \"\"\"\n",
+        "applies_to": "src",
+        "source": "C:\\Chance1\\IA\\IA_Word\\src\\doc_eyes.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-09T18:11:02.380272+00:00",
+      "updated_at": "2026-04-09T18:11:02.380272+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:11:02.380272+00:00",
+        "access_count": 0
+      }
+    },
+    "d13ecf40b135": {
+      "id": "d13ecf40b135",
+      "type": "fact",
+      "key": "doc_eyes_3",
+      "fact": {
+        "rule": "\n        pages: Optional[list[int]] = None,\n        word_app=None,\n    ) -> list[dict]:\n        \"\"\"\n        Renderiza un .docx completo a imagenes PNG.\n\n        Abre Word, exporta a PDF, renderiza cada pagina.\n\n        Args:\n            docx_path: Ruta al archivo .docx\n            pages: Lista de paginas a renderizar (1-based). None = todas.\n            word_app: Instancia COM de Word.Application existente (opcional).\n                      Reutiliza en vez de crear nueva — evita zombies.\n\n        Returns:\n            Lista de dicts con info de cada pagina renderizada.\n        \"\"\"\n        abs_path = str(Path(docx_path).resolve())\n        if not Path(abs_path).exists():\n            raise FileNotFoundError(f\"Documento no encontrado: {abs_path}\")\n\n        # Exportar a PDF via Word COM\n",
+        "applies_to": "src",
+        "source": "C:\\Chance1\\IA\\IA_Word\\src\\doc_eyes.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-09T18:11:02.474244+00:00",
+      "updated_at": "2026-04-09T18:11:02.474244+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:11:02.474244+00:00",
+        "access_count": 0
+      }
+    },
+    "3cd8bab05667": {
+      "id": "3cd8bab05667",
+      "type": "fact",
+      "key": "doc_eyes_4",
+      "fact": {
+        "rule": "se FileNotFoundError(f\"Documento no encontrado: {abs_path}\")\n\n        # Exportar a PDF via Word COM\n        pdf_path = self._export_to_pdf(abs_path, word_app=word_app)\n\n        # Renderizar PDF a imagenes\n        result = self._render_pdf(pdf_path, pages)\n\n        # Limpiar PDF si no se quiere conservar\n        if not self.keep_pdf and Path(pdf_path).exists():\n            try:\n                os.remove(pdf_path)\n            except OSError:\n                pass\n\n        return result\n\n    def render_from_com(\n        self,\n        word_com,\n        pages: Optional[list[int]] = None,\n    ) -> list[dict]:\n        \"\"\"\n        Renderiza desde una instancia WordCOM ya abierta.\n\n        Mas eficiente porque no abre/cierra Word.\n\n        Args:\n",
+        "applies_to": "src",
+        "source": "C:\\Chance1\\IA\\IA_Word\\src\\doc_eyes.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-09T18:11:02.580918+00:00",
+      "updated_at": "2026-04-09T18:11:02.580918+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:11:02.580918+00:00",
+        "access_count": 0
+      }
+    },
+    "5cf6c238cebf": {
+      "id": "5cf6c238cebf",
+      "type": "fact",
+      "key": "doc_eyes_5",
+      "fact": {
+        "rule": "una instancia WordCOM ya abierta.\n\n        Mas eficiente porque no abre/cierra Word.\n\n        Args:\n            word_com: Instancia de WordCOM con documento abierto.\n            pages: Lista de paginas a renderizar (1-based). None = todas.\n\n        Returns:\n            Lista de dicts con info de cada pagina renderizada.\n        \"\"\"\n        # Guardar antes de exportar\n        word_com.save()\n\n        # Exportar PDF usando la instancia COM existente\n        doc = word_com.doc\n        doc_path = getattr(word_com, '_doc_path', None) or doc.FullName\n        pdf_path = self._get_pdf_path(doc_path)\n\n        doc.ExportAsFixedFormat(\n            OutputFileName=pdf_path,\n            ExportFormat=17,  # wdExportFormatPDF\n            OpenAfterExport=False,\n",
+        "applies_to": "src",
+        "source": "C:\\Chance1\\IA\\IA_Word\\src\\doc_eyes.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-09T18:11:02.685996+00:00",
+      "updated_at": "2026-04-09T18:11:02.685996+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:11:02.685996+00:00",
+        "access_count": 0
+      }
+    },
+    "e0a5a9e301f8": {
+      "id": "e0a5a9e301f8",
+      "type": "fact",
+      "key": "doc_eyes_6",
+      "fact": {
+        "rule": "Name=pdf_path,\n            ExportFormat=17,  # wdExportFormatPDF\n            OpenAfterExport=False,\n            OptimizeFor=0,  # wdExportOptimizeForPrint\n            CreateBookmarks=1,  # wdExportCreateHeadingBookmarks\n        )\n        logger.info(f\"PDF exportado: {pdf_path}\")\n\n        # Renderizar\n        result = self._render_pdf(pdf_path, pages)\n\n        if not self.keep_pdf and Path(pdf_path).exists():\n            try:\n                os.remove(pdf_path)\n            except OSError:\n                pass\n\n        return result\n\n    def render_blocks(\n        self,\n        docx_path: str,\n        block_size: Optional[int] = None,\n        callback=None,\n    ):\n        \"\"\"\n        Generator que renderiza un documento en bloques de N paginas.\n\n",
+        "applies_to": "src",
+        "source": "C:\\Chance1\\IA\\IA_Word\\src\\doc_eyes.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-09T18:11:02.800760+00:00",
+      "updated_at": "2026-04-09T18:11:02.800760+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:11:02.800760+00:00",
+        "access_count": 0
+      }
+    },
+    "d2ed1a89ff00": {
+      "id": "d2ed1a89ff00",
+      "type": "fact",
+      "key": "doc_eyes_7",
+      "fact": {
+        "rule": "ack=None,\n    ):\n        \"\"\"\n        Generator que renderiza un documento en bloques de N paginas.\n\n        Para documentos de 200+ paginas, evita cargar todo en memoria.\n        Cada yield entrega un bloque con sus paginas renderizadas.\n\n        Args:\n            docx_path: Ruta al archivo .docx",
+        "applies_to": "src",
+        "source": "C:\\Chance1\\IA\\IA_Word\\src\\doc_eyes.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-09T18:11:02.913010+00:00",
+      "updated_at": "2026-04-09T18:11:02.913010+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:11:02.913010+00:00",
+        "access_count": 0
+      }
+    },
+    "df5ec05f4e84": {
+      "id": "df5ec05f4e84",
+      "type": "fact",
+      "key": "tool_builder_0",
+      "fact": {
+        "rule": "\"\"\"\nToolBuilder: Auto-construcción de herramientas MCP para IA_Word.\n\nCuando el Cerebro necesita una capacidad que no existe (un \"dedo\" faltante),\nel ToolBuilder la construye:\n\n  1. DETECTAR: Identifica qué capacidad falta\n  2. GENERAR: Crea el código COM/Python para el método en WordCOM\n  3. REGISTRAR: Lo agrega como tool MCP disponible\n  4. PROBAR: Ejecuta un test básico para verificar que funciona\n  5. PERSISTIR: Guarda el código para que la próxima vez ya exista\n\nArquitectura:\n    ┌─────────────────────────────────────────┐\n    │           TOOL BUILDER                   │\n    │                                          │\n    │  Cerebro: \"necesito insert_bullet_list\"  │\n    │         ↓                                │\n    │  [1] ¿Existe ya? → buscar en registry    │\n",
+        "applies_to": "src",
+        "source": "C:\\Chance1\\IA\\IA_Word\\src\\tool_builder.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-09T18:11:03.018911+00:00",
+      "updated_at": "2026-04-09T18:11:03.018911+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:11:03.018911+00:00",
+        "access_count": 0
+      }
+    },
+    "9e33d97c31ff": {
+      "id": "9e33d97c31ff",
+      "type": "fact",
+      "key": "tool_builder_1",
+      "fact": {
+        "rule": "│\n    │         ↓                                │\n    │  [1] ¿Existe ya? → buscar en registry    │\n    │         ↓ NO                             │\n    │  [2] Generar código COM/Python           │\n    │         ↓                                │\n    │  [3] Registrar handler + schema MCP      │\n    │         ↓                                │\n    │  [4] Test: ejecutar con datos de prueba  │\n    │         ↓                                │\n    │  [5] Persistir en tools_custom/          │\n    │         ↓                                │\n    │  [6] Disponible para el Cerebro          │\n    └─────────────────────────────────────────┘\n\nLas herramientas custom se guardan en:\n    src/tools_custom/<tool_name>.py\n\nY se cargan automáticamente al iniciar el MCP server.\n\nUso:\n",
+        "applies_to": "src",
+        "source": "C:\\Chance1\\IA\\IA_Word\\src\\tool_builder.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-09T18:11:03.118250+00:00",
+      "updated_at": "2026-04-09T18:11:03.118250+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:11:03.118250+00:00",
+        "access_count": 0
+      }
+    },
+    "46179c9203b0": {
+      "id": "46179c9203b0",
+      "type": "fact",
+      "key": "tool_builder_2",
+      "fact": {
+        "rule": "n:\n    src/tools_custom/<tool_name>.py\n\nY se cargan automáticamente al iniciar el MCP server.\n\nUso:\n    from src.tool_builder import ToolBuilder\n\n    builder = ToolBuilder()\n\n    # Verificar si existe\n    if not builder.tool_exists(\"insert_bullet_list\"):\n        # Construir\n        builder.build_tool(\n            name=\"insert_bullet_list\",\n            description=\"Insert a bullet list at a location\",\n            params={\"items\": \"list[str]\", \"after_heading\": \"str\"},\n            com_logic='''\n                word = get_word()\n                for item in args[\"items\"]:\n                    word.insert_paragraph(text=item, style=\"List Bullet\")\n            ''',\n        )\n\n    # Usar\n    result = await call_tool(\"insert_bullet_list\", {\"items\": [\"a\", \"b\"]})\n\"\"\"\n\n",
+        "applies_to": "src",
+        "source": "C:\\Chance1\\IA\\IA_Word\\src\\tool_builder.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-09T18:11:03.227072+00:00",
+      "updated_at": "2026-04-09T18:11:03.227072+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:11:03.227072+00:00",
+        "access_count": 0
+      }
+    },
+    "66b31ffd574e": {
+      "id": "66b31ffd574e",
+      "type": "fact",
+      "key": "tool_builder_3",
+      "fact": {
+        "rule": "       )\n\n    # Usar\n    result = await call_tool(\"insert_bullet_list\", {\"items\": [\"a\", \"b\"]})\n\"\"\"\n\nfrom __future__ import annotations\n\nimport importlib\nimport importlib.util\nimport json\nimport logging\nimport os\nimport textwrap\nimport time\nfrom pathlib import Path\nfrom typing import Any, Optional\n\nlogger = logging.getLogger(\"ia_word.tool_builder\")\n\n# Directorio donde se persisten los tools custom\nCUSTOM_TOOLS_DIR = Path(__file__).resolve().parent / \"tools_custom\"\n\nclass ToolBuilder:\n    \"\"\"\n    Construye, registra, y persiste herramientas MCP dinámicamente.\n\n    Las herramientas custom se guardan como archivos Python independientes\n    en src/tools_custom/ y se cargan automáticamente.\n    \"\"\"\n\n    def __init__(self):\n        self._registry: dict[str, dict] = {}\n",
+        "applies_to": "src",
+        "source": "C:\\Chance1\\IA\\IA_Word\\src\\tool_builder.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-09T18:11:03.331568+00:00",
+      "updated_at": "2026-04-09T18:11:03.331568+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:11:03.331568+00:00",
+        "access_count": 0
+      }
+    },
+    "329bb5c1ce2b": {
+      "id": "329bb5c1ce2b",
+      "type": "fact",
+      "key": "tool_builder_4",
+      "fact": {
+        "rule": "rgan automáticamente.\n    \"\"\"\n\n    def __init__(self):\n        self._registry: dict[str, dict] = {}\n        CUSTOM_TOOLS_DIR.mkdir(exist_ok=True)\n        self._load_existing_tools()\n\n    # ================================================================\n    # REGISTRY: qué tools custom existen\n    # ================================================================\n\n    def tool_exists(self, name: str) -> bool:\n        \"\"\"¿Existe este tool (built-in o custom)?\"\"\"\n        # Verificar en built-in del MCP server\n        from .mcp_server import WRITE_TOOLS, READ_TOOLS\n        if name in WRITE_TOOLS or name in READ_TOOLS:\n            return True\n        # Verificar en custom registry\n        return name in self._registry\n\n    def list_custom_tools(self) -> list[dict]:\n",
+        "applies_to": "src",
+        "source": "C:\\Chance1\\IA\\IA_Word\\src\\tool_builder.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-09T18:11:03.453748+00:00",
+      "updated_at": "2026-04-09T18:11:03.453748+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:11:03.453748+00:00",
+        "access_count": 0
+      }
+    },
+    "5f13df947a85": {
+      "id": "5f13df947a85",
+      "type": "fact",
+      "key": "tool_builder_5",
+      "fact": {
+        "rule": "stom registry\n        return name in self._registry\n\n    def list_custom_tools(self) -> list[dict]:\n        \"\"\"Lista todos los tools custom registrados.\"\"\"\n        return [\n            {\"name\": name, \"description\": info[\"description\"], \"tested\": info.get(\"tested\", False)}\n            for name, info in self._registry.items()\n        ]\n\n    def get_tool_handler(self, name: str):\n        \"\"\"Obtiene el handler de un tool custom (o None si no existe).\"\"\"\n        info = self._registry.get(name)\n        if info:\n            return info.get(\"handler\")\n        return None\n\n    def get_tool_schema(self, name: str) -> dict | None:\n        \"\"\"Obtiene el JSON schema de un tool custom.\"\"\"\n        info = self._registry.get(name)\n        if info:\n            return info.get(\"schema\")\n        return None\n\n",
+        "applies_to": "src",
+        "source": "C:\\Chance1\\IA\\IA_Word\\src\\tool_builder.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-09T18:11:03.561482+00:00",
+      "updated_at": "2026-04-09T18:11:03.561482+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:11:03.561482+00:00",
+        "access_count": 0
+      }
+    },
+    "636a81a1af94": {
+      "id": "636a81a1af94",
+      "type": "fact",
+      "key": "tool_builder_6",
+      "fact": {
+        "rule": "elf._registry.get(name)\n        if info:\n            return info.get(\"schema\")\n        return None\n\n    # ================================================================\n    # BUILD: crear un tool nuevo\n    # ================================================================\n\n    def build_tool(\n        self,\n        name: str,\n        description: str,\n        params: dict[str, str],\n        com_logic: str,\n        is_write: bool = True,\n        test_args: dict | None = None,\n    ) -> dict:\n        \"\"\"\n        Construye un tool MCP nuevo.\n\n        Args:\n            name: Nombre del tool (snake_case)\n            description: Descripción para Claude\n            params: {param_name: type_description} para el schema\n            com_logic: Código Python que ejecuta la operación COM.\n",
+        "applies_to": "src",
+        "source": "C:\\Chance1\\IA\\IA_Word\\src\\tool_builder.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-09T18:11:03.682289+00:00",
+      "updated_at": "2026-04-09T18:11:03.682289+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:11:03.682289+00:00",
+        "access_count": 0
+      }
+    },
+    "f1367d59670b": {
+      "id": "f1367d59670b",
+      "type": "fact",
+      "key": "tool_builder_7",
+      "fact": {
+        "rule": "type_description} para el schema\n            com_logic: Código Python que ejecuta la operación COM.\n                       Tiene acceso a: word (WordCOM instance), args (dict), logger\n            is_write: Si True, requiere validación post-ejecuc",
+        "applies_to": "src",
+        "source": "C:\\Chance1\\IA\\IA_Word\\src\\tool_builder.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-09T18:11:03.780215+00:00",
+      "updated_at": "2026-04-09T18:11:03.780215+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:11:03.780215+00:00",
+        "access_count": 0
+      }
+    },
+    "db545a64d528": {
+      "id": "db545a64d528",
+      "type": "fact",
+      "key": "computer_use_feedback_0",
+      "fact": {
+        "rule": "\"\"\"\nOpción 3: Computer Use Tool - Control visual de Word via Anthropic Computer Use API.\n\nFlujo:\n    1. Abre Word en pantalla (Visible=True)\n    2. Usa Computer Use Tool para capturar screenshot\n    3. Claude analiza lo que VE en pantalla\n    4. Claude propone acciones (clicks, ediciones)\n    5. Loop cerrado: ver → analizar → actuar → verificar\n\nVentajas:\n    - Claude VE directamente la aplicación Word\n    - Puede interactuar con la UI (clicks, typing)\n    - Loop cerrado autónomo: no depende del usuario\n    - Validación en tiempo real\n\nRequisitos:\n    - anthropic SDK >= 0.40.0\n    - Pantalla disponible (no funciona headless)\n\nUso:\n    from src.computer_use_feedback import ComputerUseFeedback\n\n    cuf = ComputerUseFeedback()\n    result = cuf.analyze_word_document(\"path/to/document.docx\")\n",
+        "applies_to": "src",
+        "source": "C:\\Chance1\\IA\\IA_Word\\src\\computer_use_feedback.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-09T18:11:03.895872+00:00",
+      "updated_at": "2026-04-09T18:11:03.895872+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:11:03.895872+00:00",
+        "access_count": 0
+      }
+    },
+    "9283b555c0e7": {
+      "id": "9283b555c0e7",
+      "type": "fact",
+      "key": "computer_use_feedback_1",
+      "fact": {
+        "rule": "ck\n\n    cuf = ComputerUseFeedback()\n    result = cuf.analyze_word_document(\"path/to/document.docx\")\n\"\"\"\n\nimport base64\nimport json\nimport logging\nimport os\nimport subprocess\nimport sys\nimport time\nfrom pathlib import Path\nfrom typing import Optional\n\nlogger = logging.getLogger(__name__)\n\ndef _capture_screen_native(output_path: str = None) -> str:\n    \"\"\"\n    Captura screenshot de pantalla usando métodos nativos de Windows.\n\n    Args:\n        output_path: Ruta para guardar PNG. Si None, usa temp.\n\n    Returns:\n        Ruta al screenshot\n    \"\"\"\n    if output_path is None:\n        output_path = os.path.join(\n            os.getenv(\"TEMP\", \"/tmp\"), \"computer_use_screenshot.png\"\n        )\n\n    try:\n        import pyautogui\n\n        screenshot = pyautogui.screenshot()\n",
+        "applies_to": "src",
+        "source": "C:\\Chance1\\IA\\IA_Word\\src\\computer_use_feedback.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-09T18:11:04.006504+00:00",
+      "updated_at": "2026-04-09T18:11:04.006504+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:11:04.006504+00:00",
+        "access_count": 0
+      }
+    },
+    "7d867df6fd32": {
+      "id": "7d867df6fd32",
+      "type": "fact",
+      "key": "computer_use_feedback_2",
+      "fact": {
+        "rule": "shot.png\"\n        )\n\n    try:\n        import pyautogui\n\n        screenshot = pyautogui.screenshot()\n        screenshot.save(output_path)\n        logger.info(f\"Screenshot nativo capturado: {output_path}\")\n        return output_path\n    except ImportError:\n        # Fallback: PowerShell\n        ps_script = f\"\"\"\n        Add-Type -AssemblyName System.Windows.Forms\n        $screen = [System.Windows.Forms.Screen]::PrimaryScreen.Bounds\n        $bitmap = New-Object System.Drawing.Bitmap($screen.Width, $screen.Height)\n        $graphics = [System.Drawing.Graphics]::FromImage($bitmap)\n        $graphics.CopyFromScreen($screen.Location, [System.Drawing.Point]::Empty, $screen.Size)\n        $bitmap.Save('{output_path}')\n        $graphics.Dispose()\n        $bitmap.Dispose()\n        \"\"\"\n",
+        "applies_to": "src",
+        "source": "C:\\Chance1\\IA\\IA_Word\\src\\computer_use_feedback.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-09T18:11:04.098768+00:00",
+      "updated_at": "2026-04-09T18:11:04.098768+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:11:04.098768+00:00",
+        "access_count": 0
+      }
+    },
+    "b87571ac75a8": {
+      "id": "b87571ac75a8",
+      "type": "fact",
+      "key": "computer_use_feedback_3",
+      "fact": {
+        "rule": "    $bitmap.Save('{output_path}')\n        $graphics.Dispose()\n        $bitmap.Dispose()\n        \"\"\"\n        subprocess.run(\n            [\"powershell\", \"-Command\", ps_script],\n            capture_output=True,\n            timeout=10,\n        )\n        logger.info(f\"Screenshot PowerShell capturado: {output_path}\")\n        return output_path\n\nclass ComputerUseFeedback:\n    \"\"\"Control visual de Word usando Anthropic Computer Use API.\"\"\"\n\n    def __init__(\n        self,\n        api_key: Optional[str] = None,\n        display_width: int = 1920,\n        display_height: int = 1080,\n        model: str = \"claude-sonnet-4-20250514\",\n    ):\n        \"\"\"\n        Args:\n            api_key: Anthropic API key (o ANTHROPIC_API_KEY env var)\n            display_width: Ancho de pantalla para Computer Use\n",
+        "applies_to": "src",
+        "source": "C:\\Chance1\\IA\\IA_Word\\src\\computer_use_feedback.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-09T18:11:04.201902+00:00",
+      "updated_at": "2026-04-09T18:11:04.201902+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:11:04.201902+00:00",
+        "access_count": 0
+      }
+    },
+    "75e49a77e6b0": {
+      "id": "75e49a77e6b0",
+      "type": "fact",
+      "key": "computer_use_feedback_4",
+      "fact": {
+        "rule": "PI key (o ANTHROPIC_API_KEY env var)\n            display_width: Ancho de pantalla para Computer Use\n            display_height: Alto de pantalla para Computer Use\n            model: Modelo a usar (sonnet recomendado para computer use)\n        \"\"\"\n        self.api_key = api_key or os.getenv(\"ANTHROPIC_API_KEY\")\n        if not self.api_key:\n            raise ValueError(\"ANTHROPIC_API_KEY required\")\n\n        self.display_width = display_width\n        self.display_height = display_height\n        self.model = model\n\n        try:\n            from anthropic import Anthropic\n\n            self.client = Anthropic(api_key=self.api_key)\n        except ImportError as e:\n            raise ImportError(\"pip install anthropic\") from e\n\n    def _get_screenshot_base64(self) -> tuple[str, str]:\n        \"\"\"\n",
+        "applies_to": "src",
+        "source": "C:\\Chance1\\IA\\IA_Word\\src\\computer_use_feedback.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-09T18:11:04.309217+00:00",
+      "updated_at": "2026-04-09T18:11:04.309217+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:11:04.309217+00:00",
+        "access_count": 0
+      }
+    },
+    "3e160fb64152": {
+      "id": "3e160fb64152",
+      "type": "fact",
+      "key": "computer_use_feedback_5",
+      "fact": {
+        "rule": "ip install anthropic\") from e\n\n    def _get_screenshot_base64(self) -> tuple[str, str]:\n        \"\"\"\n        Captura screenshot y devuelve como base64.\n\n        Returns:\n            Tuple de (base64_data, file_path)\n        \"\"\"\n        path = _capture_screen_native()\n        with open(path, \"rb\") as f:\n            data = base64.standard_b64encode(f.read()).decode(\"utf-8\")\n        return data, path\n\n    def analyze_word_document(\n        self,\n        doc_path: str,\n        task: str = \"Analizar el documento Word abierto y verificar que está correcto\",\n        max_iterations: int = 5,\n    ) -> dict:\n        \"\"\"\n        Abre Word y usa Computer Use para analizar visualmente.\n\n        Args:\n            doc_path: Ruta al documento Word\n",
+        "applies_to": "src",
+        "source": "C:\\Chance1\\IA\\IA_Word\\src\\computer_use_feedback.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-09T18:11:04.417546+00:00",
+      "updated_at": "2026-04-09T18:11:04.417546+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:11:04.417546+00:00",
+        "access_count": 0
+      }
+    },
+    "4aa9df1c6215": {
+      "id": "4aa9df1c6215",
+      "type": "fact",
+      "key": "computer_use_feedback_6",
+      "fact": {
+        "rule": "Computer Use para analizar visualmente.\n\n        Args:\n            doc_path: Ruta al documento Word\n            task: Instrucción para Claude sobre qué analizar\n            max_iterations: Máximo de iteraciones del loop\n\n        Returns:\n            Dict con análisis completo\n        \"\"\"\n        from .word_com import WordCOM\n\n        results = {\n            \"iterations\": [],\n            \"final_analysis\": None,\n            \"screenshots\": [],\n            \"is_valid\": False,\n        }\n\n        # Abrir documento con Word visible\n        logger.info(f\"Abriendo documento: {doc_path}\")\n        word = WordCOM(visible=True)\n        word.open_document(doc_path)\n\n        # Esperar a que Word renderice\n        time.sleep(3)\n\n        try:\n            # Loop de análisis con Computer Use\n",
+        "applies_to": "src",
+        "source": "C:\\Chance1\\IA\\IA_Word\\src\\computer_use_feedback.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-09T18:11:04.537798+00:00",
+      "updated_at": "2026-04-09T18:11:04.537798+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:11:04.537798+00:00",
+        "access_count": 0
+      }
+    },
+    "64bfe8d335c5": {
+      "id": "64bfe8d335c5",
+      "type": "fact",
+      "key": "computer_use_feedback_7",
+      "fact": {
+        "rule": " Word renderice\n        time.sleep(3)\n\n        try:\n            # Loop de análisis con Computer Use\n            for iteration in range(max_iterations):\n                logger.info(\n                    f\"\\n--- Iteración {iteration +",
+        "applies_to": "src",
+        "source": "C:\\Chance1\\IA\\IA_Word\\src\\computer_use_feedback.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-09T18:11:04.652068+00:00",
+      "updated_at": "2026-04-09T18:11:04.652068+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:11:04.652068+00:00",
+        "access_count": 0
+      }
+    },
+    "8fa0b01c8956": {
+      "id": "8fa0b01c8956",
+      "type": "fact",
+      "key": "playwright_feedback_0",
+      "fact": {
+        "rule": "\"\"\"\nOpción 2: Playwright Feedback - Convierte Word a HTML y captura con Playwright.\n\nFlujo:\n    1. Abre documento Word via COM\n    2. Lo exporta como HTML temporal\n    3. Sirve HTML en localhost\n    4. Playwright captura screenshot del HTML renderizado\n    5. Analiza screenshot con Vision API\n\nVentajas:\n    - No depende de la pantalla del usuario\n    - Funciona headless (sin GUI)\n    - Captura el contenido real del documento (no la ventana de Word)\n    - Integrable en CI/CD\n\nUso:\n    from src.playwright_feedback import PlaywrightFeedback\n\n    pf = PlaywrightFeedback()\n    result = pf.capture_and_analyze(\"path/to/document.docx\")\n    print(result)\n\"\"\"\n\nimport http.server\nimport json\nimport logging\nimport os\nimport socketserver\nimport tempfile\nimport threading\nimport time\n",
+        "applies_to": "src",
+        "source": "C:\\Chance1\\IA\\IA_Word\\src\\playwright_feedback.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-09T18:11:04.777632+00:00",
+      "updated_at": "2026-04-09T18:11:04.777632+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:11:04.777632+00:00",
+        "access_count": 0
+      }
+    },
+    "19bc8e90405d": {
+      "id": "19bc8e90405d",
+      "type": "fact",
+      "key": "playwright_feedback_1",
+      "fact": {
+        "rule": "port json\nimport logging\nimport os\nimport socketserver\nimport tempfile\nimport threading\nimport time\nfrom pathlib import Path\nfrom typing import Optional\n\nlogger = logging.getLogger(__name__)\n\nclass PlaywrightFeedback:\n    \"\"\"Convierte Word a HTML, captura con Playwright, analiza con Vision API.\"\"\"\n\n    def __init__(self, api_key: Optional[str] = None, port: int = 0):\n        \"\"\"\n        Args:\n            api_key: Anthropic API key (o ANTHROPIC_API_KEY env var)\n            port: Puerto para servidor HTTP temporal. 0 = auto-asignar.\n        \"\"\"\n        self.api_key = api_key or os.getenv(\"ANTHROPIC_API_KEY\")\n        self.port = port\n        self._server = None\n        self._server_thread = None\n        self._temp_dir = None\n\n",
+        "applies_to": "src",
+        "source": "C:\\Chance1\\IA\\IA_Word\\src\\playwright_feedback.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-09T18:11:04.883358+00:00",
+      "updated_at": "2026-04-09T18:11:04.883358+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:11:04.883358+00:00",
+        "access_count": 0
+      }
+    },
+    "71316fca5df4": {
+      "id": "71316fca5df4",
+      "type": "fact",
+      "key": "playwright_feedback_2",
+      "fact": {
+        "rule": " port\n        self._server = None\n        self._server_thread = None\n        self._temp_dir = None\n\n    def word_to_html(self, doc_path: str, output_dir: str = None) -> str:\n        \"\"\"\n        Convierte documento Word a HTML usando COM.\n\n        Args:\n            doc_path: Ruta al documento .docx\n            output_dir: Directorio para el HTML. Si None, usa temp dir.\n\n        Returns:\n            Ruta al archivo HTML generado\n        \"\"\"\n        import pythoncom\n        import win32com.client\n\n        if output_dir is None:\n            self._temp_dir = tempfile.mkdtemp(prefix=\"ia_word_html_\")\n            output_dir = self._temp_dir\n\n        html_path = str(Path(output_dir) / \"document.html\")\n        abs_doc = str(Path(doc_path).resolve())\n\n",
+        "applies_to": "src",
+        "source": "C:\\Chance1\\IA\\IA_Word\\src\\playwright_feedback.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-09T18:11:05.011317+00:00",
+      "updated_at": "2026-04-09T18:11:05.011317+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:11:05.011317+00:00",
+        "access_count": 0
+      }
+    },
+    "6fb3e7490a26": {
+      "id": "6fb3e7490a26",
+      "type": "fact",
+      "key": "playwright_feedback_3",
+      "fact": {
+        "rule": "tml_path = str(Path(output_dir) / \"document.html\")\n        abs_doc = str(Path(doc_path).resolve())\n\n        logger.info(f\"Convirtiendo Word a HTML: {abs_doc}\")\n\n        pythoncom.CoInitialize()\n        try:\n            # DispatchEx crea instancia SEPARADA de Word (no reutiliza existentes)\n            word_app = win32com.client.DispatchEx(\"Word.Application\")\n            word_app.Visible = False\n            word_app.DisplayAlerts = 0\n\n            doc = word_app.Documents.Open(abs_doc)\n\n            # wdFormatFilteredHTML = 10 (HTML limpio sin tags de Office)\n            doc.SaveAs2(str(Path(html_path).resolve()), FileFormat=10)\n            logger.info(f\"HTML generado: {html_path}\")\n\n            doc.Close(False)\n            word_app.Quit()\n        finally:\n",
+        "applies_to": "src",
+        "source": "C:\\Chance1\\IA\\IA_Word\\src\\playwright_feedback.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-09T18:11:05.119919+00:00",
+      "updated_at": "2026-04-09T18:11:05.119919+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:11:05.119919+00:00",
+        "access_count": 0
+      }
+    },
+    "5c35f394e004": {
+      "id": "5c35f394e004",
+      "type": "fact",
+      "key": "playwright_feedback_4",
+      "fact": {
+        "rule": " generado: {html_path}\")\n\n            doc.Close(False)\n            word_app.Quit()\n        finally:\n            pythoncom.CoUninitialize()\n\n        return html_path\n\n    def _start_server(self, directory: str) -> int:\n        \"\"\"\n        Inicia servidor HTTP temporal para servir archivos HTML.\n\n        Args:\n            directory: Directorio a servir\n\n        Returns:\n            Puerto asignado\n        \"\"\"\n        handler = http.server.SimpleHTTPRequestHandler\n\n        class QuietHandler(handler):\n            \"\"\"Handler que no imprime logs en consola.\"\"\"\n\n            def __init__(self, *args, **kwargs):\n                super().__init__(*args, directory=directory, **kwargs)\n\n            def log_message(self, format, *args):\n                pass  # Silenciar logs HTTP\n\n",
+        "applies_to": "src",
+        "source": "C:\\Chance1\\IA\\IA_Word\\src\\playwright_feedback.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-09T18:11:05.243738+00:00",
+      "updated_at": "2026-04-09T18:11:05.243738+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:11:05.243738+00:00",
+        "access_count": 0
+      }
+    },
+    "d071d3e8806e": {
+      "id": "d071d3e8806e",
+      "type": "fact",
+      "key": "playwright_feedback_5",
+      "fact": {
+        "rule": "gs)\n\n            def log_message(self, format, *args):\n                pass  # Silenciar logs HTTP\n\n        self._server = socketserver.TCPServer((\"127.0.0.1\", self.port), QuietHandler)\n        actual_port = self._server.server_address[1]\n\n        self._server_thread = threading.Thread(\n            target=self._server.serve_forever, daemon=True\n        )\n        self._server_thread.start()\n\n        logger.info(f\"Servidor HTTP en http://127.0.0.1:{actual_port}\")\n        return actual_port\n\n    def _stop_server(self):\n        \"\"\"Detiene el servidor HTTP temporal.\"\"\"\n        if self._server:\n            self._server.shutdown()\n            self._server = None\n            self._server_thread = None\n            logger.info(\"Servidor HTTP detenido\")\n\n    def capture_with_playwright(\n",
+        "applies_to": "src",
+        "source": "C:\\Chance1\\IA\\IA_Word\\src\\playwright_feedback.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-09T18:11:05.355022+00:00",
+      "updated_at": "2026-04-09T18:11:05.355022+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:11:05.355022+00:00",
+        "access_count": 0
+      }
+    },
+    "59ca1b85e75b": {
+      "id": "59ca1b85e75b",
+      "type": "fact",
+      "key": "playwright_feedback_6",
+      "fact": {
+        "rule": "r_thread = None\n            logger.info(\"Servidor HTTP detenido\")\n\n    def capture_with_playwright(\n        self,\n        url: str,\n        output_path: str = None,\n        full_page: bool = True,\n        width: int = 1200,\n        height: int = 900,\n        wait_ms: int = 2000,\n    ) -> str:\n        \"\"\"\n        Captura screenshot de URL usando Playwright headless.\n\n        Args:\n            url: URL a capturar\n            output_path: Ruta para guardar PNG. Si None, usa temp.\n            full_page: Si True, captura toda la página (scroll completo)\n            width: Ancho del viewport\n            height: Alto del viewport\n            wait_ms: Milisegundos de espera antes de capturar\n\n        Returns:\n            Ruta al screenshot generado\n        \"\"\"\n",
+        "applies_to": "src",
+        "source": "C:\\Chance1\\IA\\IA_Word\\src\\playwright_feedback.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-09T18:11:05.465033+00:00",
+      "updated_at": "2026-04-09T18:11:05.465033+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:11:05.465033+00:00",
+        "access_count": 0
+      }
+    },
+    "5a9abdfb7cc5": {
+      "id": "5a9abdfb7cc5",
+      "type": "fact",
+      "key": "playwright_feedback_7",
+      "fact": {
+        "rule": "s de espera antes de capturar\n\n        Returns:\n            Ruta al screenshot generado\n        \"\"\"\n        from playwright.sync_api import sync_playwright\n\n        if output_path is None:\n            output_path = str(\n                Path(tempfile.gettempdir()) / \"playwright_word_capture.png\"\n            )\n\n        logger.info(f\"Capturando",
+        "applies_to": "src",
+        "source": "C:\\Chance1\\IA\\IA_Word\\src\\playwright_feedback.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-09T18:11:05.557457+00:00",
+      "updated_at": "2026-04-09T18:11:05.557457+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:11:05.557457+00:00",
+        "access_count": 0
+      }
+    },
+    "422789de2cee": {
+      "id": "422789de2cee",
+      "type": "fact",
+      "key": "vision_feedback_0",
+      "fact": {
+        "rule": "\"\"\"\nVision Feedback Module: Integra Claude Vision API para análisis de documentos Word.\n\nPermite capturar screenshots del documento, analizarlos con Vision API,\ny proporcionar feedback visual en tiempo real para validación de cambios.\n\nUso:\n    from src.vision_feedback import VisionFeedback\n\n    vf = VisionFeedback()\n    analysis = vf.analyze_screenshot(\"path/to/screenshot.png\")\n    print(analysis['visual_validation'])\n\"\"\"\n\nimport base64\nimport json\nimport logging\nimport os\nfrom pathlib import Path\nfrom typing import Optional\n\nlogger = logging.getLogger(__name__)\n\nclass VisionFeedback:\n    \"\"\"Analiza screenshots de Word usando Claude Vision API.\"\"\"\n\n    def __init__(self, api_key: Optional[str] = None):\n        \"\"\"\n        Inicializa VisionFeedback.\n\n        Args:\n",
+        "applies_to": "src",
+        "source": "C:\\Chance1\\IA\\IA_Word\\src\\vision_feedback.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-09T18:11:05.695877+00:00",
+      "updated_at": "2026-04-09T18:11:05.695877+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:11:05.695877+00:00",
+        "access_count": 0
+      }
+    },
+    "ff511a646d34": {
+      "id": "ff511a646d34",
+      "type": "fact",
+      "key": "vision_feedback_1",
+      "fact": {
+        "rule": "self, api_key: Optional[str] = None):\n        \"\"\"\n        Inicializa VisionFeedback.\n\n        Args:\n            api_key: Clave de API de Anthropic. Si es None, usa ANTHROPIC_API_KEY env var.\n        \"\"\"\n        self.api_key = api_key or os.getenv(\"ANTHROPIC_API_KEY\")\n        if not self.api_key:\n            raise ValueError(\n                \"ANTHROPIC_API_KEY not found. Set env variable or pass api_key parameter.\"\n            )\n\n        # Import aquí para evitar dependencia obligatoria si no se usa esta feature\n        try:\n            from anthropic import Anthropic\n            self.client = Anthropic(api_key=self.api_key)\n        except ImportError as e:\n            raise ImportError(\n                \"anthropic library required. Install with: pip install anthropic\"\n            ) from e\n\n",
+        "applies_to": "src",
+        "source": "C:\\Chance1\\IA\\IA_Word\\src\\vision_feedback.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-09T18:11:05.801537+00:00",
+      "updated_at": "2026-04-09T18:11:05.801537+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:11:05.801537+00:00",
+        "access_count": 0
+      }
+    },
+    "487de6a815d6": {
+      "id": "487de6a815d6",
+      "type": "fact",
+      "key": "vision_feedback_2",
+      "fact": {
+        "rule": "            \"anthropic library required. Install with: pip install anthropic\"\n            ) from e\n\n    def analyze_screenshot(\n        self,\n        image_path: str,\n        task_context: str = \"Verificar que el documento Word se ve correctamente.\",\n        focus_areas: Optional[list[str]] = None,\n    ) -> dict:\n        \"\"\"\n        Analiza un screenshot de documento Word usando Vision API.\n\n        Args:\n            image_path: Ruta al archivo PNG/JPG\n            task_context: Descripción de qué se está validando\n            focus_areas: Lista de áreas específicas a revisar (ej: [\"índice\", \"títulos\", \"formato\"])\n\n        Returns:\n            Dict con análisis:\n            {\n                \"visual_validation\": \"Descripción de qué se ve\",\n",
+        "applies_to": "src",
+        "source": "C:\\Chance1\\IA\\IA_Word\\src\\vision_feedback.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-09T18:11:05.902246+00:00",
+      "updated_at": "2026-04-09T18:11:05.902246+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:11:05.902246+00:00",
+        "access_count": 0
+      }
+    },
+    "4bd82700f334": {
+      "id": "4bd82700f334",
+      "type": "fact",
+      "key": "vision_feedback_3",
+      "fact": {
+        "rule": "  Dict con análisis:\n            {\n                \"visual_validation\": \"Descripción de qué se ve\",\n                \"issues_found\": [\"lista de problemas\"],\n                \"quality_score\": 0-100,\n                \"recommendations\": [\"lista de cambios sugeridos\"],\n                \"is_valid\": True/False\n            }\n        \"\"\"\n        if not Path(image_path).exists():\n            return {\n                \"error\": f\"Archivo no encontrado: {image_path}\",\n                \"is_valid\": False,\n            }\n\n        # Leer imagen y convertir a base64\n        with open(image_path, \"rb\") as f:\n            image_data = base64.standard_b64encode(f.read()).decode(\"utf-8\")\n\n        # Determinar tipo de media\n        ext = Path(image_path).suffix.lower()\n",
+        "applies_to": "src",
+        "source": "C:\\Chance1\\IA\\IA_Word\\src\\vision_feedback.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-09T18:11:05.999291+00:00",
+      "updated_at": "2026-04-09T18:11:05.999291+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:11:05.999291+00:00",
+        "access_count": 0
+      }
+    },
+    "241dfd38f1ff": {
+      "id": "241dfd38f1ff",
+      "type": "fact",
+      "key": "vision_feedback_4",
+      "fact": {
+        "rule": ").decode(\"utf-8\")\n\n        # Determinar tipo de media\n        ext = Path(image_path).suffix.lower()\n        media_type = \"image/png\" if ext == \".png\" else \"image/jpeg\"\n\n        # Construir prompt de análisis\n        focus_text = \"\"\n        if focus_areas:\n            focus_text = f\"\\n\\nÁreas específicas a revisar: {', '.join(focus_areas)}\"\n\n        prompt = f\"\"\"Eres un experto en validación visual de documentos Word.\n\nAnaliza este screenshot de un documento Word y proporciona:\n\n1. **Visual Validation**: Descripción detallada de lo que ves (estructura, contenido, formato)\n2. **Issues Found**: Lista de problemas o inconsistencias detectadas\n3. **Quality Score**: Puntuación de 0-100 sobre calidad/presentación\n4. **Recommendations**: Sugerencias de mejora específicas\n5. ",
+        "applies_to": "src",
+        "source": "C:\\Chance1\\IA\\IA_Word\\src\\vision_feedback.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-09T18:11:06.115802+00:00",
+      "updated_at": "2026-04-09T18:11:06.115802+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:11:06.115802+00:00",
+        "access_count": 0
+      }
+    },
+    "5ad3c947f58d": {
+      "id": "5ad3c947f58d",
+      "type": "fact",
+      "key": "vision_feedback_5",
+      "fact": {
+        "rule": "ón de 0-100 sobre calidad/presentación\n4. **Recommendations**: Sugerencias de mejora específicas\n5. **Is Valid**: Verdadero si el documento está completo y bien formateado\n\nContexto de la tarea: {task_context}{focus_text}\n\nResponde en formato JSON con exactamente estas claves:\n{{\"visual_validation\": \"...\", \"issues_found\": [...], \"quality_score\": N, \"recommendations\": [...], \"is_valid\": true/false}}\n\"\"\"\n\n        try:\n            message = self.client.messages.create(\n                model=\"claude-opus-4-6\",\n                max_tokens=1024,\n                messages=[\n                    {\n                        \"role\": \"user\",\n                        \"content\": [\n                            {\n                                \"type\": \"image\",\n                                \"source\": {\n",
+        "applies_to": "src",
+        "source": "C:\\Chance1\\IA\\IA_Word\\src\\vision_feedback.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-09T18:11:06.227818+00:00",
+      "updated_at": "2026-04-09T18:11:06.227818+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:11:06.227818+00:00",
+        "access_count": 0
+      }
+    },
+    "18ee56ae8ee9": {
+      "id": "18ee56ae8ee9",
+      "type": "fact",
+      "key": "vision_feedback_6",
+      "fact": {
+        "rule": "     {\n                                \"type\": \"image\",\n                                \"source\": {\n                                    \"type\": \"base64\",\n                                    \"media_type\": media_type,\n                                    \"data\": image_data,\n                                },\n                            },\n                            {\"type\": \"text\", \"text\": prompt},\n                        ],\n                    }\n                ],\n            )\n\n            # Extraer respuesta JSON\n            response_text = message.content[0].text\n\n            # Intentar parsear JSON\n            try:\n                # Buscar JSON en la respuesta (puede estar entre markdown)\n                json_start = response_text.find(\"{\")\n",
+        "applies_to": "src",
+        "source": "C:\\Chance1\\IA\\IA_Word\\src\\vision_feedback.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-09T18:11:06.328239+00:00",
+      "updated_at": "2026-04-09T18:11:06.328239+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:11:06.328239+00:00",
+        "access_count": 0
+      }
+    },
+    "2b59aea47d36": {
+      "id": "2b59aea47d36",
+      "type": "fact",
+      "key": "vision_feedback_7",
+      "fact": {
+        "rule": "N en la respuesta (puede estar entre markdown)\n                json_start = response_text.find(\"{\")\n                json_end = response_text.rfind(\"}\") + 1\n                if json_start != -1 and json_end > json_start:\n                    json_str = response_text[json_start:json_end]",
+        "applies_to": "src",
+        "source": "C:\\Chance1\\IA\\IA_Word\\src\\vision_feedback.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-09T18:11:06.431384+00:00",
+      "updated_at": "2026-04-09T18:11:06.431384+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:11:06.431384+00:00",
+        "access_count": 0
+      }
+    },
+    "fe3ea8373670": {
+      "id": "fe3ea8373670",
+      "type": "fact",
+      "key": "kb_reference_0",
+      "fact": {
+        "rule": "\"\"\"\nKB Reference: Technical patterns from the Knowledge Base (Hooks_IA).\n\nLoads 55 proven patterns about Word document editing, COM troubleshooting,\nand advanced formatting. Used by _auto_fix and _suggest_tools_for_issues\nto provide better fix suggestions when hardcoded fixes don't apply.\n\nThese patterns contain real code snippets and solutions for:\n- win32com troubleshooting (COM errors, RPC crashes)\n- Advanced find/replace (wildcards, formatting-preserving)\n- XML manipulation (direct OOXML editing)\n- Table advanced ops (merge, borders, shading)\n- Page layout (margins, orientation, sections)\n- Headers/footers/TOC\n- Track changes, bookmarks, protection\n- Excel-to-Word conversion\n\"\"\"\n\nfrom __future__ import annotations\n\nimport json\nimport logging\nimport os\nfrom pathlib import Path\n",
+        "applies_to": "src",
+        "source": "C:\\Chance1\\IA\\IA_Word\\src\\kb_reference.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-09T18:11:06.523954+00:00",
+      "updated_at": "2026-04-09T18:11:06.523954+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:11:06.523954+00:00",
+        "access_count": 0
+      }
+    },
+    "284ee061f9fa": {
+      "id": "284ee061f9fa",
+      "type": "fact",
+      "key": "kb_reference_1",
+      "fact": {
+        "rule": "\n\nfrom __future__ import annotations\n\nimport json\nimport logging\nimport os\nfrom pathlib import Path\nfrom typing import Optional\n\nlogger = logging.getLogger(\"ia_word.kb_reference\")\n\n_PATTERNS_FILE = Path(__file__).parent / \"kb_patterns_export.json\"\n_patterns_cache: Optional[dict[str, str]] = None\n\ndef _load_patterns() -> dict[str, str]:\n    \"\"\"Load patterns from the exported KB JSON file.\"\"\"\n    global _patterns_cache\n    if _patterns_cache is not None:\n        return _patterns_cache\n\n    if not _PATTERNS_FILE.exists():\n        logger.warning(\"KB patterns file not found: %s\", _PATTERNS_FILE)\n        _patterns_cache = {}\n        return _patterns_cache\n\n    try:\n        with open(_PATTERNS_FILE, \"r\", encoding=\"utf-8\") as f:\n            _patterns_cache = json.load(f)\n",
+        "applies_to": "src",
+        "source": "C:\\Chance1\\IA\\IA_Word\\src\\kb_reference.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-09T18:11:06.649987+00:00",
+      "updated_at": "2026-04-09T18:11:06.649987+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:11:06.649987+00:00",
+        "access_count": 0
+      }
+    },
+    "5f2c2ddd150f": {
+      "id": "5f2c2ddd150f",
+      "type": "fact",
+      "key": "kb_reference_2",
+      "fact": {
+        "rule": "  with open(_PATTERNS_FILE, \"r\", encoding=\"utf-8\") as f:\n            _patterns_cache = json.load(f)\n        logger.info(\"Loaded %d KB patterns\", len(_patterns_cache))\n    except Exception as e:\n        logger.error(\"Failed to load KB patterns: %s\", e)\n        _patterns_cache = {}\n\n    return _patterns_cache\n\n# --- Pattern categories mapped to issue keywords ---\n\n_PATTERN_CATEGORIES = {\n    # COM troubleshooting\n    \"com_error\": [\"win32com_word_troubleshooting_errors\"],\n    \"rpc\": [\"win32com_word_troubleshooting_errors\"],\n    \"timeout\": [\"win32com_word_troubleshooting_errors\"],\n    \"crash\": [\"win32com_word_troubleshooting_errors\"],\n    \"zombie\": [\"win32com_word_troubleshooting_errors\"],\n\n    # Find/Replace\n    \"find\": [\"word_com_find_replace_advanced\", \"docx_find_replace_advanced\"],\n",
+        "applies_to": "src",
+        "source": "C:\\Chance1\\IA\\IA_Word\\src\\kb_reference.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-09T18:11:06.763156+00:00",
+      "updated_at": "2026-04-09T18:11:06.763156+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:11:06.763156+00:00",
+        "access_count": 0
+      }
+    },
+    "32f1b7ce6188": {
+      "id": "32f1b7ce6188",
+      "type": "fact",
+      "key": "kb_reference_3",
+      "fact": {
+        "rule": ",\n\n    # Find/Replace\n    \"find\": [\"word_com_find_replace_advanced\", \"docx_find_replace_advanced\"],\n    \"replace\": [\"word_com_find_replace_advanced\", \"docx_find_replace_advanced\"],\n    \"wildcard\": [\"word_com_find_replace_advanced\"],\n    \"regex\": [\"word_com_find_replace_advanced\"],\n    \"split run\": [\"docx_find_replace_advanced\", \"docx_xml_manipulation_advanced\"],\n\n    # Tables\n    \"tabla\": [\"docx_tables_advanced_merge_borders_shading\", \"docx_tables_advanced_formatting\"],\n    \"table\": [\"docx_tables_advanced_merge_borders_shading\", \"docx_tables_advanced_formatting\"],\n    \"merge cell\": [\"docx_tables_advanced_merge_borders_shading\"],\n    \"border\": [\"docx_tables_advanced_merge_borders_shading\", \"excel_to_word_borders_complete\"],\n    \"shading\": [\"docx_tables_advanced_merge_borders_shading\"],\n\n",
+        "applies_to": "src",
+        "source": "C:\\Chance1\\IA\\IA_Word\\src\\kb_reference.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-09T18:11:06.879301+00:00",
+      "updated_at": "2026-04-09T18:11:06.879301+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:11:06.879301+00:00",
+        "access_count": 0
+      }
+    },
+    "25f358e0104a": {
+      "id": "25f358e0104a",
+      "type": "fact",
+      "key": "kb_reference_4",
+      "fact": {
+        "rule": " \"excel_to_word_borders_complete\"],\n    \"shading\": [\"docx_tables_advanced_merge_borders_shading\"],\n\n    # Layout\n    \"margin\": [\"docx_sections_page_setup_margins_orientation\"],\n    \"margen\": [\"docx_sections_page_setup_margins_orientation\"],\n    \"orientation\": [\"docx_sections_page_setup_margins_orientation\"],\n    \"landscape\": [\"docx_sections_page_setup_margins_orientation\"],\n    \"portrait\": [\"docx_sections_page_setup_margins_orientation\"],\n    \"section\": [\"docx_sections_headers_footers_breaks\"],\n    \"page break\": [\"docx_sections_headers_footers_breaks\"],\n\n    # Headers/Footers\n    \"header\": [\"docx_headers_footers_page_numbers_advanced\", \"docx_headers_footers_page_numbers\"],\n    \"footer\": [\"docx_headers_footers_page_numbers_advanced\", \"docx_headers_footers_page_numbers\"],\n",
+        "applies_to": "src",
+        "source": "C:\\Chance1\\IA\\IA_Word\\src\\kb_reference.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-09T18:11:06.990328+00:00",
+      "updated_at": "2026-04-09T18:11:06.990328+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:11:06.990328+00:00",
+        "access_count": 0
+      }
+    },
+    "1ba192365bff": {
+      "id": "1ba192365bff",
+      "type": "fact",
+      "key": "kb_reference_5",
+      "fact": {
+        "rule": "\n    \"footer\": [\"docx_headers_footers_page_numbers_advanced\", \"docx_headers_footers_page_numbers\"],\n    \"page number\": [\"docx_headers_footers_page_numbers_advanced\"],\n\n    # Formatting\n    \"font\": [\"docx_custom_styles_fonts_themes\", \"docx_font_effects_strikethrough_super_sub\"],\n    \"style\": [\"docx_styles_paragraph_character\", \"docx_custom_styles_fonts_themes\"],\n    \"bold\": [\"docx_inline_formatting_bold_italic_underline\"],\n    \"italic\": [\"docx_inline_formatting_bold_italic_underline\"],\n    \"color\": [\"docx_highlight_text_color_shading\"],\n    \"highlight\": [\"docx_highlight_text_color_shading\"],\n    \"spacing\": [\"docx_paragraph_formatting_spacing_indent\", \"docx_paragraph_formatting_spacing\"],\n\n    # Images\n    \"image\": [\"docx_images_shapes_drawings\", \"docx_images_floating_position_resize\"],\n",
+        "applies_to": "src",
+        "source": "C:\\Chance1\\IA\\IA_Word\\src\\kb_reference.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-09T18:11:07.106283+00:00",
+      "updated_at": "2026-04-09T18:11:07.106283+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:11:07.106283+00:00",
+        "access_count": 0
+      }
+    },
+    "9a0951f84ab5": {
+      "id": "9a0951f84ab5",
+      "type": "fact",
+      "key": "kb_reference_6",
+      "fact": {
+        "rule": "\n    # Images\n    \"image\": [\"docx_images_shapes_drawings\", \"docx_images_floating_position_resize\"],\n    \"imagen\": [\"docx_images_shapes_drawings\", \"docx_images_floating_position_resize\"],\n    \"shape\": [\"docx_images_shapes_drawings\"],\n    \"watermark\": [\"docx_watermarks_text_image\", \"docx_watermark_background\"],\n\n    # TOC\n    \"toc\": [\"docx_table_of_contents_toc\", \"docx_toc_table_of_contents\"],\n    \"indice\": [\"docx_table_of_contents_toc\"],\n    \"table of contents\": [\"docx_table_of_contents_toc\"],\n\n    # Lists\n    \"list\": [\"docx_lists_numbered_bullet_multilevel\", \"docx_lists_bullets_numbered_multilevel\"],\n    \"bullet\": [\"docx_lists_numbered_bullet_multilevel\"],\n    \"numbered\": [\"docx_lists_numbered_bullet_multilevel\"],\n\n    # Bookmarks / References\n",
+        "applies_to": "src",
+        "source": "C:\\Chance1\\IA\\IA_Word\\src\\kb_reference.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-09T18:11:07.232995+00:00",
+      "updated_at": "2026-04-09T18:11:07.232995+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:11:07.232995+00:00",
+        "access_count": 0
+      }
+    },
+    "7114a3927620": {
+      "id": "7114a3927620",
+      "type": "fact",
+      "key": "kb_reference_7",
+      "fact": {
+        "rule": "tilevel\"],\n    \"numbered\": [\"docx_lists_numbered_bullet_multilevel\"],\n\n    # Bookmarks / References\n    \"bookmark\": [\"docx_bookmarks_hyperlinks_cross_references\", \"word_com_bookmarks_formfields\"],\n    \"hyperlink\"",
+        "applies_to": "src",
+        "source": "C:\\Chance1\\IA\\IA_Word\\src\\kb_reference.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-09T18:11:07.334592+00:00",
+      "updated_at": "2026-04-09T18:11:07.334592+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:11:07.334592+00:00",
+        "access_count": 0
+      }
     }
   },
   "tag_index": {
@@ -1456,6 +3681,107 @@
       "df9afa6414ae",
       "a17157ae19f4",
       "7bf6d5ca5d24",
+      "f815cdea8266",
+      "cb99642f343f",
+      "c6d68e5d658c",
+      "355efc703e37",
+      "424e9bd2c417",
+      "8801c5a579c9",
+      "b0195abbcba4",
+      "3d53e0c7cb5a",
+      "78b69e8c9a5d",
+      "7447ce90bc9c",
+      "249b8795cb6a",
+      "f1ccd1d6f0ce",
+      "f970b3a321d1",
+      "cb63eff4d1f1",
+      "0055cc2589d7",
+      "df7530281516",
+      "c4d8f8212955",
+      "ec8def8527f0",
+      "3714cf520c01",
+      "98a02b98093e",
+      "16461cc31f4c",
+      "3871c63b974f",
+      "1058a833aff6",
+      "73bf10ef0759",
+      "ddccac4dcebc",
+      "df692f586b0c",
+      "107902518d4f",
+      "8114cc7c6717",
+      "2153d58a0398",
+      "96210101f30f",
+      "cef4be40a0df",
+      "3326f1421b61",
+      "f7c13ed9ea8d",
+      "a0aa40e97688",
+      "b76f44ac4ee2",
+      "0292ccfdf363",
+      "f3a36b8c3cf3",
+      "72443b911be1",
+      "e49cd60d310c",
+      "858c406a2788",
+      "b4dad75eb282",
+      "41cc7b260ab2",
+      "fa97de99b5be",
+      "764209096442",
+      "6de55aafb291",
+      "8234ac83203f",
+      "1e8371f3c020",
+      "6380c5f45d3d",
+      "0c4a2ee4ed84",
+      "af3e8491ecc9",
+      "a22900b782f5",
+      "6def30bd2cd8",
+      "561e3e0894d0",
+      "d13ecf40b135",
+      "3cd8bab05667",
+      "5cf6c238cebf",
+      "e0a5a9e301f8",
+      "d2ed1a89ff00",
+      "df5ec05f4e84",
+      "9e33d97c31ff",
+      "46179c9203b0",
+      "66b31ffd574e",
+      "329bb5c1ce2b",
+      "5f13df947a85",
+      "636a81a1af94",
+      "f1367d59670b",
+      "db545a64d528",
+      "9283b555c0e7",
+      "7d867df6fd32",
+      "b87571ac75a8",
+      "75e49a77e6b0",
+      "3e160fb64152",
+      "4aa9df1c6215",
+      "64bfe8d335c5",
+      "8fa0b01c8956",
+      "19bc8e90405d",
+      "71316fca5df4",
+      "6fb3e7490a26",
+      "5c35f394e004",
+      "d071d3e8806e",
+      "59ca1b85e75b",
+      "5a9abdfb7cc5",
+      "422789de2cee",
+      "ff511a646d34",
+      "487de6a815d6",
+      "4bd82700f334",
+      "241dfd38f1ff",
+      "5ad3c947f58d",
+      "18ee56ae8ee9",
+      "2b59aea47d36",
+      "fe3ea8373670",
+      "284ee061f9fa",
+      "5f2c2ddd150f",
+      "32f1b7ce6188",
+      "25f358e0104a",
+      "1ba192365bff",
+      "9a0951f84ab5",
+      "7114a3927620",
+      "d068d39c98f7",
+      "675b3043f291",
+      "48a184a44f4d",
       "f815cdea8266"
     ],
     "py": [
@@ -1535,11 +3861,130 @@
       "df9afa6414ae",
       "a17157ae19f4",
       "7bf6d5ca5d24",
+      "f815cdea8266",
+      "cb99642f343f",
+      "c6d68e5d658c",
+      "355efc703e37",
+      "424e9bd2c417",
+      "8801c5a579c9",
+      "b0195abbcba4",
+      "3d53e0c7cb5a",
+      "78b69e8c9a5d",
+      "7447ce90bc9c",
+      "249b8795cb6a",
+      "f1ccd1d6f0ce",
+      "f970b3a321d1",
+      "cb63eff4d1f1",
+      "0055cc2589d7",
+      "df7530281516",
+      "c4d8f8212955",
+      "ec8def8527f0",
+      "3714cf520c01",
+      "98a02b98093e",
+      "16461cc31f4c",
+      "3871c63b974f",
+      "1058a833aff6",
+      "73bf10ef0759",
+      "ddccac4dcebc",
+      "df692f586b0c",
+      "107902518d4f",
+      "8114cc7c6717",
+      "2153d58a0398",
+      "96210101f30f",
+      "cef4be40a0df",
+      "3326f1421b61",
+      "f7c13ed9ea8d",
+      "a0aa40e97688",
+      "b76f44ac4ee2",
+      "0292ccfdf363",
+      "f3a36b8c3cf3",
+      "72443b911be1",
+      "e49cd60d310c",
+      "858c406a2788",
+      "b4dad75eb282",
+      "41cc7b260ab2",
+      "fa97de99b5be",
+      "764209096442",
+      "6de55aafb291",
+      "8234ac83203f",
+      "1e8371f3c020",
+      "6380c5f45d3d",
+      "0c4a2ee4ed84",
+      "af3e8491ecc9",
+      "a22900b782f5",
+      "6def30bd2cd8",
+      "561e3e0894d0",
+      "d13ecf40b135",
+      "3cd8bab05667",
+      "5cf6c238cebf",
+      "e0a5a9e301f8",
+      "d2ed1a89ff00",
+      "df5ec05f4e84",
+      "9e33d97c31ff",
+      "46179c9203b0",
+      "66b31ffd574e",
+      "329bb5c1ce2b",
+      "5f13df947a85",
+      "636a81a1af94",
+      "f1367d59670b",
+      "db545a64d528",
+      "9283b555c0e7",
+      "7d867df6fd32",
+      "b87571ac75a8",
+      "75e49a77e6b0",
+      "3e160fb64152",
+      "4aa9df1c6215",
+      "64bfe8d335c5",
+      "8fa0b01c8956",
+      "19bc8e90405d",
+      "71316fca5df4",
+      "6fb3e7490a26",
+      "5c35f394e004",
+      "d071d3e8806e",
+      "59ca1b85e75b",
+      "5a9abdfb7cc5",
+      "422789de2cee",
+      "ff511a646d34",
+      "487de6a815d6",
+      "4bd82700f334",
+      "241dfd38f1ff",
+      "5ad3c947f58d",
+      "18ee56ae8ee9",
+      "2b59aea47d36",
+      "fe3ea8373670",
+      "284ee061f9fa",
+      "5f2c2ddd150f",
+      "32f1b7ce6188",
+      "25f358e0104a",
+      "1ba192365bff",
+      "9a0951f84ab5",
+      "7114a3927620",
+      "d068d39c98f7",
+      "675b3043f291",
+      "48a184a44f4d",
       "f815cdea8266"
+    ],
+    "json": [
+      "49a8da06ff7b",
+      "49a8da06ff7b",
+      "b91950aaff42",
+      "b91950aaff42",
+      "90c5fbe65fcc",
+      "90c5fbe65fcc",
+      "4cfd38bc36f8",
+      "4cfd38bc36f8",
+      "a9fd9a6ab1a6",
+      "a9fd9a6ab1a6",
+      "491a00466e67",
+      "491a00466e67",
+      "5d12714bade8",
+      "5d12714bade8",
+      "e51cd6adf79d",
+      "e51cd6adf79d"
     ]
   },
   "stats": {
-    "total_entries": 55,
+    "total_entries": 164,
     "total_lookups": 552,
     "total_hits": 485
   }

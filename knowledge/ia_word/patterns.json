@@ -10253,9 +10253,9 @@
       "type": "fact",
       "key": "requirements_0",
       "fact": {
-        "rule": "pywin32>=306\nmcp>=1.0.0\npython-docx>=1.1.0\npydantic>=2.0.0",
+        "rule": "pywin32>=306\nmcp>=1.0.0\npython-docx>=1.1.0\npydantic>=2.0.0\nanthropic>=0.40.0\nPillow>=10.0.0\npyautogui>=0.9.53\nplaywright>=1.40.0\nclaude-max>=0.0.10",
         "applies_to": "ia_word",
-        "source": "IA_Word\\requirements.txt",
+        "source": "C:\\Chance1\\IA\\IA_Word\\requirements.txt",
         "confidence": "observed",
         "examples": [],
         "exceptions": ""
@@ -10263,13 +10263,13 @@
       "tags": [
         "txt"
       ],
-      "created_at": "2026-04-04T04:33:41.155428+00:00",
-      "updated_at": "2026-04-04T04:33:41.155428+00:00",
+      "created_at": "2026-04-09T18:10:40.149012+00:00",
+      "updated_at": "2026-04-09T18:10:40.149012+00:00",
       "stats": {
         "lookups": 0,
         "cited_in_tasks": 0,
-        "last_accessed": "2026-04-06T21:21:26.589865+00:00",
-        "access_count": 59
+        "last_accessed": "2026-04-09T18:10:40.149012+00:00",
+        "access_count": 0
       }
     },
     "71bcac9ae513": {
@@ -12083,6 +12083,2798 @@
         "last_accessed": "2026-04-06T21:26:37.090988+00:00",
         "access_count": 0
       }
+    },
+    "2b8278c2bab4": {
+      "id": "2b8278c2bab4",
+      "type": "fact",
+      "key": "test_stress_5_0",
+      "fact": {
+        "rule": "\"\"\"\n5 Pruebas de Estres con Complejidad Creciente para IA_Word.\n\nNiveles:\n    1. Basico:    Find/Replace masivo + verificacion\n    2. Medio:     Insertar tabla economica + formateo complejo\n    3. Alto:      Editar propuesta completa (footers, TOC, secciones)\n    4. Avanzado:  Combinar todo + vinetas/indentacion/estilos mixtos\n    5. Extremo:   Pipeline completo con DocEyes + loop VER-CORREGIR\n\nIMPORTANTE: Todos los tests trabajan sobre COPIAS, nunca sobre originales.\n\"\"\"\n\nimport json\nimport logging\nimport os\nimport shutil\nimport sys\nimport time\nimport traceback\nfrom pathlib import Path\n\n# Setup\nsys.path.insert(0, str(Path(__file__).parent))\nlogging.basicConfig(level=logging.INFO, format=\"%(asctime)s %(levelname)s %(message)s\")\nlogger = logging.getLogger(\"stress_test\")\n\nimport pythoncom\n",
+        "applies_to": "ia_word",
+        "source": "C:\\Chance1\\IA\\IA_Word\\test_stress_5.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-09T18:10:23.717697+00:00",
+      "updated_at": "2026-04-09T18:10:23.717697+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:10:23.717697+00:00",
+        "access_count": 0
+      }
+    },
+    "844a2dc7f8e8": {
+      "id": "844a2dc7f8e8",
+      "type": "fact",
+      "key": "test_stress_5_1",
+      "fact": {
+        "rule": "%(asctime)s %(levelname)s %(message)s\")\nlogger = logging.getLogger(\"stress_test\")\n\nimport pythoncom\nimport win32com.client\nfrom pywintypes import com_error\n\nTEST_DIR = str(Path(__file__).parent / \"test_output\" / \"stress_tests\")\nos.makedirs(TEST_DIR, exist_ok=True)\n\n# Documentos fuente (se copian)\nSOURCES = {\n    \"bac\": r\"C:\\Chance1\\Clientes\\Banco BAC\\ACH\\SoW_BAC_ACH Tiempo Real y ACH Batch en AWS_v1.0.docx\",\n    \"bantrab\": r\"C:\\Chance1\\Clientes\\Banco Bantrab\\Parallel X\\SOW - Bantrab - Parallel X - Fase II v1.0.docx\",\n    \"gyt\": r\"C:\\Chance1\\Clientes\\Banco G&T\\PostgresSQL CE\\Final Postgres Y Redis\\Propuesta Integral  PostgreSQL CE On Prem Horas - Licenciamiento Sop Redis  Banco GyT 06 de abril 2026.docx\",\n}\n\nRESULTS = []\n\ndef copy_source(key: str, test_name: str) -> str:\n",
+        "applies_to": "ia_word",
+        "source": "C:\\Chance1\\IA\\IA_Word\\test_stress_5.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-09T18:10:23.865684+00:00",
+      "updated_at": "2026-04-09T18:10:23.865684+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:10:23.865684+00:00",
+        "access_count": 0
+      }
+    },
+    "35bb35cf488d": {
+      "id": "35bb35cf488d",
+      "type": "fact",
+      "key": "test_stress_5_2",
+      "fact": {
+        "rule": "anco GyT 06 de abril 2026.docx\",\n}\n\nRESULTS = []\n\ndef copy_source(key: str, test_name: str) -> str:\n    \"\"\"Copia un documento fuente al directorio de pruebas.\"\"\"\n    src = SOURCES[key]\n    if not Path(src).exists():\n        raise FileNotFoundError(f\"Fuente no encontrada: {src}\")\n    dst = os.path.join(TEST_DIR, f\"{test_name}.docx\")\n    shutil.copy2(src, dst)\n    logger.info(f\"Copiado: {Path(src).name} -> {test_name}.docx\")\n    return dst\n\ndef record_result(test_num: int, name: str, success: bool, details: dict, duration: float):\n    \"\"\"Registra resultado de un test.\"\"\"\n    result = {\n        \"test\": test_num,\n        \"name\": name,\n        \"success\": success,\n        \"duration_seconds\": round(duration, 2),\n        **details,\n    }\n    RESULTS.append(result)\n",
+        "applies_to": "ia_word",
+        "source": "C:\\Chance1\\IA\\IA_Word\\test_stress_5.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-09T18:10:24.020858+00:00",
+      "updated_at": "2026-04-09T18:10:24.020858+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:10:24.020858+00:00",
+        "access_count": 0
+      }
+    },
+    "41fca7f039b2": {
+      "id": "41fca7f039b2",
+      "type": "fact",
+      "key": "test_stress_5_3",
+      "fact": {
+        "rule": "        \"duration_seconds\": round(duration, 2),\n        **details,\n    }\n    RESULTS.append(result)\n    icon = \"PASS\" if success else \"FAIL\"\n    logger.info(f\"[{icon}] Test {test_num}: {name} ({duration:.1f}s)\")\n\n# =============================================================================\n# TEST 1 - BASICO: Find/Replace masivo + verificacion\n# =============================================================================\ndef test1_massive_replace():\n    \"\"\"\n    Nivel: Basico\n    - Copia un SOW\n    - Ejecuta 15+ reemplazos (cliente, fechas, numeros, textos)\n    - Verifica con verify_all_replaced que TODOS se aplicaron\n    - Cuenta ocurrencias residuales\n    \"\"\"\n    from src.word_com import WordCOM\n\n    t0 = time.time()\n    doc_path = copy_source(\"bac\", \"test1_massive_replace\")\n\n",
+        "applies_to": "ia_word",
+        "source": "C:\\Chance1\\IA\\IA_Word\\test_stress_5.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-09T18:10:24.177934+00:00",
+      "updated_at": "2026-04-09T18:10:24.177934+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:10:24.177934+00:00",
+        "access_count": 0
+      }
+    },
+    "f8050a615acc": {
+      "id": "f8050a615acc",
+      "type": "fact",
+      "key": "test_stress_5_4",
+      "fact": {
+        "rule": "om import WordCOM\n\n    t0 = time.time()\n    doc_path = copy_source(\"bac\", \"test1_massive_replace\")\n\n    replacements = [\n        (\"BAC\", \"BANCO INDUSTRIAL\"),\n        (\"ACH\", \"TRANSFERENCIAS SWIFT\"),\n        (\"AWS\", \"Azure Cloud\"),\n        (\"v1.0\", \"v3.5\"),\n        (\"GBM\", \"TECNOLOGIA AVANZADA S.A.\"),\n        (\"Guatemala\", \"Ciudad de Guatemala, Guatemala C.A.\"),\n        (\"2026\", \"2027\"),\n        (\"marzo\", \"septiembre\"),\n        (\"Marzo\", \"Septiembre\"),\n        (\"enero\", \"julio\"),\n        (\"Enero\", \"Julio\"),\n        (\"propuesta\", \"oferta comercial\"),\n        (\"Propuesta\", \"Oferta Comercial\"),\n        (\"servicio\", \"solucion integral\"),\n        (\"Servicio\", \"Solucion Integral\"),\n    ]\n\n    issues = []\n    details = {\"replacements_requested\": len(replacements)}\n\n",
+        "applies_to": "ia_word",
+        "source": "C:\\Chance1\\IA\\IA_Word\\test_stress_5.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-09T18:10:24.326216+00:00",
+      "updated_at": "2026-04-09T18:10:24.326216+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:10:24.326216+00:00",
+        "access_count": 0
+      }
+    },
+    "4486ec3cbf50": {
+      "id": "4486ec3cbf50",
+      "type": "fact",
+      "key": "test_stress_5_5",
+      "fact": {
+        "rule": "ion Integral\"),\n    ]\n\n    issues = []\n    details = {\"replacements_requested\": len(replacements)}\n\n    with WordCOM(visible=False) as wc:\n        wc.open_document(doc_path)\n\n        # Ejecutar reemplazos con VBA batch (1 sola llamada COM, evita RPC crash)\n        try:\n            vba_result = wc.vba_batch_replace(replacements)\n            details[\"vba_result\"] = vba_result\n            details[\"total_replacements_made\"] = vba_result.get(\"total_replacements\", 0)\n            logger.info(f\"VBA batch: {vba_result}\")\n        except Exception as e:\n            # Fallback: smart_replace individual si VBA falla (ej: macros deshabilitadas)\n            logger.warning(f\"VBA batch fallo ({e}), usando smart_replace...\")\n            details[\"vba_error\"] = str(e)\n            total_count = 0\n",
+        "applies_to": "ia_word",
+        "source": "C:\\Chance1\\IA\\IA_Word\\test_stress_5.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-09T18:10:24.470285+00:00",
+      "updated_at": "2026-04-09T18:10:24.470285+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:10:24.470285+00:00",
+        "access_count": 0
+      }
+    },
+    "a98abcb53260": {
+      "id": "a98abcb53260",
+      "type": "fact",
+      "key": "test_stress_5_6",
+      "fact": {
+        "rule": "}), usando smart_replace...\")\n            details[\"vba_error\"] = str(e)\n            total_count = 0\n            for old, new in replacements:\n                sr = wc.smart_replace(old, new)\n                count = sr.get(\"body\", 0) + sr.get(\"footer_shapes\", 0)\n                total_count += count\n            details[\"total_replacements_made\"] = total_count\n\n        # VERIFICAR que realmente se aplicaron\n        # Fast check: leer body text una sola vez\n        body_text = wc.doc.Content.Text\n        not_replaced = []\n        for old, new in replacements:\n            if old in body_text:\n                not_replaced.append({\"text\": old, \"locations\": [\"body\"]})\n            else:\n                # Check headers/footers/shapes (solo si no esta en body)\n",
+        "applies_to": "ia_word",
+        "source": "C:\\Chance1\\IA\\IA_Word\\test_stress_5.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-09T18:10:24.622432+00:00",
+      "updated_at": "2026-04-09T18:10:24.622432+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:10:24.622432+00:00",
+        "access_count": 0
+      }
+    },
+    "58613fd39676": {
+      "id": "58613fd39676",
+      "type": "fact",
+      "key": "test_stress_5_7",
+      "fact": {
+        "rule": "body\"]})\n            else:\n                # Check headers/footers/shapes (solo si no esta en body)\n                check = wc.verify_all_replaced(old)\n                if check[\"found\"]:\n                    not_replaced.append({\"text\": old, \"locat",
+        "applies_to": "ia_word",
+        "source": "C:\\Chance1\\IA\\IA_Word\\test_stress_5.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-09T18:10:24.755304+00:00",
+      "updated_at": "2026-04-09T18:10:24.755304+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:10:24.755304+00:00",
+        "access_count": 0
+      }
+    },
+    "67ecb9a8c017": {
+      "id": "67ecb9a8c017",
+      "type": "fact",
+      "key": "test_5_real_levels_0",
+      "fact": {
+        "rule": "\"\"\"\n5 pruebas reales de menor a mayor complejidad.\nUsa documentos SOW reales, no simulaciones.\nMide tiempo, eficacia (cambios correctos) y eficiencia (velocidad).\n\"\"\"\nimport os, sys, shutil, time\n\nsys.path.insert(0, os.path.dirname(__file__))\nfrom src.word_com import WordCOM, undo_record, word_fast_mode\n\nBASE_DIR = os.path.join(os.path.dirname(__file__), \"pruebas_reales\")\nOUT_DIR = os.path.join(os.path.dirname(__file__), \"test_output\")\nos.makedirs(OUT_DIR, exist_ok=True)\n\n# Use real SOW documents of different complexity\nDOCS = {\n    \"simple\": \"P01_Solo_Soporte.docx\",       # 5.4MB, 20 pages\n    \"complex\": \"ADV1_Merge_Compose.docx\",     # 5.5MB\n    \"fields\":  \"ADV2_Campos_Word.docx\",       # 5.5MB\n}\n\nRESULTS = []\n\ndef report(level, name, passed, details, elapsed):\n",
+        "applies_to": "ia_word",
+        "source": "C:\\Chance1\\IA\\IA_Word\\test_5_real_levels.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-09T18:10:24.904424+00:00",
+      "updated_at": "2026-04-09T18:10:24.904424+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:10:24.904424+00:00",
+        "access_count": 0
+      }
+    },
+    "2b40d3efdf70": {
+      "id": "2b40d3efdf70",
+      "type": "fact",
+      "key": "test_5_real_levels_1",
+      "fact": {
+        "rule": "ampos_Word.docx\",       # 5.5MB\n}\n\nRESULTS = []\n\ndef report(level, name, passed, details, elapsed):\n    status = \"PASS\" if passed else \"FAIL\"\n    RESULTS.append((level, name, status, elapsed, details))\n    print(f\"  [{status}] {name} — {elapsed:.1f}s\")\n    if not passed:\n        print(f\"         {details}\")\n\ndef test_1_basic_open_analyze():\n    \"\"\"NIVEL 1: Abrir, analizar, leer tablas, leer footers, cerrar.\"\"\"\n    print(\"\\n\" + \"=\" * 60)\n    print(\"NIVEL 1: Lectura básica (open + analyze + tables + footers)\")\n    print(\"=\" * 60)\n\n    src = os.path.join(BASE_DIR, DOCS[\"simple\"])\n    work = os.path.join(OUT_DIR, \"level1.docx\")\n    shutil.copy2(src, work)\n\n    w = WordCOM(visible=False)\n    t_total = time.time()\n    try:\n        # Open\n        t0 = time.time()\n",
+        "applies_to": "ia_word",
+        "source": "C:\\Chance1\\IA\\IA_Word\\test_5_real_levels.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-09T18:10:25.054687+00:00",
+      "updated_at": "2026-04-09T18:10:25.054687+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:10:25.054687+00:00",
+        "access_count": 0
+      }
+    },
+    "0f9f9a2d4cd4": {
+      "id": "0f9f9a2d4cd4",
+      "type": "fact",
+      "key": "test_5_real_levels_2",
+      "fact": {
+        "rule": "= WordCOM(visible=False)\n    t_total = time.time()\n    try:\n        # Open\n        t0 = time.time()\n        info = w.open_document(os.path.abspath(work))\n        report(1, \"open_document\", info[\"page_count\"] > 0,\n               f\"{info['page_count']}p, {info['section_count']}sec\", time.time() - t0)\n\n        # Analyze (get_sections)\n        t0 = time.time()\n        sections = w.get_sections()\n        report(1, \"get_sections\", len(sections) > 5,\n               f\"{len(sections)} headings\", time.time() - t0)\n\n        # Get tables\n        t0 = time.time()\n        tables = w.get_tables()\n        report(1, \"get_tables\", True,\n               f\"{len(tables)} tables\", time.time() - t0)\n\n        # Get footer text\n        t0 = time.time()\n        footers = w.get_footer_text()\n",
+        "applies_to": "ia_word",
+        "source": "C:\\Chance1\\IA\\IA_Word\\test_5_real_levels.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-09T18:10:25.211287+00:00",
+      "updated_at": "2026-04-09T18:10:25.211287+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:10:25.211287+00:00",
+        "access_count": 0
+      }
+    },
+    "40c38507e30d": {
+      "id": "40c38507e30d",
+      "type": "fact",
+      "key": "test_5_real_levels_3",
+      "fact": {
+        "rule": "e() - t0)\n\n        # Get footer text\n        t0 = time.time()\n        footers = w.get_footer_text()\n        report(1, \"get_footer_text\", True,\n               f\"{len(footers)} footers\", time.time() - t0)\n\n        # Document properties\n        t0 = time.time()\n        props = w.get_document_properties()\n        report(1, \"get_document_properties\", \"builtin\" in props,\n               f\"builtin={len(props['builtin'])}, custom={len(props['custom'])}\", time.time() - t0)\n\n    finally:\n        w.quit()\n\n    total = time.time() - t_total\n    print(f\"  TOTAL NIVEL 1: {total:.1f}s\")\n    return total\n\ndef test_2_find_replace_fonts():\n    \"\"\"NIVEL 2: Find/replace + bulk font change + paragraph spacing.\"\"\"\n    print(\"\\n\" + \"=\" * 60)\n    print(\"NIVEL 2: Edición de texto y formato\")\n    print(\"=\" * 60)\n\n",
+        "applies_to": "ia_word",
+        "source": "C:\\Chance1\\IA\\IA_Word\\test_5_real_levels.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-09T18:10:25.358183+00:00",
+      "updated_at": "2026-04-09T18:10:25.358183+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:10:25.358183+00:00",
+        "access_count": 0
+      }
+    },
+    "db8b57b40b4f": {
+      "id": "db8b57b40b4f",
+      "type": "fact",
+      "key": "test_5_real_levels_4",
+      "fact": {
+        "rule": "\"\"\n    print(\"\\n\" + \"=\" * 60)\n    print(\"NIVEL 2: Edición de texto y formato\")\n    print(\"=\" * 60)\n\n    src = os.path.join(BASE_DIR, DOCS[\"simple\"])\n    work = os.path.join(OUT_DIR, \"level2.docx\")\n    shutil.copy2(src, work)\n\n    w = WordCOM(visible=False)\n    t_total = time.time()\n    try:\n        w.open_document(os.path.abspath(work))\n\n        # Find/replace\n        t0 = time.time()\n        count = w.find_replace(\"GBM\", \"GBM Corporation\")\n        report(2, \"find_replace\", True,\n               f\"{count} replacements\", time.time() - t0)\n\n        # Wildcard replace (collapse multiple spaces)\n        t0 = time.time()\n        r = w.find_replace_wildcard(\"  \", \" \")\n        report(2, \"find_replace_wildcard\", True,\n               f\"replaced={r['replaced']}\", time.time() - t0)\n\n",
+        "applies_to": "ia_word",
+        "source": "C:\\Chance1\\IA\\IA_Word\\test_5_real_levels.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-09T18:10:25.504781+00:00",
+      "updated_at": "2026-04-09T18:10:25.504781+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:10:25.504781+00:00",
+        "access_count": 0
+      }
+    },
+    "f660d2d2adec": {
+      "id": "f660d2d2adec",
+      "type": "fact",
+      "key": "test_5_real_levels_5",
+      "fact": {
+        "rule": "rt(2, \"find_replace_wildcard\", True,\n               f\"replaced={r['replaced']}\", time.time() - t0)\n\n        # Bulk font change\n        t0 = time.time()\n        r = w.bulk_font_change(old_font=\"Arial\", new_font=\"Calibri\")\n        report(2, \"bulk_font_change\", True,\n               f\"replaced={r['replaced']}\", time.time() - t0)\n\n        # Paragraph spacing\n        t0 = time.time()\n        r = w.set_paragraph_spacing(style_name=\"Normal\", space_after=8, line_spacing=1.15)\n        report(2, \"set_paragraph_spacing\", r[\"changes\"] > 0,\n               f\"{r['changes']} changes\", time.time() - t0)\n\n        # Update all fields\n        t0 = time.time()\n        r = w.update_all_fields()\n        report(2, \"update_all_fields\", True,\n               f\"total={r['total']}\", time.time() - t0)\n\n        w.save()\n",
+        "applies_to": "ia_word",
+        "source": "C:\\Chance1\\IA\\IA_Word\\test_5_real_levels.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-09T18:10:25.653150+00:00",
+      "updated_at": "2026-04-09T18:10:25.653150+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:10:25.653150+00:00",
+        "access_count": 0
+      }
+    },
+    "b135518fe9e4": {
+      "id": "b135518fe9e4",
+      "type": "fact",
+      "key": "test_5_real_levels_6",
+      "fact": {
+        "rule": "update_all_fields\", True,\n               f\"total={r['total']}\", time.time() - t0)\n\n        w.save()\n\n    finally:\n        w.quit()\n\n    total = time.time() - t_total\n    print(f\"  TOTAL NIVEL 2: {total:.1f}s\")\n    return total\n\ndef test_3_tables_lists_images():\n    \"\"\"NIVEL 3: Insertar tabla, lista, imagen, fórmula, merge cells.\"\"\"\n    print(\"\\n\" + \"=\" * 60)\n    print(\"NIVEL 3: Inserción de contenido (tabla + lista + imagen + fórmula)\")\n    print(\"=\" * 60)\n\n    src = os.path.join(BASE_DIR, DOCS[\"simple\"])\n    work = os.path.join(OUT_DIR, \"level3.docx\")\n    shutil.copy2(src, work)\n\n    # Create test image\n    img_path = os.path.join(OUT_DIR, \"test_logo.png\")\n    _create_test_png(img_path)\n\n    w = WordCOM(visible=False)\n    t_total = time.time()\n    try:\n",
+        "applies_to": "ia_word",
+        "source": "C:\\Chance1\\IA\\IA_Word\\test_5_real_levels.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-09T18:10:25.806224+00:00",
+      "updated_at": "2026-04-09T18:10:25.806224+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:10:25.806224+00:00",
+        "access_count": 0
+      }
+    },
+    "22091a22fd91": {
+      "id": "22091a22fd91",
+      "type": "fact",
+      "key": "test_5_real_levels_7",
+      "fact": {
+        "rule": ")\n    _create_test_png(img_path)\n\n    w = WordCOM(visible=False)\n    t_total = time.time()\n    try:\n        w.open_document(os.path.abspath(work))\n        sections = w.get_sections()\n        first_h = sections[0][\"text\"] if sections else",
+        "applies_to": "ia_word",
+        "source": "C:\\Chance1\\IA\\IA_Word\\test_5_real_levels.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-09T18:10:25.939635+00:00",
+      "updated_at": "2026-04-09T18:10:25.939635+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:10:25.939635+00:00",
+        "access_count": 0
+      }
+    },
+    "b0faeca6e014": {
+      "id": "b0faeca6e014",
+      "type": "fact",
+      "key": "test_engine_full_0",
+      "fact": {
+        "rule": "#!/usr/bin/env python\n\"\"\"\nPruebas completas del Motor Gestionador IA_Word.\n\nEjecuta 5 pruebas con documentos reales:\n    1. Find/Replace + TOC + validacion visual\n    2. Insertar tabla Excel en documento Word\n    3. Eliminar seccion + renumerar + validar\n    4. Guardar como .doc (formato antiguo)\n    5. Edicion multiple + validacion visual completa\n\nCada prueba:\n    - Trabaja con copia del documento (no modifica originales)\n    - Ejecuta operaciones via Engine/COM\n    - Captura screenshot via Playwright\n    - Valida visualmente via Bridge (tu suscripcion Max)\n    - Reporta resultado\n\"\"\"\n\nimport json\nimport logging\nimport os\nimport shutil\nimport sys\nimport time\nfrom pathlib import Path\n\nsys.path.insert(0, str(Path(__file__).parent))\n\nlogging.basicConfig(\n    level=logging.INFO,\n",
+        "applies_to": "ia_word",
+        "source": "C:\\Chance1\\IA\\IA_Word\\test_engine_full.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-09T18:10:26.075220+00:00",
+      "updated_at": "2026-04-09T18:10:26.075220+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:10:26.075220+00:00",
+        "access_count": 0
+      }
+    },
+    "573c74ba1234": {
+      "id": "573c74ba1234",
+      "type": "fact",
+      "key": "test_engine_full_1",
+      "fact": {
+        "rule": " Path\n\nsys.path.insert(0, str(Path(__file__).parent))\n\nlogging.basicConfig(\n    level=logging.INFO,\n    format=\"%(asctime)s [%(levelname)s] %(message)s\",\n)\nlogger = logging.getLogger(\"test_engine\")\n\n# Directorio de pruebas\nTEST_DIR = Path(__file__).parent / \"test_output\"\nTEST_DIR.mkdir(exist_ok=True)\n\n# Documentos fuente\nDOCS = {\n    \"gyt\": r\"C:\\Chance1\\Clientes\\Banco G&T\\PostgresSQL CE\\Propuesta de PostgreSQL CE On Prem Horas - Banco GyT V5.docx\",\n    \"bac\": r\"C:\\Chance1\\Clientes\\Banco BAC\\ACH\\SoW_BAC_ACH Tiempo Real y ACH Batch en AWS_v1.0.docx\",\n    \"bantrab\": r\"C:\\Chance1\\Clientes\\Banco Bantrab\\Automatización de Pruebas Core TC\\SOW - Bantrab - Certificacion Funcional y Automatizacion Pruebas Core V Final.docx\",\n}\n\n",
+        "applies_to": "ia_word",
+        "source": "C:\\Chance1\\IA\\IA_Word\\test_engine_full.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-09T18:10:26.220707+00:00",
+      "updated_at": "2026-04-09T18:10:26.220707+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:10:26.220707+00:00",
+        "access_count": 0
+      }
+    },
+    "357d52a575bb": {
+      "id": "357d52a575bb",
+      "type": "fact",
+      "key": "test_engine_full_2",
+      "fact": {
+        "rule": "bas Core TC\\SOW - Bantrab - Certificacion Funcional y Automatizacion Pruebas Core V Final.docx\",\n}\n\nEXCEL = r\"C:\\Chance1\\Clientes\\Banco Bantrab\\Desarollo del Portal de Remesas Para Pago de Remesas\\BOM - Bantrab - Desarrollo Portal Remesas v1.0.xlsx\"\n\n# Resultados\nresults = []\n\ndef copy_doc(src: str, name: str, ext: str = \".docx\") -> str:\n    \"\"\"Copia documento a directorio de pruebas.\"\"\"\n    dest = str(TEST_DIR / f\"{name}{ext}\")\n    shutil.copy2(src, dest)\n    return dest\n\ndef capture_and_validate(doc_path: str, analysis_type: str = \"general\") -> dict:\n    \"\"\"Captura screenshot via Playwright y valida con Bridge.\"\"\"\n    from src.playwright_feedback import PlaywrightFeedback\n    from src.vision_bridge import VisionBridge\n\n    pf = PlaywrightFeedback()\n\n    # Word -> HTML -> Screenshot\n",
+        "applies_to": "ia_word",
+        "source": "C:\\Chance1\\IA\\IA_Word\\test_engine_full.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-09T18:10:26.362725+00:00",
+      "updated_at": "2026-04-09T18:10:26.362725+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:10:26.362725+00:00",
+        "access_count": 0
+      }
+    },
+    "8e2c3d1cfba4": {
+      "id": "8e2c3d1cfba4",
+      "type": "fact",
+      "key": "test_engine_full_3",
+      "fact": {
+        "rule": ".vision_bridge import VisionBridge\n\n    pf = PlaywrightFeedback()\n\n    # Word -> HTML -> Screenshot\n    html_path = pf.word_to_html(doc_path)\n    html_dir = str(Path(html_path).parent)\n    port = pf._start_server(html_dir)\n    url = f\"http://127.0.0.1:{port}/document.html\"\n    time.sleep(1)\n\n    screenshot_path = str(TEST_DIR / f\"{Path(doc_path).stem}_screenshot.png\")\n    # full_page=False para evitar capturas de 200M+ pixels en docs largos\n    pf.capture_with_playwright(url, output_path=screenshot_path, full_page=False)\n    pf._stop_server()\n\n    # Validar con Bridge (usa tu Max)\n    bridge = VisionBridge()\n    analysis = bridge.validate_document(screenshot_path, analysis_type)\n    analysis[\"_screenshot\"] = screenshot_path\n\n    return analysis\n\ndef test_1_find_replace_toc():\n",
+        "applies_to": "ia_word",
+        "source": "C:\\Chance1\\IA\\IA_Word\\test_engine_full.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-09T18:10:26.508631+00:00",
+      "updated_at": "2026-04-09T18:10:26.508631+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:10:26.508631+00:00",
+        "access_count": 0
+      }
+    },
+    "6003ab54593e": {
+      "id": "6003ab54593e",
+      "type": "fact",
+      "key": "test_engine_full_4",
+      "fact": {
+        "rule": "\n    analysis[\"_screenshot\"] = screenshot_path\n\n    return analysis\n\ndef test_1_find_replace_toc():\n    \"\"\"Prueba 1: Find/Replace + actualizar TOC + validacion visual.\"\"\"\n    print(\"\\n\" + \"=\" * 70)\n    print(\"PRUEBA 1: Find/Replace + TOC + Validacion Visual\")\n    print(\"=\" * 70)\n\n    from src.engine import Engine\n\n    doc = copy_doc(DOCS[\"gyt\"], \"test1_find_replace\")\n\n    engine = Engine(visible=False, vision_mode=\"none\", enable_visual=False, backup=False)\n    try:\n        info = engine.open(doc)\n        print(f\"  Documento: {Path(doc).name}\")\n        print(f\"  Tipo: {info.get('document_type')} | Paginas: {info.get('pages')}\")\n\n        # Operaciones\n        ops = [\n            engine.execute_operation({\"type\": \"find_replace\", \"old\": \"GBM\", \"new\": \"GBM International\"}),\n",
+        "applies_to": "ia_word",
+        "source": "C:\\Chance1\\IA\\IA_Word\\test_engine_full.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-09T18:10:26.658168+00:00",
+      "updated_at": "2026-04-09T18:10:26.658168+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:10:26.658168+00:00",
+        "access_count": 0
+      }
+    },
+    "486e7fee1df1": {
+      "id": "486e7fee1df1",
+      "type": "fact",
+      "key": "test_engine_full_5",
+      "fact": {
+        "rule": "      engine.execute_operation({\"type\": \"find_replace\", \"old\": \"GBM\", \"new\": \"GBM International\"}),\n            engine.execute_operation({\"type\": \"find_replace\", \"old\": \"2024\", \"new\": \"2026\"}),\n            engine.execute_operation({\"type\": \"find_replace\", \"old\": \"Banco G&T\", \"new\": \"Banco G&T Continental\"}),\n            engine.execute_operation({\"type\": \"update_toc\"}),\n        ]\n\n        for op in ops:\n            status = \"[OK]\" if op.success else \"[FAIL]\"\n            print(f\"  {status} {op.operation}: {op.details or op.error}\")\n\n        engine._word.save()\n        engine.close()\n\n        # Validacion visual\n        print(\"  Validando visualmente...\")\n        visual = capture_and_validate(doc)\n        score = visual.get(\"quality_score\", 0)\n        valid = visual.get(\"is_valid\", False)\n",
+        "applies_to": "ia_word",
+        "source": "C:\\Chance1\\IA\\IA_Word\\test_engine_full.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-09T18:10:26.799921+00:00",
+      "updated_at": "2026-04-09T18:10:26.799921+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:10:26.799921+00:00",
+        "access_count": 0
+      }
+    },
+    "0e62ae39926f": {
+      "id": "0e62ae39926f",
+      "type": "fact",
+      "key": "test_engine_full_6",
+      "fact": {
+        "rule": "e(doc)\n        score = visual.get(\"quality_score\", 0)\n        valid = visual.get(\"is_valid\", False)\n        print(f\"  Visual: score={score}/100 | valid={valid}\")\n        if visual.get(\"issues_found\"):\n            for issue in visual[\"issues_found\"][:3]:\n                print(f\"    - {issue[:80]}\")\n\n        results.append({\n            \"test\": \"1_find_replace_toc\",\n            \"success\": all(o.success for o in ops) and valid,\n            \"score\": score,\n            \"screenshot\": visual.get(\"_screenshot\"),\n        })\n\n    except Exception as e:\n        print(f\"  ERROR: {e}\")\n        results.append({\"test\": \"1_find_replace_toc\", \"success\": False, \"error\": str(e)})\n        engine.close()\n\ndef test_2_insert_excel_table():\n    \"\"\"Prueba 2: Insertar tabla de Excel en documento Word.\"\"\"\n",
+        "applies_to": "ia_word",
+        "source": "C:\\Chance1\\IA\\IA_Word\\test_engine_full.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-09T18:10:26.947002+00:00",
+      "updated_at": "2026-04-09T18:10:26.947002+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:10:26.947002+00:00",
+        "access_count": 0
+      }
+    },
+    "7887d995bf77": {
+      "id": "7887d995bf77",
+      "type": "fact",
+      "key": "test_engine_full_7",
+      "fact": {
+        "rule": "()\n\ndef test_2_insert_excel_table():\n    \"\"\"Prueba 2: Insertar tabla de Excel en documento Word.\"\"\"\n    print(\"\\n\" + \"=\" * 70)\n    print(\"PRUEBA 2: Insertar Tabla Excel en Word\")\n    print(\"=\" * 70)\n\n    import pythoncom\n    import",
+        "applies_to": "ia_word",
+        "source": "C:\\Chance1\\IA\\IA_Word\\test_engine_full.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-09T18:10:27.076012+00:00",
+      "updated_at": "2026-04-09T18:10:27.076012+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:10:27.076012+00:00",
+        "access_count": 0
+      }
+    },
+    "9c1c6d9cd059": {
+      "id": "9c1c6d9cd059",
+      "type": "fact",
+      "key": "prueba_motor_real_0",
+      "fact": {
+        "rule": "\"\"\"\nPRUEBA REAL usando EXCLUSIVAMENTE el motor MCP de IA_Word.\nToda operacion Word pasa por call_tool() -> handler -> WordCOM -> validacion visual.\n\nTarea: Leer tabla AWS del BOM Excel, insertarla en el SOW en Anexos,\ncon formato azul clasico, sumarizado, IVA Guatemala (12%), y actualizar indice.\n\"\"\"\nimport asyncio\nimport glob\nimport json\nimport os\nimport shutil\nimport sys\nimport time\n\nsys.path.insert(0, os.path.dirname(__file__))\n\nimport openpyxl\nfrom src.mcp_server import call_tool\n\n# =====================================================\n# PASO 0: Extraer datos AWS del Excel (fuera del motor)\n# =====================================================\ndef extract_aws_data():\n    \"\"\"Lee la hoja 'Licenciamiento AWS' del BOM Excel con TODAS las columnas.\"\"\"\n",
+        "applies_to": "ia_word",
+        "source": "C:\\Chance1\\IA\\IA_Word\\prueba_motor_real.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-09T18:10:27.221356+00:00",
+      "updated_at": "2026-04-09T18:10:27.221356+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:10:27.221356+00:00",
+        "access_count": 0
+      }
+    },
+    "81b4ee8df7f5": {
+      "id": "81b4ee8df7f5",
+      "type": "fact",
+      "key": "prueba_motor_real_1",
+      "fact": {
+        "rule": "xtract_aws_data():\n    \"\"\"Lee la hoja 'Licenciamiento AWS' del BOM Excel con TODAS las columnas.\"\"\"\n    bom_path = glob.glob(\"pruebas_reales/BOM Capa*\")[0]\n    wb = openpyxl.load_workbook(bom_path, data_only=True)\n    ws = wb[\"Licenciamiento AWS\"]\n\n    # Headers from row 10: Group hierarchy, Region, Description, Service,\n    #   Upfront, Monthly, First 12 months total, Currency, Status, Config summary\n    services = []\n    for row in ws.iter_rows(min_row=11, max_row=19, values_only=False):\n        vals = [c.value for c in row[:11]]\n        # Cols: 0=code, 1=group, 2=region, 3=description, 4=service,\n        #       5=upfront, 6=monthly, 7=12mo_total, 8=currency, 9=status, 10=config\n        if vals[4] and vals[6]:\n            try:\n                monthly = float(vals[6])\n",
+        "applies_to": "ia_word",
+        "source": "C:\\Chance1\\IA\\IA_Word\\prueba_motor_real.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-09T18:10:27.365048+00:00",
+      "updated_at": "2026-04-09T18:10:27.365048+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:10:27.365048+00:00",
+        "access_count": 0
+      }
+    },
+    "2b79880aea22": {
+      "id": "2b79880aea22",
+      "type": "fact",
+      "key": "prueba_motor_real_2",
+      "fact": {
+        "rule": "10=config\n        if vals[4] and vals[6]:\n            try:\n                monthly = float(vals[6])\n                annual = float(vals[7]) if vals[7] else monthly * 12\n                upfront = float(vals[5]) if vals[5] else 0\n                services.append({\n                    \"group\": str(vals[1] or \"\").strip(),\n                    \"region\": str(vals[2] or \"\").strip(),\n                    \"description\": str(vals[3] or \"\").strip(),\n                    \"service\": str(vals[4] or \"\").strip(),\n                    \"upfront\": upfront,\n                    \"monthly\": monthly,\n                    \"annual\": annual,\n                    \"currency\": str(vals[8] or \"USD\").strip(),\n                    \"status\": str(vals[9] or \"\").strip(),\n                    \"config\": str(vals[10] or \"\").strip(),\n",
+        "applies_to": "ia_word",
+        "source": "C:\\Chance1\\IA\\IA_Word\\prueba_motor_real.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-09T18:10:27.511372+00:00",
+      "updated_at": "2026-04-09T18:10:27.511372+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:10:27.511372+00:00",
+        "access_count": 0
+      }
+    },
+    "8294bd9206dc": {
+      "id": "8294bd9206dc",
+      "type": "fact",
+      "key": "prueba_motor_real_3",
+      "fact": {
+        "rule": "   \"status\": str(vals[9] or \"\").strip(),\n                    \"config\": str(vals[10] or \"\").strip(),\n                })\n            except (ValueError, TypeError):\n                pass\n\n    # Factor AWS y totales\n    factor = 1.4526\n    total_mensual_usd = sum(s[\"monthly\"] for s in services)\n    total_anual_usd = sum(s[\"annual\"] for s in services)\n    total_mensual_factor = total_mensual_usd * factor\n    total_anual_factor = total_anual_usd * factor\n\n    return {\n        \"services\": services,\n        \"factor\": factor,\n        \"total_mensual_usd\": round(total_mensual_usd, 2),\n        \"total_anual_usd\": round(total_anual_usd, 2),\n        \"subtotal_mensual\": round(total_mensual_factor, 2),\n        \"subtotal_anual\": round(total_anual_factor, 2),\n        \"iva_rate\": 0.12,\n",
+        "applies_to": "ia_word",
+        "source": "C:\\Chance1\\IA\\IA_Word\\prueba_motor_real.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-09T18:10:27.646758+00:00",
+      "updated_at": "2026-04-09T18:10:27.646758+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:10:27.646758+00:00",
+        "access_count": 0
+      }
+    },
+    "9bce35a201c6": {
+      "id": "9bce35a201c6",
+      "type": "fact",
+      "key": "prueba_motor_real_4",
+      "fact": {
+        "rule": "nsual_factor, 2),\n        \"subtotal_anual\": round(total_anual_factor, 2),\n        \"iva_rate\": 0.12,\n        \"iva_mensual\": round(total_mensual_factor * 0.12, 2),\n        \"iva_anual\": round(total_anual_factor * 0.12, 2),\n        \"total_mensual\": round(total_mensual_factor * 1.12, 2),\n        \"total_anual\": round(total_anual_factor * 1.12, 2),\n    }\n\ndef print_result(label, result):\n    \"\"\"Print MCP tool result.\"\"\"\n    for r in result:\n        if hasattr(r, \"text\"):\n            data = json.loads(r.text)\n            if \"visual_validation\" in data:\n                vv = data[\"visual_validation\"]\n                bridge = vv.get(\"bridge_analysis\", {})\n                print(f\"  [VV] {vv.get('status')} | is_valid={bridge.get('is_valid')} | \"\n",
+        "applies_to": "ia_word",
+        "source": "C:\\Chance1\\IA\\IA_Word\\prueba_motor_real.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-09T18:10:27.795588+00:00",
+      "updated_at": "2026-04-09T18:10:27.795588+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:10:27.795588+00:00",
+        "access_count": 0
+      }
+    },
+    "9887c835cbc7": {
+      "id": "9887c835cbc7",
+      "type": "fact",
+      "key": "prueba_motor_real_5",
+      "fact": {
+        "rule": "sis\", {})\n                print(f\"  [VV] {vv.get('status')} | is_valid={bridge.get('is_valid')} | \"\n                      f\"score={bridge.get('quality_score')} | {vv.get('elapsed_seconds',0):.0f}s\")\n            else:\n                print(f\"  [{label}] {json.dumps(data, ensure_ascii=False)[:120]}\")\n        elif hasattr(r, \"data\"):\n            print(f\"  [IMG] PNG base64 ({len(r.data)//1024} KB)\")\n\nasync def main():\n    t_start = time.time()\n\n    # --- Extraer datos del Excel ---\n    print(\"=\" * 60)\n    print(\"PASO 0: Extraer datos AWS del BOM Excel\")\n    print(\"=\" * 60)\n    aws = extract_aws_data()\n    print(f\"  Servicios: {len(aws['services'])}\")\n    for s in aws[\"services\"]:\n        print(f\"    - {s['service']}: ${s['monthly']:.2f}/mes (${s['annual']:.2f}/anio) [{s['description']}]\")\n",
+        "applies_to": "ia_word",
+        "source": "C:\\Chance1\\IA\\IA_Word\\prueba_motor_real.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-09T18:10:27.949484+00:00",
+      "updated_at": "2026-04-09T18:10:27.949484+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:10:27.949484+00:00",
+        "access_count": 0
+      }
+    },
+    "eff8f2f00faa": {
+      "id": "eff8f2f00faa",
+      "type": "fact",
+      "key": "prueba_motor_real_6",
+      "fact": {
+        "rule": "nt(f\"    - {s['service']}: ${s['monthly']:.2f}/mes (${s['annual']:.2f}/anio) [{s['description']}]\")\n    print(f\"  Factor AWS: {aws['factor']}\")\n    print(f\"  Subtotal: ${aws['subtotal_mensual']:.2f}/mes | ${aws['subtotal_anual']:.2f}/anio\")\n    print(f\"  IVA 12%:  ${aws['iva_mensual']:.2f}/mes | ${aws['iva_anual']:.2f}/anio\")\n    print(f\"  TOTAL:    ${aws['total_mensual']:.2f}/mes | ${aws['total_anual']:.2f}/anio\")\n\n    # --- Preparar copia del SOW (no modificar original) ---\n    sow_orig = os.path.abspath(\n        \"pruebas_reales/SOW_GBM_NextGen_Lead_Generation_con_IA_BAM_Guatemala_V4.docx\"\n    )\n    sow_work = os.path.abspath(\"test_output/SOW_V4_con_AWS.docx\")\n    os.makedirs(\"test_output\", exist_ok=True)\n    shutil.copy2(sow_orig, sow_work)\n\n",
+        "applies_to": "ia_word",
+        "source": "C:\\Chance1\\IA\\IA_Word\\prueba_motor_real.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-09T18:10:28.102123+00:00",
+      "updated_at": "2026-04-09T18:10:28.102123+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:10:28.102123+00:00",
+        "access_count": 0
+      }
+    },
+    "7e67133bd7b3": {
+      "id": "7e67133bd7b3",
+      "type": "fact",
+      "key": "prueba_motor_real_7",
+      "fact": {
+        "rule": "_con_AWS.docx\")\n    os.makedirs(\"test_output\", exist_ok=True)\n    shutil.copy2(sow_orig, sow_work)\n\n    # =====================================================\n    # PASO 1: Abrir documento (MCP tool: open_document)\n    # =====================================================\n    print(",
+        "applies_to": "ia_word",
+        "source": "C:\\Chance1\\IA\\IA_Word\\prueba_motor_real.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-09T18:10:28.264920+00:00",
+      "updated_at": "2026-04-09T18:10:28.264920+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:10:28.264920+00:00",
+        "access_count": 0
+      }
+    },
+    "0823cd63f1cf": {
+      "id": "0823cd63f1cf",
+      "type": "fact",
+      "key": "run_engine_0",
+      "fact": {
+        "rule": "#!/usr/bin/env python\n\"\"\"\nCLI del Motor Gestionador IA_Word.\n\nOrquesta TODOS los recursos del proyecto para edicion confiable de Word.\n\nUso:\n    # Validar documento (sin editar)\n    python run_engine.py validate --doc \"document.docx\"\n\n    # Edicion rapida: reemplazar texto\n    python run_engine.py edit --doc \"document.docx\" --replace \"2024=2025\" --replace \"viejo=nuevo\"\n\n    # Edicion con TOC + visual\n    python run_engine.py edit --doc \"document.docx\" --replace \"2024=2025\" --toc --visual playwright\n\n    # Pipeline completo con operaciones JSON\n    python run_engine.py pipeline --doc \"document.docx\" --ops operations.json\n\n    # Solo deteccion de tipo (nativo vs PDF convertido)\n    python run_engine.py detect --doc \"document.docx\"\n\"\"\"\n\nimport argparse\nimport json\nimport logging\nimport sys\n",
+        "applies_to": "ia_word",
+        "source": "C:\\Chance1\\IA\\IA_Word\\run_engine.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-09T18:10:28.431008+00:00",
+      "updated_at": "2026-04-09T18:10:28.431008+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:10:28.431008+00:00",
+        "access_count": 0
+      }
+    },
+    "c44b1b333e99": {
+      "id": "c44b1b333e99",
+      "type": "fact",
+      "key": "run_engine_1",
+      "fact": {
+        "rule": "n_engine.py detect --doc \"document.docx\"\n\"\"\"\n\nimport argparse\nimport json\nimport logging\nimport sys\nfrom pathlib import Path\n\nsys.path.insert(0, str(Path(__file__).parent))\n\nlogging.basicConfig(\n    level=logging.INFO,\n    format=\"%(asctime)s [%(levelname)s] %(message)s\",\n)\nlogger = logging.getLogger(\"run_engine\")\n\ndef cmd_validate(args):\n    \"\"\"Comando: validar documento.\"\"\"\n    from src.engine import Engine\n\n    logger.info(f\"\\n{'='*70}\")\n    logger.info(\"ENGINE: Validar documento\")\n    logger.info(f\"{'='*70}\\n\")\n\n    engine = Engine(\n        visible=args.visible,\n        vision_mode=args.visual,\n        enable_visual=args.visual != \"none\",\n        backup=False,\n    )\n\n    report = engine.validate_only(args.doc, visual=args.visual != \"none\")\n    print(report.format_report())\n\n",
+        "applies_to": "ia_word",
+        "source": "C:\\Chance1\\IA\\IA_Word\\run_engine.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-09T18:10:28.596182+00:00",
+      "updated_at": "2026-04-09T18:10:28.596182+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:10:28.596182+00:00",
+        "access_count": 0
+      }
+    },
+    "372203d1812a": {
+      "id": "372203d1812a",
+      "type": "fact",
+      "key": "run_engine_2",
+      "fact": {
+        "rule": "t = engine.validate_only(args.doc, visual=args.visual != \"none\")\n    print(report.format_report())\n\n    if args.json:\n        json_path = Path(args.doc).with_suffix(\".validation.json\")\n        with open(json_path, \"w\", encoding=\"utf-8\") as f:\n            json.dump(report.to_dict(), f, ensure_ascii=False, indent=2)\n        logger.info(f\"Reporte JSON: {json_path}\")\n\n    return 0 if report.success else 1\n\ndef cmd_edit(args):\n    \"\"\"Comando: editar documento.\"\"\"\n    from src.engine import Engine\n\n    logger.info(f\"\\n{'='*70}\")\n    logger.info(\"ENGINE: Editar documento\")\n    logger.info(f\"{'='*70}\\n\")\n\n    # Construir operaciones\n    operations = []\n\n    # Reemplazos\n    if args.replace:\n        for r in args.replace:\n            if \"=\" not in r:\n",
+        "applies_to": "ia_word",
+        "source": "C:\\Chance1\\IA\\IA_Word\\run_engine.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-09T18:10:28.759347+00:00",
+      "updated_at": "2026-04-09T18:10:28.759347+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:10:28.759347+00:00",
+        "access_count": 0
+      }
+    },
+    "8990923da25b": {
+      "id": "8990923da25b",
+      "type": "fact",
+      "key": "run_engine_3",
+      "fact": {
+        "rule": "\n\n    # Reemplazos\n    if args.replace:\n        for r in args.replace:\n            if \"=\" not in r:\n                logger.error(f\"Formato invalido: '{r}'. Usar 'viejo=nuevo'\")\n                return 1\n            old, new = r.split(\"=\", 1)\n            operations.append({\"type\": \"find_replace\", \"old\": old, \"new\": new})\n\n    # Eliminar secciones\n    if args.delete_section:\n        for heading in args.delete_section:\n            operations.append({\"type\": \"delete_section\", \"heading\": heading})\n\n    # Footer\n    footer = {}\n    if args.cliente:\n        footer[\"cliente\"] = args.cliente\n    if args.fecha:\n        footer[\"fecha\"] = args.fecha\n    if footer:\n        operations.append({\"type\": \"update_footer\", **footer})\n\n    # Renumerar\n    if args.renumber:\n",
+        "applies_to": "ia_word",
+        "source": "C:\\Chance1\\IA\\IA_Word\\run_engine.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-09T18:10:28.917178+00:00",
+      "updated_at": "2026-04-09T18:10:28.917178+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:10:28.917178+00:00",
+        "access_count": 0
+      }
+    },
+    "a45f5988a8b2": {
+      "id": "a45f5988a8b2",
+      "type": "fact",
+      "key": "run_engine_4",
+      "fact": {
+        "rule": "      operations.append({\"type\": \"update_footer\", **footer})\n\n    # Renumerar\n    if args.renumber:\n        operations.append({\"type\": \"renumber_sections\"})\n\n    # TOC\n    if args.toc:\n        operations.append({\"type\": \"update_toc\"})\n\n    if not operations:\n        logger.error(\"No se especificaron operaciones. Usa --replace, --toc, etc.\")\n        return 1\n\n    logger.info(f\"Operaciones a ejecutar: {len(operations)}\")\n    for i, op in enumerate(operations):\n        logger.info(f\"  [{i+1}] {op['type']}: {json.dumps({k:v for k,v in op.items() if k != 'type'}, ensure_ascii=False)}\")\n\n    # Ejecutar engine\n    engine = Engine(\n        visible=args.visible,\n        vision_mode=args.visual,\n        enable_visual=args.visual != \"none\",\n        max_retries=args.retries,\n",
+        "applies_to": "ia_word",
+        "source": "C:\\Chance1\\IA\\IA_Word\\run_engine.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-09T18:10:29.058749+00:00",
+      "updated_at": "2026-04-09T18:10:29.058749+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:10:29.058749+00:00",
+        "access_count": 0
+      }
+    },
+    "5a245e130f1c": {
+      "id": "5a245e130f1c",
+      "type": "fact",
+      "key": "run_engine_5",
+      "fact": {
+        "rule": "on_mode=args.visual,\n        enable_visual=args.visual != \"none\",\n        max_retries=args.retries,\n        backup=not args.no_backup,\n    )\n\n    report = engine.edit_document(\n        args.doc,\n        operations,\n        visual_check=args.check_type,\n    )\n\n    print(report.format_report())\n\n    if args.json:\n        json_path = Path(args.doc).with_suffix(\".engine_report.json\")\n        with open(json_path, \"w\", encoding=\"utf-8\") as f:\n            json.dump(report.to_dict(), f, ensure_ascii=False, indent=2)\n        logger.info(f\"Reporte JSON: {json_path}\")\n\n    return 0 if report.success else 1\n\ndef cmd_pipeline(args):\n    \"\"\"Comando: pipeline con operaciones desde JSON.\"\"\"\n    from src.engine import Engine\n\n    logger.info(f\"\\n{'='*70}\")\n    logger.info(\"ENGINE: Pipeline desde JSON\")\n",
+        "applies_to": "ia_word",
+        "source": "C:\\Chance1\\IA\\IA_Word\\run_engine.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-09T18:10:29.205534+00:00",
+      "updated_at": "2026-04-09T18:10:29.205534+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:10:29.205534+00:00",
+        "access_count": 0
+      }
+    },
+    "89727625591e": {
+      "id": "89727625591e",
+      "type": "fact",
+      "key": "run_engine_6",
+      "fact": {
+        "rule": "engine import Engine\n\n    logger.info(f\"\\n{'='*70}\")\n    logger.info(\"ENGINE: Pipeline desde JSON\")\n    logger.info(f\"{'='*70}\\n\")\n\n    # Leer operaciones\n    ops_path = Path(args.ops)\n    if not ops_path.exists():\n        logger.error(f\"Archivo de operaciones no encontrado: {args.ops}\")\n        return 1\n\n    with open(ops_path, encoding=\"utf-8\") as f:\n        operations = json.load(f)\n\n    if not isinstance(operations, list):\n        operations = [operations]\n\n    logger.info(f\"Operaciones cargadas: {len(operations)}\")\n\n    engine = Engine(\n        visible=args.visible,\n        vision_mode=args.visual,\n        enable_visual=args.visual != \"none\",\n        max_retries=args.retries,\n        backup=not args.no_backup,\n    )\n\n    report = engine.edit_document(args.doc, operations)\n",
+        "applies_to": "ia_word",
+        "source": "C:\\Chance1\\IA\\IA_Word\\run_engine.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-09T18:10:29.351400+00:00",
+      "updated_at": "2026-04-09T18:10:29.351400+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:10:29.351400+00:00",
+        "access_count": 0
+      }
+    },
+    "835c9842ef26": {
+      "id": "835c9842ef26",
+      "type": "fact",
+      "key": "run_engine_7",
+      "fact": {
+        "rule": ",\n        backup=not args.no_backup,\n    )\n\n    report = engine.edit_document(args.doc, operations)\n    print(report.format_report())\n\n    return 0 if report.success else 1\n\ndef cmd_detect(args):\n    \"\"\"Comando: detectar tipo de documen",
+        "applies_to": "ia_word",
+        "source": "C:\\Chance1\\IA\\IA_Word\\run_engine.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-09T18:10:29.484922+00:00",
+      "updated_at": "2026-04-09T18:10:29.484922+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:10:29.484922+00:00",
+        "access_count": 0
+      }
+    },
+    "7d33d21a90cf": {
+      "id": "7d33d21a90cf",
+      "type": "fact",
+      "key": "test_batch2_0",
+      "fact": {
+        "rule": "\"\"\"\nTest Batch 2: 8 new high-value techniques on real SOW documents.\nTests: update_all_fields, add_watermark, insert_image, export_pdf,\n       set_page_layout, manage_bookmarks, compare_documents,\n       manage_track_changes, document_properties.\n\"\"\"\nimport os, sys, shutil, time\nsys.path.insert(0, os.path.dirname(__file__))\n\nfrom src.word_com import WordCOM, undo_record, word_fast_mode\n\nBASE = os.path.join(os.path.dirname(__file__), \"pruebas_reales\", \"P01_Solo_Soporte.docx\")\nOUT_DIR = os.path.join(os.path.dirname(__file__), \"test_output\")\nos.makedirs(OUT_DIR, exist_ok=True)\n\nWORK = os.path.join(OUT_DIR, \"batch2_test.docx\")\nWORK2 = os.path.join(OUT_DIR, \"batch2_test2.docx\")\nPDF_OUT = os.path.join(OUT_DIR, \"batch2_test.pdf\")\nCOMPARE_OUT = os.path.join(OUT_DIR, \"batch2_comparison.docx\")\n\n",
+        "applies_to": "ia_word",
+        "source": "C:\\Chance1\\IA\\IA_Word\\test_batch2.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-09T18:10:29.632758+00:00",
+      "updated_at": "2026-04-09T18:10:29.632758+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:10:29.632758+00:00",
+        "access_count": 0
+      }
+    },
+    "3b722a547b95": {
+      "id": "3b722a547b95",
+      "type": "fact",
+      "key": "test_batch2_1",
+      "fact": {
+        "rule": "ath.join(OUT_DIR, \"batch2_test.pdf\")\nCOMPARE_OUT = os.path.join(OUT_DIR, \"batch2_comparison.docx\")\n\n# Create a tiny test image (1x1 red pixel PNG)\nIMG_PATH = os.path.join(OUT_DIR, \"test_logo.png\")\n\ndef create_test_image():\n    \"\"\"Create a minimal PNG for testing.\"\"\"\n    import struct, zlib\n    def chunk(chunk_type, data):\n        c = chunk_type + data\n        return struct.pack('>I', len(data)) + c + struct.pack('>I', zlib.crc32(c) & 0xFFFFFFFF)\n\n    width, height = 100, 50\n    raw = b''\n    for y in range(height):\n        raw += b'\\x00'  # filter none\n        for x in range(width):\n            raw += b'\\x1f\\x38\\x64'  # GBM blue-ish\n\n    with open(IMG_PATH, 'wb') as f:\n        f.write(b'\\x89PNG\\r\\n\\x1a\\n')\n",
+        "applies_to": "ia_word",
+        "source": "C:\\Chance1\\IA\\IA_Word\\test_batch2.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-09T18:10:29.790559+00:00",
+      "updated_at": "2026-04-09T18:10:29.790559+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:10:29.790559+00:00",
+        "access_count": 0
+      }
+    },
+    "b5882b125443": {
+      "id": "b5882b125443",
+      "type": "fact",
+      "key": "test_batch2_2",
+      "fact": {
+        "rule": "x38\\x64'  # GBM blue-ish\n\n    with open(IMG_PATH, 'wb') as f:\n        f.write(b'\\x89PNG\\r\\n\\x1a\\n')\n        f.write(chunk(b'IHDR', struct.pack('>IIBBBBB', width, height, 8, 2, 0, 0, 0)))\n        f.write(chunk(b'IDAT', zlib.compress(raw)))\n        f.write(chunk(b'IEND', b''))\n\ndef main():\n    t_total = time.time()\n    create_test_image()\n\n    # Copy base doc for testing\n    shutil.copy2(BASE, WORK)\n    shutil.copy2(BASE, WORK2)  # Second copy for comparison\n    print(f\"Base: {os.path.basename(BASE)} ({os.path.getsize(BASE)/1024:.0f} KB)\")\n    print(\"=\" * 60)\n\n    w = WordCOM(visible=False)\n\n    try:\n        # --- TEST 1: Open + analyze ---\n        print(\"\\n1. open_document\")\n        t0 = time.time()\n        info = w.open_document(WORK)\n",
+        "applies_to": "ia_word",
+        "source": "C:\\Chance1\\IA\\IA_Word\\test_batch2.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-09T18:10:29.959854+00:00",
+      "updated_at": "2026-04-09T18:10:29.959854+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:10:29.959854+00:00",
+        "access_count": 0
+      }
+    },
+    "16a0db42ca4d": {
+      "id": "16a0db42ca4d",
+      "type": "fact",
+      "key": "test_batch2_3",
+      "fact": {
+        "rule": "-\n        print(\"\\n1. open_document\")\n        t0 = time.time()\n        info = w.open_document(WORK)\n        print(f\"   OK: {info['name']} — {info['page_count']} pages, {info['section_count']} sections ({time.time()-t0:.1f}s)\")\n\n        # --- TEST 2: update_all_fields ---\n        print(\"\\n2. update_all_fields\")\n        t0 = time.time()\n        result = w.update_all_fields()\n        print(f\"   OK: body={result['body']}, headers={result['headers']}, footers={result['footers']}, toc={result['toc']} ({result['time_s']}s)\")\n\n        # --- TEST 3: add_watermark ---\n        print(\"\\n3. add_watermark\")\n        t0 = time.time()\n        result = w.add_watermark(text=\"BORRADOR\", color=\"#C0C0C0\", transparency=0.5)\n",
+        "applies_to": "ia_word",
+        "source": "C:\\Chance1\\IA\\IA_Word\\test_batch2.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-09T18:10:30.096951+00:00",
+      "updated_at": "2026-04-09T18:10:30.096951+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:10:30.096951+00:00",
+        "access_count": 0
+      }
+    },
+    "c7dd710f8c6a": {
+      "id": "c7dd710f8c6a",
+      "type": "fact",
+      "key": "test_batch2_4",
+      "fact": {
+        "rule": " = time.time()\n        result = w.add_watermark(text=\"BORRADOR\", color=\"#C0C0C0\", transparency=0.5)\n        print(f\"   OK: '{result['text']}' on {result['sections']} sections ({time.time()-t0:.1f}s)\")\n\n        # --- TEST 4: remove_watermark ---\n        print(\"\\n4. remove_watermark\")\n        t0 = time.time()\n        result = w.remove_watermark()\n        print(f\"   OK: removed {result['count']} watermarks ({time.time()-t0:.1f}s)\")\n\n        # Re-add for visual verification\n        w.add_watermark(text=\"CONFIDENCIAL\", color=\"#FF0000\", transparency=0.7)\n\n        # --- TEST 5: insert_image ---\n        print(\"\\n5. insert_image\")\n        t0 = time.time()\n        sections = w.get_sections()\n        if sections:\n            first_heading = sections[0][\"text\"]\n            result = w.insert_image(\n",
+        "applies_to": "ia_word",
+        "source": "C:\\Chance1\\IA\\IA_Word\\test_batch2.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-09T18:10:30.243296+00:00",
+      "updated_at": "2026-04-09T18:10:30.243296+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:10:30.243296+00:00",
+        "access_count": 0
+      }
+    },
+    "f8d802e50179": {
+      "id": "f8d802e50179",
+      "type": "fact",
+      "key": "test_batch2_5",
+      "fact": {
+        "rule": "  if sections:\n            first_heading = sections[0][\"text\"]\n            result = w.insert_image(\n                image_path=IMG_PATH,\n                after_heading=first_heading,\n                width_inches=3.0,\n            )\n            print(f\"   OK: {result['image']} at page {result['page']} — {result['width_pt']}x{result['height_pt']} pt ({time.time()-t0:.1f}s)\")\n        else:\n            print(\"   SKIP: no sections found\")\n\n        # --- TEST 6: export_pdf ---\n        print(\"\\n6. export_pdf\")\n        t0 = time.time()\n        result = w.export_pdf(\n            output_path=PDF_OUT,\n            create_bookmarks=True,\n            optimize_for=\"print\",\n        )\n        print(f\"   OK: {result['size_kb']:.0f} KB, bookmarks={result['bookmarks']} ({result['time_s']}s)\")\n\n",
+        "applies_to": "ia_word",
+        "source": "C:\\Chance1\\IA\\IA_Word\\test_batch2.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-09T18:10:30.401102+00:00",
+      "updated_at": "2026-04-09T18:10:30.401102+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:10:30.401102+00:00",
+        "access_count": 0
+      }
+    },
+    "d09f622606ef": {
+      "id": "d09f622606ef",
+      "type": "fact",
+      "key": "test_batch2_6",
+      "fact": {
+        "rule": "print(f\"   OK: {result['size_kb']:.0f} KB, bookmarks={result['bookmarks']} ({result['time_s']}s)\")\n\n        # --- TEST 7: set_page_layout ---\n        print(\"\\n7. set_page_layout\")\n        t0 = time.time()\n        result = w.set_page_layout(\n            section_index=1,\n            orientation=\"landscape\",\n            left_margin=0.5,\n            right_margin=0.5,\n        )\n        print(f\"   OK: {result['changes']} changes ({time.time()-t0:.1f}s)\")\n        # Restore portrait\n        w.set_page_layout(section_index=1, orientation=\"portrait\", left_margin=1.0, right_margin=1.0)\n\n        # --- TEST 8: manage_bookmarks ---\n        print(\"\\n8. manage_bookmarks\")\n        t0 = time.time()\n        result = w.manage_bookmarks(action=\"list\")\n",
+        "applies_to": "ia_word",
+        "source": "C:\\Chance1\\IA\\IA_Word\\test_batch2.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-09T18:10:30.546144+00:00",
+      "updated_at": "2026-04-09T18:10:30.546144+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:10:30.546144+00:00",
+        "access_count": 0
+      }
+    },
+    "0bc08f29e3ae": {
+      "id": "0bc08f29e3ae",
+      "type": "fact",
+      "key": "test_batch2_7",
+      "fact": {
+        "rule": "\\n8. manage_bookmarks\")\n        t0 = time.time()\n        result = w.manage_bookmarks(action=\"list\")\n        print(f\"   list: {result['count']} bookmarks ({time.time()-t0:.1f}s)\")\n\n        # Add a bookmark\n        result = w.manage_bookmarks(action=\"add\", name=\"TestBM\", text=\"GBM\")\n        print(f\"   add: {result['status']} at pos {result.get('position', '?')}\")\n\n        # Read it back\n        result = w.mana",
+        "applies_to": "ia_word",
+        "source": "C:\\Chance1\\IA\\IA_Word\\test_batch2.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-09T18:10:30.675463+00:00",
+      "updated_at": "2026-04-09T18:10:30.675463+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:10:30.675463+00:00",
+        "access_count": 0
+      }
+    },
+    "63b32a907818": {
+      "id": "63b32a907818",
+      "type": "fact",
+      "key": "VISION_FEEDBACK_SETUP_0",
+      "fact": {
+        "rule": "# Vision Feedback Setup - IA_Word\n\n## Descripción\n\n**Vision Feedback** integra Claude Vision API con tu proyecto IA_Word para darme \"ojos\" en tiempo real.\n\n### ¿Qué hace?\n1. Captura screenshot de tu documento Word\n2. Analiza la imagen con Claude Vision API\n3. Detecta automáticamente problemas visuales\n4. Proporciona feedback objetivo para correciones\n\n### Beneficios\n✅ Feedback visual en tiempo real  \n✅ Confiabilidad: 95%+ (antes 40%)  \n✅ Detección automática de errores  \n✅ Sin paths quemados (portable)  \n\n---\n\n## Setup (55 minutos)\n\n### Paso 1: Instalar dependencias (5 min)\n\n```bash\ncd C:\\Chance1\\IA\\IA_Word\npip install -r requirements.txt\n```\n\n**Nuevas dependencias agregadas:**\n- `anthropic>=0.17.0` - Claude API\n- `Pillow>=10.0.0` - Procesamiento de imágenes\n",
+        "applies_to": "ia_word",
+        "source": "C:\\Chance1\\IA\\IA_Word\\VISION_FEEDBACK_SETUP.md",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "md"
+      ],
+      "created_at": "2026-04-09T18:10:30.819837+00:00",
+      "updated_at": "2026-04-09T18:10:30.819837+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:10:30.819837+00:00",
+        "access_count": 0
+      }
+    },
+    "36ce889d1388": {
+      "id": "36ce889d1388",
+      "type": "fact",
+      "key": "VISION_FEEDBACK_SETUP_1",
+      "fact": {
+        "rule": "cias agregadas:**\n- `anthropic>=0.17.0` - Claude API\n- `Pillow>=10.0.0` - Procesamiento de imágenes\n- `pyautogui>=0.9.53` - Captura de pantalla\n\n### Paso 2: Configurar API Key (5 min)\n\nAsegurate de tener `ANTHROPIC_API_KEY` en variables de entorno:\n\n**Windows (PowerShell):**\n```powershell\n$env:ANTHROPIC_API_KEY = \"sk-ant-...\"\n# Para hacerlo permanente:\n[Environment]::SetEnvironmentVariable(\"ANTHROPIC_API_KEY\", \"sk-ant-...\", \"User\")\n```\n\n**Windows (CMD):**\n```cmd\nset ANTHROPIC_API_KEY=sk-ant-...\n```\n\n**Linux/Mac:**\n```bash\nexport ANTHROPIC_API_KEY=\"sk-ant-...\"\n# Permanente: agregar a ~/.bashrc o ~/.zshrc\n```\n\n### Paso 3: Validar instalación (5 min)\n\n```bash\npython -c \"from src.vision_feedback import VisionFeedback; print('✅ VisionFeedback importado correctamente')\"\n```\n\n",
+        "applies_to": "ia_word",
+        "source": "C:\\Chance1\\IA\\IA_Word\\VISION_FEEDBACK_SETUP.md",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "md"
+      ],
+      "created_at": "2026-04-09T18:10:30.990606+00:00",
+      "updated_at": "2026-04-09T18:10:30.990606+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:10:30.990606+00:00",
+        "access_count": 0
+      }
+    },
+    "105257ccd6eb": {
+      "id": "105257ccd6eb",
+      "type": "fact",
+      "key": "VISION_FEEDBACK_SETUP_2",
+      "fact": {
+        "rule": " src.vision_feedback import VisionFeedback; print('✅ VisionFeedback importado correctamente')\"\n```\n\n### Paso 4: Probar captura (20 min)\n\nAbre tu documento Word y captura un screenshot:\n\n```bash\n# Opción A: Capturar documento abierto en pantalla\npython capture_and_analyze.py --doc \"C:\\path\\to\\document.docx\"\n\n# Opción B: Analizar screenshot existente\npython capture_and_analyze.py --image \"C:\\temp\\screenshot.png\"\n\n# Opción C: Validar específicamente tabla de contenido\npython capture_and_analyze.py --doc \"C:\\path\\to\\document.docx\" --toc\n```\n\n**Nota:** En Opción A, Word se abrirá en pantalla. Presiona ENTER cuando esté listo.\n\n### Paso 5: Integración en tu workflow (20 min)\n\nArchivo: `capture_and_analyze.py` ahora disponible para usar en:\n- Scripts de validación automática\n- Pipelines CI/CD\n",
+        "applies_to": "ia_word",
+        "source": "C:\\Chance1\\IA\\IA_Word\\VISION_FEEDBACK_SETUP.md",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "md"
+      ],
+      "created_at": "2026-04-09T18:10:31.142616+00:00",
+      "updated_at": "2026-04-09T18:10:31.142616+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:10:31.142616+00:00",
+        "access_count": 0
+      }
+    },
+    "e61346299900": {
+      "id": "e61346299900",
+      "type": "fact",
+      "key": "VISION_FEEDBACK_SETUP_3",
+      "fact": {
+        "rule": "and_analyze.py` ahora disponible para usar en:\n- Scripts de validación automática\n- Pipelines CI/CD\n- Integración manual con ediciones\n\n---\n\n## Uso\n\n### Desde línea de comandos\n\n```bash\n# Análisis general\npython capture_and_analyze.py --doc \"document.docx\"\n\n# Solo tabla de contenido\npython capture_and_analyze.py --doc \"document.docx\" --toc\n\n# Análisis de secciones\npython capture_and_analyze.py --doc \"document.docx\" --type sections\n\n# Análisis de formato\npython capture_and_analyze.py --doc \"document.docx\" --type formatting\n\n# Salida en JSON (para integración)\npython capture_and_analyze.py --image \"screenshot.png\" --json\n```\n\n### Desde código Python\n\n```python\nfrom src.vision_feedback import VisionFeedback, format_analysis_report\n\n# Crear instancia\n",
+        "applies_to": "ia_word",
+        "source": "C:\\Chance1\\IA\\IA_Word\\VISION_FEEDBACK_SETUP.md",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "md"
+      ],
+      "created_at": "2026-04-09T18:10:31.279893+00:00",
+      "updated_at": "2026-04-09T18:10:31.279893+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:10:31.279893+00:00",
+        "access_count": 0
+      }
+    },
+    "835836a07b48": {
+      "id": "835836a07b48",
+      "type": "fact",
+      "key": "VISION_FEEDBACK_SETUP_4",
+      "fact": {
+        "rule": "```python\nfrom src.vision_feedback import VisionFeedback, format_analysis_report\n\n# Crear instancia\nvf = VisionFeedback()  # Usa ANTHROPIC_API_KEY del environment\n\n# Analizar TOC\nanalysis = vf.validate_toc(\"screenshot.png\")\nprint(format_analysis_report(analysis))\n\n# Analizar secciones\nanalysis = vf.validate_sections(\"screenshot.png\")\n\n# Análisis personalizado\nanalysis = vf.analyze_screenshot(\n    \"screenshot.png\",\n    task_context=\"Validar que índice tiene todas las subsecciones\",\n    focus_areas=[\"Numeración\", \"Indentación\", \"Páginas\"]\n)\n```\n\n---\n\n## Output\n\n### Formato visual (default)\n```\n======================================================================\nVISION FEEDBACK REPORT\n======================================================================\n\n📋 VALIDACIÓN VISUAL:\n",
+        "applies_to": "ia_word",
+        "source": "C:\\Chance1\\IA\\IA_Word\\VISION_FEEDBACK_SETUP.md",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "md"
+      ],
+      "created_at": "2026-04-09T18:10:31.429581+00:00",
+      "updated_at": "2026-04-09T18:10:31.429581+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:10:31.429581+00:00",
+        "access_count": 0
+      }
+    },
+    "58bb16c7c697": {
+      "id": "58bb16c7c697",
+      "type": "fact",
+      "key": "VISION_FEEDBACK_SETUP_5",
+      "fact": {
+        "rule": "REPORT\n======================================================================\n\n📋 VALIDACIÓN VISUAL:\nEl documento muestra un índice bien estructurado con 21 entradas...\n\n⚠️  PROBLEMAS ENCONTRADOS:\n  • Entrada \"3.1.1\" no tiene número de página\n  • Indentación inconsistente en subsecciones\n\n📊 QUALITY SCORE: 78/100 [████████░░]\n\n💡 RECOMENDACIONES:\n  • Agregar números de página a todas las entradas\n  • Revisar indentación de 3.1.2 y 3.1.3\n\nRESULTADO FINAL: ❌ INVÁLIDO\n======================================================================\n```\n\n### Formato JSON (con --json)\n```json\n{\n  \"visual_validation\": \"El documento muestra...\",\n  \"issues_found\": [\"Entrada sin página\", \"Indentación inconsistente\"],\n  \"quality_score\": 78,\n  \"recommendations\": [\"Agregar números de página\"],\n  \"is_valid\": false\n",
+        "applies_to": "ia_word",
+        "source": "C:\\Chance1\\IA\\IA_Word\\VISION_FEEDBACK_SETUP.md",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "md"
+      ],
+      "created_at": "2026-04-09T18:10:31.596711+00:00",
+      "updated_at": "2026-04-09T18:10:31.596711+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:10:31.596711+00:00",
+        "access_count": 0
+      }
+    },
+    "5b49c14a6192": {
+      "id": "5b49c14a6192",
+      "type": "fact",
+      "key": "VISION_FEEDBACK_SETUP_6",
+      "fact": {
+        "rule": "e\"],\n  \"quality_score\": 78,\n  \"recommendations\": [\"Agregar números de página\"],\n  \"is_valid\": false\n}\n```\n\n---\n\n## Cómo usar en ciclo de edición\n\n### Flujo típico:\n\n```\n1. YO escribo script de edición Word (COM)\n2. TÚ ejecutas: python my_word_edit.py\n3. TÚ ejecutas: python capture_and_analyze.py --doc \"document.docx\"\n4. Claude Vision proporciona feedback visual\n5. SI hay problemas → YO corrijo código\n6. SI está bien → ✅ Listo\n```\n\n### Ejemplo con documento que ya editamos:\n\n```bash\n# Paso 1: Abrimos documento (supongamos ya editado)\n# Paso 2: Capturamos\npython capture_and_analyze.py --doc \"C:\\Chance1\\Clientes\\Banco G&T\\PostgresSQL CE\\Propuesta de PostgreSQL CE On Prem Horas - Banco GyT V5.docx\" --toc\n\n# Salida: Análisis detallado del índice\n# Si está mal: Yo corrijo el script\n",
+        "applies_to": "ia_word",
+        "source": "C:\\Chance1\\IA\\IA_Word\\VISION_FEEDBACK_SETUP.md",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "md"
+      ],
+      "created_at": "2026-04-09T18:10:31.747295+00:00",
+      "updated_at": "2026-04-09T18:10:31.747295+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:10:31.747295+00:00",
+        "access_count": 0
+      }
+    },
+    "690e06472a67": {
+      "id": "690e06472a67",
+      "type": "fact",
+      "key": "VISION_FEEDBACK_SETUP_7",
+      "fact": {
+        "rule": "nco GyT V5.docx\" --toc\n\n# Salida: Análisis detallado del índice\n# Si está mal: Yo corrijo el script\n# Si está bien: ✅ VALIDADO\n```\n\n---\n\n## Troubleshooting\n\n### Error: \"ANTHROPIC_API_KEY not found\"\n```bash\n# Verificar que la",
+        "applies_to": "ia_word",
+        "source": "C:\\Chance1\\IA\\IA_Word\\VISION_FEEDBACK_SETUP.md",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "md"
+      ],
+      "created_at": "2026-04-09T18:10:31.869367+00:00",
+      "updated_at": "2026-04-09T18:10:31.869367+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:10:31.869367+00:00",
+        "access_count": 0
+      }
+    },
+    "47e0d78fd735": {
+      "id": "47e0d78fd735",
+      "type": "fact",
+      "key": "prueba_cerebro_0",
+      "fact": {
+        "rule": "\"\"\"\nPRUEBA CEREBRO: Demuestra el ciclo completo Cerebro → Ojos → Manos → Fix.\n\nEl Cerebro recibe la tarea, planifica, ejecuta via call_tool(),\ncada paso se auto-valida (structural + visual + auto-fix), y al final\nse hace revisión de integridad completa.\n\nTarea: Leer tabla AWS del BOM Excel, insertarla en el SOW en Anexos,\ncon formato azul clásico, IVA Guatemala (12%), y actualizar índice.\n\"\"\"\nimport asyncio\nimport glob\nimport json\nimport os\nimport shutil\nimport sys\nimport time\n\nsys.path.insert(0, os.path.dirname(__file__))\n\nimport openpyxl\nfrom src.cerebro import Cerebro\n\n# =====================================================\n# PASO 0: Extraer datos AWS del Excel (fuera del motor)\n# =====================================================\ndef extract_aws_data():\n",
+        "applies_to": "ia_word",
+        "source": "C:\\Chance1\\IA\\IA_Word\\prueba_cerebro.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-09T18:10:32.010291+00:00",
+      "updated_at": "2026-04-09T18:10:32.010291+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:10:32.010291+00:00",
+        "access_count": 0
+      }
+    },
+    "5c0cafae085c": {
+      "id": "5c0cafae085c",
+      "type": "fact",
+      "key": "prueba_cerebro_1",
+      "fact": {
+        "rule": "l (fuera del motor)\n# =====================================================\ndef extract_aws_data():\n    \"\"\"Lee la hoja 'Licenciamiento AWS' del BOM Excel con TODAS las columnas.\"\"\"\n    bom_path = glob.glob(\"pruebas_reales/BOM Capa*\")[0]\n    wb = openpyxl.load_workbook(bom_path, data_only=True)\n    ws = wb[\"Licenciamiento AWS\"]\n\n    services = []\n    for row in ws.iter_rows(min_row=11, max_row=19, values_only=False):\n        vals = [c.value for c in row[:11]]\n        if vals[4] and vals[6]:\n            try:\n                monthly = float(vals[6])\n                annual = float(vals[7]) if vals[7] else monthly * 12\n                upfront = float(vals[5]) if vals[5] else 0\n                services.append({\n                    \"group\": str(vals[1] or \"\").strip(),\n",
+        "applies_to": "ia_word",
+        "source": "C:\\Chance1\\IA\\IA_Word\\prueba_cerebro.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-09T18:10:32.141956+00:00",
+      "updated_at": "2026-04-09T18:10:32.141956+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:10:32.141956+00:00",
+        "access_count": 0
+      }
+    },
+    "f7106b015d6e": {
+      "id": "f7106b015d6e",
+      "type": "fact",
+      "key": "prueba_cerebro_2",
+      "fact": {
+        "rule": "] else 0\n                services.append({\n                    \"group\": str(vals[1] or \"\").strip(),\n                    \"region\": str(vals[2] or \"\").strip(),\n                    \"description\": str(vals[3] or \"\").strip(),\n                    \"service\": str(vals[4] or \"\").strip(),\n                    \"upfront\": upfront,\n                    \"monthly\": monthly,\n                    \"annual\": annual,\n                    \"currency\": str(vals[8] or \"USD\").strip(),\n                    \"status\": str(vals[9] or \"\").strip(),\n                    \"config\": str(vals[10] or \"\").strip(),\n                })\n            except (ValueError, TypeError):\n                pass\n\n    factor = 1.4526\n    total_mensual_usd = sum(s[\"monthly\"] for s in services)\n    total_anual_usd = sum(s[\"annual\"] for s in services)\n",
+        "applies_to": "ia_word",
+        "source": "C:\\Chance1\\IA\\IA_Word\\prueba_cerebro.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-09T18:10:32.275060+00:00",
+      "updated_at": "2026-04-09T18:10:32.275060+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:10:32.275060+00:00",
+        "access_count": 0
+      }
+    },
+    "660c2687579c": {
+      "id": "660c2687579c",
+      "type": "fact",
+      "key": "prueba_cerebro_3",
+      "fact": {
+        "rule": "_usd = sum(s[\"monthly\"] for s in services)\n    total_anual_usd = sum(s[\"annual\"] for s in services)\n    total_mensual_factor = total_mensual_usd * factor\n    total_anual_factor = total_anual_usd * factor\n\n    return {\n        \"services\": services,\n        \"factor\": factor,\n        \"total_mensual_usd\": round(total_mensual_usd, 2),\n        \"total_anual_usd\": round(total_anual_usd, 2),\n        \"subtotal_mensual\": round(total_mensual_factor, 2),\n        \"subtotal_anual\": round(total_anual_factor, 2),\n        \"iva_rate\": 0.12,\n        \"iva_mensual\": round(total_mensual_factor * 0.12, 2),\n        \"iva_anual\": round(total_anual_factor * 0.12, 2),\n        \"total_mensual\": round(total_mensual_factor * 1.12, 2),\n        \"total_anual\": round(total_anual_factor * 1.12, 2),\n    }\n\n",
+        "applies_to": "ia_word",
+        "source": "C:\\Chance1\\IA\\IA_Word\\prueba_cerebro.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-09T18:10:32.415025+00:00",
+      "updated_at": "2026-04-09T18:10:32.415025+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:10:32.415025+00:00",
+        "access_count": 0
+      }
+    },
+    "36ca9ae2c6c3": {
+      "id": "36ca9ae2c6c3",
+      "type": "fact",
+      "key": "prueba_cerebro_4",
+      "fact": {
+        "rule": "total_mensual_factor * 1.12, 2),\n        \"total_anual\": round(total_anual_factor * 1.12, 2),\n    }\n\ndef build_table_data(aws):\n    \"\"\"Construye headers y rows para la tabla AWS completa (10 columnas).\"\"\"\n    headers = [\n        \"Group\", \"Region\", \"Description\", \"Service\",\n        \"Upfront\", \"Monthly\", \"First 12 mo.\",\n        \"Currency\", \"Status\", \"Config summary\",\n    ]\n    rows = []\n    for s in aws[\"services\"]:\n        rows.append([\n            s[\"group\"],\n            s[\"region\"],\n            s[\"description\"],\n            s[\"service\"],\n            f\"${s['upfront']:,.2f}\" if s[\"upfront\"] else \"$0.00\",\n            f\"${s['monthly']:,.2f}\",\n            f\"${s['annual']:,.2f}\",\n            s[\"currency\"],\n            s[\"status\"] if s[\"status\"] else \"\",\n",
+        "applies_to": "ia_word",
+        "source": "C:\\Chance1\\IA\\IA_Word\\prueba_cerebro.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-09T18:10:32.556448+00:00",
+      "updated_at": "2026-04-09T18:10:32.556448+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:10:32.556448+00:00",
+        "access_count": 0
+      }
+    },
+    "6c006c6b6140": {
+      "id": "6c006c6b6140",
+      "type": "fact",
+      "key": "prueba_cerebro_5",
+      "fact": {
+        "rule": " f\"${s['annual']:,.2f}\",\n            s[\"currency\"],\n            s[\"status\"] if s[\"status\"] else \"\",\n            s[\"config\"][:60] if s[\"config\"] else \"\",\n        ])\n    # Sub-Total USD\n    rows.append([\n        \"Sub-Total USD\", \"\", \"\", \"\",\n        \"\", f\"${aws['total_mensual_usd']:,.2f}\", f\"${aws['total_anual_usd']:,.2f}\",\n        \"USD\", \"\", \"\",\n    ])\n    # Factor AWS\n    rows.append([\n        f\"Factor AWS (x{aws['factor']})\", \"\", \"\", \"\",\n        \"\", f\"${aws['subtotal_mensual']:,.2f}\", f\"${aws['subtotal_anual']:,.2f}\",\n        \"USD\", \"\", \"\",\n    ])\n    # IVA 12%\n    rows.append([\n        \"IVA 12% (Guatemala)\", \"\", \"\", \"\",\n        \"\", f\"${aws['iva_mensual']:,.2f}\", f\"${aws['iva_anual']:,.2f}\",\n        \"USD\", \"\", \"\",\n    ])\n    # Total\n    rows.append([\n        \"TOTAL\", \"\", \"\", \"\",\n",
+        "applies_to": "ia_word",
+        "source": "C:\\Chance1\\IA\\IA_Word\\prueba_cerebro.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-09T18:10:32.685821+00:00",
+      "updated_at": "2026-04-09T18:10:32.685821+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:10:32.685821+00:00",
+        "access_count": 0
+      }
+    },
+    "091f67f703c2": {
+      "id": "091f67f703c2",
+      "type": "fact",
+      "key": "prueba_cerebro_6",
+      "fact": {
+        "rule": "']:,.2f}\",\n        \"USD\", \"\", \"\",\n    ])\n    # Total\n    rows.append([\n        \"TOTAL\", \"\", \"\", \"\",\n        \"\", f\"${aws['total_mensual']:,.2f}\", f\"${aws['total_anual']:,.2f}\",\n        \"USD\", \"\", \"\",\n    ])\n    return headers, rows\n\nasync def main():\n    t_start = time.time()\n\n    # --- Extraer datos del Excel ---\n    print(\"=\" * 60)\n    print(\"EXTRAER DATOS AWS DEL BOM EXCEL\")\n    print(\"=\" * 60)\n    aws = extract_aws_data()\n    print(f\"  Servicios: {len(aws['services'])}\")\n    for s in aws[\"services\"]:\n        print(f\"    - {s['service']}: ${s['monthly']:.2f}/mes [{s['description']}]\")\n    print(f\"  TOTAL: ${aws['total_anual']:,.2f} USD/año (con IVA 12%)\")\n\n    headers, rows = build_table_data(aws)\n\n    # --- Preparar copia de trabajo ---\n    sow_orig = os.path.abspath(\n",
+        "applies_to": "ia_word",
+        "source": "C:\\Chance1\\IA\\IA_Word\\prueba_cerebro.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-09T18:10:32.853264+00:00",
+      "updated_at": "2026-04-09T18:10:32.853264+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:10:32.853264+00:00",
+        "access_count": 0
+      }
+    },
+    "c55bffe9adb4": {
+      "id": "c55bffe9adb4",
+      "type": "fact",
+      "key": "prueba_cerebro_7",
+      "fact": {
+        "rule": "ws = build_table_data(aws)\n\n    # --- Preparar copia de trabajo ---\n    sow_orig = os.path.abspath(\n        \"pruebas_reales/SOW_GBM_NextGen_Lead_Generation_con_IA_BAM_Guatemala_V4.docx\"\n    )\n    sow_work = os.path.abspath(\"test_output/SOW_V4_CE",
+        "applies_to": "ia_word",
+        "source": "C:\\Chance1\\IA\\IA_Word\\prueba_cerebro.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-09T18:10:32.981654+00:00",
+      "updated_at": "2026-04-09T18:10:32.981654+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:10:32.981654+00:00",
+        "access_count": 0
+      }
+    },
+    "408dba23ea01": {
+      "id": "408dba23ea01",
+      "type": "fact",
+      "key": "capture_and_analyze_0",
+      "fact": {
+        "rule": "#!/usr/bin/env python\n\"\"\"\nCaptura screenshot de documento Word y analiza con Vision API.\n\nUso:\n    # Capturar y analizar TODO el documento\n    python capture_and_analyze.py --doc \"path/to/document.docx\"\n\n    # Capturar y analizar solo tabla de contenido\n    python capture_and_analyze.py --doc \"path/to/document.docx\" --toc\n\n    # Usar screenshot ya existente\n    python capture_and_analyze.py --image \"path/to/screenshot.png\"\n\n    # Análisis específico\n    python capture_and_analyze.py --image \"shot.png\" --validate sections\n\"\"\"\n\nimport argparse\nimport logging\nimport os\nimport sys\nimport time\nfrom pathlib import Path\n\n# Agregar src al path\nsys.path.insert(0, str(Path(__file__).parent))\n\nlogging.basicConfig(\n    level=logging.INFO,\n    format=\"%(asctime)s [%(levelname)s] %(message)s\",\n)\n",
+        "applies_to": "ia_word",
+        "source": "C:\\Chance1\\IA\\IA_Word\\capture_and_analyze.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-09T18:10:33.124224+00:00",
+      "updated_at": "2026-04-09T18:10:33.124224+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:10:33.124224+00:00",
+        "access_count": 0
+      }
+    },
+    "cb3a2a1894f1": {
+      "id": "cb3a2a1894f1",
+      "type": "fact",
+      "key": "capture_and_analyze_1",
+      "fact": {
+        "rule": "ogging.basicConfig(\n    level=logging.INFO,\n    format=\"%(asctime)s [%(levelname)s] %(message)s\",\n)\nlogger = logging.getLogger(\"capture_analyze\")\n\ndef capture_screenshot(output_path: str = None) -> str:\n    \"\"\"\n    Captura screenshot de la pantalla actual.\n\n    Args:\n        output_path: Donde guardar. Si es None, usa temp directory.\n\n    Returns:\n        Ruta al archivo capturado\n    \"\"\"\n    try:\n        import pyautogui\n        from PIL import Image\n    except ImportError as e:\n        logger.error(\n            f\"Dependencies required: pip install pyautogui pillow\\nError: {e}\"\n        )\n        sys.exit(1)\n\n    if output_path is None:\n        output_path = Path(os.getenv(\"TEMP\", \"/tmp\")) / \"word_screenshot.png\"\n    else:\n        output_path = Path(output_path)\n\n",
+        "applies_to": "ia_word",
+        "source": "C:\\Chance1\\IA\\IA_Word\\capture_and_analyze.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-09T18:10:33.256315+00:00",
+      "updated_at": "2026-04-09T18:10:33.256315+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:10:33.256315+00:00",
+        "access_count": 0
+      }
+    },
+    "166679fc46c0": {
+      "id": "166679fc46c0",
+      "type": "fact",
+      "key": "capture_and_analyze_2",
+      "fact": {
+        "rule": ".getenv(\"TEMP\", \"/tmp\")) / \"word_screenshot.png\"\n    else:\n        output_path = Path(output_path)\n\n    logger.info(f\"Capturando screenshot en {output_path}...\")\n\n    # Esperar a que el usuario posicione la ventana\n    time.sleep(2)\n\n    # Capturar pantalla completa\n    screenshot = pyautogui.screenshot()\n    screenshot.save(str(output_path))\n\n    logger.info(f\"✅ Screenshot guardado: {output_path}\")\n    return str(output_path)\n\ndef analyze_image(\n    image_path: str, analysis_type: str = \"general\", output_json: bool = False\n) -> dict:\n    \"\"\"\n    Analiza imagen con Vision API.\n\n    Args:\n        image_path: Ruta a la imagen\n        analysis_type: 'general', 'toc', 'sections', 'formatting'\n        output_json: Si True, devuelve JSON puro en lugar de formateado\n\n    Returns:\n",
+        "applies_to": "ia_word",
+        "source": "C:\\Chance1\\IA\\IA_Word\\capture_and_analyze.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-09T18:10:33.400414+00:00",
+      "updated_at": "2026-04-09T18:10:33.400414+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:10:33.400414+00:00",
+        "access_count": 0
+      }
+    },
+    "5cbdcefce394": {
+      "id": "5cbdcefce394",
+      "type": "fact",
+      "key": "capture_and_analyze_3",
+      "fact": {
+        "rule": " 'formatting'\n        output_json: Si True, devuelve JSON puro en lugar de formateado\n\n    Returns:\n        Análisis del documento\n    \"\"\"\n    from src.vision_feedback import VisionFeedback, format_analysis_report\n\n    logger.info(f\"Analizando {image_path} con Vision API...\")\n\n    try:\n        vf = VisionFeedback()\n\n        # Seleccionar tipo de análisis\n        if analysis_type == \"toc\":\n            analysis = vf.validate_toc(image_path)\n        elif analysis_type == \"sections\":\n            analysis = vf.validate_sections(image_path)\n        elif analysis_type == \"formatting\":\n            analysis = vf.validate_formatting(image_path)\n        else:  # general\n            analysis = vf.analyze_screenshot(image_path)\n\n        # Mostrar resultado\n        if output_json:\n",
+        "applies_to": "ia_word",
+        "source": "C:\\Chance1\\IA\\IA_Word\\capture_and_analyze.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-09T18:10:33.535038+00:00",
+      "updated_at": "2026-04-09T18:10:33.535038+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:10:33.535038+00:00",
+        "access_count": 0
+      }
+    },
+    "b01ee3464fb2": {
+      "id": "b01ee3464fb2",
+      "type": "fact",
+      "key": "capture_and_analyze_4",
+      "fact": {
+        "rule": "  analysis = vf.analyze_screenshot(image_path)\n\n        # Mostrar resultado\n        if output_json:\n            import json\n            print(json.dumps(analysis, ensure_ascii=False, indent=2))\n        else:\n            print(format_analysis_report(analysis))\n\n        return analysis\n\n    except Exception as e:\n        logger.error(f\"Error en análisis: {e}\")\n        sys.exit(1)\n\ndef capture_and_analyze_word(\n    doc_path: str,\n    analysis_type: str = \"general\",\n    visible: bool = True,\n):\n    \"\"\"\n    Abre documento Word, captura screenshot y analiza.\n\n    Args:\n        doc_path: Ruta al documento Word\n        analysis_type: Tipo de análisis ('general', 'toc', etc)\n        visible: Si True, abre Word visiblemente en pantalla\n    \"\"\"\n    from src.word_com import WordCOM\n\n",
+        "applies_to": "ia_word",
+        "source": "C:\\Chance1\\IA\\IA_Word\\capture_and_analyze.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-09T18:10:33.660992+00:00",
+      "updated_at": "2026-04-09T18:10:33.660992+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:10:33.660992+00:00",
+        "access_count": 0
+      }
+    },
+    "2ec60090cf30": {
+      "id": "2ec60090cf30",
+      "type": "fact",
+      "key": "capture_and_analyze_5",
+      "fact": {
+        "rule": " visible: Si True, abre Word visiblemente en pantalla\n    \"\"\"\n    from src.word_com import WordCOM\n\n    logger.info(f\"Abriendo documento: {doc_path}\")\n\n    with WordCOM(visible=visible) as word:\n        word.open_document(doc_path)\n        logger.info(\"✅ Documento abierto\")\n\n        if not visible:\n            logger.info(\n                \"\\n⚠️  Word abierto en background. Presiona ENTER cuando estés listo para capturar...\"\n            )\n            input()\n        else:\n            logger.info(\"\\n⏳ Esperando 3 segundos para capturar...\")\n            time.sleep(3)\n\n        # Capturar\n        screenshot_path = capture_screenshot()\n\n        # Analizar\n        logger.info(\"\")\n        analysis = analyze_image(screenshot_path, analysis_type=analysis_type)\n\n        # Mostrar resultado final\n",
+        "applies_to": "ia_word",
+        "source": "C:\\Chance1\\IA\\IA_Word\\capture_and_analyze.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-09T18:10:33.792959+00:00",
+      "updated_at": "2026-04-09T18:10:33.792959+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:10:33.792959+00:00",
+        "access_count": 0
+      }
+    },
+    "3c930f5d9467": {
+      "id": "3c930f5d9467",
+      "type": "fact",
+      "key": "capture_and_analyze_6",
+      "fact": {
+        "rule": "is = analyze_image(screenshot_path, analysis_type=analysis_type)\n\n        # Mostrar resultado final\n        if not analysis.get(\"error\"):\n            logger.info(\n                f\"\\n📊 Análisis completado. Quality Score: {analysis.get('quality_score', 'N/A')}/100\"\n            )\n\n    return screenshot_path, analysis\n\ndef main():\n    \"\"\"CLI principal.\"\"\"\n    parser = argparse.ArgumentParser(\n        description=\"Captura y analiza documentos Word con Vision API\",\n        formatter_class=argparse.RawDescriptionHelpFormatter,\n        epilog=\"\"\"\nEjemplos:\n  # Capturar documento completo\n  python capture_and_analyze.py --doc C:/path/to/doc.docx\n\n  # Validar tabla de contenido\n  python capture_and_analyze.py --doc C:/path/to/doc.docx --toc\n\n  # Analizar screenshot existente\n",
+        "applies_to": "ia_word",
+        "source": "C:\\Chance1\\IA\\IA_Word\\capture_and_analyze.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-09T18:10:33.932252+00:00",
+      "updated_at": "2026-04-09T18:10:33.932252+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:10:33.932252+00:00",
+        "access_count": 0
+      }
+    },
+    "49d5377a3f69": {
+      "id": "49d5377a3f69",
+      "type": "fact",
+      "key": "capture_and_analyze_7",
+      "fact": {
+        "rule": "\n  python capture_and_analyze.py --doc C:/path/to/doc.docx --toc\n\n  # Analizar screenshot existente\n  python capture_and_analyze.py --image screenshot.png --type sections\n\n  # Salida JSON para integración\n  pytho",
+        "applies_to": "ia_word",
+        "source": "C:\\Chance1\\IA\\IA_Word\\capture_and_analyze.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-09T18:10:34.065669+00:00",
+      "updated_at": "2026-04-09T18:10:34.065669+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:10:34.065669+00:00",
+        "access_count": 0
+      }
+    },
+    "ebf0ec1bca64": {
+      "id": "ebf0ec1bca64",
+      "type": "fact",
+      "key": "example_edit_with_validation_0",
+      "fact": {
+        "rule": "#!/usr/bin/env python\n\"\"\"\nEjemplo COMPLETO: Editar documento Word + Validar con Vision API.\n\nEste script muestra cómo integrar:\n1. Edición COM (word_com.py)\n2. Captura de screenshot\n3. Validación con Vision API\n4. Reporte de resultados\n\nUSO:\n    python example_edit_with_validation.py --doc \"path/to/document.docx\" --operation toc\n\nOPERACIONES:\n    toc         - Corregir tabla de contenido\n    sections    - Validar numeración de secciones\n    formatting  - Revisar formato visual\n\"\"\"\n\nimport argparse\nimport json\nimport logging\nimport os\nimport sys\nimport time\nfrom pathlib import Path\n\nsys.path.insert(0, str(Path(__file__).parent))\n\nlogging.basicConfig(\n    level=logging.INFO,\n    format=\"%(asctime)s [%(levelname)s] %(message)s\",\n)\nlogger = logging.getLogger(\"edit_with_validation\")\n\n",
+        "applies_to": "ia_word",
+        "source": "C:\\Chance1\\IA\\IA_Word\\example_edit_with_validation.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-09T18:10:34.185175+00:00",
+      "updated_at": "2026-04-09T18:10:34.185175+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:10:34.185175+00:00",
+        "access_count": 0
+      }
+    },
+    "3eb296fd594a": {
+      "id": "3eb296fd594a",
+      "type": "fact",
+      "key": "example_edit_with_validation_1",
+      "fact": {
+        "rule": "at=\"%(asctime)s [%(levelname)s] %(message)s\",\n)\nlogger = logging.getLogger(\"edit_with_validation\")\n\ndef edit_and_validate(doc_path: str, operation: str = \"toc\") -> dict:\n    \"\"\"\n    Edita documento Word y valida resultado con Vision API.\n\n    Args:\n        doc_path: Ruta al documento\n        operation: Tipo de operación ('toc', 'sections', 'formatting')\n\n    Returns:\n        Dict con resultado de validación\n    \"\"\"\n    from src.word_com import WordCOM\n    from src.vision_feedback import VisionFeedback, format_analysis_report\n    import pyautogui\n\n    # Validar archivo\n    if not Path(doc_path).exists():\n        logger.error(f\"Archivo no encontrado: {doc_path}\")\n        sys.exit(1)\n\n    logger.info(f\"\\n{'='*70}\")\n    logger.info(f\"EDIT & VALIDATE: {operation.upper()}\")\n",
+        "applies_to": "ia_word",
+        "source": "C:\\Chance1\\IA\\IA_Word\\example_edit_with_validation.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-09T18:10:34.326990+00:00",
+      "updated_at": "2026-04-09T18:10:34.326990+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:10:34.326990+00:00",
+        "access_count": 0
+      }
+    },
+    "4390c5aab10b": {
+      "id": "4390c5aab10b",
+      "type": "fact",
+      "key": "example_edit_with_validation_2",
+      "fact": {
+        "rule": "ys.exit(1)\n\n    logger.info(f\"\\n{'='*70}\")\n    logger.info(f\"EDIT & VALIDATE: {operation.upper()}\")\n    logger.info(f\"{'='*70}\\n\")\n\n    logger.info(f\"📄 Documento: {Path(doc_path).name}\")\n\n    # === FASE 1: EDITAR ===\n    logger.info(\"\\n[1/3] EDITANDO DOCUMENTO...\")\n\n    with WordCOM(visible=True) as word:\n        try:\n            word.open_document(doc_path)\n            logger.info(\"✅ Documento abierto\")\n\n            # Aquí iría la lógica específica de edición\n            # Por ahora solo demostramos el flujo\n            logger.info(f\"    Operación: {operation}\")\n            logger.info(\"    (Lógica de edición aquí)\")\n\n            # Simular espera\n            time.sleep(2)\n\n            logger.info(\"✅ Edición completada\")\n\n            # Darle tiempo al usuario de ver cambios\n",
+        "applies_to": "ia_word",
+        "source": "C:\\Chance1\\IA\\IA_Word\\example_edit_with_validation.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-09T18:10:34.476581+00:00",
+      "updated_at": "2026-04-09T18:10:34.476581+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:10:34.476581+00:00",
+        "access_count": 0
+      }
+    },
+    "ded64e901085": {
+      "id": "ded64e901085",
+      "type": "fact",
+      "key": "example_edit_with_validation_3",
+      "fact": {
+        "rule": "          logger.info(\"✅ Edición completada\")\n\n            # Darle tiempo al usuario de ver cambios\n            logger.info(\"\\n⏳ Esperando 3 segundos antes de capturar...\")\n            time.sleep(3)\n\n        except Exception as e:\n            logger.error(f\"Error durante edición: {e}\")\n            return {\"error\": str(e), \"is_valid\": False}\n\n    # === FASE 2: CAPTURAR ===\n    logger.info(\"\\n[2/3] CAPTURANDO SCREENSHOT...\")\n\n    try:\n        screenshot_path = Path(os.getenv(\"TEMP\", \"/tmp\")) / f\"validation_{operation}.png\"\n        logger.info(f\"📸 Capturando en {screenshot_path}...\")\n\n        screenshot = pyautogui.screenshot()\n        screenshot.save(str(screenshot_path))\n        logger.info(f\"✅ Screenshot guardado\")\n\n    except Exception as e:\n",
+        "applies_to": "ia_word",
+        "source": "C:\\Chance1\\IA\\IA_Word\\example_edit_with_validation.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-09T18:10:34.629812+00:00",
+      "updated_at": "2026-04-09T18:10:34.629812+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:10:34.629812+00:00",
+        "access_count": 0
+      }
+    },
+    "f61186f2eaa3": {
+      "id": "f61186f2eaa3",
+      "type": "fact",
+      "key": "example_edit_with_validation_4",
+      "fact": {
+        "rule": "ave(str(screenshot_path))\n        logger.info(f\"✅ Screenshot guardado\")\n\n    except Exception as e:\n        logger.error(f\"Error capturando screenshot: {e}\")\n        return {\"error\": str(e), \"is_valid\": False}\n\n    # === FASE 3: VALIDAR ===\n    logger.info(\"\\n[3/3] VALIDANDO CON VISION API...\")\n\n    try:\n        vf = VisionFeedback()\n\n        # Seleccionar validación según operación\n        if operation == \"toc\":\n            logger.info(\"🔍 Validación: Tabla de Contenido...\")\n            analysis = vf.validate_toc(str(screenshot_path))\n        elif operation == \"sections\":\n            logger.info(\"🔍 Validación: Secciones...\")\n            analysis = vf.validate_sections(str(screenshot_path))\n        elif operation == \"formatting\":\n            logger.info(\"🔍 Validación: Formato...\")\n",
+        "applies_to": "ia_word",
+        "source": "C:\\Chance1\\IA\\IA_Word\\example_edit_with_validation.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-09T18:10:34.778157+00:00",
+      "updated_at": "2026-04-09T18:10:34.778157+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:10:34.778157+00:00",
+        "access_count": 0
+      }
+    },
+    "96feeb301482": {
+      "id": "96feeb301482",
+      "type": "fact",
+      "key": "example_edit_with_validation_5",
+      "fact": {
+        "rule": "_path))\n        elif operation == \"formatting\":\n            logger.info(\"🔍 Validación: Formato...\")\n            analysis = vf.validate_formatting(str(screenshot_path))\n        else:\n            logger.info(\"🔍 Validación: General...\")\n            analysis = vf.analyze_screenshot(str(screenshot_path))\n\n        logger.info(\"✅ Análisis completado\")\n\n    except Exception as e:\n        logger.error(f\"Error en validación: {e}\")\n        return {\"error\": str(e), \"is_valid\": False}\n\n    # === REPORTE ===\n    logger.info(\"\\n\" + format_analysis_report(analysis))\n\n    # === RESUMEN ===\n    logger.info(f\"\\n{'='*70}\")\n    logger.info(\"RESUMEN\")\n    logger.info(f\"{'='*70}\")\n\n    if not analysis.get(\"error\"):\n        score = analysis.get(\"quality_score\", 0)\n",
+        "applies_to": "ia_word",
+        "source": "C:\\Chance1\\IA\\IA_Word\\example_edit_with_validation.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-09T18:10:34.924476+00:00",
+      "updated_at": "2026-04-09T18:10:34.924476+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:10:34.924476+00:00",
+        "access_count": 0
+      }
+    },
+    "a14f5d2d5bba": {
+      "id": "a14f5d2d5bba",
+      "type": "fact",
+      "key": "example_edit_with_validation_6",
+      "fact": {
+        "rule": "fo(f\"{'='*70}\")\n\n    if not analysis.get(\"error\"):\n        score = analysis.get(\"quality_score\", 0)\n        is_valid = analysis.get(\"is_valid\", False)\n        issues_count = len(analysis.get(\"issues_found\", []))\n\n        logger.info(f\"📊 Quality Score: {score}/100\")\n        logger.info(f\"⚠️  Problemas encontrados: {issues_count}\")\n        logger.info(f\"✅ Estado: {'VÁLIDO' if is_valid else 'REQUIERE CORRECCIONES'}\")\n\n        if issues_count > 0:\n            logger.info(\"\\n💡 Próximos pasos:\")\n            for rec in analysis.get(\"recommendations\", []):\n                logger.info(f\"   • {rec}\")\n\n        # Guardar análisis en JSON\n        json_path = screenshot_path.with_suffix(\".json\")\n        with open(json_path, \"w\") as f:\n            json.dump(analysis, f, ensure_ascii=False, indent=2)\n",
+        "applies_to": "ia_word",
+        "source": "C:\\Chance1\\IA\\IA_Word\\example_edit_with_validation.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-09T18:10:35.071881+00:00",
+      "updated_at": "2026-04-09T18:10:35.071881+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:10:35.071881+00:00",
+        "access_count": 0
+      }
+    },
+    "3157f2fd7015": {
+      "id": "3157f2fd7015",
+      "type": "fact",
+      "key": "example_edit_with_validation_7",
+      "fact": {
+        "rule": "   with open(json_path, \"w\") as f:\n            json.dump(analysis, f, ensure_ascii=False, indent=2)\n        logger.info(f\"\\n📁 Análisis guardado: {json_path}\")\n\n    logger.info(f\"{'='*70}\\n\")\n\n    return analysis\n\ndef main():\n    \"\"\"CLI principal.\"\"\"",
+        "applies_to": "ia_word",
+        "source": "C:\\Chance1\\IA\\IA_Word\\example_edit_with_validation.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-09T18:10:35.239187+00:00",
+      "updated_at": "2026-04-09T18:10:35.239187+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:10:35.239187+00:00",
+        "access_count": 0
+      }
+    },
+    "80315aed1f57": {
+      "id": "80315aed1f57",
+      "type": "fact",
+      "key": "test_e2e_flow_0",
+      "fact": {
+        "rule": "\"\"\"\nEnd-to-End integration test: Simulates a real MCP conversation flow.\n\nScenario: User asks Claude to customize a SOW for a new client.\nTests all major tools in the sequence a real user would trigger.\n\"\"\"\nimport os, shutil, time\nsys_path = os.path.dirname(__file__)\nimport sys\nsys.path.insert(0, sys_path)\n\nfrom src.word_com import WordCOM, undo_record, word_fast_mode\n\nBASE = os.path.join(sys_path, \"pruebas_reales\", \"P01_Solo_Soporte.docx\")\nOUT = os.path.join(sys_path, \"test_output\", \"e2e_sow_final.docx\")\nPDF = os.path.join(sys_path, \"test_output\", \"e2e_sow_final.pdf\")\n\ndef main():\n    t_total = time.time()\n    shutil.copy2(BASE, OUT)\n    print(\"=\" * 60)\n    print(\"  E2E: Customize SOW for new client\")\n    print(\"=\" * 60)\n\n    w = WordCOM(visible=False)\n    try:\n",
+        "applies_to": "ia_word",
+        "source": "C:\\Chance1\\IA\\IA_Word\\test_e2e_flow.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-09T18:10:35.383416+00:00",
+      "updated_at": "2026-04-09T18:10:35.383416+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:10:35.383416+00:00",
+        "access_count": 0
+      }
+    },
+    "a58ce84fd4d9": {
+      "id": "a58ce84fd4d9",
+      "type": "fact",
+      "key": "test_e2e_flow_1",
+      "fact": {
+        "rule": "\"  E2E: Customize SOW for new client\")\n    print(\"=\" * 60)\n\n    w = WordCOM(visible=False)\n    try:\n        # Step 1: Open & analyze\n        t0 = time.time()\n        info = w.open_document(os.path.abspath(OUT))\n        print(f\"\\n1. OPEN: {info['name']} — {info['page_count']}p, {info['section_count']}sec ({time.time()-t0:.1f}s)\")\n\n        sections = w.get_sections()\n        print(f\"   Sections: {len(sections)}\")\n        for s in sections[:5]:\n            print(f\"     [{s['level']}] {s['text'][:60]}\")\n        if len(sections) > 5:\n            print(f\"     ... +{len(sections)-5} more\")\n\n        # Step 2: Replace client info (bulk)\n        t0 = time.time()\n        replacements = [\n            (\"Bantrab\", \"Banco Industrial\"),\n            (\"BANTRAB\", \"BANCO INDUSTRIAL\"),\n",
+        "applies_to": "ia_word",
+        "source": "C:\\Chance1\\IA\\IA_Word\\test_e2e_flow.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-09T18:10:35.528010+00:00",
+      "updated_at": "2026-04-09T18:10:35.528010+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:10:35.528010+00:00",
+        "access_count": 0
+      }
+    },
+    "5454eb06ec25": {
+      "id": "5454eb06ec25",
+      "type": "fact",
+      "key": "test_e2e_flow_2",
+      "fact": {
+        "rule": "ments = [\n            (\"Bantrab\", \"Banco Industrial\"),\n            (\"BANTRAB\", \"BANCO INDUSTRIAL\"),\n            (\"bantrab\", \"banco industrial\"),\n        ]\n        total_reps = 0\n        for old, new in replacements:\n            total_reps += w.find_replace(old, new)\n        print(f\"\\n2. REPLACE CLIENT: {total_reps} replacements ({time.time()-t0:.1f}s)\")\n\n        # Step 3: Update dates\n        t0 = time.time()\n        reps = w.find_replace(\"2025\", \"2026\")\n        print(f\"\\n3. UPDATE DATES: {reps} replacements ({time.time()-t0:.1f}s)\")\n\n        # Step 4: Set document properties\n        t0 = time.time()\n        r = w.set_document_properties(\n            title=\"SOW - Soporte Banco Industrial 2026\",\n            author=\"Equipo Comercial GBM\",\n            company=\"GBM\",\n",
+        "applies_to": "ia_word",
+        "source": "C:\\Chance1\\IA\\IA_Word\\test_e2e_flow.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-09T18:10:35.654151+00:00",
+      "updated_at": "2026-04-09T18:10:35.654151+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:10:35.654151+00:00",
+        "access_count": 0
+      }
+    },
+    "9cc8fba421c9": {
+      "id": "9cc8fba421c9",
+      "type": "fact",
+      "key": "test_e2e_flow_3",
+      "fact": {
+        "rule": "porte Banco Industrial 2026\",\n            author=\"Equipo Comercial GBM\",\n            company=\"GBM\",\n            custom={\"Cliente\": \"Banco Industrial\", \"NumSOW\": \"SOW-2026-001\"},\n        )\n        print(f\"\\n4. DOC PROPERTIES: {len(r['properties_set'])} set ({time.time()-t0:.1f}s)\")\n\n        # Step 5: Update all fields\n        t0 = time.time()\n        r = w.update_all_fields()\n        print(f\"\\n5. UPDATE FIELDS: total={r['total']} ({r['time_s']}s)\")\n\n        # Step 6: Add watermark\n        t0 = time.time()\n        r = w.add_watermark(text=\"BORRADOR\", transparency=0.6)\n        print(f\"\\n6. WATERMARK: '{r['text']}' on {r['sections']} sections ({time.time()-t0:.1f}s)\")\n\n        # Step 7: Insert a table\n        t0 = time.time()\n        r = w.insert_table(\n            rows=[\n",
+        "applies_to": "ia_word",
+        "source": "C:\\Chance1\\IA\\IA_Word\\test_e2e_flow.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-09T18:10:35.783008+00:00",
+      "updated_at": "2026-04-09T18:10:35.783008+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:10:35.783008+00:00",
+        "access_count": 0
+      }
+    },
+    "93c672c08297": {
+      "id": "93c672c08297",
+      "type": "fact",
+      "key": "test_e2e_flow_4",
+      "fact": {
+        "rule": "   # Step 7: Insert a table\n        t0 = time.time()\n        r = w.insert_table(\n            rows=[\n                [\"Concepto\", \"Monto Mensual\", \"Monto Anual\"],\n                [\"Soporte 7x24\", \"$3,500.00\", \"$42,000.00\"],\n                [\"Monitoreo\", \"$1,200.00\", \"$14,400.00\"],\n                [\"Respaldos\", \"$800.00\", \"$9,600.00\"],\n                [\"TOTAL\", \"$5,500.00\", \"$66,000.00\"],\n            ],\n            after_heading=sections[0][\"text\"] if sections else None,\n            header_bg_color=\"#1F3864\",\n            header_font_color=\"#FFFFFF\",\n            column_widths=[3.5, 1.5, 1.5],\n            alternate_row_color=\"#D6E4F0\",\n        )\n        print(f\"\\n7. INSERT TABLE: {r['rows']}x{r['columns']} at page {r['page']} ({time.time()-t0:.1f}s)\")\n\n        # Step 8: Get tables (verify)\n",
+        "applies_to": "ia_word",
+        "source": "C:\\Chance1\\IA\\IA_Word\\test_e2e_flow.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-09T18:10:35.943697+00:00",
+      "updated_at": "2026-04-09T18:10:35.943697+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:10:35.943697+00:00",
+        "access_count": 0
+      }
+    },
+    "f825bb132512": {
+      "id": "f825bb132512",
+      "type": "fact",
+      "key": "test_e2e_flow_5",
+      "fact": {
+        "rule": "{r['columns']} at page {r['page']} ({time.time()-t0:.1f}s)\")\n\n        # Step 8: Get tables (verify)\n        t0 = time.time()\n        tables = w.get_tables()\n        print(f\"\\n8. GET TABLES: {len(tables)} tables found ({time.time()-t0:.1f}s)\")\n\n        # Step 9: Track changes status\n        t0 = time.time()\n        r = w.manage_track_changes(action=\"status\")\n        print(f\"\\n9. TRACK CHANGES: enabled={r['tracking_enabled']}, revisions={r['revisions_count']} ({time.time()-t0:.1f}s)\")\n\n        # Step 10: Bookmarks\n        t0 = time.time()\n        r = w.manage_bookmarks(action=\"list\")\n        print(f\"\\n10. BOOKMARKS: {r['count']} ({time.time()-t0:.1f}s)\")\n\n        # Step 11: Header/footer read\n        t0 = time.time()\n",
+        "applies_to": "ia_word",
+        "source": "C:\\Chance1\\IA\\IA_Word\\test_e2e_flow.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-09T18:10:36.079269+00:00",
+      "updated_at": "2026-04-09T18:10:36.079269+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:10:36.079269+00:00",
+        "access_count": 0
+      }
+    },
+    "c148040672d2": {
+      "id": "c148040672d2",
+      "type": "fact",
+      "key": "test_e2e_flow_6",
+      "fact": {
+        "rule": "'count']} ({time.time()-t0:.1f}s)\")\n\n        # Step 11: Header/footer read\n        t0 = time.time()\n        r = w.manage_headers_footers(section_index=1, action=\"read\", target=\"footer\")\n        print(f\"\\n11. FOOTER s1: '{r['text'][:80]}' ({time.time()-t0:.1f}s)\")\n\n        # Step 12: Save\n        t0 = time.time()\n        w.save()\n        print(f\"\\n12. SAVE: OK ({time.time()-t0:.1f}s)\")\n\n        # Step 13: Export PDF\n        t0 = time.time()\n        r = w.export_pdf(output_path=PDF, create_bookmarks=True)\n        print(f\"\\n13. EXPORT PDF: {r['size_kb']:.0f} KB with bookmarks ({r['time_s']}s)\")\n\n        # Step 14: Protect for client review\n        t0 = time.time()\n        r = w.protect_document(protection_type=\"comments_only\")\n        print(f\"\\n14. ",
+        "applies_to": "ia_word",
+        "source": "C:\\Chance1\\IA\\IA_Word\\test_e2e_flow.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-09T18:10:36.234353+00:00",
+      "updated_at": "2026-04-09T18:10:36.234353+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:10:36.234353+00:00",
+        "access_count": 0
+      }
+    },
+    "5c0f230a465e": {
+      "id": "5c0f230a465e",
+      "type": "fact",
+      "key": "test_e2e_flow_7",
+      "fact": {
+        "rule": "= time.time()\n        r = w.protect_document(protection_type=\"comments_only\")\n        print(f\"\\n14. PROTECT: {r['status']} ({time.time()-t0:.1f}s)\")\n        w.protect_document(protection_type=\"unprotect\")\n\n        w.save()\n\n    finally:\n        w.quit()\n\n    total = time.time() - t_total\n    print(\"\\n\" + \"=\" * 60)",
+        "applies_to": "ia_word",
+        "source": "C:\\Chance1\\IA\\IA_Word\\test_e2e_flow.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-09T18:10:36.367197+00:00",
+      "updated_at": "2026-04-09T18:10:36.367197+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:10:36.367197+00:00",
+        "access_count": 0
+      }
+    },
+    "ec644f1f3a1c": {
+      "id": "ec644f1f3a1c",
+      "type": "fact",
+      "key": "test_visual_validation_0",
+      "fact": {
+        "rule": "\"\"\"\nVisual validation: Render key pages from test documents and verify with DocEyes.\nUses real COM → PDF → PNG pipeline, not simulation.\n\"\"\"\nimport os, sys, shutil, time\n\nsys.path.insert(0, os.path.dirname(__file__))\nfrom src.word_com import WordCOM\nfrom src.doc_eyes import DocEyes\n\nOUT_DIR = os.path.join(os.path.dirname(__file__), \"test_output\")\nVIS_DIR = os.path.join(OUT_DIR, \"visual_validation\")\nos.makedirs(VIS_DIR, exist_ok=True)\n\nBASE = os.path.join(os.path.dirname(__file__), \"pruebas_reales\", \"P01_Solo_Soporte.docx\")\n\ndef create_test_png(path):\n    import struct, zlib\n    def chunk(ct, data):\n        c = ct + data\n        return struct.pack('>I', len(data)) + c + struct.pack('>I', zlib.crc32(c) & 0xFFFFFFFF)\n    w, h = 100, 50\n    raw = b''\n    for y in range(h):\n",
+        "applies_to": "ia_word",
+        "source": "C:\\Chance1\\IA\\IA_Word\\test_visual_validation.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-09T18:10:36.498493+00:00",
+      "updated_at": "2026-04-09T18:10:36.498493+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:10:36.498493+00:00",
+        "access_count": 0
+      }
+    },
+    "350e85bfb9e9": {
+      "id": "350e85bfb9e9",
+      "type": "fact",
+      "key": "test_visual_validation_1",
+      "fact": {
+        "rule": "ruct.pack('>I', zlib.crc32(c) & 0xFFFFFFFF)\n    w, h = 100, 50\n    raw = b''\n    for y in range(h):\n        raw += b'\\x00'\n        for x in range(w):\n            raw += b'\\x1f\\x38\\x64'\n    with open(path, 'wb') as f:\n        f.write(b'\\x89PNG\\r\\n\\x1a\\n')\n        f.write(chunk(b'IHDR', struct.pack('>IIBBBBB', w, h, 8, 2, 0, 0, 0)))\n        f.write(chunk(b'IDAT', zlib.compress(raw)))\n        f.write(chunk(b'IEND', b''))\n\ndef main():\n    t_total = time.time()\n    work = os.path.join(OUT_DIR, \"visual_test.docx\")\n    shutil.copy2(BASE, work)\n\n    img_path = os.path.join(OUT_DIR, \"test_logo.png\")\n    create_test_png(img_path)\n\n    w = WordCOM(visible=False)\n    eyes = DocEyes(dpi=150, keep_pdf=False, output_dir=VIS_DIR)\n\n    try:\n        # 1. Open document\n",
+        "applies_to": "ia_word",
+        "source": "C:\\Chance1\\IA\\IA_Word\\test_visual_validation.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-09T18:10:36.638293+00:00",
+      "updated_at": "2026-04-09T18:10:36.638293+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:10:36.638293+00:00",
+        "access_count": 0
+      }
+    },
+    "a8fbcd2f8ef3": {
+      "id": "a8fbcd2f8ef3",
+      "type": "fact",
+      "key": "test_visual_validation_2",
+      "fact": {
+        "rule": "   eyes = DocEyes(dpi=150, keep_pdf=False, output_dir=VIS_DIR)\n\n    try:\n        # 1. Open document\n        info = w.open_document(os.path.abspath(work))\n        sections = w.get_sections()\n        first_h = sections[0][\"text\"] if sections else None\n        print(f\"Opened: {info['name']} — {info['page_count']} pages\")\n\n        # 2. Render BEFORE pages (baseline)\n        print(\"\\n--- BEFORE: Rendering pages 1, 5, 10 ---\")\n        before = eyes.render_from_com(w, pages=[1, 5, 10])\n        for p in before:\n            # Rename to before_pageN.png\n            new_path = os.path.join(VIS_DIR, f\"before_page{p['number']}.png\")\n            if os.path.exists(p[\"image_path\"]):\n                shutil.move(p[\"image_path\"], new_path)\n                size_kb = os.path.getsize(new_path) / 1024\n",
+        "applies_to": "ia_word",
+        "source": "C:\\Chance1\\IA\\IA_Word\\test_visual_validation.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-09T18:10:36.782768+00:00",
+      "updated_at": "2026-04-09T18:10:36.782768+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:10:36.782768+00:00",
+        "access_count": 0
+      }
+    },
+    "09e098b2e28f": {
+      "id": "09e098b2e28f",
+      "type": "fact",
+      "key": "test_visual_validation_3",
+      "fact": {
+        "rule": "  shutil.move(p[\"image_path\"], new_path)\n                size_kb = os.path.getsize(new_path) / 1024\n                print(f\"  Page {p['number']}: {new_path} ({size_kb:.0f} KB)\")\n\n        # 3. Make ALL the changes (like a real SOW customization)\n        print(\"\\n--- APPLYING CHANGES ---\")\n\n        # Insert pricing table\n        w.insert_table(\n            rows=[\n                [\"Servicio\", \"Mensual\", \"Anual\"],\n                [\"Soporte 7x24\", \"$3,500.00\", \"$42,000.00\"],\n                [\"Monitoreo\", \"$1,200.00\", \"$14,400.00\"],\n                [\"TOTAL\", \"$4,700.00\", \"$56,400.00\"],\n            ],\n            after_heading=first_h,\n            header_bg_color=\"#1F3864\",\n            header_font_color=\"#FFFFFF\",\n            column_widths=[3.0, 1.5, 1.5],\n",
+        "applies_to": "ia_word",
+        "source": "C:\\Chance1\\IA\\IA_Word\\test_visual_validation.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-09T18:10:36.940772+00:00",
+      "updated_at": "2026-04-09T18:10:36.940772+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:10:36.940772+00:00",
+        "access_count": 0
+      }
+    },
+    "a11d4e7ed438": {
+      "id": "a11d4e7ed438",
+      "type": "fact",
+      "key": "test_visual_validation_4",
+      "fact": {
+        "rule": "olor=\"#1F3864\",\n            header_font_color=\"#FFFFFF\",\n            column_widths=[3.0, 1.5, 1.5],\n            alternate_row_color=\"#D6E4F0\",\n        )\n        print(\"  + Tabla de precios insertada\")\n\n        # Insert bullet list\n        w.insert_list(\n            items=[\"Soporte 7x24 con SLA 99.9%\", \"Monitoreo proactivo\", \"Respaldos diarios\"],\n            list_type=\"bullet\",\n            after_heading=first_h,\n        )\n        print(\"  + Lista de entregables insertada\")\n\n        # Insert image\n        w.insert_image(image_path=img_path, after_heading=first_h, width_inches=2.5)\n        print(\"  + Imagen insertada\")\n\n        # Add watermark\n        w.add_watermark(text=\"BORRADOR\", color=\"#C0C0C0\", transparency=0.5)\n        print(\"  + Watermark 'BORRADOR' aplicado\")\n\n",
+        "applies_to": "ia_word",
+        "source": "C:\\Chance1\\IA\\IA_Word\\test_visual_validation.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-09T18:10:37.083321+00:00",
+      "updated_at": "2026-04-09T18:10:37.083321+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:10:37.083321+00:00",
+        "access_count": 0
+      }
+    },
+    "2367dd856dcd": {
+      "id": "2367dd856dcd",
+      "type": "fact",
+      "key": "test_visual_validation_5",
+      "fact": {
+        "rule": "=\"BORRADOR\", color=\"#C0C0C0\", transparency=0.5)\n        print(\"  + Watermark 'BORRADOR' aplicado\")\n\n        # Bulk font change\n        w.bulk_font_change(old_font=\"Arial\", new_font=\"Calibri\")\n        print(\"  + Fuentes normalizadas (Arial -> Calibri)\")\n\n        # Set metadata\n        w.set_document_properties(\n            title=\"SOW - Banco Industrial 2026\",\n            author=\"GBM Arquitectura\",\n            custom={\"NumSOW\": \"SOW-2026-042\"},\n        )\n        print(\"  + Metadata establecida\")\n\n        w.save()\n        print(\"  + Documento guardado\")\n\n        # 4. Render AFTER pages\n        print(\"\\n--- AFTER: Rendering pages 1, 5, 10 ---\")\n        after = eyes.render_from_com(w, pages=[1, 5, 10])\n        for p in after:\n",
+        "applies_to": "ia_word",
+        "source": "C:\\Chance1\\IA\\IA_Word\\test_visual_validation.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-09T18:10:37.234184+00:00",
+      "updated_at": "2026-04-09T18:10:37.234184+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:10:37.234184+00:00",
+        "access_count": 0
+      }
+    },
+    "463732b79542": {
+      "id": "463732b79542",
+      "type": "fact",
+      "key": "test_visual_validation_6",
+      "fact": {
+        "rule": "es 1, 5, 10 ---\")\n        after = eyes.render_from_com(w, pages=[1, 5, 10])\n        for p in after:\n            new_path = os.path.join(VIS_DIR, f\"after_page{p['number']}.png\")\n            if os.path.exists(p[\"image_path\"]):\n                shutil.move(p[\"image_path\"], new_path)\n                size_kb = os.path.getsize(new_path) / 1024\n                print(f\"  Page {p['number']}: {new_path} ({size_kb:.0f} KB)\")\n\n        # 5. Quick visual check using DocEyes\n        print(\"\\n--- QUICK CHECK (DocEyes comparison) ---\")\n        try:\n            check = eyes.quick_check(w)\n            print(f\"  Quick check result: {check}\")\n        except Exception as e:\n            print(f\"  Quick check: {e}\")\n\n    finally:\n        w.quit()\n\n    # 6. List all rendered images\n",
+        "applies_to": "ia_word",
+        "source": "C:\\Chance1\\IA\\IA_Word\\test_visual_validation.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-09T18:10:37.379179+00:00",
+      "updated_at": "2026-04-09T18:10:37.379179+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:10:37.379179+00:00",
+        "access_count": 0
+      }
+    },
+    "256327f24986": {
+      "id": "256327f24986",
+      "type": "fact",
+      "key": "test_visual_validation_7",
+      "fact": {
+        "rule": "     print(f\"  Quick check: {e}\")\n\n    finally:\n        w.quit()\n\n    # 6. List all rendered images\n    print(\"\\n--- RENDERED IMAGES ---\")\n    pngs = sorted([f for f in os.listdir(VIS_DIR) if f.endswith('.png')])\n    for f in pngs:\n        path = os.path.join(VIS_DIR, f)\n        size_kb = os.path.getsize(path) / 1024\n        print",
+        "applies_to": "ia_word",
+        "source": "C:\\Chance1\\IA\\IA_Word\\test_visual_validation.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-09T18:10:37.522324+00:00",
+      "updated_at": "2026-04-09T18:10:37.522324+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:10:37.522324+00:00",
+        "access_count": 0
+      }
+    },
+    "e998fca44211": {
+      "id": "e998fca44211",
+      "type": "fact",
+      "key": "verify_setup_0",
+      "fact": {
+        "rule": "#!/usr/bin/env python\n\"\"\"\nVerificador de setup para las 3 opciones de Vision Feedback.\n\nUso:\n    python verify_setup.py\n\"\"\"\n\nimport os\nimport sys\nfrom pathlib import Path\n\nsys.path.insert(0, str(Path(__file__).parent))\n\ndef check(name: str, test_fn) -> bool:\n    try:\n        result = test_fn()\n        status = \"OK\" if result else \"FAIL\"\n        icon = \"[OK]\" if result else \"[FAIL]\"\n        print(f\"  {icon} {name}: {status}\")\n        return bool(result)\n    except Exception as e:\n        print(f\"  [FAIL] {name}: ERROR - {e}\")\n        return False\n\ndef main():\n    print(\"=\" * 60)\n    print(\"VERIFICACION DE SETUP - IA_Word Vision Feedback\")\n    print(\"=\" * 60)\n\n    all_ok = True\n\n    # --- Dependencias base ---\n    print(\"\\n[1] DEPENDENCIAS BASE\")\n",
+        "applies_to": "ia_word",
+        "source": "C:\\Chance1\\IA\\IA_Word\\verify_setup.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-09T18:10:37.659427+00:00",
+      "updated_at": "2026-04-09T18:10:37.659427+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:10:37.659427+00:00",
+        "access_count": 0
+      }
+    },
+    "9ac0af3c9426": {
+      "id": "9ac0af3c9426",
+      "type": "fact",
+      "key": "verify_setup_1",
+      "fact": {
+        "rule": "(\"=\" * 60)\n\n    all_ok = True\n\n    # --- Dependencias base ---\n    print(\"\\n[1] DEPENDENCIAS BASE\")\n    all_ok &= check(\"pywin32\", lambda: __import__(\"win32com.client\"))\n    all_ok &= check(\"python-docx\", lambda: __import__(\"docx\"))\n    all_ok &= check(\"Pillow (PIL)\", lambda: __import__(\"PIL\"))\n    all_ok &= check(\"anthropic\", lambda: __import__(\"anthropic\"))\n    all_ok &= check(\"pyautogui\", lambda: __import__(\"pyautogui\"))\n    all_ok &= check(\"playwright\", lambda: __import__(\"playwright\"))\n\n    # --- API Key ---\n    print(\"\\n[2] CONFIGURACION\")\n    api_key = os.getenv(\"ANTHROPIC_API_KEY\", \"\")\n    has_key = len(api_key) > 10\n    all_ok &= check(\n        \"ANTHROPIC_API_KEY\",\n        lambda: has_key,\n    )\n    if not has_key:\n",
+        "applies_to": "ia_word",
+        "source": "C:\\Chance1\\IA\\IA_Word\\verify_setup.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-09T18:10:37.826152+00:00",
+      "updated_at": "2026-04-09T18:10:37.826152+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:10:37.826152+00:00",
+        "access_count": 0
+      }
+    },
+    "893ceac59d36": {
+      "id": "893ceac59d36",
+      "type": "fact",
+      "key": "verify_setup_2",
+      "fact": {
+        "rule": "   all_ok &= check(\n        \"ANTHROPIC_API_KEY\",\n        lambda: has_key,\n    )\n    if not has_key:\n        print(\"     Configurar: set ANTHROPIC_API_KEY=sk-ant-...\")\n\n    # --- Módulos internos ---\n    print(\"\\n[3] MODULOS INTERNOS\")\n    all_ok &= check(\"word_com\", lambda: __import__(\"src.word_com\", fromlist=[\"WordCOM\"]))\n    all_ok &= check(\"validators\", lambda: __import__(\"src.validators\", fromlist=[\"DocumentValidator\"]))\n    all_ok &= check(\"vision_feedback (Opcion 1)\", lambda: __import__(\"src.vision_feedback\", fromlist=[\"VisionFeedback\"]))\n    all_ok &= check(\"playwright_feedback (Opcion 2)\", lambda: __import__(\"src.playwright_feedback\", fromlist=[\"PlaywrightFeedback\"]))\n",
+        "applies_to": "ia_word",
+        "source": "C:\\Chance1\\IA\\IA_Word\\verify_setup.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-09T18:10:37.986728+00:00",
+      "updated_at": "2026-04-09T18:10:37.986728+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:10:37.986728+00:00",
+        "access_count": 0
+      }
+    },
+    "98ca160ae71f": {
+      "id": "98ca160ae71f",
+      "type": "fact",
+      "key": "verify_setup_3",
+      "fact": {
+        "rule": "edback (Opcion 2)\", lambda: __import__(\"src.playwright_feedback\", fromlist=[\"PlaywrightFeedback\"]))\n    all_ok &= check(\"computer_use_feedback (Opcion 3)\", lambda: __import__(\"src.computer_use_feedback\", fromlist=[\"ComputerUseFeedback\"]))\n\n    # --- Playwright browsers ---\n    print(\"\\n[4] PLAYWRIGHT BROWSERS\")\n    try:\n        from playwright.sync_api import sync_playwright\n        with sync_playwright() as p:\n            browser = p.chromium.launch(headless=True)\n            browser.close()\n        check(\"Chromium instalado\", lambda: True)\n    except Exception as e:\n        check(\"Chromium instalado\", lambda: False)\n        print(\"     Instalar: python -m playwright install chromium\")\n        all_ok = False\n\n    # --- CLIs ---\n    print(\"\\n[5] SCRIPTS CLI\")\n    scripts = [\n",
+        "applies_to": "ia_word",
+        "source": "C:\\Chance1\\IA\\IA_Word\\verify_setup.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-09T18:10:38.122351+00:00",
+      "updated_at": "2026-04-09T18:10:38.122351+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:10:38.122351+00:00",
+        "access_count": 0
+      }
+    },
+    "57a5e3afc5e4": {
+      "id": "57a5e3afc5e4",
+      "type": "fact",
+      "key": "verify_setup_4",
+      "fact": {
+        "rule": "hromium\")\n        all_ok = False\n\n    # --- CLIs ---\n    print(\"\\n[5] SCRIPTS CLI\")\n    scripts = [\n        \"capture_and_analyze.py\",\n        \"playwright_analyze.py\",\n        \"computer_use_analyze.py\",\n        \"example_edit_with_validation.py\",\n        \"verify_setup.py\",\n    ]\n    for script in scripts:\n        exists = Path(script).exists() or Path(__file__).parent.joinpath(script).exists()\n        all_ok &= check(f\"{script}\", lambda e=exists: e)\n\n    # --- Resumen ---\n    print(f\"\\n{'='*60}\")\n    if all_ok:\n        print(\"RESULTADO: TODAS LAS OPCIONES LISTAS\")\n        print(\"\")\n        print(\"  Opcion 1 (Vision API + Screenshot):\")\n        print(\"    python capture_and_analyze.py --doc <archivo.docx>\")\n        print(\"\")\n        print(\"  Opcion 2 (Playwright + HTML):\")\n",
+        "applies_to": "ia_word",
+        "source": "C:\\Chance1\\IA\\IA_Word\\verify_setup.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-09T18:10:38.267199+00:00",
+      "updated_at": "2026-04-09T18:10:38.267199+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:10:38.267199+00:00",
+        "access_count": 0
+      }
+    },
+    "8f4f5aa98f1b": {
+      "id": "8f4f5aa98f1b",
+      "type": "fact",
+      "key": "verify_setup_5",
+      "fact": {
+        "rule": "nalyze.py --doc <archivo.docx>\")\n        print(\"\")\n        print(\"  Opcion 2 (Playwright + HTML):\")\n        print(\"    python playwright_analyze.py --doc <archivo.docx>\")\n        print(\"\")\n        print(\"  Opcion 3 (Computer Use Tool):\")\n        print(\"    python computer_use_analyze.py --doc <archivo.docx>\")\n    else:\n        print(\"RESULTADO: SETUP INCOMPLETO\")\n        print(\"Revisa los items marcados con X arriba.\")\n    print(f\"{'='*60}\\n\")\n\n    return 0 if all_ok else 1\n\nif __name__ == \"__main__\":\n    sys.exit(main())",
+        "applies_to": "ia_word",
+        "source": "C:\\Chance1\\IA\\IA_Word\\verify_setup.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-09T18:10:38.407290+00:00",
+      "updated_at": "2026-04-09T18:10:38.407290+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:10:38.407290+00:00",
+        "access_count": 0
+      }
+    },
+    "641daa42b385": {
+      "id": "641daa42b385",
+      "type": "fact",
+      "key": "playwright_analyze_0",
+      "fact": {
+        "rule": "#!/usr/bin/env python\n\"\"\"\nOpción 2 CLI: Captura documento Word via Playwright (headless) + Vision API.\n\nFlujo: Word → HTML → Playwright screenshot → Vision API análisis\n\nUso:\n    # Análisis general\n    python playwright_analyze.py --doc \"document.docx\"\n\n    # Validar TOC\n    python playwright_analyze.py --doc \"document.docx\" --toc\n\n    # Captura multi-página\n    python playwright_analyze.py --doc \"document.docx\" --multi\n\n    # Salida JSON\n    python playwright_analyze.py --doc \"document.docx\" --json\n\"\"\"\n\nimport argparse\nimport json\nimport logging\nimport sys\nfrom pathlib import Path\n\nsys.path.insert(0, str(Path(__file__).parent))\n\nlogging.basicConfig(\n    level=logging.INFO,\n    format=\"%(asctime)s [%(levelname)s] %(message)s\",\n)\nlogger = logging.getLogger(\"playwright_analyze\")\n\n",
+        "applies_to": "ia_word",
+        "source": "C:\\Chance1\\IA\\IA_Word\\playwright_analyze.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-09T18:10:38.542421+00:00",
+      "updated_at": "2026-04-09T18:10:38.542421+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:10:38.542421+00:00",
+        "access_count": 0
+      }
+    },
+    "64819574a252": {
+      "id": "64819574a252",
+      "type": "fact",
+      "key": "playwright_analyze_1",
+      "fact": {
+        "rule": "rmat=\"%(asctime)s [%(levelname)s] %(message)s\",\n)\nlogger = logging.getLogger(\"playwright_analyze\")\n\ndef main():\n    parser = argparse.ArgumentParser(\n        description=\"Opción 2: Analizar documento Word via Playwright + Vision API\",\n    )\n    parser.add_argument(\"--doc\", required=True, help=\"Ruta al documento Word\")\n    parser.add_argument(\n        \"--type\",\n        choices=[\"general\", \"toc\", \"sections\", \"formatting\"],\n        default=\"general\",\n    )\n    parser.add_argument(\"--toc\", action=\"store_true\", help=\"Shortcut para --type toc\")\n    parser.add_argument(\n        \"--multi\", action=\"store_true\", help=\"Capturar múltiples páginas\"\n    )\n    parser.add_argument(\"--json\", action=\"store_true\", help=\"Salida JSON\")\n    parser.add_argument(\n        \"--full-page\",\n",
+        "applies_to": "ia_word",
+        "source": "C:\\Chance1\\IA\\IA_Word\\playwright_analyze.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-09T18:10:38.686109+00:00",
+      "updated_at": "2026-04-09T18:10:38.686109+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:10:38.686109+00:00",
+        "access_count": 0
+      }
+    },
+    "2bcc6f6399b0": {
+      "id": "2bcc6f6399b0",
+      "type": "fact",
+      "key": "playwright_analyze_2",
+      "fact": {
+        "rule": "(\"--json\", action=\"store_true\", help=\"Salida JSON\")\n    parser.add_argument(\n        \"--full-page\",\n        action=\"store_true\",\n        default=True,\n        help=\"Capturar página completa (default: True)\",\n    )\n\n    args = parser.parse_args()\n\n    if args.toc:\n        args.type = \"toc\"\n\n    if not Path(args.doc).exists():\n        logger.error(f\"Archivo no encontrado: {args.doc}\")\n        sys.exit(1)\n\n    logger.info(f\"\\n{'='*70}\")\n    logger.info(\"OPCIÓN 2: Playwright + Vision API\")\n    logger.info(f\"{'='*70}\")\n    logger.info(f\"Documento: {args.doc}\")\n    logger.info(f\"Tipo: {args.type}\")\n    logger.info(f\"Multi-page: {args.multi}\\n\")\n\n    from src.playwright_feedback import PlaywrightFeedback\n\n    pf = PlaywrightFeedback()\n\n    if args.multi:\n        # Captura multi-página\n",
+        "applies_to": "ia_word",
+        "source": "C:\\Chance1\\IA\\IA_Word\\playwright_analyze.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-09T18:10:38.819335+00:00",
+      "updated_at": "2026-04-09T18:10:38.819335+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:10:38.819335+00:00",
+        "access_count": 0
+      }
+    },
+    "b76ebf64890d": {
+      "id": "b76ebf64890d",
+      "type": "fact",
+      "key": "playwright_analyze_3",
+      "fact": {
+        "rule": "laywrightFeedback\n\n    pf = PlaywrightFeedback()\n\n    if args.multi:\n        # Captura multi-página\n        logger.info(\"Modo multi-página: capturando secciones...\")\n        screenshots = pf.capture_multiple_pages(args.doc)\n        logger.info(f\"\\nCapturadas {len(screenshots)} páginas:\")\n        for i, s in enumerate(screenshots):\n            logger.info(f\"  [{i}] {s}\")\n\n        # Analizar primera página\n        from src.vision_feedback import VisionFeedback, format_analysis_report\n\n        vf = VisionFeedback()\n        for i, s in enumerate(screenshots):\n            logger.info(f\"\\n--- Analizando página {i} ---\")\n            analysis = vf.analyze_screenshot(s)\n            if args.json:\n                print(json.dumps(analysis, ensure_ascii=False, indent=2))\n            else:\n",
+        "applies_to": "ia_word",
+        "source": "C:\\Chance1\\IA\\IA_Word\\playwright_analyze.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-09T18:10:38.980055+00:00",
+      "updated_at": "2026-04-09T18:10:38.980055+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:10:38.980055+00:00",
+        "access_count": 0
+      }
+    },
+    "dac7b53954d2": {
+      "id": "dac7b53954d2",
+      "type": "fact",
+      "key": "playwright_analyze_4",
+      "fact": {
+        "rule": "s.json:\n                print(json.dumps(analysis, ensure_ascii=False, indent=2))\n            else:\n                print(format_analysis_report(analysis))\n    else:\n        # Captura single\n        analysis = pf.capture_and_analyze(\n            args.doc,\n            analysis_type=args.type,\n            full_page=args.full_page,\n        )\n\n        if args.json:\n            # Quitar _meta para output limpio\n            clean = {k: v for k, v in analysis.items() if not k.startswith(\"_\")}\n            print(json.dumps(clean, ensure_ascii=False, indent=2))\n\n    logger.info(f\"\\n{'='*70}\")\n    logger.info(\"Completado.\")\n    logger.info(f\"{'='*70}\\n\")\n\nif __name__ == \"__main__\":\n    main()",
+        "applies_to": "ia_word",
+        "source": "C:\\Chance1\\IA\\IA_Word\\playwright_analyze.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-09T18:10:39.115732+00:00",
+      "updated_at": "2026-04-09T18:10:39.115732+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:10:39.115732+00:00",
+        "access_count": 0
+      }
+    },
+    "e68e1dfd153a": {
+      "id": "e68e1dfd153a",
+      "type": "fact",
+      "key": "computer_use_analyze_0",
+      "fact": {
+        "rule": "#!/usr/bin/env python\n\"\"\"\nOpción 3 CLI: Analizar documento Word con Computer Use (Claude ve la pantalla).\n\nFlujo: Abre Word → Screenshot → Claude analiza → Scroll/Navega → Repite\n\nUso:\n    # Validación rápida (1 screenshot)\n    python computer_use_analyze.py --doc \"document.docx\" --quick\n\n    # Validar tabla de contenido\n    python computer_use_analyze.py --doc \"document.docx\" --toc\n\n    # Validación completa (scroll por todo el documento)\n    python computer_use_analyze.py --doc \"document.docx\" --full\n\n    # Salida JSON\n    python computer_use_analyze.py --doc \"document.docx\" --json\n\"\"\"\n\nimport argparse\nimport json\nimport logging\nimport sys\nfrom pathlib import Path\n\nsys.path.insert(0, str(Path(__file__).parent))\n\nlogging.basicConfig(\n    level=logging.INFO,\n",
+        "applies_to": "ia_word",
+        "source": "C:\\Chance1\\IA\\IA_Word\\computer_use_analyze.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-09T18:10:39.359525+00:00",
+      "updated_at": "2026-04-09T18:10:39.359525+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:10:39.359525+00:00",
+        "access_count": 0
+      }
+    },
+    "e2831e9e7132": {
+      "id": "e2831e9e7132",
+      "type": "fact",
+      "key": "computer_use_analyze_1",
+      "fact": {
+        "rule": " Path\n\nsys.path.insert(0, str(Path(__file__).parent))\n\nlogging.basicConfig(\n    level=logging.INFO,\n    format=\"%(asctime)s [%(levelname)s] %(message)s\",\n)\nlogger = logging.getLogger(\"computer_use_analyze\")\n\ndef main():\n    parser = argparse.ArgumentParser(\n        description=\"Opción 3: Analizar documento Word con Computer Use Tool\",\n    )\n    parser.add_argument(\"--doc\", required=True, help=\"Ruta al documento Word\")\n    parser.add_argument(\"--quick\", action=\"store_true\", help=\"Validación rápida (1 screenshot)\")\n    parser.add_argument(\"--toc\", action=\"store_true\", help=\"Validar tabla de contenido\")\n    parser.add_argument(\"--full\", action=\"store_true\", help=\"Validación completa (scroll)\")\n    parser.add_argument(\"--json\", action=\"store_true\", help=\"Salida JSON\")\n",
+        "applies_to": "ia_word",
+        "source": "C:\\Chance1\\IA\\IA_Word\\computer_use_analyze.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-09T18:10:39.493987+00:00",
+      "updated_at": "2026-04-09T18:10:39.493987+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:10:39.493987+00:00",
+        "access_count": 0
+      }
+    },
+    "9649505b5f52": {
+      "id": "9649505b5f52",
+      "type": "fact",
+      "key": "computer_use_analyze_2",
+      "fact": {
+        "rule": "ción completa (scroll)\")\n    parser.add_argument(\"--json\", action=\"store_true\", help=\"Salida JSON\")\n    parser.add_argument(\"--iterations\", type=int, default=5, help=\"Máx iteraciones (default: 5)\")\n\n    args = parser.parse_args()\n\n    if not Path(args.doc).exists():\n        logger.error(f\"Archivo no encontrado: {args.doc}\")\n        sys.exit(1)\n\n    logger.info(f\"\\n{'='*70}\")\n    logger.info(\"OPCIÓN 3: Computer Use Tool (Claude ve la pantalla)\")\n    logger.info(f\"{'='*70}\")\n    logger.info(f\"Documento: {args.doc}\")\n\n    mode = \"quick\" if args.quick else \"toc\" if args.toc else \"full\" if args.full else \"quick\"\n    logger.info(f\"Modo: {mode}\")\n    logger.info(f\"Máx iteraciones: {args.iterations}\\n\")\n\n    from src.computer_use_feedback import ComputerUseFeedback, format_computer_use_report\n\n",
+        "applies_to": "ia_word",
+        "source": "C:\\Chance1\\IA\\IA_Word\\computer_use_analyze.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-09T18:10:39.616071+00:00",
+      "updated_at": "2026-04-09T18:10:39.616071+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:10:39.616071+00:00",
+        "access_count": 0
+      }
+    },
+    "c3237bd9e467": {
+      "id": "c3237bd9e467",
+      "type": "fact",
+      "key": "computer_use_analyze_3",
+      "fact": {
+        "rule": "ns}\\n\")\n\n    from src.computer_use_feedback import ComputerUseFeedback, format_computer_use_report\n\n    cuf = ComputerUseFeedback()\n\n    if args.toc:\n        results = cuf.validate_toc_visual(args.doc)\n    elif args.full:\n        results = cuf.validate_full_document(args.doc)\n    else:\n        results = cuf.quick_validate(args.doc)\n\n    # Output\n    if args.json:\n        # Limpiar paths de screenshots para portabilidad\n        clean = {\n            \"iterations\": results.get(\"iterations\", []),\n            \"is_valid\": results.get(\"is_valid\", False),\n            \"total_screenshots\": len(results.get(\"screenshots\", [])),\n        }\n        if results.get(\"final_analysis\"):\n            clean[\"final_analysis\"] = results[\"final_analysis\"]\n",
+        "applies_to": "ia_word",
+        "source": "C:\\Chance1\\IA\\IA_Word\\computer_use_analyze.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-09T18:10:39.751955+00:00",
+      "updated_at": "2026-04-09T18:10:39.751955+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:10:39.751955+00:00",
+        "access_count": 0
+      }
+    },
+    "488cad3e9851": {
+      "id": "488cad3e9851",
+      "type": "fact",
+      "key": "computer_use_analyze_4",
+      "fact": {
+        "rule": "  if results.get(\"final_analysis\"):\n            clean[\"final_analysis\"] = results[\"final_analysis\"]\n        print(json.dumps(clean, ensure_ascii=False, indent=2))\n    else:\n        print(format_computer_use_report(results))\n\n    # Exit code\n    sys.exit(0 if results.get(\"is_valid\") else 1)\n\nif __name__ == \"__main__\":\n    main()",
+        "applies_to": "ia_word",
+        "source": "C:\\Chance1\\IA\\IA_Word\\computer_use_analyze.py",
+        "confidence": "observed",
+        "examples": [],
+        "exceptions": ""
+      },
+      "tags": [
+        "python",
+        "py"
+      ],
+      "created_at": "2026-04-09T18:10:39.893767+00:00",
+      "updated_at": "2026-04-09T18:10:39.893767+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-09T18:10:39.893767+00:00",
+        "access_count": 0
+      }
     }
   },
   "tag_index": {
@@ -12915,26 +15707,243 @@
       "4425f0634a25",
       "f2f0c4ce1d80",
       "27a926a344df",
-      "9798393bce76"
+      "9798393bce76",
+      "2b8278c2bab4",
+      "844a2dc7f8e8",
+      "35bb35cf488d",
+      "41fca7f039b2",
+      "f8050a615acc",
+      "4486ec3cbf50",
+      "a98abcb53260",
+      "58613fd39676",
+      "67ecb9a8c017",
+      "2b40d3efdf70",
+      "0f9f9a2d4cd4",
+      "40c38507e30d",
+      "db8b57b40b4f",
+      "f660d2d2adec",
+      "b135518fe9e4",
+      "22091a22fd91",
+      "b0faeca6e014",
+      "573c74ba1234",
+      "357d52a575bb",
+      "8e2c3d1cfba4",
+      "6003ab54593e",
+      "486e7fee1df1",
+      "0e62ae39926f",
+      "7887d995bf77",
+      "9c1c6d9cd059",
+      "81b4ee8df7f5",
+      "2b79880aea22",
+      "8294bd9206dc",
+      "9bce35a201c6",
+      "9887c835cbc7",
+      "eff8f2f00faa",
+      "7e67133bd7b3",
+      "0823cd63f1cf",
+      "c44b1b333e99",
+      "372203d1812a",
+      "8990923da25b",
+      "a45f5988a8b2",
+      "5a245e130f1c",
+      "89727625591e",
+      "835c9842ef26",
+      "7d33d21a90cf",
+      "3b722a547b95",
+      "b5882b125443",
+      "16a0db42ca4d",
+      "c7dd710f8c6a",
+      "f8d802e50179",
+      "d09f622606ef",
+      "0bc08f29e3ae",
+      "47e0d78fd735",
+      "5c0cafae085c",
+      "f7106b015d6e",
+      "660c2687579c",
+      "36ca9ae2c6c3",
+      "6c006c6b6140",
+      "091f67f703c2",
+      "c55bffe9adb4",
+      "408dba23ea01",
+      "cb3a2a1894f1",
+      "166679fc46c0",
+      "5cbdcefce394",
+      "b01ee3464fb2",
+      "2ec60090cf30",
+      "3c930f5d9467",
+      "49d5377a3f69",
+      "ebf0ec1bca64",
+      "3eb296fd594a",
+      "4390c5aab10b",
+      "ded64e901085",
+      "f61186f2eaa3",
+      "96feeb301482",
+      "a14f5d2d5bba",
+      "3157f2fd7015",
+      "80315aed1f57",
+      "a58ce84fd4d9",
+      "5454eb06ec25",
+      "9cc8fba421c9",
+      "93c672c08297",
+      "f825bb132512",
+      "c148040672d2",
+      "5c0f230a465e",
+      "ec644f1f3a1c",
+      "350e85bfb9e9",
+      "a8fbcd2f8ef3",
+      "09e098b2e28f",
+      "a11d4e7ed438",
+      "2367dd856dcd",
+      "463732b79542",
+      "256327f24986",
+      "e998fca44211",
+      "9ac0af3c9426",
+      "893ceac59d36",
+      "98ca160ae71f",
+      "57a5e3afc5e4",
+      "8f4f5aa98f1b",
+      "641daa42b385",
+      "64819574a252",
+      "2bcc6f6399b0",
+      "b76ebf64890d",
+      "dac7b53954d2",
+      "e68e1dfd153a",
+      "e2831e9e7132",
+      "9649505b5f52",
+      "c3237bd9e467",
+      "488cad3e9851"
     ],
     "py": [
       "8d31ef49041b",
       "b45ccdac1d3c",
       "4425f0634a25",
       "f2f0c4ce1d80",
-      "27a926a344df"
+      "27a926a344df",
+      "2b8278c2bab4",
+      "844a2dc7f8e8",
+      "35bb35cf488d",
+      "41fca7f039b2",
+      "f8050a615acc",
+      "4486ec3cbf50",
+      "a98abcb53260",
+      "58613fd39676",
+      "67ecb9a8c017",
+      "2b40d3efdf70",
+      "0f9f9a2d4cd4",
+      "40c38507e30d",
+      "db8b57b40b4f",
+      "f660d2d2adec",
+      "b135518fe9e4",
+      "22091a22fd91",
+      "b0faeca6e014",
+      "573c74ba1234",
+      "357d52a575bb",
+      "8e2c3d1cfba4",
+      "6003ab54593e",
+      "486e7fee1df1",
+      "0e62ae39926f",
+      "7887d995bf77",
+      "9c1c6d9cd059",
+      "81b4ee8df7f5",
+      "2b79880aea22",
+      "8294bd9206dc",
+      "9bce35a201c6",
+      "9887c835cbc7",
+      "eff8f2f00faa",
+      "7e67133bd7b3",
+      "0823cd63f1cf",
+      "c44b1b333e99",
+      "372203d1812a",
+      "8990923da25b",
+      "a45f5988a8b2",
+      "5a245e130f1c",
+      "89727625591e",
+      "835c9842ef26",
+      "7d33d21a90cf",
+      "3b722a547b95",
+      "b5882b125443",
+      "16a0db42ca4d",
+      "c7dd710f8c6a",
+      "f8d802e50179",
+      "d09f622606ef",
+      "0bc08f29e3ae",
+      "47e0d78fd735",
+      "5c0cafae085c",
+      "f7106b015d6e",
+      "660c2687579c",
+      "36ca9ae2c6c3",
+      "6c006c6b6140",
+      "091f67f703c2",
+      "c55bffe9adb4",
+      "408dba23ea01",
+      "cb3a2a1894f1",
+      "166679fc46c0",
+      "5cbdcefce394",
+      "b01ee3464fb2",
+      "2ec60090cf30",
+      "3c930f5d9467",
+      "49d5377a3f69",
+      "ebf0ec1bca64",
+      "3eb296fd594a",
+      "4390c5aab10b",
+      "ded64e901085",
+      "f61186f2eaa3",
+      "96feeb301482",
+      "a14f5d2d5bba",
+      "3157f2fd7015",
+      "80315aed1f57",
+      "a58ce84fd4d9",
+      "5454eb06ec25",
+      "9cc8fba421c9",
+      "93c672c08297",
+      "f825bb132512",
+      "c148040672d2",
+      "5c0f230a465e",
+      "ec644f1f3a1c",
+      "350e85bfb9e9",
+      "a8fbcd2f8ef3",
+      "09e098b2e28f",
+      "a11d4e7ed438",
+      "2367dd856dcd",
+      "463732b79542",
+      "256327f24986",
+      "e998fca44211",
+      "9ac0af3c9426",
+      "893ceac59d36",
+      "98ca160ae71f",
+      "57a5e3afc5e4",
+      "8f4f5aa98f1b",
+      "641daa42b385",
+      "64819574a252",
+      "2bcc6f6399b0",
+      "b76ebf64890d",
+      "dac7b53954d2",
+      "e68e1dfd153a",
+      "e2831e9e7132",
+      "9649505b5f52",
+      "c3237bd9e467",
+      "488cad3e9851"
     ],
     "md": [
       "d2019d2dcdcb",
       "90e5891da066",
       "33d82e0877e7",
-      "77b2927cf4d9"
+      "77b2927cf4d9",
+      "63b32a907818",
+      "36ce889d1388",
+      "105257ccd6eb",
+      "e61346299900",
+      "835836a07b48",
+      "58bb16c7c697",
+      "5b49c14a6192",
+      "690e06472a67"
     ],
     "json": [
       "97d4ee09ea3c",
       "97d4ee09ea3c"
     ],
     "txt": [
+      "f4edb8d0f6fe",
       "f4edb8d0f6fe"
     ],
     "python-docx": [
@@ -14037,7 +17046,7 @@
     ]
   },
   "stats": {
-    "total_entries": 477,
+    "total_entries": 590,
     "total_lookups": 561,
     "total_hits": 436
   }

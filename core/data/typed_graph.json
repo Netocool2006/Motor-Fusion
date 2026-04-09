@@ -3935,6 +3935,46 @@
       "properties": {},
       "created_at": "2026-04-09T17:34:14.193976+00:00",
       "updated_at": "2026-04-09T17:34:14.193976+00:00"
+    },
+    "Word.Quit": {
+      "id": "Word.Quit",
+      "type": "file",
+      "name": "Word.Quit",
+      "properties": {},
+      "created_at": "2026-04-09T19:08:09.755505+00:00",
+      "updated_at": "2026-04-09T19:08:09.755505+00:00"
+    },
+    "gc.coll": {
+      "id": "gc.coll",
+      "type": "file",
+      "name": "gc.coll",
+      "properties": {},
+      "created_at": "2026-04-09T19:08:09.790596+00:00",
+      "updated_at": "2026-04-09T19:08:09.790596+00:00"
+    },
+    "word.quit": {
+      "id": "word.quit",
+      "type": "file",
+      "name": "word.quit",
+      "properties": {},
+      "created_at": "2026-04-09T19:08:09.840444+00:00",
+      "updated_at": "2026-04-09T19:08:09.840444+00:00"
+    },
+    "guardian.forc": {
+      "id": "guardian.forc",
+      "type": "file",
+      "name": "guardian.forc",
+      "properties": {},
+      "created_at": "2026-04-09T19:08:09.876145+00:00",
+      "updated_at": "2026-04-09T19:08:09.876145+00:00"
+    },
+    "kb_reference.py": {
+      "id": "kb_reference.py",
+      "type": "file",
+      "name": "kb_reference.py",
+      "properties": {},
+      "created_at": "2026-04-09T20:33:18.560905+00:00",
+      "updated_at": "2026-04-09T20:33:18.560905+00:00"
     }
   },
   "relations": [
@@ -7470,10 +7510,10 @@
       "source": "doc_eyes.py",
       "target": "vision_bridge.py",
       "type": "used_with",
-      "weight": 4.0,
-      "context": "activa el 8% no quites el muerto dejarlo alli.  en la parte de vision hay que ajustar hay una funcio",
+      "weight": 4.5,
+      "context": "ahora dime que componentes de la arquitectura se usaron en estas pruebas y cuales no se usaron?",
       "created_at": "2026-04-07T16:44:43.238965+00:00",
-      "updated_at": "2026-04-09T16:11:40.088037+00:00"
+      "updated_at": "2026-04-09T20:33:18.550835+00:00"
     },
     {
       "source": "realmente",
@@ -8433,10 +8473,10 @@
       "source": "word_com.py",
       "target": "mcp_server.py",
       "type": "used_with",
-      "weight": 5.0,
-      "context": "vuelve darme una tabla explicando arquitectura para ver como quedo",
+      "weight": 5.5,
+      "context": "ahora dime que componentes de la arquitectura se usaron en estas pruebas y cuales no se usaron?",
       "created_at": "2026-04-08T16:19:22.809935+00:00",
-      "updated_at": "2026-04-09T16:42:16.617140+00:00"
+      "updated_at": "2026-04-09T20:33:18.429915+00:00"
     },
     {
       "source": "las",
@@ -13626,10 +13666,10 @@
       "source": "word_com.py",
       "target": "docx_sanitizer.py",
       "type": "used_with",
-      "weight": 0.5,
-      "context": "que ventajas y desventajas tenemos respecto a lo que ya tenemos dale una scan al proyecto actual de ",
+      "weight": 1.0,
+      "context": "ahora dime que componentes de la arquitectura se usaron en estas pruebas y cuales no se usaron?",
       "created_at": "2026-04-09T15:29:53.449918+00:00",
-      "updated_at": "2026-04-09T15:29:53.449918+00:00"
+      "updated_at": "2026-04-09T20:33:18.448153+00:00"
     },
     {
       "source": "Word.Appl",
@@ -13914,28 +13954,28 @@
       "source": "mcp_server.py",
       "target": "docx_sanitizer.py",
       "type": "used_with",
-      "weight": 0.5,
-      "context": "vuelve darme una tabla explicando arquitectura para ver como quedo",
+      "weight": 1.0,
+      "context": "ahora dime que componentes de la arquitectura se usaron en estas pruebas y cuales no se usaron?",
       "created_at": "2026-04-09T16:42:16.668258+00:00",
-      "updated_at": "2026-04-09T16:42:16.668258+00:00"
+      "updated_at": "2026-04-09T20:33:18.461673+00:00"
     },
     {
       "source": "mcp_server.py",
       "target": "validators.py",
       "type": "used_with",
-      "weight": 0.5,
-      "context": "vuelve darme una tabla explicando arquitectura para ver como quedo",
+      "weight": 1.0,
+      "context": "ahora dime que componentes de la arquitectura se usaron en estas pruebas y cuales no se usaron?",
       "created_at": "2026-04-09T16:42:16.685910+00:00",
-      "updated_at": "2026-04-09T16:42:16.685910+00:00"
+      "updated_at": "2026-04-09T20:33:18.479874+00:00"
     },
     {
       "source": "docx_sanitizer.py",
       "target": "validators.py",
       "type": "used_with",
-      "weight": 0.5,
-      "context": "vuelve darme una tabla explicando arquitectura para ver como quedo",
+      "weight": 1.0,
+      "context": "ahora dime que componentes de la arquitectura se usaron en estas pruebas y cuales no se usaron?",
       "created_at": "2026-04-09T16:42:16.703067+00:00",
-      "updated_at": "2026-04-09T16:42:16.703067+00:00"
+      "updated_at": "2026-04-09T20:33:18.496905+00:00"
     },
     {
       "source": "docx_sanitizer.py",
@@ -13950,19 +13990,19 @@
       "source": "validators.py",
       "target": "vision_bridge.py",
       "type": "used_with",
-      "weight": 0.5,
-      "context": "vuelve darme una tabla explicando arquitectura para ver como quedo",
+      "weight": 1.0,
+      "context": "ahora dime que componentes de la arquitectura se usaron en estas pruebas y cuales no se usaron?",
       "created_at": "2026-04-09T16:42:16.724905+00:00",
-      "updated_at": "2026-04-09T16:42:16.724905+00:00"
+      "updated_at": "2026-04-09T20:33:18.541756+00:00"
     },
     {
       "source": "validators.py",
       "target": "doc_eyes.py",
       "type": "used_with",
-      "weight": 0.5,
-      "context": "vuelve darme una tabla explicando arquitectura para ver como quedo",
+      "weight": 1.0,
+      "context": "ahora dime que componentes de la arquitectura se usaron en estas pruebas y cuales no se usaron?",
       "created_at": "2026-04-09T16:42:16.728211+00:00",
-      "updated_at": "2026-04-09T16:42:16.728211+00:00"
+      "updated_at": "2026-04-09T20:33:18.531963+00:00"
     },
     {
       "source": "vision_bridge.py",
@@ -14512,11 +14552,119 @@
       "context": "pre-hook query",
       "created_at": "2026-04-09T17:34:14.203742+00:00",
       "updated_at": "2026-04-09T17:34:14.203742+00:00"
+    },
+    {
+      "source": "Word.Quit",
+      "target": "WINWORD.EXE",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "continua",
+      "created_at": "2026-04-09T19:08:09.773155+00:00",
+      "updated_at": "2026-04-09T19:08:09.773155+00:00"
+    },
+    {
+      "source": "Word.Quit",
+      "target": "gc.coll",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "continua",
+      "created_at": "2026-04-09T19:08:09.808277+00:00",
+      "updated_at": "2026-04-09T19:08:09.808277+00:00"
+    },
+    {
+      "source": "WINWORD.EXE",
+      "target": "gc.coll",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "continua",
+      "created_at": "2026-04-09T19:08:09.817422+00:00",
+      "updated_at": "2026-04-09T19:08:09.817422+00:00"
+    },
+    {
+      "source": "WINWORD.EXE",
+      "target": "word.quit",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "continua",
+      "created_at": "2026-04-09T19:08:09.857969+00:00",
+      "updated_at": "2026-04-09T19:08:09.857969+00:00"
+    },
+    {
+      "source": "gc.coll",
+      "target": "word.quit",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "continua",
+      "created_at": "2026-04-09T19:08:09.867149+00:00",
+      "updated_at": "2026-04-09T19:08:09.867149+00:00"
+    },
+    {
+      "source": "gc.coll",
+      "target": "guardian.forc",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "continua",
+      "created_at": "2026-04-09T19:08:09.885456+00:00",
+      "updated_at": "2026-04-09T19:08:09.885456+00:00"
+    },
+    {
+      "source": "word.quit",
+      "target": "guardian.forc",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "continua",
+      "created_at": "2026-04-09T19:08:09.894455+00:00",
+      "updated_at": "2026-04-09T19:08:09.894455+00:00"
+    },
+    {
+      "source": "docx_sanitizer.py",
+      "target": "doc_eyes.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "ahora dime que componentes de la arquitectura se usaron en estas pruebas y cuales no se usaron?",
+      "created_at": "2026-04-09T20:33:18.514432+00:00",
+      "updated_at": "2026-04-09T20:33:18.514432+00:00"
+    },
+    {
+      "source": "doc_eyes.py",
+      "target": "kb_reference.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "ahora dime que componentes de la arquitectura se usaron en estas pruebas y cuales no se usaron?",
+      "created_at": "2026-04-09T20:33:18.569950+00:00",
+      "updated_at": "2026-04-09T20:33:18.569950+00:00"
+    },
+    {
+      "source": "vision_bridge.py",
+      "target": "kb_reference.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "ahora dime que componentes de la arquitectura se usaron en estas pruebas y cuales no se usaron?",
+      "created_at": "2026-04-09T20:33:18.578998+00:00",
+      "updated_at": "2026-04-09T20:33:18.578998+00:00"
+    },
+    {
+      "source": "vision_bridge.py",
+      "target": "business_rules.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "ahora dime que componentes de la arquitectura se usaron en estas pruebas y cuales no se usaron?",
+      "created_at": "2026-04-09T20:33:18.589135+00:00",
+      "updated_at": "2026-04-09T20:33:18.589135+00:00"
+    },
+    {
+      "source": "kb_reference.py",
+      "target": "business_rules.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "ahora dime que componentes de la arquitectura se usaron en estas pruebas y cuales no se usaron?",
+      "created_at": "2026-04-09T20:33:18.599578+00:00",
+      "updated_at": "2026-04-09T20:33:18.599578+00:00"
     }
   ],
-  "updated_at": "2026-04-09T17:34:14.203742+00:00",
+  "updated_at": "2026-04-09T20:33:18.599578+00:00",
   "stats": {
-    "entities": 492,
-    "relations": 1175
+    "entities": 497,
+    "relations": 1187
   }
 }
