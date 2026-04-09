@@ -1,0 +1,23 @@
+{
+  "hot": [
+    {
+      "key": "procede",
+      "value": "**15 tests reales, todos pasaron.** Resultados:\n\n## Prueba real con P01_full_pipeline.docx (20 pÃ¡ginas)\n\n| Test | Tool | Resultado | Veredicto |\n|---|---|---|---|\n| 1 | `document_statistics` | 4830 words, 28K chars, 19 shapes | âœ… |\n| 2 | `count_occurrences` | \"GBM\" â†’ 67 veces (body:67) | âœ… |\n| 3 | `check_paragraph_pages` | 0 headings huÃ©rfanos | âœ… |\n| 4 | `detect_layout_issues` | 0 blank pages, 0 issues | âœ… |\n| 5 | `detect_content_overlap` | **24 overlaps, 20 margin violations** | âœ… (detectÃ³ problemas reales) |\n| 6 | **`smart_replace`** | \"GBM\" â†’ \"GBM International\": **67 reemplazos en 1 llamada** | âœ… |\n| 7 | `count_occurrences` (verify) | \"GBM International\" â†’ 67 confirmadas | âœ… |\n| 8 | `set_table_repeat_headers` | 2 tablas con headers repetidos | âœ… |\n| 9 | `fix_headings_flow` | 0 headings (estilos custom, no Heading) | âœ… |\n| 10 | `table_autofit` | 2 tablas autofit to window | âœ… |\n| 11 | **`format_text_range`** | 67 ocurrencias de \"GBM International\" â†’ b",
+      "domain": "ML 100%",
+      "source": "auto_save",
+      "tier": "hot",
+      "created_at": "2026-04-09T18:04:36.275847+00:00",
+      "last_access": "2026-04-09T18:04:36.275847+00:00",
+      "access_count": 0,
+      "promotion_count": 0
+    }
+  ],
+  "warm": [],
+  "cold": [],
+  "updated_at": "2026-04-09T18:04:36.275847+00:00",
+  "counts": {
+    "hot": 1,
+    "warm": 0,
+    "cold": 0
+  }
+}
