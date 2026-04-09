@@ -1,0 +1,23 @@
+{
+  "hot": [
+    {
+      "key": "busca mas funciones en el KB local  C:\\Hooks_IA que puedan ayudar y en el repo git https://github.com/Netocool2006/IA_Word",
+      "value": "## Hallazgos de ambas fuentes\n\n### De C:\\Hooks_IA â€” Lo Ãºtil para IA_Word\n\n**1. `core/file_extractor.py` â€” Lector DOCX via XML puro (sin COM)**\n\n```python\ndef _read_docx(path, max_chars) -> str\n```\nLee .docx como ZIP â†’ parsea `word/document.xml` â†’ extrae texto de `<w:p>`, `<w:r>`, `<w:t>`. Esto es exactamente lo que necesitarÃ­amos para un **fast-path XML** sin necesitar Word abierto (lectura rÃ¡pida de contenido).\n\n**2. `knowledge/ia_word/patterns.json` â€” 477 patrones documentados**\n\nEsto es oro. Contiene patrones reales de ediciÃ³n categorizados:\n\n| PatrÃ³n | QuÃ© hace |\n|---|---|\n| `A01_replace_client` | Reemplazo de nombre de cliente |\n| `A02_replace_date` | Reemplazo de fechas |\n| `A03_replace_currency` | Reemplazo de moneda |\n| `A04-A14` | Producto, cobertura, email, telÃ©fono, pago, validez, servicio |\n| `A15_smart_replace_all` | Batch replacement |\n| `ADV1_Merge_Compose` | Merge de documentos |\n| `ADV2_Campos_Word` | Fields y bookmarks |\n| `ADV3_Proteccion` | Protecci",
+      "domain": "ML 70%",
+      "source": "auto_save",
+      "tier": "hot",
+      "created_at": "2026-04-09T16:35:08.324264+00:00",
+      "last_access": "2026-04-09T16:35:08.324264+00:00",
+      "access_count": 0,
+      "promotion_count": 0
+    }
+  ],
+  "warm": [],
+  "cold": [],
+  "updated_at": "2026-04-09T16:35:08.324264+00:00",
+  "counts": {
+    "hot": 1,
+    "warm": 0,
+    "cold": 0
+  }
+}

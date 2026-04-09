@@ -3663,6 +3663,22 @@
       "properties": {},
       "created_at": "2026-04-09T16:17:48.503669+00:00",
       "updated_at": "2026-04-09T16:17:48.503669+00:00"
+    },
+    "core/file_extractor.py": {
+      "id": "core/file_extractor.py",
+      "type": "file",
+      "name": "core/file_extractor.py",
+      "properties": {},
+      "created_at": "2026-04-09T16:35:08.339261+00:00",
+      "updated_at": "2026-04-09T16:35:08.339261+00:00"
+    },
+    "knowledge/ia_word/patterns.json": {
+      "id": "knowledge/ia_word/patterns.json",
+      "type": "file",
+      "name": "knowledge/ia_word/patterns.json",
+      "properties": {},
+      "created_at": "2026-04-09T16:35:08.373333+00:00",
+      "updated_at": "2026-04-09T16:35:08.373333+00:00"
     }
   },
   "relations": [
@@ -13583,11 +13599,38 @@
       "context": "para describirme en pasos de algoritmo como es el flujo completo desde que inicia que el usuario ind",
       "created_at": "2026-04-09T16:17:48.537844+00:00",
       "updated_at": "2026-04-09T16:17:48.538845+00:00"
+    },
+    {
+      "source": "core/file_extractor.py",
+      "target": "word/document.xml",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "busca mas funciones en el KB local  C:\\Hooks_IA que puedan ayudar y en el repo git https://github.co",
+      "created_at": "2026-04-09T16:35:08.356733+00:00",
+      "updated_at": "2026-04-09T16:35:08.356733+00:00"
+    },
+    {
+      "source": "core/file_extractor.py",
+      "target": "knowledge/ia_word/patterns.json",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "busca mas funciones en el KB local  C:\\Hooks_IA que puedan ayudar y en el repo git https://github.co",
+      "created_at": "2026-04-09T16:35:08.390882+00:00",
+      "updated_at": "2026-04-09T16:35:08.390882+00:00"
+    },
+    {
+      "source": "word/document.xml",
+      "target": "knowledge/ia_word/patterns.json",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "busca mas funciones en el KB local  C:\\Hooks_IA que puedan ayudar y en el repo git https://github.co",
+      "created_at": "2026-04-09T16:35:08.406809+00:00",
+      "updated_at": "2026-04-09T16:35:08.406809+00:00"
     }
   ],
-  "updated_at": "2026-04-09T16:17:48.538845+00:00",
+  "updated_at": "2026-04-09T16:35:08.406809+00:00",
   "stats": {
-    "entities": 458,
-    "relations": 1102
+    "entities": 460,
+    "relations": 1105
   }
 }
