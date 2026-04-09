@@ -3487,6 +3487,38 @@
       "properties": {},
       "created_at": "2026-04-09T03:29:04.982759+00:00",
       "updated_at": "2026-04-09T03:29:04.982759+00:00"
+    },
+    "P01_5pass.docx": {
+      "id": "P01_5pass.docx",
+      "type": "file",
+      "name": "P01_5pass.docx",
+      "properties": {},
+      "created_at": "2026-04-09T04:00:35.182824+00:00",
+      "updated_at": "2026-04-09T04:00:35.182824+00:00"
+    },
+    "src/docx_sanitizer.py": {
+      "id": "src/docx_sanitizer.py",
+      "type": "file",
+      "name": "src/docx_sanitizer.py",
+      "properties": {},
+      "created_at": "2026-04-09T04:00:35.223431+00:00",
+      "updated_at": "2026-04-09T04:00:35.223431+00:00"
+    },
+    "717": {
+      "id": "717",
+      "type": "concept",
+      "name": "717",
+      "properties": {},
+      "created_at": "2026-04-09T04:09:35.732019+00:00",
+      "updated_at": "2026-04-09T04:09:35.732019+00:00"
+    },
+    "aplicados en 3 rondas": {
+      "id": "aplicados en 3 rondas",
+      "type": "concept",
+      "name": "aplicados en 3 rondas",
+      "properties": {},
+      "created_at": "2026-04-09T04:09:35.759292+00:00",
+      "updated_at": "2026-04-09T04:09:35.759292+00:00"
     }
   },
   "relations": [
@@ -12957,11 +12989,47 @@
       "context": "si antes valida la situacion actual de todo el codigo para saber donde debes hacer la inserccion C:\\",
       "created_at": "2026-04-09T03:33:55.342906+00:00",
       "updated_at": "2026-04-09T03:33:55.342906+00:00"
+    },
+    {
+      "source": "P01_5pass.docx",
+      "target": "src/docx_sanitizer.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "quiero que implementes en el proyecto las 5 pasadas obligatoriamente si o si cuando te topes con un ",
+      "created_at": "2026-04-09T04:00:35.273100+00:00",
+      "updated_at": "2026-04-09T04:00:35.273100+00:00"
+    },
+    {
+      "source": "P01_5pass.docx",
+      "target": "mcp_server.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "quiero que implementes en el proyecto las 5 pasadas obligatoriamente si o si cuando te topes con un ",
+      "created_at": "2026-04-09T04:00:35.315641+00:00",
+      "updated_at": "2026-04-09T04:00:35.315641+00:00"
+    },
+    {
+      "source": "src/docx_sanitizer.py",
+      "target": "mcp_server.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "quiero que implementes en el proyecto las 5 pasadas obligatoriamente si o si cuando te topes con un ",
+      "created_at": "2026-04-09T04:00:35.354848+00:00",
+      "updated_at": "2026-04-09T04:00:35.354848+00:00"
+    },
+    {
+      "source": "717",
+      "target": "aplicados en 3 rondas",
+      "type": "solves",
+      "weight": 0.7,
+      "context": "abre el documento quiero ver como quedo",
+      "created_at": "2026-04-09T04:09:35.792960+00:00",
+      "updated_at": "2026-04-09T04:09:35.792960+00:00"
     }
   ],
-  "updated_at": "2026-04-09T03:33:55.342906+00:00",
+  "updated_at": "2026-04-09T04:09:35.793964+00:00",
   "stats": {
-    "entities": 436,
-    "relations": 1052
+    "entities": 440,
+    "relations": 1056
   }
 }
