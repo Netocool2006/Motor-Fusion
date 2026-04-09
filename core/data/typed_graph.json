@@ -3111,6 +3111,94 @@
       "properties": {},
       "created_at": "2026-04-08T23:23:12.190714+00:00",
       "updated_at": "2026-04-08T23:23:12.190714+00:00"
+    },
+    "llm": {
+      "id": "llm",
+      "type": "concept",
+      "name": "llm",
+      "properties": {},
+      "created_at": "2026-04-09T00:15:53.117022+00:00",
+      "updated_at": "2026-04-09T00:15:53.117022+00:00"
+    },
+    "herramientas": {
+      "id": "herramientas",
+      "type": "concept",
+      "name": "herramientas",
+      "properties": {},
+      "created_at": "2026-04-09T00:15:53.131315+00:00",
+      "updated_at": "2026-04-09T00:15:53.131315+00:00"
+    },
+    "doc/.docx": {
+      "id": "doc/.docx",
+      "type": "file",
+      "name": "doc/.docx",
+      "properties": {},
+      "created_at": "2026-04-09T00:15:53.155080+00:00",
+      "updated_at": "2026-04-09T00:15:53.155080+00:00"
+    },
+    "1.4526": {
+      "id": "1.4526",
+      "type": "file",
+      "name": "1.4526",
+      "properties": {},
+      "created_at": "2026-04-09T00:22:26.830588+00:00",
+      "updated_at": "2026-04-09T00:22:26.830588+00:00"
+    },
+    "SOW_GBM_NextGen_Lead_Generation_con_IA_BAM_Guatemala_V4.docx": {
+      "id": "SOW_GBM_NextGen_Lead_Generation_con_IA_BAM_Guatemala_V4.docx",
+      "type": "file",
+      "name": "SOW_GBM_NextGen_Lead_Generation_con_IA_BAM_Guatemala_V4.docx",
+      "properties": {},
+      "created_at": "2026-04-09T00:22:26.845136+00:00",
+      "updated_at": "2026-04-09T00:22:26.845136+00:00"
+    },
+    "SOW_V4_CEREBRO.docx": {
+      "id": "SOW_V4_CEREBRO.docx",
+      "type": "file",
+      "name": "SOW_V4_CEREBRO.docx",
+      "properties": {},
+      "created_at": "2026-04-09T00:22:26.874850+00:00",
+      "updated_at": "2026-04-09T00:22:26.874850+00:00"
+    },
+    "3.8s": {
+      "id": "3.8s",
+      "type": "file",
+      "name": "3.8s",
+      "properties": {},
+      "created_at": "2026-04-09T00:22:26.919008+00:00",
+      "updated_at": "2026-04-09T00:22:26.919008+00:00"
+    },
+    "1.5s": {
+      "id": "1.5s",
+      "type": "file",
+      "name": "1.5s",
+      "properties": {},
+      "created_at": "2026-04-09T00:22:26.961770+00:00",
+      "updated_at": "2026-04-09T00:22:26.961770+00:00"
+    },
+    "WordCOM._fin": {
+      "id": "WordCOM._fin",
+      "type": "file",
+      "name": "WordCOM._fin",
+      "properties": {},
+      "created_at": "2026-04-09T00:22:26.989887+00:00",
+      "updated_at": "2026-04-09T00:22:26.989887+00:00"
+    },
+    "35.5s": {
+      "id": "35.5s",
+      "type": "file",
+      "name": "35.5s",
+      "properties": {},
+      "created_at": "2026-04-09T00:22:27.024931+00:00",
+      "updated_at": "2026-04-09T00:22:27.024931+00:00"
+    },
+    "WordCOM.inse": {
+      "id": "WordCOM.inse",
+      "type": "file",
+      "name": "WordCOM.inse",
+      "properties": {},
+      "created_at": "2026-04-09T00:22:27.058884+00:00",
+      "updated_at": "2026-04-09T00:22:27.058884+00:00"
     }
   },
   "relations": [
@@ -11780,11 +11868,146 @@
       "context": "como se usa y como me das garantias que funcione tal cual lo pedi como me das garantias de que el pr",
       "created_at": "2026-04-08T23:23:12.248924+00:00",
       "updated_at": "2026-04-08T23:23:12.248924+00:00"
+    },
+    {
+      "source": "llm",
+      "target": "herramientas",
+      "type": "used_with",
+      "weight": 0.7,
+      "context": "alguna forma de editar un archivo .doc o .docx  con ML  de manera 100% eficiente?",
+      "created_at": "2026-04-09T00:15:53.145433+00:00",
+      "updated_at": "2026-04-09T00:15:53.145433+00:00"
+    },
+    {
+      "source": "doc/.docx",
+      "target": "win32com.clie",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "alguna forma de editar un archivo .doc o .docx  con ML  de manera 100% eficiente?",
+      "created_at": "2026-04-09T00:15:53.168497+00:00",
+      "updated_at": "2026-04-09T00:15:53.168497+00:00"
+    },
+    {
+      "source": "1.4526",
+      "target": "SOW_GBM_NextGen_Lead_Generation_con_IA_BAM_Guatemala_V4.docx",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "dimelo en espaÃ±ol",
+      "created_at": "2026-04-09T00:22:26.860316+00:00",
+      "updated_at": "2026-04-09T00:22:26.860316+00:00"
+    },
+    {
+      "source": "1.4526",
+      "target": "SOW_V4_CEREBRO.docx",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "dimelo en espaÃ±ol",
+      "created_at": "2026-04-09T00:22:26.889625+00:00",
+      "updated_at": "2026-04-09T00:22:26.889625+00:00"
+    },
+    {
+      "source": "SOW_GBM_NextGen_Lead_Generation_con_IA_BAM_Guatemala_V4.docx",
+      "target": "SOW_V4_CEREBRO.docx",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "dimelo en espaÃ±ol",
+      "created_at": "2026-04-09T00:22:26.904597+00:00",
+      "updated_at": "2026-04-09T00:22:26.904597+00:00"
+    },
+    {
+      "source": "SOW_GBM_NextGen_Lead_Generation_con_IA_BAM_Guatemala_V4.docx",
+      "target": "3.8s",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "dimelo en espaÃ±ol",
+      "created_at": "2026-04-09T00:22:26.932868+00:00",
+      "updated_at": "2026-04-09T00:22:26.932868+00:00"
+    },
+    {
+      "source": "SOW_V4_CEREBRO.docx",
+      "target": "3.8s",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "dimelo en espaÃ±ol",
+      "created_at": "2026-04-09T00:22:26.948572+00:00",
+      "updated_at": "2026-04-09T00:22:26.948572+00:00"
+    },
+    {
+      "source": "SOW_V4_CEREBRO.docx",
+      "target": "1.5s",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "dimelo en espaÃ±ol",
+      "created_at": "2026-04-09T00:22:26.971428+00:00",
+      "updated_at": "2026-04-09T00:22:26.971428+00:00"
+    },
+    {
+      "source": "3.8s",
+      "target": "1.5s",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "dimelo en espaÃ±ol",
+      "created_at": "2026-04-09T00:22:26.981831+00:00",
+      "updated_at": "2026-04-09T00:22:26.981831+00:00"
+    },
+    {
+      "source": "3.8s",
+      "target": "WordCOM._fin",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "dimelo en espaÃ±ol",
+      "created_at": "2026-04-09T00:22:27.003966+00:00",
+      "updated_at": "2026-04-09T00:22:27.003966+00:00"
+    },
+    {
+      "source": "1.5s",
+      "target": "WordCOM._fin",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "dimelo en espaÃ±ol",
+      "created_at": "2026-04-09T00:22:27.013861+00:00",
+      "updated_at": "2026-04-09T00:22:27.013861+00:00"
+    },
+    {
+      "source": "1.5s",
+      "target": "35.5s",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "dimelo en espaÃ±ol",
+      "created_at": "2026-04-09T00:22:27.037508+00:00",
+      "updated_at": "2026-04-09T00:22:27.037508+00:00"
+    },
+    {
+      "source": "WordCOM._fin",
+      "target": "35.5s",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "dimelo en espaÃ±ol",
+      "created_at": "2026-04-09T00:22:27.049832+00:00",
+      "updated_at": "2026-04-09T00:22:27.049832+00:00"
+    },
+    {
+      "source": "WordCOM._fin",
+      "target": "WordCOM.inse",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "dimelo en espaÃ±ol",
+      "created_at": "2026-04-09T00:22:27.065938+00:00",
+      "updated_at": "2026-04-09T00:22:27.065938+00:00"
+    },
+    {
+      "source": "35.5s",
+      "target": "WordCOM.inse",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "dimelo en espaÃ±ol",
+      "created_at": "2026-04-09T00:22:27.075991+00:00",
+      "updated_at": "2026-04-09T00:22:27.075991+00:00"
     }
   ],
-  "updated_at": "2026-04-08T23:23:12.248924+00:00",
+  "updated_at": "2026-04-09T00:22:27.075991+00:00",
   "stats": {
-    "entities": 389,
-    "relations": 963
+    "entities": 400,
+    "relations": 978
   }
 }

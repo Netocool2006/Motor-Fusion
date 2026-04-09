@@ -208,13 +208,68 @@
       "last_access": "2026-04-08T23:49:20.701409+00:00",
       "access_count": 0,
       "promotion_count": 0
+    },
+    {
+      "key": "algun proceso o idea eficiente para editar archivos .doc o .docx  con IA?",
+      "value": "Hola! Â¿En quÃ© puedo ayudarte hoy?",
+      "domain": "ML",
+      "source": "auto_save",
+      "tier": "hot",
+      "created_at": "2026-04-09T00:13:22.568645+00:00",
+      "last_access": "2026-04-09T00:13:22.568645+00:00",
+      "access_count": 0,
+      "promotion_count": 0
+    },
+    {
+      "key": "alguna forma de editar un archivo .doc o .docx  con ML  de manera 100% eficiente?",
+      "value": "Buena pregunta. Ya investiguÃ© tanto lo que tienes construido como lo que existe afuera. AquÃ­ va el anÃ¡lisis:\n\n---\n\n## Enfoques para editar .doc/.docx con ML â€” del mÃ¡s al menos eficiente\n\n### 1. **COM Automation + MCP + LLM como orquestador** (lo que ya tienes)\nTu proyecto **IA_Word** ya usa el enfoque mÃ¡s robusto:\n- **win32com.client** controla Word directamente â†’ fidelidad 100% del formato\n- **MCP Server** expone ~40 herramientas deterministas\n- **Cerebro** orquesta: entiende â†’ analiza â†’ planifica â†’ ejecuta â†’ valida\n- **ToolBuilder** genera herramientas nuevas dinÃ¡micamente\n\n**Ventaja:** El LLM decide *quÃ©* cambiar, COM ejecuta *cÃ³mo*. Resultado determinista, sin corrupciÃ³n de formato.\n\n### 2. **Document Engine + MCP** (enfoque SuperDoc 2026)\nMismo patrÃ³n que el tuyo pero como servicio cloud. El LLM usa herramientas MCP para editar â€” no genera OOXML directamente.\n\n### 3. **python-docx directo** (mÃ¡s simple, menos fiel)\n- Funciona sin Word instalado (Linux/clou",
+      "domain": "Internet 30% + ML 30%",
+      "source": "auto_save",
+      "tier": "hot",
+      "created_at": "2026-04-09T00:15:53.102998+00:00",
+      "last_access": "2026-04-09T00:15:53.102998+00:00",
+      "access_count": 0,
+      "promotion_count": 0
+    },
+    {
+      "key": "no quiero ver porque fallan las cosas en local la pregunta fue directa :\"alguna forma de editar un archivo .doc o .docx  con ML  de manera 100% eficiente?\"",
+      "value": "OK, respuesta directa:\n\n**No.** No existe hoy una forma de editar .doc/.docx con ML que sea 100% eficiente sin fallos.\n\n## Por quÃ© ningÃºn enfoque es 100%\n\n| Enfoque | Problema inherente |\n|---------|-------------------|\n| **python-docx** | No soporta .doc, pierde macros, corrompe documentos complejos |\n| **COM Automation (win32com)** | Depende de Word abierto, RPC timeouts, split-runs en PDFs convertidos |\n| **LLM generando OOXML directo** | Corrompe formato, no entiende XML binario |\n| **LibreOffice headless** | ConversiÃ³n imperfecta, pierde formato avanzado |\n| **APIs cloud (Google Docs, SuperDoc)** | ConversiÃ³n de ida y vuelta pierde fidelidad |\n\n## Lo mÃ¡s cercano al 100%\n\nLa combinaciÃ³n que **menos falla** (y la que usas tÃº) es:\n\n> **LLM decide QUÃ‰ hacer â†’ Herramienta determinista ejecuta CÃ“MO â†’ ValidaciÃ³n verifica**\n\nEso es ~95%. El 5% restante son edge cases de COM/Word que ninguna soluciÃ³n en el mercado ha eliminado completamente.\n\n## La verdad incÃ³moda\n\nEl forma",
+      "domain": "ML 70%",
+      "source": "auto_save",
+      "tier": "hot",
+      "created_at": "2026-04-09T00:17:43.782732+00:00",
+      "last_access": "2026-04-09T00:17:43.782732+00:00",
+      "access_count": 0,
+      "promotion_count": 0
+    },
+    {
+      "key": "y editar en word online con ML? es lo mismo o cambia el panorama?",
+      "value": "## Word Online: cambia el panorama, pero **no a favor**\n\n### La realidad de Word Online + ML\n\n| VÃ­a | Â¿QuÃ© puede hacer? | LimitaciÃ³n |\n|-----|-------------------|------------|\n| **Microsoft Graph API** | Subir/descargar/convertir archivos en OneDrive/SharePoint | **No puede editar contenido Word directamente** â€” solo metadata y archivos como blobs |\n| **Office.js (Add-ins)** | Insertar texto, tablas, imÃ¡genes dentro de Word Online | Solo funciona **dentro del navegador** con Word abierto, no headless/automÃ¡tico |\n| **Playwright/browser automation** | Controlar Word Online como un humano harÃ­a | FrÃ¡gil, lento, depende del DOM que Microsoft cambia sin aviso |\n\n### ComparaciÃ³n directa\n\n| | Word Desktop (COM) | Word Online |\n|---|---|---|\n| **Control del documento** | Total (40+ operaciones) | Casi nulo vÃ­a API |\n| **AutomatizaciÃ³n headless** | SÃ­ | No (requiere browser abierto) |\n| **EdiciÃ³n de contenido** | Directo por COM | Graph API **no lo soporta** |\n| **Fiabilidad** |",
+      "domain": "Internet 60% + ML 30%",
+      "source": "auto_save",
+      "tier": "hot",
+      "created_at": "2026-04-09T00:20:18.077682+00:00",
+      "last_access": "2026-04-09T00:20:18.077682+00:00",
+      "access_count": 0,
+      "promotion_count": 0
+    },
+    {
+      "key": "dimelo en espaÃ±ol",
+      "value": "## Cuadro de CertificaciÃ³n â€” Caso AWS Table End-to-End\n\n**Tarea:** Insertar tabla AWS (10 columnas) del BOM Excel en secciÃ³n Anexos del SOW, con formato azul #1F3864, Calibri 7pt, IVA 12% Guatemala, factor 1.4526, y actualizar Ã­ndice.\n\n**Documento:** SOW_GBM_NextGen_Lead_Generation_con_IA_BAM_Guatemala_V4.docx\n\n---\n\n### EjecuciÃ³n paso a paso (9/9 exitosos)\n\n| # | FunciÃ³n | MÃ³dulo | Args clave | Resultado | Tiempo | ValidaciÃ³n |\n|---|---------|--------|-----------|-----------|--------|------------|\n| 1 | `open_document` | mcp_server â†’ WordCOM | path=SOW_V4_CEREBRO.docx | 30 pÃ¡ginas, abierto | 3.8s | -- |\n| 2 | `analyze_document` | mcp_server â†’ WordCOM | -- | 24 secciones, 30p | 1.5s | -- |\n| 3 | `insert_paragraph` | WordCOM._find_heading_range + insert | text=\"Tabla detalle AWS...\", style=Heading 2, after_heading=\"Anexos\" | Heading insertado pÃ¡g 27 | 35.5s | Structural PASS |\n| 4 | `insert_table` | WordCOM.insert_table (formato atÃ³mico) | 10 headers, 13 filas, bg=#1F3864",
+      "domain": "ML 20%",
+      "source": "auto_save",
+      "tier": "hot",
+      "created_at": "2026-04-09T00:22:26.815999+00:00",
+      "last_access": "2026-04-09T00:22:26.815999+00:00",
+      "access_count": 0,
+      "promotion_count": 0
     }
   ],
   "warm": [],
   "cold": [],
-  "updated_at": "2026-04-08T23:49:20.701409+00:00",
+  "updated_at": "2026-04-09T00:22:26.815999+00:00",
   "counts": {
-    "hot": 19,
+    "hot": 24,
     "warm": 0,
     "cold": 0
   }
