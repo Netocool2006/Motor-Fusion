@@ -3623,6 +3623,46 @@
       "properties": {},
       "created_at": "2026-04-09T15:29:53.434403+00:00",
       "updated_at": "2026-04-09T15:29:53.434403+00:00"
+    },
+    "cuando": {
+      "id": "cuando",
+      "type": "concept",
+      "name": "cuando",
+      "properties": {},
+      "created_at": "2026-04-09T15:59:32.848712+00:00",
+      "updated_at": "2026-04-09T15:59:32.848712+00:00"
+    },
+    "propuesta.docx": {
+      "id": "propuesta.docx",
+      "type": "file",
+      "name": "propuesta.docx",
+      "properties": {},
+      "created_at": "2026-04-09T16:17:48.255408+00:00",
+      "updated_at": "2026-04-09T16:17:48.255408+00:00"
+    },
+    "propuesta_BACKUP.docx": {
+      "id": "propuesta_BACKUP.docx",
+      "type": "file",
+      "name": "propuesta_BACKUP.docx",
+      "properties": {},
+      "created_at": "2026-04-09T16:17:48.321902+00:00",
+      "updated_at": "2026-04-09T16:17:48.321902+00:00"
+    },
+    "ication.Docu": {
+      "id": "ication.Docu",
+      "type": "file",
+      "name": "ication.Docu",
+      "properties": {},
+      "created_at": "2026-04-09T16:17:48.440571+00:00",
+      "updated_at": "2026-04-09T16:17:48.440571+00:00"
+    },
+    "ments.Open": {
+      "id": "ments.Open",
+      "type": "file",
+      "name": "ments.Open",
+      "properties": {},
+      "created_at": "2026-04-09T16:17:48.503669+00:00",
+      "updated_at": "2026-04-09T16:17:48.503669+00:00"
     }
   },
   "relations": [
@@ -7158,10 +7198,10 @@
       "source": "doc_eyes.py",
       "target": "vision_bridge.py",
       "type": "used_with",
-      "weight": 3.5,
-      "context": "pre-hook query",
+      "weight": 4.0,
+      "context": "activa el 8% no quites el muerto dejarlo alli.  en la parte de vision hay que ajustar hay una funcio",
       "created_at": "2026-04-07T16:44:43.238965+00:00",
-      "updated_at": "2026-04-08T17:51:47.511999+00:00"
+      "updated_at": "2026-04-09T16:11:40.088037+00:00"
     },
     {
       "source": "realmente",
@@ -8112,10 +8152,10 @@
       "source": "vision_bridge.py",
       "target": "mcp_server.py",
       "type": "used_with",
-      "weight": 1.5,
-      "context": "pre-hook query",
+      "weight": 2.0,
+      "context": "activa el 8% no quites el muerto dejarlo alli.  en la parte de vision hay que ajustar hay una funcio",
       "created_at": "2026-04-08T16:19:22.800397+00:00",
-      "updated_at": "2026-04-08T17:51:47.467427+00:00"
+      "updated_at": "2026-04-09T16:11:40.119738+00:00"
     },
     {
       "source": "word_com.py",
@@ -13417,11 +13457,137 @@
       "context": "valida el proyecto actual de esta carpeta y repara esto que sale en el log f82b 4db3 5b77 61ce 278b ",
       "created_at": "2026-04-09T15:47:30.097739+00:00",
       "updated_at": "2026-04-09T15:47:30.165026+00:00"
+    },
+    {
+      "source": "vector_kb.py",
+      "target": "embedder.enco",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "dame el estado actual de la arquitectura y que se esta usando de todo el proyecto y que no",
+      "created_at": "2026-04-09T15:50:49.069169+00:00",
+      "updated_at": "2026-04-09T15:50:49.069169+00:00"
+    },
+    {
+      "source": "cuando",
+      "target": "las",
+      "type": "used_with",
+      "weight": 0.7,
+      "context": "ese 21% muerto tiene valor? para usarlo de nuevo que hace",
+      "created_at": "2026-04-09T15:59:32.865415+00:00",
+      "updated_at": "2026-04-09T15:59:32.865415+00:00"
+    },
+    {
+      "source": "engine.py",
+      "target": "cerebro.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "ese 21% muerto tiene valor? para usarlo de nuevo que hace",
+      "created_at": "2026-04-09T15:59:32.883779+00:00",
+      "updated_at": "2026-04-09T15:59:32.883779+00:00"
+    },
+    {
+      "source": "doc_eyes.py",
+      "target": "mcp_server.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "activa el 8% no quites el muerto dejarlo alli.  en la parte de vision hay que ajustar hay una funcio",
+      "created_at": "2026-04-09T16:11:40.101828+00:00",
+      "updated_at": "2026-04-09T16:11:40.101828+00:00"
+    },
+    {
+      "source": "propuesta.docx",
+      "target": "propuesta.docx",
+      "type": "used_with",
+      "weight": 1.5,
+      "context": "para describirme en pasos de algoritmo como es el flujo completo desde que inicia que el usuario ind",
+      "created_at": "2026-04-09T16:17:48.272720+00:00",
+      "updated_at": "2026-04-09T16:17:48.305563+00:00"
+    },
+    {
+      "source": "propuesta.docx",
+      "target": "propuesta_BACKUP.docx",
+      "type": "used_with",
+      "weight": 1.0,
+      "context": "para describirme en pasos de algoritmo como es el flujo completo desde que inicia que el usuario ind",
+      "created_at": "2026-04-09T16:17:48.338118+00:00",
+      "updated_at": "2026-04-09T16:17:48.353480+00:00"
+    },
+    {
+      "source": "propuesta.docx",
+      "target": "docProps/app.xml",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "para describirme en pasos de algoritmo como es el flujo completo desde que inicia que el usuario ind",
+      "created_at": "2026-04-09T16:17:48.367314+00:00",
+      "updated_at": "2026-04-09T16:17:48.367314+00:00"
+    },
+    {
+      "source": "propuesta_BACKUP.docx",
+      "target": "docProps/app.xml",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "para describirme en pasos de algoritmo como es el flujo completo desde que inicia que el usuario ind",
+      "created_at": "2026-04-09T16:17:48.383005+00:00",
+      "updated_at": "2026-04-09T16:17:48.383005+00:00"
+    },
+    {
+      "source": "propuesta_BACKUP.docx",
+      "target": "Word.Appl",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "para describirme en pasos de algoritmo como es el flujo completo desde que inicia que el usuario ind",
+      "created_at": "2026-04-09T16:17:48.399782+00:00",
+      "updated_at": "2026-04-09T16:17:48.399782+00:00"
+    },
+    {
+      "source": "docProps/app.xml",
+      "target": "Word.Appl",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "para describirme en pasos de algoritmo como es el flujo completo desde que inicia que el usuario ind",
+      "created_at": "2026-04-09T16:17:48.417432+00:00",
+      "updated_at": "2026-04-09T16:17:48.417432+00:00"
+    },
+    {
+      "source": "docProps/app.xml",
+      "target": "ication.Docu",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "para describirme en pasos de algoritmo como es el flujo completo desde que inicia que el usuario ind",
+      "created_at": "2026-04-09T16:17:48.461420+00:00",
+      "updated_at": "2026-04-09T16:17:48.461420+00:00"
+    },
+    {
+      "source": "Word.Appl",
+      "target": "ication.Docu",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "para describirme en pasos de algoritmo como es el flujo completo desde que inicia que el usuario ind",
+      "created_at": "2026-04-09T16:17:48.478521+00:00",
+      "updated_at": "2026-04-09T16:17:48.478521+00:00"
+    },
+    {
+      "source": "Word.Appl",
+      "target": "ments.Open",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "para describirme en pasos de algoritmo como es el flujo completo desde que inicia que el usuario ind",
+      "created_at": "2026-04-09T16:17:48.516037+00:00",
+      "updated_at": "2026-04-09T16:17:48.516037+00:00"
+    },
+    {
+      "source": "ication.Docu",
+      "target": "ments.Open",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "para describirme en pasos de algoritmo como es el flujo completo desde que inicia que el usuario ind",
+      "created_at": "2026-04-09T16:17:48.537844+00:00",
+      "updated_at": "2026-04-09T16:17:48.538845+00:00"
     }
   ],
-  "updated_at": "2026-04-09T15:47:30.253795+00:00",
+  "updated_at": "2026-04-09T16:17:48.538845+00:00",
   "stats": {
-    "entities": 453,
-    "relations": 1088
+    "entities": 458,
+    "relations": 1102
   }
 }
