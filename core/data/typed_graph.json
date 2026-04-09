@@ -3335,6 +3335,62 @@
       "properties": {},
       "created_at": "2026-04-09T02:13:08.420677+00:00",
       "updated_at": "2026-04-09T02:13:08.420677+00:00"
+    },
+    "cerebro.ejec": {
+      "id": "cerebro.ejec",
+      "type": "file",
+      "name": "cerebro.ejec",
+      "properties": {},
+      "created_at": "2026-04-09T03:04:03.883223+00:00",
+      "updated_at": "2026-04-09T03:04:03.883223+00:00"
+    },
+    "resultado.form": {
+      "id": "resultado.form",
+      "type": "file",
+      "name": "resultado.form",
+      "properties": {},
+      "created_at": "2026-04-09T03:04:03.898256+00:00",
+      "updated_at": "2026-04-09T03:04:03.898256+00:00"
+    },
+    "validador.revi": {
+      "id": "validador.revi",
+      "type": "file",
+      "name": "validador.revi",
+      "properties": {},
+      "created_at": "2026-04-09T03:04:03.958068+00:00",
+      "updated_at": "2026-04-09T03:04:03.958068+00:00"
+    },
+    "self.toma": {
+      "id": "self.toma",
+      "type": "file",
+      "name": "self.toma",
+      "properties": {},
+      "created_at": "2026-04-09T03:04:03.996919+00:00",
+      "updated_at": "2026-04-09T03:04:03.996919+00:00"
+    },
+    "self._rep": {
+      "id": "self._rep",
+      "type": "file",
+      "name": "self._rep",
+      "properties": {},
+      "created_at": "2026-04-09T03:08:08.947165+00:00",
+      "updated_at": "2026-04-09T03:08:08.947165+00:00"
+    },
+    "validator.revi": {
+      "id": "validator.revi",
+      "type": "file",
+      "name": "validator.revi",
+      "properties": {},
+      "created_at": "2026-04-09T03:08:08.983010+00:00",
+      "updated_at": "2026-04-09T03:08:08.983010+00:00"
+    },
+    "PostScreenshot.capt": {
+      "id": "PostScreenshot.capt",
+      "type": "file",
+      "name": "PostScreenshot.capt",
+      "properties": {},
+      "created_at": "2026-04-09T03:14:58.020267+00:00",
+      "updated_at": "2026-04-09T03:14:58.020267+00:00"
     }
   },
   "relations": [
@@ -12427,11 +12483,164 @@
       "context": "y los pdfs convertidos a docx en que formato quedan en xml o bytes?",
       "created_at": "2026-04-09T02:28:25.150048+00:00",
       "updated_at": "2026-04-09T02:28:25.150048+00:00"
+    },
+    {
+      "source": "cerebro.ejec",
+      "target": "resultado.form",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pero como te obligo que funciones de esta manera asi como un programa que no importa cuando lo corra",
+      "created_at": "2026-04-09T03:04:03.912974+00:00",
+      "updated_at": "2026-04-09T03:04:03.912974+00:00"
+    },
+    {
+      "source": "cerebro.ejec",
+      "target": "cerebro.ejec",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pero como te obligo que funciones de esta manera asi como un programa que no importa cuando lo corra",
+      "created_at": "2026-04-09T03:04:03.928002+00:00",
+      "updated_at": "2026-04-09T03:04:03.928002+00:00"
+    },
+    {
+      "source": "resultado.form",
+      "target": "cerebro.ejec",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pero como te obligo que funciones de esta manera asi como un programa que no importa cuando lo corra",
+      "created_at": "2026-04-09T03:04:03.943015+00:00",
+      "updated_at": "2026-04-09T03:04:03.943015+00:00"
+    },
+    {
+      "source": "resultado.form",
+      "target": "validador.revi",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pero como te obligo que funciones de esta manera asi como un programa que no importa cuando lo corra",
+      "created_at": "2026-04-09T03:04:03.975292+00:00",
+      "updated_at": "2026-04-09T03:04:03.975292+00:00"
+    },
+    {
+      "source": "cerebro.ejec",
+      "target": "validador.revi",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pero como te obligo que funciones de esta manera asi como un programa que no importa cuando lo corra",
+      "created_at": "2026-04-09T03:04:03.988846+00:00",
+      "updated_at": "2026-04-09T03:04:03.988846+00:00"
+    },
+    {
+      "source": "cerebro.ejec",
+      "target": "self.toma",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pero como te obligo que funciones de esta manera asi como un programa que no importa cuando lo corra",
+      "created_at": "2026-04-09T03:04:04.005451+00:00",
+      "updated_at": "2026-04-09T03:04:04.005451+00:00"
+    },
+    {
+      "source": "validador.revi",
+      "target": "self.toma",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pero como te obligo que funciones de esta manera asi como un programa que no importa cuando lo corra",
+      "created_at": "2026-04-09T03:04:04.015629+00:00",
+      "updated_at": "2026-04-09T03:04:04.015629+00:00"
+    },
+    {
+      "source": "cerebro.ejec",
+      "target": "cerebro.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "y como obligaras  a usar ese hook si o si en esta y otras sesiones donde se guarda el hook y como te",
+      "created_at": "2026-04-09T03:08:08.937264+00:00",
+      "updated_at": "2026-04-09T03:08:08.937264+00:00"
+    },
+    {
+      "source": "cerebro.ejec",
+      "target": "self._rep",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "y como obligaras  a usar ese hook si o si en esta y otras sesiones donde se guarda el hook y como te",
+      "created_at": "2026-04-09T03:08:08.955888+00:00",
+      "updated_at": "2026-04-09T03:08:08.955888+00:00"
+    },
+    {
+      "source": "cerebro.py",
+      "target": "self._rep",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "y como obligaras  a usar ese hook si o si en esta y otras sesiones donde se guarda el hook y como te",
+      "created_at": "2026-04-09T03:08:08.964467+00:00",
+      "updated_at": "2026-04-09T03:08:08.964467+00:00"
+    },
+    {
+      "source": "cerebro.py",
+      "target": "validator.revi",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "y como obligaras  a usar ese hook si o si en esta y otras sesiones donde se guarda el hook y como te",
+      "created_at": "2026-04-09T03:08:09.010661+00:00",
+      "updated_at": "2026-04-09T03:08:09.010661+00:00"
+    },
+    {
+      "source": "self._rep",
+      "target": "validator.revi",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "y como obligaras  a usar ese hook si o si en esta y otras sesiones donde se guarda el hook y como te",
+      "created_at": "2026-04-09T03:08:09.023224+00:00",
+      "updated_at": "2026-04-09T03:08:09.023224+00:00"
+    },
+    {
+      "source": "self._rep",
+      "target": "cerebro.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "y como obligaras  a usar ese hook si o si en esta y otras sesiones donde se guarda el hook y como te",
+      "created_at": "2026-04-09T03:08:09.031844+00:00",
+      "updated_at": "2026-04-09T03:08:09.031844+00:00"
+    },
+    {
+      "source": "validator.revi",
+      "target": "cerebro.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "y como obligaras  a usar ese hook si o si en esta y otras sesiones donde se guarda el hook y como te",
+      "created_at": "2026-04-09T03:08:09.054898+00:00",
+      "updated_at": "2026-04-09T03:08:09.054898+00:00"
+    },
+    {
+      "source": "validator.revi",
+      "target": "cerebro.ejec",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "y como obligaras  a usar ese hook si o si en esta y otras sesiones donde se guarda el hook y como te",
+      "created_at": "2026-04-09T03:08:09.065973+00:00",
+      "updated_at": "2026-04-09T03:08:09.065973+00:00"
+    },
+    {
+      "source": "cerebro.py",
+      "target": "cerebro.ejec",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "y como obligaras  a usar ese hook si o si en esta y otras sesiones donde se guarda el hook y como te",
+      "created_at": "2026-04-09T03:08:09.076242+00:00",
+      "updated_at": "2026-04-09T03:08:09.076242+00:00"
+    },
+    {
+      "source": "cerebro.ejec",
+      "target": "PostScreenshot.capt",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "respecto a python de nuevo te estas enfocando de nuevo en el caso de uso especifico estaria quemado ",
+      "created_at": "2026-04-09T03:14:58.033288+00:00",
+      "updated_at": "2026-04-09T03:14:58.033288+00:00"
     }
   ],
-  "updated_at": "2026-04-09T02:38:50.082612+00:00",
+  "updated_at": "2026-04-09T03:14:58.033288+00:00",
   "stats": {
-    "entities": 417,
-    "relations": 1010
+    "entities": 424,
+    "relations": 1027
   }
 }
