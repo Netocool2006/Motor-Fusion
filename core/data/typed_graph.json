@@ -3983,6 +3983,14 @@
       "properties": {},
       "created_at": "2026-04-09T21:16:04.127869+00:00",
       "updated_at": "2026-04-09T21:16:04.127869+00:00"
+    },
+    "rng.Text": {
+      "id": "rng.Text",
+      "type": "file",
+      "name": "rng.Text",
+      "properties": {},
+      "created_at": "2026-04-09T21:30:55.039372+00:00",
+      "updated_at": "2026-04-09T21:30:55.039372+00:00"
     }
   },
   "relations": [
@@ -8112,10 +8120,10 @@
       "source": "0.1s",
       "target": "Find.Exec",
       "type": "used_with",
-      "weight": 0.5,
-      "context": "realiza 1 y 2",
+      "weight": 1.0,
+      "context": "regla genera solo se puede una llamada a com a la vez si son 500 llamadas a call sera 1 por 1",
       "created_at": "2026-04-08T02:53:42.275884+00:00",
-      "updated_at": "2026-04-08T02:53:42.275884+00:00"
+      "updated_at": "2026-04-09T21:32:21.046901+00:00"
     },
     {
       "source": "inserciã³n",
@@ -14758,11 +14766,92 @@
       "context": "necesito entender mejor para ayudarte que pasa dame mas detalles y explica a nivel funcional",
       "created_at": "2026-04-09T21:16:04.181391+00:00",
       "updated_at": "2026-04-09T21:16:04.181391+00:00"
+    },
+    {
+      "source": "WINWORD.EXE",
+      "target": "find.Exec",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "me indicas que haces 84 llamadas a COM ? en este de \"GBM \" GBM Internacional\"",
+      "created_at": "2026-04-09T21:30:55.024087+00:00",
+      "updated_at": "2026-04-09T21:30:55.024087+00:00"
+    },
+    {
+      "source": "WINWORD.EXE",
+      "target": "rng.Text",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "me indicas que haces 84 llamadas a COM ? en este de \"GBM \" GBM Internacional\"",
+      "created_at": "2026-04-09T21:30:55.055393+00:00",
+      "updated_at": "2026-04-09T21:30:55.055393+00:00"
+    },
+    {
+      "source": "find.Exec",
+      "target": "rng.Text",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "me indicas que haces 84 llamadas a COM ? en este de \"GBM \" GBM Internacional\"",
+      "created_at": "2026-04-09T21:30:55.073116+00:00",
+      "updated_at": "2026-04-09T21:30:55.073116+00:00"
+    },
+    {
+      "source": "find.Exec",
+      "target": "Find.Exec",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "me indicas que haces 84 llamadas a COM ? en este de \"GBM \" GBM Internacional\"",
+      "created_at": "2026-04-09T21:30:55.089779+00:00",
+      "updated_at": "2026-04-09T21:30:55.089779+00:00"
+    },
+    {
+      "source": "rng.Text",
+      "target": "Find.Exec",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "me indicas que haces 84 llamadas a COM ? en este de \"GBM \" GBM Internacional\"",
+      "created_at": "2026-04-09T21:30:55.107813+00:00",
+      "updated_at": "2026-04-09T21:30:55.107813+00:00"
+    },
+    {
+      "source": "Find.Exec",
+      "target": "0.1s",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "regla genera solo se puede una llamada a com a la vez si son 500 llamadas a call sera 1 por 1",
+      "created_at": "2026-04-09T21:32:20.998091+00:00",
+      "updated_at": "2026-04-09T21:32:20.998091+00:00"
+    },
+    {
+      "source": "Find.Exec",
+      "target": "0.2s",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "regla genera solo se puede una llamada a com a la vez si son 500 llamadas a call sera 1 por 1",
+      "created_at": "2026-04-09T21:32:21.015350+00:00",
+      "updated_at": "2026-04-09T21:32:21.015350+00:00"
+    },
+    {
+      "source": "0.1s",
+      "target": "0.2s",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "regla genera solo se puede una llamada a com a la vez si son 500 llamadas a call sera 1 por 1",
+      "created_at": "2026-04-09T21:32:21.033883+00:00",
+      "updated_at": "2026-04-09T21:32:21.033883+00:00"
+    },
+    {
+      "source": "0.2s",
+      "target": "Find.Exec",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "regla genera solo se puede una llamada a com a la vez si son 500 llamadas a call sera 1 por 1",
+      "created_at": "2026-04-09T21:32:21.059437+00:00",
+      "updated_at": "2026-04-09T21:32:21.059437+00:00"
     }
   ],
-  "updated_at": "2026-04-09T21:16:04.181391+00:00",
+  "updated_at": "2026-04-09T21:32:21.059437+00:00",
   "stats": {
-    "entities": 498,
-    "relations": 1197
+    "entities": 499,
+    "relations": 1206
   }
 }
