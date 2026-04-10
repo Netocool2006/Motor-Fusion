@@ -4191,6 +4191,46 @@
       "properties": {},
       "created_at": "2026-04-10T03:10:30.996080+00:00",
       "updated_at": "2026-04-10T03:10:30.996080+00:00"
+    },
+    "//code.clau": {
+      "id": "//code.clau",
+      "type": "file",
+      "name": "//code.clau",
+      "properties": {},
+      "created_at": "2026-04-10T03:15:10.698404+00:00",
+      "updated_at": "2026-04-10T03:15:10.698404+00:00"
+    },
+    "de.com": {
+      "id": "de.com",
+      "type": "file",
+      "name": "de.com",
+      "properties": {},
+      "created_at": "2026-04-10T03:15:10.711028+00:00",
+      "updated_at": "2026-04-10T03:15:10.711028+00:00"
+    },
+    "//platform.clau": {
+      "id": "//platform.clau",
+      "type": "file",
+      "name": "//platform.clau",
+      "properties": {},
+      "created_at": "2026-04-10T03:15:10.750601+00:00",
+      "updated_at": "2026-04-10T03:15:10.750601+00:00"
+    },
+    "//deepwiki.com": {
+      "id": "//deepwiki.com",
+      "type": "file",
+      "name": "//deepwiki.com",
+      "properties": {},
+      "created_at": "2026-04-10T03:15:10.826504+00:00",
+      "updated_at": "2026-04-10T03:15:10.826504+00:00"
+    },
+    "CLAUDE.md": {
+      "id": "CLAUDE.md",
+      "type": "file",
+      "name": "CLAUDE.md",
+      "properties": {},
+      "created_at": "2026-04-10T03:18:55.674766+00:00",
+      "updated_at": "2026-04-10T03:18:55.674766+00:00"
     }
   },
   "relations": [
@@ -15443,11 +15483,101 @@
       "context": "[Image #1] hiciste lo que quisiste mira jaja nada que ver con lo que pedi",
       "created_at": "2026-04-10T03:10:31.012920+00:00",
       "updated_at": "2026-04-10T03:10:31.012920+00:00"
+    },
+    {
+      "source": "//code.clau",
+      "target": "de.com",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "la prueba no es el problema el problema es que no logro hacer que uses la herramientas construidas c",
+      "created_at": "2026-04-10T03:15:10.731039+00:00",
+      "updated_at": "2026-04-10T03:15:10.731039+00:00"
+    },
+    {
+      "source": "//code.clau",
+      "target": "//platform.clau",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "la prueba no es el problema el problema es que no logro hacer que uses la herramientas construidas c",
+      "created_at": "2026-04-10T03:15:10.770467+00:00",
+      "updated_at": "2026-04-10T03:15:10.770467+00:00"
+    },
+    {
+      "source": "de.com",
+      "target": "//platform.clau",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "la prueba no es el problema el problema es que no logro hacer que uses la herramientas construidas c",
+      "created_at": "2026-04-10T03:15:10.790022+00:00",
+      "updated_at": "2026-04-10T03:15:10.790022+00:00"
+    },
+    {
+      "source": "de.com",
+      "target": "de.com",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "la prueba no es el problema el problema es que no logro hacer que uses la herramientas construidas c",
+      "created_at": "2026-04-10T03:15:10.805013+00:00",
+      "updated_at": "2026-04-10T03:15:10.805013+00:00"
+    },
+    {
+      "source": "//platform.clau",
+      "target": "de.com",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "la prueba no es el problema el problema es que no logro hacer que uses la herramientas construidas c",
+      "created_at": "2026-04-10T03:15:10.816012+00:00",
+      "updated_at": "2026-04-10T03:15:10.816012+00:00"
+    },
+    {
+      "source": "//platform.clau",
+      "target": "//deepwiki.com",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "la prueba no es el problema el problema es que no logro hacer que uses la herramientas construidas c",
+      "created_at": "2026-04-10T03:15:10.833840+00:00",
+      "updated_at": "2026-04-10T03:15:10.833840+00:00"
+    },
+    {
+      "source": "de.com",
+      "target": "//deepwiki.com",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "la prueba no es el problema el problema es que no logro hacer que uses la herramientas construidas c",
+      "created_at": "2026-04-10T03:15:10.833840+00:00",
+      "updated_at": "2026-04-10T03:15:10.833840+00:00"
+    },
+    {
+      "source": "CLAUDE.md",
+      "target": "mcp_server.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "y es mejor esto o colocarlo en un agente?",
+      "created_at": "2026-04-10T03:18:55.693535+00:00",
+      "updated_at": "2026-04-10T03:18:55.693535+00:00"
+    },
+    {
+      "source": "CLAUDE.md",
+      "target": "CLAUDE.md",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "y es mejor esto o colocarlo en un agente?",
+      "created_at": "2026-04-10T03:18:55.713099+00:00",
+      "updated_at": "2026-04-10T03:18:55.713099+00:00"
+    },
+    {
+      "source": "mcp_server.py",
+      "target": "CLAUDE.md",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "y es mejor esto o colocarlo en un agente?",
+      "created_at": "2026-04-10T03:18:55.731452+00:00",
+      "updated_at": "2026-04-10T03:18:55.731452+00:00"
     }
   ],
-  "updated_at": "2026-04-10T03:10:31.012920+00:00",
+  "updated_at": "2026-04-10T03:18:55.731452+00:00",
   "stats": {
-    "entities": 524,
-    "relations": 1250
+    "entities": 529,
+    "relations": 1260
   }
 }
