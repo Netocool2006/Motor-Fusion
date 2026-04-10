@@ -1,0 +1,67 @@
+{
+  "hot": [
+    {
+      "key": "ya re inicie la sesion ya deberia estar el toc repair disponible en MCP",
+      "value": "**Funciona automÃ¡ticamente.** El TOC quedÃ³ reparado sin intervenciÃ³n manual:\n\n| Entrada | PÃ¡gina |\n|---|---|\n| Contenidos | 3 |\n| 1. Â¿Por quÃ© GBM? | 3 |\n| 2. InformaciÃ³n inicial | 8 |\n| 2.1. Objetivo general | 8 |\n| 3. Alcance | 8 |\n| 3.1. Alcance del proyecto | 8 |\n| 3.4. Supuestos y restricciones | 11 |\n| 4. Propuesta EconÃ³mica | 11 |\n| 5. TÃ©rminos y Condiciones | 12 |\n| 6. AceptaciÃ³n de la Propuesta | 15 |\n| 7. Anexos | 16 |\n| 7.1. Procedimiento y Reporte de Llamadas | 16 |\n\nEl flujo completo ahora es:\n```\nopen_document(\"P03_Reestructuracion.docx\")\n  â†’ Sanitize (17,892 fixes)\n  â†’ Auto repair_toc (14 entries, 11 headings restored)\n  â†’ Documento listo con TOC funcional\n```\n\nTodo automÃ¡tico, cero intervenciÃ³n. Ya no estÃ¡ \"quemado\" â€” es parte del pipeline de apertura.",
+      "domain": "ML 100%",
+      "source": "auto_save",
+      "tier": "hot",
+      "created_at": "2026-04-10T23:01:35.053399+00:00",
+      "last_access": "2026-04-10T23:01:35.053399+00:00",
+      "access_count": 0,
+      "promotion_count": 0
+    },
+    {
+      "key": "abre el documento quiero ver como quedo",
+      "value": "Listo â€” Word deberÃ­a estar visible ahora con `TEST_TOC_FINAL.docx`. Navega a la pÃ¡gina 4 para ver el TOC reparado con todas las entradas y nÃºmeros de pÃ¡gina correctos.",
+      "domain": "ML 100%",
+      "source": "auto_save",
+      "tier": "hot",
+      "created_at": "2026-04-10T23:02:18.875504+00:00",
+      "last_access": "2026-04-10T23:02:18.875504+00:00",
+      "access_count": 0,
+      "promotion_count": 0
+    },
+    {
+      "key": "[Image #1] tiene este error jalaste este bloque de la seccion de abajo, consulta tienes la habilidad de borrarlo y de hacer otro con la habilidad de \"referencia\" que word tiene? porque tambien se pier",
+      "value": "**Todo correcto:**\n\n| Check | Resultado |\n|---|---|\n| TOC como campo | TablesOfContents.Count = 1 |\n| UseHyperlinks | True |\n| Hyperlinks (Ctrl+Click) | 11 enlaces activos |\n| \"Contenidos\" en TOC | NO (usa estilo \"TÃ­tulo TDC\") |\n| Page break despuÃ©s del TOC | SÃ­ |\n\nWord deberÃ­a estar visible ahora. VerificÃ¡:\n1. El TOC ya no tiene \"Contenidos\" como entrada\n2. Ctrl+Click en cualquier entrada te lleva a la secciÃ³n\n3. El TOC tiene su propia pÃ¡gina, no se mezcla con el contenido de abajo",
+      "domain": "ML 100%",
+      "source": "auto_save",
+      "tier": "hot",
+      "created_at": "2026-04-10T23:15:38.283356+00:00",
+      "last_access": "2026-04-10T23:15:38.283356+00:00",
+      "access_count": 0,
+      "promotion_count": 0
+    },
+    {
+      "key": "[Image #2][Image #3] te tuvo quedar como la foto2 pero te quedo como la foto3  y al letra es Arial 10 que es la que tiene el documento y tu la cambiaste a otra",
+      "value": "**Ahora sÃ­ â€” todas las entradas en Arial 10.0:**\n\n```\nTÃ­tulo TDC: Arial 14 (bold, negro)\nTDC 1: Arial 10 â€” Â¿Por quÃ© GBM?, InformaciÃ³n inicial, Alcance, etc.\nTDC 2: Arial 10 â€” Objetivo general, Alcance del proyecto, etc.\n```\n\nWord deberÃ­a estar visible. Respecto a tu segundo mensaje â€” tenÃ©s razÃ³n, esto deberÃ­a ser parte del procedimiento obligatorio post-conversiÃ³n. Ya estÃ¡ integrado automÃ¡ticamente en `open_document()`: cuando se detecta un PDF-converted y se sanitiza, automÃ¡ticamente corre `repair_toc()` que:\n\n1. Detecta el font dominante del documento (no lo quema)\n2. Restaura los heading styles\n3. Recrea el TOC con hyperlinks\n4. Formatea el TOC con el font detectado\n5. Agrega page break\n\nTodo sin intervenciÃ³n manual. RevisÃ¡ cÃ³mo quedÃ³ en Word y decime si se acerca mÃ¡s a la foto2.",
+      "domain": "ML 100%",
+      "source": "auto_save",
+      "tier": "hot",
+      "created_at": "2026-04-10T23:28:22.030344+00:00",
+      "last_access": "2026-04-10T23:28:22.030344+00:00",
+      "access_count": 0,
+      "promotion_count": 0
+    },
+    {
+      "key": "pero la detencion de letra tambien deberias hacerla previo a modificacion y corregirla solo al abrir el documento [Image #4] por cierto mira la imagen sigues sin dejarlo como debe no se si te acuerdas",
+      "value": "RevisÃ¡ la pÃ¡gina 4 del PDF â€” los dot leaders deberÃ­an extenderse hasta el margen derecho ahora, igual que en el original. El font es Arial 10 como el documento.\n\nSobre tu punto de hacer la detecciÃ³n de letra **previo a la modificaciÃ³n** â€” eso es exactamente lo que hace el cÃ³digo actual: detecta el font dominante del cuerpo ANTES de borrar el TOC roto y ANTES de crear el nuevo. AsÃ­ siempre usa el font real del documento.",
+      "domain": "ML 100%",
+      "source": "auto_save",
+      "tier": "hot",
+      "created_at": "2026-04-10T23:34:45.885315+00:00",
+      "last_access": "2026-04-10T23:34:45.885315+00:00",
+      "access_count": 0,
+      "promotion_count": 0
+    }
+  ],
+  "warm": [],
+  "cold": [],
+  "updated_at": "2026-04-10T23:34:45.885315+00:00",
+  "counts": {
+    "hot": 5,
+    "warm": 0,
+    "cold": 0
+  }
+}

@@ -488,6 +488,38 @@
         "last_accessed": "2026-04-10T22:30:46.450813+00:00",
         "access_count": 0
       }
+    },
+    "ae9e9f5f4b9b": {
+      "id": "ae9e9f5f4b9b",
+      "type": "pattern",
+      "key": "session_auto_20260410_165835",
+      "solution": {
+        "strategy": "auto_captured_from_session",
+        "notes": "Interacciones clave:\n  P: si sigue con el tema de TOC\n  R:   Perfecto, continuemos con la corrección del TOC roto post-sanitize. Primero déjame ver el estado actual del código y las tools disponibles.\nResumen: te doy contexto en esto estabas: \"● Ahora actualizo el _find_affected_page para usar _target_page si está disponible:    Searched for 1 pattern, read  -> si sigue con el tema de TOC -> pero esto quema\nEditados: word_com.py, mcp_server.py, cerebro_v2.py\nDecisiones: implementarlo en dos niveles:; ver la parte del sanitizer donde podría agregar el paso de reparación post-sanitize.; probar directamente via Python para validar que funciona, y luego probar via MCP.; probar de otra forma — conectándome al Word que ya está abierto:; probar de una forma más simple — usando el MCP que ya tiene el doc abierto. Primero necesito reiniciar el MCP server para que tome la nueva tool. Mejor pruebo directamente con un script standalone:\nErrores resueltos: Exit code 1\nTraceback (most recent call last):\r\n  File \"<string>\", line 5, in <m; Exit code 1\nTraceback (most recent call last):\r\n  File \"<string>\", line 12, in <",
+        "auto_learned": true,
+        "source": "hook_session_end",
+        "files_touched": [
+          "C:\\Chance1\\IA\\IA_Word\\src\\word_com.py",
+          "C:\\Chance1\\IA\\IA_Word\\src\\mcp_server.py",
+          "C:\\Chance1\\IA\\IA_Word\\src\\cerebro_v2.py"
+        ],
+        "domain_detected": "hooks_ia_backup_20260331_22050"
+      },
+      "tags": [
+        "auto-learned",
+        "session",
+        "hooks_ia_backup_20260331_22050"
+      ],
+      "error_context": null,
+      "created_at": "2026-04-10T22:58:35.944085+00:00",
+      "updated_at": "2026-04-10T22:58:35.944085+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-04-10T22:58:35.944085+00:00",
+        "access_count": 0
+      }
     }
   },
   "tag_index": {
@@ -504,7 +536,8 @@
       "7271c704ec2f",
       "4d9feaebaf8a",
       "7dbedcf85e57",
-      "9bfa7e8effc8"
+      "9bfa7e8effc8",
+      "ae9e9f5f4b9b"
     ],
     "session": [
       "fc0947920514",
@@ -519,7 +552,8 @@
       "7271c704ec2f",
       "4d9feaebaf8a",
       "7dbedcf85e57",
-      "9bfa7e8effc8"
+      "9bfa7e8effc8",
+      "ae9e9f5f4b9b"
     ],
     "hooks_ia_backup_20260331_22050": [
       "fc0947920514",
@@ -534,11 +568,12 @@
       "7271c704ec2f",
       "4d9feaebaf8a",
       "7dbedcf85e57",
-      "9bfa7e8effc8"
+      "9bfa7e8effc8",
+      "ae9e9f5f4b9b"
     ]
   },
   "stats": {
-    "total_entries": 13,
+    "total_entries": 14,
     "total_lookups": 3,
     "total_hits": 1
   }
