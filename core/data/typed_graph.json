@@ -4047,6 +4047,46 @@
       "properties": {},
       "created_at": "2026-04-10T01:14:41.180185+00:00",
       "updated_at": "2026-04-10T01:14:41.180185+00:00"
+    },
+    "195.24": {
+      "id": "195.24",
+      "type": "file",
+      "name": "195.24",
+      "properties": {},
+      "created_at": "2026-04-10T02:40:36.759288+00:00",
+      "updated_at": "2026-04-10T02:40:36.759288+00:00"
+    },
+    "194.2995": {
+      "id": "194.2995",
+      "type": "file",
+      "name": "194.2995",
+      "properties": {},
+      "created_at": "2026-04-10T02:43:04.801677+00:00",
+      "updated_at": "2026-04-10T02:43:04.801677+00:00"
+    },
+    "194.30": {
+      "id": "194.30",
+      "type": "file",
+      "name": "194.30",
+      "properties": {},
+      "created_at": "2026-04-10T02:43:04.819784+00:00",
+      "updated_at": "2026-04-10T02:43:04.819784+00:00"
+    },
+    "tabla": {
+      "id": "tabla",
+      "type": "concept",
+      "name": "tabla",
+      "properties": {},
+      "created_at": "2026-04-10T02:47:08.325179+00:00",
+      "updated_at": "2026-04-10T02:47:08.325179+00:00"
+    },
+    "landscape": {
+      "id": "landscape",
+      "type": "concept",
+      "name": "landscape",
+      "properties": {},
+      "created_at": "2026-04-10T02:47:08.343142+00:00",
+      "updated_at": "2026-04-10T02:47:08.343142+00:00"
     }
   },
   "relations": [
@@ -13000,10 +13040,10 @@
       "source": "1.4526",
       "target": "182.94",
       "type": "used_with",
-      "weight": 1.0,
-      "context": "pre-hook query",
+      "weight": 1.5,
+      "context": "la tabla esta bien, su contenido no es un copy paste de la tabla no el contenido a tu eleccion",
       "created_at": "2026-04-09T02:02:50.682646+00:00",
-      "updated_at": "2026-04-09T02:38:49.980045+00:00"
+      "updated_at": "2026-04-10T02:40:36.742172+00:00"
     },
     {
       "source": "x1.4526",
@@ -15029,11 +15069,56 @@
       "context": "Responde solo: OK",
       "created_at": "2026-04-10T01:14:41.200738+00:00",
       "updated_at": "2026-04-10T01:14:41.200738+00:00"
+    },
+    {
+      "source": "que",
+      "target": "las",
+      "type": "used_with",
+      "weight": 0.7,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T02:32:29.455243+00:00",
+      "updated_at": "2026-04-10T02:32:29.455243+00:00"
+    },
+    {
+      "source": "1.4526",
+      "target": "195.24",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "la tabla esta bien, su contenido no es un copy paste de la tabla no el contenido a tu eleccion",
+      "created_at": "2026-04-10T02:40:36.776447+00:00",
+      "updated_at": "2026-04-10T02:40:36.776447+00:00"
+    },
+    {
+      "source": "182.94",
+      "target": "195.24",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "la tabla esta bien, su contenido no es un copy paste de la tabla no el contenido a tu eleccion",
+      "created_at": "2026-04-10T02:40:36.794702+00:00",
+      "updated_at": "2026-04-10T02:40:36.794702+00:00"
+    },
+    {
+      "source": "194.2995",
+      "target": "194.30",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "no es cierto la tabla vuelve estar bien pero no las estas copiando la estas haciendo te pido que tom",
+      "created_at": "2026-04-10T02:43:04.836057+00:00",
+      "updated_at": "2026-04-10T02:43:04.836057+00:00"
+    },
+    {
+      "source": "tabla",
+      "target": "landscape",
+      "type": "depends_on",
+      "weight": 0.7,
+      "context": "es correcto procede",
+      "created_at": "2026-04-10T02:47:08.360515+00:00",
+      "updated_at": "2026-04-10T02:47:08.360515+00:00"
     }
   ],
-  "updated_at": "2026-04-10T01:14:41.201303+00:00",
+  "updated_at": "2026-04-10T02:47:08.360515+00:00",
   "stats": {
-    "entities": 506,
-    "relations": 1220
+    "entities": 511,
+    "relations": 1225
   }
 }
