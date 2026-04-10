@@ -4367,6 +4367,710 @@
       "properties": {},
       "created_at": "2026-04-10T15:40:57.975175+00:00",
       "updated_at": "2026-04-10T15:40:57.975175+00:00"
+    },
+    "insert_table": {
+      "id": "insert_table",
+      "type": "domain",
+      "name": "insert_table",
+      "properties": {},
+      "created_at": "2026-04-10T16:42:14.790615+00:00",
+      "updated_at": "2026-04-10T16:42:14.791889+00:00"
+    },
+    "preferredwidthpercent": {
+      "id": "preferredwidthpercent",
+      "type": "concept",
+      "name": "preferredwidthpercent",
+      "properties": {},
+      "created_at": "2026-04-10T16:42:14.806801+00:00",
+      "updated_at": "2026-04-10T16:42:14.806801+00:00"
+    },
+    "actual": {
+      "id": "actual",
+      "type": "concept",
+      "name": "actual",
+      "properties": {},
+      "created_at": "2026-04-10T16:42:14.860460+00:00",
+      "updated_at": "2026-04-10T16:42:14.860460+00:00"
+    },
+    "call_tool": {
+      "id": "call_tool",
+      "type": "domain",
+      "name": "call_tool",
+      "properties": {},
+      "created_at": "2026-04-10T16:42:14.875594+00:00",
+      "updated_at": "2026-04-10T16:42:14.875594+00:00"
+    },
+    "Table.Pref": {
+      "id": "Table.Pref",
+      "type": "file",
+      "name": "Table.Pref",
+      "properties": {},
+      "created_at": "2026-04-10T16:42:14.918578+00:00",
+      "updated_at": "2026-04-10T16:42:14.918578+00:00"
+    },
+    "table_range.Coll": {
+      "id": "table_range.Coll",
+      "type": "file",
+      "name": "table_range.Coll",
+      "properties": {},
+      "created_at": "2026-04-10T16:42:15.014757+00:00",
+      "updated_at": "2026-04-10T16:42:15.014757+00:00"
+    },
+    "es.Add": {
+      "id": "es.Add",
+      "type": "file",
+      "name": "es.Add",
+      "properties": {},
+      "created_at": "2026-04-10T16:42:15.102360+00:00",
+      "updated_at": "2026-04-10T16:42:15.102360+00:00"
+    },
+    "table.Allo": {
+      "id": "table.Allo",
+      "type": "file",
+      "name": "table.Allo",
+      "properties": {},
+      "created_at": "2026-04-10T16:42:15.211593+00:00",
+      "updated_at": "2026-04-10T16:42:15.211593+00:00"
+    },
+    "table.Rows": {
+      "id": "table.Rows",
+      "type": "file",
+      "name": "table.Rows",
+      "properties": {},
+      "created_at": "2026-04-10T16:42:15.248676+00:00",
+      "updated_at": "2026-04-10T16:42:15.248676+00:00"
+    },
+    "table.Pref": {
+      "id": "table.Pref",
+      "type": "file",
+      "name": "table.Pref",
+      "properties": {},
+      "created_at": "2026-04-10T16:42:15.356480+00:00",
+      "updated_at": "2026-04-10T16:42:15.356480+00:00"
+    },
+    "table.Colu": {
+      "id": "table.Colu",
+      "type": "file",
+      "name": "table.Colu",
+      "properties": {},
+      "created_at": "2026-04-10T16:42:15.437887+00:00",
+      "updated_at": "2026-04-10T16:42:15.437887+00:00"
+    },
+    "break_map.get": {
+      "id": "break_map.get",
+      "type": "file",
+      "name": "break_map.get",
+      "properties": {},
+      "created_at": "2026-04-10T16:42:16.084804+00:00",
+      "updated_at": "2026-04-10T16:42:16.084804+00:00"
+    },
+    "rng.Star": {
+      "id": "rng.Star",
+      "type": "file",
+      "name": "rng.Star",
+      "properties": {},
+      "created_at": "2026-04-10T16:42:16.547553+00:00",
+      "updated_at": "2026-04-10T16:42:16.547553+00:00"
+    },
+    "new_rng.Info": {
+      "id": "new_rng.Info",
+      "type": "file",
+      "name": "new_rng.Info",
+      "properties": {},
+      "created_at": "2026-04-10T16:42:16.610923+00:00",
+      "updated_at": "2026-04-10T16:42:16.610923+00:00"
+    },
+    "orientation.lowe": {
+      "id": "orientation.lowe",
+      "type": "file",
+      "name": "orientation.lowe",
+      "properties": {},
+      "created_at": "2026-04-10T16:42:16.648222+00:00",
+      "updated_at": "2026-04-10T16:42:16.648222+00:00"
+    },
+    "doc.Sect": {
+      "id": "doc.Sect",
+      "type": "file",
+      "name": "doc.Sect",
+      "properties": {},
+      "created_at": "2026-04-10T16:42:16.687706+00:00",
+      "updated_at": "2026-04-10T16:42:16.687706+00:00"
+    },
+    "PageSetup.Orie": {
+      "id": "PageSetup.Orie",
+      "type": "file",
+      "name": "PageSetup.Orie",
+      "properties": {},
+      "created_at": "2026-04-10T16:42:16.726955+00:00",
+      "updated_at": "2026-04-10T16:42:16.726955+00:00"
+    },
+    "ions.Coun": {
+      "id": "ions.Coun",
+      "type": "file",
+      "name": "ions.Coun",
+      "properties": {},
+      "created_at": "2026-04-10T16:42:16.803290+00:00",
+      "updated_at": "2026-04-10T16:42:16.803290+00:00"
+    },
+    "word.dete": {
+      "id": "word.dete",
+      "type": "file",
+      "name": "word.dete",
+      "properties": {},
+      "created_at": "2026-04-10T16:42:16.932561+00:00",
+      "updated_at": "2026-04-10T16:42:16.932561+00:00"
+    },
+    "word.dele": {
+      "id": "word.dele",
+      "type": "file",
+      "name": "word.dele",
+      "properties": {},
+      "created_at": "2026-04-10T16:42:16.976948+00:00",
+      "updated_at": "2026-04-10T16:42:16.976948+00:00"
+    },
+    "word.chec": {
+      "id": "word.chec",
+      "type": "file",
+      "name": "word.chec",
+      "properties": {},
+      "created_at": "2026-04-10T16:42:17.130465+00:00",
+      "updated_at": "2026-04-10T16:42:17.130465+00:00"
+    },
+    "pruebas_reales/P01_Solo_Soporte.docx": {
+      "id": "pruebas_reales/P01_Solo_Soporte.docx",
+      "type": "file",
+      "name": "pruebas_reales/P01_Solo_Soporte.docx",
+      "properties": {},
+      "created_at": "2026-04-10T16:42:17.292616+00:00",
+      "updated_at": "2026-04-10T16:42:17.292616+00:00"
+    },
+    "test_output/TABLE_FIX_TEST.docx": {
+      "id": "test_output/TABLE_FIX_TEST.docx",
+      "type": "file",
+      "name": "test_output/TABLE_FIX_TEST.docx",
+      "properties": {},
+      "created_at": "2026-04-10T16:42:17.333448+00:00",
+      "updated_at": "2026-04-10T16:42:17.333448+00:00"
+    },
+    "subprocess.Pope": {
+      "id": "subprocess.Pope",
+      "type": "file",
+      "name": "subprocess.Pope",
+      "properties": {},
+      "created_at": "2026-04-10T16:42:17.370584+00:00",
+      "updated_at": "2026-04-10T16:42:17.370584+00:00"
+    },
+    "/Chance1/CLAUDE.md": {
+      "id": "/Chance1/CLAUDE.md",
+      "type": "file",
+      "name": "/Chance1/CLAUDE.md",
+      "properties": {},
+      "created_at": "2026-04-10T16:42:17.958716+00:00",
+      "updated_at": "2026-04-10T16:42:17.958716+00:00"
+    },
+    "word_com.open": {
+      "id": "word_com.open",
+      "type": "file",
+      "name": "word_com.open",
+      "properties": {},
+      "created_at": "2026-04-10T16:42:18.842801+00:00",
+      "updated_at": "2026-04-10T16:42:18.842801+00:00"
+    },
+    "word_com.inse": {
+      "id": "word_com.inse",
+      "type": "file",
+      "name": "word_com.inse",
+      "properties": {},
+      "created_at": "2026-04-10T16:42:18.883576+00:00",
+      "updated_at": "2026-04-10T16:42:18.883576+00:00"
+    },
+    "doc_eyes.rend": {
+      "id": "doc_eyes.rend",
+      "type": "file",
+      "name": "doc_eyes.rend",
+      "properties": {},
+      "created_at": "2026-04-10T16:42:18.922841+00:00",
+      "updated_at": "2026-04-10T16:42:18.922841+00:00"
+    },
+    "word_com.save": {
+      "id": "word_com.save",
+      "type": "file",
+      "name": "word_com.save",
+      "properties": {},
+      "created_at": "2026-04-10T16:42:18.966490+00:00",
+      "updated_at": "2026-04-10T16:42:18.966490+00:00"
+    },
+    "foto.png": {
+      "id": "foto.png",
+      "type": "file",
+      "name": "foto.png",
+      "properties": {},
+      "created_at": "2026-04-10T16:42:19.450309+00:00",
+      "updated_at": "2026-04-10T16:42:19.450309+00:00"
+    },
+    "foto2.png": {
+      "id": "foto2.png",
+      "type": "file",
+      "name": "foto2.png",
+      "properties": {},
+      "created_at": "2026-04-10T16:42:19.518249+00:00",
+      "updated_at": "2026-04-10T16:42:19.518249+00:00"
+    },
+    "src\\cerebro_v2.py": {
+      "id": "src\\cerebro_v2.py",
+      "type": "file",
+      "name": "src\\cerebro_v2.py",
+      "properties": {},
+      "created_at": "2026-04-10T16:42:19.616437+00:00",
+      "updated_at": "2026-04-10T16:42:19.616437+00:00"
+    },
+    "src/cerebro_v2.py": {
+      "id": "src/cerebro_v2.py",
+      "type": "file",
+      "name": "src/cerebro_v2.py",
+      "properties": {},
+      "created_at": "2026-04-10T16:42:19.712438+00:00",
+      "updated_at": "2026-04-10T16:42:19.712438+00:00"
+    },
+    "test_output/CEREBRO_TEST.docx": {
+      "id": "test_output/CEREBRO_TEST.docx",
+      "type": "file",
+      "name": "test_output/CEREBRO_TEST.docx",
+      "properties": {},
+      "created_at": "2026-04-10T16:42:19.870654+00:00",
+      "updated_at": "2026-04-10T16:42:19.870654+00:00"
+    },
+    "CEREBRO_TEST.docx": {
+      "id": "CEREBRO_TEST.docx",
+      "type": "file",
+      "name": "CEREBRO_TEST.docx",
+      "properties": {},
+      "created_at": "2026-04-10T16:42:19.964295+00:00",
+      "updated_at": "2026-04-10T16:42:19.964295+00:00"
+    },
+    "response.get": {
+      "id": "response.get",
+      "type": "file",
+      "name": "response.get",
+      "properties": {},
+      "created_at": "2026-04-10T16:42:20.035169+00:00",
+      "updated_at": "2026-04-10T16:42:20.035169+00:00"
+    },
+    "raw.find": {
+      "id": "raw.find",
+      "type": "file",
+      "name": "raw.find",
+      "properties": {},
+      "created_at": "2026-04-10T16:42:20.130367+00:00",
+      "updated_at": "2026-04-10T16:42:20.130367+00:00"
+    },
+    "raw.rfin": {
+      "id": "raw.rfin",
+      "type": "file",
+      "name": "raw.rfin",
+      "properties": {},
+      "created_at": "2026-04-10T16:42:20.170462+00:00",
+      "updated_at": "2026-04-10T16:42:20.170462+00:00"
+    },
+    "json.load": {
+      "id": "json.load",
+      "type": "file",
+      "name": "json.load",
+      "properties": {},
+      "created_at": "2026-04-10T16:42:20.213496+00:00",
+      "updated_at": "2026-04-10T16:42:20.213496+00:00"
+    },
+    "json.JSON": {
+      "id": "json.JSON",
+      "type": "file",
+      "name": "json.JSON",
+      "properties": {},
+      "created_at": "2026-04-10T16:42:20.254421+00:00",
+      "updated_at": "2026-04-10T16:42:20.254421+00:00"
+    },
+    "log.warn": {
+      "id": "log.warn",
+      "type": "file",
+      "name": "log.warn",
+      "properties": {},
+      "created_at": "2026-04-10T16:42:20.532389+00:00",
+      "updated_at": "2026-04-10T16:42:20.532389+00:00"
+    },
+    "test_output/CEREBRO_TEST2.docâ": {
+      "id": "test_output/CEREBRO_TEST2.docâ",
+      "type": "file",
+      "name": "test_output/CEREBRO_TEST2.docâ",
+      "properties": {},
+      "created_at": "2026-04-10T16:42:20.635687+00:00",
+      "updated_at": "2026-04-10T16:42:20.635687+00:00"
+    },
+    "CEREBRO_TEST2.docx": {
+      "id": "CEREBRO_TEST2.docx",
+      "type": "file",
+      "name": "CEREBRO_TEST2.docx",
+      "properties": {},
+      "created_at": "2026-04-10T16:42:20.709563+00:00",
+      "updated_at": "2026-04-10T16:42:20.709563+00:00"
+    },
+    "test_output/CEREBRO_TEST3.docâ": {
+      "id": "test_output/CEREBRO_TEST3.docâ",
+      "type": "file",
+      "name": "test_output/CEREBRO_TEST3.docâ",
+      "properties": {},
+      "created_at": "2026-04-10T16:42:20.844644+00:00",
+      "updated_at": "2026-04-10T16:42:20.844644+00:00"
+    },
+    "CEREBRO_TEST3.docx": {
+      "id": "CEREBRO_TEST3.docx",
+      "type": "file",
+      "name": "CEREBRO_TEST3.docx",
+      "properties": {},
+      "created_at": "2026-04-10T16:42:20.917499+00:00",
+      "updated_at": "2026-04-10T16:42:20.917499+00:00"
+    },
+    "test_output/CEREBRO_TEST4.docâ": {
+      "id": "test_output/CEREBRO_TEST4.docâ",
+      "type": "file",
+      "name": "test_output/CEREBRO_TEST4.docâ",
+      "properties": {},
+      "created_at": "2026-04-10T16:42:21.056643+00:00",
+      "updated_at": "2026-04-10T16:42:21.056643+00:00"
+    },
+    "CEREBRO_TEST4.docx": {
+      "id": "CEREBRO_TEST4.docx",
+      "type": "file",
+      "name": "CEREBRO_TEST4.docx",
+      "properties": {},
+      "created_at": "2026-04-10T16:42:21.133377+00:00",
+      "updated_at": "2026-04-10T16:42:21.133377+00:00"
+    },
+    "os.envi": {
+      "id": "os.envi",
+      "type": "file",
+      "name": "os.envi",
+      "properties": {},
+      "created_at": "2026-04-10T16:42:21.208374+00:00",
+      "updated_at": "2026-04-10T16:42:21.208374+00:00"
+    },
+    "ron.copy": {
+      "id": "ron.copy",
+      "type": "file",
+      "name": "ron.copy",
+      "properties": {},
+      "created_at": "2026-04-10T16:42:21.253233+00:00",
+      "updated_at": "2026-04-10T16:42:21.253233+00:00"
+    },
+    "subprocess.CREA": {
+      "id": "subprocess.CREA",
+      "type": "file",
+      "name": "subprocess.CREA",
+      "properties": {},
+      "created_at": "2026-04-10T16:42:21.366684+00:00",
+      "updated_at": "2026-04-10T16:42:21.366684+00:00"
+    },
+    "os.name": {
+      "id": "os.name",
+      "type": "file",
+      "name": "os.name",
+      "properties": {},
+      "created_at": "2026-04-10T16:42:21.414774+00:00",
+      "updated_at": "2026-04-10T16:42:21.414774+00:00"
+    },
+    "proc.comm": {
+      "id": "proc.comm",
+      "type": "file",
+      "name": "proc.comm",
+      "properties": {},
+      "created_at": "2026-04-10T16:42:21.460862+00:00",
+      "updated_at": "2026-04-10T16:42:21.460862+00:00"
+    },
+    "test_output/CEREBRO_TEST5.docâ": {
+      "id": "test_output/CEREBRO_TEST5.docâ",
+      "type": "file",
+      "name": "test_output/CEREBRO_TEST5.docâ",
+      "properties": {},
+      "created_at": "2026-04-10T16:42:21.567475+00:00",
+      "updated_at": "2026-04-10T16:42:21.567475+00:00"
+    },
+    "CEREBRO_TEST5.docx": {
+      "id": "CEREBRO_TEST5.docx",
+      "type": "file",
+      "name": "CEREBRO_TEST5.docx",
+      "properties": {},
+      "created_at": "2026-04-10T16:42:21.645566+00:00",
+      "updated_at": "2026-04-10T16:42:21.645566+00:00"
+    },
+    "ron.get": {
+      "id": "ron.get",
+      "type": "file",
+      "name": "ron.get",
+      "properties": {},
+      "created_at": "2026-04-10T16:42:21.851236+00:00",
+      "updated_at": "2026-04-10T16:42:21.851236+00:00"
+    },
+    "os.make": {
+      "id": "os.make",
+      "type": "file",
+      "name": "os.make",
+      "properties": {},
+      "created_at": "2026-04-10T16:42:22.172831+00:00",
+      "updated_at": "2026-04-10T16:42:22.172831+00:00"
+    },
+    "subprocess.PIPE": {
+      "id": "subprocess.PIPE",
+      "type": "file",
+      "name": "subprocess.PIPE",
+      "properties": {},
+      "created_at": "2026-04-10T16:42:22.292245+00:00",
+      "updated_at": "2026-04-10T16:42:22.292245+00:00"
+    },
+    "test_output/CEREBRO_TEST6.docâ": {
+      "id": "test_output/CEREBRO_TEST6.docâ",
+      "type": "file",
+      "name": "test_output/CEREBRO_TEST6.docâ",
+      "properties": {},
+      "created_at": "2026-04-10T16:42:22.603364+00:00",
+      "updated_at": "2026-04-10T16:42:22.603364+00:00"
+    },
+    "CEREBRO_TEST6.docx": {
+      "id": "CEREBRO_TEST6.docx",
+      "type": "file",
+      "name": "CEREBRO_TEST6.docx",
+      "properties": {},
+      "created_at": "2026-04-10T16:42:22.724722+00:00",
+      "updated_at": "2026-04-10T16:42:22.724722+00:00"
+    },
+    "task.lowe": {
+      "id": "task.lowe",
+      "type": "file",
+      "name": "task.lowe",
+      "properties": {},
+      "created_at": "2026-04-10T16:42:22.899593+00:00",
+      "updated_at": "2026-04-10T16:42:22.899593+00:00"
+    },
+    "re.sear": {
+      "id": "re.sear",
+      "type": "file",
+      "name": "re.sear",
+      "properties": {},
+      "created_at": "2026-04-10T16:42:22.977531+00:00",
+      "updated_at": "2026-04-10T16:42:22.977531+00:00"
+    },
+    "match.grou": {
+      "id": "match.grou",
+      "type": "file",
+      "name": "match.grou",
+      "properties": {},
+      "created_at": "2026-04-10T16:42:23.048454+00:00",
+      "updated_at": "2026-04-10T16:42:23.048454+00:00"
+    },
+    "task.spli": {
+      "id": "task.spli",
+      "type": "file",
+      "name": "task.spli",
+      "properties": {},
+      "created_at": "2026-04-10T16:42:23.176478+00:00",
+      "updated_at": "2026-04-10T16:42:23.176478+00:00"
+    },
+    "w.lowe": {
+      "id": "w.lowe",
+      "type": "file",
+      "name": "w.lowe",
+      "properties": {},
+      "created_at": "2026-04-10T16:42:23.248266+00:00",
+      "updated_at": "2026-04-10T16:42:23.248266+00:00"
+    },
+    "old.spli": {
+      "id": "old.spli",
+      "type": "file",
+      "name": "old.spli",
+      "properties": {},
+      "created_at": "2026-04-10T16:42:23.324352+00:00",
+      "updated_at": "2026-04-10T16:42:23.324352+00:00"
+    },
+    "new.spli": {
+      "id": "new.spli",
+      "type": "file",
+      "name": "new.spli",
+      "properties": {},
+      "created_at": "2026-04-10T16:42:23.508317+00:00",
+      "updated_at": "2026-04-10T16:42:23.508317+00:00"
+    },
+    "test_output/CEREBRO_FINAL.docâ": {
+      "id": "test_output/CEREBRO_FINAL.docâ",
+      "type": "file",
+      "name": "test_output/CEREBRO_FINAL.docâ",
+      "properties": {},
+      "created_at": "2026-04-10T16:42:23.723466+00:00",
+      "updated_at": "2026-04-10T16:42:23.723466+00:00"
+    },
+    "CEREBRO_FINAL.docx": {
+      "id": "CEREBRO_FINAL.docx",
+      "type": "file",
+      "name": "CEREBRO_FINAL.docx",
+      "properties": {},
+      "created_at": "2026-04-10T16:42:23.841406+00:00",
+      "updated_at": "2026-04-10T16:42:23.841406+00:00"
+    },
+    "139.7s": {
+      "id": "139.7s",
+      "type": "file",
+      "name": "139.7s",
+      "properties": {},
+      "created_at": "2026-04-10T16:42:23.946463+00:00",
+      "updated_at": "2026-04-10T16:42:23.946463+00:00"
+    },
+    "42.7s": {
+      "id": "42.7s",
+      "type": "file",
+      "name": "42.7s",
+      "properties": {},
+      "created_at": "2026-04-10T16:42:24.015003+00:00",
+      "updated_at": "2026-04-10T16:42:24.015003+00:00"
+    },
+    "/Hooks_IA/hooks/motor_ia_hook.py": {
+      "id": "/Hooks_IA/hooks/motor_ia_hook.py",
+      "type": "file",
+      "name": "/Hooks_IA/hooks/motor_ia_hook.py",
+      "properties": {},
+      "created_at": "2026-04-10T16:42:24.275651+00:00",
+      "updated_at": "2026-04-10T16:42:24.275651+00:00"
+    },
+    "entrypoint.star": {
+      "id": "entrypoint.star",
+      "type": "file",
+      "name": "entrypoint.star",
+      "properties": {},
+      "created_at": "2026-04-10T16:42:24.473317+00:00",
+      "updated_at": "2026-04-10T16:42:24.473317+00:00"
+    },
+    "json.dump": {
+      "id": "json.dump",
+      "type": "file",
+      "name": "json.dump",
+      "properties": {},
+      "created_at": "2026-04-10T16:42:24.551227+00:00",
+      "updated_at": "2026-04-10T16:42:24.551227+00:00"
+    },
+    "/Hooks_IA/hooks/motor_ia_post_hook.py": {
+      "id": "/Hooks_IA/hooks/motor_ia_post_hook.py",
+      "type": "file",
+      "name": "/Hooks_IA/hooks/motor_ia_post_hook.py",
+      "properties": {},
+      "created_at": "2026-04-10T16:42:24.635413+00:00",
+      "updated_at": "2026-04-10T16:42:24.635413+00:00"
+    },
+    "_STATE_FILE.exis": {
+      "id": "_STATE_FILE.exis",
+      "type": "file",
+      "name": "_STATE_FILE.exis",
+      "properties": {},
+      "created_at": "2026-04-10T16:42:24.861463+00:00",
+      "updated_at": "2026-04-10T16:42:24.861463+00:00"
+    },
+    "CEREBRO_HOOK_TEST.docx": {
+      "id": "CEREBRO_HOOK_TEST.docx",
+      "type": "file",
+      "name": "CEREBRO_HOOK_TEST.docx",
+      "properties": {},
+      "created_at": "2026-04-10T16:42:25.112644+00:00",
+      "updated_at": "2026-04-10T16:42:25.112644+00:00"
+    },
+    "115.4s": {
+      "id": "115.4s",
+      "type": "file",
+      "name": "115.4s",
+      "properties": {},
+      "created_at": "2026-04-10T16:42:25.190138+00:00",
+      "updated_at": "2026-04-10T16:42:25.190138+00:00"
+    },
+    "hooks/motor_ia_hook.py": {
+      "id": "hooks/motor_ia_hook.py",
+      "type": "file",
+      "name": "hooks/motor_ia_hook.py",
+      "properties": {},
+      "created_at": "2026-04-10T16:42:25.351205+00:00",
+      "updated_at": "2026-04-10T16:42:25.351205+00:00"
+    },
+    "hooks/motor_ia_post_hook.py": {
+      "id": "hooks/motor_ia_post_hook.py",
+      "type": "file",
+      "name": "hooks/motor_ia_post_hook.py",
+      "properties": {},
+      "created_at": "2026-04-10T16:42:25.434975+00:00",
+      "updated_at": "2026-04-10T16:42:25.434975+00:00"
+    },
+    "\\_reader.py": {
+      "id": "\\_reader.py",
+      "type": "file",
+      "name": "\\_reader.py",
+      "properties": {},
+      "created_at": "2026-04-10T16:42:25.687466+00:00",
+      "updated_at": "2026-04-10T16:42:25.687466+00:00"
+    },
+    "test_output/CEREBRO_TABLE.docx": {
+      "id": "test_output/CEREBRO_TABLE.docx",
+      "type": "file",
+      "name": "test_output/CEREBRO_TABLE.docx",
+      "properties": {},
+      "created_at": "2026-04-10T16:42:26.044931+00:00",
+      "updated_at": "2026-04-10T16:42:26.044931+00:00"
+    },
+    "CEREBRO_TABLE.docx": {
+      "id": "CEREBRO_TABLE.docx",
+      "type": "file",
+      "name": "CEREBRO_TABLE.docx",
+      "properties": {},
+      "created_at": "2026-04-10T16:42:26.142984+00:00",
+      "updated_at": "2026-04-10T16:42:26.142984+00:00"
+    },
+    "word.lowe": {
+      "id": "word.lowe",
+      "type": "file",
+      "name": "word.lowe",
+      "properties": {},
+      "created_at": "2026-04-10T16:42:26.525051+00:00",
+      "updated_at": "2026-04-10T16:42:26.525051+00:00"
+    },
+    "section_name.spli": {
+      "id": "section_name.spli",
+      "type": "file",
+      "name": "section_name.spli",
+      "properties": {},
+      "created_at": "2026-04-10T16:42:26.604909+00:00",
+      "updated_at": "2026-04-10T16:42:26.604909+00:00"
+    },
+    "test_output/CEREBRO_TABLE2.docx": {
+      "id": "test_output/CEREBRO_TABLE2.docx",
+      "type": "file",
+      "name": "test_output/CEREBRO_TABLE2.docx",
+      "properties": {},
+      "created_at": "2026-04-10T16:42:26.733087+00:00",
+      "updated_at": "2026-04-10T16:42:26.733087+00:00"
+    },
+    "CEREBRO_TABLE2.docx": {
+      "id": "CEREBRO_TABLE2.docx",
+      "type": "file",
+      "name": "CEREBRO_TABLE2.docx",
+      "properties": {},
+      "created_at": "2026-04-10T16:42:26.808739+00:00",
+      "updated_at": "2026-04-10T16:42:26.808739+00:00"
+    },
+    "121.9s": {
+      "id": "121.9s",
+      "type": "file",
+      "name": "121.9s",
+      "properties": {},
+      "created_at": "2026-04-10T16:42:26.887384+00:00",
+      "updated_at": "2026-04-10T16:42:26.887384+00:00"
+    },
+    "\\\\Chance1\\\\IA\\\\IA_Word\\\\test_output\\\\CEREBRO_TABLE2.docx": {
+      "id": "\\\\Chance1\\\\IA\\\\IA_Word\\\\test_output\\\\CEREBRO_TABLE2.docx",
+      "type": "file",
+      "name": "\\\\Chance1\\\\IA\\\\IA_Word\\\\test_output\\\\CEREBRO_TABLE2.docx",
+      "properties": {},
+      "created_at": "2026-04-10T16:42:27.256405+00:00",
+      "updated_at": "2026-04-10T16:42:27.256405+00:00"
     }
   },
   "relations": [
@@ -7425,10 +8129,10 @@
       "source": "engine.py",
       "target": "word_com.py",
       "type": "used_with",
-      "weight": 0.5,
-      "context": "revisa tu memoria Kb local y tu propia claude estabas probando este proyecto C:\\Chance1\\IA\\IA_Word",
+      "weight": 1.5,
+      "context": "pre-hook query",
       "created_at": "2026-04-07T15:19:59.422483+00:00",
-      "updated_at": "2026-04-07T15:19:59.422483+00:00"
+      "updated_at": "2026-04-10T16:42:19.250217+00:00"
     },
     {
       "source": "engine.py",
@@ -7884,10 +8588,10 @@
       "source": "word_com.py",
       "target": "doc_eyes.py",
       "type": "used_with",
-      "weight": 6.0,
-      "context": "es que quiero que la ML si este involucrada es parte de ver las fotos y decidir repararlas",
+      "weight": 8.0,
+      "context": "pre-hook query",
       "created_at": "2026-04-07T16:44:43.224478+00:00",
-      "updated_at": "2026-04-10T03:35:35.202482+00:00"
+      "updated_at": "2026-04-10T16:42:19.289529+00:00"
     },
     {
       "source": "word_com.py",
@@ -8127,10 +8831,10 @@
       "source": "doc_eyes.py",
       "target": "business_rules.py",
       "type": "used_with",
-      "weight": 0.5,
-      "context": "esto es pura programacion o tiene MCP y/o ML ?",
+      "weight": 1.0,
+      "context": "pre-hook query",
       "created_at": "2026-04-07T20:43:14.072907+00:00",
-      "updated_at": "2026-04-07T20:43:14.072907+00:00"
+      "updated_at": "2026-04-10T16:42:19.145239+00:00"
     },
     {
       "source": "vision_bridge.py",
@@ -8721,10 +9425,10 @@
       "source": "rng.Coll",
       "target": "rng.Inse",
       "type": "used_with",
-      "weight": 0.5,
-      "context": "para que sirve el de insertar documentos completos?",
+      "weight": 1.5,
+      "context": "pre-hook query",
       "created_at": "2026-04-08T03:43:30.054130+00:00",
-      "updated_at": "2026-04-08T03:43:30.054130+00:00"
+      "updated_at": "2026-04-10T16:42:16.510881+00:00"
     },
     {
       "source": "rng.Coll",
@@ -8838,10 +9542,10 @@
       "source": "doc_eyes.py",
       "target": "word_com.py",
       "type": "used_with",
-      "weight": 2.0,
-      "context": "es que quiero que la ML si este involucrada es parte de ver las fotos y decidir repararlas",
+      "weight": 2.5,
+      "context": "pre-hook query",
       "created_at": "2026-04-08T16:19:22.782435+00:00",
-      "updated_at": "2026-04-10T03:35:35.237956+00:00"
+      "updated_at": "2026-04-10T16:42:18.556861+00:00"
     },
     {
       "source": "vision_bridge.py",
@@ -9009,10 +9713,10 @@
       "source": "src\\mcp_server.py",
       "target": "src\\mcp_server.py",
       "type": "used_with",
-      "weight": 5.0,
+      "weight": 6.5,
       "context": "pre-hook query",
       "created_at": "2026-04-08T17:51:34.572392+00:00",
-      "updated_at": "2026-04-08T17:51:45.181933+00:00"
+      "updated_at": "2026-04-10T16:42:16.918603+00:00"
     },
     {
       "source": "src\\mcp_server.py",
@@ -9135,10 +9839,10 @@
       "source": "args.get",
       "target": "args.get",
       "type": "used_with",
-      "weight": 38.0,
+      "weight": 39.5,
       "context": "pre-hook query",
       "created_at": "2026-04-08T17:51:34.712957+00:00",
-      "updated_at": "2026-04-08T17:51:45.897270+00:00"
+      "updated_at": "2026-04-10T16:42:17.116332+00:00"
     },
     {
       "source": "word.prot",
@@ -9270,10 +9974,10 @@
       "source": "src\\word_com.py",
       "target": "self.doc",
       "type": "used_with",
-      "weight": 2.0,
+      "weight": 2.5,
       "context": "pre-hook query",
       "created_at": "2026-04-08T17:51:34.990843+00:00",
-      "updated_at": "2026-04-08T17:51:42.837183+00:00"
+      "updated_at": "2026-04-10T16:42:15.816505+00:00"
     },
     {
       "source": "src\\word_com.py",
@@ -9288,10 +9992,10 @@
       "source": "self.doc",
       "target": "doc.Cont",
       "type": "used_with",
-      "weight": 2.0,
+      "weight": 2.5,
       "context": "pre-hook query",
       "created_at": "2026-04-08T17:51:35.002823+00:00",
-      "updated_at": "2026-04-08T17:51:44.128326+00:00"
+      "updated_at": "2026-04-10T16:42:16.143306+00:00"
     },
     {
       "source": "self.doc",
@@ -9306,46 +10010,46 @@
       "source": "doc.Cont",
       "target": "ent.Dupl",
       "type": "used_with",
-      "weight": 2.0,
+      "weight": 2.5,
       "context": "pre-hook query",
       "created_at": "2026-04-08T17:51:35.021668+00:00",
-      "updated_at": "2026-04-08T17:51:44.151745+00:00"
+      "updated_at": "2026-04-10T16:42:16.198729+00:00"
     },
     {
       "source": "doc.Cont",
       "target": "rng.Find",
       "type": "used_with",
-      "weight": 2.0,
+      "weight": 2.5,
       "context": "pre-hook query",
       "created_at": "2026-04-08T17:51:35.033782+00:00",
-      "updated_at": "2026-04-08T17:51:44.162697+00:00"
+      "updated_at": "2026-04-10T16:42:16.216665+00:00"
     },
     {
       "source": "ent.Dupl",
       "target": "rng.Find",
       "type": "used_with",
-      "weight": 2.0,
+      "weight": 2.5,
       "context": "pre-hook query",
       "created_at": "2026-04-08T17:51:35.039340+00:00",
-      "updated_at": "2026-04-08T17:51:44.175969+00:00"
+      "updated_at": "2026-04-10T16:42:16.234420+00:00"
     },
     {
       "source": "ent.Dupl",
       "target": "find.Clea",
       "type": "used_with",
-      "weight": 2.0,
+      "weight": 2.5,
       "context": "pre-hook query",
       "created_at": "2026-04-08T17:51:35.052927+00:00",
-      "updated_at": "2026-04-08T17:51:44.189557+00:00"
+      "updated_at": "2026-04-10T16:42:16.251034+00:00"
     },
     {
       "source": "rng.Find",
       "target": "find.Clea",
       "type": "used_with",
-      "weight": 3.0,
+      "weight": 3.5,
       "context": "pre-hook query",
       "created_at": "2026-04-08T17:51:35.058440+00:00",
-      "updated_at": "2026-04-08T17:51:44.201334+00:00"
+      "updated_at": "2026-04-10T16:42:16.270152+00:00"
     },
     {
       "source": "rng.Find",
@@ -9468,10 +10172,10 @@
       "source": "find.Forw",
       "target": "find.Wrap",
       "type": "used_with",
-      "weight": 3.0,
+      "weight": 3.5,
       "context": "pre-hook query",
       "created_at": "2026-04-08T17:51:35.183676+00:00",
-      "updated_at": "2026-04-08T17:51:44.513781+00:00"
+      "updated_at": "2026-04-10T16:42:16.391629+00:00"
     },
     {
       "source": "find.Forw",
@@ -9702,28 +10406,28 @@
       "source": "src/word_com.py",
       "target": "src/mcp_server.py",
       "type": "used_with",
-      "weight": 3.0,
+      "weight": 4.0,
       "context": "pre-hook query",
       "created_at": "2026-04-08T17:51:35.651115+00:00",
-      "updated_at": "2026-04-08T17:51:46.951780+00:00"
+      "updated_at": "2026-04-10T16:42:17.487446+00:00"
     },
     {
       "source": "src/mcp_server.py",
       "target": "src/mcp_server.py",
       "type": "used_with",
-      "weight": 2.0,
+      "weight": 2.5,
       "context": "pre-hook query",
       "created_at": "2026-04-08T17:51:35.663903+00:00",
-      "updated_at": "2026-04-08T17:51:46.978569+00:00"
+      "updated_at": "2026-04-10T16:42:17.500628+00:00"
     },
     {
       "source": "src/mcp_server.py",
       "target": "src/word_com.py",
       "type": "used_with",
-      "weight": 3.5,
-      "context": "la logica es que veas lo que estas modificado de que sirve que veas la pagina 1 si no es la que esta",
+      "weight": 4.5,
+      "context": "pre-hook query",
       "created_at": "2026-04-08T17:51:35.671945+00:00",
-      "updated_at": "2026-04-08T19:29:53.661862+00:00"
+      "updated_at": "2026-04-10T16:42:17.523815+00:00"
     },
     {
       "source": "src/mcp_server.py",
@@ -9864,55 +10568,55 @@
       "source": "src\\word_com.py",
       "target": "doc.Tabl",
       "type": "used_with",
-      "weight": 3.0,
+      "weight": 4.5,
       "context": "pre-hook query",
       "created_at": "2026-04-08T17:51:35.839899+00:00",
-      "updated_at": "2026-04-08T17:51:46.495146+00:00"
+      "updated_at": "2026-04-10T16:42:15.834713+00:00"
     },
     {
       "source": "self.doc",
       "target": "doc.Tabl",
       "type": "used_with",
-      "weight": 3.0,
+      "weight": 3.5,
       "context": "pre-hook query",
       "created_at": "2026-04-08T17:51:35.846931+00:00",
-      "updated_at": "2026-04-08T17:51:43.803301+00:00"
+      "updated_at": "2026-04-10T16:42:15.848742+00:00"
     },
     {
       "source": "self.doc",
       "target": "es.Coun",
       "type": "used_with",
-      "weight": 1.0,
+      "weight": 1.5,
       "context": "pre-hook query",
       "created_at": "2026-04-08T17:51:35.862699+00:00",
-      "updated_at": "2026-04-08T17:51:42.865292+00:00"
+      "updated_at": "2026-04-10T16:42:15.867286+00:00"
     },
     {
       "source": "doc.Tabl",
       "target": "es.Coun",
       "type": "used_with",
-      "weight": 1.0,
+      "weight": 3.5,
       "context": "pre-hook query",
       "created_at": "2026-04-08T17:51:35.869216+00:00",
-      "updated_at": "2026-04-08T17:51:42.875427+00:00"
+      "updated_at": "2026-04-10T16:42:16.038581+00:00"
     },
     {
       "source": "doc.Tabl",
       "target": "doc.Tabl",
       "type": "used_with",
-      "weight": 1.0,
+      "weight": 2.5,
       "context": "pre-hook query",
       "created_at": "2026-04-08T17:51:35.876106+00:00",
-      "updated_at": "2026-04-08T17:51:42.883977+00:00"
+      "updated_at": "2026-04-10T16:42:16.007723+00:00"
     },
     {
       "source": "es.Coun",
       "target": "doc.Tabl",
       "type": "used_with",
-      "weight": 1.0,
+      "weight": 2.5,
       "context": "pre-hook query",
       "created_at": "2026-04-08T17:51:35.882114+00:00",
-      "updated_at": "2026-04-08T17:51:42.894108+00:00"
+      "updated_at": "2026-04-10T16:42:15.991627+00:00"
     },
     {
       "source": "es.Coun",
@@ -10116,10 +10820,10 @@
       "source": "doc.Tabl",
       "target": "self.doc",
       "type": "used_with",
-      "weight": 1.0,
+      "weight": 1.5,
       "context": "pre-hook query",
       "created_at": "2026-04-08T17:51:36.113633+00:00",
-      "updated_at": "2026-04-08T17:51:43.157037+00:00"
+      "updated_at": "2026-04-10T16:42:16.055144+00:00"
     },
     {
       "source": "table.Cell",
@@ -10278,10 +10982,10 @@
       "source": "rng.Inse",
       "target": "doc.Rang",
       "type": "used_with",
-      "weight": 2.0,
+      "weight": 2.5,
       "context": "pre-hook query",
       "created_at": "2026-04-08T17:51:36.288269+00:00",
-      "updated_at": "2026-04-08T17:51:43.673791+00:00"
+      "updated_at": "2026-04-10T16:42:16.534555+00:00"
     },
     {
       "source": "rng.Inse",
@@ -10818,19 +11522,19 @@
       "source": "find.Forw",
       "target": "find.Exec",
       "type": "used_with",
-      "weight": 1.0,
+      "weight": 1.5,
       "context": "pre-hook query",
       "created_at": "2026-04-08T17:51:37.123645+00:00",
-      "updated_at": "2026-04-08T17:51:44.525327+00:00"
+      "updated_at": "2026-04-10T16:42:16.408424+00:00"
     },
     {
       "source": "find.Wrap",
       "target": "find.Exec",
       "type": "used_with",
-      "weight": 1.0,
+      "weight": 1.5,
       "context": "pre-hook query",
       "created_at": "2026-04-08T17:51:37.131921+00:00",
-      "updated_at": "2026-04-08T17:51:44.537714+00:00"
+      "updated_at": "2026-04-10T16:42:16.424304+00:00"
     },
     {
       "source": "find.Wrap",
@@ -11295,10 +11999,10 @@
       "source": "word.inse",
       "target": "args.get",
       "type": "used_with",
-      "weight": 4.0,
+      "weight": 5.0,
       "context": "pre-hook query",
       "created_at": "2026-04-08T17:51:37.875392+00:00",
-      "updated_at": "2026-04-08T17:51:45.516037+00:00"
+      "updated_at": "2026-04-10T16:42:17.074332+00:00"
     },
     {
       "source": "args.get",
@@ -12222,10 +12926,10 @@
       "source": "engine.py",
       "target": "business_rules.py",
       "type": "used_with",
-      "weight": 2.5,
-      "context": "que piensas de esto respecto a este proyecto cual seria la mejor estrategia: \"un agente de IA se pue",
+      "weight": 3.0,
+      "context": "pre-hook query",
       "created_at": "2026-04-08T17:51:40.059990+00:00",
-      "updated_at": "2026-04-10T15:33:07.331941+00:00"
+      "updated_at": "2026-04-10T16:42:18.815629+00:00"
     },
     {
       "source": "business_rules.py",
@@ -12987,10 +13691,10 @@
       "source": "//learn.micr",
       "target": "osoft.com",
       "type": "used_with",
-      "weight": 1.5,
-      "context": "ok agrega funciones y/o tools para eliminar tablas, cambiar landscape para agregarlas al proyecto e ",
+      "weight": 2.5,
+      "context": "pre-hook query",
       "created_at": "2026-04-08T20:00:31.612439+00:00",
-      "updated_at": "2026-04-10T03:09:00.540247+00:00"
+      "updated_at": "2026-04-10T16:42:17.708843+00:00"
     },
     {
       "source": "mcp_server.py",
@@ -14112,10 +14816,10 @@
       "source": "cerebro.py",
       "target": "engine.py",
       "type": "used_with",
-      "weight": 1.5,
-      "context": "que piensas de esto respecto a este proyecto cual seria la mejor estrategia: \"un agente de IA se pue",
+      "weight": 3.0,
+      "context": "pre-hook query",
       "created_at": "2026-04-09T15:29:53.550041+00:00",
-      "updated_at": "2026-04-10T15:33:07.186144+00:00"
+      "updated_at": "2026-04-10T16:42:19.212414+00:00"
     },
     {
       "source": "cerebro.py",
@@ -14139,10 +14843,10 @@
       "source": "engine.py",
       "target": "doc_eyes.py",
       "type": "used_with",
-      "weight": 0.5,
-      "context": "que ventajas y desventajas tenemos respecto a lo que ya tenemos dale una scan al proyecto actual de ",
+      "weight": 1.0,
+      "context": "pre-hook query",
       "created_at": "2026-04-09T15:29:53.581127+00:00",
-      "updated_at": "2026-04-09T15:29:53.581127+00:00"
+      "updated_at": "2026-04-10T16:42:19.092423+00:00"
     },
     {
       "source": "vision_bridge.py",
@@ -14157,10 +14861,10 @@
       "source": "word_com.py",
       "target": "word_com.py",
       "type": "used_with",
-      "weight": 3.5,
-      "context": "es que quiero que la ML si este involucrada es parte de ver las fotos y decidir repararlas",
+      "weight": 6.0,
+      "context": "pre-hook query",
       "created_at": "2026-04-09T15:47:30.097739+00:00",
-      "updated_at": "2026-04-10T03:35:35.219894+00:00"
+      "updated_at": "2026-04-10T16:42:18.544736+00:00"
     },
     {
       "source": "vector_kb.py",
@@ -14184,10 +14888,10 @@
       "source": "engine.py",
       "target": "cerebro.py",
       "type": "used_with",
-      "weight": 0.5,
-      "context": "ese 21% muerto tiene valor? para usarlo de nuevo que hace",
+      "weight": 1.0,
+      "context": "pre-hook query",
       "created_at": "2026-04-09T15:59:32.883779+00:00",
-      "updated_at": "2026-04-09T15:59:32.883779+00:00"
+      "updated_at": "2026-04-10T16:42:19.238553+00:00"
     },
     {
       "source": "doc_eyes.py",
@@ -14409,10 +15113,10 @@
       "source": "doc_eyes.py",
       "target": "cerebro.py",
       "type": "used_with",
-      "weight": 0.5,
-      "context": "vuelve darme una tabla explicando arquitectura para ver como quedo",
+      "weight": 2.0,
+      "context": "pre-hook query",
       "created_at": "2026-04-09T16:42:16.765522+00:00",
-      "updated_at": "2026-04-09T16:42:16.765522+00:00"
+      "updated_at": "2026-04-10T16:42:19.326905+00:00"
     },
     {
       "source": "doc.Inli",
@@ -15102,19 +15806,19 @@
       "source": "business_rules.py",
       "target": "cerebro.py",
       "type": "used_with",
-      "weight": 0.5,
+      "weight": 1.0,
       "context": "pre-hook query",
       "created_at": "2026-04-09T20:41:37.675169+00:00",
-      "updated_at": "2026-04-09T20:41:37.675169+00:00"
+      "updated_at": "2026-04-10T16:42:19.184488+00:00"
     },
     {
       "source": "business_rules.py",
       "target": "engine.py",
       "type": "used_with",
-      "weight": 0.5,
+      "weight": 1.0,
       "context": "pre-hook query",
       "created_at": "2026-04-09T20:41:37.684873+00:00",
-      "updated_at": "2026-04-09T20:41:37.684873+00:00"
+      "updated_at": "2026-04-10T16:42:19.199586+00:00"
     },
     {
       "source": "engine.py",
@@ -15417,10 +16121,10 @@
       "source": "TABLE_FIX_TEST.docx",
       "target": "//learn.micr",
       "type": "used_with",
-      "weight": 0.5,
-      "context": "ok agrega funciones y/o tools para eliminar tablas, cambiar landscape para agregarlas al proyecto e ",
+      "weight": 1.0,
+      "context": "pre-hook query",
       "created_at": "2026-04-10T03:09:00.273562+00:00",
-      "updated_at": "2026-04-10T03:09:00.273562+00:00"
+      "updated_at": "2026-04-10T16:42:17.577442+00:00"
     },
     {
       "source": "Table.Auto",
@@ -15444,37 +16148,37 @@
       "source": "//learn.micr",
       "target": "us/office/vba/api/word.tabl",
       "type": "used_with",
-      "weight": 0.5,
-      "context": "ok agrega funciones y/o tools para eliminar tablas, cambiar landscape para agregarlas al proyecto e ",
+      "weight": 1.0,
+      "context": "pre-hook query",
       "created_at": "2026-04-10T03:09:00.356578+00:00",
-      "updated_at": "2026-04-10T03:09:00.356578+00:00"
+      "updated_at": "2026-04-10T16:42:17.616814+00:00"
     },
     {
       "source": "osoft.com",
       "target": "us/office/vba/api/word.tabl",
       "type": "used_with",
-      "weight": 0.5,
-      "context": "ok agrega funciones y/o tools para eliminar tablas, cambiar landscape para agregarlas al proyecto e ",
+      "weight": 1.0,
+      "context": "pre-hook query",
       "created_at": "2026-04-10T03:09:00.376556+00:00",
-      "updated_at": "2026-04-10T03:09:00.376556+00:00"
+      "updated_at": "2026-04-10T16:42:17.630423+00:00"
     },
     {
       "source": "osoft.com",
       "target": "e.auto",
       "type": "used_with",
-      "weight": 0.5,
-      "context": "ok agrega funciones y/o tools para eliminar tablas, cambiar landscape para agregarlas al proyecto e ",
+      "weight": 1.0,
+      "context": "pre-hook query",
       "created_at": "2026-04-10T03:09:00.406604+00:00",
-      "updated_at": "2026-04-10T03:09:00.406604+00:00"
+      "updated_at": "2026-04-10T16:42:17.644307+00:00"
     },
     {
       "source": "us/office/vba/api/word.tabl",
       "target": "e.auto",
       "type": "used_with",
-      "weight": 0.5,
-      "context": "ok agrega funciones y/o tools para eliminar tablas, cambiar landscape para agregarlas al proyecto e ",
+      "weight": 1.0,
+      "context": "pre-hook query",
       "created_at": "2026-04-10T03:09:00.423264+00:00",
-      "updated_at": "2026-04-10T03:09:00.423264+00:00"
+      "updated_at": "2026-04-10T16:42:17.656682+00:00"
     },
     {
       "source": "us/office/vba/api/word.tabl",
@@ -15498,10 +16202,10 @@
       "source": "e.auto",
       "target": "//learn.micr",
       "type": "used_with",
-      "weight": 0.5,
-      "context": "ok agrega funciones y/o tools para eliminar tablas, cambiar landscape para agregarlas al proyecto e ",
+      "weight": 1.0,
+      "context": "pre-hook query",
       "created_at": "2026-04-10T03:09:00.494092+00:00",
-      "updated_at": "2026-04-10T03:09:00.494092+00:00"
+      "updated_at": "2026-04-10T16:42:17.683423+00:00"
     },
     {
       "source": "Columns.Pref",
@@ -15525,217 +16229,217 @@
       "source": "//learn.micr",
       "target": "us/office/vba/api/word.colu",
       "type": "used_with",
-      "weight": 0.5,
-      "context": "ok agrega funciones y/o tools para eliminar tablas, cambiar landscape para agregarlas al proyecto e ",
+      "weight": 1.0,
+      "context": "pre-hook query",
       "created_at": "2026-04-10T03:09:00.573202+00:00",
-      "updated_at": "2026-04-10T03:09:00.573202+00:00"
+      "updated_at": "2026-04-10T16:42:17.721563+00:00"
     },
     {
       "source": "osoft.com",
       "target": "us/office/vba/api/word.colu",
       "type": "used_with",
-      "weight": 0.5,
-      "context": "ok agrega funciones y/o tools para eliminar tablas, cambiar landscape para agregarlas al proyecto e ",
+      "weight": 1.0,
+      "context": "pre-hook query",
       "created_at": "2026-04-10T03:09:00.594123+00:00",
-      "updated_at": "2026-04-10T03:09:00.594123+00:00"
+      "updated_at": "2026-04-10T16:42:17.734814+00:00"
     },
     {
       "source": "osoft.com",
       "target": "mns.pref",
       "type": "used_with",
-      "weight": 0.5,
-      "context": "ok agrega funciones y/o tools para eliminar tablas, cambiar landscape para agregarlas al proyecto e ",
+      "weight": 1.0,
+      "context": "pre-hook query",
       "created_at": "2026-04-10T03:09:00.623410+00:00",
-      "updated_at": "2026-04-10T03:09:00.623410+00:00"
+      "updated_at": "2026-04-10T16:42:17.747444+00:00"
     },
     {
       "source": "us/office/vba/api/word.colu",
       "target": "mns.pref",
       "type": "used_with",
-      "weight": 0.5,
-      "context": "ok agrega funciones y/o tools para eliminar tablas, cambiar landscape para agregarlas al proyecto e ",
+      "weight": 1.0,
+      "context": "pre-hook query",
       "created_at": "2026-04-10T03:09:00.639897+00:00",
-      "updated_at": "2026-04-10T03:09:00.639897+00:00"
+      "updated_at": "2026-04-10T16:42:17.763118+00:00"
     },
     {
       "source": "us/office/vba/api/word.colu",
       "target": "rpa.blog",
       "type": "used_with",
-      "weight": 0.5,
-      "context": "ok agrega funciones y/o tools para eliminar tablas, cambiar landscape para agregarlas al proyecto e ",
+      "weight": 1.0,
+      "context": "pre-hook query",
       "created_at": "2026-04-10T03:09:00.673189+00:00",
-      "updated_at": "2026-04-10T03:09:00.673189+00:00"
+      "updated_at": "2026-04-10T16:42:17.774827+00:00"
     },
     {
       "source": "mns.pref",
       "target": "rpa.blog",
       "type": "used_with",
-      "weight": 0.5,
-      "context": "ok agrega funciones y/o tools para eliminar tablas, cambiar landscape para agregarlas al proyecto e ",
+      "weight": 1.0,
+      "context": "pre-hook query",
       "created_at": "2026-04-10T03:09:00.689926+00:00",
-      "updated_at": "2026-04-10T03:09:00.689926+00:00"
+      "updated_at": "2026-04-10T16:42:17.787626+00:00"
     },
     {
       "source": "mns.pref",
       "target": "spot.com",
       "type": "used_with",
-      "weight": 0.5,
-      "context": "ok agrega funciones y/o tools para eliminar tablas, cambiar landscape para agregarlas al proyecto e ",
+      "weight": 1.0,
+      "context": "pre-hook query",
       "created_at": "2026-04-10T03:09:00.723165+00:00",
-      "updated_at": "2026-04-10T03:09:00.723165+00:00"
+      "updated_at": "2026-04-10T16:42:17.800887+00:00"
     },
     {
       "source": "rpa.blog",
       "target": "spot.com",
       "type": "used_with",
-      "weight": 0.5,
-      "context": "ok agrega funciones y/o tools para eliminar tablas, cambiar landscape para agregarlas al proyecto e ",
+      "weight": 1.0,
+      "context": "pre-hook query",
       "created_at": "2026-04-10T03:09:00.739988+00:00",
-      "updated_at": "2026-04-10T03:09:00.739988+00:00"
+      "updated_at": "2026-04-10T16:42:17.814403+00:00"
     },
     {
       "source": "rpa.blog",
       "target": "widths.html",
       "type": "used_with",
-      "weight": 0.5,
-      "context": "ok agrega funciones y/o tools para eliminar tablas, cambiar landscape para agregarlas al proyecto e ",
+      "weight": 1.0,
+      "context": "pre-hook query",
       "created_at": "2026-04-10T03:09:00.773597+00:00",
-      "updated_at": "2026-04-10T03:09:00.773597+00:00"
+      "updated_at": "2026-04-10T16:42:17.826229+00:00"
     },
     {
       "source": "spot.com",
       "target": "widths.html",
       "type": "used_with",
-      "weight": 0.5,
-      "context": "ok agrega funciones y/o tools para eliminar tablas, cambiar landscape para agregarlas al proyecto e ",
+      "weight": 1.0,
+      "context": "pre-hook query",
       "created_at": "2026-04-10T03:09:00.800176+00:00",
-      "updated_at": "2026-04-10T03:09:00.800176+00:00"
+      "updated_at": "2026-04-10T16:42:17.838239+00:00"
     },
     {
       "source": "194.2995",
       "target": "58.66",
       "type": "used_with",
-      "weight": 0.5,
-      "context": "[Image #1] hiciste lo que quisiste mira jaja nada que ver con lo que pedi",
+      "weight": 1.0,
+      "context": "pre-hook query",
       "created_at": "2026-04-10T03:10:31.012920+00:00",
-      "updated_at": "2026-04-10T03:10:31.012920+00:00"
+      "updated_at": "2026-04-10T16:42:17.891367+00:00"
     },
     {
       "source": "//code.clau",
       "target": "de.com",
       "type": "used_with",
-      "weight": 0.5,
-      "context": "la prueba no es el problema el problema es que no logro hacer que uses la herramientas construidas c",
+      "weight": 1.0,
+      "context": "pre-hook query",
       "created_at": "2026-04-10T03:15:10.731039+00:00",
-      "updated_at": "2026-04-10T03:15:10.731039+00:00"
+      "updated_at": "2026-04-10T16:42:18.041028+00:00"
     },
     {
       "source": "//code.clau",
       "target": "//platform.clau",
       "type": "used_with",
-      "weight": 0.5,
-      "context": "la prueba no es el problema el problema es que no logro hacer que uses la herramientas construidas c",
+      "weight": 1.0,
+      "context": "pre-hook query",
       "created_at": "2026-04-10T03:15:10.770467+00:00",
-      "updated_at": "2026-04-10T03:15:10.770467+00:00"
+      "updated_at": "2026-04-10T16:42:18.052201+00:00"
     },
     {
       "source": "de.com",
       "target": "//platform.clau",
       "type": "used_with",
-      "weight": 0.5,
-      "context": "la prueba no es el problema el problema es que no logro hacer que uses la herramientas construidas c",
+      "weight": 1.0,
+      "context": "pre-hook query",
       "created_at": "2026-04-10T03:15:10.790022+00:00",
-      "updated_at": "2026-04-10T03:15:10.790022+00:00"
+      "updated_at": "2026-04-10T16:42:18.064813+00:00"
     },
     {
       "source": "de.com",
       "target": "de.com",
       "type": "used_with",
-      "weight": 0.5,
-      "context": "la prueba no es el problema el problema es que no logro hacer que uses la herramientas construidas c",
+      "weight": 1.0,
+      "context": "pre-hook query",
       "created_at": "2026-04-10T03:15:10.805013+00:00",
-      "updated_at": "2026-04-10T03:15:10.805013+00:00"
+      "updated_at": "2026-04-10T16:42:18.078984+00:00"
     },
     {
       "source": "//platform.clau",
       "target": "de.com",
       "type": "used_with",
-      "weight": 0.5,
-      "context": "la prueba no es el problema el problema es que no logro hacer que uses la herramientas construidas c",
+      "weight": 1.0,
+      "context": "pre-hook query",
       "created_at": "2026-04-10T03:15:10.816012+00:00",
-      "updated_at": "2026-04-10T03:15:10.816012+00:00"
+      "updated_at": "2026-04-10T16:42:18.093315+00:00"
     },
     {
       "source": "//platform.clau",
       "target": "//deepwiki.com",
       "type": "used_with",
-      "weight": 0.5,
-      "context": "la prueba no es el problema el problema es que no logro hacer que uses la herramientas construidas c",
+      "weight": 1.0,
+      "context": "pre-hook query",
       "created_at": "2026-04-10T03:15:10.833840+00:00",
-      "updated_at": "2026-04-10T03:15:10.833840+00:00"
+      "updated_at": "2026-04-10T16:42:18.109221+00:00"
     },
     {
       "source": "de.com",
       "target": "//deepwiki.com",
       "type": "used_with",
-      "weight": 0.5,
-      "context": "la prueba no es el problema el problema es que no logro hacer que uses la herramientas construidas c",
+      "weight": 1.0,
+      "context": "pre-hook query",
       "created_at": "2026-04-10T03:15:10.833840+00:00",
-      "updated_at": "2026-04-10T03:15:10.833840+00:00"
+      "updated_at": "2026-04-10T16:42:18.120904+00:00"
     },
     {
       "source": "CLAUDE.md",
       "target": "mcp_server.py",
       "type": "used_with",
-      "weight": 0.5,
-      "context": "y es mejor esto o colocarlo en un agente?",
+      "weight": 1.0,
+      "context": "pre-hook query",
       "created_at": "2026-04-10T03:18:55.693535+00:00",
-      "updated_at": "2026-04-10T03:18:55.693535+00:00"
+      "updated_at": "2026-04-10T16:42:18.172481+00:00"
     },
     {
       "source": "CLAUDE.md",
       "target": "CLAUDE.md",
       "type": "used_with",
-      "weight": 0.5,
-      "context": "y es mejor esto o colocarlo en un agente?",
+      "weight": 6.5,
+      "context": "pre-hook query",
       "created_at": "2026-04-10T03:18:55.713099+00:00",
-      "updated_at": "2026-04-10T03:18:55.713099+00:00"
+      "updated_at": "2026-04-10T16:42:18.364545+00:00"
     },
     {
       "source": "mcp_server.py",
       "target": "CLAUDE.md",
       "type": "used_with",
-      "weight": 0.5,
-      "context": "y es mejor esto o colocarlo en un agente?",
+      "weight": 1.5,
+      "context": "pre-hook query",
       "created_at": "2026-04-10T03:18:55.731452+00:00",
-      "updated_at": "2026-04-10T03:18:55.731452+00:00"
+      "updated_at": "2026-04-10T16:42:18.209277+00:00"
     },
     {
       "source": "involucrada",
       "target": "ver",
       "type": "part_of",
-      "weight": 0.7,
+      "weight": 1.4,
       "context": "pre-hook query",
       "created_at": "2026-04-10T03:35:08.216777+00:00",
-      "updated_at": "2026-04-10T03:35:08.216777+00:00"
+      "updated_at": "2026-04-10T16:42:14.905482+00:00"
     },
     {
       "source": "solo",
       "target": "reconectarse",
       "type": "depends_on",
-      "weight": 0.7,
-      "context": "yo le llamdo darle ojos y manos al cerebro   donde Cebrebo=ML  ojos= lo que hicimos de las validacio",
+      "weight": 1.4,
+      "context": "pre-hook query",
       "created_at": "2026-04-10T03:39:23.118212+00:00",
-      "updated_at": "2026-04-10T03:39:23.118212+00:00"
+      "updated_at": "2026-04-10T16:42:14.778610+00:00"
     },
     {
       "source": "agente",
       "target": "herramientas",
       "type": "used_with",
-      "weight": 1.4,
+      "weight": 2.0999999999999996,
       "context": "pre-hook query",
       "created_at": "2026-04-10T15:31:00.555668+00:00",
-      "updated_at": "2026-04-10T15:31:00.617646+00:00"
+      "updated_at": "2026-04-10T16:42:14.847623+00:00"
     },
     {
       "source": "solo",
@@ -15813,51 +16517,3309 @@
       "source": "/.agen",
       "target": "project/.agen",
       "type": "used_with",
-      "weight": 0.5,
+      "weight": 1.0,
       "context": "pre-hook query",
       "created_at": "2026-04-10T15:31:01.207019+00:00",
-      "updated_at": "2026-04-10T15:31:01.207019+00:00"
+      "updated_at": "2026-04-10T16:42:18.721287+00:00"
     },
     {
       "source": "cerebro.py",
       "target": "CLAUDE.md",
       "type": "used_with",
-      "weight": 0.5,
-      "context": "que piensas de esto respecto a este proyecto cual seria la mejor estrategia: \"un agente de IA se pue",
+      "weight": 1.0,
+      "context": "pre-hook query",
       "created_at": "2026-04-10T15:33:07.226933+00:00",
-      "updated_at": "2026-04-10T15:33:07.226933+00:00"
+      "updated_at": "2026-04-10T16:42:18.787614+00:00"
     },
     {
       "source": "engine.py",
       "target": "CLAUDE.md",
       "type": "used_with",
-      "weight": 0.5,
-      "context": "que piensas de esto respecto a este proyecto cual seria la mejor estrategia: \"un agente de IA se pue",
+      "weight": 1.0,
+      "context": "pre-hook query",
       "created_at": "2026-04-10T15:33:07.278432+00:00",
-      "updated_at": "2026-04-10T15:33:07.278432+00:00"
+      "updated_at": "2026-04-10T16:42:18.803397+00:00"
     },
     {
       "source": "CLAUDE.md",
       "target": "business_rules.py",
       "type": "used_with",
-      "weight": 0.5,
-      "context": "que piensas de esto respecto a este proyecto cual seria la mejor estrategia: \"un agente de IA se pue",
+      "weight": 1.5,
+      "context": "pre-hook query",
       "created_at": "2026-04-10T15:33:07.378063+00:00",
-      "updated_at": "2026-04-10T15:33:07.378063+00:00"
+      "updated_at": "2026-04-10T16:42:19.157847+00:00"
     },
     {
       "source": "src.cere",
       "target": "propuesta.docx",
       "type": "used_with",
-      "weight": 0.5,
-      "context": "procede",
+      "weight": 1.0,
+      "context": "pre-hook query",
       "created_at": "2026-04-10T15:40:58.026405+00:00",
-      "updated_at": "2026-04-10T15:40:58.026405+00:00"
+      "updated_at": "2026-04-10T16:42:19.826844+00:00"
+    },
+    {
+      "source": "insert_table",
+      "target": "preferredwidthpercent",
+      "type": "used_with",
+      "weight": 0.7,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:14.817430+00:00",
+      "updated_at": "2026-04-10T16:42:14.817430+00:00"
+    },
+    {
+      "source": "que",
+      "target": "word_com.py",
+      "type": "used_with",
+      "weight": 0.7,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:14.832436+00:00",
+      "updated_at": "2026-04-10T16:42:14.832436+00:00"
+    },
+    {
+      "source": "actual",
+      "target": "call_tool",
+      "type": "used_with",
+      "weight": 0.7,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:14.890518+00:00",
+      "updated_at": "2026-04-10T16:42:14.890518+00:00"
+    },
+    {
+      "source": "word_com.py",
+      "target": "Table.Pref",
+      "type": "used_with",
+      "weight": 1.0,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:14.935155+00:00",
+      "updated_at": "2026-04-10T16:42:14.952981+00:00"
+    },
+    {
+      "source": "Table.Pref",
+      "target": "Table.Pref",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:14.968737+00:00",
+      "updated_at": "2026-04-10T16:42:14.968737+00:00"
+    },
+    {
+      "source": "Table.Pref",
+      "target": "src\\word_com.py",
+      "type": "used_with",
+      "weight": 1.0,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:14.983497+00:00",
+      "updated_at": "2026-04-10T16:42:15.000466+00:00"
+    },
+    {
+      "source": "Table.Pref",
+      "target": "table_range.Coll",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:15.035066+00:00",
+      "updated_at": "2026-04-10T16:42:15.035066+00:00"
+    },
+    {
+      "source": "src\\word_com.py",
+      "target": "table_range.Coll",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:15.048852+00:00",
+      "updated_at": "2026-04-10T16:42:15.050362+00:00"
+    },
+    {
+      "source": "table_range.Coll",
+      "target": "doc.Tabl",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:15.086595+00:00",
+      "updated_at": "2026-04-10T16:42:15.086595+00:00"
+    },
+    {
+      "source": "table_range.Coll",
+      "target": "es.Add",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:15.114856+00:00",
+      "updated_at": "2026-04-10T16:42:15.114856+00:00"
+    },
+    {
+      "source": "doc.Tabl",
+      "target": "es.Add",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:15.131469+00:00",
+      "updated_at": "2026-04-10T16:42:15.131469+00:00"
+    },
+    {
+      "source": "doc.Tabl",
+      "target": "wordmvp.com",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:15.145798+00:00",
+      "updated_at": "2026-04-10T16:42:15.145798+00:00"
+    },
+    {
+      "source": "es.Add",
+      "target": "wordmvp.com",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:15.158493+00:00",
+      "updated_at": "2026-04-10T16:42:15.158493+00:00"
+    },
+    {
+      "source": "es.Add",
+      "target": "table.Auto",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:15.175403+00:00",
+      "updated_at": "2026-04-10T16:42:15.175403+00:00"
+    },
+    {
+      "source": "wordmvp.com",
+      "target": "table.Auto",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:15.190587+00:00",
+      "updated_at": "2026-04-10T16:42:15.190587+00:00"
+    },
+    {
+      "source": "wordmvp.com",
+      "target": "table.Allo",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:15.223169+00:00",
+      "updated_at": "2026-04-10T16:42:15.223169+00:00"
+    },
+    {
+      "source": "table.Auto",
+      "target": "table.Allo",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:15.237715+00:00",
+      "updated_at": "2026-04-10T16:42:15.237715+00:00"
+    },
+    {
+      "source": "table.Auto",
+      "target": "table.Rows",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:15.264357+00:00",
+      "updated_at": "2026-04-10T16:42:15.264357+00:00"
+    },
+    {
+      "source": "table.Allo",
+      "target": "table.Rows",
+      "type": "used_with",
+      "weight": 1.0,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:15.281503+00:00",
+      "updated_at": "2026-04-10T16:42:15.294733+00:00"
+    },
+    {
+      "source": "table.Rows",
+      "target": "table.Rows",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:15.310395+00:00",
+      "updated_at": "2026-04-10T16:42:15.310395+00:00"
+    },
+    {
+      "source": "table.Rows",
+      "target": "src\\word_com.py",
+      "type": "used_with",
+      "weight": 1.0,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:15.328357+00:00",
+      "updated_at": "2026-04-10T16:42:15.343288+00:00"
+    },
+    {
+      "source": "table.Rows",
+      "target": "table.Pref",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:15.375767+00:00",
+      "updated_at": "2026-04-10T16:42:15.375767+00:00"
+    },
+    {
+      "source": "src\\word_com.py",
+      "target": "table.Pref",
+      "type": "used_with",
+      "weight": 1.0,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:15.394218+00:00",
+      "updated_at": "2026-04-10T16:42:15.410244+00:00"
+    },
+    {
+      "source": "table.Pref",
+      "target": "table.Pref",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:15.423561+00:00",
+      "updated_at": "2026-04-10T16:42:15.423561+00:00"
+    },
+    {
+      "source": "table.Pref",
+      "target": "table.Colu",
+      "type": "used_with",
+      "weight": 1.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:15.452563+00:00",
+      "updated_at": "2026-04-10T16:42:15.483385+00:00"
+    },
+    {
+      "source": "table.Colu",
+      "target": "table.Colu",
+      "type": "used_with",
+      "weight": 4.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:15.498507+00:00",
+      "updated_at": "2026-04-10T16:42:15.624413+00:00"
+    },
+    {
+      "source": "table.Colu",
+      "target": "src\\word_com.py",
+      "type": "used_with",
+      "weight": 1.0,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:15.644691+00:00",
+      "updated_at": "2026-04-10T16:42:15.659070+00:00"
+    },
+    {
+      "source": "table.Colu",
+      "target": "table.Auto",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:15.675812+00:00",
+      "updated_at": "2026-04-10T16:42:15.675812+00:00"
+    },
+    {
+      "source": "src\\word_com.py",
+      "target": "table.Auto",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:15.688435+00:00",
+      "updated_at": "2026-04-10T16:42:15.688435+00:00"
+    },
+    {
+      "source": "table.Auto",
+      "target": "doc.Tabl",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:15.720367+00:00",
+      "updated_at": "2026-04-10T16:42:15.720367+00:00"
+    },
+    {
+      "source": "table.Auto",
+      "target": "es.Coun",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:15.736514+00:00",
+      "updated_at": "2026-04-10T16:42:15.737525+00:00"
+    },
+    {
+      "source": "doc.Tabl",
+      "target": "src\\word_com.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:15.770487+00:00",
+      "updated_at": "2026-04-10T16:42:15.770487+00:00"
+    },
+    {
+      "source": "es.Coun",
+      "target": "src\\word_com.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:15.783594+00:00",
+      "updated_at": "2026-04-10T16:42:15.783594+00:00"
+    },
+    {
+      "source": "es.Coun",
+      "target": "self.doc",
+      "type": "used_with",
+      "weight": 1.0,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:15.798852+00:00",
+      "updated_at": "2026-04-10T16:42:16.071405+00:00"
+    },
+    {
+      "source": "es.Coun",
+      "target": "es.Coun",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:15.929390+00:00",
+      "updated_at": "2026-04-10T16:42:15.929390+00:00"
+    },
+    {
+      "source": "es.Coun",
+      "target": "break_map.get",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:16.100178+00:00",
+      "updated_at": "2026-04-10T16:42:16.100178+00:00"
+    },
+    {
+      "source": "self.doc",
+      "target": "break_map.get",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:16.121622+00:00",
+      "updated_at": "2026-04-10T16:42:16.121622+00:00"
+    },
+    {
+      "source": "break_map.get",
+      "target": "doc.Cont",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:16.156506+00:00",
+      "updated_at": "2026-04-10T16:42:16.156506+00:00"
+    },
+    {
+      "source": "break_map.get",
+      "target": "ent.Dupl",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:16.180553+00:00",
+      "updated_at": "2026-04-10T16:42:16.180553+00:00"
+    },
+    {
+      "source": "rng.Find",
+      "target": "find.Text",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:16.286271+00:00",
+      "updated_at": "2026-04-10T16:42:16.286271+00:00"
+    },
+    {
+      "source": "find.Clea",
+      "target": "find.Text",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:16.302185+00:00",
+      "updated_at": "2026-04-10T16:42:16.302185+00:00"
+    },
+    {
+      "source": "find.Clea",
+      "target": "find.Forw",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:16.323043+00:00",
+      "updated_at": "2026-04-10T16:42:16.323043+00:00"
+    },
+    {
+      "source": "find.Text",
+      "target": "find.Forw",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:16.338680+00:00",
+      "updated_at": "2026-04-10T16:42:16.338680+00:00"
+    },
+    {
+      "source": "find.Text",
+      "target": "find.Wrap",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:16.365736+00:00",
+      "updated_at": "2026-04-10T16:42:16.365736+00:00"
+    },
+    {
+      "source": "find.Wrap",
+      "target": "rng.Coll",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:16.439032+00:00",
+      "updated_at": "2026-04-10T16:42:16.439032+00:00"
+    },
+    {
+      "source": "find.Exec",
+      "target": "rng.Coll",
+      "type": "used_with",
+      "weight": 1.0,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:16.452248+00:00",
+      "updated_at": "2026-04-10T16:42:16.467438+00:00"
+    },
+    {
+      "source": "rng.Coll",
+      "target": "rng.Coll",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:16.481029+00:00",
+      "updated_at": "2026-04-10T16:42:16.481029+00:00"
+    },
+    {
+      "source": "rng.Coll",
+      "target": "doc.Rang",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:16.523476+00:00",
+      "updated_at": "2026-04-10T16:42:16.523476+00:00"
+    },
+    {
+      "source": "rng.Inse",
+      "target": "rng.Star",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:16.560148+00:00",
+      "updated_at": "2026-04-10T16:42:16.560148+00:00"
+    },
+    {
+      "source": "doc.Rang",
+      "target": "rng.Star",
+      "type": "used_with",
+      "weight": 1.0,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:16.573331+00:00",
+      "updated_at": "2026-04-10T16:42:16.584927+00:00"
+    },
+    {
+      "source": "rng.Star",
+      "target": "rng.Star",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:16.598300+00:00",
+      "updated_at": "2026-04-10T16:42:16.598300+00:00"
+    },
+    {
+      "source": "rng.Star",
+      "target": "new_rng.Info",
+      "type": "used_with",
+      "weight": 1.0,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:16.623550+00:00",
+      "updated_at": "2026-04-10T16:42:16.635123+00:00"
+    },
+    {
+      "source": "rng.Star",
+      "target": "orientation.lowe",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:16.660932+00:00",
+      "updated_at": "2026-04-10T16:42:16.660932+00:00"
+    },
+    {
+      "source": "new_rng.Info",
+      "target": "orientation.lowe",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:16.675111+00:00",
+      "updated_at": "2026-04-10T16:42:16.675111+00:00"
+    },
+    {
+      "source": "new_rng.Info",
+      "target": "doc.Sect",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:16.700400+00:00",
+      "updated_at": "2026-04-10T16:42:16.700400+00:00"
+    },
+    {
+      "source": "orientation.lowe",
+      "target": "doc.Sect",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:16.714364+00:00",
+      "updated_at": "2026-04-10T16:42:16.714364+00:00"
+    },
+    {
+      "source": "orientation.lowe",
+      "target": "PageSetup.Orie",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:16.742571+00:00",
+      "updated_at": "2026-04-10T16:42:16.742571+00:00"
+    },
+    {
+      "source": "doc.Sect",
+      "target": "PageSetup.Orie",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:16.754540+00:00",
+      "updated_at": "2026-04-10T16:42:16.754540+00:00"
+    },
+    {
+      "source": "doc.Sect",
+      "target": "doc.Sect",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:16.768185+00:00",
+      "updated_at": "2026-04-10T16:42:16.768185+00:00"
+    },
+    {
+      "source": "PageSetup.Orie",
+      "target": "doc.Sect",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:16.784912+00:00",
+      "updated_at": "2026-04-10T16:42:16.784912+00:00"
+    },
+    {
+      "source": "PageSetup.Orie",
+      "target": "ions.Coun",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:16.817389+00:00",
+      "updated_at": "2026-04-10T16:42:16.817389+00:00"
+    },
+    {
+      "source": "doc.Sect",
+      "target": "ions.Coun",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:16.834936+00:00",
+      "updated_at": "2026-04-10T16:42:16.834936+00:00"
+    },
+    {
+      "source": "doc.Sect",
+      "target": "src\\mcp_server.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:16.848736+00:00",
+      "updated_at": "2026-04-10T16:42:16.848736+00:00"
+    },
+    {
+      "source": "ions.Coun",
+      "target": "src\\mcp_server.py",
+      "type": "used_with",
+      "weight": 1.0,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:16.863465+00:00",
+      "updated_at": "2026-04-10T16:42:16.878395+00:00"
+    },
+    {
+      "source": "src\\mcp_server.py",
+      "target": "word.dete",
+      "type": "used_with",
+      "weight": 1.0,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:16.948640+00:00",
+      "updated_at": "2026-04-10T16:42:16.961224+00:00"
+    },
+    {
+      "source": "src\\mcp_server.py",
+      "target": "word.dele",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:16.992366+00:00",
+      "updated_at": "2026-04-10T16:42:16.992366+00:00"
+    },
+    {
+      "source": "word.dete",
+      "target": "word.dele",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:17.005728+00:00",
+      "updated_at": "2026-04-10T16:42:17.005728+00:00"
+    },
+    {
+      "source": "word.dete",
+      "target": "word.inse",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:17.016374+00:00",
+      "updated_at": "2026-04-10T16:42:17.016374+00:00"
+    },
+    {
+      "source": "word.dele",
+      "target": "word.inse",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:17.032348+00:00",
+      "updated_at": "2026-04-10T16:42:17.032348+00:00"
+    },
+    {
+      "source": "word.dele",
+      "target": "args.get",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:17.046351+00:00",
+      "updated_at": "2026-04-10T16:42:17.046351+00:00"
+    },
+    {
+      "source": "args.get",
+      "target": "word.chec",
+      "type": "used_with",
+      "weight": 1.0,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:17.145607+00:00",
+      "updated_at": "2026-04-10T16:42:17.164479+00:00"
+    },
+    {
+      "source": "args.get",
+      "target": "src\\mcp_server.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:17.177724+00:00",
+      "updated_at": "2026-04-10T16:42:17.177724+00:00"
+    },
+    {
+      "source": "word.chec",
+      "target": "src\\mcp_server.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:17.192415+00:00",
+      "updated_at": "2026-04-10T16:42:17.192415+00:00"
+    },
+    {
+      "source": "word.chec",
+      "target": "src.word",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:17.212188+00:00",
+      "updated_at": "2026-04-10T16:42:17.212188+00:00"
+    },
+    {
+      "source": "src\\mcp_server.py",
+      "target": "src.word",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:17.226478+00:00",
+      "updated_at": "2026-04-10T16:42:17.226478+00:00"
+    },
+    {
+      "source": "src\\mcp_server.py",
+      "target": "src.mcp_",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:17.240297+00:00",
+      "updated_at": "2026-04-10T16:42:17.240297+00:00"
+    },
+    {
+      "source": "src.word",
+      "target": "src.mcp_",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:17.250906+00:00",
+      "updated_at": "2026-04-10T16:42:17.250906+00:00"
+    },
+    {
+      "source": "src.word",
+      "target": "WINWORD.EXE",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:17.266519+00:00",
+      "updated_at": "2026-04-10T16:42:17.266519+00:00"
+    },
+    {
+      "source": "src.mcp_",
+      "target": "WINWORD.EXE",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:17.279298+00:00",
+      "updated_at": "2026-04-10T16:42:17.279298+00:00"
+    },
+    {
+      "source": "src.mcp_",
+      "target": "pruebas_reales/P01_Solo_Soporte.docx",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:17.306743+00:00",
+      "updated_at": "2026-04-10T16:42:17.306743+00:00"
+    },
+    {
+      "source": "WINWORD.EXE",
+      "target": "pruebas_reales/P01_Solo_Soporte.docx",
+      "type": "used_with",
+      "weight": 4.0,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:17.318823+00:00",
+      "updated_at": "2026-04-10T16:42:25.031314+00:00"
+    },
+    {
+      "source": "WINWORD.EXE",
+      "target": "test_output/TABLE_FIX_TEST.docx",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:17.345052+00:00",
+      "updated_at": "2026-04-10T16:42:17.345052+00:00"
+    },
+    {
+      "source": "pruebas_reales/P01_Solo_Soporte.docx",
+      "target": "test_output/TABLE_FIX_TEST.docx",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:17.357747+00:00",
+      "updated_at": "2026-04-10T16:42:17.357747+00:00"
+    },
+    {
+      "source": "pruebas_reales/P01_Solo_Soporte.docx",
+      "target": "subprocess.Pope",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:17.382684+00:00",
+      "updated_at": "2026-04-10T16:42:17.382684+00:00"
+    },
+    {
+      "source": "test_output/TABLE_FIX_TEST.docx",
+      "target": "subprocess.Pope",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:17.397664+00:00",
+      "updated_at": "2026-04-10T16:42:17.397664+00:00"
+    },
+    {
+      "source": "test_output/TABLE_FIX_TEST.docx",
+      "target": "test_output/TABLE_FIX_TEST.docx",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:17.412775+00:00",
+      "updated_at": "2026-04-10T16:42:17.412775+00:00"
+    },
+    {
+      "source": "subprocess.Pope",
+      "target": "test_output/TABLE_FIX_TEST.docx",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:17.424403+00:00",
+      "updated_at": "2026-04-10T16:42:17.424403+00:00"
+    },
+    {
+      "source": "subprocess.Pope",
+      "target": "src/word_com.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:17.436545+00:00",
+      "updated_at": "2026-04-10T16:42:17.436545+00:00"
+    },
+    {
+      "source": "test_output/TABLE_FIX_TEST.docx",
+      "target": "src/word_com.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:17.448742+00:00",
+      "updated_at": "2026-04-10T16:42:17.448742+00:00"
+    },
+    {
+      "source": "test_output/TABLE_FIX_TEST.docx",
+      "target": "src/mcp_server.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:17.460924+00:00",
+      "updated_at": "2026-04-10T16:42:17.460924+00:00"
+    },
+    {
+      "source": "src/mcp_server.py",
+      "target": "TABLE_FIX_TEST.docx",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:17.538723+00:00",
+      "updated_at": "2026-04-10T16:42:17.538723+00:00"
+    },
+    {
+      "source": "src/word_com.py",
+      "target": "TABLE_FIX_TEST.docx",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:17.550977+00:00",
+      "updated_at": "2026-04-10T16:42:17.550977+00:00"
+    },
+    {
+      "source": "src/word_com.py",
+      "target": "//learn.micr",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:17.564817+00:00",
+      "updated_at": "2026-04-10T16:42:17.564817+00:00"
+    },
+    {
+      "source": "TABLE_FIX_TEST.docx",
+      "target": "osoft.com",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:17.590185+00:00",
+      "updated_at": "2026-04-10T16:42:17.590185+00:00"
+    },
+    {
+      "source": "us/office/vba/api/word.tabl",
+      "target": "//learn.micr",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:17.669452+00:00",
+      "updated_at": "2026-04-10T16:42:17.669452+00:00"
+    },
+    {
+      "source": "e.auto",
+      "target": "osoft.com",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:17.695743+00:00",
+      "updated_at": "2026-04-10T16:42:17.695743+00:00"
+    },
+    {
+      "source": "spot.com",
+      "target": "194.2995",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:17.850294+00:00",
+      "updated_at": "2026-04-10T16:42:17.850294+00:00"
+    },
+    {
+      "source": "widths.html",
+      "target": "194.2995",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:17.864073+00:00",
+      "updated_at": "2026-04-10T16:42:17.864073+00:00"
+    },
+    {
+      "source": "widths.html",
+      "target": "58.66",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:17.877332+00:00",
+      "updated_at": "2026-04-10T16:42:17.877332+00:00"
+    },
+    {
+      "source": "194.2995",
+      "target": "CLAUDE.md",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:17.906959+00:00",
+      "updated_at": "2026-04-10T16:42:17.906959+00:00"
+    },
+    {
+      "source": "58.66",
+      "target": "CLAUDE.md",
+      "type": "used_with",
+      "weight": 1.0,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:17.918549+00:00",
+      "updated_at": "2026-04-10T16:42:17.934343+00:00"
+    },
+    {
+      "source": "CLAUDE.md",
+      "target": "/Chance1/CLAUDE.md",
+      "type": "used_with",
+      "weight": 1.0,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:17.974918+00:00",
+      "updated_at": "2026-04-10T16:42:17.988500+00:00"
+    },
+    {
+      "source": "CLAUDE.md",
+      "target": "//code.clau",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:18.001949+00:00",
+      "updated_at": "2026-04-10T16:42:18.002594+00:00"
+    },
+    {
+      "source": "/Chance1/CLAUDE.md",
+      "target": "//code.clau",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:18.014761+00:00",
+      "updated_at": "2026-04-10T16:42:18.014761+00:00"
+    },
+    {
+      "source": "/Chance1/CLAUDE.md",
+      "target": "de.com",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:18.026866+00:00",
+      "updated_at": "2026-04-10T16:42:18.026866+00:00"
+    },
+    {
+      "source": "de.com",
+      "target": "CLAUDE.md",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:18.135003+00:00",
+      "updated_at": "2026-04-10T16:42:18.135003+00:00"
+    },
+    {
+      "source": "//deepwiki.com",
+      "target": "CLAUDE.md",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:18.146595+00:00",
+      "updated_at": "2026-04-10T16:42:18.146595+00:00"
+    },
+    {
+      "source": "//deepwiki.com",
+      "target": "mcp_server.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:18.158258+00:00",
+      "updated_at": "2026-04-10T16:42:18.158258+00:00"
+    },
+    {
+      "source": "CLAUDE.md",
+      "target": "word_com.py",
+      "type": "used_with",
+      "weight": 3.0,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:18.338409+00:00",
+      "updated_at": "2026-04-10T16:42:18.490804+00:00"
+    },
+    {
+      "source": "word_com.py",
+      "target": "CLAUDE.md",
+      "type": "used_with",
+      "weight": 2.0,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:18.377530+00:00",
+      "updated_at": "2026-04-10T16:42:19.118696+00:00"
+    },
+    {
+      "source": "word_com.py",
+      "target": "cerebro.py",
+      "type": "used_with",
+      "weight": 1.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:18.583340+00:00",
+      "updated_at": "2026-04-10T16:42:19.302305+00:00"
+    },
+    {
+      "source": "cerebro.py",
+      "target": "cerebro.py",
+      "type": "used_with",
+      "weight": 3.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:18.612254+00:00",
+      "updated_at": "2026-04-10T16:42:19.339534+00:00"
+    },
+    {
+      "source": "cerebro.py",
+      "target": "/.agen",
+      "type": "used_with",
+      "weight": 1.0,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:18.683388+00:00",
+      "updated_at": "2026-04-10T16:42:18.696498+00:00"
+    },
+    {
+      "source": "cerebro.py",
+      "target": "project/.agen",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:18.709374+00:00",
+      "updated_at": "2026-04-10T16:42:18.709374+00:00"
+    },
+    {
+      "source": "/.agen",
+      "target": "cerebro.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:18.735559+00:00",
+      "updated_at": "2026-04-10T16:42:18.735559+00:00"
+    },
+    {
+      "source": "project/.agen",
+      "target": "cerebro.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:18.748280+00:00",
+      "updated_at": "2026-04-10T16:42:18.748280+00:00"
+    },
+    {
+      "source": "project/.agen",
+      "target": "engine.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:18.761002+00:00",
+      "updated_at": "2026-04-10T16:42:18.761002+00:00"
+    },
+    {
+      "source": "CLAUDE.md",
+      "target": "word_com.open",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:18.857306+00:00",
+      "updated_at": "2026-04-10T16:42:18.857306+00:00"
+    },
+    {
+      "source": "business_rules.py",
+      "target": "word_com.open",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:18.870478+00:00",
+      "updated_at": "2026-04-10T16:42:18.870478+00:00"
+    },
+    {
+      "source": "business_rules.py",
+      "target": "word_com.inse",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:18.897708+00:00",
+      "updated_at": "2026-04-10T16:42:18.897708+00:00"
+    },
+    {
+      "source": "word_com.open",
+      "target": "word_com.inse",
+      "type": "used_with",
+      "weight": 1.0,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:18.910313+00:00",
+      "updated_at": "2026-04-10T16:42:19.413342+00:00"
+    },
+    {
+      "source": "word_com.open",
+      "target": "doc_eyes.rend",
+      "type": "used_with",
+      "weight": 1.0,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:18.938673+00:00",
+      "updated_at": "2026-04-10T16:42:19.425935+00:00"
+    },
+    {
+      "source": "word_com.inse",
+      "target": "doc_eyes.rend",
+      "type": "used_with",
+      "weight": 1.0,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:18.951621+00:00",
+      "updated_at": "2026-04-10T16:42:19.439224+00:00"
+    },
+    {
+      "source": "word_com.inse",
+      "target": "word_com.save",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:18.983460+00:00",
+      "updated_at": "2026-04-10T16:42:18.983460+00:00"
+    },
+    {
+      "source": "doc_eyes.rend",
+      "target": "word_com.save",
+      "type": "used_with",
+      "weight": 1.0,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:18.999646+00:00",
+      "updated_at": "2026-04-10T16:42:19.562162+00:00"
+    },
+    {
+      "source": "doc_eyes.rend",
+      "target": "cerebro.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:19.012278+00:00",
+      "updated_at": "2026-04-10T16:42:19.012278+00:00"
+    },
+    {
+      "source": "word_com.save",
+      "target": "cerebro.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:19.024898+00:00",
+      "updated_at": "2026-04-10T16:42:19.024898+00:00"
+    },
+    {
+      "source": "word_com.save",
+      "target": "engine.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:19.039479+00:00",
+      "updated_at": "2026-04-10T16:42:19.039479+00:00"
+    },
+    {
+      "source": "cerebro.py",
+      "target": "word_com.py",
+      "type": "used_with",
+      "weight": 1.0,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:19.067722+00:00",
+      "updated_at": "2026-04-10T16:42:19.263310+00:00"
+    },
+    {
+      "source": "doc_eyes.py",
+      "target": "CLAUDE.md",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:19.133660+00:00",
+      "updated_at": "2026-04-10T16:42:19.133660+00:00"
+    },
+    {
+      "source": "CLAUDE.md",
+      "target": "cerebro.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:19.172927+00:00",
+      "updated_at": "2026-04-10T16:42:19.172927+00:00"
+    },
+    {
+      "source": "cerebro.py",
+      "target": "doc_eyes.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:19.275536+00:00",
+      "updated_at": "2026-04-10T16:42:19.275536+00:00"
+    },
+    {
+      "source": "cerebro.py",
+      "target": "propuesta.docx",
+      "type": "used_with",
+      "weight": 1.0,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:19.351244+00:00",
+      "updated_at": "2026-04-10T16:42:19.364273+00:00"
+    },
+    {
+      "source": "cerebro.py",
+      "target": "word_com.open",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:19.375711+00:00",
+      "updated_at": "2026-04-10T16:42:19.375711+00:00"
+    },
+    {
+      "source": "propuesta.docx",
+      "target": "word_com.open",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:19.386342+00:00",
+      "updated_at": "2026-04-10T16:42:19.386342+00:00"
+    },
+    {
+      "source": "propuesta.docx",
+      "target": "word_com.inse",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:19.400386+00:00",
+      "updated_at": "2026-04-10T16:42:19.400386+00:00"
+    },
+    {
+      "source": "word_com.inse",
+      "target": "foto.png",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:19.463285+00:00",
+      "updated_at": "2026-04-10T16:42:19.463285+00:00"
+    },
+    {
+      "source": "doc_eyes.rend",
+      "target": "foto.png",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:19.476344+00:00",
+      "updated_at": "2026-04-10T16:42:19.476344+00:00"
+    },
+    {
+      "source": "doc_eyes.rend",
+      "target": "doc_eyes.rend",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:19.488753+00:00",
+      "updated_at": "2026-04-10T16:42:19.488753+00:00"
+    },
+    {
+      "source": "foto.png",
+      "target": "doc_eyes.rend",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:19.505183+00:00",
+      "updated_at": "2026-04-10T16:42:19.505183+00:00"
+    },
+    {
+      "source": "foto.png",
+      "target": "foto2.png",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:19.532594+00:00",
+      "updated_at": "2026-04-10T16:42:19.532594+00:00"
+    },
+    {
+      "source": "doc_eyes.rend",
+      "target": "foto2.png",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:19.548262+00:00",
+      "updated_at": "2026-04-10T16:42:19.548262+00:00"
+    },
+    {
+      "source": "foto2.png",
+      "target": "word_com.save",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:19.576701+00:00",
+      "updated_at": "2026-04-10T16:42:19.576701+00:00"
+    },
+    {
+      "source": "foto2.png",
+      "target": "word_com.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:19.589548+00:00",
+      "updated_at": "2026-04-10T16:42:19.589548+00:00"
+    },
+    {
+      "source": "word_com.save",
+      "target": "word_com.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:19.604809+00:00",
+      "updated_at": "2026-04-10T16:42:19.604809+00:00"
+    },
+    {
+      "source": "word_com.save",
+      "target": "src\\cerebro_v2.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:19.629033+00:00",
+      "updated_at": "2026-04-10T16:42:19.629033+00:00"
+    },
+    {
+      "source": "word_com.py",
+      "target": "src\\cerebro_v2.py",
+      "type": "used_with",
+      "weight": 1.0,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:19.644941+00:00",
+      "updated_at": "2026-04-10T16:42:19.657655+00:00"
+    },
+    {
+      "source": "src\\cerebro_v2.py",
+      "target": "src\\cerebro_v2.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:19.673374+00:00",
+      "updated_at": "2026-04-10T16:42:19.673374+00:00"
+    },
+    {
+      "source": "src\\cerebro_v2.py",
+      "target": "src.cere",
+      "type": "used_with",
+      "weight": 1.0,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:19.685003+00:00",
+      "updated_at": "2026-04-10T16:42:19.699641+00:00"
+    },
+    {
+      "source": "src\\cerebro_v2.py",
+      "target": "src/cerebro_v2.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:19.727967+00:00",
+      "updated_at": "2026-04-10T16:42:19.727967+00:00"
+    },
+    {
+      "source": "src.cere",
+      "target": "src/cerebro_v2.py",
+      "type": "used_with",
+      "weight": 1.0,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:19.744681+00:00",
+      "updated_at": "2026-04-10T16:42:19.757286+00:00"
+    },
+    {
+      "source": "src/cerebro_v2.py",
+      "target": "src/cerebro_v2.py",
+      "type": "used_with",
+      "weight": 1.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:19.772251+00:00",
+      "updated_at": "2026-04-10T16:42:27.135102+00:00"
+    },
+    {
+      "source": "src/cerebro_v2.py",
+      "target": "src.cere",
+      "type": "used_with",
+      "weight": 1.0,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:19.784435+00:00",
+      "updated_at": "2026-04-10T16:42:19.798802+00:00"
+    },
+    {
+      "source": "src/cerebro_v2.py",
+      "target": "propuesta.docx",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:19.814451+00:00",
+      "updated_at": "2026-04-10T16:42:19.814451+00:00"
+    },
+    {
+      "source": "src.cere",
+      "target": "pruebas_reales/P01_Solo_Soporte.docx",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:19.841433+00:00",
+      "updated_at": "2026-04-10T16:42:19.841433+00:00"
+    },
+    {
+      "source": "propuesta.docx",
+      "target": "pruebas_reales/P01_Solo_Soporte.docx",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:19.854575+00:00",
+      "updated_at": "2026-04-10T16:42:19.854575+00:00"
+    },
+    {
+      "source": "propuesta.docx",
+      "target": "test_output/CEREBRO_TEST.docx",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:19.882203+00:00",
+      "updated_at": "2026-04-10T16:42:19.882203+00:00"
+    },
+    {
+      "source": "pruebas_reales/P01_Solo_Soporte.docx",
+      "target": "test_output/CEREBRO_TEST.docx",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:19.894903+00:00",
+      "updated_at": "2026-04-10T16:42:19.894903+00:00"
+    },
+    {
+      "source": "pruebas_reales/P01_Solo_Soporte.docx",
+      "target": "src.cere",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:19.910524+00:00",
+      "updated_at": "2026-04-10T16:42:19.910524+00:00"
+    },
+    {
+      "source": "test_output/CEREBRO_TEST.docx",
+      "target": "src.cere",
+      "type": "used_with",
+      "weight": 1.0,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:19.924946+00:00",
+      "updated_at": "2026-04-10T16:42:20.006418+00:00"
+    },
+    {
+      "source": "test_output/CEREBRO_TEST.docx",
+      "target": "test_output/CEREBRO_TEST.docx",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:19.936583+00:00",
+      "updated_at": "2026-04-10T16:42:19.936583+00:00"
+    },
+    {
+      "source": "src.cere",
+      "target": "test_output/CEREBRO_TEST.docx",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:19.948684+00:00",
+      "updated_at": "2026-04-10T16:42:19.948684+00:00"
+    },
+    {
+      "source": "src.cere",
+      "target": "CEREBRO_TEST.docx",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:19.976552+00:00",
+      "updated_at": "2026-04-10T16:42:19.976552+00:00"
+    },
+    {
+      "source": "test_output/CEREBRO_TEST.docx",
+      "target": "CEREBRO_TEST.docx",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:19.991199+00:00",
+      "updated_at": "2026-04-10T16:42:19.991199+00:00"
+    },
+    {
+      "source": "CEREBRO_TEST.docx",
+      "target": "src.cere",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:20.019178+00:00",
+      "updated_at": "2026-04-10T16:42:20.019178+00:00"
+    },
+    {
+      "source": "CEREBRO_TEST.docx",
+      "target": "response.get",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:20.048287+00:00",
+      "updated_at": "2026-04-10T16:42:20.049288+00:00"
+    },
+    {
+      "source": "src.cere",
+      "target": "response.get",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:20.062318+00:00",
+      "updated_at": "2026-04-10T16:42:20.062318+00:00"
+    },
+    {
+      "source": "src.cere",
+      "target": "src\\cerebro_v2.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:20.076379+00:00",
+      "updated_at": "2026-04-10T16:42:20.076379+00:00"
+    },
+    {
+      "source": "response.get",
+      "target": "src\\cerebro_v2.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:20.088641+00:00",
+      "updated_at": "2026-04-10T16:42:20.088641+00:00"
+    },
+    {
+      "source": "response.get",
+      "target": "response.get",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:20.104192+00:00",
+      "updated_at": "2026-04-10T16:42:20.104192+00:00"
+    },
+    {
+      "source": "src\\cerebro_v2.py",
+      "target": "response.get",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:20.116775+00:00",
+      "updated_at": "2026-04-10T16:42:20.116775+00:00"
+    },
+    {
+      "source": "src\\cerebro_v2.py",
+      "target": "raw.find",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:20.143423+00:00",
+      "updated_at": "2026-04-10T16:42:20.143423+00:00"
+    },
+    {
+      "source": "response.get",
+      "target": "raw.find",
+      "type": "used_with",
+      "weight": 1.0,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:20.157516+00:00",
+      "updated_at": "2026-04-10T16:42:20.338778+00:00"
+    },
+    {
+      "source": "response.get",
+      "target": "raw.rfin",
+      "type": "used_with",
+      "weight": 1.0,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:20.185043+00:00",
+      "updated_at": "2026-04-10T16:42:20.355488+00:00"
+    },
+    {
+      "source": "raw.find",
+      "target": "raw.rfin",
+      "type": "used_with",
+      "weight": 1.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:20.200053+00:00",
+      "updated_at": "2026-04-10T16:42:20.459506+00:00"
+    },
+    {
+      "source": "raw.find",
+      "target": "json.load",
+      "type": "used_with",
+      "weight": 1.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:20.225627+00:00",
+      "updated_at": "2026-04-10T16:42:20.473252+00:00"
+    },
+    {
+      "source": "raw.rfin",
+      "target": "json.load",
+      "type": "used_with",
+      "weight": 1.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:20.240282+00:00",
+      "updated_at": "2026-04-10T16:42:20.486374+00:00"
+    },
+    {
+      "source": "raw.rfin",
+      "target": "json.JSON",
+      "type": "used_with",
+      "weight": 1.0,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:20.268095+00:00",
+      "updated_at": "2026-04-10T16:42:20.502295+00:00"
+    },
+    {
+      "source": "json.load",
+      "target": "json.JSON",
+      "type": "used_with",
+      "weight": 1.0,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:20.282206+00:00",
+      "updated_at": "2026-04-10T16:42:20.516419+00:00"
+    },
+    {
+      "source": "json.load",
+      "target": "response.get",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:20.297422+00:00",
+      "updated_at": "2026-04-10T16:42:20.297422+00:00"
+    },
+    {
+      "source": "json.JSON",
+      "target": "response.get",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:20.311069+00:00",
+      "updated_at": "2026-04-10T16:42:20.311069+00:00"
+    },
+    {
+      "source": "json.JSON",
+      "target": "raw.find",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:20.324562+00:00",
+      "updated_at": "2026-04-10T16:42:20.324562+00:00"
+    },
+    {
+      "source": "raw.rfin",
+      "target": "raw.find",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:20.415004+00:00",
+      "updated_at": "2026-04-10T16:42:20.415004+00:00"
+    },
+    {
+      "source": "json.load",
+      "target": "raw.find",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:20.431727+00:00",
+      "updated_at": "2026-04-10T16:42:20.431727+00:00"
+    },
+    {
+      "source": "json.load",
+      "target": "raw.rfin",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:20.446916+00:00",
+      "updated_at": "2026-04-10T16:42:20.446916+00:00"
+    },
+    {
+      "source": "json.load",
+      "target": "log.warn",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:20.547514+00:00",
+      "updated_at": "2026-04-10T16:42:20.547514+00:00"
+    },
+    {
+      "source": "json.JSON",
+      "target": "log.warn",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:20.560165+00:00",
+      "updated_at": "2026-04-10T16:42:20.560165+00:00"
+    },
+    {
+      "source": "json.JSON",
+      "target": "WINWORD.EXE",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:20.574910+00:00",
+      "updated_at": "2026-04-10T16:42:20.574910+00:00"
+    },
+    {
+      "source": "log.warn",
+      "target": "WINWORD.EXE",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:20.588633+00:00",
+      "updated_at": "2026-04-10T16:42:20.588633+00:00"
+    },
+    {
+      "source": "log.warn",
+      "target": "pruebas_reales/P01_Solo_Soporte.docx",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:20.604907+00:00",
+      "updated_at": "2026-04-10T16:42:20.604907+00:00"
+    },
+    {
+      "source": "WINWORD.EXE",
+      "target": "test_output/CEREBRO_TEST2.docâ",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:20.650414+00:00",
+      "updated_at": "2026-04-10T16:42:20.650414+00:00"
+    },
+    {
+      "source": "pruebas_reales/P01_Solo_Soporte.docx",
+      "target": "test_output/CEREBRO_TEST2.docâ",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:20.666633+00:00",
+      "updated_at": "2026-04-10T16:42:20.666633+00:00"
+    },
+    {
+      "source": "pruebas_reales/P01_Solo_Soporte.docx",
+      "target": "WINWORD.EXE",
+      "type": "used_with",
+      "weight": 3.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:20.680366+00:00",
+      "updated_at": "2026-04-10T16:42:25.083723+00:00"
+    },
+    {
+      "source": "test_output/CEREBRO_TEST2.docâ",
+      "target": "WINWORD.EXE",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:20.694543+00:00",
+      "updated_at": "2026-04-10T16:42:20.694543+00:00"
+    },
+    {
+      "source": "test_output/CEREBRO_TEST2.docâ",
+      "target": "CEREBRO_TEST2.docx",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:20.724717+00:00",
+      "updated_at": "2026-04-10T16:42:20.724717+00:00"
+    },
+    {
+      "source": "WINWORD.EXE",
+      "target": "CEREBRO_TEST2.docx",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:20.741522+00:00",
+      "updated_at": "2026-04-10T16:42:20.741522+00:00"
+    },
+    {
+      "source": "WINWORD.EXE",
+      "target": "src\\cerebro_v2.py",
+      "type": "used_with",
+      "weight": 2.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:20.756404+00:00",
+      "updated_at": "2026-04-10T16:42:25.774964+00:00"
+    },
+    {
+      "source": "CEREBRO_TEST2.docx",
+      "target": "src\\cerebro_v2.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:20.772270+00:00",
+      "updated_at": "2026-04-10T16:42:20.772270+00:00"
+    },
+    {
+      "source": "CEREBRO_TEST2.docx",
+      "target": "WINWORD.EXE",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:20.785207+00:00",
+      "updated_at": "2026-04-10T16:42:20.785207+00:00"
+    },
+    {
+      "source": "src\\cerebro_v2.py",
+      "target": "WINWORD.EXE",
+      "type": "used_with",
+      "weight": 1.0,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:20.798757+00:00",
+      "updated_at": "2026-04-10T16:42:21.011004+00:00"
+    },
+    {
+      "source": "src\\cerebro_v2.py",
+      "target": "pruebas_reales/P01_Solo_Soporte.docx",
+      "type": "used_with",
+      "weight": 1.0,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:20.813350+00:00",
+      "updated_at": "2026-04-10T16:42:21.026198+00:00"
+    },
+    {
+      "source": "WINWORD.EXE",
+      "target": "test_output/CEREBRO_TEST3.docâ",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:20.859093+00:00",
+      "updated_at": "2026-04-10T16:42:20.859093+00:00"
+    },
+    {
+      "source": "pruebas_reales/P01_Solo_Soporte.docx",
+      "target": "test_output/CEREBRO_TEST3.docâ",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:20.874941+00:00",
+      "updated_at": "2026-04-10T16:42:20.874941+00:00"
+    },
+    {
+      "source": "test_output/CEREBRO_TEST3.docâ",
+      "target": "WINWORD.EXE",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:20.903321+00:00",
+      "updated_at": "2026-04-10T16:42:20.903321+00:00"
+    },
+    {
+      "source": "test_output/CEREBRO_TEST3.docâ",
+      "target": "CEREBRO_TEST3.docx",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:20.933591+00:00",
+      "updated_at": "2026-04-10T16:42:20.933591+00:00"
+    },
+    {
+      "source": "WINWORD.EXE",
+      "target": "CEREBRO_TEST3.docx",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:20.948886+00:00",
+      "updated_at": "2026-04-10T16:42:20.948886+00:00"
+    },
+    {
+      "source": "CEREBRO_TEST3.docx",
+      "target": "src\\cerebro_v2.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:20.982444+00:00",
+      "updated_at": "2026-04-10T16:42:20.982444+00:00"
+    },
+    {
+      "source": "CEREBRO_TEST3.docx",
+      "target": "WINWORD.EXE",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:20.996414+00:00",
+      "updated_at": "2026-04-10T16:42:20.996414+00:00"
+    },
+    {
+      "source": "WINWORD.EXE",
+      "target": "test_output/CEREBRO_TEST4.docâ",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:21.074227+00:00",
+      "updated_at": "2026-04-10T16:42:21.074739+00:00"
+    },
+    {
+      "source": "pruebas_reales/P01_Solo_Soporte.docx",
+      "target": "test_output/CEREBRO_TEST4.docâ",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:21.089350+00:00",
+      "updated_at": "2026-04-10T16:42:21.089350+00:00"
+    },
+    {
+      "source": "test_output/CEREBRO_TEST4.docâ",
+      "target": "WINWORD.EXE",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:21.118519+00:00",
+      "updated_at": "2026-04-10T16:42:21.118519+00:00"
+    },
+    {
+      "source": "test_output/CEREBRO_TEST4.docâ",
+      "target": "CEREBRO_TEST4.docx",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:21.148671+00:00",
+      "updated_at": "2026-04-10T16:42:21.148671+00:00"
+    },
+    {
+      "source": "WINWORD.EXE",
+      "target": "CEREBRO_TEST4.docx",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:21.164795+00:00",
+      "updated_at": "2026-04-10T16:42:21.164795+00:00"
+    },
+    {
+      "source": "CEREBRO_TEST4.docx",
+      "target": "src\\cerebro_v2.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:21.193274+00:00",
+      "updated_at": "2026-04-10T16:42:21.193274+00:00"
+    },
+    {
+      "source": "CEREBRO_TEST4.docx",
+      "target": "os.envi",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:21.222493+00:00",
+      "updated_at": "2026-04-10T16:42:21.222493+00:00"
+    },
+    {
+      "source": "src\\cerebro_v2.py",
+      "target": "os.envi",
+      "type": "used_with",
+      "weight": 1.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:21.238761+00:00",
+      "updated_at": "2026-04-10T16:42:22.082417+00:00"
+    },
+    {
+      "source": "src\\cerebro_v2.py",
+      "target": "ron.copy",
+      "type": "used_with",
+      "weight": 1.0,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:21.268948+00:00",
+      "updated_at": "2026-04-10T16:42:21.758019+00:00"
+    },
+    {
+      "source": "os.envi",
+      "target": "ron.copy",
+      "type": "used_with",
+      "weight": 1.0,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:21.284699+00:00",
+      "updated_at": "2026-04-10T16:42:21.773603+00:00"
+    },
+    {
+      "source": "os.envi",
+      "target": "subprocess.Pope",
+      "type": "used_with",
+      "weight": 1.0,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:21.300837+00:00",
+      "updated_at": "2026-04-10T16:42:21.934558+00:00"
+    },
+    {
+      "source": "ron.copy",
+      "target": "subprocess.Pope",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:21.316460+00:00",
+      "updated_at": "2026-04-10T16:42:21.316460+00:00"
+    },
+    {
+      "source": "ron.copy",
+      "target": "src\\cerebro_v2.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:21.332928+00:00",
+      "updated_at": "2026-04-10T16:42:21.332928+00:00"
+    },
+    {
+      "source": "subprocess.Pope",
+      "target": "src\\cerebro_v2.py",
+      "type": "used_with",
+      "weight": 1.0,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:21.349537+00:00",
+      "updated_at": "2026-04-10T16:42:22.008161+00:00"
+    },
+    {
+      "source": "subprocess.Pope",
+      "target": "subprocess.CREA",
+      "type": "used_with",
+      "weight": 1.0,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:21.382634+00:00",
+      "updated_at": "2026-04-10T16:42:22.363318+00:00"
+    },
+    {
+      "source": "src\\cerebro_v2.py",
+      "target": "subprocess.CREA",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:21.400365+00:00",
+      "updated_at": "2026-04-10T16:42:21.400365+00:00"
+    },
+    {
+      "source": "src\\cerebro_v2.py",
+      "target": "os.name",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:21.431755+00:00",
+      "updated_at": "2026-04-10T16:42:21.431755+00:00"
+    },
+    {
+      "source": "subprocess.CREA",
+      "target": "os.name",
+      "type": "used_with",
+      "weight": 1.0,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:21.446285+00:00",
+      "updated_at": "2026-04-10T16:42:22.430270+00:00"
+    },
+    {
+      "source": "subprocess.CREA",
+      "target": "proc.comm",
+      "type": "used_with",
+      "weight": 1.0,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:21.477274+00:00",
+      "updated_at": "2026-04-10T16:42:22.454918+00:00"
+    },
+    {
+      "source": "os.name",
+      "target": "proc.comm",
+      "type": "used_with",
+      "weight": 1.0,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:21.492363+00:00",
+      "updated_at": "2026-04-10T16:42:22.477180+00:00"
+    },
+    {
+      "source": "os.name",
+      "target": "WINWORD.EXE",
+      "type": "used_with",
+      "weight": 1.0,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:21.507745+00:00",
+      "updated_at": "2026-04-10T16:42:22.500212+00:00"
+    },
+    {
+      "source": "proc.comm",
+      "target": "WINWORD.EXE",
+      "type": "used_with",
+      "weight": 1.0,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:21.521192+00:00",
+      "updated_at": "2026-04-10T16:42:22.526349+00:00"
+    },
+    {
+      "source": "proc.comm",
+      "target": "pruebas_reales/P01_Solo_Soporte.docx",
+      "type": "used_with",
+      "weight": 1.0,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:21.537786+00:00",
+      "updated_at": "2026-04-10T16:42:22.550258+00:00"
+    },
+    {
+      "source": "WINWORD.EXE",
+      "target": "test_output/CEREBRO_TEST5.docâ",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:21.582740+00:00",
+      "updated_at": "2026-04-10T16:42:21.582740+00:00"
+    },
+    {
+      "source": "pruebas_reales/P01_Solo_Soporte.docx",
+      "target": "test_output/CEREBRO_TEST5.docâ",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:21.598238+00:00",
+      "updated_at": "2026-04-10T16:42:21.598238+00:00"
+    },
+    {
+      "source": "test_output/CEREBRO_TEST5.docâ",
+      "target": "WINWORD.EXE",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:21.630277+00:00",
+      "updated_at": "2026-04-10T16:42:21.630277+00:00"
+    },
+    {
+      "source": "test_output/CEREBRO_TEST5.docâ",
+      "target": "CEREBRO_TEST5.docx",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:21.660474+00:00",
+      "updated_at": "2026-04-10T16:42:21.660474+00:00"
+    },
+    {
+      "source": "WINWORD.EXE",
+      "target": "CEREBRO_TEST5.docx",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:21.677810+00:00",
+      "updated_at": "2026-04-10T16:42:21.677810+00:00"
+    },
+    {
+      "source": "CEREBRO_TEST5.docx",
+      "target": "src\\cerebro_v2.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:21.709558+00:00",
+      "updated_at": "2026-04-10T16:42:21.709558+00:00"
+    },
+    {
+      "source": "CEREBRO_TEST5.docx",
+      "target": "os.envi",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:21.725182+00:00",
+      "updated_at": "2026-04-10T16:42:21.725182+00:00"
+    },
+    {
+      "source": "os.envi",
+      "target": "os.path",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:21.787691+00:00",
+      "updated_at": "2026-04-10T16:42:21.787691+00:00"
+    },
+    {
+      "source": "ron.copy",
+      "target": "os.path",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:21.803392+00:00",
+      "updated_at": "2026-04-10T16:42:21.803392+00:00"
+    },
+    {
+      "source": "ron.copy",
+      "target": "os.envi",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:21.818598+00:00",
+      "updated_at": "2026-04-10T16:42:21.818598+00:00"
+    },
+    {
+      "source": "os.path",
+      "target": "os.envi",
+      "type": "used_with",
+      "weight": 1.0,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:21.837616+00:00",
+      "updated_at": "2026-04-10T16:42:22.106685+00:00"
+    },
+    {
+      "source": "os.path",
+      "target": "ron.get",
+      "type": "used_with",
+      "weight": 1.0,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:21.871749+00:00",
+      "updated_at": "2026-04-10T16:42:22.126306+00:00"
+    },
+    {
+      "source": "os.envi",
+      "target": "ron.get",
+      "type": "used_with",
+      "weight": 2.0,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:21.902551+00:00",
+      "updated_at": "2026-04-10T16:42:24.810455+00:00"
+    },
+    {
+      "source": "ron.get",
+      "target": "subprocess.Pope",
+      "type": "used_with",
+      "weight": 1.0,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:21.959606+00:00",
+      "updated_at": "2026-04-10T16:42:22.240972+00:00"
+    },
+    {
+      "source": "ron.get",
+      "target": "src\\cerebro_v2.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:21.983369+00:00",
+      "updated_at": "2026-04-10T16:42:21.983369+00:00"
+    },
+    {
+      "source": "subprocess.Pope",
+      "target": "os.path",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:22.032553+00:00",
+      "updated_at": "2026-04-10T16:42:22.032553+00:00"
+    },
+    {
+      "source": "src\\cerebro_v2.py",
+      "target": "os.path",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:22.055102+00:00",
+      "updated_at": "2026-04-10T16:42:22.055102+00:00"
+    },
+    {
+      "source": "os.envi",
+      "target": "os.make",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:22.196519+00:00",
+      "updated_at": "2026-04-10T16:42:22.196519+00:00"
+    },
+    {
+      "source": "ron.get",
+      "target": "os.make",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:22.218040+00:00",
+      "updated_at": "2026-04-10T16:42:22.218040+00:00"
+    },
+    {
+      "source": "os.make",
+      "target": "subprocess.Pope",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:22.264829+00:00",
+      "updated_at": "2026-04-10T16:42:22.264829+00:00"
+    },
+    {
+      "source": "os.make",
+      "target": "subprocess.PIPE",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:22.314338+00:00",
+      "updated_at": "2026-04-10T16:42:22.314338+00:00"
+    },
+    {
+      "source": "subprocess.Pope",
+      "target": "subprocess.PIPE",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:22.339472+00:00",
+      "updated_at": "2026-04-10T16:42:22.339472+00:00"
+    },
+    {
+      "source": "subprocess.PIPE",
+      "target": "subprocess.CREA",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:22.387566+00:00",
+      "updated_at": "2026-04-10T16:42:22.387566+00:00"
+    },
+    {
+      "source": "subprocess.PIPE",
+      "target": "os.name",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:22.410667+00:00",
+      "updated_at": "2026-04-10T16:42:22.410667+00:00"
+    },
+    {
+      "source": "WINWORD.EXE",
+      "target": "test_output/CEREBRO_TEST6.docâ",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:22.626304+00:00",
+      "updated_at": "2026-04-10T16:42:22.626304+00:00"
+    },
+    {
+      "source": "pruebas_reales/P01_Solo_Soporte.docx",
+      "target": "test_output/CEREBRO_TEST6.docâ",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:22.652115+00:00",
+      "updated_at": "2026-04-10T16:42:22.652115+00:00"
+    },
+    {
+      "source": "test_output/CEREBRO_TEST6.docâ",
+      "target": "WINWORD.EXE",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:22.698871+00:00",
+      "updated_at": "2026-04-10T16:42:22.698871+00:00"
+    },
+    {
+      "source": "test_output/CEREBRO_TEST6.docâ",
+      "target": "CEREBRO_TEST6.docx",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:22.746432+00:00",
+      "updated_at": "2026-04-10T16:42:22.746432+00:00"
+    },
+    {
+      "source": "WINWORD.EXE",
+      "target": "CEREBRO_TEST6.docx",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:22.773495+00:00",
+      "updated_at": "2026-04-10T16:42:22.773495+00:00"
+    },
+    {
+      "source": "WINWORD.EXE",
+      "target": "/.clau",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:22.800466+00:00",
+      "updated_at": "2026-04-10T16:42:22.800466+00:00"
+    },
+    {
+      "source": "CEREBRO_TEST6.docx",
+      "target": "/.clau",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:22.826793+00:00",
+      "updated_at": "2026-04-10T16:42:22.826793+00:00"
+    },
+    {
+      "source": "CEREBRO_TEST6.docx",
+      "target": "src\\cerebro_v2.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:22.850280+00:00",
+      "updated_at": "2026-04-10T16:42:22.850280+00:00"
+    },
+    {
+      "source": "/.clau",
+      "target": "src\\cerebro_v2.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:22.873017+00:00",
+      "updated_at": "2026-04-10T16:42:22.873017+00:00"
+    },
+    {
+      "source": "/.clau",
+      "target": "task.lowe",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:22.928707+00:00",
+      "updated_at": "2026-04-10T16:42:22.928707+00:00"
+    },
+    {
+      "source": "src\\cerebro_v2.py",
+      "target": "task.lowe",
+      "type": "used_with",
+      "weight": 1.0,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:22.953481+00:00",
+      "updated_at": "2026-04-10T16:42:25.864510+00:00"
+    },
+    {
+      "source": "src\\cerebro_v2.py",
+      "target": "re.sear",
+      "type": "used_with",
+      "weight": 2.0,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:22.998537+00:00",
+      "updated_at": "2026-04-10T16:42:26.317349+00:00"
+    },
+    {
+      "source": "task.lowe",
+      "target": "re.sear",
+      "type": "used_with",
+      "weight": 1.0,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:23.025095+00:00",
+      "updated_at": "2026-04-10T16:42:25.917214+00:00"
+    },
+    {
+      "source": "task.lowe",
+      "target": "match.grou",
+      "type": "used_with",
+      "weight": 1.0,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:23.073229+00:00",
+      "updated_at": "2026-04-10T16:42:25.943267+00:00"
+    },
+    {
+      "source": "re.sear",
+      "target": "match.grou",
+      "type": "used_with",
+      "weight": 3.0,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:23.098868+00:00",
+      "updated_at": "2026-04-10T16:42:26.422411+00:00"
+    },
+    {
+      "source": "match.grou",
+      "target": "match.grou",
+      "type": "used_with",
+      "weight": 1.0,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:23.151296+00:00",
+      "updated_at": "2026-04-10T16:42:26.446568+00:00"
+    },
+    {
+      "source": "match.grou",
+      "target": "task.spli",
+      "type": "used_with",
+      "weight": 2.0,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:23.201180+00:00",
+      "updated_at": "2026-04-10T16:42:26.500439+00:00"
+    },
+    {
+      "source": "match.grou",
+      "target": "w.lowe",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:23.273431+00:00",
+      "updated_at": "2026-04-10T16:42:23.273431+00:00"
+    },
+    {
+      "source": "task.spli",
+      "target": "w.lowe",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:23.297269+00:00",
+      "updated_at": "2026-04-10T16:42:23.297269+00:00"
+    },
+    {
+      "source": "task.spli",
+      "target": "old.spli",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:23.352836+00:00",
+      "updated_at": "2026-04-10T16:42:23.352836+00:00"
+    },
+    {
+      "source": "w.lowe",
+      "target": "old.spli",
+      "type": "used_with",
+      "weight": 1.0,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:23.379652+00:00",
+      "updated_at": "2026-04-10T16:42:23.406432+00:00"
+    },
+    {
+      "source": "old.spli",
+      "target": "old.spli",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:23.427697+00:00",
+      "updated_at": "2026-04-10T16:42:23.427697+00:00"
+    },
+    {
+      "source": "old.spli",
+      "target": "w.lowe",
+      "type": "used_with",
+      "weight": 1.0,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:23.451087+00:00",
+      "updated_at": "2026-04-10T16:42:23.480235+00:00"
+    },
+    {
+      "source": "old.spli",
+      "target": "new.spli",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:23.532621+00:00",
+      "updated_at": "2026-04-10T16:42:23.533598+00:00"
+    },
+    {
+      "source": "w.lowe",
+      "target": "new.spli",
+      "type": "used_with",
+      "weight": 1.0,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:23.555779+00:00",
+      "updated_at": "2026-04-10T16:42:23.582327+00:00"
+    },
+    {
+      "source": "new.spli",
+      "target": "new.spli",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:23.604837+00:00",
+      "updated_at": "2026-04-10T16:42:23.604837+00:00"
+    },
+    {
+      "source": "new.spli",
+      "target": "WINWORD.EXE",
+      "type": "used_with",
+      "weight": 1.0,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:23.628803+00:00",
+      "updated_at": "2026-04-10T16:42:23.655303+00:00"
+    },
+    {
+      "source": "new.spli",
+      "target": "pruebas_reales/P01_Solo_Soporte.docx",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:23.675049+00:00",
+      "updated_at": "2026-04-10T16:42:23.675049+00:00"
+    },
+    {
+      "source": "WINWORD.EXE",
+      "target": "test_output/CEREBRO_FINAL.docâ",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:23.748437+00:00",
+      "updated_at": "2026-04-10T16:42:23.748437+00:00"
+    },
+    {
+      "source": "pruebas_reales/P01_Solo_Soporte.docx",
+      "target": "test_output/CEREBRO_FINAL.docâ",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:23.772831+00:00",
+      "updated_at": "2026-04-10T16:42:23.772831+00:00"
+    },
+    {
+      "source": "test_output/CEREBRO_FINAL.docâ",
+      "target": "WINWORD.EXE",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:23.816380+00:00",
+      "updated_at": "2026-04-10T16:42:23.816380+00:00"
+    },
+    {
+      "source": "test_output/CEREBRO_FINAL.docâ",
+      "target": "CEREBRO_FINAL.docx",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:23.857334+00:00",
+      "updated_at": "2026-04-10T16:42:23.857334+00:00"
+    },
+    {
+      "source": "WINWORD.EXE",
+      "target": "CEREBRO_FINAL.docx",
+      "type": "used_with",
+      "weight": 1.0,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:23.880353+00:00",
+      "updated_at": "2026-04-10T16:42:23.905080+00:00"
+    },
+    {
+      "source": "CEREBRO_FINAL.docx",
+      "target": "CEREBRO_FINAL.docx",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:23.922408+00:00",
+      "updated_at": "2026-04-10T16:42:23.922408+00:00"
+    },
+    {
+      "source": "CEREBRO_FINAL.docx",
+      "target": "139.7s",
+      "type": "used_with",
+      "weight": 1.0,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:23.971153+00:00",
+      "updated_at": "2026-04-10T16:42:23.993353+00:00"
+    },
+    {
+      "source": "CEREBRO_FINAL.docx",
+      "target": "42.7s",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:24.040236+00:00",
+      "updated_at": "2026-04-10T16:42:24.040236+00:00"
+    },
+    {
+      "source": "139.7s",
+      "target": "42.7s",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:24.066401+00:00",
+      "updated_at": "2026-04-10T16:42:24.066401+00:00"
+    },
+    {
+      "source": "139.7s",
+      "target": "src/cerebro_v2.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:24.093120+00:00",
+      "updated_at": "2026-04-10T16:42:24.093120+00:00"
+    },
+    {
+      "source": "42.7s",
+      "target": "src/cerebro_v2.py",
+      "type": "used_with",
+      "weight": 1.0,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:24.133422+00:00",
+      "updated_at": "2026-04-10T16:42:24.167256+00:00"
+    },
+    {
+      "source": "src/cerebro_v2.py",
+      "target": "/.clau",
+      "type": "used_with",
+      "weight": 1.0,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:24.216592+00:00",
+      "updated_at": "2026-04-10T16:42:24.246533+00:00"
+    },
+    {
+      "source": "src/cerebro_v2.py",
+      "target": "/Hooks_IA/hooks/motor_ia_hook.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:24.310292+00:00",
+      "updated_at": "2026-04-10T16:42:24.310292+00:00"
+    },
+    {
+      "source": "/.clau",
+      "target": "/Hooks_IA/hooks/motor_ia_hook.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:24.335662+00:00",
+      "updated_at": "2026-04-10T16:42:24.335662+00:00"
+    },
+    {
+      "source": "/.clau",
+      "target": "os.envi",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:24.362271+00:00",
+      "updated_at": "2026-04-10T16:42:24.362271+00:00"
+    },
+    {
+      "source": "/Hooks_IA/hooks/motor_ia_hook.py",
+      "target": "os.envi",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:24.388504+00:00",
+      "updated_at": "2026-04-10T16:42:24.388504+00:00"
+    },
+    {
+      "source": "/Hooks_IA/hooks/motor_ia_hook.py",
+      "target": "ron.get",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:24.415895+00:00",
+      "updated_at": "2026-04-10T16:42:24.416408+00:00"
+    },
+    {
+      "source": "os.envi",
+      "target": "entrypoint.star",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:24.500336+00:00",
+      "updated_at": "2026-04-10T16:42:24.500336+00:00"
+    },
+    {
+      "source": "ron.get",
+      "target": "entrypoint.star",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:24.525727+00:00",
+      "updated_at": "2026-04-10T16:42:24.525727+00:00"
+    },
+    {
+      "source": "ron.get",
+      "target": "json.dump",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:24.579026+00:00",
+      "updated_at": "2026-04-10T16:42:24.579026+00:00"
+    },
+    {
+      "source": "entrypoint.star",
+      "target": "json.dump",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:24.607571+00:00",
+      "updated_at": "2026-04-10T16:42:24.607571+00:00"
+    },
+    {
+      "source": "entrypoint.star",
+      "target": "/Hooks_IA/hooks/motor_ia_post_hook.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:24.665532+00:00",
+      "updated_at": "2026-04-10T16:42:24.665532+00:00"
+    },
+    {
+      "source": "json.dump",
+      "target": "/Hooks_IA/hooks/motor_ia_post_hook.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:24.698984+00:00",
+      "updated_at": "2026-04-10T16:42:24.698984+00:00"
+    },
+    {
+      "source": "json.dump",
+      "target": "os.envi",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:24.725768+00:00",
+      "updated_at": "2026-04-10T16:42:24.725768+00:00"
+    },
+    {
+      "source": "/Hooks_IA/hooks/motor_ia_post_hook.py",
+      "target": "os.envi",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:24.752383+00:00",
+      "updated_at": "2026-04-10T16:42:24.752383+00:00"
+    },
+    {
+      "source": "/Hooks_IA/hooks/motor_ia_post_hook.py",
+      "target": "ron.get",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:24.783362+00:00",
+      "updated_at": "2026-04-10T16:42:24.783362+00:00"
+    },
+    {
+      "source": "os.envi",
+      "target": "_STATE_FILE.exis",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:24.900407+00:00",
+      "updated_at": "2026-04-10T16:42:24.900407+00:00"
+    },
+    {
+      "source": "ron.get",
+      "target": "_STATE_FILE.exis",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:24.927615+00:00",
+      "updated_at": "2026-04-10T16:42:24.927615+00:00"
+    },
+    {
+      "source": "ron.get",
+      "target": "WINWORD.EXE",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:24.950981+00:00",
+      "updated_at": "2026-04-10T16:42:24.950981+00:00"
+    },
+    {
+      "source": "_STATE_FILE.exis",
+      "target": "WINWORD.EXE",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:24.977481+00:00",
+      "updated_at": "2026-04-10T16:42:24.977481+00:00"
+    },
+    {
+      "source": "_STATE_FILE.exis",
+      "target": "pruebas_reales/P01_Solo_Soporte.docx",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:25.004242+00:00",
+      "updated_at": "2026-04-10T16:42:25.004242+00:00"
+    },
+    {
+      "source": "WINWORD.EXE",
+      "target": "WINWORD.EXE",
+      "type": "used_with",
+      "weight": 1.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:25.057684+00:00",
+      "updated_at": "2026-04-10T16:42:27.231409+00:00"
+    },
+    {
+      "source": "pruebas_reales/P01_Solo_Soporte.docx",
+      "target": "CEREBRO_HOOK_TEST.docx",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:25.138376+00:00",
+      "updated_at": "2026-04-10T16:42:25.138376+00:00"
+    },
+    {
+      "source": "WINWORD.EXE",
+      "target": "CEREBRO_HOOK_TEST.docx",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:25.166446+00:00",
+      "updated_at": "2026-04-10T16:42:25.166446+00:00"
+    },
+    {
+      "source": "WINWORD.EXE",
+      "target": "115.4s",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:25.215109+00:00",
+      "updated_at": "2026-04-10T16:42:25.215109+00:00"
+    },
+    {
+      "source": "CEREBRO_HOOK_TEST.docx",
+      "target": "115.4s",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:25.242382+00:00",
+      "updated_at": "2026-04-10T16:42:25.242382+00:00"
+    },
+    {
+      "source": "CEREBRO_HOOK_TEST.docx",
+      "target": "src/cerebro_v2.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:25.266446+00:00",
+      "updated_at": "2026-04-10T16:42:25.266446+00:00"
+    },
+    {
+      "source": "115.4s",
+      "target": "src/cerebro_v2.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:25.323621+00:00",
+      "updated_at": "2026-04-10T16:42:25.323621+00:00"
+    },
+    {
+      "source": "115.4s",
+      "target": "hooks/motor_ia_hook.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:25.378835+00:00",
+      "updated_at": "2026-04-10T16:42:25.378835+00:00"
+    },
+    {
+      "source": "src/cerebro_v2.py",
+      "target": "hooks/motor_ia_hook.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:25.406691+00:00",
+      "updated_at": "2026-04-10T16:42:25.406691+00:00"
+    },
+    {
+      "source": "src/cerebro_v2.py",
+      "target": "hooks/motor_ia_post_hook.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:25.467467+00:00",
+      "updated_at": "2026-04-10T16:42:25.467467+00:00"
+    },
+    {
+      "source": "hooks/motor_ia_hook.py",
+      "target": "hooks/motor_ia_post_hook.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:25.498939+00:00",
+      "updated_at": "2026-04-10T16:42:25.498939+00:00"
+    },
+    {
+      "source": "hooks/motor_ia_hook.py",
+      "target": "hooks/motor_ia_hook.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:25.525772+00:00",
+      "updated_at": "2026-04-10T16:42:25.525772+00:00"
+    },
+    {
+      "source": "hooks/motor_ia_post_hook.py",
+      "target": "hooks/motor_ia_hook.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:25.551116+00:00",
+      "updated_at": "2026-04-10T16:42:25.551116+00:00"
+    },
+    {
+      "source": "hooks/motor_ia_post_hook.py",
+      "target": "WINWORD.EXE",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:25.579598+00:00",
+      "updated_at": "2026-04-10T16:42:25.579598+00:00"
+    },
+    {
+      "source": "hooks/motor_ia_hook.py",
+      "target": "WINWORD.EXE",
+      "type": "used_with",
+      "weight": 1.0,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:25.609556+00:00",
+      "updated_at": "2026-04-10T16:42:25.636158+00:00"
+    },
+    {
+      "source": "WINWORD.EXE",
+      "target": "\\_reader.py",
+      "type": "used_with",
+      "weight": 1.0,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:25.714922+00:00",
+      "updated_at": "2026-04-10T16:42:25.744363+00:00"
+    },
+    {
+      "source": "\\_reader.py",
+      "target": "src\\cerebro_v2.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:25.808788+00:00",
+      "updated_at": "2026-04-10T16:42:25.808788+00:00"
+    },
+    {
+      "source": "\\_reader.py",
+      "target": "task.lowe",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:25.839302+00:00",
+      "updated_at": "2026-04-10T16:42:25.839302+00:00"
+    },
+    {
+      "source": "re.sear",
+      "target": "pruebas_reales/P01_Solo_Soporte.docx",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:25.996446+00:00",
+      "updated_at": "2026-04-10T16:42:25.996446+00:00"
+    },
+    {
+      "source": "match.grou",
+      "target": "pruebas_reales/P01_Solo_Soporte.docx",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:26.019409+00:00",
+      "updated_at": "2026-04-10T16:42:26.020404+00:00"
+    },
+    {
+      "source": "match.grou",
+      "target": "test_output/CEREBRO_TABLE.docx",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:26.070367+00:00",
+      "updated_at": "2026-04-10T16:42:26.070367+00:00"
+    },
+    {
+      "source": "pruebas_reales/P01_Solo_Soporte.docx",
+      "target": "test_output/CEREBRO_TABLE.docx",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:26.105939+00:00",
+      "updated_at": "2026-04-10T16:42:26.105939+00:00"
+    },
+    {
+      "source": "pruebas_reales/P01_Solo_Soporte.docx",
+      "target": "CEREBRO_TABLE.docx",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:26.173905+00:00",
+      "updated_at": "2026-04-10T16:42:26.173905+00:00"
+    },
+    {
+      "source": "test_output/CEREBRO_TABLE.docx",
+      "target": "CEREBRO_TABLE.docx",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:26.197728+00:00",
+      "updated_at": "2026-04-10T16:42:26.198898+00:00"
+    },
+    {
+      "source": "test_output/CEREBRO_TABLE.docx",
+      "target": "src\\cerebro_v2.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:26.223931+00:00",
+      "updated_at": "2026-04-10T16:42:26.223931+00:00"
+    },
+    {
+      "source": "CEREBRO_TABLE.docx",
+      "target": "src\\cerebro_v2.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:26.246873+00:00",
+      "updated_at": "2026-04-10T16:42:26.246873+00:00"
+    },
+    {
+      "source": "CEREBRO_TABLE.docx",
+      "target": "re.sear",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:26.271698+00:00",
+      "updated_at": "2026-04-10T16:42:26.271698+00:00"
+    },
+    {
+      "source": "re.sear",
+      "target": "re.sear",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:26.342992+00:00",
+      "updated_at": "2026-04-10T16:42:26.342992+00:00"
+    },
+    {
+      "source": "match.grou",
+      "target": "word.lowe",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:26.557394+00:00",
+      "updated_at": "2026-04-10T16:42:26.557394+00:00"
+    },
+    {
+      "source": "task.spli",
+      "target": "word.lowe",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:26.580515+00:00",
+      "updated_at": "2026-04-10T16:42:26.580515+00:00"
+    },
+    {
+      "source": "task.spli",
+      "target": "section_name.spli",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:26.630598+00:00",
+      "updated_at": "2026-04-10T16:42:26.630598+00:00"
+    },
+    {
+      "source": "word.lowe",
+      "target": "section_name.spli",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:26.653930+00:00",
+      "updated_at": "2026-04-10T16:42:26.653930+00:00"
+    },
+    {
+      "source": "word.lowe",
+      "target": "pruebas_reales/P01_Solo_Soporte.docx",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:26.680915+00:00",
+      "updated_at": "2026-04-10T16:42:26.680915+00:00"
+    },
+    {
+      "source": "section_name.spli",
+      "target": "pruebas_reales/P01_Solo_Soporte.docx",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:26.708003+00:00",
+      "updated_at": "2026-04-10T16:42:26.708003+00:00"
+    },
+    {
+      "source": "section_name.spli",
+      "target": "test_output/CEREBRO_TABLE2.docx",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:26.758405+00:00",
+      "updated_at": "2026-04-10T16:42:26.758405+00:00"
+    },
+    {
+      "source": "pruebas_reales/P01_Solo_Soporte.docx",
+      "target": "test_output/CEREBRO_TABLE2.docx",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:26.780596+00:00",
+      "updated_at": "2026-04-10T16:42:26.780596+00:00"
+    },
+    {
+      "source": "pruebas_reales/P01_Solo_Soporte.docx",
+      "target": "CEREBRO_TABLE2.docx",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:26.832352+00:00",
+      "updated_at": "2026-04-10T16:42:26.832352+00:00"
+    },
+    {
+      "source": "test_output/CEREBRO_TABLE2.docx",
+      "target": "CEREBRO_TABLE2.docx",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:26.858066+00:00",
+      "updated_at": "2026-04-10T16:42:26.858066+00:00"
+    },
+    {
+      "source": "test_output/CEREBRO_TABLE2.docx",
+      "target": "121.9s",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:26.914943+00:00",
+      "updated_at": "2026-04-10T16:42:26.914943+00:00"
+    },
+    {
+      "source": "CEREBRO_TABLE2.docx",
+      "target": "121.9s",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:26.938821+00:00",
+      "updated_at": "2026-04-10T16:42:26.940337+00:00"
+    },
+    {
+      "source": "CEREBRO_TABLE2.docx",
+      "target": "subprocess.Pope",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:26.961601+00:00",
+      "updated_at": "2026-04-10T16:42:26.961601+00:00"
+    },
+    {
+      "source": "121.9s",
+      "target": "subprocess.Pope",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:26.988260+00:00",
+      "updated_at": "2026-04-10T16:42:26.988260+00:00"
+    },
+    {
+      "source": "121.9s",
+      "target": "test_output/CEREBRO_TABLE2.docx",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:27.009550+00:00",
+      "updated_at": "2026-04-10T16:42:27.009550+00:00"
+    },
+    {
+      "source": "subprocess.Pope",
+      "target": "test_output/CEREBRO_TABLE2.docx",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:27.035017+00:00",
+      "updated_at": "2026-04-10T16:42:27.035017+00:00"
+    },
+    {
+      "source": "subprocess.Pope",
+      "target": "src/cerebro_v2.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:27.060802+00:00",
+      "updated_at": "2026-04-10T16:42:27.060802+00:00"
+    },
+    {
+      "source": "test_output/CEREBRO_TABLE2.docx",
+      "target": "src/cerebro_v2.py",
+      "type": "used_with",
+      "weight": 1.0,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:27.085497+00:00",
+      "updated_at": "2026-04-10T16:42:27.112029+00:00"
+    },
+    {
+      "source": "src/cerebro_v2.py",
+      "target": "WINWORD.EXE",
+      "type": "used_with",
+      "weight": 1.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:27.156457+00:00",
+      "updated_at": "2026-04-10T16:42:27.205048+00:00"
+    },
+    {
+      "source": "WINWORD.EXE",
+      "target": "\\\\Chance1\\\\IA\\\\IA_Word\\\\test_output\\\\CEREBRO_TABLE2.docx",
+      "type": "used_with",
+      "weight": 1.0,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T16:42:27.281692+00:00",
+      "updated_at": "2026-04-10T16:42:27.307652+00:00"
     }
   ],
-  "updated_at": "2026-04-10T15:40:58.027422+00:00",
+  "updated_at": "2026-04-10T16:42:27.307652+00:00",
   "stats": {
-    "entities": 546,
-    "relations": 1276
+    "entities": 634,
+    "relations": 1638
   }
 }

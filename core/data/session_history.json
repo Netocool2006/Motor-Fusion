@@ -1379,7 +1379,11 @@
       "C:/Chance1/IA/IA_Word/src/doc_eyes.py",
       "C:/Chance1/IA/IA_Word/src/vision_bridge.py",
       "C:/Hooks_IA/knowledge/ia_word/patterns.json",
-      "C:/Chance1/IA/IA_Word/test_output/FULL_TEST_RESULTS.json"
+      "C:/Chance1/IA/IA_Word/test_output/FULL_TEST_RESULTS.json",
+      "C:/Chance1/CLAUDE.md",
+      "C:/Chance1/IA/IA_Word/src/cerebro_v2.py",
+      "C:/Hooks_IA/hooks/motor_ia_hook.py",
+      "C:/Hooks_IA/hooks/motor_ia_post_hook.py"
     ],
     "files_edited": [
       "C:/Chance1/IA/IA_Word/src/word_com.py",
@@ -1388,13 +1392,18 @@
       "C:/Chance1/IA/IA_Word/src/vision_bridge.py",
       "C:/Chance1/IA/IA_Word/test_all_tools.py",
       "C:/Chance1/IA/IA_Word/run_full_test.py",
-      "C:/Chance1/IA/IA_Word/src/docx_sanitizer.py"
+      "C:/Chance1/IA/IA_Word/src/docx_sanitizer.py",
+      "C:/Chance1/CLAUDE.md",
+      "C:/Chance1/IA/IA_Word/src/cerebro_v2.py",
+      "C:/Hooks_IA/hooks/motor_ia_hook.py",
+      "C:/Hooks_IA/hooks/motor_ia_post_hook.py"
     ],
     "files_created": [
       "C:/Chance1/IA/IA_Word/src/kb_reference.py",
       "C:/Chance1/IA/IA_Word/test_all_tools.py",
       "C:/Chance1/IA/IA_Word/run_full_test.py",
-      "C:\\Users\\ntoledo\\.claude\\plans\\witty-drifting-wilkinson.md"
+      "C:\\Users\\ntoledo\\.claude\\plans\\witty-drifting-wilkinson.md",
+      "C:/Chance1/IA/IA_Word/src/cerebro_v2.py"
     ],
     "commands_run": [
       "ls -la \"C:/Chance1/IA/IA_Word/src/\"",
@@ -1512,12 +1521,12 @@
     "learning_json": null,
     "reasoning_traces": [],
     "metrics": {
-      "total_messages": 1579,
       "errors_count": 10,
-      "user_messages": 128,
-      "commands_count": 140,
-      "files_touched": 23,
-      "decisions_count": 15
+      "decisions_count": 15,
+      "commands_count": 191,
+      "user_messages": 165,
+      "files_touched": 32,
+      "total_messages": 2019
     },
     "domains": [
       "hooks_ia_backup_20260331_22050",
@@ -1525,7 +1534,7 @@
       "editar_con_ia"
     ],
     "merged": true,
-    "merge_count": 10
+    "merge_count": 11
   },
   {
     "session_id": "42f35233-ac56-4952-8ea0-2002d9c0f6d5",
@@ -1705,5 +1714,145 @@
     "domains": [
       "hooks_ia_backup_20260331_22050"
     ]
+  },
+  {
+    "session_id": "f9f15a2d-13e4-4a44-8460-fa26f04065cb",
+    "date": "2026-04-10",
+    "time": "16:26:05 UTC",
+    "timestamp": "2026-04-10 16:26:05",
+    "cwd": "C:\\Users\\ntoledo\\AppData\\Local\\Temp\\cerebro_ml",
+    "summary": "Lee la imagen en C:\\Users\\ntoledo\\AppData\\Local\\Temp\\ia_word_eyes_lnx3e1ak\\page_010.png usando el tool Read.",
+    "user_messages": [
+      "Lee la imagen en C:\\Users\\ntoledo\\AppData\\Local\\Temp\\ia_word_eyes_lnx3e1ak\\page_010.png usando el tool Read."
+    ],
+    "files_read": [
+      "C:\\Users\\ntoledo\\AppData\\Local\\Temp\\ia_word_eyes_lnx3e1ak\\page_010.png"
+    ],
+    "files_edited": [],
+    "files_created": [],
+    "commands_run": [],
+    "searches": [],
+    "errors": [],
+    "decisions": [],
+    "learning_json": null,
+    "reasoning_traces": [],
+    "metrics": {
+      "total_messages": 3,
+      "user_messages": 1,
+      "errors_count": 0,
+      "files_touched": 1,
+      "commands_count": 0,
+      "decisions_count": 0
+    },
+    "domains": [
+      "hooks_ia_backup_20260331_22050"
+    ]
+  },
+  {
+    "session_id": "cadb5ee1-368e-4e18-8276-290c8dea03c5",
+    "date": "2026-04-10",
+    "time": "16:26:46 UTC",
+    "timestamp": "2026-04-10 16:26:46",
+    "cwd": "C:\\Users\\ntoledo\\AppData\\Local\\Temp\\cerebro_ml",
+    "summary": "Genera un plan JSON para editar un documento Word. Tarea: insertar una tabla con 3 columnas (Servicio, Costo, Plazo) despues de la seccion Anexos. Res",
+    "user_messages": [
+      "Genera un plan JSON para editar un documento Word. Tarea: insertar una tabla con 3 columnas (Servicio, Costo, Plazo) despues de la seccion Anexos. Responde SOLO con el JSON array."
+    ],
+    "files_read": [],
+    "files_edited": [],
+    "files_created": [],
+    "commands_run": [],
+    "searches": [],
+    "errors": [],
+    "decisions": [],
+    "learning_json": null,
+    "reasoning_traces": [],
+    "metrics": {
+      "total_messages": 2,
+      "user_messages": 1,
+      "errors_count": 0,
+      "files_touched": 0,
+      "commands_count": 0,
+      "decisions_count": 0
+    },
+    "domains": [
+      "hooks_ia_backup_20260331_22050",
+      "editar_con_ia",
+      "tests",
+      "ia_word",
+      "cambio_fechas_documento"
+    ]
+  },
+  {
+    "session_id": "29838613-1537-4a6f-a5ec-c26f9923aedd",
+    "date": "2026-04-10",
+    "time": "16:36:41 UTC",
+    "timestamp": "2026-04-10 16:36:41",
+    "cwd": "C:\\Users\\ntoledo\\AppData\\Local\\Temp\\cerebro_ml",
+    "summary": "Lee la imagen en C:\\Users\\ntoledo\\AppData\\Local\\Temp\\ia_word_eyes_4bwd9hoe\\page_009.png usando el tool Read.",
+    "user_messages": [
+      "Lee la imagen en C:\\Users\\ntoledo\\AppData\\Local\\Temp\\ia_word_eyes_4bwd9hoe\\page_009.png usando el tool Read."
+    ],
+    "files_read": [
+      "C:\\Users\\ntoledo\\AppData\\Local\\Temp\\ia_word_eyes_4bwd9hoe\\page_009.png"
+    ],
+    "files_edited": [],
+    "files_created": [],
+    "commands_run": [],
+    "searches": [],
+    "errors": [],
+    "decisions": [],
+    "learning_json": null,
+    "reasoning_traces": [],
+    "metrics": {
+      "total_messages": 3,
+      "user_messages": 1,
+      "errors_count": 0,
+      "files_touched": 1,
+      "commands_count": 0,
+      "decisions_count": 0
+    },
+    "domains": [
+      "hooks_ia_backup_20260331_22050"
+    ]
+  },
+  {
+    "session_id": "0ddca634-c7b9-4491-ad51-b9235bf198cb",
+    "date": "2026-04-10",
+    "time": "16:46:01 UTC",
+    "timestamp": "2026-04-10 16:46:01",
+    "cwd": "C:\\Users\\ntoledo\\AppData\\Local\\Temp\\cerebro_ml",
+    "summary": "Lee la imagen en C:\\Users\\ntoledo\\AppData\\Local\\Temp\\ia_word_eyes_0hhb0kpj\\page_017.png usando el tool Read.",
+    "user_messages": [
+      "Lee la imagen en C:\\Users\\ntoledo\\AppData\\Local\\Temp\\ia_word_eyes_0hhb0kpj\\page_017.png usando el tool Read.",
+      "Lee la imagen en C:\\Users\\ntoledo\\AppData\\Local\\Temp\\ia_word_eyes_0hhb0kpj\\page_018.png usando el tool Read.",
+      "Lee la imagen en C:\\Users\\ntoledo\\AppData\\Local\\Temp\\ia_word_eyes_0hhb0kpj\\page_019.png usando el tool Read."
+    ],
+    "files_read": [
+      "C:\\Users\\ntoledo\\AppData\\Local\\Temp\\ia_word_eyes_0hhb0kpj\\page_017.png",
+      "C:\\Users\\ntoledo\\AppData\\Local\\Temp\\ia_word_eyes_0hhb0kpj\\page_018.png",
+      "C:\\Users\\ntoledo\\AppData\\Local\\Temp\\ia_word_eyes_0hhb0kpj\\page_019.png"
+    ],
+    "files_edited": [],
+    "files_created": [],
+    "commands_run": [],
+    "searches": [],
+    "errors": [],
+    "decisions": [],
+    "learning_json": null,
+    "reasoning_traces": [],
+    "metrics": {
+      "errors_count": 0,
+      "decisions_count": 0,
+      "files_touched": 1,
+      "commands_count": 0,
+      "total_messages": 3,
+      "user_messages": 1
+    },
+    "domains": [
+      "hooks_ia_backup_20260331_22050"
+    ],
+    "merged": true,
+    "merge_count": 3
   }
 ]
