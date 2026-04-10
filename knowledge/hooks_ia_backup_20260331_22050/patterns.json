@@ -458,6 +458,36 @@
         "last_accessed": "2026-04-10T16:41:45.766761+00:00",
         "access_count": 0
       }
+    },
+    "9bfa7e8effc8": {
+      "id": "9bfa7e8effc8",
+      "type": "pattern",
+      "key": "session_auto_20260410_163046",
+      "solution": {
+        "strategy": "auto_captured_from_session",
+        "notes": "Interacciones clave:\n  P: entiendo que cuando conviertes a pdf puedes validar la pagina para que yo diga por ejemplo \"cambia x\n  R:   Buena pregunta. Vamos a verificarlo directamente:\n  P: si es correcto por eso\n  R:   Perfecto. Entonces el flujo sería:  ``` Usuario: \"Cambia el precio de $500 a $600 en la página 7\"  Cerebro: 1. Convierte a PDF → renderiza página 7 \n  P: si recuerda es solo cuando aplique por ejemplo el replace no lo podemos usar por pagina dado que tie\n  R:   Exacto. El `--page` solo aplicaría para operaciones localizadas, no para replace que es global. Resumo:  | Operación | ¿Aplica página? | Por qué | |\n  P: si pero no sera el unico inside por ejemplo lee este: \" realiza un merge de todos componentes que ha\n  R:   Eso es otro nivel completamente. Lo que describís no es un fast path — es un **workflow multi-paso inteligente** donde el ML tiene que:  1. **Entend\n  P: hay alguna para corregir indices?\n  R:   Sí, ya tenemos tools para TOC/índices. Déjame verificar cuáles:\n  P: no se si te has percatado en que algunos los documentos despues las fases de conversion de reconstru\n  R:   Tenés razón — el sanitizer (RTF roundtrip + COM repaste + XML cleanup) puede romper el TOC porque reconstruye el documento. Voy a hacer la prueba: s\nResumen: te doy contexto:\"  Esos son gaps reales que descubrimos con esta prueba.    Fuentes: KB 0% + Internet 0% + ML 100%  ✻ Baked for 31s  ❯ ok agrega funci -> [Request interrupted by user] -> procede -> de\nEditados: cerebro_v2.py\nDecisiones: corregir todo esto:; corregir los 5 problemas de `_step_visual_validate` y hacer que el workflow **NO guarde si la validación visual falla**.; verificar qué datos recibió insert_table:; reescribir el loop de ejecución y la validación visual para que sea un **ciclo de hacer → ver → corregir → rehacer → ver → hasta que quede bien**:; ejecutar una prueba completa del cerebro v2 con el ciclo visual para verificar que todo quedó en orden.\nErrores resueltos: Exit code 124\nCorrecto: se termin",
+        "auto_learned": true,
+        "source": "hook_session_end",
+        "files_touched": [
+          "C:\\Chance1\\IA\\IA_Word\\src\\cerebro_v2.py"
+        ],
+        "domain_detected": "hooks_ia_backup_20260331_22050"
+      },
+      "tags": [
+        "auto-learned",
+        "session",
+        "hooks_ia_backup_20260331_22050"
+      ],
+      "error_context": null,
+      "created_at": "2026-04-10T22:30:46.450813+00:00",
+      "updated_at": "2026-04-10T22:30:46.450813+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-04-10T22:30:46.450813+00:00",
+        "access_count": 0
+      }
     }
   },
   "tag_index": {
@@ -473,7 +503,8 @@
       "6c9df5422cfc",
       "7271c704ec2f",
       "4d9feaebaf8a",
-      "7dbedcf85e57"
+      "7dbedcf85e57",
+      "9bfa7e8effc8"
     ],
     "session": [
       "fc0947920514",
@@ -487,7 +518,8 @@
       "6c9df5422cfc",
       "7271c704ec2f",
       "4d9feaebaf8a",
-      "7dbedcf85e57"
+      "7dbedcf85e57",
+      "9bfa7e8effc8"
     ],
     "hooks_ia_backup_20260331_22050": [
       "fc0947920514",
@@ -501,11 +533,12 @@
       "6c9df5422cfc",
       "7271c704ec2f",
       "4d9feaebaf8a",
-      "7dbedcf85e57"
+      "7dbedcf85e57",
+      "9bfa7e8effc8"
     ]
   },
   "stats": {
-    "total_entries": 12,
+    "total_entries": 13,
     "total_lookups": 3,
     "total_hits": 1
   }
