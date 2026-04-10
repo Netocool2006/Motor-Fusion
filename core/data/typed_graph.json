@@ -5303,6 +5303,46 @@
       "properties": {},
       "created_at": "2026-04-10T20:32:50.580295+00:00",
       "updated_at": "2026-04-10T20:32:50.580295+00:00"
+    },
+    "0.92": {
+      "id": "0.92",
+      "type": "file",
+      "name": "0.92",
+      "properties": {},
+      "created_at": "2026-04-10T20:39:41.058353+00:00",
+      "updated_at": "2026-04-10T20:39:41.058353+00:00"
+    },
+    "/0.85": {
+      "id": "/0.85",
+      "type": "file",
+      "name": "/0.85",
+      "properties": {},
+      "created_at": "2026-04-10T20:39:41.084842+00:00",
+      "updated_at": "2026-04-10T20:39:41.084842+00:00"
+    },
+    "TEST_UNDO2.docx": {
+      "id": "TEST_UNDO2.docx",
+      "type": "file",
+      "name": "TEST_UNDO2.docx",
+      "properties": {},
+      "created_at": "2026-04-10T21:37:20.537665+00:00",
+      "updated_at": "2026-04-10T21:37:20.537665+00:00"
+    },
+    "instrucciã³n": {
+      "id": "instrucciã³n",
+      "type": "concept",
+      "name": "instrucciã³n",
+      "properties": {},
+      "created_at": "2026-04-10T21:41:37.729006+00:00",
+      "updated_at": "2026-04-10T21:41:37.729006+00:00"
+    },
+    "ser": {
+      "id": "ser",
+      "type": "concept",
+      "name": "ser",
+      "properties": {},
+      "created_at": "2026-04-10T21:41:37.753898+00:00",
+      "updated_at": "2026-04-10T21:41:37.754991+00:00"
     }
   },
   "relations": [
@@ -10836,10 +10876,10 @@
       "source": "doc.Tabl",
       "target": "doc.Tabl",
       "type": "used_with",
-      "weight": 2.5,
-      "context": "pre-hook query",
+      "weight": 3.0,
+      "context": "agrega que cuando se coloque algo equibocado o erroneo solo en esa parte undo y colocarlo de nuevo p",
       "created_at": "2026-04-08T17:51:35.876106+00:00",
-      "updated_at": "2026-04-10T16:42:16.007723+00:00"
+      "updated_at": "2026-04-10T21:37:20.510105+00:00"
     },
     {
       "source": "es.Coun",
@@ -20596,11 +20636,38 @@
       "context": "valida tu",
       "created_at": "2026-04-10T20:32:50.609689+00:00",
       "updated_at": "2026-04-10T20:32:50.609689+00:00"
+    },
+    {
+      "source": "0.92",
+      "target": "/0.85",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "ok y la prueba como tal como quedo?",
+      "created_at": "2026-04-10T20:39:41.111534+00:00",
+      "updated_at": "2026-04-10T20:39:41.111534+00:00"
+    },
+    {
+      "source": "doc.Tabl",
+      "target": "TEST_UNDO2.docx",
+      "type": "used_with",
+      "weight": 1.0,
+      "context": "agrega que cuando se coloque algo equibocado o erroneo solo en esa parte undo y colocarlo de nuevo p",
+      "created_at": "2026-04-10T21:37:20.562938+00:00",
+      "updated_at": "2026-04-10T21:37:20.588488+00:00"
+    },
+    {
+      "source": "instrucciã³n",
+      "target": "ser",
+      "type": "depends_on",
+      "weight": 0.7,
+      "context": "ok pero eso no es culpa tuya es mia por no definir exactamente donde la quiero",
+      "created_at": "2026-04-10T21:41:37.779042+00:00",
+      "updated_at": "2026-04-10T21:41:37.779042+00:00"
     }
   ],
-  "updated_at": "2026-04-10T20:32:50.609689+00:00",
+  "updated_at": "2026-04-10T21:41:37.779042+00:00",
   "stats": {
-    "entities": 663,
-    "relations": 1699
+    "entities": 668,
+    "relations": 1702
   }
 }
