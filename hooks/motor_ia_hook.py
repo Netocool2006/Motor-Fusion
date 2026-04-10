@@ -230,6 +230,14 @@ def main():
     Inyecta instrucciones ligeras. Claude hace el trabajo pesado via MCP.
     """
     try:
+        # BYPASS: If called from cerebro_v2 or SDK, skip all hook processing
+        import os
+        entrypoint = os.environ.get("CLAUDE_CODE_ENTRYPOINT", "")
+        if entrypoint.startswith("sdk-"):
+            # Programmatic call — don't inject session context or instructions
+            print(json.dumps({}))
+            return
+
         query = get_user_query()
 
         if not is_valid_query(query):

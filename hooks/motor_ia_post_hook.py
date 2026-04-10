@@ -65,6 +65,11 @@ def extract_source_percentages(response):
 
 def main():
     try:
+        # BYPASS: If called from cerebro_v2 or SDK, skip post-hook
+        import os
+        if os.environ.get("CLAUDE_CODE_ENTRYPOINT", "").startswith("sdk-"):
+            return
+
         # Leer estado del pre-hook
         if not _STATE_FILE.exists():
             return
@@ -114,8 +119,22 @@ def main():
         else:
             log.warning(f"Failed to save to ChromaDB: query='{query[:60]}'")
 
-        # Limpiar state
-        _STATE_FILE.unlink(missing_ok=True)
+        # Actualizar state con porcentajes (para dashboard) en vez de borrarlo
+        try:
+            state["needs_save"] = False
+            state["last_response_preview"] = clean_response[:200]
+            if real_pcts:
+                state["kb_pct"] = real_pcts["kb_pct"]
+                state["internet_pct"] = real_pcts["internet_pct"]
+                state["ml_pct"] = real_pcts["ml_pct"]
+            else:
+                state["kb_pct"] = 0
+                state["internet_pct"] = 0
+                state["ml_pct"] = 100
+            with open(_STATE_FILE, "w", encoding="utf-8") as f:
+                json.dump(state, f, ensure_ascii=False, indent=2)
+        except Exception as e:
+            log.error(f"Error updating state with pcts: {e}")
 
         # Actualizar resumen de sesión (para continuidad entre sesiones)
         _update_session_summary(query, clean_response[:200])
