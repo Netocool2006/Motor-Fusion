@@ -1,31 +1,31 @@
 {
   "hot": [
     {
-      "key": "necesito mas detalle de que problemas hay porque estamos re iniciando la sesion a cada rato?",
-      "value": "Tienes toda la razÃ³n. El problema es claro:\n\n## Por quÃ© reiniciamos tanto\n\nCada vez que corrijo un bug en el cÃ³digo Python del MCP server (`mcp_server.py` o `word_com.py`), el MCP server **ya estÃ¡ corriendo en memoria con el cÃ³digo viejo**. Los cambios que hago al archivo `.py` **no se reflejan** hasta que el MCP server se reinicie.\n\n```\nSesiÃ³n activa:\n  Claude Code â”€â”€â”€ MCP Server (cÃ³digo VIEJO en memoria) â”€â”€â”€ Word\n                      â”‚\n                      â”‚  Yo edito mcp_server.py en disco\n                      â”‚  pero el proceso en memoria sigue\n                      â”‚  con la versiÃ³n vieja\n                      â”‚\n                      â””â”€â”€ Para cargar el cÃ³digo nuevo:\n                          /exit â†’ reabrir Claude Code\n                          â†’ MCP server se reinicia\n                          â†’ carga cÃ³digo nuevo\n```\n\n## Timeline de reinicios hoy\n\n| # | Reinicio | Por quÃ© |\n|---|---|---|\n| 1 | `false`â†’`False` | MCP server no arra",
+      "key": "usa VBA",
+      "value": "Sigue fallando. El hot-reload estÃ¡ corriendo al hacer open_document (que crea _word) y luego al llamar smart_replace dice que no hay doc. El problema no es el hot-reload â€” es que el MCP server tiene el cÃ³digo VIEJO de smart_replace (el revert a find_then_set que tenÃ­a el bug de end_pos).\n\nNo hay forma de evitarlo sin reinicio. HacÃ© `/exit` y volvÃ© â€” este serÃ¡ el Ãºltimo reinicio necesario.",
       "domain": "ML 100%",
       "source": "auto_save",
       "tier": "hot",
-      "created_at": "2026-04-09T21:55:04.509231+00:00",
-      "last_access": "2026-04-09T21:55:04.509231+00:00",
+      "created_at": "2026-04-10T00:41:07.569945+00:00",
+      "last_access": "2026-04-10T00:41:07.569945+00:00",
       "access_count": 0,
       "promotion_count": 0
     },
     {
-      "key": "pero quiero entender el problema dame detalle el problema es en los test es el proyecto donde es el problema?",
-      "value": "El problema NO es en los tests ni en el proyecto. El problema es **en cÃ³mo funciona el MCP server de Claude Code**:\n\n## El problema exacto\n\nEl MCP server es un **proceso Python que se lanza 1 vez** cuando Claude Code arranca. Ese proceso carga el cÃ³digo de `mcp_server.py` y `word_com.py` **en memoria** y se queda corriendo.\n\n```\nCuando Claude Code arranca:\n  1. Lee .mcp.json\n  2. Ejecuta: python -m src.mcp_server\n  3. Ese proceso Python CARGA todo el cÃ³digo en RAM\n  4. Se queda escuchando llamadas MCP\n  5. NUNCA recarga los archivos .py del disco\n```\n\n**Entonces:**\n\n```\nYo edito word_com.py (arreglo un bug) â†’ el archivo en DISCO cambia\nPero el proceso MCP en MEMORIA sigue con el cÃ³digo VIEJO\nâ†’ La tool MCP sigue ejecutando el cÃ³digo viejo\nâ†’ El bug sigue ahÃ­ aunque ya lo arreglÃ© en disco\nâ†’ La ÃšNICA forma de cargar el cÃ³digo nuevo es matar y reiniciar el MCP server\nâ†’ Eso solo pasa con /exit + reabrir Claude Code\n```\n\n## DÃ³nde estÃ¡ el problema: NO es cÃ³digo, es ARQUIT",
+      "key": "que problema de fondo tenemos mecionas que hay problemas del sanitizador combinados con el COM?",
+      "value": "SÃ­, el problema de fondo es este:\n\n## El documento P01_Solo_Soporte.docx tiene split-runs\n\nEste documento fue convertido de PDF (81% single-char ratio, 18,783 runs). El sanitizer fusiona los runs XML:\n\n```\nAntes:  P-o-s-t-g-r-e-S-Q-L  (10 runs de 1 carÃ¡cter)\nDespuÃ©s: PostgreSQL            (1 run fusionado)\n```\n\n**PERO** el sanitizer tiene 3 fases, y las fases 0a (RTF roundtrip) y 0b (COM repaste) **re-fragmentan** parcialmente lo que la fase 1 (XML merge) fusionÃ³:\n\n```\nFase 0a: RTF roundtrip    â†’ limpia algunas cosas, pero puede re-fragmentar\nFase 0b: COM repaste       â†’ Word re-interpreta y puede crear nuevos split-runs\nFase 1:  XML merge         â†’ fusiona 18,270 runs â†’ 427 runs\n```\n\nEl resultado es que despuÃ©s del sanitizer, algunos textos **parecen** fusionados a nivel de `.Text` (Python los lee como \"PostgreSQL\") pero **internamente** Word los sigue tratando como fragmentados. Por eso:\n\n- `doc.Content.Text.count(\"PostgreSQL\")` = 5 âœ… (Python lee el texto renderizado)\n",
       "domain": "ML 100%",
       "source": "auto_save",
       "tier": "hot",
-      "created_at": "2026-04-09T21:56:35.753042+00:00",
-      "last_access": "2026-04-09T21:56:35.753042+00:00",
+      "created_at": "2026-04-10T00:49:04.304765+00:00",
+      "last_access": "2026-04-10T00:49:04.304765+00:00",
       "access_count": 0,
       "promotion_count": 0
     }
   ],
   "warm": [],
   "cold": [],
-  "updated_at": "2026-04-09T21:56:35.754548+00:00",
+  "updated_at": "2026-04-10T00:49:04.304765+00:00",
   "counts": {
     "hot": 2,
     "warm": 0,

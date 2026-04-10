@@ -4007,6 +4007,22 @@
       "properties": {},
       "created_at": "2026-04-09T21:56:35.837652+00:00",
       "updated_at": "2026-04-09T21:56:35.837652+00:00"
+    },
+    "los": {
+      "id": "los",
+      "type": "concept",
+      "name": "los",
+      "properties": {},
+      "created_at": "2026-04-09T21:58:51.854379+00:00",
+      "updated_at": "2026-04-09T21:58:51.854379+00:00"
+    },
+    "para que esto no pase y donde van los fixes?": {
+      "id": "para que esto no pase y donde van los fixes?",
+      "type": "concept",
+      "name": "para que esto no pase y donde van los fixes?",
+      "properties": {},
+      "created_at": "2026-04-09T21:58:51.864439+00:00",
+      "updated_at": "2026-04-09T21:58:51.864439+00:00"
     }
   },
   "relations": [
@@ -7083,10 +7099,10 @@
       "source": "word_com.py",
       "target": "validators.py",
       "type": "used_with",
-      "weight": 1.0,
-      "context": "esto es pura programacion o tiene MCP y/o ML ?",
+      "weight": 1.5,
+      "context": "y cuales son los fixes para que esto no pase y donde van los fixes?",
       "created_at": "2026-04-07T15:19:59.444542+00:00",
-      "updated_at": "2026-04-07T20:43:14.066116+00:00"
+      "updated_at": "2026-04-09T22:00:18.907842+00:00"
     },
     {
       "source": "word_com.py",
@@ -7560,10 +7576,10 @@
       "source": "doc.Cont",
       "target": "ent.Text",
       "type": "used_with",
-      "weight": 1.0,
-      "context": "10 mins de bash es demasiado",
+      "weight": 1.5,
+      "context": "que problema de fondo tenemos mecionas que hay problemas del sanitizador combinados con el COM?",
       "created_at": "2026-04-07T17:15:09.649504+00:00",
-      "updated_at": "2026-04-08T02:46:42.036336+00:00"
+      "updated_at": "2026-04-10T00:49:04.354301+00:00"
     },
     {
       "source": "3.7s",
@@ -8460,10 +8476,10 @@
       "source": "mcp_server.py",
       "target": "word_com.py",
       "type": "used_with",
-      "weight": 3.0,
-      "context": "pero quiero entender el problema dame detalle el problema es en los test es el proyecto donde es el ",
+      "weight": 3.5,
+      "context": "y cuales son los fixes para que esto no pase y donde van los fixes?",
       "created_at": "2026-04-08T16:19:22.733012+00:00",
-      "updated_at": "2026-04-09T21:56:35.768594+00:00"
+      "updated_at": "2026-04-09T22:00:18.871059+00:00"
     },
     {
       "source": "mcp_server.py",
@@ -13995,10 +14011,10 @@
       "source": "mcp_server.py",
       "target": "validators.py",
       "type": "used_with",
-      "weight": 2.0,
-      "context": "pre-hook query",
+      "weight": 2.5,
+      "context": "y cuales son los fixes para que esto no pase y donde van los fixes?",
       "created_at": "2026-04-09T16:42:16.685910+00:00",
-      "updated_at": "2026-04-09T20:41:37.558115+00:00"
+      "updated_at": "2026-04-09T22:00:18.889816+00:00"
     },
     {
       "source": "docx_sanitizer.py",
@@ -14706,10 +14722,10 @@
       "source": "validators.py",
       "target": "kb_reference.py",
       "type": "used_with",
-      "weight": 0.5,
-      "context": "\"usando todos y exclusivamente los recursos del proyecto\"",
+      "weight": 1.0,
+      "context": "y cuales son los fixes para que esto no pase y donde van los fixes?",
       "created_at": "2026-04-09T20:35:07.510526+00:00",
-      "updated_at": "2026-04-09T20:35:07.510526+00:00"
+      "updated_at": "2026-04-09T22:00:18.942305+00:00"
     },
     {
       "source": "kb_reference.py",
@@ -14868,19 +14884,19 @@
       "source": "Range.Text",
       "target": "Find.Exec",
       "type": "used_with",
-      "weight": 0.5,
-      "context": "procede",
+      "weight": 1.5,
+      "context": "Responde solo: OK",
       "created_at": "2026-04-09T21:53:47.628257+00:00",
-      "updated_at": "2026-04-09T21:53:47.628257+00:00"
+      "updated_at": "2026-04-10T00:34:23.584408+00:00"
     },
     {
       "source": "Range.Text",
       "target": "Range.Text",
       "type": "used_with",
-      "weight": 0.5,
-      "context": "procede",
+      "weight": 1.0,
+      "context": "Responde solo: OK",
       "created_at": "2026-04-09T21:53:47.646635+00:00",
-      "updated_at": "2026-04-09T21:53:47.646635+00:00"
+      "updated_at": "2026-04-10T00:34:23.551378+00:00"
     },
     {
       "source": "mcp_server.py",
@@ -14935,11 +14951,47 @@
       "context": "pero quiero entender el problema dame detalle el problema es en los test es el proyecto donde es el ",
       "created_at": "2026-04-09T21:56:35.900561+00:00",
       "updated_at": "2026-04-09T21:56:35.900561+00:00"
+    },
+    {
+      "source": "los",
+      "target": "para que esto no pase y donde van los fixes?",
+      "type": "solves",
+      "weight": 0.7,
+      "context": "pre-hook query",
+      "created_at": "2026-04-09T21:58:51.875032+00:00",
+      "updated_at": "2026-04-09T21:58:51.875032+00:00"
+    },
+    {
+      "source": "word_com.py",
+      "target": "kb_reference.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "y cuales son los fixes para que esto no pase y donde van los fixes?",
+      "created_at": "2026-04-09T22:00:18.924761+00:00",
+      "updated_at": "2026-04-09T22:00:18.924761+00:00"
+    },
+    {
+      "source": "P01_Solo_Soporte.docx",
+      "target": "doc.Cont",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "que problema de fondo tenemos mecionas que hay problemas del sanitizador combinados con el COM?",
+      "created_at": "2026-04-10T00:49:04.318630+00:00",
+      "updated_at": "2026-04-10T00:49:04.318630+00:00"
+    },
+    {
+      "source": "P01_Solo_Soporte.docx",
+      "target": "ent.Text",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "que problema de fondo tenemos mecionas que hay problemas del sanitizador combinados con el COM?",
+      "created_at": "2026-04-10T00:49:04.335567+00:00",
+      "updated_at": "2026-04-10T00:49:04.335567+00:00"
     }
   ],
-  "updated_at": "2026-04-09T21:56:35.900561+00:00",
+  "updated_at": "2026-04-10T00:49:04.354301+00:00",
   "stats": {
-    "entities": 501,
-    "relations": 1214
+    "entities": 503,
+    "relations": 1218
   }
 }
