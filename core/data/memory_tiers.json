@@ -1,22 +1,33 @@
 {
   "hot": [
     {
-      "key": "abre los word si son 2 abrelos los quiero ver",
-      "value": "Ya estÃ¡n abiertos los 2 en tu Word:\n\n1. **TEST_TABLE.docx** â€” ve a pÃ¡gina 18 (secciÃ³n 7. Anexos) para ver la tabla AWS con 9 servicios\n2. **TEST_REPLACE.docx** â€” busca \"GBM International\" con Ctrl+F para confirmar que se reemplazÃ³\n\nDeberÃ­an estar como 2 documentos separados en la barra de tareas de Word. Decime quÃ© ves.",
+      "key": "dame la lista de funciones que tenemos asi tipo la de replace",
+      "value": "AhÃ­ estÃ¡ todo. Resumen:\n\n**Fast paths del cerebro (no necesitan ML para planificar):**\n\n| # | Trigger | Tool que ejecuta |\n|---|---|---|\n| 1 | \"reemplaza/replace/cambia X por Y\" | `smart_replace` |\n| 2 | \"tabla/table\" + data con `table_rows` | `insert_table` |\n\n**Tools disponibles en word_com.py (112 mÃ©todos) â€” las manos del cerebro:**\n\n| CategorÃ­a | Tools |\n|---|---|\n| **Reemplazar texto** | `smart_replace`, `find_replace`, `find_replace_wildcard`, `find_then_set`, `vba_batch_replace` |\n| **Insertar contenido** | `insert_table`, `insert_paragraph`, `insert_image`, `insert_list`, `insert_toc`, `insert_chart`, `insert_equation`, `insert_textbox`, `insert_caption`, `insert_cross_reference`, `insert_ole_object` |\n| **Tablas** | `format_table`, `apply_table_style`, `merge_table_cells`, `split_table_cell`, `delete_table`, `table_autofit`, `table_formula`, `set_table_repeat_headers`, `set_table_overlap` |\n| **Layout/Formato** | `set_page_layout`, `set_paragraph_spacing`, `set_paragraph",
       "domain": "ML 100%",
       "source": "auto_save",
       "tier": "hot",
-      "created_at": "2026-04-10T18:51:11.377880+00:00",
-      "last_access": "2026-04-10T18:51:11.378887+00:00",
+      "created_at": "2026-04-10T19:05:48.723849+00:00",
+      "last_access": "2026-04-10T19:05:48.723849+00:00",
+      "access_count": 0,
+      "promotion_count": 0
+    },
+    {
+      "key": "explicarme como a niÃ±o de 10 aÃ±os para sirve el fat paths y que significa que lo demas cae al ML?",
+      "value": "ImagÃ­nate que el cerebro es un **restaurante**:\n\n**Fast path = recetas que el cocinero ya se sabe de memoria**\n\nCuando pedÃ­s \"papas fritas\", el cocinero no necesita pensar. Ya sabe:\n1. Agarrar papas\n2. Cortarlas\n3. FreÃ­rlas\n4. Servir\n\nNo necesita abrir un libro de cocina. Es rÃ¡pido y no se equivoca.\n\nEn el cerebro:\n- \"Reemplaza X por Y\" â†’ el cÃ³digo ya sabe: llamar `smart_replace(old=X, new=Y)`. No pregunta a nadie.\n- \"Inserta tabla con estos datos\" â†’ el cÃ³digo ya sabe: llamar `insert_table(rows=datos)`. No pregunta a nadie.\n\n**Caer al ML = pedirle al chef experto que invente un platillo**\n\nCuando pedÃ­s algo que no estÃ¡ en el menÃº, como \"haceme un pastel que sepa a nube\", el cocinero no sabe quÃ© hacer. Entonces llama al **chef experto** (el ML/Claude) y le pregunta:\n\n\"Oye, Â¿cÃ³mo hago esto?\"\n\nEl chef piensa y dice: \"Usa harina, crema, vainilla, y hornÃ©alo 20 minutos.\"\n\nEn el cerebro:\n- \"Agrega un watermark con el logo de la empresa\" â†’ el cÃ³digo NO tiene receta para es",
+      "domain": "ML 100%",
+      "source": "auto_save",
+      "tier": "hot",
+      "created_at": "2026-04-10T19:08:27.124143+00:00",
+      "last_access": "2026-04-10T19:08:27.124143+00:00",
       "access_count": 0,
       "promotion_count": 0
     }
   ],
   "warm": [],
   "cold": [],
-  "updated_at": "2026-04-10T18:51:11.378887+00:00",
+  "updated_at": "2026-04-10T19:08:27.124143+00:00",
   "counts": {
-    "hot": 1,
+    "hot": 2,
     "warm": 0,
     "cold": 0
   }

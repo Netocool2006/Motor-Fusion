@@ -5191,6 +5191,30 @@
       "properties": {},
       "created_at": "2026-04-10T18:46:40.381099+00:00",
       "updated_at": "2026-04-10T18:46:40.381099+00:00"
+    },
+    "word_com.smar": {
+      "id": "word_com.smar",
+      "type": "file",
+      "name": "word_com.smar",
+      "properties": {},
+      "created_at": "2026-04-10T18:58:27.797737+00:00",
+      "updated_at": "2026-04-10T18:58:27.797737+00:00"
+    },
+    "1.el": {
+      "id": "1.el",
+      "type": "file",
+      "name": "1.el",
+      "properties": {},
+      "created_at": "2026-04-10T19:00:05.308315+00:00",
+      "updated_at": "2026-04-10T19:00:05.308315+00:00"
+    },
+    "2.porq": {
+      "id": "2.porq",
+      "type": "file",
+      "name": "2.porq",
+      "properties": {},
+      "created_at": "2026-04-10T19:00:05.323186+00:00",
+      "updated_at": "2026-04-10T19:00:05.323186+00:00"
     }
   },
   "relations": [
@@ -20174,10 +20198,10 @@
       "source": "TEST_REPLACE.docx",
       "target": "TEST_TABLE.docx",
       "type": "used_with",
-      "weight": 0.5,
-      "context": "pero cual fue la prueba y abre el word donde trabajaste para valdar si todo esta correcto?",
+      "weight": 1.0,
+      "context": "no existe ninguna palabra que diga \"Internacional\"  valida",
       "created_at": "2026-04-10T18:46:40.321412+00:00",
-      "updated_at": "2026-04-10T18:46:40.321412+00:00"
+      "updated_at": "2026-04-10T18:58:27.840062+00:00"
     },
     {
       "source": "93.6s",
@@ -20241,11 +20265,38 @@
       "context": "abre los word si son 2 abrelos los quiero ver",
       "created_at": "2026-04-10T18:51:11.395924+00:00",
       "updated_at": "2026-04-10T18:51:11.395924+00:00"
+    },
+    {
+      "source": "TEST_REPLACE.docx",
+      "target": "word_com.smar",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "no existe ninguna palabra que diga \"Internacional\"  valida",
+      "created_at": "2026-04-10T18:58:27.815282+00:00",
+      "updated_at": "2026-04-10T18:58:27.815282+00:00"
+    },
+    {
+      "source": "word_com.smar",
+      "target": "TEST_TABLE.docx",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "no existe ninguna palabra que diga \"Internacional\"  valida",
+      "created_at": "2026-04-10T18:58:27.864433+00:00",
+      "updated_at": "2026-04-10T18:58:27.864433+00:00"
+    },
+    {
+      "source": "1.el",
+      "target": "2.porq",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T19:00:05.336951+00:00",
+      "updated_at": "2026-04-10T19:00:05.336951+00:00"
     }
   ],
-  "updated_at": "2026-04-10T18:51:11.395924+00:00",
+  "updated_at": "2026-04-10T19:00:05.336951+00:00",
   "stats": {
-    "entities": 649,
-    "relations": 1672
+    "entities": 652,
+    "relations": 1675
   }
 }
