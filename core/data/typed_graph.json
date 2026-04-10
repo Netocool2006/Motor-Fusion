@@ -5343,6 +5343,14 @@
       "properties": {},
       "created_at": "2026-04-10T21:41:37.753898+00:00",
       "updated_at": "2026-04-10T21:41:37.754991+00:00"
+    },
+    "\\Users\\ntoledo\\AppData\\Local\\Temp\\ia_word_TEST_UNDO2.pdf": {
+      "id": "\\Users\\ntoledo\\AppData\\Local\\Temp\\ia_word_TEST_UNDO2.pdf",
+      "type": "file",
+      "name": "\\Users\\ntoledo\\AppData\\Local\\Temp\\ia_word_TEST_UNDO2.pdf",
+      "properties": {},
+      "created_at": "2026-04-10T21:43:13.346335+00:00",
+      "updated_at": "2026-04-10T21:43:13.346335+00:00"
     }
   },
   "relations": [
@@ -17950,10 +17958,10 @@
       "source": "doc_eyes.rend",
       "target": "word_com.save",
       "type": "used_with",
-      "weight": 1.0,
-      "context": "pre-hook query",
+      "weight": 1.5,
+      "context": "consulta en alguna parte del proceso conviertes a pdf?",
       "created_at": "2026-04-10T16:42:18.999646+00:00",
-      "updated_at": "2026-04-10T16:42:19.562162+00:00"
+      "updated_at": "2026-04-10T21:43:13.318959+00:00"
     },
     {
       "source": "doc_eyes.rend",
@@ -20663,11 +20671,29 @@
       "context": "ok pero eso no es culpa tuya es mia por no definir exactamente donde la quiero",
       "created_at": "2026-04-10T21:41:37.779042+00:00",
       "updated_at": "2026-04-10T21:41:37.779042+00:00"
+    },
+    {
+      "source": "doc_eyes.rend",
+      "target": "\\Users\\ntoledo\\AppData\\Local\\Temp\\ia_word_TEST_UNDO2.pdf",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "consulta en alguna parte del proceso conviertes a pdf?",
+      "created_at": "2026-04-10T21:43:13.376254+00:00",
+      "updated_at": "2026-04-10T21:43:13.376254+00:00"
+    },
+    {
+      "source": "word_com.save",
+      "target": "\\Users\\ntoledo\\AppData\\Local\\Temp\\ia_word_TEST_UNDO2.pdf",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "consulta en alguna parte del proceso conviertes a pdf?",
+      "created_at": "2026-04-10T21:43:13.400781+00:00",
+      "updated_at": "2026-04-10T21:43:13.400781+00:00"
     }
   ],
-  "updated_at": "2026-04-10T21:41:37.779042+00:00",
+  "updated_at": "2026-04-10T21:43:13.400781+00:00",
   "stats": {
-    "entities": 668,
-    "relations": 1702
+    "entities": 669,
+    "relations": 1704
   }
 }
