@@ -1,33 +1,55 @@
 {
   "hot": [
     {
-      "key": "dame la lista de funciones que tenemos asi tipo la de replace",
-      "value": "AhÃ­ estÃ¡ todo. Resumen:\n\n**Fast paths del cerebro (no necesitan ML para planificar):**\n\n| # | Trigger | Tool que ejecuta |\n|---|---|---|\n| 1 | \"reemplaza/replace/cambia X por Y\" | `smart_replace` |\n| 2 | \"tabla/table\" + data con `table_rows` | `insert_table` |\n\n**Tools disponibles en word_com.py (112 mÃ©todos) â€” las manos del cerebro:**\n\n| CategorÃ­a | Tools |\n|---|---|\n| **Reemplazar texto** | `smart_replace`, `find_replace`, `find_replace_wildcard`, `find_then_set`, `vba_batch_replace` |\n| **Insertar contenido** | `insert_table`, `insert_paragraph`, `insert_image`, `insert_list`, `insert_toc`, `insert_chart`, `insert_equation`, `insert_textbox`, `insert_caption`, `insert_cross_reference`, `insert_ole_object` |\n| **Tablas** | `format_table`, `apply_table_style`, `merge_table_cells`, `split_table_cell`, `delete_table`, `table_autofit`, `table_formula`, `set_table_repeat_headers`, `set_table_overlap` |\n| **Layout/Formato** | `set_page_layout`, `set_paragraph_spacing`, `set_paragraph",
+      "key": "continua",
+      "value": "**Cobertura completa:**\n\n| | Cantidad |\n|---|---|\n| MÃ©todos totales en WordCOM | 121 |\n| Fast paths (recetas) | 106 |\n| Internos (open, save, quit...) | 18 |\n| Faltantes | **0** |\n\nEl cerebro ahora tiene receta para TODO. El ML solo entra para:\n1. **Validar fotos** (los ojos)\n2. **Tareas multi-paso** que combinan varias tools (ej: \"reorganiza el documento y actualiza el TOC\")",
       "domain": "ML 100%",
       "source": "auto_save",
       "tier": "hot",
-      "created_at": "2026-04-10T19:05:48.723849+00:00",
-      "last_access": "2026-04-10T19:05:48.723849+00:00",
+      "created_at": "2026-04-10T20:10:53.019508+00:00",
+      "last_access": "2026-04-10T20:10:53.019508+00:00",
       "access_count": 0,
       "promotion_count": 0
     },
     {
-      "key": "explicarme como a niÃ±o de 10 aÃ±os para sirve el fat paths y que significa que lo demas cae al ML?",
-      "value": "ImagÃ­nate que el cerebro es un **restaurante**:\n\n**Fast path = recetas que el cocinero ya se sabe de memoria**\n\nCuando pedÃ­s \"papas fritas\", el cocinero no necesita pensar. Ya sabe:\n1. Agarrar papas\n2. Cortarlas\n3. FreÃ­rlas\n4. Servir\n\nNo necesita abrir un libro de cocina. Es rÃ¡pido y no se equivoca.\n\nEn el cerebro:\n- \"Reemplaza X por Y\" â†’ el cÃ³digo ya sabe: llamar `smart_replace(old=X, new=Y)`. No pregunta a nadie.\n- \"Inserta tabla con estos datos\" â†’ el cÃ³digo ya sabe: llamar `insert_table(rows=datos)`. No pregunta a nadie.\n\n**Caer al ML = pedirle al chef experto que invente un platillo**\n\nCuando pedÃ­s algo que no estÃ¡ en el menÃº, como \"haceme un pastel que sepa a nube\", el cocinero no sabe quÃ© hacer. Entonces llama al **chef experto** (el ML/Claude) y le pregunta:\n\n\"Oye, Â¿cÃ³mo hago esto?\"\n\nEl chef piensa y dice: \"Usa harina, crema, vainilla, y hornÃ©alo 20 minutos.\"\n\nEn el cerebro:\n- \"Agrega un watermark con el logo de la empresa\" â†’ el cÃ³digo NO tiene receta para es",
+      "key": "hice algunas mejoras a cerebro2 miralas como las vez?",
+      "value": "Ya vi los 3 archivos. Son pruebas que hiciste vos:\n\n1. **`prueba_cerebro.py`** â€” Usa el Cerebro v1 (el dormido) con `plan_insertar_tabla()` y `cerebro.ejecutar()`. Incluye extracciÃ³n de datos AWS del Excel con IVA Guatemala 12% y factor AWS 1.4526.\n\n2. **`prueba_motor_real.py`** â€” Prueba directa usando `call_tool()` del MCP server (sin Cerebro). Misma lÃ³gica de extracciÃ³n del Excel.\n\n3. **`convertir a agente.txt`** â€” Log de la conversaciÃ³n anterior donde discutimos la arquitectura.\n\nLo bueno que veo de tus pruebas y que deberÃ­amos integrar al cerebro_v2:\n\n| Lo que hiciste vos | Lo que falta en cerebro_v2 |\n|---|---|\n| `extract_aws_data()` â€” lee Excel con openpyxl, extrae 10 columnas | El cerebro v2 recibe datos en `--data` pero no lee Excel solo |\n| IVA 12% Guatemala + Factor AWS 1.4526 | El fast path de tabla no calcula IVA ni factores |\n| `build_table_data()` â€” formatea los montos con `$` y `,` | El cerebro v2 pasa los datos crudos |\n| `plan_insertar_tabla()` del Cereb",
       "domain": "ML 100%",
       "source": "auto_save",
       "tier": "hot",
-      "created_at": "2026-04-10T19:08:27.124143+00:00",
-      "last_access": "2026-04-10T19:08:27.124143+00:00",
+      "created_at": "2026-04-10T20:12:00.449310+00:00",
+      "last_access": "2026-04-10T20:12:00.449310+00:00",
+      "access_count": 0,
+      "promotion_count": 0
+    },
+    {
+      "key": "vez esto en el codigo de cerebro_v2.py        self.eyes: Optional[DocEyes] = None\n        self.visible = visible\n        self.max_visual_retries = 3\n        self.min_evidence_score = 0.75\n        self",
+      "value": "Excelentes mejoras. Esto es lo que agregaste:\n\n**1. `_deterministic_postcheck()` (lÃ­nea 1344)** â€” ValidaciÃ³n dura SIN ML:\n- Para replace: verifica que `new_text` existe Y que `old_text` ya no existe (usando `count_occurrences` y `verify_all_replaced`)\n- Para insert_table: verifica que la tabla existe con el nÃºmero correcto de filas y columnas\n- Esto es exactamente lo que faltaba â€” el ML dijo \"todo bien\" cuando \"GBM International\" no existÃ­a, pero este check lo habrÃ­a atrapado\n\n**2. `_compute_evidence_score()` (lÃ­nea 1426)** â€” Score de evidencia combinado:\n- **40% ML consensus** â€” cuÃ¡ntas pÃ¡ginas dijeron valid\n- **40% deterministic check** â€” el postcheck de arriba\n- **20% text evidence** â€” busca el texto nuevo/viejo en el render OCR\n- Threshold: 0.85 â€” necesita al menos 85% para pasar\n\nEsto es **exactamente** lo que discutimos â€” no confiar solo en el ML, sino combinar ML + verificaciÃ³n determinista + evidencia de texto. El score de 0.85 significa que si el ML di",
+      "domain": "ML 100%",
+      "source": "auto_save",
+      "tier": "hot",
+      "created_at": "2026-04-10T20:15:35.653889+00:00",
+      "last_access": "2026-04-10T20:15:35.653889+00:00",
+      "access_count": 0,
+      "promotion_count": 0
+    },
+    {
+      "key": "valida tu",
+      "value": "Tus mejoras estÃ¡n validadas y funcionando:\n\n1. `_deterministic_postcheck` â€” detecta falsos positivos del ML (el caso que nos fallÃ³ antes)\n2. `_compute_evidence_score` â€” combina ML (40%) + deterministic (40%) + text evidence (20%) con threshold 0.85\n3. El fix del substring â€” evita falso negativo cuando old_text es parte de new_text",
+      "domain": "ML 100%",
+      "source": "auto_save",
+      "tier": "hot",
+      "created_at": "2026-04-10T20:32:50.533159+00:00",
+      "last_access": "2026-04-10T20:32:50.533159+00:00",
       "access_count": 0,
       "promotion_count": 0
     }
   ],
   "warm": [],
   "cold": [],
-  "updated_at": "2026-04-10T19:08:27.124143+00:00",
+  "updated_at": "2026-04-10T20:32:50.534165+00:00",
   "counts": {
-    "hot": 2,
+    "hot": 4,
     "warm": 0,
     "cold": 0
   }

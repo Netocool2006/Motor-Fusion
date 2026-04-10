@@ -5215,6 +5215,94 @@
       "properties": {},
       "created_at": "2026-04-10T19:00:05.323186+00:00",
       "updated_at": "2026-04-10T19:00:05.323186+00:00"
+    },
+    "prueba_motor_real.py": {
+      "id": "prueba_motor_real.py",
+      "type": "file",
+      "name": "prueba_motor_real.py",
+      "properties": {},
+      "created_at": "2026-04-10T20:12:00.544798+00:00",
+      "updated_at": "2026-04-10T20:12:00.544798+00:00"
+    },
+    "agente.txt": {
+      "id": "agente.txt",
+      "type": "file",
+      "name": "agente.txt",
+      "properties": {},
+      "created_at": "2026-04-10T20:12:00.618029+00:00",
+      "updated_at": "2026-04-10T20:12:00.618029+00:00"
+    },
+    "cerebro_v2.py": {
+      "id": "cerebro_v2.py",
+      "type": "file",
+      "name": "cerebro_v2.py",
+      "properties": {},
+      "created_at": "2026-04-10T20:14:42.656212+00:00",
+      "updated_at": "2026-04-10T20:14:42.656212+00:00"
+    },
+    "self.eyes": {
+      "id": "self.eyes",
+      "type": "file",
+      "name": "self.eyes",
+      "properties": {},
+      "created_at": "2026-04-10T20:14:42.671477+00:00",
+      "updated_at": "2026-04-10T20:14:42.671477+00:00"
+    },
+    "self.visi": {
+      "id": "self.visi",
+      "type": "file",
+      "name": "self.visi",
+      "properties": {},
+      "created_at": "2026-04-10T20:14:42.706189+00:00",
+      "updated_at": "2026-04-10T20:14:42.706189+00:00"
+    },
+    "self.max_": {
+      "id": "self.max_",
+      "type": "file",
+      "name": "self.max_",
+      "properties": {},
+      "created_at": "2026-04-10T20:14:42.759983+00:00",
+      "updated_at": "2026-04-10T20:14:42.759983+00:00"
+    },
+    "self.min_": {
+      "id": "self.min_",
+      "type": "file",
+      "name": "self.min_",
+      "properties": {},
+      "created_at": "2026-04-10T20:14:42.815953+00:00",
+      "updated_at": "2026-04-10T20:14:42.815953+00:00"
+    },
+    "0.75": {
+      "id": "0.75",
+      "type": "file",
+      "name": "0.75",
+      "properties": {},
+      "created_at": "2026-04-10T20:14:42.868891+00:00",
+      "updated_at": "2026-04-10T20:14:42.868891+00:00"
+    },
+    "0.85": {
+      "id": "0.85",
+      "type": "file",
+      "name": "0.85",
+      "properties": {},
+      "created_at": "2026-04-10T20:14:42.958846+00:00",
+      "updated_at": "2026-04-10T20:14:42.958846+00:00"
+    },
+    "old_text": {
+      "id": "old_text",
+      "type": "domain",
+      "name": "old_text",
+      "properties": {},
+      "created_at": "2026-04-10T20:32:50.553313+00:00",
+      "updated_at": "2026-04-10T20:32:50.553313+00:00"
+    },
+    "new_text": {
+      "id": "new_text",
+      "type": "domain",
+      "name": "new_text",
+      "properties": {},
+      "created_at": "2026-04-10T20:32:50.580295+00:00",
+      "updated_at": "2026-04-10T20:32:50.580295+00:00"
     }
   },
   "relations": [
@@ -20292,11 +20380,227 @@
       "context": "pre-hook query",
       "created_at": "2026-04-10T19:00:05.336951+00:00",
       "updated_at": "2026-04-10T19:00:05.336951+00:00"
+    },
+    {
+      "source": "prueba_cerebro.py",
+      "target": "cerebro.ejec",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "hice algunas mejoras a cerebro2 miralas como las vez?",
+      "created_at": "2026-04-10T20:12:00.467930+00:00",
+      "updated_at": "2026-04-10T20:12:00.467930+00:00"
+    },
+    {
+      "source": "prueba_cerebro.py",
+      "target": "1.4526",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "hice algunas mejoras a cerebro2 miralas como las vez?",
+      "created_at": "2026-04-10T20:12:00.491596+00:00",
+      "updated_at": "2026-04-10T20:12:00.493101+00:00"
+    },
+    {
+      "source": "cerebro.ejec",
+      "target": "1.4526",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "hice algunas mejoras a cerebro2 miralas como las vez?",
+      "created_at": "2026-04-10T20:12:00.519741+00:00",
+      "updated_at": "2026-04-10T20:12:00.519741+00:00"
+    },
+    {
+      "source": "cerebro.ejec",
+      "target": "prueba_motor_real.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "hice algunas mejoras a cerebro2 miralas como las vez?",
+      "created_at": "2026-04-10T20:12:00.568823+00:00",
+      "updated_at": "2026-04-10T20:12:00.568823+00:00"
+    },
+    {
+      "source": "1.4526",
+      "target": "prueba_motor_real.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "hice algunas mejoras a cerebro2 miralas como las vez?",
+      "created_at": "2026-04-10T20:12:00.595890+00:00",
+      "updated_at": "2026-04-10T20:12:00.595890+00:00"
+    },
+    {
+      "source": "1.4526",
+      "target": "agente.txt",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "hice algunas mejoras a cerebro2 miralas como las vez?",
+      "created_at": "2026-04-10T20:12:00.633729+00:00",
+      "updated_at": "2026-04-10T20:12:00.633729+00:00"
+    },
+    {
+      "source": "prueba_motor_real.py",
+      "target": "agente.txt",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "hice algunas mejoras a cerebro2 miralas como las vez?",
+      "created_at": "2026-04-10T20:12:00.652833+00:00",
+      "updated_at": "2026-04-10T20:12:00.652833+00:00"
+    },
+    {
+      "source": "prueba_motor_real.py",
+      "target": "1.4526",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "hice algunas mejoras a cerebro2 miralas como las vez?",
+      "created_at": "2026-04-10T20:12:00.668849+00:00",
+      "updated_at": "2026-04-10T20:12:00.668849+00:00"
+    },
+    {
+      "source": "agente.txt",
+      "target": "1.4526",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "hice algunas mejoras a cerebro2 miralas como las vez?",
+      "created_at": "2026-04-10T20:12:00.683997+00:00",
+      "updated_at": "2026-04-10T20:12:00.683997+00:00"
+    },
+    {
+      "source": "cerebro_v2.py",
+      "target": "self.eyes",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T20:14:42.690814+00:00",
+      "updated_at": "2026-04-10T20:14:42.690814+00:00"
+    },
+    {
+      "source": "cerebro_v2.py",
+      "target": "self.visi",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T20:14:42.723130+00:00",
+      "updated_at": "2026-04-10T20:14:42.723130+00:00"
+    },
+    {
+      "source": "self.eyes",
+      "target": "self.visi",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T20:14:42.740130+00:00",
+      "updated_at": "2026-04-10T20:14:42.740130+00:00"
+    },
+    {
+      "source": "self.eyes",
+      "target": "self.max_",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T20:14:42.776590+00:00",
+      "updated_at": "2026-04-10T20:14:42.776590+00:00"
+    },
+    {
+      "source": "self.visi",
+      "target": "self.max_",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T20:14:42.797081+00:00",
+      "updated_at": "2026-04-10T20:14:42.797081+00:00"
+    },
+    {
+      "source": "self.visi",
+      "target": "self.min_",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T20:14:42.834955+00:00",
+      "updated_at": "2026-04-10T20:14:42.834955+00:00"
+    },
+    {
+      "source": "self.max_",
+      "target": "self.min_",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T20:14:42.851689+00:00",
+      "updated_at": "2026-04-10T20:14:42.851689+00:00"
+    },
+    {
+      "source": "self.max_",
+      "target": "0.75",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T20:14:42.888233+00:00",
+      "updated_at": "2026-04-10T20:14:42.888233+00:00"
+    },
+    {
+      "source": "self.min_",
+      "target": "0.75",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T20:14:42.904194+00:00",
+      "updated_at": "2026-04-10T20:14:42.904194+00:00"
+    },
+    {
+      "source": "self.min_",
+      "target": "self.min_",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T20:14:42.922024+00:00",
+      "updated_at": "2026-04-10T20:14:42.922024+00:00"
+    },
+    {
+      "source": "0.75",
+      "target": "self.min_",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T20:14:42.939942+00:00",
+      "updated_at": "2026-04-10T20:14:42.939942+00:00"
+    },
+    {
+      "source": "0.75",
+      "target": "0.85",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T20:14:42.973508+00:00",
+      "updated_at": "2026-04-10T20:14:42.973508+00:00"
+    },
+    {
+      "source": "self.min_",
+      "target": "0.85",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T20:14:42.989165+00:00",
+      "updated_at": "2026-04-10T20:14:42.989165+00:00"
+    },
+    {
+      "source": "0.85",
+      "target": "0.85",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "vez esto en el codigo de cerebro_v2.py        self.eyes: Optional[DocEyes] = None\n        self.visib",
+      "created_at": "2026-04-10T20:15:35.673008+00:00",
+      "updated_at": "2026-04-10T20:15:35.673008+00:00"
+    },
+    {
+      "source": "old_text",
+      "target": "new_text",
+      "type": "part_of",
+      "weight": 0.7,
+      "context": "valida tu",
+      "created_at": "2026-04-10T20:32:50.609689+00:00",
+      "updated_at": "2026-04-10T20:32:50.609689+00:00"
     }
   ],
-  "updated_at": "2026-04-10T19:00:05.336951+00:00",
+  "updated_at": "2026-04-10T20:32:50.609689+00:00",
   "stats": {
-    "entities": 652,
-    "relations": 1675
+    "entities": 663,
+    "relations": 1699
   }
 }
