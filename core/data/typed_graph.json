@@ -4023,6 +4023,30 @@
       "properties": {},
       "created_at": "2026-04-09T21:58:51.864439+00:00",
       "updated_at": "2026-04-09T21:58:51.864439+00:00"
+    },
+    "reemplazo": {
+      "id": "reemplazo",
+      "type": "concept",
+      "name": "reemplazo",
+      "properties": {},
+      "created_at": "2026-04-10T00:55:57.166510+00:00",
+      "updated_at": "2026-04-10T00:55:57.166510+00:00"
+    },
+    "vba": {
+      "id": "vba",
+      "type": "concept",
+      "name": "vba",
+      "properties": {},
+      "created_at": "2026-04-10T00:55:57.184766+00:00",
+      "updated_at": "2026-04-10T00:55:57.184766+00:00"
+    },
+    "VisionBridge.__in": {
+      "id": "VisionBridge.__in",
+      "type": "file",
+      "name": "VisionBridge.__in",
+      "properties": {},
+      "created_at": "2026-04-10T01:14:41.180185+00:00",
+      "updated_at": "2026-04-10T01:14:41.180185+00:00"
     }
   },
   "relations": [
@@ -8476,10 +8500,10 @@
       "source": "mcp_server.py",
       "target": "word_com.py",
       "type": "used_with",
-      "weight": 3.5,
-      "context": "y cuales son los fixes para que esto no pase y donde van los fixes?",
+      "weight": 5.0,
+      "context": "y si pasaron por todos los pasos de los componentes de la arquitectura?",
       "created_at": "2026-04-08T16:19:22.733012+00:00",
-      "updated_at": "2026-04-09T22:00:18.871059+00:00"
+      "updated_at": "2026-04-10T01:09:40.322190+00:00"
     },
     {
       "source": "mcp_server.py",
@@ -13489,10 +13513,10 @@
       "source": "mcp_server.py",
       "target": "mcp_server.py",
       "type": "used_with",
-      "weight": 1.0,
-      "context": "necesito mas detalle de que problemas hay porque estamos re iniciando la sesion a cada rato?",
+      "weight": 5.5,
+      "context": "y si pasaron por todos los pasos de los componentes de la arquitectura?",
       "created_at": "2026-04-09T03:33:55.342906+00:00",
-      "updated_at": "2026-04-09T21:55:04.543655+00:00"
+      "updated_at": "2026-04-10T01:09:40.306480+00:00"
     },
     {
       "source": "P01_5pass.docx",
@@ -13813,10 +13837,10 @@
       "source": "word_com.py",
       "target": "word_com.py",
       "type": "used_with",
-      "weight": 1.5,
-      "context": "valida el proyecto actual de esta carpeta y repara esto que sale en el log f82b 4db3 5b77 61ce 278b ",
+      "weight": 3.0,
+      "context": "y si pasaron por todos los pasos de los componentes de la arquitectura?",
       "created_at": "2026-04-09T15:47:30.097739+00:00",
-      "updated_at": "2026-04-09T15:47:30.165026+00:00"
+      "updated_at": "2026-04-10T01:09:40.356297+00:00"
     },
     {
       "source": "vector_kb.py",
@@ -14987,11 +15011,29 @@
       "context": "que problema de fondo tenemos mecionas que hay problemas del sanitizador combinados con el COM?",
       "created_at": "2026-04-10T00:49:04.335567+00:00",
       "updated_at": "2026-04-10T00:49:04.335567+00:00"
+    },
+    {
+      "source": "reemplazo",
+      "target": "vba",
+      "type": "used_with",
+      "weight": 0.7,
+      "context": "yo lo que quiero es que el proyecto funcione eficiente y que sea certero en lo que hace cual recomie",
+      "created_at": "2026-04-10T00:55:57.201452+00:00",
+      "updated_at": "2026-04-10T00:55:57.201452+00:00"
+    },
+    {
+      "source": "bridge.is_a",
+      "target": "VisionBridge.__in",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "Responde solo: OK",
+      "created_at": "2026-04-10T01:14:41.200738+00:00",
+      "updated_at": "2026-04-10T01:14:41.200738+00:00"
     }
   ],
-  "updated_at": "2026-04-10T00:49:04.354301+00:00",
+  "updated_at": "2026-04-10T01:14:41.201303+00:00",
   "stats": {
-    "entities": 503,
-    "relations": 1218
+    "entities": 506,
+    "relations": 1220
   }
 }

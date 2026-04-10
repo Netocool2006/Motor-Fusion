@@ -1,33 +1,22 @@
 {
   "hot": [
     {
-      "key": "usa VBA",
-      "value": "Sigue fallando. El hot-reload estÃ¡ corriendo al hacer open_document (que crea _word) y luego al llamar smart_replace dice que no hay doc. El problema no es el hot-reload â€” es que el MCP server tiene el cÃ³digo VIEJO de smart_replace (el revert a find_then_set que tenÃ­a el bug de end_pos).\n\nNo hay forma de evitarlo sin reinicio. HacÃ© `/exit` y volvÃ© â€” este serÃ¡ el Ãºltimo reinicio necesario.",
+      "key": "Responde solo: OK",
+      "value": "No hay NADA de visual validation en el log. Eso significa que `get_bridge()` o `bridge.is_available` devuelve False dentro del MCP server. El problema es que `VisionBridge.__init__` hace un pre-check llamando `claude --print` que puede fallar en el contexto del MCP server.\n\nEl MCP server corre como un subprocess de Claude Code. Cuando `VisionBridge` intenta llamar `claude --print`, puede haber un conflicto (Claude llamando a Claude).\n\nEse es probablemente el problema: **no se puede llamar a Claude CLI desde dentro de un proceso que ya es parte de Claude Code.**\n\nÂ¿QuerÃ©s que investigue una alternativa (usar la API de Anthropic en vez del CLI) o que desactive la visual validation por ahora y siga con los tests de las otras tools?",
       "domain": "ML 100%",
       "source": "auto_save",
       "tier": "hot",
-      "created_at": "2026-04-10T00:41:07.569945+00:00",
-      "last_access": "2026-04-10T00:41:07.569945+00:00",
-      "access_count": 0,
-      "promotion_count": 0
-    },
-    {
-      "key": "que problema de fondo tenemos mecionas que hay problemas del sanitizador combinados con el COM?",
-      "value": "SÃ­, el problema de fondo es este:\n\n## El documento P01_Solo_Soporte.docx tiene split-runs\n\nEste documento fue convertido de PDF (81% single-char ratio, 18,783 runs). El sanitizer fusiona los runs XML:\n\n```\nAntes:  P-o-s-t-g-r-e-S-Q-L  (10 runs de 1 carÃ¡cter)\nDespuÃ©s: PostgreSQL            (1 run fusionado)\n```\n\n**PERO** el sanitizer tiene 3 fases, y las fases 0a (RTF roundtrip) y 0b (COM repaste) **re-fragmentan** parcialmente lo que la fase 1 (XML merge) fusionÃ³:\n\n```\nFase 0a: RTF roundtrip    â†’ limpia algunas cosas, pero puede re-fragmentar\nFase 0b: COM repaste       â†’ Word re-interpreta y puede crear nuevos split-runs\nFase 1:  XML merge         â†’ fusiona 18,270 runs â†’ 427 runs\n```\n\nEl resultado es que despuÃ©s del sanitizer, algunos textos **parecen** fusionados a nivel de `.Text` (Python los lee como \"PostgreSQL\") pero **internamente** Word los sigue tratando como fragmentados. Por eso:\n\n- `doc.Content.Text.count(\"PostgreSQL\")` = 5 âœ… (Python lee el texto renderizado)\n",
-      "domain": "ML 100%",
-      "source": "auto_save",
-      "tier": "hot",
-      "created_at": "2026-04-10T00:49:04.304765+00:00",
-      "last_access": "2026-04-10T00:49:04.304765+00:00",
+      "created_at": "2026-04-10T01:14:41.166648+00:00",
+      "last_access": "2026-04-10T01:14:41.166648+00:00",
       "access_count": 0,
       "promotion_count": 0
     }
   ],
   "warm": [],
   "cold": [],
-  "updated_at": "2026-04-10T00:49:04.304765+00:00",
+  "updated_at": "2026-04-10T01:14:41.167408+00:00",
   "counts": {
-    "hot": 2,
+    "hot": 1,
     "warm": 0,
     "cold": 0
   }
