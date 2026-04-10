@@ -5519,6 +5519,22 @@
       "properties": {},
       "created_at": "2026-04-10T22:31:12.240879+00:00",
       "updated_at": "2026-04-10T22:31:12.241843+00:00"
+    },
+    "0.3in": {
+      "id": "0.3in",
+      "type": "file",
+      "name": "0.3in",
+      "properties": {},
+      "created_at": "2026-04-10T23:41:44.255553+00:00",
+      "updated_at": "2026-04-10T23:41:44.255553+00:00"
+    },
+    "0.1in": {
+      "id": "0.1in",
+      "type": "file",
+      "name": "0.1in",
+      "properties": {},
+      "created_at": "2026-04-10T23:41:44.282068+00:00",
+      "updated_at": "2026-04-10T23:41:44.282068+00:00"
     }
   },
   "relations": [
@@ -21487,11 +21503,20 @@
       "context": "si sigue con el tema de TOC",
       "created_at": "2026-04-10T22:52:26.308881+00:00",
       "updated_at": "2026-04-10T22:52:26.308881+00:00"
+    },
+    {
+      "source": "0.3in",
+      "target": "0.1in",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pregunta cuantos puntos de distancia le tiens entre el titual y el numero en el indice",
+      "created_at": "2026-04-10T23:41:44.310450+00:00",
+      "updated_at": "2026-04-10T23:41:44.310450+00:00"
     }
   ],
-  "updated_at": "2026-04-10T22:52:26.308881+00:00",
+  "updated_at": "2026-04-10T23:41:44.310450+00:00",
   "stats": {
-    "entities": 690,
-    "relations": 1774
+    "entities": 692,
+    "relations": 1775
   }
 }

@@ -54,13 +54,68 @@
       "last_access": "2026-04-10T23:34:45.885315+00:00",
       "access_count": 0,
       "promotion_count": 0
+    },
+    {
+      "key": "sigue igual [Image #5] pregunta en que archivo del codigo fuente esta esta parte para yo revisarla para ver si lo puedo corregir",
+      "value": "El cÃ³digo de `repair_toc` estÃ¡ en:\n\n**`C:\\Chance1\\IA\\IA_Word\\src\\word_com.py`** â€” mÃ©todo `repair_toc()`, empieza en la **lÃ­nea 3937**.\n\nLas secciones clave dentro del mÃ©todo:\n\n| LÃ­nea aprox. | QuÃ© hace |\n|---|---|\n| 3937-3952 | DefiniciÃ³n y docstring |\n| 3953-3966 | Step 1: Verificar si ya existe TOC vÃ¡lido |\n| 3968-4021 | Step 2: Buscar tÃ­tulo del TOC roto |\n| 4023-4091 | Step 3: Leer entradas y extraer headings (split de fusionados) |\n| 4093-4100 | Step 4: Borrar pÃ¡rrafos del TOC roto |\n| 4102-4136 | Step 5: Restaurar estilos Heading a pÃ¡rrafos del cuerpo |\n| 4138-4145 | Step 6a: Detectar font dominante del documento |\n| 4168-4198 | Step 6b: Insertar tÃ­tulo \"Contenidos\" con estilo TOC Heading |\n| 4201-4221 | Step 6c: Crear TOC field + inyectar `\\h` para hyperlinks |\n| 4223-4248 | Step 6d: Formatear estilos TDC (font + tab stops con dots) |\n| 4250-4253 | Step 7: Page break despuÃ©s del TOC |\n| 4255-4257 | Step 8: Repaginar y actualizar |\n\nEl problema que ves (dots corto",
+      "domain": "ML 100%",
+      "source": "auto_save",
+      "tier": "hot",
+      "created_at": "2026-04-10T23:36:25.962409+00:00",
+      "last_access": "2026-04-10T23:36:25.962409+00:00",
+      "access_count": 0,
+      "promotion_count": 0
+    },
+    {
+      "key": "ya estamos post re inicio para ver si es cierto que ya esta corregido usando mcp",
+      "value": "Ahora sÃ­ se ve mucho mejor comparando con el original:\n\n- **Dot leaders** se extienden hasta los nÃºmeros de pÃ¡gina\n- **Font** es el correcto del documento (no Aptos/Calibri default)\n- **\"Contenidos\"** NO aparece como entrada dentro del TOC\n- **TÃ­tulo \"Contenidos\"** estÃ¡ en bold negro\n- **Page break** â€” el TOC tiene su propia pÃ¡gina\n- **No se jalÃ³ contenido** de la secciÃ³n de abajo\n\nLos dots todavÃ­a no llegan completamente hasta el borde derecho como en el original (foto2) â€” van hasta ~60% del ancho. Esto es porque el TOC se estÃ¡ renderizando en la mitad izquierda de la pÃ¡gina en vez de usar el ancho completo. Pero la estructura ya estÃ¡ correcta.\n\nÂ¿QuerÃ©s que siga ajustando el ancho de los dots, o estÃ¡ bien asÃ­ para avanzar con otra cosa?",
+      "domain": "ML 100%",
+      "source": "auto_save",
+      "tier": "hot",
+      "created_at": "2026-04-10T23:39:51.655290+00:00",
+      "last_access": "2026-04-10T23:39:51.655290+00:00",
+      "access_count": 0,
+      "promotion_count": 0
+    },
+    {
+      "key": "abrelo quiero verlo",
+      "value": "Listo â€” Word estÃ¡ visible con `TEST_TOC_MCP.docx`. Navega a la pÃ¡gina 4 para ver el TOC.",
+      "domain": "ML 100%",
+      "source": "auto_save",
+      "tier": "hot",
+      "created_at": "2026-04-10T23:40:26.897998+00:00",
+      "last_access": "2026-04-10T23:40:26.897998+00:00",
+      "access_count": 0,
+      "promotion_count": 0
+    },
+    {
+      "key": "pregunta cuantos puntos de distancia le tiens entre el titual y el numero en el indice",
+      "value": "El tab stop estÃ¡ a **577 puntos (8.0 pulgadas)** desde el margen izquierdo, que es exactamente el ancho del Ã¡rea de texto. Los dots van desde el final del tÃ­tulo hasta los 577pt donde estÃ¡ el nÃºmero de pÃ¡gina.\n\nPero el problema visual que ves es que **los dots se ven cortos** porque los mÃ¡rgenes del documento son muy pequeÃ±os (izq=0.3in, der=0.1in) â€” el Ã¡rea de texto es de 8 pulgadas, pero visualmente en la pantalla se ve como si el TOC solo ocupara la mitad.\n\nEn el documento original (foto2), el TOC se veÃ­a con dots que iban de borde a borde porque probablemente tenÃ­a mÃ¡rgenes estÃ¡ndar (~1 pulgada cada lado) y el texto ocupaba todo ese ancho.\n\nÂ¿QuerÃ©s que ajuste los dots para que lleguen mÃ¡s lejos, o el problema es mÃ¡s bien que visualmente se ve comprimido en tu pantalla?",
+      "domain": "ML 100%",
+      "source": "auto_save",
+      "tier": "hot",
+      "created_at": "2026-04-10T23:41:44.238069+00:00",
+      "last_access": "2026-04-10T23:41:44.238069+00:00",
+      "access_count": 0,
+      "promotion_count": 0
+    },
+    {
+      "key": "es que le problema sigue [Image #6]",
+      "value": "Listo. Ahora `repair_toc` automÃ¡ticamente:\n1. Detecta si la secciÃ³n del TOC tiene mÃºltiples columnas â†’ la cambia a 1\n2. Calcula el ancho correcto del texto\n3. Pone los tab stops con dots al borde derecho\n\nRevisÃ¡ Word â€” deberÃ­a verse como la foto2 ahora.",
+      "domain": "ML 100%",
+      "source": "auto_save",
+      "tier": "hot",
+      "created_at": "2026-04-10T23:47:04.674020+00:00",
+      "last_access": "2026-04-10T23:47:04.674020+00:00",
+      "access_count": 0,
+      "promotion_count": 0
     }
   ],
   "warm": [],
   "cold": [],
-  "updated_at": "2026-04-10T23:34:45.885315+00:00",
+  "updated_at": "2026-04-10T23:47:04.674020+00:00",
   "counts": {
-    "hot": 5,
+    "hot": 10,
     "warm": 0,
     "cold": 0
   }
