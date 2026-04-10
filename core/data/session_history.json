@@ -1608,6 +1608,53 @@
     "searches": [],
     "errors": [],
     "decisions": [],
+    "learning_json": {
+      "role": "planificador_word",
+      "status": "listo",
+      "capacidades": [
+        "analizar_instrucciones",
+        "generar_plan_edicion",
+        "emitir_tool_calls_json"
+      ],
+      "formato_respuesta": "json_puro",
+      "herramientas_disponibles": "mcp__ia_word__*"
+    },
+    "reasoning_traces": [],
+    "metrics": {
+      "user_messages": 1,
+      "files_touched": 0,
+      "total_messages": 3,
+      "commands_count": 0,
+      "errors_count": 0,
+      "decisions_count": 0
+    },
+    "domains": [
+      "tests",
+      "ia_word",
+      "manage_ia",
+      "editar_con_ia",
+      "cambio_fechas_documento"
+    ],
+    "merged": true,
+    "merge_count": 5
+  },
+  {
+    "session_id": "c29b25e1-8a1d-425f-ad24-b459de0a4216",
+    "date": "2026-04-10",
+    "time": "15:48:20 UTC",
+    "timestamp": "2026-04-10 15:48:20",
+    "cwd": "C:\\Chance1\\IA\\IA_Word",
+    "summary": "Responde solo con: [{\"tool\": \"smart_replace\", \"args\": {\"old_text\": \"GBM\", \"new_text\": \"GBM International\"}}]",
+    "user_messages": [
+      "Responde solo con: [{\"tool\": \"smart_replace\", \"args\": {\"old_text\": \"GBM\", \"new_text\": \"GBM International\"}}]"
+    ],
+    "files_read": [],
+    "files_edited": [],
+    "files_created": [],
+    "commands_run": [],
+    "searches": [],
+    "errors": [],
+    "decisions": [],
     "learning_json": null,
     "reasoning_traces": [],
     "metrics": {
@@ -1619,11 +1666,44 @@
       "decisions_count": 0
     },
     "domains": [
-      "tests",
+      "hooks_ia_backup_20260331_22050",
+      "src",
+      "ia_excel",
       "ia_word",
-      "manage_ia",
-      "editar_con_ia",
-      "cambio_fechas_documento"
+      "prompts_ia"
+    ]
+  },
+  {
+    "session_id": "b633a196-82e1-45a1-a7e7-72798a851101",
+    "date": "2026-04-10",
+    "time": "16:06:05 UTC",
+    "timestamp": "2026-04-10 16:06:05",
+    "cwd": "C:\\Users\\ntoledo\\AppData\\Local\\Temp\\cerebro_ml",
+    "summary": "Lee la imagen en C:\\Users\\ntoledo\\AppData\\Local\\Temp\\ia_word_eyes_4g8rld3l\\page_010.png usando el tool Read.",
+    "user_messages": [
+      "Lee la imagen en C:\\Users\\ntoledo\\AppData\\Local\\Temp\\ia_word_eyes_4g8rld3l\\page_010.png usando el tool Read."
+    ],
+    "files_read": [
+      "C:\\Users\\ntoledo\\AppData\\Local\\Temp\\ia_word_eyes_4g8rld3l\\page_010.png"
+    ],
+    "files_edited": [],
+    "files_created": [],
+    "commands_run": [],
+    "searches": [],
+    "errors": [],
+    "decisions": [],
+    "learning_json": null,
+    "reasoning_traces": [],
+    "metrics": {
+      "total_messages": 4,
+      "user_messages": 1,
+      "errors_count": 0,
+      "files_touched": 1,
+      "commands_count": 0,
+      "decisions_count": 0
+    },
+    "domains": [
+      "hooks_ia_backup_20260331_22050"
     ]
   }
 ]

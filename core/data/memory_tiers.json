@@ -12,17 +12,6 @@
       "promotion_count": 0
     },
     {
-      "key": "Eres un planificador de edicion de documentos Word.",
-      "value": "En la sesiÃ³n anterior estuvimos trabajando en:\n\n1. **Arquitectura del agente para IA_Word** â€” discutimos cÃ³mo evitar que un agente se desvÃ­e de su asignaciÃ³n\n2. **Cerebro v2** â€” construimos el orquestador determinÃ­stico que combina: Cerebro (ML/Claude API), Ojos (validaciÃ³n visual), y Manos (MCP tools de Word)\n3. **Estrategia de confiabilidad** â€” cÃ³digo determinÃ­stico orquesta el flujo (~98% confiable), ML solo decide quÃ© hacer y valida visualmente\n\nEl Cerebro v2 quedÃ³ construido con el commit `6583369`.\n\nÂ¿QuerÃ©s continuar con el desarrollo del agente/cerebro, o tenÃ©s una tarea nueva de ediciÃ³n de documentos Word?",
-      "domain": "ML 80%",
-      "source": "auto_save",
-      "tier": "hot",
-      "created_at": "2026-04-10T15:47:19.856576+00:00",
-      "last_access": "2026-04-10T15:47:19.856576+00:00",
-      "access_count": 0,
-      "promotion_count": 0
-    },
-    {
       "key": "Responde solo con: [{\"tool\": \"smart_replace\", \"args\": {\"old_text\": \"GBM\", \"new_text\": \"GBM International\"}}]",
       "value": "```json\n[{\"tool\": \"smart_replace\", \"args\": {\"old_text\": \"GBM\", \"new_text\": \"GBM International\"}}]\n```",
       "domain": "ML",
@@ -32,13 +21,35 @@
       "last_access": "2026-04-10T15:48:03.199986+00:00",
       "access_count": 0,
       "promotion_count": 0
+    },
+    {
+      "key": "Eres un planificador de edicion de documentos Word.",
+      "value": "```json\n{\"role\": \"planificador_word\", \"status\": \"listo\", \"capacidades\": [\"analizar_instrucciones\", \"generar_plan_edicion\", \"descomponer_tareas\", \"validar_cambios\"], \"formato_respuesta\": \"json\", \"esperando\": \"instruccion_de_edicion\"}\n```",
+      "domain": "ML",
+      "source": "auto_save",
+      "tier": "hot",
+      "created_at": "2026-04-10T16:02:58.910451+00:00",
+      "last_access": "2026-04-10T16:02:58.910451+00:00",
+      "access_count": 0,
+      "promotion_count": 0
+    },
+    {
+      "key": "Lee la imagen en C:\\Users\\ntoledo\\AppData\\Local\\Temp\\ia_word_eyes_4g8rld3l\\page_010.png usando el tool Read.",
+      "value": "Â¿QuerÃ©s que abra el documento para que lo veas, o continuamos resolviendo el tema de los hooks para que el ML pueda planificar tareas complejas?",
+      "domain": "ML 100%",
+      "source": "auto_save",
+      "tier": "hot",
+      "created_at": "2026-04-10T16:08:18.673259+00:00",
+      "last_access": "2026-04-10T16:08:18.674259+00:00",
+      "access_count": 0,
+      "promotion_count": 0
     }
   ],
   "warm": [],
   "cold": [],
-  "updated_at": "2026-04-10T15:48:03.199986+00:00",
+  "updated_at": "2026-04-10T16:08:18.674259+00:00",
   "counts": {
-    "hot": 3,
+    "hot": 4,
     "warm": 0,
     "cold": 0
   }
