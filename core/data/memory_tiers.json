@@ -1,55 +1,33 @@
 {
   "hot": [
     {
-      "key": "si procede",
-      "value": "Ciclo completo: 69 reemplazos, diff +966 chars, 0 zombies. La visual check necesita un reinicio para cargarse. Â¿Hacemos `/exit` para probar la visual validation con imÃ¡genes, o continuamos con otros ciclos de tools?",
+      "key": "y que pasa cuando vez algo que no se hizo bien cuando vez la pagina anterior, la del cambio y la siguiente cual es la decision alli?",
+      "value": "Actualmente **nada**. Yo veo las 3 imÃ¡genes, pero el cÃ³digo no me obliga a tomar una decisiÃ³n. Solo dice \"Claude: verify visually\" como instrucciÃ³n de texto, pero no hay un mecanismo para que yo reporte si estÃ¡ bien o mal, y mucho menos para que se corrija automÃ¡ticamente.\n\nEl flujo real hoy:\n\n```\nWrite tool â†’ structural PASS â†’ render 3 pÃ¡ginas â†’ Claude ve imÃ¡genes â†’ FIN\n                                                    â†‘\n                                            Yo las veo pero no hago nada con eso\n```\n\nLo que deberÃ­a pasar:\n\n```\nWrite tool â†’ structural PASS â†’ render 3 pÃ¡ginas â†’ Claude analiza:\n  â”œâ”€ TODO OK â†’ continÃºa\n  â”œâ”€ Cambio no se ve â†’ reportar error + sugerir retry\n  â”œâ”€ PÃ¡gina anterior/siguiente daÃ±ada â†’ reportar + restore_backup\n  â””â”€ Tabla desbordada/cortada â†’ sugerir auto_adjust_margins o table_autofit\n```\n\nPero aquÃ­ hay un problema fundamental: **yo no puedo tomar decisiones automÃ¡ticas dentro del MCP server**. Las im",
       "domain": "ML 100%",
       "source": "auto_save",
       "tier": "hot",
-      "created_at": "2026-04-10T01:39:40.586365+00:00",
-      "last_access": "2026-04-10T01:39:40.586365+00:00",
+      "created_at": "2026-04-10T02:02:59.953214+00:00",
+      "last_access": "2026-04-10T02:02:59.953214+00:00",
       "access_count": 0,
       "promotion_count": 0
     },
     {
-      "key": "re inicio listo prueba de nuevo el tema de visual validation con imagenes",
-      "value": "## VISUAL VALIDATION FUNCIONA âœ…\n\n```\nsmart_replace    â†’ âœ… 69 reemplazos via VBA\nstructural       â†’ âœ… PASSED\nvisual render    â†’ âœ… PÃ¡gina 23 renderizada como PNG\nClaude ve imagen â†’ âœ… Contraportada GBM visible, texto correcto\nsave + diff      â†’ âœ… +966 chars\nclose + zombies  â†’ âœ… 0\n```\n\nEl flujo completo ahora es:\n\n```\nTool call â†’ pre-validate â†’ execute â†’ structural validation â†’ render PNG â†’ Claude ve la imagen\n```\n\nTodos los componentes activos de la arquitectura estÃ¡n probados y funcionando. Â¿QuerÃ©s continuar con mÃ¡s ciclos de tools o hay algo mÃ¡s?",
+      "key": "no el flujo correcto es 1. claude llama smart recibe resultado 3 imagenes 2.claude ve la imagen 3. si esta bien save si esta mal decide como lo va a corregir  no restore eso quitarlo.  y entra en cicl",
+      "value": "Entendido. El flujo correcto es:\n\n```\n1. Claude llama write tool â†’ recibe resultado + 3 imÃ¡genes\n2. Claude VE las imÃ¡genes y analiza\n3. SI estÃ¡ bien â†’ save\n   SI estÃ¡ mal â†’ Claude decide quÃ© tool llamar para corregir\n     â†’ ejecuta correcciÃ³n\n     â†’ recibe nuevas 3 imÃ¡genes\n     â†’ analiza de nuevo\n     â†’ loop hasta que quede bien\n     â†’ save\n```\n\n**Nunca restore_backup.** Siempre corregir hacia adelante.\n\nEso es comportamiento mÃ­o (Claude), no del cÃ³digo. El cÃ³digo ya me da las 3 imÃ¡genes. Yo debo:\n1. Analizar cada imagen\n2. Reportar quÃ© veo\n3. Si algo estÃ¡ mal, llamar la tool correcta para corregir\n4. Verificar de nuevo con view_page\n5. Solo guardar cuando todo estÃ© bien\n\nÂ¿QuerÃ©s que lo demuestre con un ciclo donde intencionalmente haga algo que se vea mal (ej: insertar una tabla demasiado ancha) y yo la corrija iterativamente hasta que quede bien?",
       "domain": "ML 100%",
       "source": "auto_save",
       "tier": "hot",
-      "created_at": "2026-04-10T01:43:12.679835+00:00",
-      "last_access": "2026-04-10T01:43:12.679835+00:00",
-      "access_count": 0,
-      "promotion_count": 0
-    },
-    {
-      "key": "continua con mas ciclos de tools",
-      "value": "## CICLO 6 COMPLETADO âœ…\n\n```\nAbrir              â†’ âœ… sanitizer + backup\nview_page [1,2]    â†’ âœ… Vi portada + pÃ¡gina 2 (casi vacÃ­a)\ndetect_layout      â†’ âœ… EncontrÃ³ 1 blank page (pag 20)\nauto_fix_layout    â†’ âœ… EliminÃ³ 2 blank pages + visual check PNG\nsave + diff        â†’ âœ… 5 cambios (body + headers/footers limpiados)\nclose              â†’ âœ…\nzombies            â†’ âœ… 0\n```\n\n## Resumen total de ciclos MCP\n\n| Ciclo | Tools probadas | Visual | Resultado |\n|---|---|---|---|\n| 1 | smart_replace VBA | â€” | âœ… 67 reemplazos |\n| 2 | find_replace + auto_fix fallback | â€” | âœ… Bug descubierto y corregido |\n| 3 | smart_replace VBA + verify | â€” | âœ… PostgreSQL=0, MongoDB=5 |\n| 4 | insert_table + format_table | â€” | âœ… 4Ã—3, colores, structural PASS |\n| 5 | comments + footnotes | â€” | âœ… add + list ambos |\n| 6 | view_page + detect_layout + auto_fix_layout | âœ… PNG | âœ… 2 blank pages eliminadas |\n| Visual | smart_replace con imagen | âœ… PNG | âœ… Vi contraporta",
-      "domain": "ML 100%",
-      "source": "auto_save",
-      "tier": "hot",
-      "created_at": "2026-04-10T01:46:28.321548+00:00",
-      "last_access": "2026-04-10T01:46:28.321548+00:00",
-      "access_count": 0,
-      "promotion_count": 0
-    },
-    {
-      "key": "si continua",
-      "value": "## CICLO 7 COMPLETADO âœ…\n\n```\nAbrir            â†’ âœ… sanitizer + backup\nhyperlink(add)   â†’ âœ… https://gbm.net + visual PNG\nhyperlink(list)  â†’ âœ… 1 link confirmado + visual PNG\ninsert_toc       â†’ âœ… 3 niveles, tÃ­tulo \"Contenidos\" + visual PNG\nvalidate         â†’ âœ… 4 capas: estructura, math, coherencia, formato\nsave + diff      â†’ âœ… +35 chars\nclose + zombies  â†’ âœ… 0\n```\n\n## RESUMEN TOTAL: 7 ciclos MCP completados\n\n| Ciclo | Tools | Visual | Componentes |\n|---|---|---|---|\n| 1 | smart_replace VBA | â€” | word_com, mcp_server, structural |\n| 2 | find_replace + auto_fix | â€” | auto_fix fallback a smart_replace |\n| 3 | smart_replace + verify | â€” | VBA + count_occurrences |\n| 4 | insert_table + format_table | â€” | tables, structural |\n| 5 | comments + footnotes | â€” | annotations |\n| 6 | view_page + detect_layout + auto_fix_layout | âœ… PNG | doc_eyes, layout intelligence |\n| 7 | hyperlinks + insert_toc + validate | âœ… PNG | hyperlinks, TOC, validators 4 capas |\n\n#",
-      "domain": "ML 100%",
-      "source": "auto_save",
-      "tier": "hot",
-      "created_at": "2026-04-10T01:52:12.339674+00:00",
-      "last_access": "2026-04-10T01:52:12.339674+00:00",
+      "created_at": "2026-04-10T02:23:02.702800+00:00",
+      "last_access": "2026-04-10T02:23:02.702800+00:00",
       "access_count": 0,
       "promotion_count": 0
     }
   ],
   "warm": [],
   "cold": [],
-  "updated_at": "2026-04-10T01:52:12.339674+00:00",
+  "updated_at": "2026-04-10T02:23:02.704804+00:00",
   "counts": {
-    "hot": 4,
+    "hot": 2,
     "warm": 0,
     "cold": 0
   }
