@@ -4255,6 +4255,118 @@
       "properties": {},
       "created_at": "2026-04-10T03:39:23.098747+00:00",
       "updated_at": "2026-04-10T03:39:23.098747+00:00"
+    },
+    "agente": {
+      "id": "agente",
+      "type": "concept",
+      "name": "agente",
+      "properties": {},
+      "created_at": "2026-04-10T15:31:00.542751+00:00",
+      "updated_at": "2026-04-10T15:31:00.542751+00:00"
+    },
+    "apis": {
+      "id": "apis",
+      "type": "concept",
+      "name": "apis",
+      "properties": {},
+      "created_at": "2026-04-10T15:31:00.572171+00:00",
+      "updated_at": "2026-04-10T15:31:00.572171+00:00"
+    },
+    "langgraph": {
+      "id": "langgraph",
+      "type": "concept",
+      "name": "langgraph",
+      "properties": {},
+      "created_at": "2026-04-10T15:31:00.640693+00:00",
+      "updated_at": "2026-04-10T15:31:00.640693+00:00"
+    },
+    "grafos": {
+      "id": "grafos",
+      "type": "concept",
+      "name": "grafos",
+      "properties": {},
+      "created_at": "2026-04-10T15:31:00.675614+00:00",
+      "updated_at": "2026-04-10T15:31:00.675614+00:00"
+    },
+    "este": {
+      "id": "este",
+      "type": "concept",
+      "name": "este",
+      "properties": {},
+      "created_at": "2026-04-10T15:31:00.749293+00:00",
+      "updated_at": "2026-04-10T15:31:00.749293+00:00"
+    },
+    "conversaciones": {
+      "id": "conversaciones",
+      "type": "concept",
+      "name": "conversaciones",
+      "properties": {},
+      "created_at": "2026-04-10T15:31:00.796071+00:00",
+      "updated_at": "2026-04-10T15:31:00.796071+00:00"
+    },
+    "ctica": {
+      "id": "ctica",
+      "type": "concept",
+      "name": "ctica",
+      "properties": {},
+      "created_at": "2026-04-10T15:31:00.829605+00:00",
+      "updated_at": "2026-04-10T15:31:00.829605+00:00"
+    },
+    "agent": {
+      "id": "agent",
+      "type": "concept",
+      "name": "agent",
+      "properties": {},
+      "created_at": "2026-04-10T15:31:00.847361+00:00",
+      "updated_at": "2026-04-10T15:31:00.847361+00:00"
+    },
+    "personal": {
+      "id": "personal",
+      "type": "concept",
+      "name": "personal",
+      "properties": {},
+      "created_at": "2026-04-10T15:31:00.909222+00:00",
+      "updated_at": "2026-04-10T15:31:00.909222+00:00"
+    },
+    "workflows": {
+      "id": "workflows",
+      "type": "concept",
+      "name": "workflows",
+      "properties": {},
+      "created_at": "2026-04-10T15:31:00.984376+00:00",
+      "updated_at": "2026-04-10T15:31:00.984376+00:00"
+    },
+    "memoria": {
+      "id": "memoria",
+      "type": "concept",
+      "name": "memoria",
+      "properties": {},
+      "created_at": "2026-04-10T15:31:01.012464+00:00",
+      "updated_at": "2026-04-10T15:31:01.012464+00:00"
+    },
+    "/.agen": {
+      "id": "/.agen",
+      "type": "file",
+      "name": "/.agen",
+      "properties": {},
+      "created_at": "2026-04-10T15:31:01.046342+00:00",
+      "updated_at": "2026-04-10T15:31:01.046342+00:00"
+    },
+    "project/.agen": {
+      "id": "project/.agen",
+      "type": "file",
+      "name": "project/.agen",
+      "properties": {},
+      "created_at": "2026-04-10T15:31:01.123741+00:00",
+      "updated_at": "2026-04-10T15:31:01.123741+00:00"
+    },
+    "src.cere": {
+      "id": "src.cere",
+      "type": "file",
+      "name": "src.cere",
+      "properties": {},
+      "created_at": "2026-04-10T15:40:57.975175+00:00",
+      "updated_at": "2026-04-10T15:40:57.975175+00:00"
     }
   },
   "relations": [
@@ -12110,10 +12222,10 @@
       "source": "engine.py",
       "target": "business_rules.py",
       "type": "used_with",
-      "weight": 2.0,
-      "context": "pre-hook query",
+      "weight": 2.5,
+      "context": "que piensas de esto respecto a este proyecto cual seria la mejor estrategia: \"un agente de IA se pue",
       "created_at": "2026-04-08T17:51:40.059990+00:00",
-      "updated_at": "2026-04-08T17:51:47.575165+00:00"
+      "updated_at": "2026-04-10T15:33:07.331941+00:00"
     },
     {
       "source": "business_rules.py",
@@ -14000,10 +14112,10 @@
       "source": "cerebro.py",
       "target": "engine.py",
       "type": "used_with",
-      "weight": 1.0,
-      "context": "pre-hook query",
+      "weight": 1.5,
+      "context": "que piensas de esto respecto a este proyecto cual seria la mejor estrategia: \"un agente de IA se pue",
       "created_at": "2026-04-09T15:29:53.550041+00:00",
-      "updated_at": "2026-04-09T20:41:37.695984+00:00"
+      "updated_at": "2026-04-10T15:33:07.186144+00:00"
     },
     {
       "source": "cerebro.py",
@@ -15615,11 +15727,137 @@
       "context": "yo le llamdo darle ojos y manos al cerebro   donde Cebrebo=ML  ojos= lo que hicimos de las validacio",
       "created_at": "2026-04-10T03:39:23.118212+00:00",
       "updated_at": "2026-04-10T03:39:23.118212+00:00"
+    },
+    {
+      "source": "agente",
+      "target": "herramientas",
+      "type": "used_with",
+      "weight": 1.4,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T15:31:00.555668+00:00",
+      "updated_at": "2026-04-10T15:31:00.617646+00:00"
+    },
+    {
+      "source": "solo",
+      "target": "apis",
+      "type": "used_with",
+      "weight": 0.7,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T15:31:00.590797+00:00",
+      "updated_at": "2026-04-10T15:31:00.590797+00:00"
+    },
+    {
+      "source": "langgraph",
+      "target": "grafos",
+      "type": "used_with",
+      "weight": 0.7,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T15:31:00.704855+00:00",
+      "updated_at": "2026-04-10T15:31:00.704855+00:00"
+    },
+    {
+      "source": "este",
+      "target": "conversaciones",
+      "type": "used_with",
+      "weight": 0.7,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T15:31:00.813002+00:00",
+      "updated_at": "2026-04-10T15:31:00.813002+00:00"
+    },
+    {
+      "source": "ctica",
+      "target": "agent",
+      "type": "used_with",
+      "weight": 0.7,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T15:31:00.869279+00:00",
+      "updated_at": "2026-04-10T15:31:00.869279+00:00"
+    },
+    {
+      "source": "personal",
+      "target": "langgraph",
+      "type": "used_with",
+      "weight": 0.7,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T15:31:00.944661+00:00",
+      "updated_at": "2026-04-10T15:31:00.944661+00:00"
+    },
+    {
+      "source": "workflows",
+      "target": "memoria",
+      "type": "configures",
+      "weight": 0.7,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T15:31:01.024127+00:00",
+      "updated_at": "2026-04-10T15:31:01.024127+00:00"
+    },
+    {
+      "source": "//github.com",
+      "target": "/.agen",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T15:31:01.079084+00:00",
+      "updated_at": "2026-04-10T15:31:01.079084+00:00"
+    },
+    {
+      "source": "//github.com",
+      "target": "project/.agen",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T15:31:01.163824+00:00",
+      "updated_at": "2026-04-10T15:31:01.163824+00:00"
+    },
+    {
+      "source": "/.agen",
+      "target": "project/.agen",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-10T15:31:01.207019+00:00",
+      "updated_at": "2026-04-10T15:31:01.207019+00:00"
+    },
+    {
+      "source": "cerebro.py",
+      "target": "CLAUDE.md",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "que piensas de esto respecto a este proyecto cual seria la mejor estrategia: \"un agente de IA se pue",
+      "created_at": "2026-04-10T15:33:07.226933+00:00",
+      "updated_at": "2026-04-10T15:33:07.226933+00:00"
+    },
+    {
+      "source": "engine.py",
+      "target": "CLAUDE.md",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "que piensas de esto respecto a este proyecto cual seria la mejor estrategia: \"un agente de IA se pue",
+      "created_at": "2026-04-10T15:33:07.278432+00:00",
+      "updated_at": "2026-04-10T15:33:07.278432+00:00"
+    },
+    {
+      "source": "CLAUDE.md",
+      "target": "business_rules.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "que piensas de esto respecto a este proyecto cual seria la mejor estrategia: \"un agente de IA se pue",
+      "created_at": "2026-04-10T15:33:07.378063+00:00",
+      "updated_at": "2026-04-10T15:33:07.378063+00:00"
+    },
+    {
+      "source": "src.cere",
+      "target": "propuesta.docx",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "procede",
+      "created_at": "2026-04-10T15:40:58.026405+00:00",
+      "updated_at": "2026-04-10T15:40:58.026405+00:00"
     }
   ],
-  "updated_at": "2026-04-10T03:39:23.118212+00:00",
+  "updated_at": "2026-04-10T15:40:58.027422+00:00",
   "stats": {
-    "entities": 532,
-    "relations": 1262
+    "entities": 546,
+    "relations": 1276
   }
 }

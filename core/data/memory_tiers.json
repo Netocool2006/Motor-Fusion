@@ -1,0 +1,45 @@
+{
+  "hot": [
+    {
+      "key": "procede",
+      "value": "## Cerebro v2 construido\n\n```\npython -m src.cerebro_v2 --doc \"propuesta.docx\" --task \"Cambia 2024 por 2025\"\n```\n\nEl flujo es:\n\n```\n1. CLEANUP     â†’ cÃ³digo mata zombies, limpia locks\n2. SANITIZE    â†’ cÃ³digo sanitiza si es PDF-converted\n3. OPEN        â†’ cÃ³digo abre documento + backup\n4. PLAN        â†’ ML interpreta instrucciÃ³n â†’ lista de pasos\n5. EXECUTE     â†’ cÃ³digo ejecuta cada paso uno por uno\n   5.X VISUAL  â†’ ML analiza foto â†’ \"OK\" o \"corregir X\"\n   5.Y FIX     â†’ si mal â†’ cÃ³digo corrige â†’ nueva foto â†’ ML analiza\n6. SAVE        â†’ cÃ³digo guarda\n7. CLOSE       â†’ cÃ³digo cierra + zombie check\n```\n\n**ML solo entra en paso 4 (plan) y 5.X (fotos).** No puede desviarse porque el cÃ³digo controla todo lo demÃ¡s.\n\nÂ¿QuerÃ©s probarlo con la tarea del Excel AWS?",
+      "domain": "ML 100%",
+      "source": "auto_save",
+      "tier": "hot",
+      "created_at": "2026-04-10T15:40:57.942272+00:00",
+      "last_access": "2026-04-10T15:40:57.942272+00:00",
+      "access_count": 0,
+      "promotion_count": 0
+    },
+    {
+      "key": "Eres un planificador de edicion de documentos Word.",
+      "value": "En la sesiÃ³n anterior estuvimos trabajando en:\n\n1. **Arquitectura del agente para IA_Word** â€” discutimos cÃ³mo evitar que un agente se desvÃ­e de su asignaciÃ³n\n2. **Cerebro v2** â€” construimos el orquestador determinÃ­stico que combina: Cerebro (ML/Claude API), Ojos (validaciÃ³n visual), y Manos (MCP tools de Word)\n3. **Estrategia de confiabilidad** â€” cÃ³digo determinÃ­stico orquesta el flujo (~98% confiable), ML solo decide quÃ© hacer y valida visualmente\n\nEl Cerebro v2 quedÃ³ construido con el commit `6583369`.\n\nÂ¿QuerÃ©s continuar con el desarrollo del agente/cerebro, o tenÃ©s una tarea nueva de ediciÃ³n de documentos Word?",
+      "domain": "ML 80%",
+      "source": "auto_save",
+      "tier": "hot",
+      "created_at": "2026-04-10T15:47:19.856576+00:00",
+      "last_access": "2026-04-10T15:47:19.856576+00:00",
+      "access_count": 0,
+      "promotion_count": 0
+    },
+    {
+      "key": "Responde solo con: [{\"tool\": \"smart_replace\", \"args\": {\"old_text\": \"GBM\", \"new_text\": \"GBM International\"}}]",
+      "value": "```json\n[{\"tool\": \"smart_replace\", \"args\": {\"old_text\": \"GBM\", \"new_text\": \"GBM International\"}}]\n```",
+      "domain": "ML",
+      "source": "auto_save",
+      "tier": "hot",
+      "created_at": "2026-04-10T15:48:03.199986+00:00",
+      "last_access": "2026-04-10T15:48:03.199986+00:00",
+      "access_count": 0,
+      "promotion_count": 0
+    }
+  ],
+  "warm": [],
+  "cold": [],
+  "updated_at": "2026-04-10T15:48:03.199986+00:00",
+  "counts": {
+    "hot": 3,
+    "warm": 0,
+    "cold": 0
+  }
+}
