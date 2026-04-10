@@ -552,6 +552,38 @@
         "last_accessed": "2026-04-10T23:36:52.134986+00:00",
         "access_count": 0
       }
+    },
+    "4c347b62137b": {
+      "id": "4c347b62137b",
+      "type": "pattern",
+      "key": "session_auto_20260410_174833",
+      "solution": {
+        "strategy": "auto_captured_from_session",
+        "notes": "Interacciones clave:\n  P: [Image: source: C:\\Users\\ntoledo\\.claude\\image-cache\\2192a3da-abe4-4081-b2a9-06c595f33150\\5.png]\n  R:   El código de `repair_toc` está en:  **`C:\\Chance1\\IA\\IA_Word\\src\\word_com.py`** — método `repair_toc()`, empieza en la **línea 3937**.  Las seccione\n  P: <local-command-stdout>See ya!</local-command-stdout>\n  R: No response requested.\n  P: ya estamos post re inicio para ver si es cierto que ya esta corregido usando mcp\n  R:   Perfecto, ahora sí el MCP tiene el código más reciente. Probemos con un doc fresco:\n  P: [Image: source: C:\\Users\\ntoledo\\.claude\\image-cache\\2192a3da-abe4-4081-b2a9-06c595f33150\\6.png]\n  R:   Veo — los dots no llegan hasta el borde derecho de la página. El tab stop dice 577pt pero visualmente el TOC solo ocupa ~60% del ancho. El problema \n  P: [Image: source: C:\\Users\\ntoledo\\.claude\\image-cache\\2192a3da-abe4-4081-b2a9-06c595f33150\\7.png]\n  R:   Excelente — se ve igual que el original. Dots de borde a borde, Arial 10, título en bold, números alineados a la derecha, page break después del TOC\n  P: para que sirve push en el git cual es la diferencia de commit?\n  R: An image in the conversation exceeds the dimension limit for many-image requests (2000px). Run /compact to remove old images from context, or start a \nResumen: te doy contexto en esto estabas: \"● Ahora actualizo el _find_affected_page para usar _target_page si está disponible:    Searched for 1 pattern, read  -> si sigue con el tema de TOC -> pero esto quema\nEditados: word_com.py, mcp_server.py, cerebro_v2.py\nDecisiones: implementarlo en dos niveles:; ver la parte del sanitizer donde podría agregar el paso de reparación post-sanitize.; probar directamente via Python para validar que funciona, y luego probar via MCP.; probar de otra forma — conectándome al Word que ya está abierto:; probar de una forma más simple — usando el MCP que ya tiene el doc abierto. Primero necesito reiniciar el MCP server para que tome la nueva tool. Mejor pruebo directamente con un",
+        "auto_learned": true,
+        "source": "hook_session_end",
+        "files_touched": [
+          "C:\\Chance1\\IA\\IA_Word\\src\\word_com.py",
+          "C:\\Chance1\\IA\\IA_Word\\src\\mcp_server.py",
+          "C:\\Chance1\\IA\\IA_Word\\src\\cerebro_v2.py"
+        ],
+        "domain_detected": "hooks_ia_backup_20260331_22050"
+      },
+      "tags": [
+        "auto-learned",
+        "session",
+        "hooks_ia_backup_20260331_22050"
+      ],
+      "error_context": null,
+      "created_at": "2026-04-10T23:48:33.740692+00:00",
+      "updated_at": "2026-04-10T23:48:33.740692+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-04-10T23:48:33.740692+00:00",
+        "access_count": 0
+      }
     }
   },
   "tag_index": {
@@ -570,7 +602,8 @@
       "7dbedcf85e57",
       "9bfa7e8effc8",
       "ae9e9f5f4b9b",
-      "33d32af8877f"
+      "33d32af8877f",
+      "4c347b62137b"
     ],
     "session": [
       "fc0947920514",
@@ -587,7 +620,8 @@
       "7dbedcf85e57",
       "9bfa7e8effc8",
       "ae9e9f5f4b9b",
-      "33d32af8877f"
+      "33d32af8877f",
+      "4c347b62137b"
     ],
     "hooks_ia_backup_20260331_22050": [
       "fc0947920514",
@@ -604,11 +638,12 @@
       "7dbedcf85e57",
       "9bfa7e8effc8",
       "ae9e9f5f4b9b",
-      "33d32af8877f"
+      "33d32af8877f",
+      "4c347b62137b"
     ]
   },
   "stats": {
-    "total_entries": 15,
+    "total_entries": 16,
     "total_lookups": 3,
     "total_hits": 1
   }
