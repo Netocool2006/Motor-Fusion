@@ -4087,6 +4087,110 @@
       "properties": {},
       "created_at": "2026-04-10T02:47:08.343142+00:00",
       "updated_at": "2026-04-10T02:47:08.343142+00:00"
+    },
+    "esto": {
+      "id": "esto",
+      "type": "concept",
+      "name": "esto",
+      "properties": {},
+      "created_at": "2026-04-10T02:57:16.126833+00:00",
+      "updated_at": "2026-04-10T02:57:16.126833+00:00"
+    },
+    "investigarse": {
+      "id": "investigarse",
+      "type": "concept",
+      "name": "investigarse",
+      "properties": {},
+      "created_at": "2026-04-10T02:57:16.144462+00:00",
+      "updated_at": "2026-04-10T02:57:16.144462+00:00"
+    },
+    "TABLE_FIX_TEST.docx": {
+      "id": "TABLE_FIX_TEST.docx",
+      "type": "file",
+      "name": "TABLE_FIX_TEST.docx",
+      "properties": {},
+      "created_at": "2026-04-10T03:09:00.219409+00:00",
+      "updated_at": "2026-04-10T03:09:00.219409+00:00"
+    },
+    "Table.Auto": {
+      "id": "Table.Auto",
+      "type": "file",
+      "name": "Table.Auto",
+      "properties": {},
+      "created_at": "2026-04-10T03:09:00.238660+00:00",
+      "updated_at": "2026-04-10T03:09:00.238660+00:00"
+    },
+    "us/office/vba/api/word.tabl": {
+      "id": "us/office/vba/api/word.tabl",
+      "type": "file",
+      "name": "us/office/vba/api/word.tabl",
+      "properties": {},
+      "created_at": "2026-04-10T03:09:00.339406+00:00",
+      "updated_at": "2026-04-10T03:09:00.339406+00:00"
+    },
+    "e.auto": {
+      "id": "e.auto",
+      "type": "file",
+      "name": "e.auto",
+      "properties": {},
+      "created_at": "2026-04-10T03:09:00.389672+00:00",
+      "updated_at": "2026-04-10T03:09:00.389672+00:00"
+    },
+    "Columns.Pref": {
+      "id": "Columns.Pref",
+      "type": "file",
+      "name": "Columns.Pref",
+      "properties": {},
+      "created_at": "2026-04-10T03:09:00.446338+00:00",
+      "updated_at": "2026-04-10T03:09:00.446338+00:00"
+    },
+    "us/office/vba/api/word.colu": {
+      "id": "us/office/vba/api/word.colu",
+      "type": "file",
+      "name": "us/office/vba/api/word.colu",
+      "properties": {},
+      "created_at": "2026-04-10T03:09:00.557232+00:00",
+      "updated_at": "2026-04-10T03:09:00.557232+00:00"
+    },
+    "mns.pref": {
+      "id": "mns.pref",
+      "type": "file",
+      "name": "mns.pref",
+      "properties": {},
+      "created_at": "2026-04-10T03:09:00.606565+00:00",
+      "updated_at": "2026-04-10T03:09:00.606565+00:00"
+    },
+    "rpa.blog": {
+      "id": "rpa.blog",
+      "type": "file",
+      "name": "rpa.blog",
+      "properties": {},
+      "created_at": "2026-04-10T03:09:00.658913+00:00",
+      "updated_at": "2026-04-10T03:09:00.658913+00:00"
+    },
+    "spot.com": {
+      "id": "spot.com",
+      "type": "file",
+      "name": "spot.com",
+      "properties": {},
+      "created_at": "2026-04-10T03:09:00.706824+00:00",
+      "updated_at": "2026-04-10T03:09:00.706824+00:00"
+    },
+    "widths.html": {
+      "id": "widths.html",
+      "type": "file",
+      "name": "widths.html",
+      "properties": {},
+      "created_at": "2026-04-10T03:09:00.761889+00:00",
+      "updated_at": "2026-04-10T03:09:00.761889+00:00"
+    },
+    "58.66": {
+      "id": "58.66",
+      "type": "file",
+      "name": "58.66",
+      "properties": {},
+      "created_at": "2026-04-10T03:10:30.996080+00:00",
+      "updated_at": "2026-04-10T03:10:30.996080+00:00"
     }
   },
   "relations": [
@@ -12707,10 +12811,10 @@
       "source": "//learn.micr",
       "target": "osoft.com",
       "type": "used_with",
-      "weight": 0.5,
-      "context": "Lee la imagen en C:\\Users\\ntoledo\\AppData\\Local\\Temp\\ia_word_eyes_xl592wtl\\page_001_small.png usando",
+      "weight": 1.5,
+      "context": "ok agrega funciones y/o tools para eliminar tablas, cambiar landscape para agregarlas al proyecto e ",
       "created_at": "2026-04-08T20:00:31.612439+00:00",
-      "updated_at": "2026-04-08T20:00:31.612439+00:00"
+      "updated_at": "2026-04-10T03:09:00.540247+00:00"
     },
     {
       "source": "mcp_server.py",
@@ -15114,11 +15218,236 @@
       "context": "es correcto procede",
       "created_at": "2026-04-10T02:47:08.360515+00:00",
       "updated_at": "2026-04-10T02:47:08.360515+00:00"
+    },
+    {
+      "source": "esto",
+      "target": "investigarse",
+      "type": "depends_on",
+      "weight": 0.7,
+      "context": "procede",
+      "created_at": "2026-04-10T02:57:16.162478+00:00",
+      "updated_at": "2026-04-10T02:57:16.162478+00:00"
+    },
+    {
+      "source": "TABLE_FIX_TEST.docx",
+      "target": "Table.Auto",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "ok agrega funciones y/o tools para eliminar tablas, cambiar landscape para agregarlas al proyecto e ",
+      "created_at": "2026-04-10T03:09:00.256924+00:00",
+      "updated_at": "2026-04-10T03:09:00.256924+00:00"
+    },
+    {
+      "source": "TABLE_FIX_TEST.docx",
+      "target": "//learn.micr",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "ok agrega funciones y/o tools para eliminar tablas, cambiar landscape para agregarlas al proyecto e ",
+      "created_at": "2026-04-10T03:09:00.273562+00:00",
+      "updated_at": "2026-04-10T03:09:00.273562+00:00"
+    },
+    {
+      "source": "Table.Auto",
+      "target": "//learn.micr",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "ok agrega funciones y/o tools para eliminar tablas, cambiar landscape para agregarlas al proyecto e ",
+      "created_at": "2026-04-10T03:09:00.292275+00:00",
+      "updated_at": "2026-04-10T03:09:00.292275+00:00"
+    },
+    {
+      "source": "Table.Auto",
+      "target": "osoft.com",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "ok agrega funciones y/o tools para eliminar tablas, cambiar landscape para agregarlas al proyecto e ",
+      "created_at": "2026-04-10T03:09:00.311000+00:00",
+      "updated_at": "2026-04-10T03:09:00.311000+00:00"
+    },
+    {
+      "source": "//learn.micr",
+      "target": "us/office/vba/api/word.tabl",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "ok agrega funciones y/o tools para eliminar tablas, cambiar landscape para agregarlas al proyecto e ",
+      "created_at": "2026-04-10T03:09:00.356578+00:00",
+      "updated_at": "2026-04-10T03:09:00.356578+00:00"
+    },
+    {
+      "source": "osoft.com",
+      "target": "us/office/vba/api/word.tabl",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "ok agrega funciones y/o tools para eliminar tablas, cambiar landscape para agregarlas al proyecto e ",
+      "created_at": "2026-04-10T03:09:00.376556+00:00",
+      "updated_at": "2026-04-10T03:09:00.376556+00:00"
+    },
+    {
+      "source": "osoft.com",
+      "target": "e.auto",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "ok agrega funciones y/o tools para eliminar tablas, cambiar landscape para agregarlas al proyecto e ",
+      "created_at": "2026-04-10T03:09:00.406604+00:00",
+      "updated_at": "2026-04-10T03:09:00.406604+00:00"
+    },
+    {
+      "source": "us/office/vba/api/word.tabl",
+      "target": "e.auto",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "ok agrega funciones y/o tools para eliminar tablas, cambiar landscape para agregarlas al proyecto e ",
+      "created_at": "2026-04-10T03:09:00.423264+00:00",
+      "updated_at": "2026-04-10T03:09:00.423264+00:00"
+    },
+    {
+      "source": "us/office/vba/api/word.tabl",
+      "target": "Columns.Pref",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "ok agrega funciones y/o tools para eliminar tablas, cambiar landscape para agregarlas al proyecto e ",
+      "created_at": "2026-04-10T03:09:00.456446+00:00",
+      "updated_at": "2026-04-10T03:09:00.456446+00:00"
+    },
+    {
+      "source": "e.auto",
+      "target": "Columns.Pref",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "ok agrega funciones y/o tools para eliminar tablas, cambiar landscape para agregarlas al proyecto e ",
+      "created_at": "2026-04-10T03:09:00.473060+00:00",
+      "updated_at": "2026-04-10T03:09:00.473060+00:00"
+    },
+    {
+      "source": "e.auto",
+      "target": "//learn.micr",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "ok agrega funciones y/o tools para eliminar tablas, cambiar landscape para agregarlas al proyecto e ",
+      "created_at": "2026-04-10T03:09:00.494092+00:00",
+      "updated_at": "2026-04-10T03:09:00.494092+00:00"
+    },
+    {
+      "source": "Columns.Pref",
+      "target": "//learn.micr",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "ok agrega funciones y/o tools para eliminar tablas, cambiar landscape para agregarlas al proyecto e ",
+      "created_at": "2026-04-10T03:09:00.506465+00:00",
+      "updated_at": "2026-04-10T03:09:00.506465+00:00"
+    },
+    {
+      "source": "Columns.Pref",
+      "target": "osoft.com",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "ok agrega funciones y/o tools para eliminar tablas, cambiar landscape para agregarlas al proyecto e ",
+      "created_at": "2026-04-10T03:09:00.523575+00:00",
+      "updated_at": "2026-04-10T03:09:00.523575+00:00"
+    },
+    {
+      "source": "//learn.micr",
+      "target": "us/office/vba/api/word.colu",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "ok agrega funciones y/o tools para eliminar tablas, cambiar landscape para agregarlas al proyecto e ",
+      "created_at": "2026-04-10T03:09:00.573202+00:00",
+      "updated_at": "2026-04-10T03:09:00.573202+00:00"
+    },
+    {
+      "source": "osoft.com",
+      "target": "us/office/vba/api/word.colu",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "ok agrega funciones y/o tools para eliminar tablas, cambiar landscape para agregarlas al proyecto e ",
+      "created_at": "2026-04-10T03:09:00.594123+00:00",
+      "updated_at": "2026-04-10T03:09:00.594123+00:00"
+    },
+    {
+      "source": "osoft.com",
+      "target": "mns.pref",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "ok agrega funciones y/o tools para eliminar tablas, cambiar landscape para agregarlas al proyecto e ",
+      "created_at": "2026-04-10T03:09:00.623410+00:00",
+      "updated_at": "2026-04-10T03:09:00.623410+00:00"
+    },
+    {
+      "source": "us/office/vba/api/word.colu",
+      "target": "mns.pref",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "ok agrega funciones y/o tools para eliminar tablas, cambiar landscape para agregarlas al proyecto e ",
+      "created_at": "2026-04-10T03:09:00.639897+00:00",
+      "updated_at": "2026-04-10T03:09:00.639897+00:00"
+    },
+    {
+      "source": "us/office/vba/api/word.colu",
+      "target": "rpa.blog",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "ok agrega funciones y/o tools para eliminar tablas, cambiar landscape para agregarlas al proyecto e ",
+      "created_at": "2026-04-10T03:09:00.673189+00:00",
+      "updated_at": "2026-04-10T03:09:00.673189+00:00"
+    },
+    {
+      "source": "mns.pref",
+      "target": "rpa.blog",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "ok agrega funciones y/o tools para eliminar tablas, cambiar landscape para agregarlas al proyecto e ",
+      "created_at": "2026-04-10T03:09:00.689926+00:00",
+      "updated_at": "2026-04-10T03:09:00.689926+00:00"
+    },
+    {
+      "source": "mns.pref",
+      "target": "spot.com",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "ok agrega funciones y/o tools para eliminar tablas, cambiar landscape para agregarlas al proyecto e ",
+      "created_at": "2026-04-10T03:09:00.723165+00:00",
+      "updated_at": "2026-04-10T03:09:00.723165+00:00"
+    },
+    {
+      "source": "rpa.blog",
+      "target": "spot.com",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "ok agrega funciones y/o tools para eliminar tablas, cambiar landscape para agregarlas al proyecto e ",
+      "created_at": "2026-04-10T03:09:00.739988+00:00",
+      "updated_at": "2026-04-10T03:09:00.739988+00:00"
+    },
+    {
+      "source": "rpa.blog",
+      "target": "widths.html",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "ok agrega funciones y/o tools para eliminar tablas, cambiar landscape para agregarlas al proyecto e ",
+      "created_at": "2026-04-10T03:09:00.773597+00:00",
+      "updated_at": "2026-04-10T03:09:00.773597+00:00"
+    },
+    {
+      "source": "spot.com",
+      "target": "widths.html",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "ok agrega funciones y/o tools para eliminar tablas, cambiar landscape para agregarlas al proyecto e ",
+      "created_at": "2026-04-10T03:09:00.800176+00:00",
+      "updated_at": "2026-04-10T03:09:00.800176+00:00"
+    },
+    {
+      "source": "194.2995",
+      "target": "58.66",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "[Image #1] hiciste lo que quisiste mira jaja nada que ver con lo que pedi",
+      "created_at": "2026-04-10T03:10:31.012920+00:00",
+      "updated_at": "2026-04-10T03:10:31.012920+00:00"
     }
   ],
-  "updated_at": "2026-04-10T02:47:08.360515+00:00",
+  "updated_at": "2026-04-10T03:10:31.012920+00:00",
   "stats": {
-    "entities": 511,
-    "relations": 1225
+    "entities": 524,
+    "relations": 1250
   }
 }
