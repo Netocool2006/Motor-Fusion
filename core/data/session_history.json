@@ -1387,12 +1387,14 @@
       "C:/Chance1/IA/IA_Word/src/doc_eyes.py",
       "C:/Chance1/IA/IA_Word/src/vision_bridge.py",
       "C:/Chance1/IA/IA_Word/test_all_tools.py",
-      "C:/Chance1/IA/IA_Word/run_full_test.py"
+      "C:/Chance1/IA/IA_Word/run_full_test.py",
+      "C:/Chance1/IA/IA_Word/src/docx_sanitizer.py"
     ],
     "files_created": [
       "C:/Chance1/IA/IA_Word/src/kb_reference.py",
       "C:/Chance1/IA/IA_Word/test_all_tools.py",
-      "C:/Chance1/IA/IA_Word/run_full_test.py"
+      "C:/Chance1/IA/IA_Word/run_full_test.py",
+      "C:\\Users\\ntoledo\\.claude\\plans\\witty-drifting-wilkinson.md"
     ],
     "commands_run": [
       "ls -la \"C:/Chance1/IA/IA_Word/src/\"",
@@ -1510,12 +1512,12 @@
     "learning_json": null,
     "reasoning_traces": [],
     "metrics": {
-      "user_messages": 107,
+      "total_messages": 1485,
       "errors_count": 10,
-      "files_touched": 21,
-      "commands_count": 125,
-      "total_messages": 1318,
-      "decisions_count": 15
+      "user_messages": 120,
+      "decisions_count": 15,
+      "commands_count": 136,
+      "files_touched": 23
     },
     "domains": [
       "hooks_ia_backup_20260331_22050",
@@ -1523,7 +1525,7 @@
       "editar_con_ia"
     ],
     "merged": true,
-    "merge_count": 8
+    "merge_count": 9
   },
   {
     "session_id": "42f35233-ac56-4952-8ea0-2002d9c0f6d5",
