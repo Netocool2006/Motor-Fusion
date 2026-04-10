@@ -5071,6 +5071,126 @@
       "properties": {},
       "created_at": "2026-04-10T16:42:27.256405+00:00",
       "updated_at": "2026-04-10T16:42:27.256405+00:00"
+    },
+    "146.00": {
+      "id": "146.00",
+      "type": "file",
+      "name": "146.00",
+      "properties": {},
+      "created_at": "2026-04-10T18:44:53.808366+00:00",
+      "updated_at": "2026-04-10T18:44:53.808366+00:00"
+    },
+    "5.00": {
+      "id": "5.00",
+      "type": "file",
+      "name": "5.00",
+      "properties": {},
+      "created_at": "2026-04-10T18:44:53.882862+00:00",
+      "updated_at": "2026-04-10T18:44:53.882862+00:00"
+    },
+    "3.65": {
+      "id": "3.65",
+      "type": "file",
+      "name": "3.65",
+      "properties": {},
+      "created_at": "2026-04-10T18:44:53.955943+00:00",
+      "updated_at": "2026-04-10T18:44:53.955943+00:00"
+    },
+    "432.58": {
+      "id": "432.58",
+      "type": "file",
+      "name": "432.58",
+      "properties": {},
+      "created_at": "2026-04-10T18:44:54.029836+00:00",
+      "updated_at": "2026-04-10T18:44:54.029836+00:00"
+    },
+    "500.00": {
+      "id": "500.00",
+      "type": "file",
+      "name": "500.00",
+      "properties": {},
+      "created_at": "2026-04-10T18:44:54.103952+00:00",
+      "updated_at": "2026-04-10T18:44:54.103952+00:00"
+    },
+    "200.00": {
+      "id": "200.00",
+      "type": "file",
+      "name": "200.00",
+      "properties": {},
+      "created_at": "2026-04-10T18:44:54.170571+00:00",
+      "updated_at": "2026-04-10T18:44:54.170571+00:00"
+    },
+    "100.00": {
+      "id": "100.00",
+      "type": "file",
+      "name": "100.00",
+      "properties": {},
+      "created_at": "2026-04-10T18:44:54.243586+00:00",
+      "updated_at": "2026-04-10T18:44:54.243586+00:00"
+    },
+    "640.19": {
+      "id": "640.19",
+      "type": "file",
+      "name": "640.19",
+      "properties": {},
+      "created_at": "2026-04-10T18:44:54.315817+00:00",
+      "updated_at": "2026-04-10T18:44:54.315817+00:00"
+    },
+    "1.15x": {
+      "id": "1.15x",
+      "type": "file",
+      "name": "1.15x",
+      "properties": {},
+      "created_at": "2026-04-10T18:44:54.388284+00:00",
+      "updated_at": "2026-04-10T18:44:54.388284+00:00"
+    },
+    "246.03": {
+      "id": "246.03",
+      "type": "file",
+      "name": "246.03",
+      "properties": {},
+      "created_at": "2026-04-10T18:44:54.430236+00:00",
+      "updated_at": "2026-04-10T18:44:54.430236+00:00"
+    },
+    "886.22": {
+      "id": "886.22",
+      "type": "file",
+      "name": "886.22",
+      "properties": {},
+      "created_at": "2026-04-10T18:44:54.500534+00:00",
+      "updated_at": "2026-04-10T18:44:54.500534+00:00"
+    },
+    "TEST_REPLACE.docx": {
+      "id": "TEST_REPLACE.docx",
+      "type": "file",
+      "name": "TEST_REPLACE.docx",
+      "properties": {},
+      "created_at": "2026-04-10T18:46:40.176540+00:00",
+      "updated_at": "2026-04-10T18:46:40.176540+00:00"
+    },
+    "93.6s": {
+      "id": "93.6s",
+      "type": "file",
+      "name": "93.6s",
+      "properties": {},
+      "created_at": "2026-04-10T18:46:40.202043+00:00",
+      "updated_at": "2026-04-10T18:46:40.202043+00:00"
+    },
+    "TEST_TABLE.docx": {
+      "id": "TEST_TABLE.docx",
+      "type": "file",
+      "name": "TEST_TABLE.docx",
+      "properties": {},
+      "created_at": "2026-04-10T18:46:40.280308+00:00",
+      "updated_at": "2026-04-10T18:46:40.280308+00:00"
+    },
+    "97.3s": {
+      "id": "97.3s",
+      "type": "file",
+      "name": "97.3s",
+      "properties": {},
+      "created_at": "2026-04-10T18:46:40.381099+00:00",
+      "updated_at": "2026-04-10T18:46:40.381099+00:00"
     }
   },
   "relations": [
@@ -19815,11 +19935,317 @@
       "context": "pre-hook query",
       "created_at": "2026-04-10T16:42:27.281692+00:00",
       "updated_at": "2026-04-10T16:42:27.307652+00:00"
+    },
+    {
+      "source": "194.30",
+      "target": "194.30",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "realiza prueba para saber si todo quedo en orden?",
+      "created_at": "2026-04-10T18:44:53.690383+00:00",
+      "updated_at": "2026-04-10T18:44:53.690383+00:00"
+    },
+    {
+      "source": "194.30",
+      "target": "58.66",
+      "type": "used_with",
+      "weight": 1.5,
+      "context": "realiza prueba para saber si todo quedo en orden?",
+      "created_at": "2026-04-10T18:44:53.714856+00:00",
+      "updated_at": "2026-04-10T18:44:53.760643+00:00"
+    },
+    {
+      "source": "58.66",
+      "target": "58.66",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "realiza prueba para saber si todo quedo en orden?",
+      "created_at": "2026-04-10T18:44:53.784496+00:00",
+      "updated_at": "2026-04-10T18:44:53.784496+00:00"
+    },
+    {
+      "source": "58.66",
+      "target": "146.00",
+      "type": "used_with",
+      "weight": 1.5,
+      "context": "realiza prueba para saber si todo quedo en orden?",
+      "created_at": "2026-04-10T18:44:53.824522+00:00",
+      "updated_at": "2026-04-10T18:44:53.853693+00:00"
+    },
+    {
+      "source": "146.00",
+      "target": "146.00",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "realiza prueba para saber si todo quedo en orden?",
+      "created_at": "2026-04-10T18:44:53.869130+00:00",
+      "updated_at": "2026-04-10T18:44:53.869130+00:00"
+    },
+    {
+      "source": "146.00",
+      "target": "5.00",
+      "type": "used_with",
+      "weight": 1.5,
+      "context": "realiza prueba para saber si todo quedo en orden?",
+      "created_at": "2026-04-10T18:44:53.898062+00:00",
+      "updated_at": "2026-04-10T18:44:53.926699+00:00"
+    },
+    {
+      "source": "5.00",
+      "target": "5.00",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "realiza prueba para saber si todo quedo en orden?",
+      "created_at": "2026-04-10T18:44:53.941662+00:00",
+      "updated_at": "2026-04-10T18:44:53.941662+00:00"
+    },
+    {
+      "source": "5.00",
+      "target": "3.65",
+      "type": "used_with",
+      "weight": 1.5,
+      "context": "realiza prueba para saber si todo quedo en orden?",
+      "created_at": "2026-04-10T18:44:53.970699+00:00",
+      "updated_at": "2026-04-10T18:44:54.002200+00:00"
+    },
+    {
+      "source": "3.65",
+      "target": "3.65",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "realiza prueba para saber si todo quedo en orden?",
+      "created_at": "2026-04-10T18:44:54.016759+00:00",
+      "updated_at": "2026-04-10T18:44:54.016759+00:00"
+    },
+    {
+      "source": "3.65",
+      "target": "432.58",
+      "type": "used_with",
+      "weight": 1.5,
+      "context": "realiza prueba para saber si todo quedo en orden?",
+      "created_at": "2026-04-10T18:44:54.044495+00:00",
+      "updated_at": "2026-04-10T18:44:54.073452+00:00"
+    },
+    {
+      "source": "432.58",
+      "target": "432.58",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "realiza prueba para saber si todo quedo en orden?",
+      "created_at": "2026-04-10T18:44:54.088087+00:00",
+      "updated_at": "2026-04-10T18:44:54.088087+00:00"
+    },
+    {
+      "source": "432.58",
+      "target": "500.00",
+      "type": "used_with",
+      "weight": 1.5,
+      "context": "realiza prueba para saber si todo quedo en orden?",
+      "created_at": "2026-04-10T18:44:54.116655+00:00",
+      "updated_at": "2026-04-10T18:44:54.144695+00:00"
+    },
+    {
+      "source": "500.00",
+      "target": "500.00",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "realiza prueba para saber si todo quedo en orden?",
+      "created_at": "2026-04-10T18:44:54.156644+00:00",
+      "updated_at": "2026-04-10T18:44:54.156644+00:00"
+    },
+    {
+      "source": "500.00",
+      "target": "200.00",
+      "type": "used_with",
+      "weight": 1.5,
+      "context": "realiza prueba para saber si todo quedo en orden?",
+      "created_at": "2026-04-10T18:44:54.184658+00:00",
+      "updated_at": "2026-04-10T18:44:54.214427+00:00"
+    },
+    {
+      "source": "200.00",
+      "target": "200.00",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "realiza prueba para saber si todo quedo en orden?",
+      "created_at": "2026-04-10T18:44:54.226638+00:00",
+      "updated_at": "2026-04-10T18:44:54.226638+00:00"
+    },
+    {
+      "source": "200.00",
+      "target": "100.00",
+      "type": "used_with",
+      "weight": 1.5,
+      "context": "realiza prueba para saber si todo quedo en orden?",
+      "created_at": "2026-04-10T18:44:54.259339+00:00",
+      "updated_at": "2026-04-10T18:44:54.286813+00:00"
+    },
+    {
+      "source": "100.00",
+      "target": "100.00",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "realiza prueba para saber si todo quedo en orden?",
+      "created_at": "2026-04-10T18:44:54.302610+00:00",
+      "updated_at": "2026-04-10T18:44:54.302610+00:00"
+    },
+    {
+      "source": "100.00",
+      "target": "640.19",
+      "type": "used_with",
+      "weight": 1.5,
+      "context": "realiza prueba para saber si todo quedo en orden?",
+      "created_at": "2026-04-10T18:44:54.328436+00:00",
+      "updated_at": "2026-04-10T18:44:54.356679+00:00"
+    },
+    {
+      "source": "640.19",
+      "target": "640.19",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "realiza prueba para saber si todo quedo en orden?",
+      "created_at": "2026-04-10T18:44:54.372698+00:00",
+      "updated_at": "2026-04-10T18:44:54.372698+00:00"
+    },
+    {
+      "source": "640.19",
+      "target": "1.15x",
+      "type": "used_with",
+      "weight": 1.0,
+      "context": "realiza prueba para saber si todo quedo en orden?",
+      "created_at": "2026-04-10T18:44:54.401440+00:00",
+      "updated_at": "2026-04-10T18:44:54.416551+00:00"
+    },
+    {
+      "source": "640.19",
+      "target": "246.03",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "realiza prueba para saber si todo quedo en orden?",
+      "created_at": "2026-04-10T18:44:54.444835+00:00",
+      "updated_at": "2026-04-10T18:44:54.444835+00:00"
+    },
+    {
+      "source": "1.15x",
+      "target": "246.03",
+      "type": "used_with",
+      "weight": 1.0,
+      "context": "realiza prueba para saber si todo quedo en orden?",
+      "created_at": "2026-04-10T18:44:54.458078+00:00",
+      "updated_at": "2026-04-10T18:44:54.471664+00:00"
+    },
+    {
+      "source": "246.03",
+      "target": "246.03",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "realiza prueba para saber si todo quedo en orden?",
+      "created_at": "2026-04-10T18:44:54.485805+00:00",
+      "updated_at": "2026-04-10T18:44:54.485805+00:00"
+    },
+    {
+      "source": "246.03",
+      "target": "886.22",
+      "type": "used_with",
+      "weight": 1.5,
+      "context": "realiza prueba para saber si todo quedo en orden?",
+      "created_at": "2026-04-10T18:44:54.514854+00:00",
+      "updated_at": "2026-04-10T18:44:54.541794+00:00"
+    },
+    {
+      "source": "886.22",
+      "target": "886.22",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "realiza prueba para saber si todo quedo en orden?",
+      "created_at": "2026-04-10T18:44:54.556520+00:00",
+      "updated_at": "2026-04-10T18:44:54.556520+00:00"
+    },
+    {
+      "source": "TEST_REPLACE.docx",
+      "target": "93.6s",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pero cual fue la prueba y abre el word donde trabajaste para valdar si todo esta correcto?",
+      "created_at": "2026-04-10T18:46:40.227179+00:00",
+      "updated_at": "2026-04-10T18:46:40.227179+00:00"
+    },
+    {
+      "source": "TEST_REPLACE.docx",
+      "target": "TEST_TABLE.docx",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pero cual fue la prueba y abre el word donde trabajaste para valdar si todo esta correcto?",
+      "created_at": "2026-04-10T18:46:40.321412+00:00",
+      "updated_at": "2026-04-10T18:46:40.321412+00:00"
+    },
+    {
+      "source": "93.6s",
+      "target": "TEST_TABLE.docx",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pero cual fue la prueba y abre el word donde trabajaste para valdar si todo esta correcto?",
+      "created_at": "2026-04-10T18:46:40.355255+00:00",
+      "updated_at": "2026-04-10T18:46:40.355255+00:00"
+    },
+    {
+      "source": "93.6s",
+      "target": "97.3s",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pero cual fue la prueba y abre el word donde trabajaste para valdar si todo esta correcto?",
+      "created_at": "2026-04-10T18:46:40.406756+00:00",
+      "updated_at": "2026-04-10T18:46:40.406756+00:00"
+    },
+    {
+      "source": "TEST_TABLE.docx",
+      "target": "97.3s",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pero cual fue la prueba y abre el word donde trabajaste para valdar si todo esta correcto?",
+      "created_at": "2026-04-10T18:46:40.432220+00:00",
+      "updated_at": "2026-04-10T18:46:40.432220+00:00"
+    },
+    {
+      "source": "TEST_TABLE.docx",
+      "target": "P01_Solo_Soporte.docx",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "ninguno de los 2 los encontre en el documento que abriste no hay ningun \"GBM Internacional\" y no hay",
+      "created_at": "2026-04-10T18:50:19.875663+00:00",
+      "updated_at": "2026-04-10T18:50:19.875663+00:00"
+    },
+    {
+      "source": "TEST_TABLE.docx",
+      "target": "TEST_TABLE.docx",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "ninguno de los 2 los encontre en el documento que abriste no hay ningun \"GBM Internacional\" y no hay",
+      "created_at": "2026-04-10T18:50:19.895926+00:00",
+      "updated_at": "2026-04-10T18:50:19.895926+00:00"
+    },
+    {
+      "source": "P01_Solo_Soporte.docx",
+      "target": "TEST_TABLE.docx",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "ninguno de los 2 los encontre en el documento que abriste no hay ningun \"GBM Internacional\" y no hay",
+      "created_at": "2026-04-10T18:50:19.921023+00:00",
+      "updated_at": "2026-04-10T18:50:19.921023+00:00"
+    },
+    {
+      "source": "TEST_TABLE.docx",
+      "target": "TEST_REPLACE.docx",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "abre los word si son 2 abrelos los quiero ver",
+      "created_at": "2026-04-10T18:51:11.395924+00:00",
+      "updated_at": "2026-04-10T18:51:11.395924+00:00"
     }
   ],
-  "updated_at": "2026-04-10T16:42:27.307652+00:00",
+  "updated_at": "2026-04-10T18:51:11.395924+00:00",
   "stats": {
-    "entities": 634,
-    "relations": 1638
+    "entities": 649,
+    "relations": 1672
   }
 }
