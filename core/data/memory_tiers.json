@@ -1,0 +1,68 @@
+{
+  "hot": [
+    {
+      "key": "realiza una prueba de cada funcionalidad de los tools para saber que funcionan con el ciclo\n  completo\n     que usa el proyecto desde el paso 1 hasta el ultimo sin omitir ninguno si tiene fallos repar",
+      "value": "---\n\n## RESUMEN FINAL DE PRUEBAS â€” 43 Tools Probados\n\n| # | Tool | Estado | Notas |\n|---|------|--------|-------|\n| 1 | `open_document` | âœ“ PASSED | Abre, sanitiza, backup, TOC repair |\n| 2 | `document_statistics` | âœ“ PASSED | PÃ¡ginas, palabras, shapes, etc. |\n| 3 | `get_document_properties` | âœ“ PASSED | Built-in + custom |\n| 4 | `get_sections` | âœ“ PASSED | 16 headings con niveles |\n| 5 | `get_paragraph_text` | âœ“ PASSED | Texto completo desde Ã­ndice |\n| 6 | `get_tables` | âœ“ PASSED | 2 tablas con data 2D |\n| 7 | `analyze_document` | âœ“ PASSED | Estructura completa |\n| 8 | `view_page` | âœ“ PASSED | Render visual PNG |\n| 9 | `insert_paragraph` | âœ“ PASSED | Con after_heading + bold |\n| 10 | `find_replace` | âœ“ PASSED | Auto-fix activÃ³ smart_replace |\n| 11 | `count_occurrences` | âœ“ PASSED | Desglose body/headers/footers |\n| 12 | `verify_text` | âœ“ PASSED | Confirma existencia |\n| 13 | `check_paragraph_pages` | âœ“ PASSED | DetectÃ³ heading huÃ©rfano |\n| 14 | `format",
+      "domain": "ML 100%",
+      "source": "auto_save",
+      "tier": "hot",
+      "created_at": "2026-04-12T00:31:21.910944+00:00",
+      "last_access": "2026-04-12T00:31:21.910944+00:00",
+      "access_count": 0,
+      "promotion_count": 0
+    }
+  ],
+  "warm": [
+    {
+      "key": "alguna forma de colocar un tool mcp que valide todo el documento al final de un cambio que todo este en orden los titual que no haya paginas en blanco, espacios donde no se debe etc etc y que use los ",
+      "value": "Ya tienes **mucha infraestructura** construida. La buena noticia es que solo falta **orquestarla en un solo tool**. AquÃ­ estÃ¡ el plan:\n\n### Lo que YA existe (piezas del rompecabezas)\n\n| Pieza | Tool existente | QuÃ© hace |\n|-------|---------------|----------|\n| Validar estructura | `validate` | Secciones, orden, TOC |\n| Validar formato | `validate` | Fuentes, estilos, headers |\n| Detectar layout | `detect_layout_issues` | PÃ¡ginas en blanco, huÃ©rfanos |\n| Detectar overlap | `detect_content_overlap` | ImÃ¡genes sobrepuestas |\n| Verificar headings | `check_paragraph_pages` | TÃ­tulos en pÃ¡gina correcta |\n| Spelling | `check_spelling` | Errores ortogrÃ¡ficos |\n| Ver pÃ¡ginas | `view_page` | Renderizar como imagen |\n| EstadÃ­sticas | `document_statistics` | Conteos generales |\n\n### Lo que FALTA: un tool que lo una todo\n\nUn **`full_document_audit`** que:\n1. Corra todos los diagnÃ³sticos de arriba en secuencia\n2. Use `view_page` para renderizar pÃ¡ginas sospechosas\n3. Devuelva un reporte",
+      "domain": "ML 100%",
+      "source": "auto_save",
+      "tier": "warm",
+      "created_at": "2026-04-11T21:21:14.225115+00:00",
+      "last_access": "2026-04-11T21:21:14.225115+00:00",
+      "access_count": 0,
+      "promotion_count": 0
+    },
+    {
+      "key": "listo ya estamos post reinicio",
+      "value": "**El `full_document_audit` funciona.** Resumen de lo que se construyÃ³:\n\n| Feature | Detalle |\n|---------|---------|\n| **Tool MCP** | `full_document_audit` |\n| **7 checks** | layout, overlap, headings, spelling, stats, fonts, heading_fonts |\n| **Health score** | 0-100 calculado automÃ¡tico |\n| **PÃ¡ginas a revisar** | Lista automÃ¡tica de pÃ¡ginas con problemas |\n| **Auto-fix** | Opcional con `auto_fix=true` |\n| **Detecta** | PÃ¡ginas en blanco, headings huÃ©rfanos, fuentes incorrectas, tamaÃ±os excesivos, overlap de imÃ¡genes, ortografÃ­a |",
+      "domain": "ML 100%",
+      "source": "auto_save",
+      "tier": "warm",
+      "created_at": "2026-04-11T21:45:56.799325+00:00",
+      "last_access": "2026-04-11T21:45:56.800325+00:00",
+      "access_count": 0,
+      "promotion_count": 0
+    },
+    {
+      "key": "agrega que mire indices malos ya la forma correcta de los indices esta en el codigo revisa, que revise tablas mal puestas o sin tablas, que revise todo lo que las tools tiene para hacer esto debe revi",
+      "value": "**11 checks funcionando.** El score subiÃ³ a **80/100** porque los checks nuevos pasaron OK. Ahora el resumen completo del Doctor:\n\n### Reporte del Doctor de Documentos\n\n| # | Check | Estado | Detalle |\n|---|-------|--------|---------|\n| 1 | Layout | WARNING | 4 headings huÃ©rfanos (pÃ¡gs. 3, 4, 9) |\n| 2 | Overlap | SKIP | Error interno (a corregir) |\n| 3 | Headings | WARNING | 1 heading mal posicionado |\n| 4 | Spelling | WARNING | 16 errores ortogrÃ¡ficos |\n| 5 | Stats | OK | 18 pÃ¡gs, 362 pÃ¡rrafos, 8 tablas |\n| 6 | Fonts | OK | Arial 98% consistente |\n| 7 | Heading Fonts | OK | Todos los headings en Arial |\n| 8 | **TOC** | OK | No encontrÃ³ TOC (intencional en plantilla) |\n| 9 | **Tables** | OK | 8 tablas verificadas â€” todas bien |\n| 10 | **Footers** | OK | Consistentes en todas las secciones |\n| 11 | **Heading Numbering** | OK | NumeraciÃ³n secuencial correcta |\n\n### Lo que ahora detecta el Doctor (11 checks):\n\n| Check | Detecta |\n|-------|---------|\n| layout | PÃ¡ginas en blanco",
+      "domain": "ML 100%",
+      "source": "auto_save",
+      "tier": "warm",
+      "created_at": "2026-04-11T21:57:20.715654+00:00",
+      "last_access": "2026-04-11T21:57:20.715654+00:00",
+      "access_count": 0,
+      "promotion_count": 0
+    },
+    {
+      "key": "ok el doctor debe tener la habilidad de llamar a los tools de reparacion",
+      "value": "**Prueba completa exitosa.** El Doctor ahora:\n\n### Ciclo completo: Diagnosticar â†’ Reparar\n\n| Fase | AcciÃ³n |\n|------|--------|\n| **DiagnÃ³stico** | 11 checks, detectÃ³ Comic Sans + tamaÃ±o excesivo |\n| **ReparaciÃ³n** | 4 fixes automÃ¡ticos, 0 fallos |\n| **Resultado** | Heading corregido a Arial 14pt, layout arreglado |\n\n### Mapa de check â†’ herramienta de reparaciÃ³n\n\n| Check con problema | Tool que llama para reparar |\n|---|---|\n| layout (ERROR/WARNING) | `auto_fix_layout()` + `fix_orphan_headings()` + `remove_blank_pages()` |\n| toc (ERROR) | `repair_toc()` |\n| heading_fonts (ERROR) | CorrecciÃ³n directa de fuente/tamaÃ±o a dominante |\n| headings (WARNING) | `fix_headings_flow()` |\n| tables (WARNING) | `set_table_repeat_headers()` |",
+      "domain": "ML 100%",
+      "source": "auto_save",
+      "tier": "warm",
+      "created_at": "2026-04-11T22:38:15.990401+00:00",
+      "last_access": "2026-04-11T22:38:15.990401+00:00",
+      "access_count": 0,
+      "promotion_count": 0
+    }
+  ],
+  "cold": [],
+  "updated_at": "2026-04-12T00:31:21.911947+00:00",
+  "counts": {
+    "hot": 1,
+    "warm": 4,
+    "cold": 0
+  }
+}
