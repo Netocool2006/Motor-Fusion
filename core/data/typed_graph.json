@@ -5823,6 +5823,62 @@
       "properties": {},
       "created_at": "2026-04-13T18:41:33.369382+00:00",
       "updated_at": "2026-04-13T18:41:33.369382+00:00"
+    },
+    "iaexcel.json": {
+      "id": "iaexcel.json",
+      "type": "file",
+      "name": "iaexcel.json",
+      "properties": {},
+      "created_at": "2026-04-13T21:39:33.571690+00:00",
+      "updated_at": "2026-04-13T21:39:33.571690+00:00"
+    },
+    "iaexcel.yaml": {
+      "id": "iaexcel.yaml",
+      "type": "file",
+      "name": "iaexcel.yaml",
+      "properties": {},
+      "created_at": "2026-04-13T21:39:33.630235+00:00",
+      "updated_at": "2026-04-13T21:39:33.630235+00:00"
+    },
+    "/.yml": {
+      "id": "/.yml",
+      "type": "file",
+      "name": "/.yml",
+      "properties": {},
+      "created_at": "2026-04-13T21:39:33.707035+00:00",
+      "updated_at": "2026-04-13T21:39:33.707035+00:00"
+    },
+    "/.json": {
+      "id": "/.json",
+      "type": "file",
+      "name": "/.json",
+      "properties": {},
+      "created_at": "2026-04-13T21:39:33.789548+00:00",
+      "updated_at": "2026-04-13T21:39:33.789548+00:00"
+    },
+    "cerebro_v2.QUAL": {
+      "id": "cerebro_v2.QUAL",
+      "type": "file",
+      "name": "cerebro_v2.QUAL",
+      "properties": {},
+      "created_at": "2026-04-13T21:39:33.927985+00:00",
+      "updated_at": "2026-04-13T21:39:33.927985+00:00"
+    },
+    "__init__.py": {
+      "id": "__init__.py",
+      "type": "file",
+      "name": "__init__.py",
+      "properties": {},
+      "created_at": "2026-04-13T21:41:28.745871+00:00",
+      "updated_at": "2026-04-13T21:41:28.745871+00:00"
+    },
+    "claude/scheduled_tasks.lock": {
+      "id": "claude/scheduled_tasks.lock",
+      "type": "file",
+      "name": "claude/scheduled_tasks.lock",
+      "properties": {},
+      "created_at": "2026-04-13T21:41:28.775338+00:00",
+      "updated_at": "2026-04-13T21:41:28.775338+00:00"
     }
   },
   "relations": [
@@ -22700,11 +22756,119 @@
       "context": "abre el documento de la prueba quiero ver como quedo",
       "created_at": "2026-04-13T18:41:33.398987+00:00",
       "updated_at": "2026-04-13T18:41:33.398987+00:00"
+    },
+    {
+      "source": "iaexcel.json",
+      "target": "business_rules.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "ya hice yo los ajustes validarlos",
+      "created_at": "2026-04-13T21:39:33.600963+00:00",
+      "updated_at": "2026-04-13T21:39:33.600963+00:00"
+    },
+    {
+      "source": "iaexcel.json",
+      "target": "iaexcel.yaml",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "ya hice yo los ajustes validarlos",
+      "created_at": "2026-04-13T21:39:33.658991+00:00",
+      "updated_at": "2026-04-13T21:39:33.658991+00:00"
+    },
+    {
+      "source": "business_rules.py",
+      "target": "iaexcel.yaml",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "ya hice yo los ajustes validarlos",
+      "created_at": "2026-04-13T21:39:33.686096+00:00",
+      "updated_at": "2026-04-13T21:39:33.686096+00:00"
+    },
+    {
+      "source": "business_rules.py",
+      "target": "/.yml",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "ya hice yo los ajustes validarlos",
+      "created_at": "2026-04-13T21:39:33.731243+00:00",
+      "updated_at": "2026-04-13T21:39:33.731243+00:00"
+    },
+    {
+      "source": "iaexcel.yaml",
+      "target": "/.yml",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "ya hice yo los ajustes validarlos",
+      "created_at": "2026-04-13T21:39:33.759028+00:00",
+      "updated_at": "2026-04-13T21:39:33.759028+00:00"
+    },
+    {
+      "source": "iaexcel.yaml",
+      "target": "/.json",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "ya hice yo los ajustes validarlos",
+      "created_at": "2026-04-13T21:39:33.812691+00:00",
+      "updated_at": "2026-04-13T21:39:33.812691+00:00"
+    },
+    {
+      "source": "/.yml",
+      "target": "/.json",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "ya hice yo los ajustes validarlos",
+      "created_at": "2026-04-13T21:39:33.840370+00:00",
+      "updated_at": "2026-04-13T21:39:33.840370+00:00"
+    },
+    {
+      "source": "/.yml",
+      "target": "iaexcel.json",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "ya hice yo los ajustes validarlos",
+      "created_at": "2026-04-13T21:39:33.879309+00:00",
+      "updated_at": "2026-04-13T21:39:33.879309+00:00"
+    },
+    {
+      "source": "/.json",
+      "target": "iaexcel.json",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "ya hice yo los ajustes validarlos",
+      "created_at": "2026-04-13T21:39:33.905031+00:00",
+      "updated_at": "2026-04-13T21:39:33.905031+00:00"
+    },
+    {
+      "source": "/.json",
+      "target": "cerebro_v2.QUAL",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "ya hice yo los ajustes validarlos",
+      "created_at": "2026-04-13T21:39:33.952265+00:00",
+      "updated_at": "2026-04-13T21:39:33.952265+00:00"
+    },
+    {
+      "source": "iaexcel.json",
+      "target": "cerebro_v2.QUAL",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "ya hice yo los ajustes validarlos",
+      "created_at": "2026-04-13T21:39:33.973082+00:00",
+      "updated_at": "2026-04-13T21:39:33.973082+00:00"
+    },
+    {
+      "source": "__init__.py",
+      "target": "claude/scheduled_tasks.lock",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "procede al commit y push",
+      "created_at": "2026-04-13T21:41:28.805800+00:00",
+      "updated_at": "2026-04-13T21:41:28.805800+00:00"
     }
   ],
-  "updated_at": "2026-04-13T18:41:33.398987+00:00",
+  "updated_at": "2026-04-13T21:41:28.805800+00:00",
   "stats": {
-    "entities": 728,
-    "relations": 1875
+    "entities": 735,
+    "relations": 1887
   }
 }

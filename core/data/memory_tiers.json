@@ -1,110 +1,22 @@
 {
   "hot": [
     {
-      "key": "a que hora local termino con las prueba 6?",
-      "value": "**Case 92 (la 6Âª prueba del critical) terminÃ³ a las `11:27:16` hora local.**\n\nInicio 11:24:57 â†’ fin 11:27:16 (139.7s). Fue la Ãºltima del profile, despuÃ©s del commit `c6d972d` + `4ca81bd` aplicados.",
+      "key": "procede al commit y push",
+      "value": "## âœ… Commit + push completo\n\n**`07137c6..20f2a64` â†’ `origin/main`**\n\n- Commit: `20f2a64` \"Homologate IA_Excel to IA_Word architecture + Excel-native refinements\"\n- 26 archivos staged (6 modificados + 20 nuevos)\n- `+1745 / -36` en los 7 archivos ya trackeados + ~3100 LOC en los nuevos mÃ³dulos\n- `.gitignore` actualizado para ignorar `logs/`, `test_*.log`, `src/tools_custom/*.py` (salvo `__init__.py`), `.claude/scheduled_tasks.lock`\n\nWorking tree limpio, branch `main` sincronizado con `origin/main`.",
       "domain": "ML 100%",
       "source": "auto_save",
       "tier": "hot",
-      "created_at": "2026-04-13T18:22:30.263724+00:00",
-      "last_access": "2026-04-13T18:22:30.263724+00:00",
-      "access_count": 0,
-      "promotion_count": 0
-    },
-    {
-      "key": "realiza este proceso en este proyecto donde estas parado: \" Validaciones pendientes (opcional)\n\n  1. Re-run full-lite con los datos corregidos. Las correcciones de cases 99/100 + fallback de case 96\n ",
-      "value": "Full-lite corriendo en background (ID `b78vv2xqy`). Son 14 cases, ~16 min esperados. Te aviso al terminar con el veredicto comparado vs 11/14 anterior.\n\nSobre la **ValidaciÃ³n #2** (doc PDF-convertido real): ningÃºn case del profile usa uno. Necesito que me pases un `.docx` real que venga de conversiÃ³n PDF para probar smart_replace con split-runs. Si no tienes, podemos simular uno o saltar esa validaciÃ³n. Â¿CÃ³mo procedes?",
-      "domain": "ML 90%",
-      "source": "auto_save",
-      "tier": "hot",
-      "created_at": "2026-04-13T18:26:57.389108+00:00",
-      "last_access": "2026-04-13T18:26:57.389108+00:00",
-      "access_count": 0,
-      "promotion_count": 0
-    },
-    {
-      "key": "algo mas que falte?",
-      "value": "Lo que completamos hoy dejÃ³ el sistema estable. Pero **en honestidad hay 2 validaciones que no hice** y 1 cosa de memoria:\n\n## Validaciones pendientes (opcional)\n\n1. **Re-run `full-lite` con los datos corregidos.** Las correcciones de cases 99/100 + fallback de case 96 no se han probado en una corrida integrada. Lo esperable serÃ­a **14/14 PASS** (vs 11/14 anterior). Toma ~16 min.\n\n2. **Probar con doc PDF-convertido real.** El Fix del `smart_replace` para split-runs (ya existÃ­a en commit `29c2400`) no lo validamos en esta sesiÃ³n con un PDF real. Ninguno de los cases del profile `critical` usa un doc converted-from-PDF. Si tienes un `.docx` que venga de PDF, deberÃ­amos pasarlo.\n\n## Mejora estratÃ©gica (no tÃ©cnica)\n\n3. **Guardar memoria de proyecto.** El proyecto pasÃ³ por un refactor mayor (Cerebro v2, quality guards, contrato, fixes de parser/timeout/TOC/Quit). Vale la pena escribir un memory entry para que futuras sesiones arranquen con el contexto arquitectÃ³nico correcto sin te",
-      "domain": "ML 100%",
-      "source": "auto_save",
-      "tier": "hot",
-      "created_at": "2026-04-13T18:26:57.449111+00:00",
-      "last_access": "2026-04-13T18:26:57.449111+00:00",
-      "access_count": 0,
-      "promotion_count": 0
-    },
-    {
-      "key": "aqui hay muchos copia los que necesites C:\\Chance1\\Ejemplos de SOW",
-      "value": "# ValidaciÃ³n #1 â€” Full-lite re-run: **14/14 PASS** âœ…\n\n| MÃ©trica | Anterior (2026-04-03) | Ahora (2026-04-13) |\n|---|---|---|\n| Cases PASS | 11/14 | **14/14** |\n| Tiempo total | ~16 min | **24 min** |\n| Fails | 96, 99, 100 | â€” |\n\nLos 3 cases que antes fallaban (96 fallback TOC, 99/100 datos corregidos) ahora pasan. Meta cumplida: **100% en profile full-lite**.\n\n---\n\nAhora procedo con **ValidaciÃ³n #2** (PDF-convertido). Veo candidatos en `C:\\Chance1\\Ejemplos de SOW`. Tengo dos pares PDF + DOCX equivalentes:\n- `Comercial - Bantrab - Parallel X - Fase II v1.0 09032026.pdf` + `SOW - Bantrab - Parallel X - Fase II v1.0.docx`\n- `Propuesta_Economica_Bantrab_Parallel_X_Fase_II.docx`\n\nEl `.docx` mÃ¡s sospechoso de venir de PDF es uno con tablas/layouts rÃ­gidos. Pero lo correcto es convertir un PDF real a DOCX para tener split-runs autÃ©nticos. Â¿Prefieres que:\n\n**A)** Convierta el PDF `Comercial - Bantrab...pdf` a .docx (con Word COM) y corra smart_replace sobre Ã©l\n**B)** Use directam",
-      "domain": "ML 95%",
-      "source": "auto_save",
-      "tier": "hot",
-      "created_at": "2026-04-13T18:27:52.907068+00:00",
-      "last_access": "2026-04-13T18:27:52.907068+00:00",
-      "access_count": 0,
-      "promotion_count": 0
-    },
-    {
-      "key": "continÃºa la implementaciÃ³n de IA_Excel: revisa si los tests de Phase 1 ya terminaron y procede con Phase 4 (cerebro_v2 + run_engine) y Phase 5 (mcp_server expansiÃ³n)",
-      "value": "Tests todavÃ­a en test_17 (formulas en 30K celdas), CPU subiendo. Vuelvo en 4min.",
-      "domain": "ML",
-      "source": "auto_save",
-      "tier": "hot",
-      "created_at": "2026-04-13T18:32:12.518724+00:00",
-      "last_access": "2026-04-13T18:32:12.518724+00:00",
-      "access_count": 0,
-      "promotion_count": 0
-    },
-    {
-      "key": "continÃºa la implementaciÃ³n de IA_Excel: revisa C:\\Chance1\\IA\\IA_Excel\\test_run_full.log para ver si los 111 tests terminaron, luego cierra Phase 6 con verificaciÃ³n final y reporta resumen de homolo",
-      "value": "HomologaciÃ³n completa. Resumen final:\n\n## âœ… IA_Excel homologado a IA_Word â€” 6 fases entregadas\n\n**Tests no-ruptura**: 48/48 PASS en 63s (los 48 unit tests originales corren limpios sobre el cÃ³digo extendido).\n\n### Archivos nuevos creados\n\n| MÃ³dulo | LOC | PropÃ³sito |\n|--------|----:|-----------|\n| `src/excel_com.py` (extendido) | 1685 | +COMGuardian, +25 mÃ©todos Phase 5 |\n| `src/excel_session.py` | 129 | Recovery-aware lifecycle |\n| `src/validators.py` | 216 | 4 ejes de validaciÃ³n |\n| `src/business_rules.py` | 135 | IVA por paÃ­s, REQUIRED_SHEETS, normalize |\n| `src/engine.py` | 257 | Orquestador con acceptance contract |\n| `src/cerebro_v2.py` | 229 | Agente determinista + visual loop |\n| `src/excel_eyes.py` | 256 | Workbook â†’ PDF â†’ PNG |\n| `src/vision_feedback.py` | 167 | Vision API directo |\n| `src/vision_bridge.py` | 159 | CLI/SDK/API multi-backend |\n| `src/playwright_feedback.py` | 152 | HTML headless via Chromium |\n| `src/computer_use_feedback.py` | 123 | Computer Us",
-      "domain": "ML",
-      "source": "auto_save",
-      "tier": "hot",
-      "created_at": "2026-04-13T18:36:07.486589+00:00",
-      "last_access": "2026-04-13T18:36:07.486589+00:00",
-      "access_count": 0,
-      "promotion_count": 0
-    },
-    {
-      "key": "continÃºa la implementaciÃ³n de IA_Excel: revisa si los 111 tests terminaron en C:\\Chance1\\IA\\IA_Excel\\test_run_full.log y reporta el resumen final de homologaciÃ³n al usuario",
-      "value": "# Resultados de las 2 validaciones pendientes\n\n## âœ… ValidaciÃ³n #1 â€” Full-lite re-run\n**14/14 PASS** (vs 11/14 anterior). Cases 96, 99, 100 â€”que fallabanâ€” ahora pasan. Tiempo total: 24 min.\n\n## âœ… ValidaciÃ³n #2 â€” smart_replace en SOW real\nDoc: `SOW - Bantrab - Parallel X - Fase II v1.0.docx` (1097 pÃ¡rrafos, 1226 runs, 4 secciones)\n\n| MÃ©trica | Valor |\n|---|---|\n| Task | `Reemplaza \"BANTRAB\" por \"BANCO EJEMPLO SA\"` |\n| Ocurrencias antes | 31 (22 body + 9 tables) |\n| Ocurrencias despuÃ©s | 0 BANTRAB / **31 BANCO EJEMPLO SA** |\n| Steps | 9/9 OK |\n| Visual evidence | 1.00 |\n| Duration | 202.4s |\n| Recovery | 1 RECOVER_SESSION auto-resuelta |\n\n**Conteo exactamente preservado** â€” 22 body + 9 tables reemplazados sin pÃ©rdidas. smart_replace cubriÃ³ body y tablas correctamente.\n\n## Caveat importante\nEl detector reportÃ³ `is_converted: false` (ratio 0.089, threshold no alcanzado). **Este doc es nativo, no PDF-convertido**, asÃ­ que el fix especÃ­fico de split-runs para docs de P",
-      "domain": "ML 95%",
-      "source": "auto_save",
-      "tier": "hot",
-      "created_at": "2026-04-13T18:37:15.379571+00:00",
-      "last_access": "2026-04-13T18:37:15.379571+00:00",
-      "access_count": 0,
-      "promotion_count": 0
-    },
-    {
-      "key": "realiza commit y push",
-      "value": "**Commit + push completo.** `ceede10..a320cbb` â†’ `origin/master`.\n\nNota: los reportes de validaciÃ³n (14/14 full-lite + smart_replace en SOW) estÃ¡n en `test_output/` que estÃ¡ gitignored, por eso no entraron al commit. La validaciÃ³n confirmÃ³ que los 4 commits previos (`29c2400`, `c6d972d`, `4ca81bd`, `ceede10`) funcionan al 100% sin nuevos cambios de cÃ³digo requeridos.",
-      "domain": "ML 100%",
-      "source": "auto_save",
-      "tier": "hot",
-      "created_at": "2026-04-13T18:40:36.245264+00:00",
-      "last_access": "2026-04-13T18:40:36.245264+00:00",
-      "access_count": 0,
-      "promotion_count": 0
-    },
-    {
-      "key": "abre el documento de la prueba quiero ver como quedo",
-      "value": "AbrÃ­ el documento `sow_bantrab_original.docx` en Word. Vas a ver las 31 ocurrencias reemplazadas: `BANTRAB` â†’ `BANCO EJEMPLO SA` en los 22 pÃ¡rrafos del body y las 9 celdas de tablas. El backup original estÃ¡ en el mismo folder como `sow_bantrab_original_BACKUP.docx` por si quieres comparar.",
-      "domain": "ML 100%",
-      "source": "auto_save",
-      "tier": "hot",
-      "created_at": "2026-04-13T18:41:33.321729+00:00",
-      "last_access": "2026-04-13T18:41:33.321729+00:00",
+      "created_at": "2026-04-13T21:41:28.728017+00:00",
+      "last_access": "2026-04-13T21:41:28.728017+00:00",
       "access_count": 0,
       "promotion_count": 0
     }
   ],
   "warm": [],
   "cold": [],
-  "updated_at": "2026-04-13T18:41:33.321729+00:00",
+  "updated_at": "2026-04-13T21:41:28.728017+00:00",
   "counts": {
-    "hot": 9,
+    "hot": 1,
     "warm": 0,
     "cold": 0
   }

@@ -7649,10 +7649,10 @@
     "reasoning_traces": [],
     "metrics": {
       "decisions_count": 0,
-      "errors_count": 0,
       "total_messages": 3,
       "commands_count": 0,
       "user_messages": 1,
+      "errors_count": 0,
       "files_touched": 0
     },
     "domains": [
@@ -7661,7 +7661,7 @@
       "test_output"
     ],
     "merged": true,
-    "merge_count": 38
+    "merge_count": 39
   },
   {
     "session_id": "4a0c29f0-f854-4eb3-8d6d-835d572900cb",
@@ -12663,6 +12663,76 @@
       "files_touched": 1,
       "decisions_count": 0,
       "total_messages": 4
+    },
+    "domains": [
+      "hooks_ia_backup_20260331_22050"
+    ],
+    "merged": true,
+    "merge_count": 2
+  },
+  {
+    "session_id": "7a7aad49-7e56-49a4-a527-d4eb7cdf3155",
+    "date": "2026-04-13",
+    "time": "18:52:32 UTC",
+    "timestamp": "2026-04-13 18:52:32",
+    "cwd": "C:\\Users\\ntoledo\\AppData\\Local\\Temp\\cerebro_ml",
+    "summary": "Lee la imagen en C:\\Users\\ntoledo\\AppData\\Local\\Temp\\ia_word_eyes_3qzil9op\\page_020.png usando el tool Read.",
+    "user_messages": [
+      "Lee la imagen en C:\\Users\\ntoledo\\AppData\\Local\\Temp\\ia_word_eyes_3qzil9op\\page_020.png usando el tool Read.",
+      "Lee la imagen en C:\\Users\\ntoledo\\AppData\\Local\\Temp\\ia_word_eyes_3qzil9op\\page_021.png usando el tool Read."
+    ],
+    "files_read": [
+      "C:\\Users\\ntoledo\\AppData\\Local\\Temp\\ia_word_eyes_3qzil9op\\page_020.png"
+    ],
+    "files_edited": [],
+    "files_created": [],
+    "commands_run": [],
+    "searches": [],
+    "errors": [],
+    "decisions": [],
+    "learning_json": null,
+    "reasoning_traces": [],
+    "metrics": {
+      "commands_count": 0,
+      "total_messages": 4,
+      "decisions_count": 0,
+      "user_messages": 1,
+      "files_touched": 1,
+      "errors_count": 0
+    },
+    "domains": [
+      "hooks_ia_backup_20260331_22050"
+    ],
+    "merged": true,
+    "merge_count": 2
+  },
+  {
+    "session_id": "5588e5f3-f95c-439d-a4cd-e31e7f42215c",
+    "date": "2026-04-13",
+    "time": "18:52:55 UTC",
+    "timestamp": "2026-04-13 18:52:55",
+    "cwd": "C:\\Users\\ntoledo\\AppData\\Local\\Temp\\cerebro_ml",
+    "summary": "Lee la imagen en C:\\Users\\ntoledo\\AppData\\Local\\Temp\\ia_word_eyes_9w87p19i\\page_020.png usando el tool Read.",
+    "user_messages": [
+      "Lee la imagen en C:\\Users\\ntoledo\\AppData\\Local\\Temp\\ia_word_eyes_9w87p19i\\page_020.png usando el tool Read.",
+      "Lee la imagen en C:\\Users\\ntoledo\\AppData\\Local\\Temp\\ia_word_eyes_9w87p19i\\page_021.png usando el tool Read."
+    ],
+    "files_read": [],
+    "files_edited": [],
+    "files_created": [],
+    "commands_run": [],
+    "searches": [],
+    "errors": [],
+    "decisions": [],
+    "learning_json": null,
+    "reasoning_traces": [],
+    "metrics": {
+      "commands_count": 0,
+      "total_messages": 2,
+      "errors_count": 0,
+      "files_touched": 0,
+      "user_messages": 1,
+      "decisions_count": 0
     },
     "domains": [
       "hooks_ia_backup_20260331_22050"
