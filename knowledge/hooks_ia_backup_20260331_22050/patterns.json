@@ -676,6 +676,39 @@
         "last_accessed": "2026-04-12T02:54:39.997545+00:00",
         "access_count": 0
       }
+    },
+    "c866a6e3fcb4": {
+      "id": "c866a6e3fcb4",
+      "type": "pattern",
+      "key": "session_auto_20260413_115230",
+      "solution": {
+        "strategy": "auto_captured_from_session",
+        "notes": "Interacciones clave:\n  P: <local-command-stdout>Goodbye!</local-command-stdout>\n  R: No response requested.\n  P: listo re iniciado\n  R:   MCP server de vuelta. Continuamos donde quedamos: **Tool #88 = `save`**. Cargo los schemas necesarios.\nResumen: [Pasted text #1 +3 lines] caso de uso por caso de uso nada de en bloques uno por uno teng un pco   viejo no soporta multitarea es uno por uno prueba d -> [Request interrupted by user for tool use] -> \nEditados: cerebro_v2.py, run_engine.py, word_com.py, run_agent_cases_one_by_one.py\nDecisiones: explorar el proyecto completo para ver los cambios.; probarlos con casos reales para ver si el ML devuelve scores consistentes en ese rango.\nErrores resueltos: The user doesn't want to proceed with this tool use. The tool use was rejected (; The user doesn't want to proceed with this tool use. The tool use was rejected (; The user doesn't want to proceed with this tool use. The tool use was rejected (",
+        "auto_learned": true,
+        "source": "hook_session_end",
+        "files_touched": [
+          "C:\\Chance1\\IA\\IA_Word\\src\\cerebro_v2.py",
+          "C:\\Chance1\\IA\\IA_Word\\run_engine.py",
+          "C:\\Chance1\\IA\\IA_Word\\src\\word_com.py",
+          "C:\\Chance1\\IA\\IA_Word\\tests\\run_agent_cases_one_by_one.py"
+        ],
+        "domain_detected": "hooks_ia_backup_20260331_22050"
+      },
+      "tags": [
+        "auto-learned",
+        "session",
+        "hooks_ia_backup_20260331_22050"
+      ],
+      "error_context": null,
+      "created_at": "2026-04-13T17:52:30.753362+00:00",
+      "updated_at": "2026-04-13T17:52:30.753362+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-04-13T17:52:30.753362+00:00",
+        "access_count": 0
+      }
     }
   },
   "tag_index": {
@@ -698,7 +731,8 @@
       "4c347b62137b",
       "db65dad14a2a",
       "bd3c0351e1ab",
-      "986d89768b30"
+      "986d89768b30",
+      "c866a6e3fcb4"
     ],
     "session": [
       "fc0947920514",
@@ -719,7 +753,8 @@
       "4c347b62137b",
       "db65dad14a2a",
       "bd3c0351e1ab",
-      "986d89768b30"
+      "986d89768b30",
+      "c866a6e3fcb4"
     ],
     "hooks_ia_backup_20260331_22050": [
       "fc0947920514",
@@ -740,11 +775,12 @@
       "4c347b62137b",
       "db65dad14a2a",
       "bd3c0351e1ab",
-      "986d89768b30"
+      "986d89768b30",
+      "c866a6e3fcb4"
     ]
   },
   "stats": {
-    "total_entries": 19,
+    "total_entries": 20,
     "total_lookups": 3,
     "total_hits": 1
   }
