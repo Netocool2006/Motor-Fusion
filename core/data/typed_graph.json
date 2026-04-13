@@ -5575,6 +5575,86 @@
       "properties": {},
       "created_at": "2026-04-13T15:51:54.717174+00:00",
       "updated_at": "2026-04-13T15:51:54.717174+00:00"
+    },
+    "run_agent_cases_one_by_one.py": {
+      "id": "run_agent_cases_one_by_one.py",
+      "type": "file",
+      "name": "run_agent_cases_one_by_one.py",
+      "properties": {},
+      "created_at": "2026-04-13T15:59:03.438593+00:00",
+      "updated_at": "2026-04-13T15:59:03.438593+00:00"
+    },
+    "sequential_88_plus_report.json": {
+      "id": "sequential_88_plus_report.json",
+      "type": "file",
+      "name": "sequential_88_plus_report.json",
+      "properties": {},
+      "created_at": "2026-04-13T15:59:03.485540+00:00",
+      "updated_at": "2026-04-13T15:59:03.485540+00:00"
+    },
+    "134.5s": {
+      "id": "134.5s",
+      "type": "file",
+      "name": "134.5s",
+      "properties": {},
+      "created_at": "2026-04-13T16:36:12.652703+00:00",
+      "updated_at": "2026-04-13T16:36:12.652703+00:00"
+    },
+    "103.4s": {
+      "id": "103.4s",
+      "type": "file",
+      "name": "103.4s",
+      "properties": {},
+      "created_at": "2026-04-13T16:36:12.682706+00:00",
+      "updated_at": "2026-04-13T16:36:12.682706+00:00"
+    },
+    "47.4s": {
+      "id": "47.4s",
+      "type": "file",
+      "name": "47.4s",
+      "properties": {},
+      "created_at": "2026-04-13T16:36:12.818184+00:00",
+      "updated_at": "2026-04-13T16:36:12.818184+00:00"
+    },
+    "0.88": {
+      "id": "0.88",
+      "type": "file",
+      "name": "0.88",
+      "properties": {},
+      "created_at": "2026-04-13T16:36:12.872015+00:00",
+      "updated_at": "2026-04-13T16:36:12.872015+00:00"
+    },
+    "28.8s": {
+      "id": "28.8s",
+      "type": "file",
+      "name": "28.8s",
+      "properties": {},
+      "created_at": "2026-04-13T16:36:12.958142+00:00",
+      "updated_at": "2026-04-13T16:36:12.958142+00:00"
+    },
+    "59.9s": {
+      "id": "59.9s",
+      "type": "file",
+      "name": "59.9s",
+      "properties": {},
+      "created_at": "2026-04-13T16:36:13.044291+00:00",
+      "updated_at": "2026-04-13T16:36:13.044291+00:00"
+    },
+    "1.00": {
+      "id": "1.00",
+      "type": "file",
+      "name": "1.00",
+      "properties": {},
+      "created_at": "2026-04-13T16:36:13.096448+00:00",
+      "updated_at": "2026-04-13T16:36:13.096448+00:00"
+    },
+    "64.6s": {
+      "id": "64.6s",
+      "type": "file",
+      "name": "64.6s",
+      "properties": {},
+      "created_at": "2026-04-13T16:36:13.147693+00:00",
+      "updated_at": "2026-04-13T16:36:13.147693+00:00"
     }
   },
   "relations": [
@@ -18425,10 +18505,10 @@
       "source": "src/cerebro_v2.py",
       "target": "src/cerebro_v2.py",
       "type": "used_with",
-      "weight": 1.5,
-      "context": "pre-hook query",
+      "weight": 3.0,
+      "context": "procede con los 3 y me das tu dictamen",
       "created_at": "2026-04-10T16:42:19.772251+00:00",
-      "updated_at": "2026-04-10T16:42:27.135102+00:00"
+      "updated_at": "2026-04-13T16:13:08.815392+00:00"
     },
     {
       "source": "src/cerebro_v2.py",
@@ -21714,11 +21794,290 @@
       "context": "en el local aun no estan en el git",
       "created_at": "2026-04-13T15:51:54.802115+00:00",
       "updated_at": "2026-04-13T15:51:54.802115+00:00"
+    },
+    {
+      "source": "run_agent_cases_one_by_one.py",
+      "target": "sequential_88_plus_report.json",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-13T15:59:03.541449+00:00",
+      "updated_at": "2026-04-13T15:59:03.541449+00:00"
+    },
+    {
+      "source": "0.48",
+      "target": "0.94",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "estoy corriendo este por mi lado run_agent_cases_one_by_one.py esto a sacaddo sequential_88_plus_rep",
+      "created_at": "2026-04-13T16:00:35.314157+00:00",
+      "updated_at": "2026-04-13T16:00:35.314157+00:00"
+    },
+    {
+      "source": "0.48",
+      "target": "0.48",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "estoy corriendo este por mi lado run_agent_cases_one_by_one.py esto a sacaddo sequential_88_plus_rep",
+      "created_at": "2026-04-13T16:00:35.344591+00:00",
+      "updated_at": "2026-04-13T16:00:35.344591+00:00"
+    },
+    {
+      "source": "0.94",
+      "target": "0.48",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "estoy corriendo este por mi lado run_agent_cases_one_by_one.py esto a sacaddo sequential_88_plus_rep",
+      "created_at": "2026-04-13T16:00:35.377275+00:00",
+      "updated_at": "2026-04-13T16:00:35.377275+00:00"
+    },
+    {
+      "source": "src/cerebro_v2.py",
+      "target": "run_engine.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "procede con los 3 y me das tu dictamen",
+      "created_at": "2026-04-13T16:13:08.573142+00:00",
+      "updated_at": "2026-04-13T16:13:08.573142+00:00"
+    },
+    {
+      "source": "run_engine.py",
+      "target": "src/cerebro_v2.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "procede con los 3 y me das tu dictamen",
+      "created_at": "2026-04-13T16:13:08.632282+00:00",
+      "updated_at": "2026-04-13T16:13:08.632282+00:00"
+    },
+    {
+      "source": "run_engine.py",
+      "target": "0.48",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "procede con los 3 y me das tu dictamen",
+      "created_at": "2026-04-13T16:13:08.652079+00:00",
+      "updated_at": "2026-04-13T16:13:08.652079+00:00"
+    },
+    {
+      "source": "src/cerebro_v2.py",
+      "target": "0.48",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "procede con los 3 y me das tu dictamen",
+      "created_at": "2026-04-13T16:13:08.670760+00:00",
+      "updated_at": "2026-04-13T16:13:08.670760+00:00"
+    },
+    {
+      "source": "0.48",
+      "target": "src/cerebro_v2.py",
+      "type": "used_with",
+      "weight": 1.0,
+      "context": "procede con los 3 y me das tu dictamen",
+      "created_at": "2026-04-13T16:13:08.716814+00:00",
+      "updated_at": "2026-04-13T16:13:08.778708+00:00"
+    },
+    {
+      "source": "134.5s",
+      "target": "103.4s",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "mira los resultados ya las corri",
+      "created_at": "2026-04-13T16:36:12.709824+00:00",
+      "updated_at": "2026-04-13T16:36:12.709824+00:00"
+    },
+    {
+      "source": "134.5s",
+      "target": "0.92",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "mira los resultados ya las corri",
+      "created_at": "2026-04-13T16:36:12.737628+00:00",
+      "updated_at": "2026-04-13T16:36:12.737628+00:00"
+    },
+    {
+      "source": "103.4s",
+      "target": "0.92",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "mira los resultados ya las corri",
+      "created_at": "2026-04-13T16:36:12.764692+00:00",
+      "updated_at": "2026-04-13T16:36:12.764692+00:00"
+    },
+    {
+      "source": "103.4s",
+      "target": "0.48",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "mira los resultados ya las corri",
+      "created_at": "2026-04-13T16:36:12.782323+00:00",
+      "updated_at": "2026-04-13T16:36:12.782323+00:00"
+    },
+    {
+      "source": "0.92",
+      "target": "0.48",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "mira los resultados ya las corri",
+      "created_at": "2026-04-13T16:36:12.800262+00:00",
+      "updated_at": "2026-04-13T16:36:12.800262+00:00"
+    },
+    {
+      "source": "0.92",
+      "target": "47.4s",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "mira los resultados ya las corri",
+      "created_at": "2026-04-13T16:36:12.834159+00:00",
+      "updated_at": "2026-04-13T16:36:12.834159+00:00"
+    },
+    {
+      "source": "0.48",
+      "target": "47.4s",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "mira los resultados ya las corri",
+      "created_at": "2026-04-13T16:36:12.851835+00:00",
+      "updated_at": "2026-04-13T16:36:12.851835+00:00"
+    },
+    {
+      "source": "0.48",
+      "target": "0.88",
+      "type": "used_with",
+      "weight": 1.0,
+      "context": "mira los resultados ya las corri",
+      "created_at": "2026-04-13T16:36:12.887738+00:00",
+      "updated_at": "2026-04-13T16:36:13.012580+00:00"
+    },
+    {
+      "source": "47.4s",
+      "target": "0.88",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "mira los resultados ya las corri",
+      "created_at": "2026-04-13T16:36:12.902946+00:00",
+      "updated_at": "2026-04-13T16:36:12.902946+00:00"
+    },
+    {
+      "source": "47.4s",
+      "target": "0.48",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "mira los resultados ya las corri",
+      "created_at": "2026-04-13T16:36:12.921877+00:00",
+      "updated_at": "2026-04-13T16:36:12.921877+00:00"
+    },
+    {
+      "source": "0.88",
+      "target": "0.48",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "mira los resultados ya las corri",
+      "created_at": "2026-04-13T16:36:12.939283+00:00",
+      "updated_at": "2026-04-13T16:36:12.939283+00:00"
+    },
+    {
+      "source": "0.88",
+      "target": "28.8s",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "mira los resultados ya las corri",
+      "created_at": "2026-04-13T16:36:12.974832+00:00",
+      "updated_at": "2026-04-13T16:36:12.974832+00:00"
+    },
+    {
+      "source": "0.48",
+      "target": "28.8s",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "mira los resultados ya las corri",
+      "created_at": "2026-04-13T16:36:12.995200+00:00",
+      "updated_at": "2026-04-13T16:36:12.995200+00:00"
+    },
+    {
+      "source": "28.8s",
+      "target": "0.88",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "mira los resultados ya las corri",
+      "created_at": "2026-04-13T16:36:13.027948+00:00",
+      "updated_at": "2026-04-13T16:36:13.027948+00:00"
+    },
+    {
+      "source": "28.8s",
+      "target": "59.9s",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "mira los resultados ya las corri",
+      "created_at": "2026-04-13T16:36:13.063501+00:00",
+      "updated_at": "2026-04-13T16:36:13.063501+00:00"
+    },
+    {
+      "source": "0.88",
+      "target": "59.9s",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "mira los resultados ya las corri",
+      "created_at": "2026-04-13T16:36:13.079241+00:00",
+      "updated_at": "2026-04-13T16:36:13.079241+00:00"
+    },
+    {
+      "source": "0.88",
+      "target": "1.00",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "mira los resultados ya las corri",
+      "created_at": "2026-04-13T16:36:13.115513+00:00",
+      "updated_at": "2026-04-13T16:36:13.115513+00:00"
+    },
+    {
+      "source": "59.9s",
+      "target": "1.00",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "mira los resultados ya las corri",
+      "created_at": "2026-04-13T16:36:13.130946+00:00",
+      "updated_at": "2026-04-13T16:36:13.130946+00:00"
+    },
+    {
+      "source": "59.9s",
+      "target": "64.6s",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "mira los resultados ya las corri",
+      "created_at": "2026-04-13T16:36:13.164740+00:00",
+      "updated_at": "2026-04-13T16:36:13.164740+00:00"
+    },
+    {
+      "source": "1.00",
+      "target": "64.6s",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "mira los resultados ya las corri",
+      "created_at": "2026-04-13T16:36:13.182784+00:00",
+      "updated_at": "2026-04-13T16:36:13.182784+00:00"
+    },
+    {
+      "source": "1.00",
+      "target": "0.92",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "mira los resultados ya las corri",
+      "created_at": "2026-04-13T16:36:13.199721+00:00",
+      "updated_at": "2026-04-13T16:36:13.199721+00:00"
+    },
+    {
+      "source": "64.6s",
+      "target": "0.92",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "mira los resultados ya las corri",
+      "created_at": "2026-04-13T16:36:13.218178+00:00",
+      "updated_at": "2026-04-13T16:36:13.218178+00:00"
     }
   ],
-  "updated_at": "2026-04-13T15:51:54.803130+00:00",
+  "updated_at": "2026-04-13T16:36:13.218178+00:00",
   "stats": {
-    "entities": 697,
-    "relations": 1793
+    "entities": 707,
+    "relations": 1824
   }
 }
