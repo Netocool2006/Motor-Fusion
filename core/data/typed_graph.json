@@ -5735,6 +5735,94 @@
       "properties": {},
       "created_at": "2026-04-13T18:27:53.058471+00:00",
       "updated_at": "2026-04-13T18:27:53.058471+00:00"
+    },
+    "src/excel_com.py": {
+      "id": "src/excel_com.py",
+      "type": "file",
+      "name": "src/excel_com.py",
+      "properties": {},
+      "created_at": "2026-04-13T18:36:07.526744+00:00",
+      "updated_at": "2026-04-13T18:36:07.526744+00:00"
+    },
+    "src/excel_session.py": {
+      "id": "src/excel_session.py",
+      "type": "file",
+      "name": "src/excel_session.py",
+      "properties": {},
+      "created_at": "2026-04-13T18:36:07.587186+00:00",
+      "updated_at": "2026-04-13T18:36:07.587186+00:00"
+    },
+    "src/excel_eyes.py": {
+      "id": "src/excel_eyes.py",
+      "type": "file",
+      "name": "src/excel_eyes.py",
+      "properties": {},
+      "created_at": "2026-04-13T18:36:08.131586+00:00",
+      "updated_at": "2026-04-13T18:36:08.131586+00:00"
+    },
+    "docs/QUALITY_GUARDS.md": {
+      "id": "docs/QUALITY_GUARDS.md",
+      "type": "file",
+      "name": "docs/QUALITY_GUARDS.md",
+      "properties": {},
+      "created_at": "2026-04-13T18:37:02.271370+00:00",
+      "updated_at": "2026-04-13T18:37:02.271370+00:00"
+    },
+    "tests/test_phase5_extras.py": {
+      "id": "tests/test_phase5_extras.py",
+      "type": "file",
+      "name": "tests/test_phase5_extras.py",
+      "properties": {},
+      "created_at": "2026-04-13T18:37:02.510458+00:00",
+      "updated_at": "2026-04-13T18:37:02.510458+00:00"
+    },
+    "MANUAL_USUARIO.md": {
+      "id": "MANUAL_USUARIO.md",
+      "type": "file",
+      "name": "MANUAL_USUARIO.md",
+      "properties": {},
+      "created_at": "2026-04-13T18:37:02.799431+00:00",
+      "updated_at": "2026-04-13T18:37:02.799431+00:00"
+    },
+    "MANUAL_TECNICO.md": {
+      "id": "MANUAL_TECNICO.md",
+      "type": "file",
+      "name": "MANUAL_TECNICO.md",
+      "properties": {},
+      "created_at": "2026-04-13T18:37:02.967715+00:00",
+      "updated_at": "2026-04-13T18:37:02.969269+00:00"
+    },
+    "202.4s": {
+      "id": "202.4s",
+      "type": "file",
+      "name": "202.4s",
+      "properties": {},
+      "created_at": "2026-04-13T18:37:15.478081+00:00",
+      "updated_at": "2026-04-13T18:37:15.478081+00:00"
+    },
+    "0.089": {
+      "id": "0.089",
+      "type": "file",
+      "name": "0.089",
+      "properties": {},
+      "created_at": "2026-04-13T18:37:15.644783+00:00",
+      "updated_at": "2026-04-13T18:37:15.644783+00:00"
+    },
+    "sow_bantrab_original.docx": {
+      "id": "sow_bantrab_original.docx",
+      "type": "file",
+      "name": "sow_bantrab_original.docx",
+      "properties": {},
+      "created_at": "2026-04-13T18:41:33.338893+00:00",
+      "updated_at": "2026-04-13T18:41:33.338893+00:00"
+    },
+    "sow_bantrab_original_BACKUP.docx": {
+      "id": "sow_bantrab_original_BACKUP.docx",
+      "type": "file",
+      "name": "sow_bantrab_original_BACKUP.docx",
+      "properties": {},
+      "created_at": "2026-04-13T18:41:33.369382+00:00",
+      "updated_at": "2026-04-13T18:41:33.369382+00:00"
     }
   },
   "relations": [
@@ -8424,10 +8512,10 @@
       "source": "mcp_server.py",
       "target": "run_engine.py",
       "type": "used_with",
-      "weight": 0.5,
-      "context": "Lee la imagen en C:\\Users\\ntoledo\\AppData\\Local\\Temp\\playwright_word_capture.png usando el tool Read",
+      "weight": 1.0,
+      "context": "continÃºa la implementaciÃ³n de IA_Excel: revisa si los 111 tests terminaron en C:\\Chance1\\IA\\IA_Exc",
       "created_at": "2026-04-07T00:14:29.124749+00:00",
-      "updated_at": "2026-04-07T00:14:29.124749+00:00"
+      "updated_at": "2026-04-13T18:37:02.393532+00:00"
     },
     {
       "source": "mcp_server.py",
@@ -9576,19 +9664,19 @@
       "source": "src/vision_bridge.py",
       "target": "src/playwright_feedback.py",
       "type": "used_with",
-      "weight": 0.5,
-      "context": "hay algo en el git que no este en esta carpeta local?",
+      "weight": 1.0,
+      "context": "continÃºa la implementaciÃ³n de IA_Excel: revisa C:\\Chance1\\IA\\IA_Excel\\test_run_full.log para ver s",
       "created_at": "2026-04-07T22:28:13.528020+00:00",
-      "updated_at": "2026-04-07T22:28:13.528020+00:00"
+      "updated_at": "2026-04-13T18:36:08.601681+00:00"
     },
     {
       "source": "src/vision_feedback.py",
       "target": "src/playwright_feedback.py",
       "type": "used_with",
-      "weight": 0.5,
-      "context": "hay algo en el git que no este en esta carpeta local?",
+      "weight": 1.0,
+      "context": "continÃºa la implementaciÃ³n de IA_Excel: revisa C:\\Chance1\\IA\\IA_Excel\\test_run_full.log para ver s",
       "created_at": "2026-04-07T22:28:13.535529+00:00",
-      "updated_at": "2026-04-07T22:28:13.535529+00:00"
+      "updated_at": "2026-04-13T18:36:08.541658+00:00"
     },
     {
       "source": "src/vision_feedback.py",
@@ -9603,10 +9691,10 @@
       "source": "src/playwright_feedback.py",
       "target": "src/computer_use_feedback.py",
       "type": "used_with",
-      "weight": 0.5,
-      "context": "hay algo en el git que no este en esta carpeta local?",
+      "weight": 1.0,
+      "context": "continÃºa la implementaciÃ³n de IA_Excel: revisa C:\\Chance1\\IA\\IA_Excel\\test_run_full.log para ver s",
       "created_at": "2026-04-07T22:28:13.556169+00:00",
-      "updated_at": "2026-04-07T22:28:13.556169+00:00"
+      "updated_at": "2026-04-13T18:36:08.719900+00:00"
     },
     {
       "source": "src/playwright_feedback.py",
@@ -22306,11 +22394,317 @@
       "context": "aqui hay muchos copia los que necesites C:\\Chance1\\Ejemplos de SOW",
       "created_at": "2026-04-13T18:27:53.119056+00:00",
       "updated_at": "2026-04-13T18:27:53.119056+00:00"
+    },
+    {
+      "source": "src/excel_com.py",
+      "target": "src/excel_session.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "continÃºa la implementaciÃ³n de IA_Excel: revisa C:\\Chance1\\IA\\IA_Excel\\test_run_full.log para ver s",
+      "created_at": "2026-04-13T18:36:07.640937+00:00",
+      "updated_at": "2026-04-13T18:36:07.640937+00:00"
+    },
+    {
+      "source": "src/excel_com.py",
+      "target": "src/validators.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "continÃºa la implementaciÃ³n de IA_Excel: revisa C:\\Chance1\\IA\\IA_Excel\\test_run_full.log para ver s",
+      "created_at": "2026-04-13T18:36:07.695759+00:00",
+      "updated_at": "2026-04-13T18:36:07.695759+00:00"
+    },
+    {
+      "source": "src/excel_session.py",
+      "target": "src/validators.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "continÃºa la implementaciÃ³n de IA_Excel: revisa C:\\Chance1\\IA\\IA_Excel\\test_run_full.log para ver s",
+      "created_at": "2026-04-13T18:36:07.752729+00:00",
+      "updated_at": "2026-04-13T18:36:07.752729+00:00"
+    },
+    {
+      "source": "src/excel_session.py",
+      "target": "src/business_rules.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "continÃºa la implementaciÃ³n de IA_Excel: revisa C:\\Chance1\\IA\\IA_Excel\\test_run_full.log para ver s",
+      "created_at": "2026-04-13T18:36:07.807245+00:00",
+      "updated_at": "2026-04-13T18:36:07.807245+00:00"
+    },
+    {
+      "source": "src/validators.py",
+      "target": "src/business_rules.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "continÃºa la implementaciÃ³n de IA_Excel: revisa C:\\Chance1\\IA\\IA_Excel\\test_run_full.log para ver s",
+      "created_at": "2026-04-13T18:36:07.858983+00:00",
+      "updated_at": "2026-04-13T18:36:07.858983+00:00"
+    },
+    {
+      "source": "src/validators.py",
+      "target": "src/engine.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "continÃºa la implementaciÃ³n de IA_Excel: revisa C:\\Chance1\\IA\\IA_Excel\\test_run_full.log para ver s",
+      "created_at": "2026-04-13T18:36:07.910581+00:00",
+      "updated_at": "2026-04-13T18:36:07.910581+00:00"
+    },
+    {
+      "source": "src/business_rules.py",
+      "target": "src/engine.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "continÃºa la implementaciÃ³n de IA_Excel: revisa C:\\Chance1\\IA\\IA_Excel\\test_run_full.log para ver s",
+      "created_at": "2026-04-13T18:36:07.967998+00:00",
+      "updated_at": "2026-04-13T18:36:07.967998+00:00"
+    },
+    {
+      "source": "src/business_rules.py",
+      "target": "src/cerebro_v2.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "continÃºa la implementaciÃ³n de IA_Excel: revisa C:\\Chance1\\IA\\IA_Excel\\test_run_full.log para ver s",
+      "created_at": "2026-04-13T18:36:08.017323+00:00",
+      "updated_at": "2026-04-13T18:36:08.017323+00:00"
+    },
+    {
+      "source": "src/engine.py",
+      "target": "src/cerebro_v2.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "continÃºa la implementaciÃ³n de IA_Excel: revisa C:\\Chance1\\IA\\IA_Excel\\test_run_full.log para ver s",
+      "created_at": "2026-04-13T18:36:08.073451+00:00",
+      "updated_at": "2026-04-13T18:36:08.073451+00:00"
+    },
+    {
+      "source": "src/engine.py",
+      "target": "src/excel_eyes.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "continÃºa la implementaciÃ³n de IA_Excel: revisa C:\\Chance1\\IA\\IA_Excel\\test_run_full.log para ver s",
+      "created_at": "2026-04-13T18:36:08.189235+00:00",
+      "updated_at": "2026-04-13T18:36:08.189235+00:00"
+    },
+    {
+      "source": "src/cerebro_v2.py",
+      "target": "src/excel_eyes.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "continÃºa la implementaciÃ³n de IA_Excel: revisa C:\\Chance1\\IA\\IA_Excel\\test_run_full.log para ver s",
+      "created_at": "2026-04-13T18:36:08.242776+00:00",
+      "updated_at": "2026-04-13T18:36:08.242776+00:00"
+    },
+    {
+      "source": "src/cerebro_v2.py",
+      "target": "src/vision_feedback.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "continÃºa la implementaciÃ³n de IA_Excel: revisa C:\\Chance1\\IA\\IA_Excel\\test_run_full.log para ver s",
+      "created_at": "2026-04-13T18:36:08.296735+00:00",
+      "updated_at": "2026-04-13T18:36:08.296735+00:00"
+    },
+    {
+      "source": "src/excel_eyes.py",
+      "target": "src/vision_feedback.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "continÃºa la implementaciÃ³n de IA_Excel: revisa C:\\Chance1\\IA\\IA_Excel\\test_run_full.log para ver s",
+      "created_at": "2026-04-13T18:36:08.365420+00:00",
+      "updated_at": "2026-04-13T18:36:08.365420+00:00"
+    },
+    {
+      "source": "src/excel_eyes.py",
+      "target": "src/vision_bridge.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "continÃºa la implementaciÃ³n de IA_Excel: revisa C:\\Chance1\\IA\\IA_Excel\\test_run_full.log para ver s",
+      "created_at": "2026-04-13T18:36:08.433932+00:00",
+      "updated_at": "2026-04-13T18:36:08.433932+00:00"
+    },
+    {
+      "source": "src/vision_feedback.py",
+      "target": "src/vision_bridge.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "continÃºa la implementaciÃ³n de IA_Excel: revisa C:\\Chance1\\IA\\IA_Excel\\test_run_full.log para ver s",
+      "created_at": "2026-04-13T18:36:08.489524+00:00",
+      "updated_at": "2026-04-13T18:36:08.490526+00:00"
+    },
+    {
+      "source": "src/vision_bridge.py",
+      "target": "src/computer_use_feedback.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "continÃºa la implementaciÃ³n de IA_Excel: revisa C:\\Chance1\\IA\\IA_Excel\\test_run_full.log para ver s",
+      "created_at": "2026-04-13T18:36:08.662080+00:00",
+      "updated_at": "2026-04-13T18:36:08.662080+00:00"
+    },
+    {
+      "source": "mcp_server.py",
+      "target": "docs/QUALITY_GUARDS.md",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "continÃºa la implementaciÃ³n de IA_Excel: revisa si los 111 tests terminaron en C:\\Chance1\\IA\\IA_Exc",
+      "created_at": "2026-04-13T18:37:02.330432+00:00",
+      "updated_at": "2026-04-13T18:37:02.330432+00:00"
+    },
+    {
+      "source": "docs/QUALITY_GUARDS.md",
+      "target": "run_engine.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "continÃºa la implementaciÃ³n de IA_Excel: revisa si los 111 tests terminaron en C:\\Chance1\\IA\\IA_Exc",
+      "created_at": "2026-04-13T18:37:02.451611+00:00",
+      "updated_at": "2026-04-13T18:37:02.451611+00:00"
+    },
+    {
+      "source": "docs/QUALITY_GUARDS.md",
+      "target": "tests/test_phase5_extras.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "continÃºa la implementaciÃ³n de IA_Excel: revisa si los 111 tests terminaron en C:\\Chance1\\IA\\IA_Exc",
+      "created_at": "2026-04-13T18:37:02.569977+00:00",
+      "updated_at": "2026-04-13T18:37:02.569977+00:00"
+    },
+    {
+      "source": "run_engine.py",
+      "target": "tests/test_phase5_extras.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "continÃºa la implementaciÃ³n de IA_Excel: revisa si los 111 tests terminaron en C:\\Chance1\\IA\\IA_Exc",
+      "created_at": "2026-04-13T18:37:02.626366+00:00",
+      "updated_at": "2026-04-13T18:37:02.627368+00:00"
+    },
+    {
+      "source": "run_engine.py",
+      "target": "CLAUDE.md",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "continÃºa la implementaciÃ³n de IA_Excel: revisa si los 111 tests terminaron en C:\\Chance1\\IA\\IA_Exc",
+      "created_at": "2026-04-13T18:37:02.684524+00:00",
+      "updated_at": "2026-04-13T18:37:02.684524+00:00"
+    },
+    {
+      "source": "tests/test_phase5_extras.py",
+      "target": "CLAUDE.md",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "continÃºa la implementaciÃ³n de IA_Excel: revisa si los 111 tests terminaron en C:\\Chance1\\IA\\IA_Exc",
+      "created_at": "2026-04-13T18:37:02.742360+00:00",
+      "updated_at": "2026-04-13T18:37:02.742360+00:00"
+    },
+    {
+      "source": "tests/test_phase5_extras.py",
+      "target": "MANUAL_USUARIO.md",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "continÃºa la implementaciÃ³n de IA_Excel: revisa si los 111 tests terminaron en C:\\Chance1\\IA\\IA_Exc",
+      "created_at": "2026-04-13T18:37:02.855773+00:00",
+      "updated_at": "2026-04-13T18:37:02.855773+00:00"
+    },
+    {
+      "source": "CLAUDE.md",
+      "target": "MANUAL_USUARIO.md",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "continÃºa la implementaciÃ³n de IA_Excel: revisa si los 111 tests terminaron en C:\\Chance1\\IA\\IA_Exc",
+      "created_at": "2026-04-13T18:37:02.910448+00:00",
+      "updated_at": "2026-04-13T18:37:02.910448+00:00"
+    },
+    {
+      "source": "CLAUDE.md",
+      "target": "MANUAL_TECNICO.md",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "continÃºa la implementaciÃ³n de IA_Excel: revisa si los 111 tests terminaron en C:\\Chance1\\IA\\IA_Exc",
+      "created_at": "2026-04-13T18:37:03.025433+00:00",
+      "updated_at": "2026-04-13T18:37:03.025433+00:00"
+    },
+    {
+      "source": "MANUAL_USUARIO.md",
+      "target": "MANUAL_TECNICO.md",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "continÃºa la implementaciÃ³n de IA_Excel: revisa si los 111 tests terminaron en C:\\Chance1\\IA\\IA_Exc",
+      "created_at": "2026-04-13T18:37:03.081621+00:00",
+      "updated_at": "2026-04-13T18:37:03.081621+00:00"
+    },
+    {
+      "source": "MANUAL_USUARIO.md",
+      "target": "run_engine.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "continÃºa la implementaciÃ³n de IA_Excel: revisa si los 111 tests terminaron en C:\\Chance1\\IA\\IA_Exc",
+      "created_at": "2026-04-13T18:37:03.139506+00:00",
+      "updated_at": "2026-04-13T18:37:03.139506+00:00"
+    },
+    {
+      "source": "MANUAL_TECNICO.md",
+      "target": "run_engine.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "continÃºa la implementaciÃ³n de IA_Excel: revisa si los 111 tests terminaron en C:\\Chance1\\IA\\IA_Exc",
+      "created_at": "2026-04-13T18:37:03.196424+00:00",
+      "updated_at": "2026-04-13T18:37:03.197424+00:00"
+    },
+    {
+      "source": "0.docx",
+      "target": "1.00",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "continÃºa la implementaciÃ³n de IA_Excel: revisa si los 111 tests terminaron en C:\\Chance1\\IA\\IA_Exc",
+      "created_at": "2026-04-13T18:37:15.419451+00:00",
+      "updated_at": "2026-04-13T18:37:15.419451+00:00"
+    },
+    {
+      "source": "0.docx",
+      "target": "202.4s",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "continÃºa la implementaciÃ³n de IA_Excel: revisa si los 111 tests terminaron en C:\\Chance1\\IA\\IA_Exc",
+      "created_at": "2026-04-13T18:37:15.538025+00:00",
+      "updated_at": "2026-04-13T18:37:15.538025+00:00"
+    },
+    {
+      "source": "1.00",
+      "target": "202.4s",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "continÃºa la implementaciÃ³n de IA_Excel: revisa si los 111 tests terminaron en C:\\Chance1\\IA\\IA_Exc",
+      "created_at": "2026-04-13T18:37:15.592138+00:00",
+      "updated_at": "2026-04-13T18:37:15.592138+00:00"
+    },
+    {
+      "source": "1.00",
+      "target": "0.089",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "continÃºa la implementaciÃ³n de IA_Excel: revisa si los 111 tests terminaron en C:\\Chance1\\IA\\IA_Exc",
+      "created_at": "2026-04-13T18:37:15.708161+00:00",
+      "updated_at": "2026-04-13T18:37:15.708161+00:00"
+    },
+    {
+      "source": "202.4s",
+      "target": "0.089",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "continÃºa la implementaciÃ³n de IA_Excel: revisa si los 111 tests terminaron en C:\\Chance1\\IA\\IA_Exc",
+      "created_at": "2026-04-13T18:37:15.779373+00:00",
+      "updated_at": "2026-04-13T18:37:15.779373+00:00"
+    },
+    {
+      "source": "sow_bantrab_original.docx",
+      "target": "sow_bantrab_original_BACKUP.docx",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "abre el documento de la prueba quiero ver como quedo",
+      "created_at": "2026-04-13T18:41:33.398987+00:00",
+      "updated_at": "2026-04-13T18:41:33.398987+00:00"
     }
   ],
-  "updated_at": "2026-04-13T18:27:53.119056+00:00",
+  "updated_at": "2026-04-13T18:41:33.398987+00:00",
   "stats": {
-    "entities": 717,
-    "relations": 1841
+    "entities": 728,
+    "relations": 1875
   }
 }
