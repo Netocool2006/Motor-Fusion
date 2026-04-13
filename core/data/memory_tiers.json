@@ -1,0 +1,23 @@
+{
+  "hot": [
+    {
+      "key": "como esta el sistema actualmente estamos es una arquitectura robusta desacoplada y estamos listos para produccion?",
+      "value": "Respuesta honesta, no marketing.\n\n# Estado actual â€” no, todavÃ­a NO estÃ¡ production-ready\n\n## ðŸŸ¢ Lo que tengo evidencia dura de que funciona\n\n| Componente | Evidencia | Â¿CÃ³mo lo sÃ©? |\n|------------|-----------|--------------|\n| Desacople de IA_Word | 0 imports runtime | Script `pkgutil.walk_packages` + inspecciÃ³n `__module__` |\n| Motor COM base (lectura) | 48/48 unit tests PASS (56s) | `tests/test_excel_features.py` corrido hoy |\n| Dual-mode attach | 8/8 smoke + 2 live tests | Phase 7 suite + Cisco Webex escritura M2 + Parallel X audit 37s |\n| COMGuardian `_owns_process` | Unit test blindado | `test_guardian_force_cleanup_refuses_attached_process` |\n| `validate_coherence` sin ruido | Delta en audit Parallel X | 6 system ranges filtrados, 10 reales quedan |\n| `full_workbook_audit` sobre BoM real | Score 97/100 en 11 sheets Ã— 1203 fÃ³rmulas | Corrida en vivo hoy |\n| `list_open_workbooks_static` | DetectÃ³ Parallel X y Cisco Webex | Live |\n| Attach a SharePoint ReadOnly | Lectur",
+      "domain": "ML 100%",
+      "source": "auto_save",
+      "tier": "hot",
+      "created_at": "2026-04-13T22:39:01.042765+00:00",
+      "last_access": "2026-04-13T22:39:01.042765+00:00",
+      "access_count": 0,
+      "promotion_count": 0
+    }
+  ],
+  "warm": [],
+  "cold": [],
+  "updated_at": "2026-04-13T22:39:01.043347+00:00",
+  "counts": {
+    "hot": 1,
+    "warm": 0,
+    "cold": 0
+  }
+}
