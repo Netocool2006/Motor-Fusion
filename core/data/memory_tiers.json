@@ -10,13 +10,68 @@
       "last_access": "2026-04-13T18:22:30.263724+00:00",
       "access_count": 0,
       "promotion_count": 0
+    },
+    {
+      "key": "realiza este proceso en este proyecto donde estas parado: \" Validaciones pendientes (opcional)\n\n  1. Re-run full-lite con los datos corregidos. Las correcciones de cases 99/100 + fallback de case 96\n ",
+      "value": "Full-lite corriendo en background (ID `b78vv2xqy`). Son 14 cases, ~16 min esperados. Te aviso al terminar con el veredicto comparado vs 11/14 anterior.\n\nSobre la **ValidaciÃ³n #2** (doc PDF-convertido real): ningÃºn case del profile usa uno. Necesito que me pases un `.docx` real que venga de conversiÃ³n PDF para probar smart_replace con split-runs. Si no tienes, podemos simular uno o saltar esa validaciÃ³n. Â¿CÃ³mo procedes?",
+      "domain": "ML 90%",
+      "source": "auto_save",
+      "tier": "hot",
+      "created_at": "2026-04-13T18:26:57.389108+00:00",
+      "last_access": "2026-04-13T18:26:57.389108+00:00",
+      "access_count": 0,
+      "promotion_count": 0
+    },
+    {
+      "key": "realiza commit y push",
+      "value": "**Push completo.** `6c0a945..ceede10` â†’ `origin/master`. Working tree limpio, branch sincronizado con remote.\n\n4 commits subidos:\n1. `29c2400` â€” Cerebro v2 refactor\n2. `c6d972d` â€” JSON parser + TOC threshold\n3. `4ca81bd` â€” Word Quit cleanup\n4. `ceede10` â€” TOC fallback + test data",
+      "domain": "ML 100%",
+      "source": "auto_save",
+      "tier": "hot",
+      "created_at": "2026-04-13T18:26:57.445058+00:00",
+      "last_access": "2026-04-13T18:26:57.445058+00:00",
+      "access_count": 0,
+      "promotion_count": 0
+    },
+    {
+      "key": "algo mas que falte?",
+      "value": "Lo que completamos hoy dejÃ³ el sistema estable. Pero **en honestidad hay 2 validaciones que no hice** y 1 cosa de memoria:\n\n## Validaciones pendientes (opcional)\n\n1. **Re-run `full-lite` con los datos corregidos.** Las correcciones de cases 99/100 + fallback de case 96 no se han probado en una corrida integrada. Lo esperable serÃ­a **14/14 PASS** (vs 11/14 anterior). Toma ~16 min.\n\n2. **Probar con doc PDF-convertido real.** El Fix del `smart_replace` para split-runs (ya existÃ­a en commit `29c2400`) no lo validamos en esta sesiÃ³n con un PDF real. Ninguno de los cases del profile `critical` usa un doc converted-from-PDF. Si tienes un `.docx` que venga de PDF, deberÃ­amos pasarlo.\n\n## Mejora estratÃ©gica (no tÃ©cnica)\n\n3. **Guardar memoria de proyecto.** El proyecto pasÃ³ por un refactor mayor (Cerebro v2, quality guards, contrato, fixes de parser/timeout/TOC/Quit). Vale la pena escribir un memory entry para que futuras sesiones arranquen con el contexto arquitectÃ³nico correcto sin te",
+      "domain": "ML 100%",
+      "source": "auto_save",
+      "tier": "hot",
+      "created_at": "2026-04-13T18:26:57.449111+00:00",
+      "last_access": "2026-04-13T18:26:57.449111+00:00",
+      "access_count": 0,
+      "promotion_count": 0
+    },
+    {
+      "key": "aqui hay muchos copia los que necesites C:\\Chance1\\Ejemplos de SOW",
+      "value": "# ValidaciÃ³n #1 â€” Full-lite re-run: **14/14 PASS** âœ…\n\n| MÃ©trica | Anterior (2026-04-03) | Ahora (2026-04-13) |\n|---|---|---|\n| Cases PASS | 11/14 | **14/14** |\n| Tiempo total | ~16 min | **24 min** |\n| Fails | 96, 99, 100 | â€” |\n\nLos 3 cases que antes fallaban (96 fallback TOC, 99/100 datos corregidos) ahora pasan. Meta cumplida: **100% en profile full-lite**.\n\n---\n\nAhora procedo con **ValidaciÃ³n #2** (PDF-convertido). Veo candidatos en `C:\\Chance1\\Ejemplos de SOW`. Tengo dos pares PDF + DOCX equivalentes:\n- `Comercial - Bantrab - Parallel X - Fase II v1.0 09032026.pdf` + `SOW - Bantrab - Parallel X - Fase II v1.0.docx`\n- `Propuesta_Economica_Bantrab_Parallel_X_Fase_II.docx`\n\nEl `.docx` mÃ¡s sospechoso de venir de PDF es uno con tablas/layouts rÃ­gidos. Pero lo correcto es convertir un PDF real a DOCX para tener split-runs autÃ©nticos. Â¿Prefieres que:\n\n**A)** Convierta el PDF `Comercial - Bantrab...pdf` a .docx (con Word COM) y corra smart_replace sobre Ã©l\n**B)** Use directam",
+      "domain": "ML 95%",
+      "source": "auto_save",
+      "tier": "hot",
+      "created_at": "2026-04-13T18:27:52.907068+00:00",
+      "last_access": "2026-04-13T18:27:52.907068+00:00",
+      "access_count": 0,
+      "promotion_count": 0
+    },
+    {
+      "key": "continÃºa la implementaciÃ³n de IA_Excel: revisa si los tests de Phase 1 ya terminaron y procede con Phase 4 (cerebro_v2 + run_engine) y Phase 5 (mcp_server expansiÃ³n)",
+      "value": "Tests todavÃ­a en test_17 (formulas en 30K celdas), CPU subiendo. Vuelvo en 4min.",
+      "domain": "ML",
+      "source": "auto_save",
+      "tier": "hot",
+      "created_at": "2026-04-13T18:32:12.518724+00:00",
+      "last_access": "2026-04-13T18:32:12.518724+00:00",
+      "access_count": 0,
+      "promotion_count": 0
     }
   ],
   "warm": [],
   "cold": [],
-  "updated_at": "2026-04-13T18:22:30.263724+00:00",
+  "updated_at": "2026-04-13T18:32:12.518724+00:00",
   "counts": {
-    "hot": 1,
+    "hot": 6,
     "warm": 0,
     "cold": 0
   }

@@ -5695,6 +5695,46 @@
       "properties": {},
       "created_at": "2026-04-13T18:22:20.650470+00:00",
       "updated_at": "2026-04-13T18:22:20.650470+00:00"
+    },
+    "profile": {
+      "id": "profile",
+      "type": "concept",
+      "name": "profile",
+      "properties": {},
+      "created_at": "2026-04-13T18:26:57.457150+00:00",
+      "updated_at": "2026-04-13T18:26:57.457150+00:00"
+    },
+    "uno": {
+      "id": "uno",
+      "type": "concept",
+      "name": "uno",
+      "properties": {},
+      "created_at": "2026-04-13T18:26:57.554140+00:00",
+      "updated_at": "2026-04-13T18:26:57.554140+00:00"
+    },
+    "09032026.pdf": {
+      "id": "09032026.pdf",
+      "type": "file",
+      "name": "09032026.pdf",
+      "properties": {},
+      "created_at": "2026-04-13T18:27:52.937972+00:00",
+      "updated_at": "2026-04-13T18:27:52.937972+00:00"
+    },
+    "0.docx": {
+      "id": "0.docx",
+      "type": "file",
+      "name": "0.docx",
+      "properties": {},
+      "created_at": "2026-04-13T18:27:52.987137+00:00",
+      "updated_at": "2026-04-13T18:27:52.987137+00:00"
+    },
+    "Propuesta_Economica_Bantrab_Parallel_X_Fase_II.docx": {
+      "id": "Propuesta_Economica_Bantrab_Parallel_X_Fase_II.docx",
+      "type": "file",
+      "name": "Propuesta_Economica_Bantrab_Parallel_X_Fase_II.docx",
+      "properties": {},
+      "created_at": "2026-04-13T18:27:53.058471+00:00",
+      "updated_at": "2026-04-13T18:27:53.058471+00:00"
     }
   },
   "relations": [
@@ -22230,11 +22270,47 @@
       "context": "valida si se colgo?",
       "created_at": "2026-04-13T18:22:20.885188+00:00",
       "updated_at": "2026-04-13T18:22:20.885188+00:00"
+    },
+    {
+      "source": "profile",
+      "target": "uno",
+      "type": "used_with",
+      "weight": 0.7,
+      "context": "realiza este proceso en este proyecto donde estas parado: \" Validaciones pendientes (opcional)\n\n  1.",
+      "created_at": "2026-04-13T18:26:57.641221+00:00",
+      "updated_at": "2026-04-13T18:26:57.641221+00:00"
+    },
+    {
+      "source": "09032026.pdf",
+      "target": "0.docx",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "aqui hay muchos copia los que necesites C:\\Chance1\\Ejemplos de SOW",
+      "created_at": "2026-04-13T18:27:53.023537+00:00",
+      "updated_at": "2026-04-13T18:27:53.023537+00:00"
+    },
+    {
+      "source": "09032026.pdf",
+      "target": "Propuesta_Economica_Bantrab_Parallel_X_Fase_II.docx",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "aqui hay muchos copia los que necesites C:\\Chance1\\Ejemplos de SOW",
+      "created_at": "2026-04-13T18:27:53.090782+00:00",
+      "updated_at": "2026-04-13T18:27:53.090782+00:00"
+    },
+    {
+      "source": "0.docx",
+      "target": "Propuesta_Economica_Bantrab_Parallel_X_Fase_II.docx",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "aqui hay muchos copia los que necesites C:\\Chance1\\Ejemplos de SOW",
+      "created_at": "2026-04-13T18:27:53.119056+00:00",
+      "updated_at": "2026-04-13T18:27:53.119056+00:00"
     }
   ],
-  "updated_at": "2026-04-13T18:22:20.885188+00:00",
+  "updated_at": "2026-04-13T18:27:53.119056+00:00",
   "stats": {
-    "entities": 712,
-    "relations": 1837
+    "entities": 717,
+    "relations": 1841
   }
 }
