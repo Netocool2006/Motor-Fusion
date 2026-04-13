@@ -5535,6 +5535,46 @@
       "properties": {},
       "created_at": "2026-04-10T23:41:44.282068+00:00",
       "updated_at": "2026-04-10T23:41:44.282068+00:00"
+    },
+    "servidor": {
+      "id": "servidor",
+      "type": "concept",
+      "name": "servidor",
+      "properties": {},
+      "created_at": "2026-04-12T03:14:58.334451+00:00",
+      "updated_at": "2026-04-12T03:14:58.334451+00:00"
+    },
+    "reiniciarse": {
+      "id": "reiniciarse",
+      "type": "concept",
+      "name": "reiniciarse",
+      "properties": {},
+      "created_at": "2026-04-12T03:14:58.362518+00:00",
+      "updated_at": "2026-04-12T03:14:58.362518+00:00"
+    },
+    "0.90": {
+      "id": "0.90",
+      "type": "file",
+      "name": "0.90",
+      "properties": {},
+      "created_at": "2026-04-13T15:51:54.579113+00:00",
+      "updated_at": "2026-04-13T15:51:54.579113+00:00"
+    },
+    "0.93": {
+      "id": "0.93",
+      "type": "file",
+      "name": "0.93",
+      "properties": {},
+      "created_at": "2026-04-13T15:51:54.655910+00:00",
+      "updated_at": "2026-04-13T15:51:54.655910+00:00"
+    },
+    "0.94": {
+      "id": "0.94",
+      "type": "file",
+      "name": "0.94",
+      "properties": {},
+      "created_at": "2026-04-13T15:51:54.717174+00:00",
+      "updated_at": "2026-04-13T15:51:54.717174+00:00"
     }
   },
   "relations": [
@@ -8233,10 +8273,10 @@
       "source": "mcp_server.py",
       "target": "engine.py",
       "type": "used_with",
-      "weight": 1.5,
-      "context": "que ventajas y desventajas tenemos respecto a lo que ya tenemos dale una scan al proyecto actual de ",
+      "weight": 2.0,
+      "context": "estas pruebas que parte de la arquitectura tocaron  que si usaste y que no usaste?",
       "created_at": "2026-04-07T00:14:29.133444+00:00",
-      "updated_at": "2026-04-09T15:29:53.535504+00:00"
+      "updated_at": "2026-04-12T00:47:46.731228+00:00"
     },
     {
       "source": "run_engine.py",
@@ -8602,10 +8642,10 @@
       "source": "engine.py",
       "target": "validators.py",
       "type": "used_with",
-      "weight": 0.5,
-      "context": "revisa tu memoria Kb local y tu propia claude estabas probando este proyecto C:\\Chance1\\IA\\IA_Word",
+      "weight": 1.0,
+      "context": "estas pruebas que parte de la arquitectura tocaron  que si usaste y que no usaste?",
       "created_at": "2026-04-07T15:19:59.438020+00:00",
-      "updated_at": "2026-04-07T15:19:59.438020+00:00"
+      "updated_at": "2026-04-12T00:47:46.835178+00:00"
     },
     {
       "source": "word_com.py",
@@ -9295,10 +9335,10 @@
       "source": "doc_eyes.py",
       "target": "business_rules.py",
       "type": "used_with",
-      "weight": 1.0,
-      "context": "pre-hook query",
+      "weight": 1.5,
+      "context": "estas pruebas que parte de la arquitectura tocaron  que si usaste y que no usaste?",
       "created_at": "2026-04-07T20:43:14.072907+00:00",
-      "updated_at": "2026-04-10T16:42:19.145239+00:00"
+      "updated_at": "2026-04-12T00:47:46.996981+00:00"
     },
     {
       "source": "vision_bridge.py",
@@ -10033,10 +10073,10 @@
       "source": "word_com.py",
       "target": "mcp_server.py",
       "type": "used_with",
-      "weight": 7.0,
-      "context": "necesito mas detalle de que problemas hay porque estamos re iniciando la sesion a cada rato?",
+      "weight": 7.5,
+      "context": "estas pruebas que parte de la arquitectura tocaron  que si usaste y que no usaste?",
       "created_at": "2026-04-08T16:19:22.809935+00:00",
-      "updated_at": "2026-04-09T21:55:04.561772+00:00"
+      "updated_at": "2026-04-12T00:47:46.646350+00:00"
     },
     {
       "source": "las",
@@ -15316,10 +15356,10 @@
       "source": "vision_bridge.py",
       "target": "doc_eyes.py",
       "type": "used_with",
-      "weight": 1.0,
-      "context": "vuelve darme una tabla explicando arquitectura para ver como quedo",
+      "weight": 1.5,
+      "context": "estas pruebas que parte de la arquitectura tocaron  que si usaste y que no usaste?",
       "created_at": "2026-04-09T15:29:53.595194+00:00",
-      "updated_at": "2026-04-09T16:42:16.747012+00:00"
+      "updated_at": "2026-04-12T00:47:46.950180+00:00"
     },
     {
       "source": "word_com.py",
@@ -15532,37 +15572,37 @@
       "source": "docx_sanitizer.py",
       "target": "validators.py",
       "type": "used_with",
-      "weight": 2.0,
-      "context": "pre-hook query",
+      "weight": 2.5,
+      "context": "estas pruebas que parte de la arquitectura tocaron  que si usaste y que no usaste?",
       "created_at": "2026-04-09T16:42:16.703067+00:00",
-      "updated_at": "2026-04-09T20:41:37.569593+00:00"
+      "updated_at": "2026-04-12T00:47:46.866374+00:00"
     },
     {
       "source": "docx_sanitizer.py",
       "target": "vision_bridge.py",
       "type": "used_with",
-      "weight": 0.5,
-      "context": "vuelve darme una tabla explicando arquitectura para ver como quedo",
+      "weight": 1.0,
+      "context": "estas pruebas que parte de la arquitectura tocaron  que si usaste y que no usaste?",
       "created_at": "2026-04-09T16:42:16.714437+00:00",
-      "updated_at": "2026-04-09T16:42:16.714437+00:00"
+      "updated_at": "2026-04-12T00:47:46.888230+00:00"
     },
     {
       "source": "validators.py",
       "target": "vision_bridge.py",
       "type": "used_with",
-      "weight": 1.5,
-      "context": "pre-hook query",
+      "weight": 2.0,
+      "context": "estas pruebas que parte de la arquitectura tocaron  que si usaste y que no usaste?",
       "created_at": "2026-04-09T16:42:16.724905+00:00",
-      "updated_at": "2026-04-09T20:41:37.600753+00:00"
+      "updated_at": "2026-04-12T00:47:46.911759+00:00"
     },
     {
       "source": "validators.py",
       "target": "doc_eyes.py",
       "type": "used_with",
-      "weight": 2.0,
-      "context": "pre-hook query",
+      "weight": 2.5,
+      "context": "estas pruebas que parte de la arquitectura tocaron  que si usaste y que no usaste?",
       "created_at": "2026-04-09T16:42:16.728211+00:00",
-      "updated_at": "2026-04-09T20:41:37.589698+00:00"
+      "updated_at": "2026-04-12T00:47:46.932061+00:00"
     },
     {
       "source": "vision_bridge.py",
@@ -21512,11 +21552,173 @@
       "context": "pregunta cuantos puntos de distancia le tiens entre el titual y el numero en el indice",
       "created_at": "2026-04-10T23:41:44.310450+00:00",
       "updated_at": "2026-04-10T23:41:44.310450+00:00"
+    },
+    {
+      "source": "word_com.py",
+      "target": "cerebro_v2.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "estas pruebas que parte de la arquitectura tocaron  que si usaste y que no usaste?",
+      "created_at": "2026-04-12T00:47:46.673982+00:00",
+      "updated_at": "2026-04-12T00:47:46.673982+00:00"
+    },
+    {
+      "source": "mcp_server.py",
+      "target": "cerebro_v2.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "estas pruebas que parte de la arquitectura tocaron  que si usaste y que no usaste?",
+      "created_at": "2026-04-12T00:47:46.703958+00:00",
+      "updated_at": "2026-04-12T00:47:46.703958+00:00"
+    },
+    {
+      "source": "cerebro_v2.py",
+      "target": "engine.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "estas pruebas que parte de la arquitectura tocaron  que si usaste y que no usaste?",
+      "created_at": "2026-04-12T00:47:46.760139+00:00",
+      "updated_at": "2026-04-12T00:47:46.760139+00:00"
+    },
+    {
+      "source": "cerebro_v2.py",
+      "target": "docx_sanitizer.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "estas pruebas que parte de la arquitectura tocaron  que si usaste y que no usaste?",
+      "created_at": "2026-04-12T00:47:46.787882+00:00",
+      "updated_at": "2026-04-12T00:47:46.787882+00:00"
+    },
+    {
+      "source": "engine.py",
+      "target": "docx_sanitizer.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "estas pruebas que parte de la arquitectura tocaron  que si usaste y que no usaste?",
+      "created_at": "2026-04-12T00:47:46.808924+00:00",
+      "updated_at": "2026-04-12T00:47:46.808924+00:00"
+    },
+    {
+      "source": "vision_bridge.py",
+      "target": "tool_builder.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "estas pruebas que parte de la arquitectura tocaron  que si usaste y que no usaste?",
+      "created_at": "2026-04-12T00:47:46.965247+00:00",
+      "updated_at": "2026-04-12T00:47:46.965247+00:00"
+    },
+    {
+      "source": "doc_eyes.py",
+      "target": "tool_builder.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "estas pruebas que parte de la arquitectura tocaron  que si usaste y que no usaste?",
+      "created_at": "2026-04-12T00:47:46.980927+00:00",
+      "updated_at": "2026-04-12T00:47:46.980927+00:00"
+    },
+    {
+      "source": "tool_builder.py",
+      "target": "business_rules.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "estas pruebas que parte de la arquitectura tocaron  que si usaste y que no usaste?",
+      "created_at": "2026-04-12T00:47:47.017113+00:00",
+      "updated_at": "2026-04-12T00:47:47.017113+00:00"
+    },
+    {
+      "source": "servidor",
+      "target": "reiniciarse",
+      "type": "depends_on",
+      "weight": 0.7,
+      "context": "mata o re inicia todo   Si sigue fallando, puede que el servidor MCP necesite reiniciarse tambiÃ©n (",
+      "created_at": "2026-04-12T03:14:58.389644+00:00",
+      "updated_at": "2026-04-12T03:14:58.389644+00:00"
+    },
+    {
+      "source": "src/cerebro.py",
+      "target": "src/cerebro_v2.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "en el local aun no estan en el git",
+      "created_at": "2026-04-13T15:51:54.551816+00:00",
+      "updated_at": "2026-04-13T15:51:54.551816+00:00"
+    },
+    {
+      "source": "src/cerebro.py",
+      "target": "0.90",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "en el local aun no estan en el git",
+      "created_at": "2026-04-13T15:51:54.608268+00:00",
+      "updated_at": "2026-04-13T15:51:54.608268+00:00"
+    },
+    {
+      "source": "src/cerebro_v2.py",
+      "target": "0.90",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "en el local aun no estan en el git",
+      "created_at": "2026-04-13T15:51:54.635240+00:00",
+      "updated_at": "2026-04-13T15:51:54.635240+00:00"
+    },
+    {
+      "source": "src/cerebro_v2.py",
+      "target": "0.93",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "en el local aun no estan en el git",
+      "created_at": "2026-04-13T15:51:54.675364+00:00",
+      "updated_at": "2026-04-13T15:51:54.675364+00:00"
+    },
+    {
+      "source": "0.90",
+      "target": "0.93",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "en el local aun no estan en el git",
+      "created_at": "2026-04-13T15:51:54.694446+00:00",
+      "updated_at": "2026-04-13T15:51:54.694446+00:00"
+    },
+    {
+      "source": "0.90",
+      "target": "0.94",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "en el local aun no estan en el git",
+      "created_at": "2026-04-13T15:51:54.736395+00:00",
+      "updated_at": "2026-04-13T15:51:54.736395+00:00"
+    },
+    {
+      "source": "0.93",
+      "target": "0.94",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "en el local aun no estan en el git",
+      "created_at": "2026-04-13T15:51:54.759591+00:00",
+      "updated_at": "2026-04-13T15:51:54.759591+00:00"
+    },
+    {
+      "source": "0.93",
+      "target": "word_com.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "en el local aun no estan en el git",
+      "created_at": "2026-04-13T15:51:54.779991+00:00",
+      "updated_at": "2026-04-13T15:51:54.779991+00:00"
+    },
+    {
+      "source": "0.94",
+      "target": "word_com.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "en el local aun no estan en el git",
+      "created_at": "2026-04-13T15:51:54.802115+00:00",
+      "updated_at": "2026-04-13T15:51:54.802115+00:00"
     }
   ],
-  "updated_at": "2026-04-10T23:41:44.310450+00:00",
+  "updated_at": "2026-04-13T15:51:54.803130+00:00",
   "stats": {
-    "entities": 692,
-    "relations": 1775
+    "entities": 697,
+    "relations": 1793
   }
 }
