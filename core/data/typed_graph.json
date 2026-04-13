@@ -5879,6 +5879,94 @@
       "properties": {},
       "created_at": "2026-04-13T21:41:28.775338+00:00",
       "updated_at": "2026-04-13T21:41:28.775338+00:00"
+    },
+    "EXCEL.EXE": {
+      "id": "EXCEL.EXE",
+      "type": "file",
+      "name": "EXCEL.EXE",
+      "properties": {},
+      "created_at": "2026-04-13T21:44:05.719768+00:00",
+      "updated_at": "2026-04-13T21:44:05.719768+00:00"
+    },
+    "Excel.Appl": {
+      "id": "Excel.Appl",
+      "type": "file",
+      "name": "Excel.Appl",
+      "properties": {},
+      "created_at": "2026-04-13T21:44:05.748559+00:00",
+      "updated_at": "2026-04-13T21:44:05.748559+00:00"
+    },
+    "0.xlsx": {
+      "id": "0.xlsx",
+      "type": "file",
+      "name": "0.xlsx",
+      "properties": {},
+      "created_at": "2026-04-13T21:45:01.558618+00:00",
+      "updated_at": "2026-04-13T21:45:01.558618+00:00"
+    },
+    "my.shar": {
+      "id": "my.shar",
+      "type": "file",
+      "name": "my.shar",
+      "properties": {},
+      "created_at": "2026-04-13T21:45:01.587741+00:00",
+      "updated_at": "2026-04-13T21:45:01.587741+00:00"
+    },
+    "epoint.com": {
+      "id": "epoint.com",
+      "type": "file",
+      "name": "epoint.com",
+      "properties": {},
+      "created_at": "2026-04-13T21:45:01.645425+00:00",
+      "updated_at": "2026-04-13T21:45:01.645425+00:00"
+    },
+    "Webex.xlsx": {
+      "id": "Webex.xlsx",
+      "type": "file",
+      "name": "Webex.xlsx",
+      "properties": {},
+      "created_at": "2026-04-13T21:49:34.892305+00:00",
+      "updated_at": "2026-04-13T21:49:34.893758+00:00"
+    },
+    "gbmcorp.shar": {
+      "id": "gbmcorp.shar",
+      "type": "file",
+      "name": "gbmcorp.shar",
+      "properties": {},
+      "created_at": "2026-04-13T21:49:34.927173+00:00",
+      "updated_at": "2026-04-13T21:49:34.927173+00:00"
+    },
+    "ExcelCOM._ens": {
+      "id": "ExcelCOM._ens",
+      "type": "file",
+      "name": "ExcelCOM._ens",
+      "properties": {},
+      "created_at": "2026-04-13T21:55:43.412093+00:00",
+      "updated_at": "2026-04-13T21:55:43.412093+00:00"
+    },
+    "ExcelCOM.open": {
+      "id": "ExcelCOM.open",
+      "type": "file",
+      "name": "ExcelCOM.open",
+      "properties": {},
+      "created_at": "2026-04-13T21:55:43.532224+00:00",
+      "updated_at": "2026-04-13T21:55:43.532224+00:00"
+    },
+    "Workbooks.Open": {
+      "id": "Workbooks.Open",
+      "type": "file",
+      "name": "Workbooks.Open",
+      "properties": {},
+      "created_at": "2026-04-13T21:55:43.588111+00:00",
+      "updated_at": "2026-04-13T21:55:43.588111+00:00"
+    },
+    "ExcelSessionManager.clea": {
+      "id": "ExcelSessionManager.clea",
+      "type": "file",
+      "name": "ExcelSessionManager.clea",
+      "properties": {},
+      "created_at": "2026-04-13T21:55:43.682027+00:00",
+      "updated_at": "2026-04-13T21:55:43.683046+00:00"
     }
   },
   "relations": [
@@ -22864,11 +22952,218 @@
       "context": "procede al commit y push",
       "created_at": "2026-04-13T21:41:28.805800+00:00",
       "updated_at": "2026-04-13T21:41:28.805800+00:00"
+    },
+    {
+      "source": "EXCEL.EXE",
+      "target": "Excel.Appl",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "puedes ver con el COM que tengo un archivo llamado parallel X que tengo abierto?",
+      "created_at": "2026-04-13T21:44:05.776921+00:00",
+      "updated_at": "2026-04-13T21:44:05.776921+00:00"
+    },
+    {
+      "source": "0.xlsx",
+      "target": "my.shar",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "valida de nuevo con el COM",
+      "created_at": "2026-04-13T21:45:01.617451+00:00",
+      "updated_at": "2026-04-13T21:45:01.617451+00:00"
+    },
+    {
+      "source": "0.xlsx",
+      "target": "epoint.com",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "valida de nuevo con el COM",
+      "created_at": "2026-04-13T21:45:01.675533+00:00",
+      "updated_at": "2026-04-13T21:45:01.675533+00:00"
+    },
+    {
+      "source": "my.shar",
+      "target": "epoint.com",
+      "type": "used_with",
+      "weight": 1.0,
+      "context": "valida de nuevo con el COM",
+      "created_at": "2026-04-13T21:45:01.695516+00:00",
+      "updated_at": "2026-04-13T21:45:01.783847+00:00"
+    },
+    {
+      "source": "my.shar",
+      "target": "my.shar",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "valida de nuevo con el COM",
+      "created_at": "2026-04-13T21:45:01.715501+00:00",
+      "updated_at": "2026-04-13T21:45:01.715501+00:00"
+    },
+    {
+      "source": "epoint.com",
+      "target": "my.shar",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "valida de nuevo con el COM",
+      "created_at": "2026-04-13T21:45:01.740865+00:00",
+      "updated_at": "2026-04-13T21:45:01.740865+00:00"
+    },
+    {
+      "source": "epoint.com",
+      "target": "epoint.com",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "valida de nuevo con el COM",
+      "created_at": "2026-04-13T21:45:01.762577+00:00",
+      "updated_at": "2026-04-13T21:45:01.762577+00:00"
+    },
+    {
+      "source": "Webex.xlsx",
+      "target": "gbmcorp.shar",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "valida si puedes ver otro archivo llamado Cisco con el COM",
+      "created_at": "2026-04-13T21:49:34.960894+00:00",
+      "updated_at": "2026-04-13T21:49:34.960894+00:00"
+    },
+    {
+      "source": "Webex.xlsx",
+      "target": "epoint.com",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "valida si puedes ver otro archivo llamado Cisco con el COM",
+      "created_at": "2026-04-13T21:49:34.993500+00:00",
+      "updated_at": "2026-04-13T21:49:34.994499+00:00"
+    },
+    {
+      "source": "gbmcorp.shar",
+      "target": "epoint.com",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "valida si puedes ver otro archivo llamado Cisco con el COM",
+      "created_at": "2026-04-13T21:49:35.021589+00:00",
+      "updated_at": "2026-04-13T21:49:35.021589+00:00"
+    },
+    {
+      "source": "gbmcorp.shar",
+      "target": "Webex.xlsx",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "valida si puedes ver otro archivo llamado Cisco con el COM",
+      "created_at": "2026-04-13T21:49:35.053558+00:00",
+      "updated_at": "2026-04-13T21:49:35.053558+00:00"
+    },
+    {
+      "source": "epoint.com",
+      "target": "Webex.xlsx",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "valida si puedes ver otro archivo llamado Cisco con el COM",
+      "created_at": "2026-04-13T21:49:35.081423+00:00",
+      "updated_at": "2026-04-13T21:49:35.081423+00:00"
+    },
+    {
+      "source": "ExcelCOM._ens",
+      "target": "Excel.Appl",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "lo que queria validar era tu capidad de editar archivos compartidos bajo esta logica hay algo que mo",
+      "created_at": "2026-04-13T21:55:43.445288+00:00",
+      "updated_at": "2026-04-13T21:55:43.445288+00:00"
+    },
+    {
+      "source": "ExcelCOM._ens",
+      "target": "EXCEL.EXE",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "lo que queria validar era tu capidad de editar archivos compartidos bajo esta logica hay algo que mo",
+      "created_at": "2026-04-13T21:55:43.474613+00:00",
+      "updated_at": "2026-04-13T21:55:43.474613+00:00"
+    },
+    {
+      "source": "Excel.Appl",
+      "target": "EXCEL.EXE",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "lo que queria validar era tu capidad de editar archivos compartidos bajo esta logica hay algo que mo",
+      "created_at": "2026-04-13T21:55:43.506700+00:00",
+      "updated_at": "2026-04-13T21:55:43.506700+00:00"
+    },
+    {
+      "source": "Excel.Appl",
+      "target": "ExcelCOM.open",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "lo que queria validar era tu capidad de editar archivos compartidos bajo esta logica hay algo que mo",
+      "created_at": "2026-04-13T21:55:43.550451+00:00",
+      "updated_at": "2026-04-13T21:55:43.550451+00:00"
+    },
+    {
+      "source": "EXCEL.EXE",
+      "target": "ExcelCOM.open",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "lo que queria validar era tu capidad de editar archivos compartidos bajo esta logica hay algo que mo",
+      "created_at": "2026-04-13T21:55:43.570498+00:00",
+      "updated_at": "2026-04-13T21:55:43.570498+00:00"
+    },
+    {
+      "source": "EXCEL.EXE",
+      "target": "Workbooks.Open",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "lo que queria validar era tu capidad de editar archivos compartidos bajo esta logica hay algo que mo",
+      "created_at": "2026-04-13T21:55:43.605980+00:00",
+      "updated_at": "2026-04-13T21:55:43.605980+00:00"
+    },
+    {
+      "source": "ExcelCOM.open",
+      "target": "Workbooks.Open",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "lo que queria validar era tu capidad de editar archivos compartidos bajo esta logica hay algo que mo",
+      "created_at": "2026-04-13T21:55:43.624544+00:00",
+      "updated_at": "2026-04-13T21:55:43.624544+00:00"
+    },
+    {
+      "source": "ExcelCOM.open",
+      "target": "os.path",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "lo que queria validar era tu capidad de editar archivos compartidos bajo esta logica hay algo que mo",
+      "created_at": "2026-04-13T21:55:43.643654+00:00",
+      "updated_at": "2026-04-13T21:55:43.643654+00:00"
+    },
+    {
+      "source": "Workbooks.Open",
+      "target": "os.path",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "lo que queria validar era tu capidad de editar archivos compartidos bajo esta logica hay algo que mo",
+      "created_at": "2026-04-13T21:55:43.663351+00:00",
+      "updated_at": "2026-04-13T21:55:43.663351+00:00"
+    },
+    {
+      "source": "Workbooks.Open",
+      "target": "ExcelSessionManager.clea",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "lo que queria validar era tu capidad de editar archivos compartidos bajo esta logica hay algo que mo",
+      "created_at": "2026-04-13T21:55:43.705833+00:00",
+      "updated_at": "2026-04-13T21:55:43.705833+00:00"
+    },
+    {
+      "source": "os.path",
+      "target": "ExcelSessionManager.clea",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "lo que queria validar era tu capidad de editar archivos compartidos bajo esta logica hay algo que mo",
+      "created_at": "2026-04-13T21:55:43.726593+00:00",
+      "updated_at": "2026-04-13T21:55:43.726593+00:00"
     }
   ],
-  "updated_at": "2026-04-13T21:41:28.805800+00:00",
+  "updated_at": "2026-04-13T21:55:43.726593+00:00",
   "stats": {
-    "entities": 735,
-    "relations": 1887
+    "entities": 746,
+    "relations": 1910
   }
 }
