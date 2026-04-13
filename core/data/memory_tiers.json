@@ -1,0 +1,67 @@
+{
+  "hot": [
+    {
+      "key": "procede de 1 a 5 uno por uno",
+      "value": "Veo el problema de Task #5. Quit() se llama vÃ­a `com_call_with_timeout` en un **worker thread** con su propio `CoInitialize/CoUninitialize`. El thread retorna \"exitoso\" porque Word devuelve instantÃ¡neamente, pero el cross-thread marshalling diferido hace que Word no termine sincrÃ³nicamente. La seÃ±al de shutdown queda encolada.\n\nDocumento este hallazgo sin tocar cÃ³digo aÃºn (full-lite corriendo). Espero la notificaciÃ³n.",
+      "domain": "ML",
+      "source": "auto_save",
+      "tier": "hot",
+      "created_at": "2026-04-13T16:52:41.120494+00:00",
+      "last_access": "2026-04-13T16:52:41.120494+00:00",
+      "access_count": 0,
+      "promotion_count": 0
+    },
+    {
+      "key": "que estamos esperando ahorita?",
+      "value": "Vamos por **1 de 14**. Case 87 (merge workflow, el mÃ¡s lento, 137s) PASS. Quedan 13 cases (88-100), la mayorÃ­a replaces/TOC que corren en 30-60s cada uno.\n\n**ETA restante**: ~12-13 minutos. Te aviso cuando termine, no sigo revisando.",
+      "domain": "ML 100%",
+      "source": "auto_save",
+      "tier": "hot",
+      "created_at": "2026-04-13T16:54:50.153325+00:00",
+      "last_access": "2026-04-13T16:54:50.153325+00:00",
+      "access_count": 0,
+      "promotion_count": 0
+    },
+    {
+      "key": "valida como vamos",
+      "value": "**Case 96 es un fail legÃ­timo, no bug del sistema.** AnÃ¡lisis:\n\n```\nSTEP_CONTRACT accepted=False objective_ok=False gate_ok=True evidence=0.88\n  issues=['objective check failed: TOC not present after operation']\n```\n\n- Tarea: `Actualiza la tabla de contenido` en `ADV2_Campos_Word.docx`\n- El documento **no tiene TOC** para actualizar.\n- `update_toc_with_pages` ejecuta \"ok\" (COM no crashea) pero despuÃ©s del run no hay TOC en el doc.\n- **Mi Fix 3 estÃ¡ funcionando correctamente**: objective_ok=False bloquea save sin importar que visual diga OK (0.88). Esto es exactamente el comportamiento deseado â€” \"nunca guardes algo que no cumpliÃ³ lo que prometiÃ³\".\n- El test reportÃ³ FAIL porque el task es semÃ¡nticamente imposible (no hay TOC que actualizar).\n\n**Lo que veo aquÃ­ es un issue de robustez del task, no del sistema**. Opciones para despuÃ©s:\n1. Fast-path mÃ¡s inteligente: si detecta \"actualiza TOC\" y no hay TOC â†’ plan de `insert_toc` en vez de `update_toc`\n2. Auto-fallback: si `upd",
+      "domain": "ML 100%",
+      "source": "auto_save",
+      "tier": "hot",
+      "created_at": "2026-04-13T17:05:33.130145+00:00",
+      "last_access": "2026-04-13T17:05:33.130145+00:00",
+      "access_count": 0,
+      "promotion_count": 0
+    },
+    {
+      "key": "queda algo pendiente de lo que validaste en las pruebas antes de hacer push ?",
+      "value": "SÃ­, hay 2 cosas que debo ser honesto:\n\n## Pendiente de validaciÃ³n integrada\n\n**El `full-lite` corriÃ³ antes del Fix de Quit()** (Task #5). O sea, la tabla 11/14 que te mostrÃ© NO tiene el Quit fix aplicado. Los 2 smoke cases que corrÃ­ despuÃ©s (case 2 y 3) validaron Quit aisladamente, pero no con todos los fixes juntos en un run completo.\n\n**Lo que faltarÃ­a para estar 100% tranquilo**: re-correr `critical` (6 cases, ~6 min) con el commit `4ca81bd` activo. Eso me confirma:\n- Los 11/11 cases viables siguen pasando (sin regresiones de Quit)\n- Cero warnings force-kill en el run completo\n- Cero warnings \"ML non-JSON\" en case 87 (merge)\n- TOC evidence â‰¥0.85 en cases 89/90\n\n## Hallazgos pendientes (no bloquean push, son mejoras)\n\n1. **Case 96 â€” `update_toc` en doc sin TOC**. Contract bloqueÃ³ correctamente. Mejora opcional: fast-path detecta \"no TOC exists\" y fallback a `insert_toc`. Defer.\n\n2. **Cases 99/100 â€” test data wrong**. Los tasks piden reemplazar strings que no estÃ¡n en e",
+      "domain": "ML 100%",
+      "source": "auto_save",
+      "tier": "hot",
+      "created_at": "2026-04-13T17:15:30.031260+00:00",
+      "last_access": "2026-04-13T17:15:30.031260+00:00",
+      "access_count": 0,
+      "promotion_count": 0
+    },
+    {
+      "key": "re-corre y procede con 1,2,3",
+      "value": "Case 87 ya pasÃ³ en 129.9s (vs 137.4s anterior â€” 5% mÃ¡s rÃ¡pido, probablemente porque el parser JSON ya acepta la respuesta del ML en vez de caer en fallback). Espero los 5 restantes.",
+      "domain": "ML",
+      "source": "auto_save",
+      "tier": "hot",
+      "created_at": "2026-04-13T17:20:59.780250+00:00",
+      "last_access": "2026-04-13T17:20:59.780250+00:00",
+      "access_count": 0,
+      "promotion_count": 0
+    }
+  ],
+  "warm": [],
+  "cold": [],
+  "updated_at": "2026-04-13T17:20:59.780250+00:00",
+  "counts": {
+    "hot": 5,
+    "warm": 0,
+    "cold": 0
+  }
+}

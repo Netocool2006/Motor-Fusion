@@ -5655,6 +5655,38 @@
       "properties": {},
       "created_at": "2026-04-13T16:36:13.147693+00:00",
       "updated_at": "2026-04-13T16:36:13.147693+00:00"
+    },
+    "ADV2_Campos_Word.docx": {
+      "id": "ADV2_Campos_Word.docx",
+      "type": "file",
+      "name": "ADV2_Campos_Word.docx",
+      "properties": {},
+      "created_at": "2026-04-13T17:05:33.152168+00:00",
+      "updated_at": "2026-04-13T17:05:33.152168+00:00"
+    },
+    "juntos en un run completo": {
+      "id": "juntos en un run completo",
+      "type": "concept",
+      "name": "juntos en un run completo",
+      "properties": {},
+      "created_at": "2026-04-13T17:15:30.050794+00:00",
+      "updated_at": "2026-04-13T17:15:30.050794+00:00"
+    },
+    "129.9s": {
+      "id": "129.9s",
+      "type": "file",
+      "name": "129.9s",
+      "properties": {},
+      "created_at": "2026-04-13T17:20:59.804709+00:00",
+      "updated_at": "2026-04-13T17:20:59.804709+00:00"
+    },
+    "137.4s": {
+      "id": "137.4s",
+      "type": "file",
+      "name": "137.4s",
+      "properties": {},
+      "created_at": "2026-04-13T17:20:59.835737+00:00",
+      "updated_at": "2026-04-13T17:20:59.835737+00:00"
     }
   },
   "relations": [
@@ -22073,11 +22105,56 @@
       "context": "mira los resultados ya las corri",
       "created_at": "2026-04-13T16:36:13.218178+00:00",
       "updated_at": "2026-04-13T16:36:13.218178+00:00"
+    },
+    {
+      "source": "0.88",
+      "target": "ADV2_Campos_Word.docx",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "valida como vamos",
+      "created_at": "2026-04-13T17:05:33.179998+00:00",
+      "updated_at": "2026-04-13T17:05:33.179998+00:00"
+    },
+    {
+      "source": "0.88",
+      "target": "0.88",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "valida como vamos",
+      "created_at": "2026-04-13T17:05:33.210688+00:00",
+      "updated_at": "2026-04-13T17:05:33.210688+00:00"
+    },
+    {
+      "source": "ADV2_Campos_Word.docx",
+      "target": "0.88",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "valida como vamos",
+      "created_at": "2026-04-13T17:05:33.236914+00:00",
+      "updated_at": "2026-04-13T17:05:33.236914+00:00"
+    },
+    {
+      "source": "los",
+      "target": "juntos en un run completo",
+      "type": "solves",
+      "weight": 0.7,
+      "context": "queda algo pendiente de lo que validaste en las pruebas antes de hacer push ?",
+      "created_at": "2026-04-13T17:15:30.076457+00:00",
+      "updated_at": "2026-04-13T17:15:30.076457+00:00"
+    },
+    {
+      "source": "129.9s",
+      "target": "137.4s",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "re-corre y procede con 1,2,3",
+      "created_at": "2026-04-13T17:20:59.866615+00:00",
+      "updated_at": "2026-04-13T17:20:59.866615+00:00"
     }
   ],
-  "updated_at": "2026-04-13T16:36:13.218178+00:00",
+  "updated_at": "2026-04-13T17:20:59.867610+00:00",
   "stats": {
-    "entities": 707,
-    "relations": 1824
+    "entities": 711,
+    "relations": 1829
   }
 }
