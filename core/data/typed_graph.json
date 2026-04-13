@@ -5983,6 +5983,70 @@
       "properties": {},
       "created_at": "2026-04-13T22:39:01.064653+00:00",
       "updated_at": "2026-04-13T22:39:01.064653+00:00"
+    },
+    "test_stress_complex.py": {
+      "id": "test_stress_complex.py",
+      "type": "file",
+      "name": "test_stress_complex.py",
+      "properties": {},
+      "created_at": "2026-04-13T22:43:06.573126+00:00",
+      "updated_at": "2026-04-13T22:43:06.573126+00:00"
+    },
+    "Engine.edit": {
+      "id": "Engine.edit",
+      "type": "file",
+      "name": "Engine.edit",
+      "properties": {},
+      "created_at": "2026-04-13T22:43:06.601571+00:00",
+      "updated_at": "2026-04-13T22:43:06.601571+00:00"
+    },
+    "ops.json": {
+      "id": "ops.json",
+      "type": "file",
+      "name": "ops.json",
+      "properties": {},
+      "created_at": "2026-04-13T22:43:06.659799+00:00",
+      "updated_at": "2026-04-13T22:43:06.659799+00:00"
+    },
+    "CerebroV2.exec": {
+      "id": "CerebroV2.exec",
+      "type": "file",
+      "name": "CerebroV2.exec",
+      "properties": {},
+      "created_at": "2026-04-13T22:43:06.735561+00:00",
+      "updated_at": "2026-04-13T22:43:06.735561+00:00"
+    },
+    "pythoncom.CoIn": {
+      "id": "pythoncom.CoIn",
+      "type": "file",
+      "name": "pythoncom.CoIn",
+      "properties": {},
+      "created_at": "2026-04-13T22:47:19.125219+00:00",
+      "updated_at": "2026-04-13T22:47:19.125219+00:00"
+    },
+    "Range.Valu": {
+      "id": "Range.Valu",
+      "type": "file",
+      "name": "Range.Valu",
+      "properties": {},
+      "created_at": "2026-04-13T22:47:19.185311+00:00",
+      "updated_at": "2026-04-13T22:47:19.185311+00:00"
+    },
+    "app.Quit": {
+      "id": "app.Quit",
+      "type": "file",
+      "name": "app.Quit",
+      "properties": {},
+      "created_at": "2026-04-13T22:47:19.276447+00:00",
+      "updated_at": "2026-04-13T22:47:19.276447+00:00"
+    },
+    "unittest.setU": {
+      "id": "unittest.setU",
+      "type": "file",
+      "name": "unittest.setU",
+      "properties": {},
+      "created_at": "2026-04-13T22:47:19.361423+00:00",
+      "updated_at": "2026-04-13T22:47:19.361423+00:00"
     }
   },
   "relations": [
@@ -23211,11 +23275,137 @@
       "context": "como esta el sistema actualmente estamos es una arquitectura robusta desacoplada y estamos listos pa",
       "created_at": "2026-04-13T22:39:01.096605+00:00",
       "updated_at": "2026-04-13T22:39:01.096605+00:00"
+    },
+    {
+      "source": "test_stress_complex.py",
+      "target": "Engine.edit",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "4 horas llevaria realizar esas pruebas?",
+      "created_at": "2026-04-13T22:43:06.631117+00:00",
+      "updated_at": "2026-04-13T22:43:06.631117+00:00"
+    },
+    {
+      "source": "test_stress_complex.py",
+      "target": "ops.json",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "4 horas llevaria realizar esas pruebas?",
+      "created_at": "2026-04-13T22:43:06.689093+00:00",
+      "updated_at": "2026-04-13T22:43:06.689093+00:00"
+    },
+    {
+      "source": "Engine.edit",
+      "target": "ops.json",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "4 horas llevaria realizar esas pruebas?",
+      "created_at": "2026-04-13T22:43:06.716542+00:00",
+      "updated_at": "2026-04-13T22:43:06.716542+00:00"
+    },
+    {
+      "source": "Engine.edit",
+      "target": "CerebroV2.exec",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "4 horas llevaria realizar esas pruebas?",
+      "created_at": "2026-04-13T22:43:06.755195+00:00",
+      "updated_at": "2026-04-13T22:43:06.755195+00:00"
+    },
+    {
+      "source": "ops.json",
+      "target": "CerebroV2.exec",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "4 horas llevaria realizar esas pruebas?",
+      "created_at": "2026-04-13T22:43:06.774114+00:00",
+      "updated_at": "2026-04-13T22:43:06.774114+00:00"
+    },
+    {
+      "source": "pythoncom.CoIn",
+      "target": "Excel.Appl",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "porque lleva tanto tiempo?",
+      "created_at": "2026-04-13T22:47:19.156149+00:00",
+      "updated_at": "2026-04-13T22:47:19.156149+00:00"
+    },
+    {
+      "source": "pythoncom.CoIn",
+      "target": "Range.Valu",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "porque lleva tanto tiempo?",
+      "created_at": "2026-04-13T22:47:19.214603+00:00",
+      "updated_at": "2026-04-13T22:47:19.214603+00:00"
+    },
+    {
+      "source": "Excel.Appl",
+      "target": "Range.Valu",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "porque lleva tanto tiempo?",
+      "created_at": "2026-04-13T22:47:19.245187+00:00",
+      "updated_at": "2026-04-13T22:47:19.245187+00:00"
+    },
+    {
+      "source": "Excel.Appl",
+      "target": "app.Quit",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "porque lleva tanto tiempo?",
+      "created_at": "2026-04-13T22:47:19.305156+00:00",
+      "updated_at": "2026-04-13T22:47:19.305156+00:00"
+    },
+    {
+      "source": "Range.Valu",
+      "target": "app.Quit",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "porque lleva tanto tiempo?",
+      "created_at": "2026-04-13T22:47:19.333895+00:00",
+      "updated_at": "2026-04-13T22:47:19.333895+00:00"
+    },
+    {
+      "source": "Range.Valu",
+      "target": "unittest.setU",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "porque lleva tanto tiempo?",
+      "created_at": "2026-04-13T22:47:19.386433+00:00",
+      "updated_at": "2026-04-13T22:47:19.386433+00:00"
+    },
+    {
+      "source": "app.Quit",
+      "target": "unittest.setU",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "porque lleva tanto tiempo?",
+      "created_at": "2026-04-13T22:47:19.415094+00:00",
+      "updated_at": "2026-04-13T22:47:19.415094+00:00"
+    },
+    {
+      "source": "app.Quit",
+      "target": "Range.Valu",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "porque lleva tanto tiempo?",
+      "created_at": "2026-04-13T22:47:19.442154+00:00",
+      "updated_at": "2026-04-13T22:47:19.442154+00:00"
+    },
+    {
+      "source": "unittest.setU",
+      "target": "Range.Valu",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "porque lleva tanto tiempo?",
+      "created_at": "2026-04-13T22:47:19.470439+00:00",
+      "updated_at": "2026-04-13T22:47:19.470439+00:00"
     }
   ],
-  "updated_at": "2026-04-13T22:39:01.097692+00:00",
+  "updated_at": "2026-04-13T22:47:19.470439+00:00",
   "stats": {
-    "entities": 748,
-    "relations": 1914
+    "entities": 756,
+    "relations": 1928
   }
 }
