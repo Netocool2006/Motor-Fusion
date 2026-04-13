@@ -6047,6 +6047,62 @@
       "properties": {},
       "created_at": "2026-04-13T22:47:19.361423+00:00",
       "updated_at": "2026-04-13T22:47:19.361423+00:00"
+    },
+    "ProtectedViewWindows.Coun": {
+      "id": "ProtectedViewWindows.Coun",
+      "type": "file",
+      "name": "ProtectedViewWindows.Coun",
+      "properties": {},
+      "created_at": "2026-04-13T23:11:32.343449+00:00",
+      "updated_at": "2026-04-13T23:11:32.343449+00:00"
+    },
+    "test.xlsx": {
+      "id": "test.xlsx",
+      "type": "file",
+      "name": "test.xlsx",
+      "properties": {},
+      "created_at": "2026-04-13T23:15:32.198398+00:00",
+      "updated_at": "2026-04-13T23:15:32.198398+00:00"
+    },
+    "6.1s": {
+      "id": "6.1s",
+      "type": "file",
+      "name": "6.1s",
+      "properties": {},
+      "created_at": "2026-04-13T23:15:32.228927+00:00",
+      "updated_at": "2026-04-13T23:15:32.228927+00:00"
+    },
+    "52.7s": {
+      "id": "52.7s",
+      "type": "file",
+      "name": "52.7s",
+      "properties": {},
+      "created_at": "2026-04-13T23:15:32.287636+00:00",
+      "updated_at": "2026-04-13T23:15:32.287636+00:00"
+    },
+    "excel_com.py": {
+      "id": "excel_com.py",
+      "type": "file",
+      "name": "excel_com.py",
+      "properties": {},
+      "created_at": "2026-04-13T23:29:40.004759+00:00",
+      "updated_at": "2026-04-13T23:29:40.004759+00:00"
+    },
+    "run_engine_e2e.py": {
+      "id": "run_engine_e2e.py",
+      "type": "file",
+      "name": "run_engine_e2e.py",
+      "properties": {},
+      "created_at": "2026-04-13T23:29:40.358559+00:00",
+      "updated_at": "2026-04-13T23:29:40.358559+00:00"
+    },
+    "5.5s": {
+      "id": "5.5s",
+      "type": "file",
+      "name": "5.5s",
+      "properties": {},
+      "created_at": "2026-04-13T23:29:40.412063+00:00",
+      "updated_at": "2026-04-13T23:29:40.412063+00:00"
     }
   },
   "relations": [
@@ -9159,10 +9215,10 @@
       "source": "business_rules.py",
       "target": "mcp_server.py",
       "type": "used_with",
-      "weight": 1.0,
-      "context": "esto es pura programacion o tiene MCP y/o ML ?",
+      "weight": 1.5,
+      "context": "lleguemos a 9.6",
       "created_at": "2026-04-07T15:19:59.478828+00:00",
-      "updated_at": "2026-04-07T20:43:14.086480+00:00"
+      "updated_at": "2026-04-13T23:29:40.302505+00:00"
     },
     {
       "source": "business_rules.py",
@@ -15504,10 +15560,10 @@
       "source": "engine.py",
       "target": "mcp_server.py",
       "type": "used_with",
-      "weight": 1.5,
-      "context": "si antes valida la situacion actual de todo el codigo para saber donde debes hacer la inserccion C:\\",
+      "weight": 2.0,
+      "context": "lleguemos a 9.6",
       "created_at": "2026-04-09T03:33:55.267900+00:00",
-      "updated_at": "2026-04-09T03:33:55.320382+00:00"
+      "updated_at": "2026-04-13T23:29:40.124700+00:00"
     },
     {
       "source": "mcp_server.py",
@@ -22929,10 +22985,10 @@
       "source": "iaexcel.json",
       "target": "business_rules.py",
       "type": "used_with",
-      "weight": 0.5,
-      "context": "ya hice yo los ajustes validarlos",
+      "weight": 1.0,
+      "context": "lleguemos a 9.6",
       "created_at": "2026-04-13T21:39:33.600963+00:00",
-      "updated_at": "2026-04-13T21:39:33.600963+00:00"
+      "updated_at": "2026-04-13T23:29:40.246533+00:00"
     },
     {
       "source": "iaexcel.json",
@@ -23401,11 +23457,191 @@
       "context": "porque lleva tanto tiempo?",
       "created_at": "2026-04-13T22:47:19.470439+00:00",
       "updated_at": "2026-04-13T22:47:19.470439+00:00"
+    },
+    {
+      "source": "EXCEL.EXE",
+      "target": "ProtectedViewWindows.Coun",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "segun yo ya esta abierto y editable valida",
+      "created_at": "2026-04-13T23:11:32.372961+00:00",
+      "updated_at": "2026-04-13T23:11:32.372961+00:00"
+    },
+    {
+      "source": "test.xlsx",
+      "target": "6.1s",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "prueba de nuevo",
+      "created_at": "2026-04-13T23:15:32.258388+00:00",
+      "updated_at": "2026-04-13T23:15:32.258388+00:00"
+    },
+    {
+      "source": "test.xlsx",
+      "target": "52.7s",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "prueba de nuevo",
+      "created_at": "2026-04-13T23:15:32.316304+00:00",
+      "updated_at": "2026-04-13T23:15:32.316304+00:00"
+    },
+    {
+      "source": "6.1s",
+      "target": "52.7s",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "prueba de nuevo",
+      "created_at": "2026-04-13T23:15:32.341350+00:00",
+      "updated_at": "2026-04-13T23:15:32.341350+00:00"
+    },
+    {
+      "source": "excel_com.py",
+      "target": "engine.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "lleguemos a 9.6",
+      "created_at": "2026-04-13T23:29:40.034043+00:00",
+      "updated_at": "2026-04-13T23:29:40.034043+00:00"
+    },
+    {
+      "source": "excel_com.py",
+      "target": "cerebro_v2.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "lleguemos a 9.6",
+      "created_at": "2026-04-13T23:29:40.064603+00:00",
+      "updated_at": "2026-04-13T23:29:40.064603+00:00"
+    },
+    {
+      "source": "engine.py",
+      "target": "cerebro_v2.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "lleguemos a 9.6",
+      "created_at": "2026-04-13T23:29:40.095841+00:00",
+      "updated_at": "2026-04-13T23:29:40.095841+00:00"
+    },
+    {
+      "source": "cerebro_v2.py",
+      "target": "mcp_server.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "lleguemos a 9.6",
+      "created_at": "2026-04-13T23:29:40.148515+00:00",
+      "updated_at": "2026-04-13T23:29:40.148515+00:00"
+    },
+    {
+      "source": "cerebro_v2.py",
+      "target": "iaexcel.json",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "lleguemos a 9.6",
+      "created_at": "2026-04-13T23:29:40.168150+00:00",
+      "updated_at": "2026-04-13T23:29:40.168150+00:00"
+    },
+    {
+      "source": "mcp_server.py",
+      "target": "iaexcel.json",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "lleguemos a 9.6",
+      "created_at": "2026-04-13T23:29:40.188371+00:00",
+      "updated_at": "2026-04-13T23:29:40.188371+00:00"
+    },
+    {
+      "source": "mcp_server.py",
+      "target": "excel_com.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "lleguemos a 9.6",
+      "created_at": "2026-04-13T23:29:40.206328+00:00",
+      "updated_at": "2026-04-13T23:29:40.206328+00:00"
+    },
+    {
+      "source": "iaexcel.json",
+      "target": "excel_com.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "lleguemos a 9.6",
+      "created_at": "2026-04-13T23:29:40.226581+00:00",
+      "updated_at": "2026-04-13T23:29:40.226581+00:00"
+    },
+    {
+      "source": "excel_com.py",
+      "target": "business_rules.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "lleguemos a 9.6",
+      "created_at": "2026-04-13T23:29:40.264323+00:00",
+      "updated_at": "2026-04-13T23:29:40.264323+00:00"
+    },
+    {
+      "source": "excel_com.py",
+      "target": "mcp_server.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "lleguemos a 9.6",
+      "created_at": "2026-04-13T23:29:40.281927+00:00",
+      "updated_at": "2026-04-13T23:29:40.281927+00:00"
+    },
+    {
+      "source": "business_rules.py",
+      "target": "Engine.edit",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "lleguemos a 9.6",
+      "created_at": "2026-04-13T23:29:40.322077+00:00",
+      "updated_at": "2026-04-13T23:29:40.322077+00:00"
+    },
+    {
+      "source": "mcp_server.py",
+      "target": "Engine.edit",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "lleguemos a 9.6",
+      "created_at": "2026-04-13T23:29:40.339983+00:00",
+      "updated_at": "2026-04-13T23:29:40.339983+00:00"
+    },
+    {
+      "source": "mcp_server.py",
+      "target": "run_engine_e2e.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "lleguemos a 9.6",
+      "created_at": "2026-04-13T23:29:40.377141+00:00",
+      "updated_at": "2026-04-13T23:29:40.377141+00:00"
+    },
+    {
+      "source": "Engine.edit",
+      "target": "run_engine_e2e.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "lleguemos a 9.6",
+      "created_at": "2026-04-13T23:29:40.393922+00:00",
+      "updated_at": "2026-04-13T23:29:40.394934+00:00"
+    },
+    {
+      "source": "Engine.edit",
+      "target": "5.5s",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "lleguemos a 9.6",
+      "created_at": "2026-04-13T23:29:40.432930+00:00",
+      "updated_at": "2026-04-13T23:29:40.433825+00:00"
+    },
+    {
+      "source": "run_engine_e2e.py",
+      "target": "5.5s",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "lleguemos a 9.6",
+      "created_at": "2026-04-13T23:29:40.451423+00:00",
+      "updated_at": "2026-04-13T23:29:40.451423+00:00"
     }
   ],
-  "updated_at": "2026-04-13T22:47:19.470439+00:00",
+  "updated_at": "2026-04-13T23:29:40.451423+00:00",
   "stats": {
-    "entities": 756,
-    "relations": 1928
+    "entities": 763,
+    "relations": 1948
   }
 }
