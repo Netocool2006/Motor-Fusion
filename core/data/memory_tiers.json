@@ -1,28 +1,6 @@
 {
   "hot": [
     {
-      "key": "procede",
-      "value": "## âœ… Phase 8 â€” Premium look & feel pushed `386f734..d786b9f`\n\n**Commit**: `d786b9f` â€” `+653 / -0` sobre 5 archivos\n\n### Lo que agregaste al asistente\n\n#### 5 paletas curadas\n\n| Nombre | CaracterÃ­stica |\n|--------|----------------|\n| **`gbm_corporate`** | Azul corporativo profundo + magenta acento â€” estilo GBM |\n| **`elegant_dark`** | Dark theme con gold accent â€” reportes ejecutivos |\n| **`minimal_grey`** | Minimalista sin bordes en body â€” clean |\n| **`vibrant`** | Violet + orange + amarillo â€” dashboards vivos |\n| **`financial_report`** | Forest green + gold â€” tradicional financiero con negativos en rojo |\n\n#### 5 table styles\n\nCada uno aplica header + body + zebra + footer en un call, con colores derivados de su paleta, soporte de `totals_row`, `currency_cols`, y `title` opcional.\n\n#### 17 number formats presets\n\n- **Currency**: `currency_usd`, `currency_gtq` (Q con negativos rojos), `currency_eur`, `currency_int`, `currency_usd_nodec`\n- **Percent**: `percent_2dec`, `p",
-      "domain": "ML 100%",
-      "source": "auto_save",
-      "tier": "hot",
-      "created_at": "2026-04-13T23:38:48.944010+00:00",
-      "last_access": "2026-04-13T23:38:48.944010+00:00",
-      "access_count": 0,
-      "promotion_count": 0
-    },
-    {
-      "key": "me parecen bien y no las quites pero puedes indagar en el internet si hay mas premiup para agregarlas",
-      "value": "Tengo datos reales. Propongo las adiciones:\n\n## Paletas nuevas que valen la pena agregar\n\nBasado en tendencias 2026 (SaaS, financial dashboards, premium consulting):\n\n| Nombre propuesto | Origen | Caso de uso | Preview |\n|------------------|--------|-------------|---------|\n| **`stripe_blurple`** | Stripe/fintech | Dashboards SaaS profesionales con indigo confiable | primary `#1E293B` + accent `#6366F1` |\n| **`corporate_emerald`** | Corporate green | Reportes financieros verdes (sostenibilidad, crecimiento) | primary `#052E16` + accent `#22C55E` |\n| **`luxury_gold`** | Premium consulting | Cotizaciones high-end, propuestas C-level | matte black `#0A0A0A` + gold `#D4AF37` |\n| **`cyberpunk_dark`** | Modern SaaS dark | Analytics dashboards con acentos neÃ³n | `#020617` base + cyan `#22D3EE` + pink `#F472B6` |\n| **`warm_analytics`** | Warm creative | Tablas cÃ¡lidas, material de marketing/ventas | cream `#FFF7ED` + orange `#F97316` |\n| **`corporate_blues_classic`** | Corporate trust | Banc",
-      "domain": "Internet 60% + ML 40%",
-      "source": "auto_save",
-      "tier": "hot",
-      "created_at": "2026-04-13T23:41:09.697512+00:00",
-      "last_access": "2026-04-13T23:41:09.697512+00:00",
-      "access_count": 0,
-      "promotion_count": 0
-    },
-    {
       "key": "tenemos manual de usuario y manual tecnico, manual de instalacion, arquitectura?",
       "value": "## Estado de la documentaciÃ³n\n\nSÃ­, tenÃ©s **5 documentos**, pero **desactualizados respecto a todo lo que hicimos hoy** (Phase 5 extras, Phase 7 attach, Phase 8 + 8.1 theme, los 4 HIGH items, los bug fixes). Te los enumero:\n\n| # | Archivo | LÃ­neas | Estado actual | Incluye |\n|--:|---------|-------:|:-------------:|---------|\n| 1 | **`README.md`** | 99 | ðŸŸ¡ parcialmente actualizado | Quick start, estructura src/, 3 backends visuales, shared-safe mode. **FALTA**: theme.py, Phase 7 attach, los 4 HIGH items, bug fixes |\n| 2 | **`CLAUDE.md`** | 121 | ðŸŸ¡ parcial | 7 reglas crÃ­ticas + recovery + arquitectura cerebro/engine + uso bÃ¡sico + CLI + MCP server con 45 tools. **FALTA**: regla 8 attached, los nuevos tools Phase 8 (theme), bug fixes |\n| 3 | **`MANUAL_USUARIO.md`** | 539 | ðŸŸ¡ parcial | 13 categorÃ­as de mÃ©todo + ejemplos con todos los tools hasta Phase 5 (validation, audit, charts, pivots, power query, etc.) + troubleshooting + COMGuardian. **FALTA**: attach_to_workbook / li",
       "domain": "ML 100%",
@@ -54,14 +32,81 @@
       "last_access": "2026-04-14T00:06:40.922409+00:00",
       "access_count": 0,
       "promotion_count": 0
+    },
+    {
+      "key": "ahora otro prompt de hacer el homologo del proyecto pero para power point tomando en cuenta que es un proyecto que tambien ya tiene bases hay que hacer todo el trabajo de fondo esta aqui C:\\Chance1\\IA",
+      "value": "IA_PowerPoint ya tiene: `powerpoint_com.py` (1624 lÃ­neas, motor + `com_retry`), `mcp_server.py` (538 lÃ­neas), `constants.py` con `PROPOSAL_SLIDE_TYPES` e `IVA_RATES`, `test_powerpoint_features.py` (921 lÃ­neas). **Tiene motor bÃ¡sico pero le falta TODA la arquitectura Phase 5/7/8**. AcÃ¡ va el prompt:\n\n---\n\n# Prompt para IA_PowerPoint â€” homologar a IA_Excel v2 (Phase 5 + 7 + 8)\n\n## Copiar desde aquÃ­ â¬‡\n\n```\nNecesito homologar IA_PowerPoint (C:\\Chance1\\IA\\IA_PowerPoint) a la\narquitectura de IA_Excel v2 (C:\\Chance1\\IA\\IA_Excel, commits hasta\n5cc3f47). IA_PowerPoint ya tiene motor COM + MCP server + tests\nbÃ¡sicos, pero le falta toda la capa de reliability, recovery, dual\nmode attach, validators, engine, theme, visual feedback y docs.\n\n## Estado actual de IA_PowerPoint\n\nLo que YA existe (NO romper):\n- `src/powerpoint_com.py` (1624 lÃ­neas) â€” `PowerPointCOM` con ~60\n  mÃ©todos, `com_retry` decorator, `PowerPointCOMError`,\n  `ValidationResult`\n- `src/mcp_server.py` (538 lÃ­neas) â€”",
+      "domain": "ML 100%",
+      "source": "auto_save",
+      "tier": "hot",
+      "created_at": "2026-04-14T00:18:52.128880+00:00",
+      "last_access": "2026-04-14T00:18:52.128880+00:00",
+      "access_count": 0,
+      "promotion_count": 0
+    },
+    {
+      "key": "si tengo 2 words abiertos 1 en local y otro  abierto tambien en local pero es online.",
+      "value": "# âœ… Phase 7 â€” Dual-mode router pushed: `a320cbb..4ec4d16`\n\n**Commit `4ec4d16`** â€” `+733 / -14`, 7 archivos.\n\n| Entregable | Status |\n|---|---|\n| ImplementaciÃ³n (4 archivos src) | âœ… +592 lÃ­neas |\n| 7 unit tests | âœ… All PASS |\n| Docs (QUALITY_GUARDS rule 8 + CLAUDE.md) | âœ… +90 lÃ­neas |\n| 4 KB patterns | âœ… |\n| **Live test contra Word real (pid 5872, 3 docs)** | âœ… PASS end-to-end |\n| URL router SharePoint | âœ… PASS |\n| Word del usuario sobrevive | âœ… pid intacto |\n| No regresiÃ³n tests existentes | âœ… |\n| Push | âœ… `origin/master` |\n\n**Bugs live encontrados y corregidos sobre la marcha:**\n- Selection apunta al ActiveDocument, no al doc atachado â†’ usar `word.doc.Activate()` + `Range.InsertAfter` en vez de `Selection.TypeText`\n\n**Score de confianza post-validaciÃ³n: 9.5/10**. El Ãºnico caveat es que el `save_shared_safe` con SharePoint ReadOnly=True aÃºn no se probÃ³ en live (no tenÃ­as un doc bloqueado). Pero los 3 docs abiertos los detectÃ³ con `read_only=False` y ",
+      "domain": "ML 100%",
+      "source": "auto_save",
+      "tier": "hot",
+      "created_at": "2026-04-14T00:28:22.366420+00:00",
+      "last_access": "2026-04-14T00:28:22.366420+00:00",
+      "access_count": 0,
+      "promotion_count": 0
+    },
+    {
+      "key": "este proyecto del excel ya tiene un agente, conviene hacerlo, vale la pena o no aplica?",
+      "value": "## Ya existe â€” y estÃ¡ **desactualizado**. Conviene hacerlo bien.\n\n`.claude/agents/excel-agent.md` (201 lÃ­neas) existe pero fue escrito **antes de Phase 5/7/8**, asÃ­ que el agente no sabe que tiene:\n- 57 MCP tools (conoce solo los 16 originales)\n- Dual mode OWNED/ATTACHED\n- `apply_table_style` con 11 paletas premium\n- `verify_via_read` pattern + acceptance contract\n- `save_shared_safe` estructurado\n- ReadOnly allows in-memory edits\n- `parse_bom` con sidecar `.iaexcel.json`\n- Engine + CerebroV2 como pipeline\n\nEl agente hoy usa `Bash` para invocar python scripts en vez de usar las tools MCP directamente. Es un agente \"legacy script-based\" â€” **no un agente MCP-native**.\n\n## AnÃ¡lisis: Â¿vale la pena rehacerlo?\n\n### ðŸŸ¢ Ventajas de tener un agente MCP-native actualizado\n\n| Beneficio | Valor |\n|-----------|:-----:|\n| El agente puede ser invocado con `@excel-agent` desde cualquier chat | Alto |\n| Conoce los 57 tools sin que el usuario los enumere | Alto |\n| Conoce las reglas 1-8 (incl",
+      "domain": "ML 100%",
+      "source": "auto_save",
+      "tier": "hot",
+      "created_at": "2026-04-14T00:36:35.082945+00:00",
+      "last_access": "2026-04-14T00:36:35.082945+00:00",
+      "access_count": 0,
+      "promotion_count": 0
+    },
+    {
+      "key": "procedo y tambien genera un manual para saber como usarlo y si tienes que agregar skills procede",
+      "value": "# âœ… Docs commiteadas y pusheadas: `4ec4d16..468266c`\n\n**Commit `468266c`** â€” `+2139 / 0`\n\n| Archivo | LÃ­neas |\n|---|---|\n| `docs/MANUAL_USUARIO.md` | 422 |\n| `docs/MANUAL_TECNICO.md` | 634 |\n| `docs/ARQUITECTURA.md` | 427 |\n| `docs/EJEMPLOS_DE_USO.md` | 656 |\n| **Total** | **2139** |\n\n## Warnings encontrados (para tu atenciÃ³n, no son bloqueantes)\n\n1. **`docs/QUALITY_GUARDS.md` solo tiene 4 reglas formalizadas** (1, 2, 3, 8). Faltan 4-7. El subagente las marcÃ³ como \"reservadas\" en lugar de inventar contenido.\n2. **`README.md` tiene la ruta vieja** `C:\\Chance1\\IA_Word` en el ejemplo de `claude_desktop_config.json`. La ruta correcta es `C:\\Chance1\\IA\\IA_Word`.\n3. **`README.md` estÃ¡ desactualizado** â€” no menciona `cerebro_v2.py`, `doc_eyes.py`, `docx_sanitizer.py`, `word_session.py`. Los docs nuevos reflejan la realidad actual.\n4. **117 tools MCP** contados (no 100+). Brief decÃ­a 7000 lÃ­neas para `word_com.py`, real son 8168.\n\n**Score de confianza del subagente: 8.5/10** (no in",
+      "domain": "ML 100%",
+      "source": "auto_save",
+      "tier": "hot",
+      "created_at": "2026-04-14T00:45:02.439808+00:00",
+      "last_access": "2026-04-14T00:45:02.439808+00:00",
+      "access_count": 0,
+      "promotion_count": 0
+    },
+    {
+      "key": "procede",
+      "value": "# âœ… Pushed `468266c..17bf1b5`\n\n**Commit `17bf1b5`** â€” `+113 / -40`, 2 archivos.\n\n| Fix | Resultado |\n|---|---|\n| Ruta errÃ³nea `C:\\Chance1\\IA_Word` â†’ correcta `C:\\Chance1\\IA\\IA_Word` | âœ… |\n| README desactualizado (faltaba cerebro_v2, doc_eyes, sanitizer, session manager) | âœ… actualizado |\n| Features list con Phase 7 dual-mode router | âœ… |\n| Referencias a los 4 docs nuevos | âœ… |\n| Quality guards 4-7 clarificados como \"reserved\" con nota | âœ… |\n\n## Estado final del proyecto\n\n```\nCommits de hoy:   ceede10 â†’ 17bf1b5  (5 commits, +3000 lÃ­neas)\n  a320cbb  chore: remove stale Excel lock file\n  4ec4d16  feat: Phase 7 â€” dual-mode router OWNED/ATTACHED (+733/-14)\n  468266c  docs: 4 manuales (+2139)\n  17bf1b5  docs: README path + QUALITY_GUARDS numbering (+113/-40)\n```\n\nTodo en `origin/master`. Working tree limpio.",
+      "domain": "ML 100%",
+      "source": "auto_save",
+      "tier": "hot",
+      "created_at": "2026-04-14T00:47:09.838732+00:00",
+      "last_access": "2026-04-14T00:47:09.838732+00:00",
+      "access_count": 0,
+      "promotion_count": 0
     }
   ],
-  "warm": [],
+  "warm": [
+    {
+      "key": "me parecen bien y no las quites pero puedes indagar en el internet si hay mas premiup para agregarlas",
+      "value": "Tengo datos reales. Propongo las adiciones:\n\n## Paletas nuevas que valen la pena agregar\n\nBasado en tendencias 2026 (SaaS, financial dashboards, premium consulting):\n\n| Nombre propuesto | Origen | Caso de uso | Preview |\n|------------------|--------|-------------|---------|\n| **`stripe_blurple`** | Stripe/fintech | Dashboards SaaS profesionales con indigo confiable | primary `#1E293B` + accent `#6366F1` |\n| **`corporate_emerald`** | Corporate green | Reportes financieros verdes (sostenibilidad, crecimiento) | primary `#052E16` + accent `#22C55E` |\n| **`luxury_gold`** | Premium consulting | Cotizaciones high-end, propuestas C-level | matte black `#0A0A0A` + gold `#D4AF37` |\n| **`cyberpunk_dark`** | Modern SaaS dark | Analytics dashboards con acentos neÃ³n | `#020617` base + cyan `#22D3EE` + pink `#F472B6` |\n| **`warm_analytics`** | Warm creative | Tablas cÃ¡lidas, material de marketing/ventas | cream `#FFF7ED` + orange `#F97316` |\n| **`corporate_blues_classic`** | Corporate trust | Banc",
+      "domain": "Internet 60% + ML 40%",
+      "source": "auto_save",
+      "tier": "warm",
+      "created_at": "2026-04-13T23:41:09.697512+00:00",
+      "last_access": "2026-04-13T23:41:09.697512+00:00",
+      "access_count": 0,
+      "promotion_count": 0
+    }
+  ],
   "cold": [],
-  "updated_at": "2026-04-14T00:06:40.922409+00:00",
+  "updated_at": "2026-04-14T00:47:09.838732+00:00",
   "counts": {
-    "hot": 5,
-    "warm": 0,
+    "hot": 8,
+    "warm": 1,
     "cold": 0
   }
 }

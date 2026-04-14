@@ -6783,6 +6783,94 @@
       "properties": {},
       "created_at": "2026-04-14T00:06:41.454389+00:00",
       "updated_at": "2026-04-14T00:06:41.454389+00:00"
+    },
+    "powerpoint_com.py": {
+      "id": "powerpoint_com.py",
+      "type": "file",
+      "name": "powerpoint_com.py",
+      "properties": {},
+      "created_at": "2026-04-14T00:18:52.151347+00:00",
+      "updated_at": "2026-04-14T00:18:52.151347+00:00"
+    },
+    "constants.py": {
+      "id": "constants.py",
+      "type": "file",
+      "name": "constants.py",
+      "properties": {},
+      "created_at": "2026-04-14T00:18:52.223793+00:00",
+      "updated_at": "2026-04-14T00:18:52.223793+00:00"
+    },
+    "test_powerpoint_features.py": {
+      "id": "test_powerpoint_features.py",
+      "type": "file",
+      "name": "test_powerpoint_features.py",
+      "properties": {},
+      "created_at": "2026-04-14T00:18:52.340024+00:00",
+      "updated_at": "2026-04-14T00:18:52.340024+00:00"
+    },
+    "src/powerpoint_com.py": {
+      "id": "src/powerpoint_com.py",
+      "type": "file",
+      "name": "src/powerpoint_com.py",
+      "properties": {},
+      "created_at": "2026-04-14T00:18:52.467114+00:00",
+      "updated_at": "2026-04-14T00:18:52.467114+00:00"
+    },
+    "Range.Inse": {
+      "id": "Range.Inse",
+      "type": "file",
+      "name": "Range.Inse",
+      "properties": {},
+      "created_at": "2026-04-14T00:28:22.447303+00:00",
+      "updated_at": "2026-04-14T00:28:22.447303+00:00"
+    },
+    "Selection.Type": {
+      "id": "Selection.Type",
+      "type": "file",
+      "name": "Selection.Type",
+      "properties": {},
+      "created_at": "2026-04-14T00:28:22.568658+00:00",
+      "updated_at": "2026-04-14T00:28:22.568658+00:00"
+    },
+    "agent.md": {
+      "id": "agent.md",
+      "type": "file",
+      "name": "agent.md",
+      "properties": {},
+      "created_at": "2026-04-14T00:36:35.128905+00:00",
+      "updated_at": "2026-04-14T00:36:35.128905+00:00"
+    },
+    "docs/MANUAL_USUARIO.md": {
+      "id": "docs/MANUAL_USUARIO.md",
+      "type": "file",
+      "name": "docs/MANUAL_USUARIO.md",
+      "properties": {},
+      "created_at": "2026-04-14T00:45:02.483592+00:00",
+      "updated_at": "2026-04-14T00:45:02.483592+00:00"
+    },
+    "docs/MANUAL_TECNICO.md": {
+      "id": "docs/MANUAL_TECNICO.md",
+      "type": "file",
+      "name": "docs/MANUAL_TECNICO.md",
+      "properties": {},
+      "created_at": "2026-04-14T00:45:02.556808+00:00",
+      "updated_at": "2026-04-14T00:45:02.556808+00:00"
+    },
+    "docs/ARQUITECTURA.md": {
+      "id": "docs/ARQUITECTURA.md",
+      "type": "file",
+      "name": "docs/ARQUITECTURA.md",
+      "properties": {},
+      "created_at": "2026-04-14T00:45:02.693839+00:00",
+      "updated_at": "2026-04-14T00:45:02.693839+00:00"
+    },
+    "docs/EJEMPLOS_DE_USO.md": {
+      "id": "docs/EJEMPLOS_DE_USO.md",
+      "type": "file",
+      "name": "docs/EJEMPLOS_DE_USO.md",
+      "properties": {},
+      "created_at": "2026-04-14T00:45:02.897907+00:00",
+      "updated_at": "2026-04-14T00:45:02.897907+00:00"
     }
   },
   "relations": [
@@ -22792,10 +22880,10 @@
       "source": "cerebro_v2.py",
       "target": "docx_sanitizer.py",
       "type": "used_with",
-      "weight": 0.5,
-      "context": "estas pruebas que parte de la arquitectura tocaron  que si usaste y que no usaste?",
+      "weight": 1.0,
+      "context": "procedo y tambien genera un manual para saber como usarlo y si tienes que agregar skills procede",
       "created_at": "2026-04-12T00:47:46.787882+00:00",
-      "updated_at": "2026-04-12T00:47:46.787882+00:00"
+      "updated_at": "2026-04-14T00:45:03.948701+00:00"
     },
     {
       "source": "engine.py",
@@ -27445,10 +27533,10 @@
       "source": "word_session.py",
       "target": "word_com.py",
       "type": "used_with",
-      "weight": 0.5,
-      "context": "Necesito agregar a IA_Word un feature crÃ­tico que hoy no tiene y que\n  ya implementamos y validamos",
+      "weight": 1.0,
+      "context": "procedo y tambien genera un manual para saber como usarlo y si tienes que agregar skills procede",
       "created_at": "2026-04-14T00:06:41.308533+00:00",
-      "updated_at": "2026-04-14T00:06:41.308533+00:00"
+      "updated_at": "2026-04-14T00:45:04.327358+00:00"
     },
     {
       "source": "mcp_server.py",
@@ -27476,11 +27564,335 @@
       "context": "Necesito agregar a IA_Word un feature crÃ­tico que hoy no tiene y que\n  ya implementamos y validamos",
       "created_at": "2026-04-14T00:06:41.501262+00:00",
       "updated_at": "2026-04-14T00:06:41.501262+00:00"
+    },
+    {
+      "source": "powerpoint_com.py",
+      "target": "mcp_server.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "ahora otro prompt de hacer el homologo del proyecto pero para power point tomando en cuenta que es u",
+      "created_at": "2026-04-14T00:18:52.188149+00:00",
+      "updated_at": "2026-04-14T00:18:52.188149+00:00"
+    },
+    {
+      "source": "powerpoint_com.py",
+      "target": "constants.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "ahora otro prompt de hacer el homologo del proyecto pero para power point tomando en cuenta que es u",
+      "created_at": "2026-04-14T00:18:52.259903+00:00",
+      "updated_at": "2026-04-14T00:18:52.259903+00:00"
+    },
+    {
+      "source": "mcp_server.py",
+      "target": "constants.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "ahora otro prompt de hacer el homologo del proyecto pero para power point tomando en cuenta que es u",
+      "created_at": "2026-04-14T00:18:52.298998+00:00",
+      "updated_at": "2026-04-14T00:18:52.298998+00:00"
+    },
+    {
+      "source": "mcp_server.py",
+      "target": "test_powerpoint_features.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "ahora otro prompt de hacer el homologo del proyecto pero para power point tomando en cuenta que es u",
+      "created_at": "2026-04-14T00:18:52.377524+00:00",
+      "updated_at": "2026-04-14T00:18:52.377524+00:00"
+    },
+    {
+      "source": "constants.py",
+      "target": "test_powerpoint_features.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "ahora otro prompt de hacer el homologo del proyecto pero para power point tomando en cuenta que es u",
+      "created_at": "2026-04-14T00:18:52.426519+00:00",
+      "updated_at": "2026-04-14T00:18:52.426519+00:00"
+    },
+    {
+      "source": "constants.py",
+      "target": "src/powerpoint_com.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "ahora otro prompt de hacer el homologo del proyecto pero para power point tomando en cuenta que es u",
+      "created_at": "2026-04-14T00:18:52.511532+00:00",
+      "updated_at": "2026-04-14T00:18:52.511532+00:00"
+    },
+    {
+      "source": "test_powerpoint_features.py",
+      "target": "src/powerpoint_com.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "ahora otro prompt de hacer el homologo del proyecto pero para power point tomando en cuenta que es u",
+      "created_at": "2026-04-14T00:18:52.555105+00:00",
+      "updated_at": "2026-04-14T00:18:52.555105+00:00"
+    },
+    {
+      "source": "test_powerpoint_features.py",
+      "target": "src/mcp_server.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "ahora otro prompt de hacer el homologo del proyecto pero para power point tomando en cuenta que es u",
+      "created_at": "2026-04-14T00:18:52.599997+00:00",
+      "updated_at": "2026-04-14T00:18:52.599997+00:00"
+    },
+    {
+      "source": "src/powerpoint_com.py",
+      "target": "src/mcp_server.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "ahora otro prompt de hacer el homologo del proyecto pero para power point tomando en cuenta que es u",
+      "created_at": "2026-04-14T00:18:52.640946+00:00",
+      "updated_at": "2026-04-14T00:18:52.640946+00:00"
+    },
+    {
+      "source": "CLAUDE.md",
+      "target": "word.doc",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "si tengo 2 words abiertos 1 en local y otro  abierto tambien en local pero es online.",
+      "created_at": "2026-04-14T00:28:22.397401+00:00",
+      "updated_at": "2026-04-14T00:28:22.397401+00:00"
+    },
+    {
+      "source": "CLAUDE.md",
+      "target": "Range.Inse",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "si tengo 2 words abiertos 1 en local y otro  abierto tambien en local pero es online.",
+      "created_at": "2026-04-14T00:28:22.490567+00:00",
+      "updated_at": "2026-04-14T00:28:22.490567+00:00"
+    },
+    {
+      "source": "word.doc",
+      "target": "Range.Inse",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "si tengo 2 words abiertos 1 en local y otro  abierto tambien en local pero es online.",
+      "created_at": "2026-04-14T00:28:22.528621+00:00",
+      "updated_at": "2026-04-14T00:28:22.528621+00:00"
+    },
+    {
+      "source": "word.doc",
+      "target": "Selection.Type",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "si tengo 2 words abiertos 1 en local y otro  abierto tambien en local pero es online.",
+      "created_at": "2026-04-14T00:28:22.604642+00:00",
+      "updated_at": "2026-04-14T00:28:22.604642+00:00"
+    },
+    {
+      "source": "Range.Inse",
+      "target": "Selection.Type",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "si tengo 2 words abiertos 1 en local y otro  abierto tambien en local pero es online.",
+      "created_at": "2026-04-14T00:28:22.644304+00:00",
+      "updated_at": "2026-04-14T00:28:22.644304+00:00"
+    },
+    {
+      "source": "agent.md",
+      "target": "iaexcel.json",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "este proyecto del excel ya tiene un agente, conviene hacerlo, vale la pena o no aplica?",
+      "created_at": "2026-04-14T00:36:35.212076+00:00",
+      "updated_at": "2026-04-14T00:36:35.212076+00:00"
+    },
+    {
+      "source": "docs/MANUAL_USUARIO.md",
+      "target": "docs/MANUAL_TECNICO.md",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "procedo y tambien genera un manual para saber como usarlo y si tienes que agregar skills procede",
+      "created_at": "2026-04-14T00:45:02.625563+00:00",
+      "updated_at": "2026-04-14T00:45:02.625563+00:00"
+    },
+    {
+      "source": "docs/MANUAL_USUARIO.md",
+      "target": "docs/ARQUITECTURA.md",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "procedo y tambien genera un manual para saber como usarlo y si tienes que agregar skills procede",
+      "created_at": "2026-04-14T00:45:02.763022+00:00",
+      "updated_at": "2026-04-14T00:45:02.763022+00:00"
+    },
+    {
+      "source": "docs/MANUAL_TECNICO.md",
+      "target": "docs/ARQUITECTURA.md",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "procedo y tambien genera un manual para saber como usarlo y si tienes que agregar skills procede",
+      "created_at": "2026-04-14T00:45:02.831587+00:00",
+      "updated_at": "2026-04-14T00:45:02.831587+00:00"
+    },
+    {
+      "source": "docs/MANUAL_TECNICO.md",
+      "target": "docs/EJEMPLOS_DE_USO.md",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "procedo y tambien genera un manual para saber como usarlo y si tienes que agregar skills procede",
+      "created_at": "2026-04-14T00:45:02.967268+00:00",
+      "updated_at": "2026-04-14T00:45:02.967268+00:00"
+    },
+    {
+      "source": "docs/ARQUITECTURA.md",
+      "target": "docs/EJEMPLOS_DE_USO.md",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "procedo y tambien genera un manual para saber como usarlo y si tienes que agregar skills procede",
+      "created_at": "2026-04-14T00:45:03.035670+00:00",
+      "updated_at": "2026-04-14T00:45:03.035670+00:00"
+    },
+    {
+      "source": "docs/ARQUITECTURA.md",
+      "target": "docs/QUALITY_GUARDS.md",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "procedo y tambien genera un manual para saber como usarlo y si tienes que agregar skills procede",
+      "created_at": "2026-04-14T00:45:03.116741+00:00",
+      "updated_at": "2026-04-14T00:45:03.116741+00:00"
+    },
+    {
+      "source": "docs/EJEMPLOS_DE_USO.md",
+      "target": "docs/QUALITY_GUARDS.md",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "procedo y tambien genera un manual para saber como usarlo y si tienes que agregar skills procede",
+      "created_at": "2026-04-14T00:45:03.188537+00:00",
+      "updated_at": "2026-04-14T00:45:03.188537+00:00"
+    },
+    {
+      "source": "docs/EJEMPLOS_DE_USO.md",
+      "target": "README.md",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "procedo y tambien genera un manual para saber como usarlo y si tienes que agregar skills procede",
+      "created_at": "2026-04-14T00:45:03.259600+00:00",
+      "updated_at": "2026-04-14T00:45:03.259600+00:00"
+    },
+    {
+      "source": "docs/QUALITY_GUARDS.md",
+      "target": "README.md",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "procedo y tambien genera un manual para saber como usarlo y si tienes que agregar skills procede",
+      "created_at": "2026-04-14T00:45:03.338957+00:00",
+      "updated_at": "2026-04-14T00:45:03.338957+00:00"
+    },
+    {
+      "source": "docs/QUALITY_GUARDS.md",
+      "target": "claude_desktop_config.json",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "procedo y tambien genera un manual para saber como usarlo y si tienes que agregar skills procede",
+      "created_at": "2026-04-14T00:45:03.414867+00:00",
+      "updated_at": "2026-04-14T00:45:03.414867+00:00"
+    },
+    {
+      "source": "README.md",
+      "target": "claude_desktop_config.json",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "procedo y tambien genera un manual para saber como usarlo y si tienes que agregar skills procede",
+      "created_at": "2026-04-14T00:45:03.481956+00:00",
+      "updated_at": "2026-04-14T00:45:03.481956+00:00"
+    },
+    {
+      "source": "README.md",
+      "target": "README.md",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "procedo y tambien genera un manual para saber como usarlo y si tienes que agregar skills procede",
+      "created_at": "2026-04-14T00:45:03.544481+00:00",
+      "updated_at": "2026-04-14T00:45:03.544481+00:00"
+    },
+    {
+      "source": "claude_desktop_config.json",
+      "target": "README.md",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "procedo y tambien genera un manual para saber como usarlo y si tienes que agregar skills procede",
+      "created_at": "2026-04-14T00:45:03.612952+00:00",
+      "updated_at": "2026-04-14T00:45:03.612952+00:00"
+    },
+    {
+      "source": "claude_desktop_config.json",
+      "target": "cerebro_v2.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "procedo y tambien genera un manual para saber como usarlo y si tienes que agregar skills procede",
+      "created_at": "2026-04-14T00:45:03.679787+00:00",
+      "updated_at": "2026-04-14T00:45:03.679787+00:00"
+    },
+    {
+      "source": "README.md",
+      "target": "cerebro_v2.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "procedo y tambien genera un manual para saber como usarlo y si tienes que agregar skills procede",
+      "created_at": "2026-04-14T00:45:03.747108+00:00",
+      "updated_at": "2026-04-14T00:45:03.747108+00:00"
+    },
+    {
+      "source": "README.md",
+      "target": "doc_eyes.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "procedo y tambien genera un manual para saber como usarlo y si tienes que agregar skills procede",
+      "created_at": "2026-04-14T00:45:03.810616+00:00",
+      "updated_at": "2026-04-14T00:45:03.810616+00:00"
+    },
+    {
+      "source": "cerebro_v2.py",
+      "target": "doc_eyes.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "procedo y tambien genera un manual para saber como usarlo y si tienes que agregar skills procede",
+      "created_at": "2026-04-14T00:45:03.879740+00:00",
+      "updated_at": "2026-04-14T00:45:03.879740+00:00"
+    },
+    {
+      "source": "doc_eyes.py",
+      "target": "docx_sanitizer.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "procedo y tambien genera un manual para saber como usarlo y si tienes que agregar skills procede",
+      "created_at": "2026-04-14T00:45:04.011611+00:00",
+      "updated_at": "2026-04-14T00:45:04.011611+00:00"
+    },
+    {
+      "source": "doc_eyes.py",
+      "target": "word_session.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "procedo y tambien genera un manual para saber como usarlo y si tienes que agregar skills procede",
+      "created_at": "2026-04-14T00:45:04.080734+00:00",
+      "updated_at": "2026-04-14T00:45:04.080734+00:00"
+    },
+    {
+      "source": "docx_sanitizer.py",
+      "target": "word_session.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "procedo y tambien genera un manual para saber como usarlo y si tienes que agregar skills procede",
+      "created_at": "2026-04-14T00:45:04.157024+00:00",
+      "updated_at": "2026-04-14T00:45:04.157024+00:00"
+    },
+    {
+      "source": "docx_sanitizer.py",
+      "target": "word_com.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "procedo y tambien genera un manual para saber como usarlo y si tienes que agregar skills procede",
+      "created_at": "2026-04-14T00:45:04.253935+00:00",
+      "updated_at": "2026-04-14T00:45:04.253935+00:00"
     }
   ],
-  "updated_at": "2026-04-14T00:06:41.502264+00:00",
+  "updated_at": "2026-04-14T00:45:04.328868+00:00",
   "stats": {
-    "entities": 848,
-    "relations": 2299
+    "entities": 859,
+    "relations": 2335
   }
 }
