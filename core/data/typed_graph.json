@@ -807,6 +807,38 @@
       "properties": {},
       "created_at": "2026-04-14T19:11:44.280501+00:00",
       "updated_at": "2026-04-14T19:11:44.280501+00:00"
+    },
+    "claude/settings.json": {
+      "id": "claude/settings.json",
+      "type": "file",
+      "name": "claude/settings.json",
+      "properties": {},
+      "created_at": "2026-04-14T19:16:08.457677+00:00",
+      "updated_at": "2026-04-14T19:16:08.457677+00:00"
+    },
+    "tools/guard_reference_readonly.py": {
+      "id": "tools/guard_reference_readonly.py",
+      "type": "file",
+      "name": "tools/guard_reference_readonly.py",
+      "properties": {},
+      "created_at": "2026-04-14T19:16:08.472130+00:00",
+      "updated_at": "2026-04-14T19:16:08.472130+00:00"
+    },
+    "claude/agents/ia_browser_specialist.md": {
+      "id": "claude/agents/ia_browser_specialist.md",
+      "type": "file",
+      "name": "claude/agents/ia_browser_specialist.md",
+      "properties": {},
+      "created_at": "2026-04-14T19:16:08.490185+00:00",
+      "updated_at": "2026-04-14T19:16:08.490185+00:00"
+    },
+    "docs/MANUAL_CLI.md": {
+      "id": "docs/MANUAL_CLI.md",
+      "type": "file",
+      "name": "docs/MANUAL_CLI.md",
+      "properties": {},
+      "created_at": "2026-04-14T19:16:13.365720+00:00",
+      "updated_at": "2026-04-14T19:16:13.365720+00:00"
     }
   },
   "relations": [
@@ -2326,10 +2358,10 @@
       "source": "CLAUDE.md",
       "target": "playwright.md",
       "type": "used_with",
-      "weight": 0.5,
-      "context": "regresemos al plan original de construir IA_Browser con los insumos que te di pero copia insumos de ",
+      "weight": 1.5,
+      "context": "procede con las 5",
       "created_at": "2026-04-14T17:46:34.237537+00:00",
-      "updated_at": "2026-04-14T17:46:34.237537+00:00"
+      "updated_at": "2026-04-14T19:16:08.452679+00:00"
     },
     {
       "source": "/.clau",
@@ -2753,11 +2785,119 @@
       "context": "si, si subio,  pregunta curiosa porque dices que esto no es un MCP?",
       "created_at": "2026-04-14T19:11:44.289092+00:00",
       "updated_at": "2026-04-14T19:11:44.289092+00:00"
+    },
+    {
+      "source": "CLAUDE.md",
+      "target": "CLAUDE.md",
+      "type": "used_with",
+      "weight": 1.0,
+      "context": "procede con las 5",
+      "created_at": "2026-04-14T19:16:08.441654+00:00",
+      "updated_at": "2026-04-14T19:16:08.521718+00:00"
+    },
+    {
+      "source": "CLAUDE.md",
+      "target": "claude/settings.json",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "procede con las 5",
+      "created_at": "2026-04-14T19:16:08.462581+00:00",
+      "updated_at": "2026-04-14T19:16:08.462581+00:00"
+    },
+    {
+      "source": "playwright.md",
+      "target": "claude/settings.json",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "procede con las 5",
+      "created_at": "2026-04-14T19:16:08.467117+00:00",
+      "updated_at": "2026-04-14T19:16:08.467117+00:00"
+    },
+    {
+      "source": "playwright.md",
+      "target": "tools/guard_reference_readonly.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "procede con las 5",
+      "created_at": "2026-04-14T19:16:08.480483+00:00",
+      "updated_at": "2026-04-14T19:16:08.480483+00:00"
+    },
+    {
+      "source": "claude/settings.json",
+      "target": "tools/guard_reference_readonly.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "procede con las 5",
+      "created_at": "2026-04-14T19:16:08.484665+00:00",
+      "updated_at": "2026-04-14T19:16:08.484665+00:00"
+    },
+    {
+      "source": "claude/settings.json",
+      "target": "claude/agents/ia_browser_specialist.md",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "procede con las 5",
+      "created_at": "2026-04-14T19:16:08.495503+00:00",
+      "updated_at": "2026-04-14T19:16:08.495503+00:00"
+    },
+    {
+      "source": "tools/guard_reference_readonly.py",
+      "target": "claude/agents/ia_browser_specialist.md",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "procede con las 5",
+      "created_at": "2026-04-14T19:16:08.499692+00:00",
+      "updated_at": "2026-04-14T19:16:08.499692+00:00"
+    },
+    {
+      "source": "tools/guard_reference_readonly.py",
+      "target": "CLAUDE.md",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "procede con las 5",
+      "created_at": "2026-04-14T19:16:08.504682+00:00",
+      "updated_at": "2026-04-14T19:16:08.504682+00:00"
+    },
+    {
+      "source": "claude/agents/ia_browser_specialist.md",
+      "target": "CLAUDE.md",
+      "type": "used_with",
+      "weight": 1.0,
+      "context": "procede con las 5",
+      "created_at": "2026-04-14T19:16:08.509995+00:00",
+      "updated_at": "2026-04-14T19:16:08.516501+00:00"
+    },
+    {
+      "source": "docs/MANUAL_CLI.md",
+      "target": "login_sap.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "puedes hacer un manual de uso de agente en cli",
+      "created_at": "2026-04-14T19:16:13.371660+00:00",
+      "updated_at": "2026-04-14T19:16:13.371660+00:00"
+    },
+    {
+      "source": "docs/MANUAL_CLI.md",
+      "target": "tools/login_sap.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "puedes hacer un manual de uso de agente en cli",
+      "created_at": "2026-04-14T19:16:13.382813+00:00",
+      "updated_at": "2026-04-14T19:16:13.382813+00:00"
+    },
+    {
+      "source": "login_sap.py",
+      "target": "tools/login_sap.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "puedes hacer un manual de uso de agente en cli",
+      "created_at": "2026-04-14T19:16:13.388050+00:00",
+      "updated_at": "2026-04-14T19:16:13.388050+00:00"
     }
   ],
-  "updated_at": "2026-04-14T19:11:44.294563+00:00",
+  "updated_at": "2026-04-14T19:16:13.389070+00:00",
   "stats": {
-    "entities": 101,
-    "relations": 216
+    "entities": 105,
+    "relations": 228
   }
 }
