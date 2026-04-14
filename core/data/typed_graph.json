@@ -119,6 +119,54 @@
       "properties": {},
       "created_at": "2026-04-14T01:32:42.026455+00:00",
       "updated_at": "2026-04-14T01:32:42.026455+00:00"
+    },
+    "sap": {
+      "id": "sap",
+      "type": "concept",
+      "name": "sap",
+      "properties": {},
+      "created_at": "2026-04-14T14:44:51.007653+00:00",
+      "updated_at": "2026-04-14T14:44:51.007653+00:00"
+    },
+    "requests": {
+      "id": "requests",
+      "type": "concept",
+      "name": "requests",
+      "properties": {},
+      "created_at": "2026-04-14T14:44:51.773679+00:00",
+      "updated_at": "2026-04-14T14:44:51.773679+00:00"
+    },
+    "MANUAL_AGENTE.md": {
+      "id": "MANUAL_AGENTE.md",
+      "type": "file",
+      "name": "MANUAL_AGENTE.md",
+      "properties": {},
+      "created_at": "2026-04-14T14:45:48.484772+00:00",
+      "updated_at": "2026-04-14T14:45:48.484772+00:00"
+    },
+    "\\Chance1\\IA\\IA_Excel\\docs\\MANUAL_AGENTE.md": {
+      "id": "\\Chance1\\IA\\IA_Excel\\docs\\MANUAL_AGENTE.md",
+      "type": "file",
+      "name": "\\Chance1\\IA\\IA_Excel\\docs\\MANUAL_AGENTE.md",
+      "properties": {},
+      "created_at": "2026-04-14T14:45:48.492149+00:00",
+      "updated_at": "2026-04-14T14:45:48.492149+00:00"
+    },
+    "//my.sale": {
+      "id": "//my.sale",
+      "type": "file",
+      "name": "//my.sale",
+      "properties": {},
+      "created_at": "2026-04-14T14:45:51.032499+00:00",
+      "updated_at": "2026-04-14T14:45:51.032499+00:00"
+    },
+    "sdemo.sap": {
+      "id": "sdemo.sap",
+      "type": "file",
+      "name": "sdemo.sap",
+      "properties": {},
+      "created_at": "2026-04-14T14:45:51.037512+00:00",
+      "updated_at": "2026-04-14T14:45:51.037512+00:00"
     }
   },
   "relations": [
@@ -355,11 +403,56 @@
       "context": "instala el mejor para mis casos de uso como dices eso del sap CRM etc",
       "created_at": "2026-04-14T01:32:42.029455+00:00",
       "updated_at": "2026-04-14T01:32:42.029455+00:00"
+    },
+    {
+      "source": "sap",
+      "target": "requests",
+      "type": "triggers",
+      "weight": 0.7,
+      "context": "y para enfrentarse a lo temas de llenar cosas en SAP no fallaria?",
+      "created_at": "2026-04-14T14:44:51.864312+00:00",
+      "updated_at": "2026-04-14T14:44:51.864312+00:00"
+    },
+    {
+      "source": "agent.md",
+      "target": "MANUAL_AGENTE.md",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "tienes manual de usurioo del agente?",
+      "created_at": "2026-04-14T14:45:48.490124+00:00",
+      "updated_at": "2026-04-14T14:45:48.490124+00:00"
+    },
+    {
+      "source": "agent.md",
+      "target": "\\Chance1\\IA\\IA_Excel\\docs\\MANUAL_AGENTE.md",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "tienes manual de usurioo del agente?",
+      "created_at": "2026-04-14T14:45:48.494147+00:00",
+      "updated_at": "2026-04-14T14:45:48.494147+00:00"
+    },
+    {
+      "source": "MANUAL_AGENTE.md",
+      "target": "\\Chance1\\IA\\IA_Excel\\docs\\MANUAL_AGENTE.md",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "tienes manual de usurioo del agente?",
+      "created_at": "2026-04-14T14:45:48.496664+00:00",
+      "updated_at": "2026-04-14T14:45:48.496664+00:00"
+    },
+    {
+      "source": "//my.sale",
+      "target": "sdemo.sap",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "dame un ejemplo de uso?",
+      "created_at": "2026-04-14T14:45:51.041036+00:00",
+      "updated_at": "2026-04-14T14:45:51.041036+00:00"
     }
   ],
-  "updated_at": "2026-04-14T01:32:42.029455+00:00",
+  "updated_at": "2026-04-14T14:45:51.041543+00:00",
   "stats": {
-    "entities": 15,
-    "relations": 26
+    "entities": 21,
+    "relations": 31
   }
 }
