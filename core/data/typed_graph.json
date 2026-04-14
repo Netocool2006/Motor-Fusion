@@ -223,6 +223,118 @@
       "properties": {},
       "created_at": "2026-04-14T15:56:42.535324+00:00",
       "updated_at": "2026-04-14T15:56:42.535324+00:00"
+    },
+    "85.85": {
+      "id": "85.85",
+      "type": "file",
+      "name": "85.85",
+      "properties": {},
+      "created_at": "2026-04-14T16:15:43.066052+00:00",
+      "updated_at": "2026-04-14T16:15:43.066052+00:00"
+    },
+    "BrowserMCP.io": {
+      "id": "BrowserMCP.io",
+      "type": "file",
+      "name": "BrowserMCP.io",
+      "properties": {},
+      "created_at": "2026-04-14T16:15:43.068068+00:00",
+      "updated_at": "2026-04-14T16:15:43.069071+00:00"
+    },
+    "que": {
+      "id": "que",
+      "type": "concept",
+      "name": "que",
+      "properties": {},
+      "created_at": "2026-04-14T16:18:50.202634+00:00",
+      "updated_at": "2026-04-14T16:18:50.202634+00:00"
+    },
+    "captchas automã¡ticamente (recaptcha v2/v3, hcaptc": {
+      "id": "captchas automã¡ticamente (recaptcha v2/v3, hcaptc",
+      "type": "concept",
+      "name": "captchas automã¡ticamente (recaptcha v2/v3, hcaptc",
+      "properties": {},
+      "created_at": "2026-04-14T16:18:50.205177+00:00",
+      "updated_at": "2026-04-14T16:18:50.205177+00:00"
+    },
+    "0.80": {
+      "id": "0.80",
+      "type": "file",
+      "name": "0.80",
+      "properties": {},
+      "created_at": "2026-04-14T16:18:50.212170+00:00",
+      "updated_at": "2026-04-14T16:18:50.212170+00:00"
+    },
+    "1.00": {
+      "id": "1.00",
+      "type": "file",
+      "name": "1.00",
+      "properties": {},
+      "created_at": "2026-04-14T16:18:50.318991+00:00",
+      "updated_at": "2026-04-14T16:18:50.318991+00:00"
+    },
+    "v0.86": {
+      "id": "v0.86",
+      "type": "file",
+      "name": "v0.86",
+      "properties": {},
+      "created_at": "2026-04-14T16:42:08.311672+00:00",
+      "updated_at": "2026-04-14T16:42:08.311672+00:00"
+    },
+    "adapters/claude_adapter.py": {
+      "id": "adapters/claude_adapter.py",
+      "type": "file",
+      "name": "adapters/claude_adapter.py",
+      "properties": {},
+      "created_at": "2026-04-14T16:42:08.314792+00:00",
+      "updated_at": "2026-04-14T16:42:08.314792+00:00"
+    },
+    "config.py": {
+      "id": "config.py",
+      "type": "file",
+      "name": "config.py",
+      "properties": {},
+      "created_at": "2026-04-14T16:42:08.320701+00:00",
+      "updated_at": "2026-04-14T16:42:08.320701+00:00"
+    },
+    "requirements.txt": {
+      "id": "requirements.txt",
+      "type": "file",
+      "name": "requirements.txt",
+      "properties": {},
+      "created_at": "2026-04-14T16:42:08.327262+00:00",
+      "updated_at": "2026-04-14T16:42:08.327262+00:00"
+    },
+    "0.40": {
+      "id": "0.40",
+      "type": "file",
+      "name": "0.40",
+      "properties": {},
+      "created_at": "2026-04-14T16:42:08.334420+00:00",
+      "updated_at": "2026-04-14T16:42:08.334420+00:00"
+    },
+    "core/filler.py": {
+      "id": "core/filler.py",
+      "type": "file",
+      "name": "core/filler.py",
+      "properties": {},
+      "created_at": "2026-04-14T16:42:08.341463+00:00",
+      "updated_at": "2026-04-14T16:42:08.341463+00:00"
+    },
+    "adapters.clau": {
+      "id": "adapters.clau",
+      "type": "file",
+      "name": "adapters.clau",
+      "properties": {},
+      "created_at": "2026-04-14T16:42:08.348783+00:00",
+      "updated_at": "2026-04-14T16:42:08.348783+00:00"
+    },
+    "a.get_": {
+      "id": "a.get_",
+      "type": "file",
+      "name": "a.get_",
+      "properties": {},
+      "created_at": "2026-04-14T16:42:08.356129+00:00",
+      "updated_at": "2026-04-14T16:42:08.356129+00:00"
     }
   },
   "relations": [
@@ -612,11 +724,182 @@
       "context": "procede con esto: \" para enfrentarse a lo temas de llenar cosas en SAP no fallaria?\n\nâ—? Respuesta h",
       "created_at": "2026-04-14T15:56:42.542374+00:00",
       "updated_at": "2026-04-14T15:56:42.542374+00:00"
+    },
+    {
+      "source": "85.85",
+      "target": "BrowserMCP.io",
+      "type": "used_with",
+      "weight": 1.0,
+      "context": "pre-hook query",
+      "created_at": "2026-04-14T16:15:43.070437+00:00",
+      "updated_at": "2026-04-14T16:15:43.073666+00:00"
+    },
+    {
+      "source": "BrowserMCP.io",
+      "target": "BrowserMCP.io",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-14T16:15:43.076693+00:00",
+      "updated_at": "2026-04-14T16:15:43.076693+00:00"
+    },
+    {
+      "source": "que",
+      "target": "captchas automã¡ticamente (recaptcha v2/v3, hcaptc",
+      "type": "solves",
+      "weight": 0.7,
+      "context": "hay unas que dices que se necesita api key explicarme mas detalle cuales son porque necesitan ?",
+      "created_at": "2026-04-14T16:18:50.209124+00:00",
+      "updated_at": "2026-04-14T16:18:50.209124+00:00"
+    },
+    {
+      "source": "0.80",
+      "target": "1.00",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "hay unas que dices que se necesita api key explicarme mas detalle cuales son porque necesitan ?",
+      "created_at": "2026-04-14T16:18:50.322113+00:00",
+      "updated_at": "2026-04-14T16:18:50.322113+00:00"
+    },
+    {
+      "source": "v0.86",
+      "target": "adapters/claude_adapter.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "procede con todo solo valida lo de ollama ya no tengo ollama instalado",
+      "created_at": "2026-04-14T16:42:08.318061+00:00",
+      "updated_at": "2026-04-14T16:42:08.318061+00:00"
+    },
+    {
+      "source": "v0.86",
+      "target": "config.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "procede con todo solo valida lo de ollama ya no tengo ollama instalado",
+      "created_at": "2026-04-14T16:42:08.323210+00:00",
+      "updated_at": "2026-04-14T16:42:08.323210+00:00"
+    },
+    {
+      "source": "adapters/claude_adapter.py",
+      "target": "config.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "procede con todo solo valida lo de ollama ya no tengo ollama instalado",
+      "created_at": "2026-04-14T16:42:08.325256+00:00",
+      "updated_at": "2026-04-14T16:42:08.325256+00:00"
+    },
+    {
+      "source": "adapters/claude_adapter.py",
+      "target": "requirements.txt",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "procede con todo solo valida lo de ollama ya no tengo ollama instalado",
+      "created_at": "2026-04-14T16:42:08.328266+00:00",
+      "updated_at": "2026-04-14T16:42:08.328266+00:00"
+    },
+    {
+      "source": "config.py",
+      "target": "requirements.txt",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "procede con todo solo valida lo de ollama ya no tengo ollama instalado",
+      "created_at": "2026-04-14T16:42:08.332311+00:00",
+      "updated_at": "2026-04-14T16:42:08.332311+00:00"
+    },
+    {
+      "source": "config.py",
+      "target": "0.40",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "procede con todo solo valida lo de ollama ya no tengo ollama instalado",
+      "created_at": "2026-04-14T16:42:08.336939+00:00",
+      "updated_at": "2026-04-14T16:42:08.336939+00:00"
+    },
+    {
+      "source": "requirements.txt",
+      "target": "0.40",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "procede con todo solo valida lo de ollama ya no tengo ollama instalado",
+      "created_at": "2026-04-14T16:42:08.339403+00:00",
+      "updated_at": "2026-04-14T16:42:08.339403+00:00"
+    },
+    {
+      "source": "requirements.txt",
+      "target": "core/filler.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "procede con todo solo valida lo de ollama ya no tengo ollama instalado",
+      "created_at": "2026-04-14T16:42:08.343976+00:00",
+      "updated_at": "2026-04-14T16:42:08.343976+00:00"
+    },
+    {
+      "source": "0.40",
+      "target": "core/filler.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "procede con todo solo valida lo de ollama ya no tengo ollama instalado",
+      "created_at": "2026-04-14T16:42:08.345988+00:00",
+      "updated_at": "2026-04-14T16:42:08.345988+00:00"
+    },
+    {
+      "source": "0.40",
+      "target": "adapters.clau",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "procede con todo solo valida lo de ollama ya no tengo ollama instalado",
+      "created_at": "2026-04-14T16:42:08.352301+00:00",
+      "updated_at": "2026-04-14T16:42:08.352301+00:00"
+    },
+    {
+      "source": "core/filler.py",
+      "target": "adapters.clau",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "procede con todo solo valida lo de ollama ya no tengo ollama instalado",
+      "created_at": "2026-04-14T16:42:08.354957+00:00",
+      "updated_at": "2026-04-14T16:42:08.354957+00:00"
+    },
+    {
+      "source": "core/filler.py",
+      "target": "a.get_",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "procede con todo solo valida lo de ollama ya no tengo ollama instalado",
+      "created_at": "2026-04-14T16:42:08.359335+00:00",
+      "updated_at": "2026-04-14T16:42:08.359335+00:00"
+    },
+    {
+      "source": "adapters.clau",
+      "target": "a.get_",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "procede con todo solo valida lo de ollama ya no tengo ollama instalado",
+      "created_at": "2026-04-14T16:42:08.362860+00:00",
+      "updated_at": "2026-04-14T16:42:08.362860+00:00"
+    },
+    {
+      "source": "adapters.clau",
+      "target": "adapters.clau",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "procede con todo solo valida lo de ollama ya no tengo ollama instalado",
+      "created_at": "2026-04-14T16:42:08.365382+00:00",
+      "updated_at": "2026-04-14T16:42:08.365382+00:00"
+    },
+    {
+      "source": "a.get_",
+      "target": "adapters.clau",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "procede con todo solo valida lo de ollama ya no tengo ollama instalado",
+      "created_at": "2026-04-14T16:42:08.368137+00:00",
+      "updated_at": "2026-04-14T16:42:08.368137+00:00"
     }
   ],
-  "updated_at": "2026-04-14T15:56:42.542374+00:00",
+  "updated_at": "2026-04-14T16:42:08.368137+00:00",
   "stats": {
-    "entities": 28,
-    "relations": 43
+    "entities": 42,
+    "relations": 62
   }
 }
