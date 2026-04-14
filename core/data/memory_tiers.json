@@ -2,21 +2,54 @@
   "hot": [
     {
       "key": "ya re inicie",
-      "value": "## âœ… Ahora sÃ­ estÃ¡ agregado de verdad\n\nLo agreguÃ© al archivo correcto del CLI:\n```\nC:\\Users\\ntoledo\\AppData\\Local\\ClaudeCode\\.claude.json\n```\n(backup guardado en `.claude.json.bak`)\n\nEstado actual de `mcpServers` en la config del CLI:\n```json\n\"mcpServers\": {\n  \"playwright\": {...},\n  \"ia_powerpoint\": {\n    \"type\": \"stdio\",\n    \"command\": \"C:\\\\Chance1\\\\IA\\\\IA_PowerPoint\\\\.venv\\\\Scripts\\\\python.exe\",\n    \"args\": [\"-m\", \"src.mcp_server\"],\n    \"cwd\": \"C:\\\\Chance1\\\\IA\\\\IA_PowerPoint\",\n    \"env\": {}\n  }\n}\n```\n\n**Nota sobre lo que pasÃ³ antes:** el JSON que pegaste probablemente lo pusiste en `claude_desktop_config.json` (Claude Desktop app) o en un archivo que no era el del CLI. Ahora estÃ¡ en el correcto.\n\n**Siguiente paso:** cierra y reabre el CLI **una vez mÃ¡s**. Al reabrir, `/mcp` debe mostrar `ia_powerpoint âœ“ connected` y las tools `mcp__ia_powerpoint__*` aparecerÃ¡n disponibles.",
+      "value": "## âœ… MCP `ia_powerpoint` cargado en esta sesiÃ³n\n\nConfirmo que las tools ya estÃ¡n disponibles. ContÃ© **~100 tools** `mcp__ia_powerpoint__*` activas, incluyendo:\n\n**Copilot premium:**\n- `copilot_build_from_prompt`, `copilot_rewrite_storyline`, `copilot_auto_layout_slide/presentation`\n- `copilot_apply_patch`, `copilot_plan_patch`, `copilot_improve_slide`\n- `copilot_enforce_brand_guardrails`, `copilot_bullets_to_visual`, `copilot_capabilities`\n\n**SesiÃ³n y presentaciones:**\n- `open_presentation`, `attach_to_presentation`, `save_presentation`, `close_presentation`\n- `list_open_presentations`, `create_backup`, `restore_backup`, `force_recover`\n\n**EdiciÃ³n de slides:**\n- `manage_slide`, `add_text_box`, `add_image`, `add_chart`, `add_table`, `add_hyperlink`\n- `find_replace`, `find_text`, `delete_shape`, `group_shapes`, `ungroup_shape`\n\n**Estilo/tema/marca:**\n- `apply_slide_theme`, `apply_theme_to_presentation`, `extract_style_profile`\n- `apply_style_profile`, `inherit_style_batch`, `compa",
       "domain": "ML 100%",
       "source": "auto_save",
       "tier": "hot",
-      "created_at": "2026-04-14T23:47:38.795310+00:00",
-      "last_access": "2026-04-14T23:47:38.795310+00:00",
+      "created_at": "2026-04-14T23:50:32.695602+00:00",
+      "last_access": "2026-04-14T23:50:32.695602+00:00",
+      "access_count": 0,
+      "promotion_count": 0
+    },
+    {
+      "key": "tengo una ptt abierta valida 1,2,3",
+      "value": "## âœ… Smoke test completo â€” todo funcionando\n\n**1) Heartbeat:** `{ok: true}` â€” el server COM responde.\n\n**2) PresentaciÃ³n abierta detectada:**\n```\nBluePrint_BAC_Servicio Gestionado ACH_v2.0 (1).pptx\n  Path: C:\\Users\\ntoledo\\Downloads\\\n  Slides: 25 | Read-only: false | Saved: false\n```\n\n**3) Attached exitoso** â€” modo ATTACHED activo (no se creÃ³ un segundo POWERPNT.EXE, tu sesiÃ³n estÃ¡ protegida).\n\n**4) Copilot capabilities:**\n- **Authoring:** build_from_prompt, rewrite_storyline, improve_slide, bullets_to_visual\n- **Layout:** auto_layout_slide, auto_layout_presentation\n- **Brand:** enforce_brand_guardrails (audit + audit_and_fix)\n- **Patch workflow:** plan_patch â†’ apply_patch (con dry_run)\n- **Style inheritance:** strict_clone_style, smart_clone_style\n- **Visual library (8 tipos):** compare, funnel, kpi_cards, matrix_2x2, org_like, process, roadmap, timeline\n- **Preferencias persistentes activas:**\n  - `persistent_instructions`: \"Siempre responde en tono ejecutivo\"\n  - `enab",
+      "domain": "ML 100%",
+      "source": "auto_save",
+      "tier": "hot",
+      "created_at": "2026-04-14T23:52:20.682002+00:00",
+      "last_access": "2026-04-14T23:52:20.682002+00:00",
+      "access_count": 0,
+      "promotion_count": 0
+    },
+    {
+      "key": "mira si hay algun tipo de error: btw que paso esta colgado?\n\n    No, no estÃ¡ colgado. La Ãºltima tool (capture_presentation_visual para el slide 8) fallÃ³ con un error interno del\n    sistema (\"Tool ",
+      "value": "## DiagnÃ³stico del \"cuelgue\"\n\n**El server MCP estÃ¡ vivo y sano.** Heartbeat respondiÃ³ `{ok: true}` y el log muestra actividad normal.\n\n**Lo que realmente pasÃ³ con la captura visual:**\n1. A las `17:57:24` el server abriÃ³ una nueva referencia COM a PowerPoint (pid=24144, tu mismo proceso â€” modo ATTACHED correcto)\n2. La tool `capture_presentation_visual` fue **rechazada por ti** (probablemente presionaste ESC o denegaste el permiso cuando Claude pidiÃ³ confirmaciÃ³n). No hubo error del server.\n3. El mensaje del sistema que recibÃ­ fue: *\"The user doesn't want to proceed with this tool use. The tool use was rejected\"*\n\n**No hay errores en el log.** No hay cuelgues, ni fallos COM, ni exceptions. Todo limpio.\n\n## Opciones para continuar con slide 8\n\n1. **Saltar el baseline** y aplicar `copilot_auto_layout_slide` directo con `visible=true` â€” lo ves transformarse en vivo, sin necesidad de captura previa.\n2. **Usar `export_slide_image`** en vez de `capture_presentation_visual` (mÃ¡s si",
+      "domain": "ML 100%",
+      "source": "auto_save",
+      "tier": "hot",
+      "created_at": "2026-04-14T23:58:04.354721+00:00",
+      "last_access": "2026-04-14T23:58:04.354721+00:00",
+      "access_count": 0,
+      "promotion_count": 0
+    },
+    {
+      "key": "cuales serian los archivos a monitorear para saber que no se colgo?",
+      "value": "## Archivos a monitorear para detectar si el MCP se colgÃ³\n\n### ðŸ”´ Log principal (el mÃ¡s Ãºtil)\n```\nC:\\Chance1\\IA\\IA_PowerPoint\\logs\\powerpoint_com.log\n```\nEs el Ãºnico log activo del proyecto ahora mismo. Registra:\n- Arranque/cierre de PowerPoint (`PowerPoint started, pid=...`)\n- Attach/detach (`Attached to user's PowerPoint`)\n- Cada apertura de presentaciÃ³n\n- Advertencias crÃ­ticas (`force_recover SKIPPED`, `ATTACHED mode`)\n- Errores COM cuando ocurren\n\n**Regla:** si hace mÃ¡s de ~30 segundos que no aparece lÃ­nea nueva durante una operaciÃ³n activa â†’ posible cuelgue.\n\n### ðŸŸ¡ Procesos del sistema (indicador complementario)\n```bash\ntasklist | grep -i \"POWERPNT\\|python\"\n```\n- `POWERPNT.EXE` debe seguir vivo (pid=24144 en tu caso actual)\n- El `python.exe` del venv (`C:\\Chance1\\IA\\IA_PowerPoint\\.venv\\Scripts\\python.exe`) debe estar corriendo como child del CLI de Claude\n- Si ves varios `POWERPNT.EXE` en modo ATTACHED â†’ bug, el server no deberÃ­a lanzar nuevos procesos\n\n### ðŸŸ¢",
+      "domain": "ML 100%",
+      "source": "auto_save",
+      "tier": "hot",
+      "created_at": "2026-04-14T23:59:32.893842+00:00",
+      "last_access": "2026-04-14T23:59:32.893842+00:00",
       "access_count": 0,
       "promotion_count": 0
     }
   ],
   "warm": [],
   "cold": [],
-  "updated_at": "2026-04-14T23:47:38.795310+00:00",
+  "updated_at": "2026-04-14T23:59:32.893842+00:00",
   "counts": {
-    "hot": 1,
+    "hot": 4,
     "warm": 0,
     "cold": 0
   }

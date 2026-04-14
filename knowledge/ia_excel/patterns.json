@@ -1820,6 +1820,70 @@
         "last_accessed": "2026-04-05T05:26:00.997517+00:00",
         "access_count": 1
       }
+    },
+    "75c40abfafd7": {
+      "id": "75c40abfafd7",
+      "type": "pattern",
+      "key": "session_auto_20260414_174750",
+      "solution": {
+        "strategy": "auto_captured_from_session",
+        "notes": "Interacciones clave:\n  P: o sea ya esta agregado?\n  R: Sí, ya está agregado. El bloque JSON que pegaste queda registrado en la config del CLI de Claude para el servidor MCP `ia_powerpoint`.  Pero **aún no \n  P: <local-command-stdout>Goodbye!</local-command-stdout>\n  R: No response requested.\n  P: <local-command-stdout>See ya!</local-command-stdout>\n  R: No response requested.\nResumen: mira esto ya esta agregado en el setting del cli claude Configura Claude Desktop con este servidor MCP (archivo de config de Claude): {   \"mcpServers\" -> o sea ya esta agregado? -> <local-command-cave\nCreados: .check_mcp.py, .add_mcp.py\nDecisiones: la **A** porque `requirements.txt` incluye `pywin32`, `mcp`, etc., y conviene aislarlos del python global.\nErrores resueltos: Exit code 2\nls: cannot access 'C:/Chance1/IA/IA_PowerPoint/.venv/Scripts/python.; Exit code 1\n  File \"<string>\", line 6\r\n    if 'PowerPoint' in path.replace('\\','",
+        "auto_learned": true,
+        "source": "hook_session_end",
+        "files_touched": [
+          "C:/Chance1/IA/IA_PowerPoint/.check_mcp.py",
+          "C:/Chance1/IA/IA_PowerPoint/.add_mcp.py"
+        ],
+        "domain_detected": "ia_excel"
+      },
+      "tags": [
+        "auto-learned",
+        "session",
+        "ia_excel"
+      ],
+      "error_context": null,
+      "created_at": "2026-04-14T23:47:50.845211+00:00",
+      "updated_at": "2026-04-14T23:47:50.845211+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-04-14T23:47:50.845211+00:00",
+        "access_count": 0
+      }
+    },
+    "3585ce57f42e": {
+      "id": "3585ce57f42e",
+      "type": "pattern",
+      "key": "session_auto_20260414_174957",
+      "solution": {
+        "strategy": "auto_captured_from_session",
+        "notes": "Interacciones clave:\n  P: o sea ya esta agregado?\n  R: Sí, ya está agregado. El bloque JSON que pegaste queda registrado en la config del CLI de Claude para el servidor MCP `ia_powerpoint`.  Pero **aún no \n  P: <local-command-stdout>Goodbye!</local-command-stdout>\n  R: No response requested.\n  P: <local-command-stdout>See ya!</local-command-stdout>\n  R: No response requested.\nResumen: mira esto ya esta agregado en el setting del cli claude Configura Claude Desktop con este servidor MCP (archivo de config de Claude): {   \"mcpServers\" -> o sea ya esta agregado? -> <local-command-cave\nCreados: .check_mcp.py, .add_mcp.py, .dbg_mcp.py, .fix_mcp.py\nDecisiones: la **A** porque `requirements.txt` incluye `pywin32`, `mcp`, etc., y conviene aislarlos del python global.\nErrores resueltos: Exit code 2\nls: cannot access 'C:/Chance1/IA/IA_PowerPoint/.venv/Scripts/python.; Exit code 1\n  File \"<string>\", line 6\r\n    if 'PowerPoint' in path.replace('\\','",
+        "auto_learned": true,
+        "source": "hook_session_end",
+        "files_touched": [
+          "C:/Chance1/IA/IA_PowerPoint/.check_mcp.py",
+          "C:/Chance1/IA/IA_PowerPoint/.add_mcp.py",
+          "C:/Chance1/IA/IA_PowerPoint/.dbg_mcp.py",
+          "C:/Chance1/IA/IA_PowerPoint/.fix_mcp.py"
+        ],
+        "domain_detected": "ia_excel"
+      },
+      "tags": [
+        "auto-learned",
+        "session",
+        "ia_excel"
+      ],
+      "error_context": null,
+      "created_at": "2026-04-14T23:49:57.824922+00:00",
+      "updated_at": "2026-04-14T23:49:57.824922+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-04-14T23:49:57.824922+00:00",
+        "access_count": 0
+      }
     }
   },
   "tag_index": {
@@ -2197,10 +2261,22 @@
     ],
     "management": [
       "05f40ecf397d"
+    ],
+    "auto-learned": [
+      "75c40abfafd7",
+      "3585ce57f42e"
+    ],
+    "session": [
+      "75c40abfafd7",
+      "3585ce57f42e"
+    ],
+    "ia_excel": [
+      "75c40abfafd7",
+      "3585ce57f42e"
     ]
   },
   "stats": {
-    "total_entries": 72,
+    "total_entries": 74,
     "total_lookups": 552,
     "total_hits": 471
   }

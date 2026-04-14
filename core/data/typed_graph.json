@@ -1191,6 +1191,22 @@
       "properties": {},
       "created_at": "2026-04-14T23:47:38.869919+00:00",
       "updated_at": "2026-04-14T23:47:38.869919+00:00"
+    },
+    "\\Chance1\\IA\\IA_PowerPoint\\logs\\powerpoint_com.log": {
+      "id": "\\Chance1\\IA\\IA_PowerPoint\\logs\\powerpoint_com.log",
+      "type": "file",
+      "name": "\\Chance1\\IA\\IA_PowerPoint\\logs\\powerpoint_com.log",
+      "properties": {},
+      "created_at": "2026-04-14T23:59:32.903359+00:00",
+      "updated_at": "2026-04-14T23:59:32.903359+00:00"
+    },
+    "POWERPNT.EXE": {
+      "id": "POWERPNT.EXE",
+      "type": "file",
+      "name": "POWERPNT.EXE",
+      "properties": {},
+      "created_at": "2026-04-14T23:59:32.909823+00:00",
+      "updated_at": "2026-04-14T23:59:32.909823+00:00"
     }
   },
   "relations": [
@@ -1423,10 +1439,10 @@
       "source": "\\Users\\ntoledo\\.clau",
       "target": "de.json",
       "type": "used_with",
-      "weight": 3.5,
-      "context": "pre-hook query",
+      "weight": 4.0,
+      "context": "ya re inicie",
       "created_at": "2026-04-14T01:32:42.029455+00:00",
-      "updated_at": "2026-04-14T17:18:28.462697+00:00"
+      "updated_at": "2026-04-14T23:49:49.844662+00:00"
     },
     {
       "source": "sap",
@@ -3907,28 +3923,28 @@
       "source": "\\Chance1\\IA\\IA_PowerPoint\\.venv",
       "target": "\\Scripts\\python.exe",
       "type": "used_with",
-      "weight": 1.5,
-      "context": "valida el fallo prueba arrancar el mcp server de power point",
+      "weight": 2.5,
+      "context": "cuales serian los archivos a monitorear para saber que no se colgo?",
       "created_at": "2026-04-14T23:28:35.787079+00:00",
-      "updated_at": "2026-04-14T23:31:31.535626+00:00"
+      "updated_at": "2026-04-14T23:59:32.953495+00:00"
     },
     {
       "source": "\\Chance1\\IA\\IA_PowerPoint\\.venv",
       "target": "src.mcp_",
       "type": "used_with",
-      "weight": 1.0,
-      "context": "o sea ya esta agregado?",
+      "weight": 1.5,
+      "context": "ya re inicie",
       "created_at": "2026-04-14T23:28:35.793096+00:00",
-      "updated_at": "2026-04-14T23:29:09.671123+00:00"
+      "updated_at": "2026-04-14T23:49:49.802391+00:00"
     },
     {
       "source": "\\Scripts\\python.exe",
       "target": "src.mcp_",
       "type": "used_with",
-      "weight": 1.5,
-      "context": "o sea ya esta agregado?",
+      "weight": 2.0,
+      "context": "ya re inicie",
       "created_at": "2026-04-14T23:28:35.798098+00:00",
-      "updated_at": "2026-04-14T23:29:09.676632+00:00"
+      "updated_at": "2026-04-14T23:49:49.808393+00:00"
     },
     {
       "source": "src.mcp_",
@@ -4033,10 +4049,10 @@
       "source": "\\Users\\ntoledo\\AppData\\Local\\ClaudeCode\\.clau",
       "target": "de.json",
       "type": "used_with",
-      "weight": 0.5,
+      "weight": 1.0,
       "context": "ya re inicie",
       "created_at": "2026-04-14T23:47:38.809676+00:00",
-      "updated_at": "2026-04-14T23:47:38.810179+00:00"
+      "updated_at": "2026-04-14T23:49:49.869747+00:00"
     },
     {
       "source": "\\Users\\ntoledo\\AppData\\Local\\ClaudeCode\\.clau",
@@ -4100,11 +4116,155 @@
       "context": "ya re inicie",
       "created_at": "2026-04-14T23:47:38.881994+00:00",
       "updated_at": "2026-04-14T23:47:38.881994+00:00"
+    },
+    {
+      "source": "\\Scripts\\python.exe",
+      "target": "claude.json",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "ya re inicie",
+      "created_at": "2026-04-14T23:49:49.815089+00:00",
+      "updated_at": "2026-04-14T23:49:49.815089+00:00"
+    },
+    {
+      "source": "src.mcp_",
+      "target": "claude.json",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "ya re inicie",
+      "created_at": "2026-04-14T23:49:49.821128+00:00",
+      "updated_at": "2026-04-14T23:49:49.821128+00:00"
+    },
+    {
+      "source": "src.mcp_",
+      "target": "\\Users\\ntoledo\\.clau",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "ya re inicie",
+      "created_at": "2026-04-14T23:49:49.826870+00:00",
+      "updated_at": "2026-04-14T23:49:49.826870+00:00"
+    },
+    {
+      "source": "claude.json",
+      "target": "\\Users\\ntoledo\\.clau",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "ya re inicie",
+      "created_at": "2026-04-14T23:49:49.832396+00:00",
+      "updated_at": "2026-04-14T23:49:49.832396+00:00"
+    },
+    {
+      "source": "claude.json",
+      "target": "de.json",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "ya re inicie",
+      "created_at": "2026-04-14T23:49:49.838405+00:00",
+      "updated_at": "2026-04-14T23:49:49.838405+00:00"
+    },
+    {
+      "source": "\\Users\\ntoledo\\.clau",
+      "target": "\\Users\\ntoledo\\AppData\\Local\\ClaudeCode\\.clau",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "ya re inicie",
+      "created_at": "2026-04-14T23:49:49.851186+00:00",
+      "updated_at": "2026-04-14T23:49:49.851186+00:00"
+    },
+    {
+      "source": "de.json",
+      "target": "\\Users\\ntoledo\\AppData\\Local\\ClaudeCode\\.clau",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "ya re inicie",
+      "created_at": "2026-04-14T23:49:49.857700+00:00",
+      "updated_at": "2026-04-14T23:49:49.857700+00:00"
+    },
+    {
+      "source": "de.json",
+      "target": "de.json",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "ya re inicie",
+      "created_at": "2026-04-14T23:49:49.863229+00:00",
+      "updated_at": "2026-04-14T23:49:49.863229+00:00"
+    },
+    {
+      "source": "\\Chance1\\IA\\IA_PowerPoint\\logs\\powerpoint_com.log",
+      "target": "POWERPNT.EXE",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "cuales serian los archivos a monitorear para saber que no se colgo?",
+      "created_at": "2026-04-14T23:59:32.915829+00:00",
+      "updated_at": "2026-04-14T23:59:32.915829+00:00"
+    },
+    {
+      "source": "\\Chance1\\IA\\IA_PowerPoint\\logs\\powerpoint_com.log",
+      "target": "python.exe",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "cuales serian los archivos a monitorear para saber que no se colgo?",
+      "created_at": "2026-04-14T23:59:32.922774+00:00",
+      "updated_at": "2026-04-14T23:59:32.922774+00:00"
+    },
+    {
+      "source": "POWERPNT.EXE",
+      "target": "python.exe",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "cuales serian los archivos a monitorear para saber que no se colgo?",
+      "created_at": "2026-04-14T23:59:32.928804+00:00",
+      "updated_at": "2026-04-14T23:59:32.928804+00:00"
+    },
+    {
+      "source": "POWERPNT.EXE",
+      "target": "\\Chance1\\IA\\IA_PowerPoint\\.venv",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "cuales serian los archivos a monitorear para saber que no se colgo?",
+      "created_at": "2026-04-14T23:59:32.934572+00:00",
+      "updated_at": "2026-04-14T23:59:32.934572+00:00"
+    },
+    {
+      "source": "python.exe",
+      "target": "\\Chance1\\IA\\IA_PowerPoint\\.venv",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "cuales serian los archivos a monitorear para saber que no se colgo?",
+      "created_at": "2026-04-14T23:59:32.941072+00:00",
+      "updated_at": "2026-04-14T23:59:32.941072+00:00"
+    },
+    {
+      "source": "python.exe",
+      "target": "\\Scripts\\python.exe",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "cuales serian los archivos a monitorear para saber que no se colgo?",
+      "created_at": "2026-04-14T23:59:32.946800+00:00",
+      "updated_at": "2026-04-14T23:59:32.946800+00:00"
+    },
+    {
+      "source": "\\Chance1\\IA\\IA_PowerPoint\\.venv",
+      "target": "POWERPNT.EXE",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "cuales serian los archivos a monitorear para saber que no se colgo?",
+      "created_at": "2026-04-14T23:59:32.959016+00:00",
+      "updated_at": "2026-04-14T23:59:32.959016+00:00"
+    },
+    {
+      "source": "\\Scripts\\python.exe",
+      "target": "POWERPNT.EXE",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "cuales serian los archivos a monitorear para saber que no se colgo?",
+      "created_at": "2026-04-14T23:59:32.965988+00:00",
+      "updated_at": "2026-04-14T23:59:32.965988+00:00"
     }
   ],
-  "updated_at": "2026-04-14T23:47:38.881994+00:00",
+  "updated_at": "2026-04-14T23:59:32.965988+00:00",
   "stats": {
-    "entities": 149,
-    "relations": 323
+    "entities": 151,
+    "relations": 339
   }
 }
