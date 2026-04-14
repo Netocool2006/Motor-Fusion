@@ -12761,15 +12761,17 @@
     "reasoning_traces": [],
     "metrics": {
       "total_messages": 2,
-      "user_messages": 1,
+      "decisions_count": 0,
       "errors_count": 0,
       "files_touched": 0,
-      "commands_count": 0,
-      "decisions_count": 0
+      "user_messages": 1,
+      "commands_count": 0
     },
     "domains": [
       "hooks_ia_backup_20260331_22050"
-    ]
+    ],
+    "merged": true,
+    "merge_count": 2
   },
   {
     "session_id": "d4fb4b12-858f-4af8-9fe6-dc51a462bff0",

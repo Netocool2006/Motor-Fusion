@@ -167,6 +167,62 @@
       "properties": {},
       "created_at": "2026-04-14T14:45:51.037512+00:00",
       "updated_at": "2026-04-14T14:45:51.037512+00:00"
+    },
+    "document.quer": {
+      "id": "document.quer",
+      "type": "file",
+      "name": "document.quer",
+      "properties": {},
+      "created_at": "2026-04-14T15:54:36.162486+00:00",
+      "updated_at": "2026-04-14T15:54:36.162486+00:00"
+    },
+    "tabla.quer": {
+      "id": "tabla.quer",
+      "type": "file",
+      "name": "tabla.quer",
+      "properties": {},
+      "created_at": "2026-04-14T15:54:36.163492+00:00",
+      "updated_at": "2026-04-14T15:54:36.163492+00:00"
+    },
+    "btnAdd.clic": {
+      "id": "btnAdd.clic",
+      "type": "file",
+      "name": "btnAdd.clic",
+      "properties": {},
+      "created_at": "2026-04-14T15:54:36.168038+00:00",
+      "updated_at": "2026-04-14T15:54:36.168038+00:00"
+    },
+    "nuevoInput.valu": {
+      "id": "nuevoInput.valu",
+      "type": "file",
+      "name": "nuevoInput.valu",
+      "properties": {},
+      "created_at": "2026-04-14T15:54:36.175082+00:00",
+      "updated_at": "2026-04-14T15:54:36.175082+00:00"
+    },
+    "nuevoInput.disp": {
+      "id": "nuevoInput.disp",
+      "type": "file",
+      "name": "nuevoInput.disp",
+      "properties": {},
+      "created_at": "2026-04-14T15:54:36.180272+00:00",
+      "updated_at": "2026-04-14T15:54:36.180272+00:00"
+    },
+    "playwright.md": {
+      "id": "playwright.md",
+      "type": "file",
+      "name": "playwright.md",
+      "properties": {},
+      "created_at": "2026-04-14T15:56:42.530787+00:00",
+      "updated_at": "2026-04-14T15:56:42.530787+00:00"
+    },
+    "sap.md": {
+      "id": "sap.md",
+      "type": "file",
+      "name": "sap.md",
+      "properties": {},
+      "created_at": "2026-04-14T15:56:42.535324+00:00",
+      "updated_at": "2026-04-14T15:56:42.535324+00:00"
     }
   },
   "relations": [
@@ -408,10 +464,10 @@
       "source": "sap",
       "target": "requests",
       "type": "triggers",
-      "weight": 0.7,
-      "context": "y para enfrentarse a lo temas de llenar cosas en SAP no fallaria?",
+      "weight": 1.4,
+      "context": "pre-hook query",
       "created_at": "2026-04-14T14:44:51.864312+00:00",
-      "updated_at": "2026-04-14T14:44:51.864312+00:00"
+      "updated_at": "2026-04-14T15:54:36.160976+00:00"
     },
     {
       "source": "agent.md",
@@ -448,11 +504,119 @@
       "context": "dame un ejemplo de uso?",
       "created_at": "2026-04-14T14:45:51.041036+00:00",
       "updated_at": "2026-04-14T14:45:51.041036+00:00"
+    },
+    {
+      "source": "document.quer",
+      "target": "tabla.quer",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-14T15:54:36.165499+00:00",
+      "updated_at": "2026-04-14T15:54:36.165499+00:00"
+    },
+    {
+      "source": "document.quer",
+      "target": "btnAdd.clic",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-14T15:54:36.170050+00:00",
+      "updated_at": "2026-04-14T15:54:36.170050+00:00"
+    },
+    {
+      "source": "tabla.quer",
+      "target": "btnAdd.clic",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-14T15:54:36.170559+00:00",
+      "updated_at": "2026-04-14T15:54:36.170559+00:00"
+    },
+    {
+      "source": "tabla.quer",
+      "target": "document.quer",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-14T15:54:36.172068+00:00",
+      "updated_at": "2026-04-14T15:54:36.172068+00:00"
+    },
+    {
+      "source": "btnAdd.clic",
+      "target": "document.quer",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-14T15:54:36.173086+00:00",
+      "updated_at": "2026-04-14T15:54:36.173086+00:00"
+    },
+    {
+      "source": "btnAdd.clic",
+      "target": "nuevoInput.valu",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-14T15:54:36.175082+00:00",
+      "updated_at": "2026-04-14T15:54:36.175082+00:00"
+    },
+    {
+      "source": "document.quer",
+      "target": "nuevoInput.valu",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-14T15:54:36.178150+00:00",
+      "updated_at": "2026-04-14T15:54:36.178150+00:00"
+    },
+    {
+      "source": "document.quer",
+      "target": "nuevoInput.disp",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-14T15:54:36.180781+00:00",
+      "updated_at": "2026-04-14T15:54:36.180781+00:00"
+    },
+    {
+      "source": "nuevoInput.valu",
+      "target": "nuevoInput.disp",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-14T15:54:36.183331+00:00",
+      "updated_at": "2026-04-14T15:54:36.183331+00:00"
+    },
+    {
+      "source": "\\Users\\ntoledo\\.clau",
+      "target": "playwright.md",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "procede con esto: \" para enfrentarse a lo temas de llenar cosas en SAP no fallaria?\n\nâ—? Respuesta h",
+      "created_at": "2026-04-14T15:56:42.533318+00:00",
+      "updated_at": "2026-04-14T15:56:42.533318+00:00"
+    },
+    {
+      "source": "\\Users\\ntoledo\\.clau",
+      "target": "sap.md",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "procede con esto: \" para enfrentarse a lo temas de llenar cosas en SAP no fallaria?\n\nâ—? Respuesta h",
+      "created_at": "2026-04-14T15:56:42.538832+00:00",
+      "updated_at": "2026-04-14T15:56:42.538832+00:00"
+    },
+    {
+      "source": "playwright.md",
+      "target": "sap.md",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "procede con esto: \" para enfrentarse a lo temas de llenar cosas en SAP no fallaria?\n\nâ—? Respuesta h",
+      "created_at": "2026-04-14T15:56:42.542374+00:00",
+      "updated_at": "2026-04-14T15:56:42.542374+00:00"
     }
   ],
-  "updated_at": "2026-04-14T14:45:51.041543+00:00",
+  "updated_at": "2026-04-14T15:56:42.542374+00:00",
   "stats": {
-    "entities": 21,
-    "relations": 31
+    "entities": 28,
+    "relations": 43
   }
 }
