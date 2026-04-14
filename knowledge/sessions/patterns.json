@@ -13252,6 +13252,30 @@
         "last_accessed": "2026-04-10T16:41:45.728056+00:00",
         "access_count": 0
       }
+    },
+    "70c009f25bf1": {
+      "id": "70c009f25bf1",
+      "type": "fact",
+      "key": "episodic_20260413_185722",
+      "fact": {
+        "rule": "+ fix | | **ToolBuilder** | `tool_builder.py` | Tools custom en runtime desde `tools_custom/` | | **CLI run_engine** | `run_engine.py` | validate / edit / agent / detect |  ---  ## Tabla 3: Métodos de ExcelCOM agrupados por categoría  | Categoría | M",
+        "applies_to": "sesion 20260413_185722, dominio hooks_ia_backup_20260331_22050",
+        "confidence": "observed",
+        "source": "auto_episodic_extraction"
+      },
+      "tags": [
+        "episodic",
+        "auto-learned",
+        "hooks_ia_backup_20260331_22050"
+      ],
+      "created_at": "2026-04-14T00:57:22.246713+00:00",
+      "updated_at": "2026-04-14T00:57:22.246713+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-14T00:57:22.246713+00:00",
+        "access_count": 0
+      }
     }
   },
   "tag_index": {
@@ -13766,7 +13790,8 @@
       "8e46b12aca8a",
       "4f5a15a352d3",
       "f49cd31cdfa3",
-      "5a8c618d1277"
+      "5a8c618d1277",
+      "70c009f25bf1"
     ],
     "iteration": [
       "99ea64471b21",
@@ -14309,7 +14334,8 @@
       "8e46b12aca8a",
       "4f5a15a352d3",
       "f49cd31cdfa3",
-      "5a8c618d1277"
+      "5a8c618d1277",
+      "70c009f25bf1"
     ],
     "files": [
       "e6022665fe1c",
@@ -14817,11 +14843,12 @@
       "8e46b12aca8a",
       "4f5a15a352d3",
       "f49cd31cdfa3",
-      "5a8c618d1277"
+      "5a8c618d1277",
+      "70c009f25bf1"
     ]
   },
   "stats": {
-    "total_entries": 511,
+    "total_entries": 512,
     "total_lookups": 1141,
     "total_hits": 886
   }
