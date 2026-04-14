@@ -13061,5 +13061,138 @@
     "domains": [
       "hooks_ia_backup_20260331_22050"
     ]
+  },
+  {
+    "session_id": "4dde7bb8-6902-4c83-a41f-06eac0b27068",
+    "date": "2026-04-14",
+    "time": "16:50:01 UTC",
+    "timestamp": "2026-04-14 16:50:01",
+    "cwd": "C:\\Chance1\\IA\\FormFiller_IA",
+    "summary": "Responde solo: OK",
+    "user_messages": [
+      "Responde solo: OK"
+    ],
+    "files_read": [],
+    "files_edited": [],
+    "files_created": [],
+    "commands_run": [],
+    "searches": [],
+    "errors": [],
+    "decisions": [],
+    "learning_json": null,
+    "reasoning_traces": [],
+    "metrics": {
+      "commands_count": 0,
+      "user_messages": 1,
+      "total_messages": 2,
+      "errors_count": 0,
+      "files_touched": 0,
+      "decisions_count": 0
+    },
+    "domains": [
+      "hooks_ia_backup_20260331_22050"
+    ],
+    "merged": true,
+    "merge_count": 5
+  },
+  {
+    "session_id": "f074e288-6e40-4ccd-ad66-e0a8ce476695",
+    "date": "2026-04-14",
+    "time": "16:54:01 UTC",
+    "timestamp": "2026-04-14 16:54:01",
+    "cwd": "C:\\Chance1\\IA\\FormFiller_IA",
+    "summary": "Responde solo con la palabra: FUNCIONA",
+    "user_messages": [
+      "Responde solo con la palabra: FUNCIONA"
+    ],
+    "files_read": [],
+    "files_edited": [],
+    "files_created": [],
+    "commands_run": [],
+    "searches": [],
+    "errors": [],
+    "decisions": [],
+    "learning_json": null,
+    "reasoning_traces": [],
+    "metrics": {
+      "total_messages": 2,
+      "user_messages": 1,
+      "errors_count": 0,
+      "files_touched": 0,
+      "commands_count": 0,
+      "decisions_count": 0
+    },
+    "domains": [
+      "hooks_ia_backup_20260331_22050"
+    ]
+  },
+  {
+    "session_id": "4a9b5b10-b8db-4914-bf18-2d921d8bea6f",
+    "date": "2026-04-14",
+    "time": "16:54:36 UTC",
+    "timestamp": "2026-04-14 16:54:36",
+    "cwd": "C:\\Chance1\\IA\\FormFiller_IA",
+    "summary": "Eres experto en automatizacion web. Identifica el selector CSS mas preciso para el campo solicitado. Responde SOLO con el selector, sin explicacion ni",
+    "user_messages": [
+      "Eres experto en automatizacion web. Identifica el selector CSS mas preciso para el campo solicitado. Responde SOLO con el selector, sin explicacion ni markdown. Si no puedes, responde exactamente: NONE",
+      "Eres experto en automatizacion web. Identifica el selector CSS mas preciso para el campo solicitado. Responde SOLO con el selector, sin explicacion ni markdown. Si no puedes, responde exactamente: NONE\r\n\r\nCampo buscado: campo de correo electronico\r\n\r\nHTML:\r\n```html\r\n<form><input id=\"user_email\" type=\"email\" placeholder=\"Correo\"><input id=\"user_pwd\" type=\"password\"><button id=\"btn_login\">Entrar</button></form>\r\n```\r\n\r\nSelector CSS:"
+    ],
+    "files_read": [],
+    "files_edited": [],
+    "files_created": [],
+    "commands_run": [],
+    "searches": [],
+    "errors": [],
+    "decisions": [],
+    "learning_json": null,
+    "reasoning_traces": [],
+    "metrics": {
+      "files_touched": 0,
+      "decisions_count": 0,
+      "user_messages": 1,
+      "commands_count": 0,
+      "total_messages": 3,
+      "errors_count": 0
+    },
+    "domains": [
+      "hooks_ia_backup_20260331_22050",
+      "tests",
+      "banco_bantrab",
+      "chance1",
+      "js"
+    ],
+    "merged": true,
+    "merge_count": 2
+  },
+  {
+    "session_id": "627e44bb-bfef-4a11-8753-304360cb1cbe",
+    "date": "2026-04-14",
+    "time": "16:55:07 UTC",
+    "timestamp": "2026-04-14 16:55:07",
+    "cwd": "C:\\Chance1\\IA\\FormFiller_IA",
+    "summary": "Cual es el selector CSS del campo email en este HTML? Responde SOLO con el selector:",
+    "user_messages": [
+      "Cual es el selector CSS del campo email en este HTML? Responde SOLO con el selector:"
+    ],
+    "files_read": [],
+    "files_edited": [],
+    "files_created": [],
+    "commands_run": [],
+    "searches": [],
+    "errors": [],
+    "decisions": [],
+    "learning_json": null,
+    "reasoning_traces": [],
+    "metrics": {
+      "total_messages": 3,
+      "user_messages": 1,
+      "errors_count": 0,
+      "files_touched": 0,
+      "commands_count": 0,
+      "decisions_count": 0
+    },
+    "domains": [
+      "hooks_ia_backup_20260331_22050"
+    ]
   }
 ]
