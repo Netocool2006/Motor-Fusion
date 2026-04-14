@@ -13276,6 +13276,54 @@
         "last_accessed": "2026-04-14T00:57:22.246713+00:00",
         "access_count": 0
       }
+    },
+    "b9bbb743f7a0": {
+      "id": "b9bbb743f7a0",
+      "type": "fact",
+      "key": "episodic_20260414_125559",
+      "fact": {
+        "rule": "browser_take_screenshot para debug intermedio — usar browser_snapshot. NUNCA grabar en SAP automáticamente — dejar que el usuario lo haga manual. NUNCA importar código de FormFiller_IA o SAP_Tierra_IA — usar solo lo copiado.  Si necesitas inyectar JS; js/*.js via browser_evaluate'\"       }]     }]   } } ```  Un guard como `guard_no_edit_reference.py` puede leer el tool_input, verificar que el archivo a editar NO está en `reference/` y fallar si lo está.  **Efectividad**: 99%. Es bloqueo real a niv",
+        "applies_to": "sesion 20260414_125559, dominio hooks_ia_backup_20260331_22050",
+        "confidence": "observed",
+        "source": "auto_episodic_extraction"
+      },
+      "tags": [
+        "episodic",
+        "auto-learned",
+        "hooks_ia_backup_20260331_22050"
+      ],
+      "created_at": "2026-04-14T18:55:59.200694+00:00",
+      "updated_at": "2026-04-14T18:55:59.200694+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-14T18:55:59.200694+00:00",
+        "access_count": 0
+      }
+    },
+    "a7af37320b27": {
+      "id": "a7af37320b27",
+      "type": "fact",
+      "key": "episodic_20260414_130214",
+      "fact": {
+        "rule": "browser_take_screenshot para debug intermedio — usar browser_snapshot. NUNCA grabar en SAP automáticamente — dejar que el usuario lo haga manual. NUNCA importar código de FormFiller_IA o SAP_Tierra_IA — usar solo lo copiado.  Si necesitas inyectar JS; js/*.js via browser_evaluate'\"       }]     }]   } } ```  Un guard como `guard_no_edit_reference.py` puede leer el tool_input, verificar que el archivo a editar NO está en `reference/` y fallar si lo está.  **Efectividad**: 99%. Es bloqueo real a niv",
+        "applies_to": "sesion 20260414_130214, dominio hooks_ia_backup_20260331_22050",
+        "confidence": "observed",
+        "source": "auto_episodic_extraction"
+      },
+      "tags": [
+        "episodic",
+        "auto-learned",
+        "hooks_ia_backup_20260331_22050"
+      ],
+      "created_at": "2026-04-14T19:02:15.012184+00:00",
+      "updated_at": "2026-04-14T19:02:15.012184+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-14T19:02:15.012184+00:00",
+        "access_count": 0
+      }
     }
   },
   "tag_index": {
@@ -13791,7 +13839,9 @@
       "4f5a15a352d3",
       "f49cd31cdfa3",
       "5a8c618d1277",
-      "70c009f25bf1"
+      "70c009f25bf1",
+      "b9bbb743f7a0",
+      "a7af37320b27"
     ],
     "iteration": [
       "99ea64471b21",
@@ -14335,7 +14385,9 @@
       "4f5a15a352d3",
       "f49cd31cdfa3",
       "5a8c618d1277",
-      "70c009f25bf1"
+      "70c009f25bf1",
+      "b9bbb743f7a0",
+      "a7af37320b27"
     ],
     "files": [
       "e6022665fe1c",
@@ -14844,11 +14896,13 @@
       "4f5a15a352d3",
       "f49cd31cdfa3",
       "5a8c618d1277",
-      "70c009f25bf1"
+      "70c009f25bf1",
+      "b9bbb743f7a0",
+      "a7af37320b27"
     ]
   },
   "stats": {
-    "total_entries": 512,
+    "total_entries": 514,
     "total_lookups": 1141,
     "total_hits": 886
   }
