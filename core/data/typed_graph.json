@@ -1095,6 +1095,102 @@
       "properties": {},
       "created_at": "2026-04-14T22:12:39.621163+00:00",
       "updated_at": "2026-04-14T22:12:39.621163+00:00"
+    },
+    "claude": {
+      "id": "claude",
+      "type": "concept",
+      "name": "claude",
+      "properties": {},
+      "created_at": "2026-04-14T23:28:13.360525+00:00",
+      "updated_at": "2026-04-14T23:28:13.360525+00:00"
+    },
+    "\\\\Chance1\\\\IA\\\\IA_PowerPoint\\\\.venv": {
+      "id": "\\\\Chance1\\\\IA\\\\IA_PowerPoint\\\\.venv",
+      "type": "file",
+      "name": "\\\\Chance1\\\\IA\\\\IA_PowerPoint\\\\.venv",
+      "properties": {},
+      "created_at": "2026-04-14T23:28:13.370309+00:00",
+      "updated_at": "2026-04-14T23:28:13.370309+00:00"
+    },
+    "\\\\Scripts\\\\python.exe": {
+      "id": "\\\\Scripts\\\\python.exe",
+      "type": "file",
+      "name": "\\\\Scripts\\\\python.exe",
+      "properties": {},
+      "created_at": "2026-04-14T23:28:13.373881+00:00",
+      "updated_at": "2026-04-14T23:28:13.373881+00:00"
+    },
+    "src.mcp_": {
+      "id": "src.mcp_",
+      "type": "file",
+      "name": "src.mcp_",
+      "properties": {},
+      "created_at": "2026-04-14T23:28:13.380376+00:00",
+      "updated_at": "2026-04-14T23:28:13.380376+00:00"
+    },
+    "\\Chance1\\IA\\IA_PowerPoint\\.venv": {
+      "id": "\\Chance1\\IA\\IA_PowerPoint\\.venv",
+      "type": "file",
+      "name": "\\Chance1\\IA\\IA_PowerPoint\\.venv",
+      "properties": {},
+      "created_at": "2026-04-14T23:28:35.775062+00:00",
+      "updated_at": "2026-04-14T23:28:35.775062+00:00"
+    },
+    "\\Scripts\\python.exe": {
+      "id": "\\Scripts\\python.exe",
+      "type": "file",
+      "name": "\\Scripts\\python.exe",
+      "properties": {},
+      "created_at": "2026-04-14T23:28:35.781570+00:00",
+      "updated_at": "2026-04-14T23:28:35.781570+00:00"
+    },
+    "python.exe": {
+      "id": "python.exe",
+      "type": "file",
+      "name": "python.exe",
+      "properties": {},
+      "created_at": "2026-04-14T23:30:01.537242+00:00",
+      "updated_at": "2026-04-14T23:30:01.537242+00:00"
+    },
+    "\\Users\\ntoledo\\AppData\\Local\\Programs\\Python\\Python312\\python.exe": {
+      "id": "\\Users\\ntoledo\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+      "type": "file",
+      "name": "\\Users\\ntoledo\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+      "properties": {},
+      "created_at": "2026-04-14T23:31:31.540634+00:00",
+      "updated_at": "2026-04-14T23:31:31.542142+00:00"
+    },
+    "\\\\Users\\\\ntoledo\\\\AppData\\\\Local\\\\Programs\\\\Python\\\\Python312\\\\python.exe": {
+      "id": "\\\\Users\\\\ntoledo\\\\AppData\\\\Local\\\\Programs\\\\Python\\\\Python312\\\\python.exe",
+      "type": "file",
+      "name": "\\\\Users\\\\ntoledo\\\\AppData\\\\Local\\\\Programs\\\\Python\\\\Python312\\\\python.exe",
+      "properties": {},
+      "created_at": "2026-04-14T23:31:31.571365+00:00",
+      "updated_at": "2026-04-14T23:31:31.571365+00:00"
+    },
+    "\\Users\\ntoledo\\AppData\\Local\\ClaudeCode\\.clau": {
+      "id": "\\Users\\ntoledo\\AppData\\Local\\ClaudeCode\\.clau",
+      "type": "file",
+      "name": "\\Users\\ntoledo\\AppData\\Local\\ClaudeCode\\.clau",
+      "properties": {},
+      "created_at": "2026-04-14T23:47:38.803490+00:00",
+      "updated_at": "2026-04-14T23:47:38.803490+00:00"
+    },
+    "claude.json": {
+      "id": "claude.json",
+      "type": "file",
+      "name": "claude.json",
+      "properties": {},
+      "created_at": "2026-04-14T23:47:38.815187+00:00",
+      "updated_at": "2026-04-14T23:47:38.815187+00:00"
+    },
+    "claude_desktop_config.json": {
+      "id": "claude_desktop_config.json",
+      "type": "file",
+      "name": "claude_desktop_config.json",
+      "properties": {},
+      "created_at": "2026-04-14T23:47:38.869919+00:00",
+      "updated_at": "2026-04-14T23:47:38.869919+00:00"
     }
   },
   "relations": [
@@ -3770,11 +3866,245 @@
       "context": "quiero que todo lo que esta en el proyect C:\\Chance1\\IA\\FormFiller_IA (si aplica tu dime si aplica) ",
       "created_at": "2026-04-14T22:12:39.633360+00:00",
       "updated_at": "2026-04-14T22:12:39.633360+00:00"
+    },
+    {
+      "source": "claude",
+      "target": "claude",
+      "type": "configures",
+      "weight": 0.7,
+      "context": "pre-hook query",
+      "created_at": "2026-04-14T23:28:13.366815+00:00",
+      "updated_at": "2026-04-14T23:28:13.366815+00:00"
+    },
+    {
+      "source": "\\\\Chance1\\\\IA\\\\IA_PowerPoint\\\\.venv",
+      "target": "\\\\Scripts\\\\python.exe",
+      "type": "used_with",
+      "weight": 1.0,
+      "context": "ya re inicie",
+      "created_at": "2026-04-14T23:28:13.376913+00:00",
+      "updated_at": "2026-04-14T23:47:38.851502+00:00"
+    },
+    {
+      "source": "\\\\Chance1\\\\IA\\\\IA_PowerPoint\\\\.venv",
+      "target": "src.mcp_",
+      "type": "used_with",
+      "weight": 1.0,
+      "context": "ya re inicie",
+      "created_at": "2026-04-14T23:28:13.383928+00:00",
+      "updated_at": "2026-04-14T23:47:38.857427+00:00"
+    },
+    {
+      "source": "\\\\Scripts\\\\python.exe",
+      "target": "src.mcp_",
+      "type": "used_with",
+      "weight": 1.0,
+      "context": "ya re inicie",
+      "created_at": "2026-04-14T23:28:13.387402+00:00",
+      "updated_at": "2026-04-14T23:47:38.863636+00:00"
+    },
+    {
+      "source": "\\Chance1\\IA\\IA_PowerPoint\\.venv",
+      "target": "\\Scripts\\python.exe",
+      "type": "used_with",
+      "weight": 1.5,
+      "context": "valida el fallo prueba arrancar el mcp server de power point",
+      "created_at": "2026-04-14T23:28:35.787079+00:00",
+      "updated_at": "2026-04-14T23:31:31.535626+00:00"
+    },
+    {
+      "source": "\\Chance1\\IA\\IA_PowerPoint\\.venv",
+      "target": "src.mcp_",
+      "type": "used_with",
+      "weight": 1.0,
+      "context": "o sea ya esta agregado?",
+      "created_at": "2026-04-14T23:28:35.793096+00:00",
+      "updated_at": "2026-04-14T23:29:09.671123+00:00"
+    },
+    {
+      "source": "\\Scripts\\python.exe",
+      "target": "src.mcp_",
+      "type": "used_with",
+      "weight": 1.5,
+      "context": "o sea ya esta agregado?",
+      "created_at": "2026-04-14T23:28:35.798098+00:00",
+      "updated_at": "2026-04-14T23:29:09.676632+00:00"
+    },
+    {
+      "source": "src.mcp_",
+      "target": "src.mcp_",
+      "type": "used_with",
+      "weight": 1.0,
+      "context": "valida yo ya re inicie la sesion",
+      "created_at": "2026-04-14T23:28:35.809617+00:00",
+      "updated_at": "2026-04-14T23:30:01.549302+00:00"
+    },
+    {
+      "source": "src.mcp_",
+      "target": "python.exe",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "valida yo ya re inicie la sesion",
+      "created_at": "2026-04-14T23:30:01.543281+00:00",
+      "updated_at": "2026-04-14T23:30:01.543281+00:00"
+    },
+    {
+      "source": "python.exe",
+      "target": "src.mcp_",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "valida yo ya re inicie la sesion",
+      "created_at": "2026-04-14T23:30:01.554866+00:00",
+      "updated_at": "2026-04-14T23:30:01.554866+00:00"
+    },
+    {
+      "source": "python.exe",
+      "target": "/.clau",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "valida yo ya re inicie la sesion",
+      "created_at": "2026-04-14T23:30:01.560883+00:00",
+      "updated_at": "2026-04-14T23:30:01.560883+00:00"
+    },
+    {
+      "source": "src.mcp_",
+      "target": "/.clau",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "valida yo ya re inicie la sesion",
+      "created_at": "2026-04-14T23:30:01.566860+00:00",
+      "updated_at": "2026-04-14T23:30:01.566860+00:00"
+    },
+    {
+      "source": "\\Chance1\\IA\\IA_PowerPoint\\.venv",
+      "target": "\\Users\\ntoledo\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "valida el fallo prueba arrancar el mcp server de power point",
+      "created_at": "2026-04-14T23:31:31.547666+00:00",
+      "updated_at": "2026-04-14T23:31:31.547666+00:00"
+    },
+    {
+      "source": "\\Scripts\\python.exe",
+      "target": "\\Users\\ntoledo\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "valida el fallo prueba arrancar el mcp server de power point",
+      "created_at": "2026-04-14T23:31:31.553344+00:00",
+      "updated_at": "2026-04-14T23:31:31.553344+00:00"
+    },
+    {
+      "source": "\\Scripts\\python.exe",
+      "target": "requirements.txt",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "valida el fallo prueba arrancar el mcp server de power point",
+      "created_at": "2026-04-14T23:31:31.559795+00:00",
+      "updated_at": "2026-04-14T23:31:31.559795+00:00"
+    },
+    {
+      "source": "\\Users\\ntoledo\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+      "target": "requirements.txt",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "valida el fallo prueba arrancar el mcp server de power point",
+      "created_at": "2026-04-14T23:31:31.566043+00:00",
+      "updated_at": "2026-04-14T23:31:31.566043+00:00"
+    },
+    {
+      "source": "\\Users\\ntoledo\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+      "target": "\\\\Users\\\\ntoledo\\\\AppData\\\\Local\\\\Programs\\\\Python\\\\Python312\\\\python.exe",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "valida el fallo prueba arrancar el mcp server de power point",
+      "created_at": "2026-04-14T23:31:31.577164+00:00",
+      "updated_at": "2026-04-14T23:31:31.577164+00:00"
+    },
+    {
+      "source": "requirements.txt",
+      "target": "\\\\Users\\\\ntoledo\\\\AppData\\\\Local\\\\Programs\\\\Python\\\\Python312\\\\python.exe",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "valida el fallo prueba arrancar el mcp server de power point",
+      "created_at": "2026-04-14T23:31:31.583168+00:00",
+      "updated_at": "2026-04-14T23:31:31.583168+00:00"
+    },
+    {
+      "source": "\\Users\\ntoledo\\AppData\\Local\\ClaudeCode\\.clau",
+      "target": "de.json",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "ya re inicie",
+      "created_at": "2026-04-14T23:47:38.809676+00:00",
+      "updated_at": "2026-04-14T23:47:38.810179+00:00"
+    },
+    {
+      "source": "\\Users\\ntoledo\\AppData\\Local\\ClaudeCode\\.clau",
+      "target": "claude.json",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "ya re inicie",
+      "created_at": "2026-04-14T23:47:38.820212+00:00",
+      "updated_at": "2026-04-14T23:47:38.821146+00:00"
+    },
+    {
+      "source": "de.json",
+      "target": "claude.json",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "ya re inicie",
+      "created_at": "2026-04-14T23:47:38.826177+00:00",
+      "updated_at": "2026-04-14T23:47:38.826177+00:00"
+    },
+    {
+      "source": "de.json",
+      "target": "\\\\Chance1\\\\IA\\\\IA_PowerPoint\\\\.venv",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "ya re inicie",
+      "created_at": "2026-04-14T23:47:38.832213+00:00",
+      "updated_at": "2026-04-14T23:47:38.832213+00:00"
+    },
+    {
+      "source": "claude.json",
+      "target": "\\\\Chance1\\\\IA\\\\IA_PowerPoint\\\\.venv",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "ya re inicie",
+      "created_at": "2026-04-14T23:47:38.838907+00:00",
+      "updated_at": "2026-04-14T23:47:38.838907+00:00"
+    },
+    {
+      "source": "claude.json",
+      "target": "\\\\Scripts\\\\python.exe",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "ya re inicie",
+      "created_at": "2026-04-14T23:47:38.844426+00:00",
+      "updated_at": "2026-04-14T23:47:38.844426+00:00"
+    },
+    {
+      "source": "\\\\Scripts\\\\python.exe",
+      "target": "claude_desktop_config.json",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "ya re inicie",
+      "created_at": "2026-04-14T23:47:38.875497+00:00",
+      "updated_at": "2026-04-14T23:47:38.875497+00:00"
+    },
+    {
+      "source": "src.mcp_",
+      "target": "claude_desktop_config.json",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "ya re inicie",
+      "created_at": "2026-04-14T23:47:38.881994+00:00",
+      "updated_at": "2026-04-14T23:47:38.881994+00:00"
     }
   ],
-  "updated_at": "2026-04-14T22:12:39.633360+00:00",
+  "updated_at": "2026-04-14T23:47:38.881994+00:00",
   "stats": {
-    "entities": 137,
-    "relations": 297
+    "entities": 149,
+    "relations": 323
   }
 }
