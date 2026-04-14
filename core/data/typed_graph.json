@@ -1007,6 +1007,94 @@
       "properties": {},
       "created_at": "2026-04-14T20:09:16.275750+00:00",
       "updated_at": "2026-04-14T20:09:16.275750+00:00"
+    },
+    "MANUAL_CLI.md": {
+      "id": "MANUAL_CLI.md",
+      "type": "file",
+      "name": "MANUAL_CLI.md",
+      "properties": {},
+      "created_at": "2026-04-14T20:15:26.164172+00:00",
+      "updated_at": "2026-04-14T20:15:26.164172+00:00"
+    },
+    "js/sap_followup.js": {
+      "id": "js/sap_followup.js",
+      "type": "file",
+      "name": "js/sap_followup.js",
+      "properties": {},
+      "created_at": "2026-04-14T20:17:12.278462+00:00",
+      "updated_at": "2026-04-14T20:17:12.278462+00:00"
+    },
+    "reference/login_sap_once2_reference.py": {
+      "id": "reference/login_sap_once2_reference.py",
+      "type": "file",
+      "name": "reference/login_sap_once2_reference.py",
+      "properties": {},
+      "created_at": "2026-04-14T20:17:12.283845+00:00",
+      "updated_at": "2026-04-14T20:17:12.283845+00:00"
+    },
+    "js/sap_insert_item.js": {
+      "id": "js/sap_insert_item.js",
+      "type": "file",
+      "name": "js/sap_insert_item.js",
+      "properties": {},
+      "created_at": "2026-04-14T20:17:12.305645+00:00",
+      "updated_at": "2026-04-14T20:17:12.305645+00:00"
+    },
+    "tools/session_watcher.py": {
+      "id": "tools/session_watcher.py",
+      "type": "file",
+      "name": "tools/session_watcher.py",
+      "properties": {},
+      "created_at": "2026-04-14T20:26:50.603054+00:00",
+      "updated_at": "2026-04-14T20:26:50.603054+00:00"
+    },
+    "de/commands/web.md": {
+      "id": "de/commands/web.md",
+      "type": "file",
+      "name": "de/commands/web.md",
+      "properties": {},
+      "created_at": "2026-04-14T20:26:50.633851+00:00",
+      "updated_at": "2026-04-14T20:26:50.633851+00:00"
+    },
+    "tools/smoke_test.sh": {
+      "id": "tools/smoke_test.sh",
+      "type": "file",
+      "name": "tools/smoke_test.sh",
+      "properties": {},
+      "created_at": "2026-04-14T20:26:50.662053+00:00",
+      "updated_at": "2026-04-14T20:26:50.662053+00:00"
+    },
+    "tools/ia_browser_logger.py": {
+      "id": "tools/ia_browser_logger.py",
+      "type": "file",
+      "name": "tools/ia_browser_logger.py",
+      "properties": {},
+      "created_at": "2026-04-14T20:26:50.678759+00:00",
+      "updated_at": "2026-04-14T20:26:50.678759+00:00"
+    },
+    "formfiller_filler_reference.py": {
+      "id": "formfiller_filler_reference.py",
+      "type": "file",
+      "name": "formfiller_filler_reference.py",
+      "properties": {},
+      "created_at": "2026-04-14T22:12:39.592270+00:00",
+      "updated_at": "2026-04-14T22:12:39.592270+00:00"
+    },
+    "formfiller_sap_buscar_reference.py": {
+      "id": "formfiller_sap_buscar_reference.py",
+      "type": "file",
+      "name": "formfiller_sap_buscar_reference.py",
+      "properties": {},
+      "created_at": "2026-04-14T22:12:39.605303+00:00",
+      "updated_at": "2026-04-14T22:12:39.605303+00:00"
+    },
+    "services/sap_crear_followup_reference.py": {
+      "id": "services/sap_crear_followup_reference.py",
+      "type": "file",
+      "name": "services/sap_crear_followup_reference.py",
+      "properties": {},
+      "created_at": "2026-04-14T22:12:39.621163+00:00",
+      "updated_at": "2026-04-14T22:12:39.621163+00:00"
     }
   },
   "relations": [
@@ -3430,11 +3518,263 @@
       "context": "quiero que todo lo que esta en el proyect sap tierra este en este ese proyecto ya no existira  asi q",
       "created_at": "2026-04-14T20:09:16.298710+00:00",
       "updated_at": "2026-04-14T20:09:16.298710+00:00"
+    },
+    {
+      "source": "MANUAL_CLI.md",
+      "target": "CLAUDE.md",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "ya tenemos commit y push cierto?",
+      "created_at": "2026-04-14T20:15:26.168737+00:00",
+      "updated_at": "2026-04-14T20:15:26.168737+00:00"
+    },
+    {
+      "source": "MANUAL_CLI.md",
+      "target": "//github.com",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "ya tenemos commit y push cierto?",
+      "created_at": "2026-04-14T20:15:26.173702+00:00",
+      "updated_at": "2026-04-14T20:15:26.173702+00:00"
+    },
+    {
+      "source": "CLAUDE.md",
+      "target": "//github.com",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "ya tenemos commit y push cierto?",
+      "created_at": "2026-04-14T20:15:26.177653+00:00",
+      "updated_at": "2026-04-14T20:15:26.177653+00:00"
+    },
+    {
+      "source": "js/sap_followup.js",
+      "target": "reference/login_sap_once2_reference.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "algo mas que le falte a este proyecto para poder ayudarme a manejar paginas web en general y Sap?",
+      "created_at": "2026-04-14T20:17:12.289856+00:00",
+      "updated_at": "2026-04-14T20:17:12.289856+00:00"
+    },
+    {
+      "source": "js/sap_followup.js",
+      "target": "tools/login_sap.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "algo mas que le falte a este proyecto para poder ayudarme a manejar paginas web en general y Sap?",
+      "created_at": "2026-04-14T20:17:12.293863+00:00",
+      "updated_at": "2026-04-14T20:17:12.293863+00:00"
+    },
+    {
+      "source": "reference/login_sap_once2_reference.py",
+      "target": "tools/login_sap.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "algo mas que le falte a este proyecto para poder ayudarme a manejar paginas web en general y Sap?",
+      "created_at": "2026-04-14T20:17:12.299625+00:00",
+      "updated_at": "2026-04-14T20:17:12.299625+00:00"
+    },
+    {
+      "source": "reference/login_sap_once2_reference.py",
+      "target": "js/sap_insert_item.js",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "algo mas que le falte a este proyecto para poder ayudarme a manejar paginas web en general y Sap?",
+      "created_at": "2026-04-14T20:17:12.311661+00:00",
+      "updated_at": "2026-04-14T20:17:12.311661+00:00"
+    },
+    {
+      "source": "tools/login_sap.py",
+      "target": "js/sap_insert_item.js",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "algo mas que le falte a este proyecto para poder ayudarme a manejar paginas web en general y Sap?",
+      "created_at": "2026-04-14T20:17:12.315414+00:00",
+      "updated_at": "2026-04-14T20:17:12.315414+00:00"
+    },
+    {
+      "source": "tools/login_sap.py",
+      "target": "sap_actions.js",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "algo mas que le falte a este proyecto para poder ayudarme a manejar paginas web en general y Sap?",
+      "created_at": "2026-04-14T20:17:12.321426+00:00",
+      "updated_at": "2026-04-14T20:17:12.321426+00:00"
+    },
+    {
+      "source": "js/sap_insert_item.js",
+      "target": "sap_actions.js",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "algo mas que le falte a este proyecto para poder ayudarme a manejar paginas web en general y Sap?",
+      "created_at": "2026-04-14T20:17:12.327439+00:00",
+      "updated_at": "2026-04-14T20:17:12.327439+00:00"
+    },
+    {
+      "source": "js/sap_followup.js",
+      "target": "tools/session_watcher.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "realiza del 1 al 11",
+      "created_at": "2026-04-14T20:26:50.608564+00:00",
+      "updated_at": "2026-04-14T20:26:50.608564+00:00"
+    },
+    {
+      "source": "js/sap_followup.js",
+      "target": "js/sap_insert_item.js",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "realiza del 1 al 11",
+      "created_at": "2026-04-14T20:26:50.612786+00:00",
+      "updated_at": "2026-04-14T20:26:50.612786+00:00"
+    },
+    {
+      "source": "tools/session_watcher.py",
+      "target": "js/sap_insert_item.js",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "realiza del 1 al 11",
+      "created_at": "2026-04-14T20:26:50.615787+00:00",
+      "updated_at": "2026-04-14T20:26:50.615787+00:00"
+    },
+    {
+      "source": "tools/session_watcher.py",
+      "target": "/.clau",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "realiza del 1 al 11",
+      "created_at": "2026-04-14T20:26:50.621645+00:00",
+      "updated_at": "2026-04-14T20:26:50.621645+00:00"
+    },
+    {
+      "source": "js/sap_insert_item.js",
+      "target": "/.clau",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "realiza del 1 al 11",
+      "created_at": "2026-04-14T20:26:50.626716+00:00",
+      "updated_at": "2026-04-14T20:26:50.626716+00:00"
+    },
+    {
+      "source": "js/sap_insert_item.js",
+      "target": "de/commands/web.md",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "realiza del 1 al 11",
+      "created_at": "2026-04-14T20:26:50.640118+00:00",
+      "updated_at": "2026-04-14T20:26:50.640118+00:00"
+    },
+    {
+      "source": "/.clau",
+      "target": "de/commands/web.md",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "realiza del 1 al 11",
+      "created_at": "2026-04-14T20:26:50.646209+00:00",
+      "updated_at": "2026-04-14T20:26:50.646209+00:00"
+    },
+    {
+      "source": "/.clau",
+      "target": "/.clau",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "realiza del 1 al 11",
+      "created_at": "2026-04-14T20:26:50.651885+00:00",
+      "updated_at": "2026-04-14T20:26:50.651885+00:00"
+    },
+    {
+      "source": "de/commands/web.md",
+      "target": "/.clau",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "realiza del 1 al 11",
+      "created_at": "2026-04-14T20:26:50.656654+00:00",
+      "updated_at": "2026-04-14T20:26:50.656654+00:00"
+    },
+    {
+      "source": "de/commands/web.md",
+      "target": "tools/smoke_test.sh",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "realiza del 1 al 11",
+      "created_at": "2026-04-14T20:26:50.667637+00:00",
+      "updated_at": "2026-04-14T20:26:50.667637+00:00"
+    },
+    {
+      "source": "/.clau",
+      "target": "tools/smoke_test.sh",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "realiza del 1 al 11",
+      "created_at": "2026-04-14T20:26:50.673659+00:00",
+      "updated_at": "2026-04-14T20:26:50.673659+00:00"
+    },
+    {
+      "source": "/.clau",
+      "target": "tools/ia_browser_logger.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "realiza del 1 al 11",
+      "created_at": "2026-04-14T20:26:50.684273+00:00",
+      "updated_at": "2026-04-14T20:26:50.684273+00:00"
+    },
+    {
+      "source": "tools/smoke_test.sh",
+      "target": "tools/ia_browser_logger.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "realiza del 1 al 11",
+      "created_at": "2026-04-14T20:26:50.688510+00:00",
+      "updated_at": "2026-04-14T20:26:50.688510+00:00"
+    },
+    {
+      "source": "//github.com",
+      "target": "formfiller_filler_reference.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "quiero que todo lo que esta en el proyect C:\\Chance1\\IA\\FormFiller_IA (si aplica tu dime si aplica) ",
+      "created_at": "2026-04-14T22:12:39.598794+00:00",
+      "updated_at": "2026-04-14T22:12:39.598794+00:00"
+    },
+    {
+      "source": "//github.com",
+      "target": "formfiller_sap_buscar_reference.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "quiero que todo lo que esta en el proyect C:\\Chance1\\IA\\FormFiller_IA (si aplica tu dime si aplica) ",
+      "created_at": "2026-04-14T22:12:39.610821+00:00",
+      "updated_at": "2026-04-14T22:12:39.610821+00:00"
+    },
+    {
+      "source": "formfiller_filler_reference.py",
+      "target": "formfiller_sap_buscar_reference.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "quiero que todo lo que esta en el proyect C:\\Chance1\\IA\\FormFiller_IA (si aplica tu dime si aplica) ",
+      "created_at": "2026-04-14T22:12:39.616873+00:00",
+      "updated_at": "2026-04-14T22:12:39.616873+00:00"
+    },
+    {
+      "source": "formfiller_filler_reference.py",
+      "target": "services/sap_crear_followup_reference.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "quiero que todo lo que esta en el proyect C:\\Chance1\\IA\\FormFiller_IA (si aplica tu dime si aplica) ",
+      "created_at": "2026-04-14T22:12:39.627674+00:00",
+      "updated_at": "2026-04-14T22:12:39.627674+00:00"
+    },
+    {
+      "source": "formfiller_sap_buscar_reference.py",
+      "target": "services/sap_crear_followup_reference.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "quiero que todo lo que esta en el proyect C:\\Chance1\\IA\\FormFiller_IA (si aplica tu dime si aplica) ",
+      "created_at": "2026-04-14T22:12:39.633360+00:00",
+      "updated_at": "2026-04-14T22:12:39.633360+00:00"
     }
   ],
-  "updated_at": "2026-04-14T20:09:16.301276+00:00",
+  "updated_at": "2026-04-14T22:12:39.633360+00:00",
   "stats": {
-    "entities": 126,
-    "relations": 269
+    "entities": 137,
+    "relations": 297
   }
 }

@@ -1,20 +1,20 @@
 {
   "hot": [
     {
-      "key": "quiero que todo lo que esta en el proyect sap tierra este en este ese proyecto ya no existira  asi que coloca detalle en todo lo que tienes que copiar y adaptar a este asi que no desaproveches nada de",
-      "value": "Commit `b162d53` pusheado. MigraciÃ³n completa de SAP_Tierra_IA finalizada.\n\n## Resumen total de la migraciÃ³n\n\n**Commit final**: https://github.com/Netocool2006/IA_Browser/commit/b162d53\n\n### Lo que ahora vive en `IA_Browser/`\n\n#### `js/` â€” 17 archivos\n- **Nuevos extraÃ­dos de `sap_mcp_ops.py`** (7):\n  - `sap_helpers.js` â€” `window.__sap.{inFrames, waitFor, waitUif, clickSuffix, clickText, fillSuffix, fillAndEnter, extractOppData, pageState}`\n  - `sap_observability.js` â€” 9 bloques (uif_callback monitor, mutation observer, console capture, network snapshot, localStorage spy)\n  - `sap_state.js` â€” 4 bloques (detect_page, loading, wait_sap_ready, find_error_msgs)\n  - `sap_motor.js` â€” MOTOR_BUSCAR state-aware + MOTOR_POLL\n  - `sap_universal_ops.js` â€” click_text, fill_by_suffix, click_by_suffix\n  - `sap_extract.js` â€” extract_opportunity, extract_items (iteraciÃ³n por span)\n  - `sap_sensor_scan.js` â€” sensor_scan, page_text\n- **Ya existentes**: sap_navigate.js, sap_actions.js, ",
-      "domain": "ML 70%",
+      "key": "quiero que todo lo que esta en el proyect C:\\Chance1\\IA\\FormFiller_IA (si aplica tu dime si aplica)  este en este ese proyecto ya no existira  asi que coloca detalle en todo lo que tienes que copiar y",
+      "value": "Commit `8ffe6d6` pusheado. MigraciÃ³n completa de FormFiller_IA finalizada.\n\n## Resumen de la migraciÃ³n FormFiller_IA\n\n**Commit**: https://github.com/Netocool2006/IA_Browser/commit/8ffe6d6\n\n### ðŸ“Š NÃºmeros\n\n| MÃ©trica | Valor |\n|---|---|\n| Archivos copiados hoy | **28** |\n| LÃ­neas agregadas a `reference/` | **9998** |\n| Total `reference/` tras este commit | ~48 archivos Python |\n| Estructura nueva | `reference/services/`, `reference/learning/`, `reference/adapters/`, `reference/tests/` |\n\n### ðŸŽ¯ Los 3 archivos mÃ¡s valiosos copiados\n\n1. **`formfiller_filler_reference.py`** (1579 lÃ­neas) â€” El motor principal de form filling. Es el archivo mÃ¡s grande del proyecto original y contiene los patrones refinados de value-setting, event dispatch y retry logic.\n2. **`formfiller_sap_buscar_reference.py`** (978 lÃ­neas) â€” Otra implementaciÃ³n independiente de bÃºsqueda SAP, con patrones alternativos al de SAP_Tierra.\n3. **`services/sap_crear_followup_reference.py`** (315 lÃ­neas) â€” Fl",
+      "domain": "ML 85%",
       "source": "auto_save",
       "tier": "hot",
-      "created_at": "2026-04-14T20:09:16.165098+00:00",
-      "last_access": "2026-04-14T20:09:16.165098+00:00",
+      "created_at": "2026-04-14T22:12:39.582732+00:00",
+      "last_access": "2026-04-14T22:12:39.582732+00:00",
       "access_count": 0,
       "promotion_count": 0
     }
   ],
   "warm": [],
   "cold": [],
-  "updated_at": "2026-04-14T20:09:16.165098+00:00",
+  "updated_at": "2026-04-14T22:12:39.582732+00:00",
   "counts": {
     "hot": 1,
     "warm": 0,
