@@ -43,13 +43,68 @@
       "last_access": "2026-04-14T23:59:32.893842+00:00",
       "access_count": 0,
       "promotion_count": 0
+    },
+    {
+      "key": "realiza commit y push",
+      "value": "Todo ya estÃ¡ al dÃ­a. Working tree limpio, `main` sincronizado con `origin/main`. No hay nada pendiente para commitear â€” el Ãºltimo commit (`8ffe6d6 full migration of FormFiller_IA`) ya fue pusheado en la sesiÃ³n anterior.",
+      "domain": "ML 100%",
+      "source": "auto_save",
+      "tier": "hot",
+      "created_at": "2026-04-15T00:02:24.660765+00:00",
+      "last_access": "2026-04-15T00:02:24.660765+00:00",
+      "access_count": 0,
+      "promotion_count": 0
+    },
+    {
+      "key": "manuales de usuario, manual tecnico, arquitectura, ejemplos de uso al dia?",
+      "value": "## No, los manuales estÃ¡n DESACTUALIZADOS\n\nÃšltima modificaciÃ³n de los docs: commit `b38eb35` (bootstrap) + `a938840` (MANUAL_CLI). Desde entonces hubo **4 commits mayores** sin tocar docs:\n\n| Commit | QuÃ© cambiÃ³ sin documentar |\n|---|---|\n| `3054a48` | Guardrails (hook PreToolUse, subagente `ia_browser_specialist`, reglas inviolables) |\n| `6048d7a` | Sweep SAP_Tierra: +15 reference, +2 JS, +AHK |\n| `b162d53` | **MigraciÃ³n SDK JS**: +7 archivos JS crÃ­ticos (sap_helpers, sap_observability, sap_state, sap_motor, sap_universal_ops, sap_extract, sap_sensor_scan), legacy_launchers, knowledge/legacy_config |\n| `d377c37` | **Roadmap 11 items**: sap_followup.js, sap_insert_item.js, session_watcher.py, smoke_test.sh, ia_browser_logger.py, parse_pdf.py + skills `/web`, `/formfiller`, `/bac`, `/banrural`, `/bantrab`, `/promerica` + knowledge/sap_followup_knowledge.md |\n| `8ffe6d6` | **FormFiller migration**: 28 archivos en `reference/` (subcarpetas `services/`, `learning/`, `adapters/`, `te",
+      "domain": "ML 90%",
+      "source": "auto_save",
+      "tier": "hot",
+      "created_at": "2026-04-15T00:03:54.797479+00:00",
+      "last_access": "2026-04-15T00:03:54.797479+00:00",
+      "access_count": 0,
+      "promotion_count": 0
+    },
+    {
+      "key": "monitorea en tiempo real: ðŸ› ï¸? Comando prÃ¡ctico para monitoreo en vivo\n\n  tail -f C:\\Chance1\\IA\\IA_PowerPoint\\logs\\powerpoint_com.log\n  O si quieres algo mÃ¡s completo:\n  Get-Content C:\\Chance1\\IA",
+      "value": "Monitoreo activo en background (ID `b4zitd63y`). Cualquier lÃ­nea nueva en `powerpoint_com.log` se captura automÃ¡ticamente â€” te aviso si aparece algo. Dime cuÃ¡ndo detenerlo o quÃ© acciÃ³n quieres ejecutar en paralelo para observar el comportamiento.",
+      "domain": "ML 100%",
+      "source": "auto_save",
+      "tier": "hot",
+      "created_at": "2026-04-15T00:05:32.449076+00:00",
+      "last_access": "2026-04-15T00:05:32.449076+00:00",
+      "access_count": 0,
+      "promotion_count": 0
+    },
+    {
+      "key": "Reintentar capture_presentation_visual â€” si la rechazas de nuevo, te digo exactamente el motivo que muestra el\n  prompt.",
+      "value": "Listo. Monitoreo programado activo:\n\n- **Cron `4ed085e7`** ejecutÃ¡ndose cada minuto (mÃ­nimo de cron â€” 30s se redondeÃ³ a 1m). Auto-expira en 7 dÃ­as; cancelar con CronDelete.\n- **Background tail `b4zitd63y`** sigue `powerpoint_com.log` en vivo.\n\n**Snapshot inicial (sin errores):**\n- `17:51:56` PowerPoint pid=24144\n- `17:52:01` Attached a `BluePrint_BAC_Servicio Gestionado ACH_v2.0 (1).pptx` (read_only=False)\n- `17:57:24` reuse pid=24144\n\nEstado: ATTACHED correcto, sin WARNING/ERROR recientes. Cada minuto recibirÃ¡s \"sin novedad\" o un reporte si aparece algo.",
+      "domain": "ML 100%",
+      "source": "auto_save",
+      "tier": "hot",
+      "created_at": "2026-04-15T00:06:38.756059+00:00",
+      "last_access": "2026-04-15T00:06:38.756059+00:00",
+      "access_count": 0,
+      "promotion_count": 0
+    },
+    {
+      "key": "Revisa las Ãºltimas lÃ­neas nuevas del background task b4zitd63y (BashOutput) que sigue C:\\Chance1\\IA\\IA_PowerPoint\\logs\\powerpoint_com.log. Reporta SOLO si hay lÃ­neas nuevas con ERROR/WARNING o acti",
+      "value": "sin novedad",
+      "domain": "ML 100%",
+      "source": "auto_save",
+      "tier": "hot",
+      "created_at": "2026-04-15T00:07:28.694805+00:00",
+      "last_access": "2026-04-15T00:07:28.694805+00:00",
+      "access_count": 0,
+      "promotion_count": 0
     }
   ],
   "warm": [],
   "cold": [],
-  "updated_at": "2026-04-14T23:59:32.893842+00:00",
+  "updated_at": "2026-04-15T00:07:28.694805+00:00",
   "counts": {
-    "hot": 4,
+    "hot": 9,
     "warm": 0,
     "cold": 0
   }

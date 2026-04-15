@@ -1207,6 +1207,62 @@
       "properties": {},
       "created_at": "2026-04-14T23:59:32.909823+00:00",
       "updated_at": "2026-04-14T23:59:32.909823+00:00"
+    },
+    "sap_followup.js": {
+      "id": "sap_followup.js",
+      "type": "file",
+      "name": "sap_followup.js",
+      "properties": {},
+      "created_at": "2026-04-15T00:03:54.808530+00:00",
+      "updated_at": "2026-04-15T00:03:54.808530+00:00"
+    },
+    "sap_insert_item.js": {
+      "id": "sap_insert_item.js",
+      "type": "file",
+      "name": "sap_insert_item.js",
+      "properties": {},
+      "created_at": "2026-04-15T00:03:54.816054+00:00",
+      "updated_at": "2026-04-15T00:03:54.816054+00:00"
+    },
+    "session_watcher.py": {
+      "id": "session_watcher.py",
+      "type": "file",
+      "name": "session_watcher.py",
+      "properties": {},
+      "created_at": "2026-04-15T00:03:54.829744+00:00",
+      "updated_at": "2026-04-15T00:03:54.829744+00:00"
+    },
+    "smoke_test.sh": {
+      "id": "smoke_test.sh",
+      "type": "file",
+      "name": "smoke_test.sh",
+      "properties": {},
+      "created_at": "2026-04-15T00:03:54.848323+00:00",
+      "updated_at": "2026-04-15T00:03:54.848323+00:00"
+    },
+    "ia_browser_logger.py": {
+      "id": "ia_browser_logger.py",
+      "type": "file",
+      "name": "ia_browser_logger.py",
+      "properties": {},
+      "created_at": "2026-04-15T00:03:54.866093+00:00",
+      "updated_at": "2026-04-15T00:03:54.867600+00:00"
+    },
+    "parse_pdf.py": {
+      "id": "parse_pdf.py",
+      "type": "file",
+      "name": "parse_pdf.py",
+      "properties": {},
+      "created_at": "2026-04-15T00:03:54.886768+00:00",
+      "updated_at": "2026-04-15T00:03:54.886768+00:00"
+    },
+    "knowledge/sap_followup_knowledge.md": {
+      "id": "knowledge/sap_followup_knowledge.md",
+      "type": "file",
+      "name": "knowledge/sap_followup_knowledge.md",
+      "properties": {},
+      "created_at": "2026-04-15T00:03:54.905845+00:00",
+      "updated_at": "2026-04-15T00:03:54.905845+00:00"
     }
   },
   "relations": [
@@ -4260,11 +4316,119 @@
       "context": "cuales serian los archivos a monitorear para saber que no se colgo?",
       "created_at": "2026-04-14T23:59:32.965988+00:00",
       "updated_at": "2026-04-14T23:59:32.965988+00:00"
+    },
+    {
+      "source": "sap_followup.js",
+      "target": "sap_insert_item.js",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "manuales de usuario, manual tecnico, arquitectura, ejemplos de uso al dia?",
+      "created_at": "2026-04-15T00:03:54.822574+00:00",
+      "updated_at": "2026-04-15T00:03:54.822574+00:00"
+    },
+    {
+      "source": "sap_followup.js",
+      "target": "session_watcher.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "manuales de usuario, manual tecnico, arquitectura, ejemplos de uso al dia?",
+      "created_at": "2026-04-15T00:03:54.835763+00:00",
+      "updated_at": "2026-04-15T00:03:54.835763+00:00"
+    },
+    {
+      "source": "sap_insert_item.js",
+      "target": "session_watcher.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "manuales de usuario, manual tecnico, arquitectura, ejemplos de uso al dia?",
+      "created_at": "2026-04-15T00:03:54.841806+00:00",
+      "updated_at": "2026-04-15T00:03:54.841806+00:00"
+    },
+    {
+      "source": "sap_insert_item.js",
+      "target": "smoke_test.sh",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "manuales de usuario, manual tecnico, arquitectura, ejemplos de uso al dia?",
+      "created_at": "2026-04-15T00:03:54.854846+00:00",
+      "updated_at": "2026-04-15T00:03:54.854846+00:00"
+    },
+    {
+      "source": "session_watcher.py",
+      "target": "smoke_test.sh",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "manuales de usuario, manual tecnico, arquitectura, ejemplos de uso al dia?",
+      "created_at": "2026-04-15T00:03:54.861047+00:00",
+      "updated_at": "2026-04-15T00:03:54.861047+00:00"
+    },
+    {
+      "source": "session_watcher.py",
+      "target": "ia_browser_logger.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "manuales de usuario, manual tecnico, arquitectura, ejemplos de uso al dia?",
+      "created_at": "2026-04-15T00:03:54.873051+00:00",
+      "updated_at": "2026-04-15T00:03:54.873051+00:00"
+    },
+    {
+      "source": "smoke_test.sh",
+      "target": "ia_browser_logger.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "manuales de usuario, manual tecnico, arquitectura, ejemplos de uso al dia?",
+      "created_at": "2026-04-15T00:03:54.880058+00:00",
+      "updated_at": "2026-04-15T00:03:54.880058+00:00"
+    },
+    {
+      "source": "smoke_test.sh",
+      "target": "parse_pdf.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "manuales de usuario, manual tecnico, arquitectura, ejemplos de uso al dia?",
+      "created_at": "2026-04-15T00:03:54.893302+00:00",
+      "updated_at": "2026-04-15T00:03:54.893302+00:00"
+    },
+    {
+      "source": "ia_browser_logger.py",
+      "target": "parse_pdf.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "manuales de usuario, manual tecnico, arquitectura, ejemplos de uso al dia?",
+      "created_at": "2026-04-15T00:03:54.899822+00:00",
+      "updated_at": "2026-04-15T00:03:54.899822+00:00"
+    },
+    {
+      "source": "ia_browser_logger.py",
+      "target": "knowledge/sap_followup_knowledge.md",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "manuales de usuario, manual tecnico, arquitectura, ejemplos de uso al dia?",
+      "created_at": "2026-04-15T00:03:54.912890+00:00",
+      "updated_at": "2026-04-15T00:03:54.912890+00:00"
+    },
+    {
+      "source": "parse_pdf.py",
+      "target": "knowledge/sap_followup_knowledge.md",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "manuales de usuario, manual tecnico, arquitectura, ejemplos de uso al dia?",
+      "created_at": "2026-04-15T00:03:54.919917+00:00",
+      "updated_at": "2026-04-15T00:03:54.919917+00:00"
+    },
+    {
+      "source": "\\Chance1\\IA\\IA_PowerPoint\\logs\\powerpoint_com.log",
+      "target": "\\Chance1\\IA\\IA_PowerPoint\\logs\\powerpoint_com.log",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-15T00:05:04.738548+00:00",
+      "updated_at": "2026-04-15T00:05:04.738548+00:00"
     }
   ],
-  "updated_at": "2026-04-14T23:59:32.965988+00:00",
+  "updated_at": "2026-04-15T00:05:04.738548+00:00",
   "stats": {
-    "entities": 151,
-    "relations": 339
+    "entities": 158,
+    "relations": 351
   }
 }
