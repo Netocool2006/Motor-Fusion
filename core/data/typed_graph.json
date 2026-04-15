@@ -1607,6 +1607,78 @@
       "properties": {},
       "created_at": "2026-04-15T15:45:02.627663+00:00",
       "updated_at": "2026-04-15T15:45:02.628663+00:00"
+    },
+    "0.98": {
+      "id": "0.98",
+      "type": "file",
+      "name": "0.98",
+      "properties": {},
+      "created_at": "2026-04-15T16:02:37.458041+00:00",
+      "updated_at": "2026-04-15T16:02:37.458041+00:00"
+    },
+    "0.95": {
+      "id": "0.95",
+      "type": "file",
+      "name": "0.95",
+      "properties": {},
+      "created_at": "2026-04-15T16:02:37.473383+00:00",
+      "updated_at": "2026-04-15T16:02:37.473383+00:00"
+    },
+    "_add_kicker_pill": {
+      "id": "_add_kicker_pill",
+      "type": "domain",
+      "name": "_add_kicker_pill",
+      "properties": {},
+      "created_at": "2026-04-15T16:13:00.509746+00:00",
+      "updated_at": "2026-04-15T16:13:00.509746+00:00"
+    },
+    "solid": {
+      "id": "solid",
+      "type": "concept",
+      "name": "solid",
+      "properties": {},
+      "created_at": "2026-04-15T16:13:00.514893+00:00",
+      "updated_at": "2026-04-15T16:13:00.514893+00:00"
+    },
+    "SKILL.md": {
+      "id": "SKILL.md",
+      "type": "file",
+      "name": "SKILL.md",
+      "properties": {},
+      "created_at": "2026-04-15T16:13:00.525595+00:00",
+      "updated_at": "2026-04-15T16:13:00.525595+00:00"
+    },
+    "pptx.Pres": {
+      "id": "pptx.Pres",
+      "type": "file",
+      "name": "pptx.Pres",
+      "properties": {},
+      "created_at": "2026-04-15T16:13:00.528606+00:00",
+      "updated_at": "2026-04-15T16:13:00.528606+00:00"
+    },
+    "design_rules.py": {
+      "id": "design_rules.py",
+      "type": "file",
+      "name": "design_rules.py",
+      "properties": {},
+      "created_at": "2026-04-15T16:13:00.538666+00:00",
+      "updated_at": "2026-04-15T16:13:00.538666+00:00"
+    },
+    "ooxml_unpack.py": {
+      "id": "ooxml_unpack.py",
+      "type": "file",
+      "name": "ooxml_unpack.py",
+      "properties": {},
+      "created_at": "2026-04-15T16:23:59.339987+00:00",
+      "updated_at": "2026-04-15T16:23:59.339987+00:00"
+    },
+    "ooxml_engine.py": {
+      "id": "ooxml_engine.py",
+      "type": "file",
+      "name": "ooxml_engine.py",
+      "properties": {},
+      "created_at": "2026-04-15T16:23:59.391372+00:00",
+      "updated_at": "2026-04-15T16:23:59.391372+00:00"
     }
   },
   "relations": [
@@ -5362,11 +5434,146 @@
       "context": "procede a la 1",
       "created_at": "2026-04-15T15:45:02.641473+00:00",
       "updated_at": "2026-04-15T15:45:02.641473+00:00"
+    },
+    {
+      "source": "0.98",
+      "target": "0.98",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "agrega el resto de cosas antes",
+      "created_at": "2026-04-15T16:02:37.465846+00:00",
+      "updated_at": "2026-04-15T16:02:37.465846+00:00"
+    },
+    {
+      "source": "0.98",
+      "target": "0.95",
+      "type": "used_with",
+      "weight": 1.5,
+      "context": "agrega el resto de cosas antes",
+      "created_at": "2026-04-15T16:02:37.481894+00:00",
+      "updated_at": "2026-04-15T16:02:37.496955+00:00"
+    },
+    {
+      "source": "0.95",
+      "target": "0.95",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "agrega el resto de cosas antes",
+      "created_at": "2026-04-15T16:02:37.504472+00:00",
+      "updated_at": "2026-04-15T16:02:37.504472+00:00"
+    },
+    {
+      "source": "_add_kicker_pill",
+      "target": "solid",
+      "type": "used_with",
+      "weight": 0.7,
+      "context": "pre-hook query",
+      "created_at": "2026-04-15T16:13:00.520545+00:00",
+      "updated_at": "2026-04-15T16:13:00.520545+00:00"
+    },
+    {
+      "source": "SKILL.md",
+      "target": "pptx.Pres",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-15T16:13:00.534646+00:00",
+      "updated_at": "2026-04-15T16:13:00.534646+00:00"
+    },
+    {
+      "source": "SKILL.md",
+      "target": "design_rules.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-15T16:13:00.543196+00:00",
+      "updated_at": "2026-04-15T16:13:00.543196+00:00"
+    },
+    {
+      "source": "pptx.Pres",
+      "target": "design_rules.py",
+      "type": "used_with",
+      "weight": 1.0,
+      "context": "pre-hook query",
+      "created_at": "2026-04-15T16:13:00.549730+00:00",
+      "updated_at": "2026-04-15T16:13:00.553268+00:00"
+    },
+    {
+      "source": "design_rules.py",
+      "target": "design_rules.py",
+      "type": "used_with",
+      "weight": 2.0,
+      "context": "me piden separar en 2 documentos el documento Propuesta Integral  PostgreSQL CE On Prem Horas - Lice",
+      "created_at": "2026-04-15T16:13:00.559113+00:00",
+      "updated_at": "2026-04-15T16:23:59.357368+00:00"
+    },
+    {
+      "source": "design_rules.py",
+      "target": "ooxml_unpack.py",
+      "type": "used_with",
+      "weight": 1.0,
+      "context": "me piden separar en 2 documentos el documento Propuesta Integral  PostgreSQL CE On Prem Horas - Lice",
+      "created_at": "2026-04-15T16:23:59.348415+00:00",
+      "updated_at": "2026-04-15T16:23:59.381973+00:00"
+    },
+    {
+      "source": "ooxml_unpack.py",
+      "target": "design_rules.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "me piden separar en 2 documentos el documento Propuesta Integral  PostgreSQL CE On Prem Horas - Lice",
+      "created_at": "2026-04-15T16:23:59.365429+00:00",
+      "updated_at": "2026-04-15T16:23:59.365429+00:00"
+    },
+    {
+      "source": "ooxml_unpack.py",
+      "target": "ooxml_unpack.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "me piden separar en 2 documentos el documento Propuesta Integral  PostgreSQL CE On Prem Horas - Lice",
+      "created_at": "2026-04-15T16:23:59.372946+00:00",
+      "updated_at": "2026-04-15T16:23:59.372946+00:00"
+    },
+    {
+      "source": "design_rules.py",
+      "target": "ooxml_engine.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "me piden separar en 2 documentos el documento Propuesta Integral  PostgreSQL CE On Prem Horas - Lice",
+      "created_at": "2026-04-15T16:23:59.398215+00:00",
+      "updated_at": "2026-04-15T16:23:59.398215+00:00"
+    },
+    {
+      "source": "ooxml_unpack.py",
+      "target": "ooxml_engine.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "me piden separar en 2 documentos el documento Propuesta Integral  PostgreSQL CE On Prem Horas - Lice",
+      "created_at": "2026-04-15T16:23:59.406430+00:00",
+      "updated_at": "2026-04-15T16:23:59.406430+00:00"
+    },
+    {
+      "source": "ooxml_unpack.py",
+      "target": "premium_studio.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "me piden separar en 2 documentos el documento Propuesta Integral  PostgreSQL CE On Prem Horas - Lice",
+      "created_at": "2026-04-15T16:23:59.414465+00:00",
+      "updated_at": "2026-04-15T16:23:59.414465+00:00"
+    },
+    {
+      "source": "ooxml_engine.py",
+      "target": "premium_studio.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "me piden separar en 2 documentos el documento Propuesta Integral  PostgreSQL CE On Prem Horas - Lice",
+      "created_at": "2026-04-15T16:23:59.424538+00:00",
+      "updated_at": "2026-04-15T16:23:59.424538+00:00"
     }
   ],
-  "updated_at": "2026-04-15T15:52:29.269773+00:00",
+  "updated_at": "2026-04-15T16:23:59.425548+00:00",
   "stats": {
-    "entities": 201,
-    "relations": 417
+    "entities": 210,
+    "relations": 432
   }
 }

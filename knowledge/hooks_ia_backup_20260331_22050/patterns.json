@@ -902,6 +902,36 @@
         "last_accessed": "2026-04-15T14:56:40.207035+00:00",
         "access_count": 0
       }
+    },
+    "e2edd48175fd": {
+      "id": "e2edd48175fd",
+      "type": "pattern",
+      "key": "session_auto_20260415_102633",
+      "solution": {
+        "strategy": "auto_captured_from_session",
+        "notes": "Resumen: me piden separar en 2 documentos el documento Propuesta Integral  PostgreSQL CE On Prem Horas - Licenciamiento Sop Redis  Banco GyT 06 de abril 2026 d -> puedes arrancarlo tu yo no se como\nEditados: .claude.json\nDecisiones: resumir brevemente la sesión anterior y empezar con esta tarea.; verificar el estado del MCP server de IA_Word.; investigar cómo arranca el MCP server de IA_Word y registrarlo.\nErrores resueltos: Exit code 2\n__init__.py\n__pycache__\nbusiness_rules.py\ncerebro_v2.py\ncomputer_use; Exit code 1",
+        "auto_learned": true,
+        "source": "hook_session_end",
+        "files_touched": [
+          "C:\\Users\\ntoledo\\.claude.json"
+        ],
+        "domain_detected": "hooks_ia_backup_20260331_22050"
+      },
+      "tags": [
+        "auto-learned",
+        "session",
+        "hooks_ia_backup_20260331_22050"
+      ],
+      "error_context": null,
+      "created_at": "2026-04-15T16:26:33.425769+00:00",
+      "updated_at": "2026-04-15T16:26:33.425769+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-04-15T16:26:33.425769+00:00",
+        "access_count": 0
+      }
     }
   },
   "tag_index": {
@@ -930,7 +960,8 @@
       "d4e2fe1138af",
       "9413a319b371",
       "10b26da2ffae",
-      "c33f7d6c76ad"
+      "c33f7d6c76ad",
+      "e2edd48175fd"
     ],
     "session": [
       "fc0947920514",
@@ -957,7 +988,8 @@
       "d4e2fe1138af",
       "9413a319b371",
       "10b26da2ffae",
-      "c33f7d6c76ad"
+      "c33f7d6c76ad",
+      "e2edd48175fd"
     ],
     "hooks_ia_backup_20260331_22050": [
       "fc0947920514",
@@ -984,11 +1016,12 @@
       "d4e2fe1138af",
       "9413a319b371",
       "10b26da2ffae",
-      "c33f7d6c76ad"
+      "c33f7d6c76ad",
+      "e2edd48175fd"
     ]
   },
   "stats": {
-    "total_entries": 25,
+    "total_entries": 26,
     "total_lookups": 3,
     "total_hits": 1
   }

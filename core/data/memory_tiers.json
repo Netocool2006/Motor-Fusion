@@ -1,0 +1,56 @@
+{
+  "hot": [
+    {
+      "key": "algo mas que nos agrague valor al perfil de este proyecto busca en el internet en foros,redes sociales, repositorios de toda indole, sitios especialistas en antropic, blogs del tema, paginas especiali",
+      "value": "InvestigaciÃ³n completa. AquÃ­ el informe con hallazgos de alto valor y roadmap prioritizado:\n\n# ðŸŽ¯ Hallazgos de la investigaciÃ³n â€” 6 ideas concretas para elevar IA_PowerPoint Studio\n\n## 1. El plugin de Anthropic tiene **SOLO 3 skills**, no 15\n\n**Mi asunciÃ³n errÃ³nea:** que la biblioteca del plugin era amplia y visual.\n\n**Realidad (del repo `fivetaku/claude-office-skills`):**\n| Skill | Trigger | QuÃ© hace |\n|---|---|---|\n| `competitive-analysis` | \"competitive landscape\", \"market map\" | Market map + feature comparison |\n| `deck-refresh` | \"update the deck with Q4\", \"roll forward\" | Refresh de nÃºmeros preservando formato |\n| `ib-check-deck` | \"check my numbers\", \"is this client-ready\" | QA: consistencia de nÃºmeros + narrativa |\n\n**LecciÃ³n:** sus skills son **use-case driven**, no layout-driven. 3 skills curadas > 15 layouts genÃ©ricos. DeberÃ­a implementar las mismas.\n\n## 2. El pattern oficial de Anthropic pptx skill â€” `SKILL.md` frontmatter + 3 workflows\n\n**Del repo oficial ",
+      "domain": "Internet 70% + ML 30%",
+      "source": "auto_save",
+      "tier": "hot",
+      "created_at": "2026-04-15T16:11:27.721957+00:00",
+      "last_access": "2026-04-15T16:11:27.721957+00:00",
+      "access_count": 0,
+      "promotion_count": 0
+    },
+    {
+      "key": "me piden separar en 2 documentos el documento Propuesta Integral  PostgreSQL CE On Prem Horas - Licenciamiento Sop Redis  Banco GyT 06 de abril 2026 dado que tiene un tema de PostgresSQL  y otro de Re",
+      "value": "# âœ… Sprint 4 completo â€” 5 chunks pusheados\n\n**Delta del Sprint 4:** `1fddca0 â†’ b6278e1` (5 commits)\n\n| Chunk | Commit | Contenido |\n|---|---|---|\n| A | `c08595e` | Aurora gradients 3-stop via lxml + `design_rules.py` (content-informed palette picker, hard rules, anti-patterns) |\n| B | `1057ea3` | `skill_deck_refresh` 4-phase + `ooxml_unpack.py` (unpack-modify-pack, funciona con custom shapes) |\n| C | `459bb7f` | `skill_competitive_analysis` (market map 2x2 con competidores plotted por x/y + legend) |\n| D | `d1b8cf4` | `skill_ib_check_deck` (QA: detecta inconsistencias numÃ©ricas, titles, currency mix) |\n| E | `b6278e1` | `critic_loop` en `skill_auto` (post-render validation de elementos esperados) |\n\n## ðŸ“Š Stack actual\n\n| MÃ©trica | Valor |\n|---|---|\n| **MCP tools totales** | **123** |\n| **Skills premium** | **18** |\n| Paletas | 16 |\n| MÃ³dulos nuevos | `design_rules.py`, `ooxml_unpack.py`, `ooxml_engine.py`, `premium_studio.py` |\n| Claude Skills markdowns | 11 |\n\n## ðŸŽ¯ Los 1",
+      "domain": "ML 100%",
+      "source": "auto_save",
+      "tier": "hot",
+      "created_at": "2026-04-15T16:23:59.327021+00:00",
+      "last_access": "2026-04-15T16:23:59.327021+00:00",
+      "access_count": 0,
+      "promotion_count": 0
+    },
+    {
+      "key": "puedes arrancarlo tu yo no se como",
+      "value": "**MCP server `ia_word` registrado y conectado.** âœ“\n\nAhora necesitas **reiniciar esta sesiÃ³n de Claude Code** para que los tools `mcp__ia_word__*` queden disponibles en mi contexto (los MCP tools solo se cargan al arrancar la sesiÃ³n).\n\n**Instrucciones:**\n1. Sal con `/exit`\n2. Vuelve a entrar con `claude`\n3. Dime \"continÃºa\" y procedo a partir el docx en dos propuestas (PostgreSQL y Redis) usando los tools MCP con validaciÃ³n visual segÃºn las reglas de IA_Word.",
+      "domain": "ML 100%",
+      "source": "auto_save",
+      "tier": "hot",
+      "created_at": "2026-04-15T16:26:36.928691+00:00",
+      "last_access": "2026-04-15T16:26:36.928691+00:00",
+      "access_count": 0,
+      "promotion_count": 0
+    },
+    {
+      "key": "alguna tool que haya quedada fuera del MCP?",
+      "value": "# âœ… Nada quedÃ³ fuera â€” todo estÃ¡ cubierto\n\n**Skills:** 18/18 en `PremiumStudio`, 18/18 registrados en MCP. **Cero gaps en skills.**\n\n**COM methods:** 21 mÃ©todos \"aparentemente sin tool\" son en realidad **wrappers a tools existentes**:\n\n| MÃ©todo COM | Tool MCP que lo envuelve |\n|---|---|\n| `add_slide` / `delete_slide` / `duplicate_slide` / `move_slide` | `manage_slide` (action param) |\n| `get_all_notes` / `get_slide_notes` / `set_slide_notes` | `manage_notes` (action param) |\n| `get_transitions` / `set_transition` | `manage_transitions` |\n| `analyze` | `analyze_presentation` |\n| `attach_to_running` | `attach_to_presentation` |\n| `list_open_presentations_static` | `list_open_presentations` |\n| `export_slide_as_image` | `export_slide_image` |\n| `export_to_html` / `export_to_pdf` | `export_html` / `export_pdf` |\n| `save` / `save_as` / `save_shared_safe` / `quit` | `save_presentation` + `close_presentation` |\n| `validate_presentation` / `validate_financial_table` | `validate` + `val",
+      "domain": "ML 100%",
+      "source": "auto_save",
+      "tier": "hot",
+      "created_at": "2026-04-15T16:30:28.578390+00:00",
+      "last_access": "2026-04-15T16:30:28.578390+00:00",
+      "access_count": 0,
+      "promotion_count": 0
+    }
+  ],
+  "warm": [],
+  "cold": [],
+  "updated_at": "2026-04-15T16:30:28.579581+00:00",
+  "counts": {
+    "hot": 4,
+    "warm": 0,
+    "cold": 0
+  }
+}
