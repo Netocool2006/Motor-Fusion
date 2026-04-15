@@ -1487,6 +1487,102 @@
       "properties": {},
       "created_at": "2026-04-15T02:38:09.419854+00:00",
       "updated_at": "2026-04-15T02:38:09.419854+00:00"
+    },
+    "slide.md": {
+      "id": "slide.md",
+      "type": "file",
+      "name": "slide.md",
+      "properties": {},
+      "created_at": "2026-04-15T15:37:17.205200+00:00",
+      "updated_at": "2026-04-15T15:37:17.205200+00:00"
+    },
+    "cards.md": {
+      "id": "cards.md",
+      "type": "file",
+      "name": "cards.md",
+      "properties": {},
+      "created_at": "2026-04-15T15:37:17.214204+00:00",
+      "updated_at": "2026-04-15T15:37:17.214204+00:00"
+    },
+    "divider.md": {
+      "id": "divider.md",
+      "type": "file",
+      "name": "divider.md",
+      "properties": {},
+      "created_at": "2026-04-15T15:37:17.228590+00:00",
+      "updated_at": "2026-04-15T15:37:17.228590+00:00"
+    },
+    "hero.md": {
+      "id": "hero.md",
+      "type": "file",
+      "name": "hero.md",
+      "properties": {},
+      "created_at": "2026-04-15T15:37:17.249616+00:00",
+      "updated_at": "2026-04-15T15:37:17.249616+00:00"
+    },
+    "process.md": {
+      "id": "process.md",
+      "type": "file",
+      "name": "process.md",
+      "properties": {},
+      "created_at": "2026-04-15T15:37:17.271318+00:00",
+      "updated_at": "2026-04-15T15:37:17.271318+00:00"
+    },
+    "dashboard.md": {
+      "id": "dashboard.md",
+      "type": "file",
+      "name": "dashboard.md",
+      "properties": {},
+      "created_at": "2026-04-15T15:37:17.293366+00:00",
+      "updated_at": "2026-04-15T15:37:17.293366+00:00"
+    },
+    "after.md": {
+      "id": "after.md",
+      "type": "file",
+      "name": "after.md",
+      "properties": {},
+      "created_at": "2026-04-15T15:37:17.316629+00:00",
+      "updated_at": "2026-04-15T15:37:17.316629+00:00"
+    },
+    "timeline.md": {
+      "id": "timeline.md",
+      "type": "file",
+      "name": "timeline.md",
+      "properties": {},
+      "created_at": "2026-04-15T15:37:17.339630+00:00",
+      "updated_at": "2026-04-15T15:37:17.339630+00:00"
+    },
+    "summary.md": {
+      "id": "summary.md",
+      "type": "file",
+      "name": "summary.md",
+      "properties": {},
+      "created_at": "2026-04-15T15:37:17.361209+00:00",
+      "updated_at": "2026-04-15T15:37:17.361209+00:00"
+    },
+    "table.md": {
+      "id": "table.md",
+      "type": "file",
+      "name": "table.md",
+      "properties": {},
+      "created_at": "2026-04-15T15:37:17.382209+00:00",
+      "updated_at": "2026-04-15T15:37:17.382209+00:00"
+    },
+    "refresh.md": {
+      "id": "refresh.md",
+      "type": "file",
+      "name": "refresh.md",
+      "properties": {},
+      "created_at": "2026-04-15T15:37:17.400354+00:00",
+      "updated_at": "2026-04-15T15:37:17.400354+00:00"
+    },
+    "premium_studio.py": {
+      "id": "premium_studio.py",
+      "type": "file",
+      "name": "premium_studio.py",
+      "properties": {},
+      "created_at": "2026-04-15T15:42:59.242578+00:00",
+      "updated_at": "2026-04-15T15:42:59.242578+00:00"
     }
   },
   "relations": [
@@ -5035,11 +5131,191 @@
       "context": "procede",
       "created_at": "2026-04-15T02:38:09.455290+00:00",
       "updated_at": "2026-04-15T02:38:09.455290+00:00"
+    },
+    {
+      "source": "slide.md",
+      "target": "cards.md",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "valida todos los sprints y sigue donde te quedaste",
+      "created_at": "2026-04-15T15:37:17.221201+00:00",
+      "updated_at": "2026-04-15T15:37:17.221201+00:00"
+    },
+    {
+      "source": "slide.md",
+      "target": "divider.md",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "valida todos los sprints y sigue donde te quedaste",
+      "created_at": "2026-04-15T15:37:17.234594+00:00",
+      "updated_at": "2026-04-15T15:37:17.234594+00:00"
+    },
+    {
+      "source": "cards.md",
+      "target": "divider.md",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "valida todos los sprints y sigue donde te quedaste",
+      "created_at": "2026-04-15T15:37:17.242610+00:00",
+      "updated_at": "2026-04-15T15:37:17.242610+00:00"
+    },
+    {
+      "source": "cards.md",
+      "target": "hero.md",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "valida todos los sprints y sigue donde te quedaste",
+      "created_at": "2026-04-15T15:37:17.256618+00:00",
+      "updated_at": "2026-04-15T15:37:17.256618+00:00"
+    },
+    {
+      "source": "divider.md",
+      "target": "hero.md",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "valida todos los sprints y sigue donde te quedaste",
+      "created_at": "2026-04-15T15:37:17.264125+00:00",
+      "updated_at": "2026-04-15T15:37:17.264125+00:00"
+    },
+    {
+      "source": "divider.md",
+      "target": "process.md",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "valida todos los sprints y sigue donde te quedaste",
+      "created_at": "2026-04-15T15:37:17.278325+00:00",
+      "updated_at": "2026-04-15T15:37:17.278325+00:00"
+    },
+    {
+      "source": "hero.md",
+      "target": "process.md",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "valida todos los sprints y sigue donde te quedaste",
+      "created_at": "2026-04-15T15:37:17.285325+00:00",
+      "updated_at": "2026-04-15T15:37:17.285325+00:00"
+    },
+    {
+      "source": "hero.md",
+      "target": "dashboard.md",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "valida todos los sprints y sigue donde te quedaste",
+      "created_at": "2026-04-15T15:37:17.300366+00:00",
+      "updated_at": "2026-04-15T15:37:17.300366+00:00"
+    },
+    {
+      "source": "process.md",
+      "target": "dashboard.md",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "valida todos los sprints y sigue donde te quedaste",
+      "created_at": "2026-04-15T15:37:17.308629+00:00",
+      "updated_at": "2026-04-15T15:37:17.308629+00:00"
+    },
+    {
+      "source": "process.md",
+      "target": "after.md",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "valida todos los sprints y sigue donde te quedaste",
+      "created_at": "2026-04-15T15:37:17.324630+00:00",
+      "updated_at": "2026-04-15T15:37:17.324630+00:00"
+    },
+    {
+      "source": "dashboard.md",
+      "target": "after.md",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "valida todos los sprints y sigue donde te quedaste",
+      "created_at": "2026-04-15T15:37:17.332632+00:00",
+      "updated_at": "2026-04-15T15:37:17.332632+00:00"
+    },
+    {
+      "source": "dashboard.md",
+      "target": "timeline.md",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "valida todos los sprints y sigue donde te quedaste",
+      "created_at": "2026-04-15T15:37:17.346640+00:00",
+      "updated_at": "2026-04-15T15:37:17.346640+00:00"
+    },
+    {
+      "source": "after.md",
+      "target": "timeline.md",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "valida todos los sprints y sigue donde te quedaste",
+      "created_at": "2026-04-15T15:37:17.353635+00:00",
+      "updated_at": "2026-04-15T15:37:17.353635+00:00"
+    },
+    {
+      "source": "after.md",
+      "target": "summary.md",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "valida todos los sprints y sigue donde te quedaste",
+      "created_at": "2026-04-15T15:37:17.367228+00:00",
+      "updated_at": "2026-04-15T15:37:17.367228+00:00"
+    },
+    {
+      "source": "timeline.md",
+      "target": "summary.md",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "valida todos los sprints y sigue donde te quedaste",
+      "created_at": "2026-04-15T15:37:17.374210+00:00",
+      "updated_at": "2026-04-15T15:37:17.374210+00:00"
+    },
+    {
+      "source": "timeline.md",
+      "target": "table.md",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "valida todos los sprints y sigue donde te quedaste",
+      "created_at": "2026-04-15T15:37:17.389210+00:00",
+      "updated_at": "2026-04-15T15:37:17.389210+00:00"
+    },
+    {
+      "source": "summary.md",
+      "target": "table.md",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "valida todos los sprints y sigue donde te quedaste",
+      "created_at": "2026-04-15T15:37:17.396353+00:00",
+      "updated_at": "2026-04-15T15:37:17.396353+00:00"
+    },
+    {
+      "source": "summary.md",
+      "target": "refresh.md",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "valida todos los sprints y sigue donde te quedaste",
+      "created_at": "2026-04-15T15:37:17.407356+00:00",
+      "updated_at": "2026-04-15T15:37:17.407356+00:00"
+    },
+    {
+      "source": "table.md",
+      "target": "refresh.md",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "valida todos los sprints y sigue donde te quedaste",
+      "created_at": "2026-04-15T15:37:17.414354+00:00",
+      "updated_at": "2026-04-15T15:37:17.414354+00:00"
+    },
+    {
+      "source": "premium_studio.py",
+      "target": "mcp_server.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "ya estamos post re inicio",
+      "created_at": "2026-04-15T15:42:59.249578+00:00",
+      "updated_at": "2026-04-15T15:42:59.249578+00:00"
     }
   ],
-  "updated_at": "2026-04-15T02:38:09.455290+00:00",
+  "updated_at": "2026-04-15T15:42:59.249578+00:00",
   "stats": {
-    "entities": 186,
-    "relations": 394
+    "entities": 198,
+    "relations": 414
   }
 }

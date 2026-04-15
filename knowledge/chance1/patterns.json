@@ -2484,6 +2484,45 @@
         "last_accessed": "2026-04-15T14:44:50.913409+00:00",
         "access_count": 0
       }
+    },
+    "22fd8732d5ba": {
+      "id": "22fd8732d5ba",
+      "type": "pattern",
+      "key": "session_auto_20260415_094207",
+      "solution": {
+        "strategy": "auto_captured_from_session",
+        "notes": "Interacciones clave:\n  P: [Image source: C:\\Users\\ntoledo\\.claude\\image-cache\\47b83b83-0821-4c0a-ad01-19d910cb7641\\2.png]\n  R: Sí, cuadra exactamente con lo ejecutado:  | Elemento | Esperado | En la foto | |---|---|---| | **Banner título navy** `#0B1F3A` full-width | ✅ | Banne\n  P: pregunta todo fue basado en los Tools que tenias en el proyecto o tuviste que usar habilidades fuera\n  R: Todo se hizo 100% con los tools MCP del proyecto `ia_powerpoint`. Cero habilidades externas.  **Tools usadas en el rediseño de slide 8:**  | Tool MCP \n  P: <local-command-stdout>Goodbye!</local-command-stdout>\n  R: No response requested.\n  P: <local-command-stdout>See ya!</local-command-stdout>\n  R: No response requested.\n  P: <command-name>/compact</command-name>             <command-message>compact</command-message>        \n  R: Hola. En la sesión anterior estábamos terminando **Sprint 2 del IA_PowerPoint Studio** (8 skills premium nuevas + capa Claude Skills markdown). El age\n  P: valida todos los sprints y sigue donde te quedaste\n  R: API Error: 500 {\"type\":\"error\",\"error\":{\"type\":\"api_error\",\"message\":\"Internal server error\"},\"request_id\":\"req_011Ca5kLuYBktbe4dsjeHx6w\"} · check sta\nResumen: monitorea en tiempo real: 🛠️ Comando práctico para monitoreo en vivo    tail -f C:\\Chance1\\IA\\IA_PowerPoint\\logs\\powerpoint_com.log   O si quieres alg -> realiza monitoreo programado cada 30 segundos \nEditados: powerpoint_com.py, mcp_server.py, ooxml_engine.py, premium_studio.py\nCreados: focus_ppt.ps1, compiled-crafting-phoenix.md, hero-slide.md, 4col-cards.md, section-divider.md, quote-hero.md, 3col-process.md, kpi-dashboard.md\nDecisiones: revisar primero qué hay en el slide 8 antes de aplicar mejoras.; agregar elementos premium decorativos sin tocar el texto existente: un kicker editorial sobre el título, insignias numeradas para cada sección y un footer tagline.; eliminar todo lo que agregué y dejarlo en el estado original.; validar qué capacidades reales tiene el proyecto en código, no sol",
+        "auto_learned": true,
+        "source": "hook_session_end",
+        "files_touched": [
+          "C:\\Chance1\\IA\\IA_PowerPoint\\src\\powerpoint_com.py",
+          "C:\\Chance1\\IA\\IA_PowerPoint\\src\\mcp_server.py",
+          "C:\\Chance1\\IA\\IA_PowerPoint\\src\\ooxml_engine.py",
+          "C:\\Chance1\\IA\\IA_PowerPoint\\src\\premium_studio.py",
+          "C:\\Chance1\\IA\\IA_PowerPoint\\tmp\\focus_ppt.ps1",
+          "C:\\Users\\ntoledo\\.claude\\plans\\compiled-crafting-phoenix.md",
+          "C:\\Chance1\\IA\\IA_PowerPoint\\.claude\\skills\\hero-slide.md",
+          "C:\\Chance1\\IA\\IA_PowerPoint\\.claude\\skills\\4col-cards.md",
+          "C:\\Chance1\\IA\\IA_PowerPoint\\.claude\\skills\\section-divider.md",
+          "C:\\Chance1\\IA\\IA_PowerPoint\\.claude\\skills\\quote-hero.md"
+        ],
+        "domain_detected": "chance1"
+      },
+      "tags": [
+        "auto-learned",
+        "session",
+        "chance1"
+      ],
+      "error_context": null,
+      "created_at": "2026-04-15T15:42:07.216034+00:00",
+      "updated_at": "2026-04-15T15:42:07.216034+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-04-15T15:42:07.216034+00:00",
+        "access_count": 0
+      }
     }
   },
   "tag_index": {
@@ -2693,21 +2732,24 @@
     "auto-learned": [
       "f7c4ef6c29fd",
       "5943634c509d",
-      "9c8321474ee9"
+      "9c8321474ee9",
+      "22fd8732d5ba"
     ],
     "session": [
       "f7c4ef6c29fd",
       "5943634c509d",
-      "9c8321474ee9"
+      "9c8321474ee9",
+      "22fd8732d5ba"
     ],
     "chance1": [
       "f7c4ef6c29fd",
       "5943634c509d",
-      "9c8321474ee9"
+      "9c8321474ee9",
+      "22fd8732d5ba"
     ]
   },
   "stats": {
-    "total_entries": 99,
+    "total_entries": 100,
     "total_lookups": 555,
     "total_hits": 493
   }
