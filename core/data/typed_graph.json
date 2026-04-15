@@ -1375,6 +1375,30 @@
       "properties": {},
       "created_at": "2026-04-15T00:27:11.438503+00:00",
       "updated_at": "2026-04-15T00:27:11.438503+00:00"
+    },
+    "slide.Time": {
+      "id": "slide.Time",
+      "type": "file",
+      "name": "slide.Time",
+      "properties": {},
+      "created_at": "2026-04-15T00:32:58.096131+00:00",
+      "updated_at": "2026-04-15T00:32:58.096131+00:00"
+    },
+    "Line.Main": {
+      "id": "Line.Main",
+      "type": "file",
+      "name": "Line.Main",
+      "properties": {},
+      "created_at": "2026-04-15T00:32:58.103136+00:00",
+      "updated_at": "2026-04-15T00:32:58.103136+00:00"
+    },
+    "Sequence.AddE": {
+      "id": "Sequence.AddE",
+      "type": "file",
+      "name": "Sequence.AddE",
+      "properties": {},
+      "created_at": "2026-04-15T00:32:58.116870+00:00",
+      "updated_at": "2026-04-15T00:32:58.116870+00:00"
     }
   },
   "relations": [
@@ -4788,11 +4812,38 @@
       "context": "cuales capacidades  existen en el COM layer pero no tienen tool expuesto?",
       "created_at": "2026-04-15T00:27:11.444266+00:00",
       "updated_at": "2026-04-15T00:27:11.444266+00:00"
+    },
+    {
+      "source": "slide.Time",
+      "target": "Line.Main",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "cuantos tools quedan sin MCP?",
+      "created_at": "2026-04-15T00:32:58.110582+00:00",
+      "updated_at": "2026-04-15T00:32:58.110582+00:00"
+    },
+    {
+      "source": "slide.Time",
+      "target": "Sequence.AddE",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "cuantos tools quedan sin MCP?",
+      "created_at": "2026-04-15T00:32:58.124331+00:00",
+      "updated_at": "2026-04-15T00:32:58.124331+00:00"
+    },
+    {
+      "source": "Line.Main",
+      "target": "Sequence.AddE",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "cuantos tools quedan sin MCP?",
+      "created_at": "2026-04-15T00:32:58.130831+00:00",
+      "updated_at": "2026-04-15T00:32:58.130831+00:00"
     }
   ],
-  "updated_at": "2026-04-15T00:27:11.445265+00:00",
+  "updated_at": "2026-04-15T00:32:58.130831+00:00",
   "stats": {
-    "entities": 172,
-    "relations": 379
+    "entities": 175,
+    "relations": 382
   }
 }
