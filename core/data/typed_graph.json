@@ -1679,6 +1679,30 @@
       "properties": {},
       "created_at": "2026-04-15T16:23:59.391372+00:00",
       "updated_at": "2026-04-15T16:23:59.391372+00:00"
+    },
+    "4.2B": {
+      "id": "4.2B",
+      "type": "file",
+      "name": "4.2B",
+      "properties": {},
+      "created_at": "2026-04-15T16:35:27.439985+00:00",
+      "updated_at": "2026-04-15T16:35:27.439985+00:00"
+    },
+    "design_rules.vali": {
+      "id": "design_rules.vali",
+      "type": "file",
+      "name": "design_rules.vali",
+      "properties": {},
+      "created_at": "2026-04-15T19:34:07.076722+00:00",
+      "updated_at": "2026-04-15T19:34:07.076722+00:00"
+    },
+    "459.64": {
+      "id": "459.64",
+      "type": "file",
+      "name": "459.64",
+      "properties": {},
+      "created_at": "2026-04-15T19:46:00.902411+00:00",
+      "updated_at": "2026-04-15T19:46:00.902411+00:00"
     }
   },
   "relations": [
@@ -5569,11 +5593,38 @@
       "context": "me piden separar en 2 documentos el documento Propuesta Integral  PostgreSQL CE On Prem Horas - Lice",
       "created_at": "2026-04-15T16:23:59.424538+00:00",
       "updated_at": "2026-04-15T16:23:59.424538+00:00"
+    },
+    {
+      "source": "4.2B",
+      "target": "99.97",
+      "type": "used_with",
+      "weight": 1.0,
+      "context": "pre-hook query",
+      "created_at": "2026-04-15T16:35:27.447986+00:00",
+      "updated_at": "2026-04-15T16:36:06.564903+00:00"
+    },
+    {
+      "source": "design_rules.py",
+      "target": "design_rules.vali",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-15T19:34:07.080685+00:00",
+      "updated_at": "2026-04-15T19:34:07.080685+00:00"
+    },
+    {
+      "source": "459.64",
+      "target": "459.64",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pero porque esta huerfano si los documentos tienen los datos?",
+      "created_at": "2026-04-15T19:46:08.989335+00:00",
+      "updated_at": "2026-04-15T19:46:08.989335+00:00"
     }
   ],
-  "updated_at": "2026-04-15T16:23:59.425548+00:00",
+  "updated_at": "2026-04-15T19:46:08.989335+00:00",
   "stats": {
-    "entities": 210,
-    "relations": 432
+    "entities": 213,
+    "relations": 435
   }
 }

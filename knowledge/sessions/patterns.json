@@ -13348,6 +13348,30 @@
         "last_accessed": "2026-04-15T14:56:40.174070+00:00",
         "access_count": 0
       }
+    },
+    "85f32cb8d344": {
+      "id": "85f32cb8d344",
+      "type": "fact",
+      "key": "episodic_20260415_125856",
+      "fact": {
+        "rule": "accent lines under titles\"* (yo hago esto en `skill_hero_banner` — 🚨 romper esta regla) - *\"0.5\\\" margins minimum\"* (verificar) - *\"Pick a bold, CONTENT-INFORMED palette\"* — el color debe ser seleccionado **en función del tema**, no genérico - **10 n",
+        "applies_to": "sesion 20260415_125856, dominio chance1",
+        "confidence": "observed",
+        "source": "auto_episodic_extraction"
+      },
+      "tags": [
+        "episodic",
+        "auto-learned",
+        "chance1"
+      ],
+      "created_at": "2026-04-15T18:58:56.557768+00:00",
+      "updated_at": "2026-04-15T18:58:56.557768+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-15T18:58:56.557768+00:00",
+        "access_count": 0
+      }
     }
   },
   "tag_index": {
@@ -13866,7 +13890,8 @@
       "70c009f25bf1",
       "b9bbb743f7a0",
       "a7af37320b27",
-      "d144845432bd"
+      "d144845432bd",
+      "85f32cb8d344"
     ],
     "iteration": [
       "99ea64471b21",
@@ -14413,7 +14438,8 @@
       "70c009f25bf1",
       "b9bbb743f7a0",
       "a7af37320b27",
-      "d144845432bd"
+      "d144845432bd",
+      "85f32cb8d344"
     ],
     "files": [
       "e6022665fe1c",
@@ -14926,10 +14952,13 @@
       "b9bbb743f7a0",
       "a7af37320b27",
       "d144845432bd"
+    ],
+    "chance1": [
+      "85f32cb8d344"
     ]
   },
   "stats": {
-    "total_entries": 515,
+    "total_entries": 516,
     "total_lookups": 1141,
     "total_hits": 886
   }
