@@ -1263,6 +1263,102 @@
       "properties": {},
       "created_at": "2026-04-15T00:03:54.905845+00:00",
       "updated_at": "2026-04-15T00:03:54.905845+00:00"
+    },
+    "powerpoint_com.py": {
+      "id": "powerpoint_com.py",
+      "type": "file",
+      "name": "powerpoint_com.py",
+      "properties": {},
+      "created_at": "2026-04-15T00:22:05.825443+00:00",
+      "updated_at": "2026-04-15T00:22:05.825443+00:00"
+    },
+    "Shapes.AddS": {
+      "id": "Shapes.AddS",
+      "type": "file",
+      "name": "Shapes.AddS",
+      "properties": {},
+      "created_at": "2026-04-15T00:22:05.831985+00:00",
+      "updated_at": "2026-04-15T00:22:05.831985+00:00"
+    },
+    "Shapes.AddC": {
+      "id": "Shapes.AddC",
+      "type": "file",
+      "name": "Shapes.AddC",
+      "properties": {},
+      "created_at": "2026-04-15T00:22:05.845473+00:00",
+      "updated_at": "2026-04-15T00:22:05.845473+00:00"
+    },
+    "Shapes.AddL": {
+      "id": "Shapes.AddL",
+      "type": "file",
+      "name": "Shapes.AddL",
+      "properties": {},
+      "created_at": "2026-04-15T00:22:05.863550+00:00",
+      "updated_at": "2026-04-15T00:22:05.863550+00:00"
+    },
+    "Fill.Soli": {
+      "id": "Fill.Soli",
+      "type": "file",
+      "name": "Fill.Soli",
+      "properties": {},
+      "created_at": "2026-04-15T00:22:05.896901+00:00",
+      "updated_at": "2026-04-15T00:22:05.896901+00:00"
+    },
+    "Fill.Fore": {
+      "id": "Fill.Fore",
+      "type": "file",
+      "name": "Fill.Fore",
+      "properties": {},
+      "created_at": "2026-04-15T00:22:05.916906+00:00",
+      "updated_at": "2026-04-15T00:22:05.916906+00:00"
+    },
+    "Color.RGB": {
+      "id": "Color.RGB",
+      "type": "file",
+      "name": "Color.RGB",
+      "properties": {},
+      "created_at": "2026-04-15T00:22:05.938096+00:00",
+      "updated_at": "2026-04-15T00:22:05.939106+00:00"
+    },
+    "Fill.OneC": {
+      "id": "Fill.OneC",
+      "type": "file",
+      "name": "Fill.OneC",
+      "properties": {},
+      "created_at": "2026-04-15T00:22:05.959259+00:00",
+      "updated_at": "2026-04-15T00:22:05.959259+00:00"
+    },
+    "Fill.Tran": {
+      "id": "Fill.Tran",
+      "type": "file",
+      "name": "Fill.Tran",
+      "properties": {},
+      "created_at": "2026-04-15T00:22:05.972766+00:00",
+      "updated_at": "2026-04-15T00:22:05.972766+00:00"
+    },
+    "Line.Fore": {
+      "id": "Line.Fore",
+      "type": "file",
+      "name": "Line.Fore",
+      "properties": {},
+      "created_at": "2026-04-15T00:22:05.995357+00:00",
+      "updated_at": "2026-04-15T00:22:05.995357+00:00"
+    },
+    "Line.Weig": {
+      "id": "Line.Weig",
+      "type": "file",
+      "name": "Line.Weig",
+      "properties": {},
+      "created_at": "2026-04-15T00:22:06.015088+00:00",
+      "updated_at": "2026-04-15T00:22:06.016599+00:00"
+    },
+    "Line.Visi": {
+      "id": "Line.Visi",
+      "type": "file",
+      "name": "Line.Visi",
+      "properties": {},
+      "created_at": "2026-04-15T00:22:06.027669+00:00",
+      "updated_at": "2026-04-15T00:22:06.027669+00:00"
     }
   },
   "relations": [
@@ -4424,11 +4520,254 @@
       "context": "pre-hook query",
       "created_at": "2026-04-15T00:05:04.738548+00:00",
       "updated_at": "2026-04-15T00:05:04.738548+00:00"
+    },
+    {
+      "source": "powerpoint_com.py",
+      "target": "Shapes.AddS",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "cuales no tienen tool expuesto",
+      "created_at": "2026-04-15T00:22:05.837500+00:00",
+      "updated_at": "2026-04-15T00:22:05.837500+00:00"
+    },
+    {
+      "source": "powerpoint_com.py",
+      "target": "Shapes.AddC",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "cuales no tienen tool expuesto",
+      "created_at": "2026-04-15T00:22:05.851512+00:00",
+      "updated_at": "2026-04-15T00:22:05.851512+00:00"
+    },
+    {
+      "source": "Shapes.AddS",
+      "target": "Shapes.AddC",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "cuales no tienen tool expuesto",
+      "created_at": "2026-04-15T00:22:05.858031+00:00",
+      "updated_at": "2026-04-15T00:22:05.858031+00:00"
+    },
+    {
+      "source": "Shapes.AddS",
+      "target": "Shapes.AddL",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "cuales no tienen tool expuesto",
+      "created_at": "2026-04-15T00:22:05.870070+00:00",
+      "updated_at": "2026-04-15T00:22:05.870070+00:00"
+    },
+    {
+      "source": "Shapes.AddC",
+      "target": "Shapes.AddL",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "cuales no tienen tool expuesto",
+      "created_at": "2026-04-15T00:22:05.877834+00:00",
+      "updated_at": "2026-04-15T00:22:05.877834+00:00"
+    },
+    {
+      "source": "Shapes.AddC",
+      "target": "powerpoint_com.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "cuales no tienen tool expuesto",
+      "created_at": "2026-04-15T00:22:05.883352+00:00",
+      "updated_at": "2026-04-15T00:22:05.883352+00:00"
+    },
+    {
+      "source": "Shapes.AddL",
+      "target": "powerpoint_com.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "cuales no tienen tool expuesto",
+      "created_at": "2026-04-15T00:22:05.890386+00:00",
+      "updated_at": "2026-04-15T00:22:05.890386+00:00"
+    },
+    {
+      "source": "Shapes.AddL",
+      "target": "Fill.Soli",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "cuales no tienen tool expuesto",
+      "created_at": "2026-04-15T00:22:05.903881+00:00",
+      "updated_at": "2026-04-15T00:22:05.903881+00:00"
+    },
+    {
+      "source": "powerpoint_com.py",
+      "target": "Fill.Soli",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "cuales no tienen tool expuesto",
+      "created_at": "2026-04-15T00:22:05.910384+00:00",
+      "updated_at": "2026-04-15T00:22:05.910384+00:00"
+    },
+    {
+      "source": "powerpoint_com.py",
+      "target": "Fill.Fore",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "cuales no tienen tool expuesto",
+      "created_at": "2026-04-15T00:22:05.924334+00:00",
+      "updated_at": "2026-04-15T00:22:05.924334+00:00"
+    },
+    {
+      "source": "Fill.Soli",
+      "target": "Fill.Fore",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "cuales no tienen tool expuesto",
+      "created_at": "2026-04-15T00:22:05.931424+00:00",
+      "updated_at": "2026-04-15T00:22:05.931424+00:00"
+    },
+    {
+      "source": "Fill.Soli",
+      "target": "Color.RGB",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "cuales no tienen tool expuesto",
+      "created_at": "2026-04-15T00:22:05.945142+00:00",
+      "updated_at": "2026-04-15T00:22:05.945142+00:00"
+    },
+    {
+      "source": "Fill.Fore",
+      "target": "Color.RGB",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "cuales no tienen tool expuesto",
+      "created_at": "2026-04-15T00:22:05.952225+00:00",
+      "updated_at": "2026-04-15T00:22:05.952225+00:00"
+    },
+    {
+      "source": "Fill.Fore",
+      "target": "Fill.OneC",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "cuales no tienen tool expuesto",
+      "created_at": "2026-04-15T00:22:05.963268+00:00",
+      "updated_at": "2026-04-15T00:22:05.964269+00:00"
+    },
+    {
+      "source": "Color.RGB",
+      "target": "Fill.OneC",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "cuales no tienen tool expuesto",
+      "created_at": "2026-04-15T00:22:05.968738+00:00",
+      "updated_at": "2026-04-15T00:22:05.968738+00:00"
+    },
+    {
+      "source": "Color.RGB",
+      "target": "Fill.Tran",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "cuales no tienen tool expuesto",
+      "created_at": "2026-04-15T00:22:05.977770+00:00",
+      "updated_at": "2026-04-15T00:22:05.977770+00:00"
+    },
+    {
+      "source": "Fill.OneC",
+      "target": "Fill.Tran",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "cuales no tienen tool expuesto",
+      "created_at": "2026-04-15T00:22:05.982308+00:00",
+      "updated_at": "2026-04-15T00:22:05.982308+00:00"
+    },
+    {
+      "source": "Fill.OneC",
+      "target": "powerpoint_com.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "cuales no tienen tool expuesto",
+      "created_at": "2026-04-15T00:22:05.985300+00:00",
+      "updated_at": "2026-04-15T00:22:05.985300+00:00"
+    },
+    {
+      "source": "Fill.Tran",
+      "target": "powerpoint_com.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "cuales no tienen tool expuesto",
+      "created_at": "2026-04-15T00:22:05.990005+00:00",
+      "updated_at": "2026-04-15T00:22:05.990005+00:00"
+    },
+    {
+      "source": "Fill.Tran",
+      "target": "Line.Fore",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "cuales no tienen tool expuesto",
+      "created_at": "2026-04-15T00:22:06.000143+00:00",
+      "updated_at": "2026-04-15T00:22:06.000143+00:00"
+    },
+    {
+      "source": "powerpoint_com.py",
+      "target": "Line.Fore",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "cuales no tienen tool expuesto",
+      "created_at": "2026-04-15T00:22:06.004151+00:00",
+      "updated_at": "2026-04-15T00:22:06.004151+00:00"
+    },
+    {
+      "source": "powerpoint_com.py",
+      "target": "Color.RGB",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "cuales no tienen tool expuesto",
+      "created_at": "2026-04-15T00:22:06.008853+00:00",
+      "updated_at": "2026-04-15T00:22:06.008853+00:00"
+    },
+    {
+      "source": "Line.Fore",
+      "target": "Color.RGB",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "cuales no tienen tool expuesto",
+      "created_at": "2026-04-15T00:22:06.012090+00:00",
+      "updated_at": "2026-04-15T00:22:06.012090+00:00"
+    },
+    {
+      "source": "Line.Fore",
+      "target": "Line.Weig",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "cuales no tienen tool expuesto",
+      "created_at": "2026-04-15T00:22:06.020138+00:00",
+      "updated_at": "2026-04-15T00:22:06.020138+00:00"
+    },
+    {
+      "source": "Color.RGB",
+      "target": "Line.Weig",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "cuales no tienen tool expuesto",
+      "created_at": "2026-04-15T00:22:06.024148+00:00",
+      "updated_at": "2026-04-15T00:22:06.024148+00:00"
+    },
+    {
+      "source": "Color.RGB",
+      "target": "Line.Visi",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "cuales no tienen tool expuesto",
+      "created_at": "2026-04-15T00:22:06.034198+00:00",
+      "updated_at": "2026-04-15T00:22:06.034198+00:00"
+    },
+    {
+      "source": "Line.Weig",
+      "target": "Line.Visi",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "cuales no tienen tool expuesto",
+      "created_at": "2026-04-15T00:22:06.041244+00:00",
+      "updated_at": "2026-04-15T00:22:06.041244+00:00"
     }
   ],
-  "updated_at": "2026-04-15T00:05:04.738548+00:00",
+  "updated_at": "2026-04-15T00:22:06.041244+00:00",
   "stats": {
-    "entities": 158,
-    "relations": 351
+    "entities": 170,
+    "relations": 378
   }
 }
