@@ -1,0 +1,57 @@
+{
+  "hot": [
+    {
+      "key": "sigue",
+      "value": "# ðŸŽ‰ Sprint 8 pusheado (`11e1bbb`) â€” **IA_PowerPoint Premium Studio COMPLETO**\n\n## Resumen de los 20 commits Sprint 1â†’8\n\n| Sprint | Commit | Entrega |\n|---|---|---|\n| 1 | `0072e88` + `60da6d2` | 11 shape primitives + OOXML engine + 2 foundation skills |\n| 2 | `bfa2e87` | 8 skills + Claude Skills markdown base |\n| 3 | `f3d0990` | stat_bars + auto router |\n| 3.5 | `1fddca0` | matrix_2x2, funnel, architecture |\n| 4 | `c08595eâ†’b6278e1` | aurora gradients, deck_refresh (unpack-modify-pack), competitive_analysis, ib_check_deck, critic_loop |\n| 5 | `70a59c9` | typography_takeover, data_story, visual PNG critic |\n| 6 | `878de47` | bento_grid, metric_takeover, icon_cycle, pricing_tiers, persona_card, auto_deck |\n| 7 | `d871b21`â†’`fa87667` | 15 markdowns + design_rules integration + skill_animate + 3 variant palettes + icon library |\n| **8** | **`11e1bbb`** | **Docs (CHANGELOG + README) + 25 smoke tests + benchmark + 10 showcase briefs** |\n\n## Estado final\n\n| MÃ©trica | Valor |\n|---|---",
+      "domain": "ML 100%",
+      "source": "auto_save",
+      "tier": "hot",
+      "created_at": "2026-04-15T21:42:22.899983+00:00",
+      "last_access": "2026-04-15T21:42:22.899983+00:00",
+      "access_count": 0,
+      "promotion_count": 0
+    },
+    {
+      "key": "ya el de power point ya esta?",
+      "value": "SÃ­, **IA_PowerPoint Premium Studio estÃ¡ 100% cerrado**.\n\n## Estado final confirmado\n\n| Item | Estado |\n|---|---|\n| **Sprint 8 committed + pushed** | âœ… `11e1bbb` en `codex/homologate-phase5-7-8` |\n| **27 skills premium** | âœ… Todos en PremiumStudio + MCP |\n| **135 MCP tools** | âœ… Registrados |\n| **27 Claude Skills markdowns** | âœ… 100% coverage |\n| **19 palettes** | âœ… (incluyendo variants) |\n| **25 smoke tests pasando** | âœ… 0.47s |\n| **Benchmark baseline** | âœ… 166 ms/skill promedio |\n| **10 showcase briefs** | âœ… `examples/showcase_briefs.json` |\n| **CHANGELOG completo** | âœ… Sprint 1â†’8 documentado |\n| **README actualizado** | âœ… Con arquitectura 4 capas |\n| **20 commits pusheados** | âœ… |\n\n**El proyecto estÃ¡ listo para adopciÃ³n/handoff del equipo.**\n\nSi quieres retomar algo, las opciones son:\n1. **IA_Word** â€” la migraciÃ³n OOXML/COM que quedÃ³ pendiente en la otra sesiÃ³n (plan en `~/.claude/plans/twinkling-singing-boole.md`)\n2. **Otro tema nuevo** â€” algo dist",
+      "domain": "ML 100%",
+      "source": "auto_save",
+      "tier": "hot",
+      "created_at": "2026-04-15T21:46:28.978723+00:00",
+      "last_access": "2026-04-15T21:46:28.978723+00:00",
+      "access_count": 0,
+      "promotion_count": 0
+    }
+  ],
+  "warm": [
+    {
+      "key": "ya estamos post re inicio",
+      "value": "En la sesiÃ³n anterior cerramos **Sprint 6 del IA_PowerPoint Studio** (`878de47` pusheado) â€” 26 skills, 131 MCP tools, con 6 skills creativas nuevas (bento_grid, metric_takeover, icon_cycle, pricing_tiers, persona_card, auto_deck) + infra upgrades (gradient backgrounds, glassmorphism).\n\nPost-reinicio veo cargadas las **16 skills de Sprint 2-6** como deferred tools, incluyendo las 6 nuevas de Sprint 6. TambiÃ©n estÃ¡n los **128 tools de `ia_word`** (el otro MCP server que registraste).\n\n**Opciones para continuar:**\n\n1. **Probar alguna skill nueva de Sprint 6** sobre el pptx del BAC â€” sugeridas:\n   - `skill_bento_grid` con datos reales del servicio\n   - `skill_metric_takeover` con una mÃ©trica hero\n   - `skill_auto_deck` para generar un mini-deck desde un brief\n2. **Seguir con los bonus pendientes** â€” entrance animations, color variants, SmartArt, web icons\n3. **Cambiar de tema** â€” el split del doc de Banco GyT (PostgreSQL/Redis) que mencionaste en la sesiÃ³n previa, u otra cosa\n",
+      "domain": "ML 100%",
+      "source": "auto_save",
+      "tier": "warm",
+      "created_at": "2026-04-15T19:55:09.596480+00:00",
+      "last_access": "2026-04-15T19:55:09.596480+00:00",
+      "access_count": 0,
+      "promotion_count": 0
+    },
+    {
+      "key": "algun tool que falta amarrar al MPC?",
+      "value": "# âœ… Nada falta amarrar\n\n- **Skills:** 26/26 registrados en MCP (las 6 nuevas de Sprint 6 incluidas)\n- **COM methods:** 21 mÃ©todos \"sin MCP directo\" son wrappers de tools existentes (mismo anÃ¡lisis que hicimos post-Sprint 5 â€” `add_slide`â†’`manage_slide`, `save`â†’`save_presentation`, etc.)\n\n**Estado sincronizado:**\n| Componente | Count |\n|---|---|\n| MCP tools totales | 131 |\n| Skills premium en PremiumStudio | 26 |\n| Skills registradas en MCP | 26 |\n| Gaps | 0 |",
+      "domain": "ML 100%",
+      "source": "auto_save",
+      "tier": "warm",
+      "created_at": "2026-04-15T20:07:38.120209+00:00",
+      "last_access": "2026-04-15T20:07:38.120209+00:00",
+      "access_count": 0,
+      "promotion_count": 0
+    }
+  ],
+  "cold": [],
+  "updated_at": "2026-04-15T21:46:28.981269+00:00",
+  "counts": {
+    "hot": 2,
+    "warm": 2,
+    "cold": 0
+  }
+}
