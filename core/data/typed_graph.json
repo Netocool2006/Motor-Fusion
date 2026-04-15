@@ -1359,6 +1359,22 @@
       "properties": {},
       "created_at": "2026-04-15T00:22:06.027669+00:00",
       "updated_at": "2026-04-15T00:22:06.027669+00:00"
+    },
+    "src/excel_com.py": {
+      "id": "src/excel_com.py",
+      "type": "file",
+      "name": "src/excel_com.py",
+      "properties": {},
+      "created_at": "2026-04-15T00:27:11.431851+00:00",
+      "updated_at": "2026-04-15T00:27:11.431851+00:00"
+    },
+    "src/mcp_server.py": {
+      "id": "src/mcp_server.py",
+      "type": "file",
+      "name": "src/mcp_server.py",
+      "properties": {},
+      "created_at": "2026-04-15T00:27:11.438503+00:00",
+      "updated_at": "2026-04-15T00:27:11.438503+00:00"
     }
   },
   "relations": [
@@ -4763,11 +4779,20 @@
       "context": "cuales no tienen tool expuesto",
       "created_at": "2026-04-15T00:22:06.041244+00:00",
       "updated_at": "2026-04-15T00:22:06.041244+00:00"
+    },
+    {
+      "source": "src/excel_com.py",
+      "target": "src/mcp_server.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "cuales capacidades  existen en el COM layer pero no tienen tool expuesto?",
+      "created_at": "2026-04-15T00:27:11.444266+00:00",
+      "updated_at": "2026-04-15T00:27:11.444266+00:00"
     }
   ],
-  "updated_at": "2026-04-15T00:22:06.041244+00:00",
+  "updated_at": "2026-04-15T00:27:11.445265+00:00",
   "stats": {
-    "entities": 170,
-    "relations": 378
+    "entities": 172,
+    "relations": 379
   }
 }
