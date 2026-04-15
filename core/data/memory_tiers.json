@@ -1,0 +1,23 @@
+{
+  "hot": [
+    {
+      "key": "tienes el codigo interno del pluggin para replicar el concepto desde el CLI claude?",
+      "value": "Respuesta honesta: **No tengo el cÃ³digo interno del plugin de Anthropic.** Es cÃ³digo propietario de Anthropic, no estÃ¡ publicado, y no tengo acceso a Ã©l.\n\nLo que **sÃ­ tengo** para replicar el concepto:\n\n## 1. Lo que estÃ¡ pÃºblico / accesible\n- **La arquitectura \"Claude Skills\"** â€” es un patrÃ³n documentado por Anthropic (skills = markdown files en `.claude/skills/` que definen workflows reusables). Las slash commands que viste en la captura (`/competitive-analysis`, `/deck-refresh`, `/ib-check-deck`) son exactamente eso: skills. Puedo buscarte la documentaciÃ³n oficial.\n- **El Office Add-in SDK** (Office.js) â€” pÃºblico de Microsoft. Describe quÃ© APIs expone el plugin a JavaScript.\n- **Outputs del plugin** â€” solo el screenshot que me mandaste. Con mÃ¡s muestras podrÃ­a inferir mÃ¡s patrones.\n\n## 2. Lo que NO tengo\n- El cÃ³digo fuente del plugin\n- Los prompts/system messages internos del plugin\n- Las plantillas de layout (hero, 4col, kpi, etc.) que usa\n- Su design system emb",
+      "domain": "ML 100%",
+      "source": "auto_save",
+      "tier": "hot",
+      "created_at": "2026-04-15T01:02:05.427874+00:00",
+      "last_access": "2026-04-15T01:02:05.427874+00:00",
+      "access_count": 0,
+      "promotion_count": 0
+    }
+  ],
+  "warm": [],
+  "cold": [],
+  "updated_at": "2026-04-15T01:02:05.427874+00:00",
+  "counts": {
+    "hot": 1,
+    "warm": 0,
+    "cold": 0
+  }
+}

@@ -1399,6 +1399,38 @@
       "properties": {},
       "created_at": "2026-04-15T00:32:58.116870+00:00",
       "updated_at": "2026-04-15T00:32:58.116870+00:00"
+    },
+    "2.eres": {
+      "id": "2.eres",
+      "type": "file",
+      "name": "2.eres",
+      "properties": {},
+      "created_at": "2026-04-15T00:53:47.142462+00:00",
+      "updated_at": "2026-04-15T00:53:47.142462+00:00"
+    },
+    "3.tu": {
+      "id": "3.tu",
+      "type": "file",
+      "name": "3.tu",
+      "properties": {},
+      "created_at": "2026-04-15T00:53:47.146462+00:00",
+      "updated_at": "2026-04-15T00:53:47.146462+00:00"
+    },
+    "src/design_system.py": {
+      "id": "src/design_system.py",
+      "type": "file",
+      "name": "src/design_system.py",
+      "properties": {},
+      "created_at": "2026-04-15T01:00:29.500584+00:00",
+      "updated_at": "2026-04-15T01:00:29.500584+00:00"
+    },
+    "src/premium_skills.py": {
+      "id": "src/premium_skills.py",
+      "type": "file",
+      "name": "src/premium_skills.py",
+      "properties": {},
+      "created_at": "2026-04-15T01:00:29.508468+00:00",
+      "updated_at": "2026-04-15T01:00:29.508468+00:00"
     }
   },
   "relations": [
@@ -4839,11 +4871,29 @@
       "context": "cuantos tools quedan sin MCP?",
       "created_at": "2026-04-15T00:32:58.130831+00:00",
       "updated_at": "2026-04-15T00:32:58.130831+00:00"
+    },
+    {
+      "source": "2.eres",
+      "target": "3.tu",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-15T00:53:47.150261+00:00",
+      "updated_at": "2026-04-15T00:53:47.150261+00:00"
+    },
+    {
+      "source": "src/design_system.py",
+      "target": "src/premium_skills.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "podemos incorporar esto  Mismo cerebro (Opus 4.6), pero:\n  - El plugin llega con plantillas de \"deck",
+      "created_at": "2026-04-15T01:00:29.514020+00:00",
+      "updated_at": "2026-04-15T01:00:29.514020+00:00"
     }
   ],
-  "updated_at": "2026-04-15T00:32:58.130831+00:00",
+  "updated_at": "2026-04-15T01:00:29.515019+00:00",
   "stats": {
-    "entities": 175,
-    "relations": 382
+    "entities": 179,
+    "relations": 384
   }
 }
