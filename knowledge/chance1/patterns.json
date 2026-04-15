@@ -2417,6 +2417,73 @@
         "last_accessed": "2026-04-15T00:36:31.058169+00:00",
         "access_count": 0
       }
+    },
+    "5943634c509d": {
+      "id": "5943634c509d",
+      "type": "pattern",
+      "key": "session_auto_20260414_203858",
+      "solution": {
+        "strategy": "auto_captured_from_session",
+        "notes": "Interacciones clave:\n  P: ya estan las 22?\n  R: Sí. Los 10 tools MCP nuevos implementados cubren las **22 capacidades COM** que estaban ocultas:  | Tool MCP (1) | Capacidades que cubre (22) | |---|-\n  P: ya estan todas?\n  R: Sí. Estado final de las capacidades COM expuestas como MCP tools en `IA_PowerPoint`:  | | Antes | Después | |---|---|---| | Tools MCP registrados | ~9\n  P: <local-command-stdout>Catch you later!</local-command-stdout>\n  R: No response requested.\n  P: [Image source: C:\\Users\\ntoledo\\.claude\\image-cache\\47b83b83-0821-4c0a-ad01-19d910cb7641\\2.png]\n  R: Sí, cuadra exactamente con lo ejecutado:  | Elemento | Esperado | En la foto | |---|---|---| | **Banner título navy** `#0B1F3A` full-width | ✅ | Banne\n  P: pregunta todo fue basado en los Tools que tenias en el proyecto o tuviste que usar habilidades fuera\n  R: Todo se hizo 100% con los tools MCP del proyecto `ia_powerpoint`. Cero habilidades externas.  **Tools usadas en el rediseño de slide 8:**  | Tool MCP \nResumen: monitorea en tiempo real: 🛠️ Comando práctico para monitoreo en vivo    tail -f C:\\Chance1\\IA\\IA_PowerPoint\\logs\\powerpoint_com.log   O si quieres alg -> realiza monitoreo programado cada 30 segundos \nEditados: powerpoint_com.py, mcp_server.py\nCreados: focus_ppt.ps1, compiled-crafting-phoenix.md\nDecisiones: revisar primero qué hay en el slide 8 antes de aplicar mejoras.; agregar elementos premium decorativos sin tocar el texto existente: un kicker editorial sobre el título, insignias numeradas para cada sección y un footer tagline.; eliminar todo lo que agregué y dejarlo en el estado original.; validar qué capacidades reales tiene el proyecto en código, no solo lo que expone ToolSearch.; delegarlo a un agente con instrucciones específicas para que lo haga de forma coordinada y segura.\nErrores resueltos: Exit code 1\nEn l�nea: 1 Car�cter: 350\r\n+ ... orAction SilentlyContinue | ForEach; Stream idle timeout - partial response received; Exit code 1\nFile exists: True\r\nFile size: 6758863 bytes",
+        "auto_learned": true,
+        "source": "hook_session_end",
+        "files_touched": [
+          "C:\\Chance1\\IA\\IA_PowerPoint\\src\\powerpoint_com.py",
+          "C:\\Chance1\\IA\\IA_PowerPoint\\src\\mcp_server.py",
+          "C:\\Chance1\\IA\\IA_PowerPoint\\tmp\\focus_ppt.ps1",
+          "C:\\Users\\ntoledo\\.claude\\plans\\compiled-crafting-phoenix.md"
+        ],
+        "domain_detected": "chance1"
+      },
+      "tags": [
+        "auto-learned",
+        "session",
+        "chance1"
+      ],
+      "error_context": null,
+      "created_at": "2026-04-15T02:38:58.814700+00:00",
+      "updated_at": "2026-04-15T02:38:58.814700+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-04-15T02:38:58.814700+00:00",
+        "access_count": 0
+      }
+    },
+    "9c8321474ee9": {
+      "id": "9c8321474ee9",
+      "type": "pattern",
+      "key": "session_auto_20260415_084450",
+      "solution": {
+        "strategy": "auto_captured_from_session",
+        "notes": "Interacciones clave:\n  P: ya estan las 22?\n  R: Sí. Los 10 tools MCP nuevos implementados cubren las **22 capacidades COM** que estaban ocultas:  | Tool MCP (1) | Capacidades que cubre (22) | |---|-\n  P: ya estan todas?\n  R: Sí. Estado final de las capacidades COM expuestas como MCP tools en `IA_PowerPoint`:  | | Antes | Después | |---|---|---| | Tools MCP registrados | ~9\n  P: <local-command-stdout>Catch you later!</local-command-stdout>\n  R: No response requested.\n  P: [Image source: C:\\Users\\ntoledo\\.claude\\image-cache\\47b83b83-0821-4c0a-ad01-19d910cb7641\\2.png]\n  R: Sí, cuadra exactamente con lo ejecutado:  | Elemento | Esperado | En la foto | |---|---|---| | **Banner título navy** `#0B1F3A` full-width | ✅ | Banne\n  P: pregunta todo fue basado en los Tools que tenias en el proyecto o tuviste que usar habilidades fuera\n  R: Todo se hizo 100% con los tools MCP del proyecto `ia_powerpoint`. Cero habilidades externas.  **Tools usadas en el rediseño de slide 8:**  | Tool MCP \n  P: <local-command-stdout>Goodbye!</local-command-stdout>\n  R: No response requested.\nResumen: monitorea en tiempo real: 🛠️ Comando práctico para monitoreo en vivo    tail -f C:\\Chance1\\IA\\IA_PowerPoint\\logs\\powerpoint_com.log   O si quieres alg -> realiza monitoreo programado cada 30 segundos \nEditados: powerpoint_com.py, mcp_server.py, ooxml_engine.py\nCreados: focus_ppt.ps1, compiled-crafting-phoenix.md\nDecisiones: revisar primero qué hay en el slide 8 antes de aplicar mejoras.; agregar elementos premium decorativos sin tocar el texto existente: un kicker editorial sobre el título, insignias numeradas para cada sección y un footer tagline.; eliminar todo lo que agregué y dejarlo en el estado original.; validar qué capacidades reales tiene el proyecto en código, no solo lo que expone ToolSearch.; delegarlo a un agente con instrucciones específicas para que lo haga de forma coordinada y segura.\nErrores resueltos: Exit code 1\nEn l�nea: 1 Car�cter: 350\r\n+ ... orAction SilentlyContinue | ForEach; ",
+        "auto_learned": true,
+        "source": "hook_session_end",
+        "files_touched": [
+          "C:\\Chance1\\IA\\IA_PowerPoint\\src\\powerpoint_com.py",
+          "C:\\Chance1\\IA\\IA_PowerPoint\\src\\mcp_server.py",
+          "C:\\Chance1\\IA\\IA_PowerPoint\\src\\ooxml_engine.py",
+          "C:\\Chance1\\IA\\IA_PowerPoint\\tmp\\focus_ppt.ps1",
+          "C:\\Users\\ntoledo\\.claude\\plans\\compiled-crafting-phoenix.md"
+        ],
+        "domain_detected": "chance1"
+      },
+      "tags": [
+        "auto-learned",
+        "session",
+        "chance1"
+      ],
+      "error_context": null,
+      "created_at": "2026-04-15T14:44:50.913409+00:00",
+      "updated_at": "2026-04-15T14:44:50.913409+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-04-15T14:44:50.913409+00:00",
+        "access_count": 0
+      }
     }
   },
   "tag_index": {
@@ -2624,17 +2691,23 @@
       "1d038c400c06"
     ],
     "auto-learned": [
-      "f7c4ef6c29fd"
+      "f7c4ef6c29fd",
+      "5943634c509d",
+      "9c8321474ee9"
     ],
     "session": [
-      "f7c4ef6c29fd"
+      "f7c4ef6c29fd",
+      "5943634c509d",
+      "9c8321474ee9"
     ],
     "chance1": [
-      "f7c4ef6c29fd"
+      "f7c4ef6c29fd",
+      "5943634c509d",
+      "9c8321474ee9"
     ]
   },
   "stats": {
-    "total_entries": 97,
+    "total_entries": 99,
     "total_lookups": 555,
     "total_hits": 493
   }
