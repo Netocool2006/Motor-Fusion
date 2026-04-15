@@ -2386,6 +2386,37 @@
         "last_accessed": "2026-04-04T23:16:08.096285+00:00",
         "access_count": 188
       }
+    },
+    "f7c4ef6c29fd": {
+      "id": "f7c4ef6c29fd",
+      "type": "pattern",
+      "key": "session_auto_20260414_183631",
+      "solution": {
+        "strategy": "auto_captured_from_session",
+        "notes": "Interacciones clave:\n  P: ya estan las 22?\n  R: Sí. Los 10 tools MCP nuevos implementados cubren las **22 capacidades COM** que estaban ocultas:  | Tool MCP (1) | Capacidades que cubre (22) | |---|-\n  P: ya estan todas?\n  R: Sí. Estado final de las capacidades COM expuestas como MCP tools en `IA_PowerPoint`:  | | Antes | Después | |---|---|---| | Tools MCP registrados | ~9\nResumen: monitorea en tiempo real: 🛠️ Comando práctico para monitoreo en vivo    tail -f C:\\Chance1\\IA\\IA_PowerPoint\\logs\\powerpoint_com.log   O si quieres alg -> realiza monitoreo programado cada 30 segundos \nEditados: powerpoint_com.py, mcp_server.py\nDecisiones: revisar primero qué hay en el slide 8 antes de aplicar mejoras.; agregar elementos premium decorativos sin tocar el texto existente: un kicker editorial sobre el título, insignias numeradas para cada sección y un footer tagline.; eliminar todo lo que agregué y dejarlo en el estado original.; validar qué capacidades reales tiene el proyecto en código, no solo lo que expone ToolSearch.; delegarlo a un agente con instrucciones específicas para que lo haga de forma coordinada y segura.",
+        "auto_learned": true,
+        "source": "hook_session_end",
+        "files_touched": [
+          "C:\\Chance1\\IA\\IA_PowerPoint\\src\\powerpoint_com.py",
+          "C:\\Chance1\\IA\\IA_PowerPoint\\src\\mcp_server.py"
+        ],
+        "domain_detected": "chance1"
+      },
+      "tags": [
+        "auto-learned",
+        "session",
+        "chance1"
+      ],
+      "error_context": null,
+      "created_at": "2026-04-15T00:36:31.058169+00:00",
+      "updated_at": "2026-04-15T00:36:31.058169+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-04-15T00:36:31.058169+00:00",
+        "access_count": 0
+      }
     }
   },
   "tag_index": {
@@ -2591,10 +2622,19 @@
     ],
     "md": [
       "1d038c400c06"
+    ],
+    "auto-learned": [
+      "f7c4ef6c29fd"
+    ],
+    "session": [
+      "f7c4ef6c29fd"
+    ],
+    "chance1": [
+      "f7c4ef6c29fd"
     ]
   },
   "stats": {
-    "total_entries": 96,
+    "total_entries": 97,
     "total_lookups": 555,
     "total_hits": 493
   }
