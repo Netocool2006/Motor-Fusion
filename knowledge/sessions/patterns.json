@@ -13324,6 +13324,30 @@
         "last_accessed": "2026-04-14T19:02:15.012184+00:00",
         "access_count": 0
       }
+    },
+    "d144845432bd": {
+      "id": "d144845432bd",
+      "type": "fact",
+      "key": "episodic_20260415_085640",
+      "fact": {
+        "rule": "browser_take_screenshot para debug intermedio — usar browser_snapshot. NUNCA grabar en SAP automáticamente — dejar que el usuario lo haga manual. NUNCA importar código de FormFiller_IA o SAP_Tierra_IA — usar solo lo copiado.  Si necesitas inyectar JS; js/*.js via browser_evaluate'\"       }]     }]   } } ```  Un guard como `guard_no_edit_reference.py` puede leer el tool_input, verificar que el archivo a editar NO está en `reference/` y fallar si lo está.  **Efectividad**: 99%. Es bloqueo real a niv",
+        "applies_to": "sesion 20260415_085640, dominio hooks_ia_backup_20260331_22050",
+        "confidence": "observed",
+        "source": "auto_episodic_extraction"
+      },
+      "tags": [
+        "episodic",
+        "auto-learned",
+        "hooks_ia_backup_20260331_22050"
+      ],
+      "created_at": "2026-04-15T14:56:40.174070+00:00",
+      "updated_at": "2026-04-15T14:56:40.174070+00:00",
+      "stats": {
+        "lookups": 0,
+        "cited_in_tasks": 0,
+        "last_accessed": "2026-04-15T14:56:40.174070+00:00",
+        "access_count": 0
+      }
     }
   },
   "tag_index": {
@@ -13841,7 +13865,8 @@
       "5a8c618d1277",
       "70c009f25bf1",
       "b9bbb743f7a0",
-      "a7af37320b27"
+      "a7af37320b27",
+      "d144845432bd"
     ],
     "iteration": [
       "99ea64471b21",
@@ -14387,7 +14412,8 @@
       "5a8c618d1277",
       "70c009f25bf1",
       "b9bbb743f7a0",
-      "a7af37320b27"
+      "a7af37320b27",
+      "d144845432bd"
     ],
     "files": [
       "e6022665fe1c",
@@ -14898,11 +14924,12 @@
       "5a8c618d1277",
       "70c009f25bf1",
       "b9bbb743f7a0",
-      "a7af37320b27"
+      "a7af37320b27",
+      "d144845432bd"
     ]
   },
   "stats": {
-    "total_entries": 514,
+    "total_entries": 515,
     "total_lookups": 1141,
     "total_hits": 886
   }
