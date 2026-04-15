@@ -89,22 +89,55 @@
       "promotion_count": 0
     },
     {
+      "key": "ya re inicie continua",
+      "value": "Re-armado tras el reinicio:\n\n- **Tail background** `bepkvjfzf` sobre `powerpoint_com.log`\n- **Cron** `b1f613bd` cada minuto (sin novedad/reporte)\n\nListo para continuar. Â¿QuÃ© sigue â€” actualizar los manuales desactualizados que quedaron pendientes, o reintentar el `capture_presentation_visual`?",
+      "domain": "ML 100%",
+      "source": "auto_save",
+      "tier": "hot",
+      "created_at": "2026-04-15T00:07:55.516231+00:00",
+      "last_access": "2026-04-15T00:07:55.516231+00:00",
+      "access_count": 0,
+      "promotion_count": 0
+    },
+    {
+      "key": "sigue el monitoreo",
+      "value": "Actividad nueva detectada (no-error, solo reattach):\n\n- `18:08:32 [INFO]` Re-attach exitoso a `BluePrint_BAC_Servicio Gestionado ACH_v2.0 (1).pptx` (pid=24144, read_only=False)\n\nSin ERROR/WARNING. Cron sigue corriendo cada minuto.",
+      "domain": "ML 100%",
+      "source": "auto_save",
+      "tier": "hot",
+      "created_at": "2026-04-15T00:09:06.924186+00:00",
+      "last_access": "2026-04-15T00:09:06.924186+00:00",
+      "access_count": 0,
+      "promotion_count": 0
+    },
+    {
       "key": "Revisa las Ãºltimas lÃ­neas nuevas del background task b4zitd63y (BashOutput) que sigue C:\\Chance1\\IA\\IA_PowerPoint\\logs\\powerpoint_com.log. Reporta SOLO si hay lÃ­neas nuevas con ERROR/WARNING o acti",
       "value": "sin novedad",
       "domain": "ML 100%",
       "source": "auto_save",
       "tier": "hot",
-      "created_at": "2026-04-15T00:07:28.694805+00:00",
-      "last_access": "2026-04-15T00:07:28.694805+00:00",
+      "created_at": "2026-04-15T00:12:26.776436+00:00",
+      "last_access": "2026-04-15T00:12:26.776436+00:00",
+      "access_count": 0,
+      "promotion_count": 0
+    },
+    {
+      "key": "Revisa las Ãºltimas lÃ­neas nuevas del background tail de C:\\Chance1\\IA\\IA_PowerPoint\\logs\\powerpoint_com.log (usa TaskOutput sobre el task de tail activo). Reporta SOLO si hay lÃ­neas nuevas con ERRO",
+      "value": "sin novedad",
+      "domain": "ML 100%",
+      "source": "auto_save",
+      "tier": "hot",
+      "created_at": "2026-04-15T00:13:04.105167+00:00",
+      "last_access": "2026-04-15T00:13:04.105167+00:00",
       "access_count": 0,
       "promotion_count": 0
     }
   ],
   "warm": [],
   "cold": [],
-  "updated_at": "2026-04-15T00:07:28.694805+00:00",
+  "updated_at": "2026-04-15T00:13:04.105167+00:00",
   "counts": {
-    "hot": 9,
+    "hot": 12,
     "warm": 0,
     "cold": 0
   }
