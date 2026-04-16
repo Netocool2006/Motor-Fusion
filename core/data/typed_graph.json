@@ -2335,6 +2335,62 @@
       "properties": {},
       "created_at": "2026-04-16T02:43:47.166978+00:00",
       "updated_at": "2026-04-16T02:43:47.166978+00:00"
+    },
+    "0.3s": {
+      "id": "0.3s",
+      "type": "file",
+      "name": "0.3s",
+      "properties": {},
+      "created_at": "2026-04-16T02:51:06.782451+00:00",
+      "updated_at": "2026-04-16T02:51:06.782451+00:00"
+    },
+    "word_com.save": {
+      "id": "word_com.save",
+      "type": "file",
+      "name": "word_com.save",
+      "properties": {},
+      "created_at": "2026-04-16T02:51:06.791960+00:00",
+      "updated_at": "2026-04-16T02:51:06.791960+00:00"
+    },
+    "0.5s": {
+      "id": "0.5s",
+      "type": "file",
+      "name": "0.5s",
+      "properties": {},
+      "created_at": "2026-04-16T02:51:06.811966+00:00",
+      "updated_at": "2026-04-16T02:51:06.811966+00:00"
+    },
+    "time.slee": {
+      "id": "time.slee",
+      "type": "file",
+      "name": "time.slee",
+      "properties": {},
+      "created_at": "2026-04-16T13:48:05.719034+00:00",
+      "updated_at": "2026-04-16T13:48:05.719034+00:00"
+    },
+    "new_doc.Repa": {
+      "id": "new_doc.Repa",
+      "type": "file",
+      "name": "new_doc.Repa",
+      "properties": {},
+      "created_at": "2026-04-16T13:48:05.759555+00:00",
+      "updated_at": "2026-04-16T13:48:05.759555+00:00"
+    },
+    "porque": {
+      "id": "porque",
+      "type": "concept",
+      "name": "porque",
+      "properties": {},
+      "created_at": "2026-04-16T13:51:44.074158+00:00",
+      "updated_at": "2026-04-16T13:51:44.074158+00:00"
+    },
+    "winword": {
+      "id": "winword",
+      "type": "concept",
+      "name": "winword",
+      "properties": {},
+      "created_at": "2026-04-16T13:51:44.088061+00:00",
+      "updated_at": "2026-04-16T13:51:44.088061+00:00"
     }
   },
   "relations": [
@@ -7719,11 +7775,92 @@
       "context": "que se te ocurre para mejorar esto: \n    Lo que estÃ¡s viendo en los logs confirma esto:\n    \"select",
       "created_at": "2026-04-16T02:43:47.181834+00:00",
       "updated_at": "2026-04-16T02:43:47.181834+00:00"
+    },
+    {
+      "source": "0.3s",
+      "target": "word_com.save",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "procede con todas",
+      "created_at": "2026-04-16T02:51:06.801963+00:00",
+      "updated_at": "2026-04-16T02:51:06.801963+00:00"
+    },
+    {
+      "source": "0.3s",
+      "target": "0.5s",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "procede con todas",
+      "created_at": "2026-04-16T02:51:06.820966+00:00",
+      "updated_at": "2026-04-16T02:51:06.820966+00:00"
+    },
+    {
+      "source": "word_com.save",
+      "target": "0.5s",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "procede con todas",
+      "created_at": "2026-04-16T02:51:06.830969+00:00",
+      "updated_at": "2026-04-16T02:51:06.830969+00:00"
+    },
+    {
+      "source": "time.slee",
+      "target": "word_com.py",
+      "type": "used_with",
+      "weight": 1.0,
+      "context": "quiero un diagnostico de de tiempo de respuesta de este proyecto es extremadamente lento hasta se fr",
+      "created_at": "2026-04-16T13:48:05.729040+00:00",
+      "updated_at": "2026-04-16T13:48:05.739044+00:00"
+    },
+    {
+      "source": "word_com.py",
+      "target": "word_com.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "quiero un diagnostico de de tiempo de respuesta de este proyecto es extremadamente lento hasta se fr",
+      "created_at": "2026-04-16T13:48:05.749049+00:00",
+      "updated_at": "2026-04-16T13:48:05.749049+00:00"
+    },
+    {
+      "source": "word_com.py",
+      "target": "new_doc.Repa",
+      "type": "used_with",
+      "weight": 1.0,
+      "context": "quiero un diagnostico de de tiempo de respuesta de este proyecto es extremadamente lento hasta se fr",
+      "created_at": "2026-04-16T13:48:05.767068+00:00",
+      "updated_at": "2026-04-16T13:48:05.772071+00:00"
+    },
+    {
+      "source": "word_com.py",
+      "target": "time.slee",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "quiero un diagnostico de de tiempo de respuesta de este proyecto es extremadamente lento hasta se fr",
+      "created_at": "2026-04-16T13:48:05.780076+00:00",
+      "updated_at": "2026-04-16T13:48:05.780076+00:00"
+    },
+    {
+      "source": "new_doc.Repa",
+      "target": "time.slee",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "quiero un diagnostico de de tiempo de respuesta de este proyecto es extremadamente lento hasta se fr",
+      "created_at": "2026-04-16T13:48:05.787092+00:00",
+      "updated_at": "2026-04-16T13:48:05.787092+00:00"
+    },
+    {
+      "source": "porque",
+      "target": "winword",
+      "type": "used_with",
+      "weight": 0.7,
+      "context": "pre-hook query",
+      "created_at": "2026-04-16T13:51:44.103060+00:00",
+      "updated_at": "2026-04-16T13:51:44.103060+00:00"
     }
   ],
-  "updated_at": "2026-04-16T02:43:47.181834+00:00",
+  "updated_at": "2026-04-16T13:51:44.103060+00:00",
   "stats": {
-    "entities": 292,
-    "relations": 598
+    "entities": 299,
+    "relations": 607
   }
 }
