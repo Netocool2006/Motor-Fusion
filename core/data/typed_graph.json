@@ -1863,6 +1863,94 @@
       "properties": {},
       "created_at": "2026-04-16T00:41:20.945389+00:00",
       "updated_at": "2026-04-16T00:41:20.945389+00:00"
+    },
+    "business_rules.py": {
+      "id": "business_rules.py",
+      "type": "file",
+      "name": "business_rules.py",
+      "properties": {},
+      "created_at": "2026-04-16T00:43:05.353537+00:00",
+      "updated_at": "2026-04-16T00:43:05.353537+00:00"
+    },
+    "excel_com.py": {
+      "id": "excel_com.py",
+      "type": "file",
+      "name": "excel_com.py",
+      "properties": {},
+      "created_at": "2026-04-16T00:45:24.166655+00:00",
+      "updated_at": "2026-04-16T00:45:24.166655+00:00"
+    },
+    "fã³rmula": {
+      "id": "fã³rmula",
+      "type": "concept",
+      "name": "fã³rmula",
+      "properties": {},
+      "created_at": "2026-04-16T01:00:08.769729+00:00",
+      "updated_at": "2026-04-16T01:00:08.769729+00:00"
+    },
+    "sheet2": {
+      "id": "sheet2",
+      "type": "concept",
+      "name": "sheet2",
+      "properties": {},
+      "created_at": "2026-04-16T01:00:08.777237+00:00",
+      "updated_at": "2026-04-16T01:00:08.777237+00:00"
+    },
+    "Range.Dire": {
+      "id": "Range.Dire",
+      "type": "file",
+      "name": "Range.Dire",
+      "properties": {},
+      "created_at": "2026-04-16T01:00:08.792284+00:00",
+      "updated_at": "2026-04-16T01:00:08.792284+00:00"
+    },
+    "cell.Dire": {
+      "id": "cell.Dire",
+      "type": "file",
+      "name": "cell.Dire",
+      "properties": {},
+      "created_at": "2026-04-16T01:00:08.799573+00:00",
+      "updated_at": "2026-04-16T01:00:08.799573+00:00"
+    },
+    "ctPrecedents.Area": {
+      "id": "ctPrecedents.Area",
+      "type": "file",
+      "name": "ctPrecedents.Area",
+      "properties": {},
+      "created_at": "2026-04-16T01:00:08.814467+00:00",
+      "updated_at": "2026-04-16T01:00:08.814467+00:00"
+    },
+    "area.Pare": {
+      "id": "area.Pare",
+      "type": "file",
+      "name": "area.Pare",
+      "properties": {},
+      "created_at": "2026-04-16T01:00:08.838114+00:00",
+      "updated_at": "2026-04-16T01:00:08.838114+00:00"
+    },
+    "nt.Name": {
+      "id": "nt.Name",
+      "type": "file",
+      "name": "nt.Name",
+      "properties": {},
+      "created_at": "2026-04-16T01:00:08.861950+00:00",
+      "updated_at": "2026-04-16T01:00:08.861950+00:00"
+    },
+    "area.Addr": {
+      "id": "area.Addr",
+      "type": "file",
+      "name": "area.Addr",
+      "properties": {},
+      "created_at": "2026-04-16T01:00:08.884934+00:00",
+      "updated_at": "2026-04-16T01:00:08.884934+00:00"
+    },
+    "1.12": {
+      "id": "1.12",
+      "type": "file",
+      "name": "1.12",
+      "properties": {},
+      "created_at": "2026-04-16T01:00:08.905758+00:00",
+      "updated_at": "2026-04-16T01:00:08.905758+00:00"
     }
   },
   "relations": [
@@ -6118,24 +6206,159 @@
       "source": "xl.read",
       "target": "xl.read",
       "type": "used_with",
-      "weight": 0.5,
-      "context": "como ves la eficiecia de validar los calculos matematicos financieros de este proyecto?",
+      "weight": 1.0,
+      "context": "pre-hook query",
       "created_at": "2026-04-16T00:41:20.937575+00:00",
-      "updated_at": "2026-04-16T00:41:20.937575+00:00"
+      "updated_at": "2026-04-16T00:43:05.340187+00:00"
     },
     {
       "source": "xl.read",
       "target": "xl.vali",
       "type": "used_with",
-      "weight": 1.0,
-      "context": "como ves la eficiecia de validar los calculos matematicos financieros de este proyecto?",
+      "weight": 2.0,
+      "context": "pre-hook query",
       "created_at": "2026-04-16T00:41:20.954161+00:00",
-      "updated_at": "2026-04-16T00:41:20.962575+00:00"
+      "updated_at": "2026-04-16T00:43:05.348913+00:00"
+    },
+    {
+      "source": "xl.read",
+      "target": "business_rules.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-16T00:43:05.358528+00:00",
+      "updated_at": "2026-04-16T00:43:05.358528+00:00"
+    },
+    {
+      "source": "xl.vali",
+      "target": "business_rules.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-16T00:43:05.362542+00:00",
+      "updated_at": "2026-04-16T00:43:05.362542+00:00"
+    },
+    {
+      "source": "excel_com.py",
+      "target": "mcp_server.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "agrega todo esto   Los 4 problemas reales de eficiencia\n\n  1. validate_financial requiere que el LLM",
+      "created_at": "2026-04-16T00:45:24.174681+00:00",
+      "updated_at": "2026-04-16T00:45:24.174681+00:00"
+    },
+    {
+      "source": "fã³rmula",
+      "target": "sheet2",
+      "type": "depends_on",
+      "weight": 0.7,
+      "context": "realiza smoke test de todo",
+      "created_at": "2026-04-16T01:00:08.783638+00:00",
+      "updated_at": "2026-04-16T01:00:08.783638+00:00"
+    },
+    {
+      "source": "Range.Dire",
+      "target": "cell.Dire",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "realiza smoke test de todo",
+      "created_at": "2026-04-16T01:00:08.807235+00:00",
+      "updated_at": "2026-04-16T01:00:08.807235+00:00"
+    },
+    {
+      "source": "Range.Dire",
+      "target": "ctPrecedents.Area",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "realiza smoke test de todo",
+      "created_at": "2026-04-16T01:00:08.821472+00:00",
+      "updated_at": "2026-04-16T01:00:08.821472+00:00"
+    },
+    {
+      "source": "cell.Dire",
+      "target": "ctPrecedents.Area",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "realiza smoke test de todo",
+      "created_at": "2026-04-16T01:00:08.829989+00:00",
+      "updated_at": "2026-04-16T01:00:08.829989+00:00"
+    },
+    {
+      "source": "cell.Dire",
+      "target": "area.Pare",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "realiza smoke test de todo",
+      "created_at": "2026-04-16T01:00:08.846441+00:00",
+      "updated_at": "2026-04-16T01:00:08.846441+00:00"
+    },
+    {
+      "source": "ctPrecedents.Area",
+      "target": "area.Pare",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "realiza smoke test de todo",
+      "created_at": "2026-04-16T01:00:08.854091+00:00",
+      "updated_at": "2026-04-16T01:00:08.854091+00:00"
+    },
+    {
+      "source": "ctPrecedents.Area",
+      "target": "nt.Name",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "realiza smoke test de todo",
+      "created_at": "2026-04-16T01:00:08.869967+00:00",
+      "updated_at": "2026-04-16T01:00:08.869967+00:00"
+    },
+    {
+      "source": "area.Pare",
+      "target": "nt.Name",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "realiza smoke test de todo",
+      "created_at": "2026-04-16T01:00:08.878166+00:00",
+      "updated_at": "2026-04-16T01:00:08.878166+00:00"
+    },
+    {
+      "source": "area.Pare",
+      "target": "area.Addr",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "realiza smoke test de todo",
+      "created_at": "2026-04-16T01:00:08.894107+00:00",
+      "updated_at": "2026-04-16T01:00:08.894107+00:00"
+    },
+    {
+      "source": "nt.Name",
+      "target": "area.Addr",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "realiza smoke test de todo",
+      "created_at": "2026-04-16T01:00:08.901370+00:00",
+      "updated_at": "2026-04-16T01:00:08.901370+00:00"
+    },
+    {
+      "source": "nt.Name",
+      "target": "1.12",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "realiza smoke test de todo",
+      "created_at": "2026-04-16T01:00:08.912131+00:00",
+      "updated_at": "2026-04-16T01:00:08.912131+00:00"
+    },
+    {
+      "source": "area.Addr",
+      "target": "1.12",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "realiza smoke test de todo",
+      "created_at": "2026-04-16T01:00:08.916141+00:00",
+      "updated_at": "2026-04-16T01:00:08.916141+00:00"
     }
   ],
-  "updated_at": "2026-04-16T00:41:20.962575+00:00",
+  "updated_at": "2026-04-16T01:00:08.916141+00:00",
   "stats": {
-    "entities": 233,
-    "relations": 474
+    "entities": 244,
+    "relations": 489
   }
 }

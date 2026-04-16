@@ -1,22 +1,44 @@
 {
   "hot": [
     {
-      "key": "como ves la eficiecia de validar los calculos matematicos financieros de este proyecto?",
-      "value": "Tengo el panorama completo. AquÃ­ el diagnÃ³stico honesto:\n\n---\n\n## EvaluaciÃ³n de eficiencia â€” ValidaciÃ³n financiera\n\n### Lo que funciona bien (fortalezas reales)\n\n| Componente | QuÃ© hace bien |\n|---|---|\n| `validate_iva()` | Multi-paÃ­s correcto (GT/CR/PA/SV/HN/NI/DO), tolerancia configurable |\n| `validate_line_items()` | `qty Ã— price = total` fila por fila, sÃ³lido |\n| `validate_math()` en validators.py | Detecta todos los marcadores de error Excel (`#REF!`, `#DIV/0!`, etc.) |\n| `validate_total()` | `subtotal + IVA = total` simple pero correcto |\n| 4-axis report | Estructura limpia: structure + math + coherence + formatting |\n\n---\n\n### Los 4 problemas reales de eficiencia\n\n**1. validate_financial requiere que el LLM ya sepa la respuesta**\n```python\n# El LLM tiene que hacer esto ANTES de validar:\nsubtotal = xl.read_range(\"B20\")  # leer primero\niva = xl.read_range(\"B21\")       # leer primero\nxl.validate_iva(subtotal, iva)   # luego validar\n```\nNo hay `validate_iva_from_range(\"B20",
-      "domain": "ML 65%",
+      "key": "procede",
+      "value": "Phase 7 completo. Resumen:\n\n**Estado final del motor OOXML:**\n\n| MÃ©trica | Antes | Ahora |\n|---|---|---|\n| `OOXML_SUPPORTED_TOOLS` | 32 | **64** |\n| `COM_ONLY_TOOLS` | 25 | 25 (sin cambio) |\n| Tools totales enrutadas por orchestrator | 57 | **89** |\n| % del total (~120 tools) en OOXML primario | ~27% | **~55%** |\n\n**32 nuevos mÃ©todos aÃ±adidos a `WordOOXML`** (9 grupos â€” 7A a 7J):\n- **Reads**: `get_paragraph_text`, `analyze_document`, `validate`\n- **Texto**: `find_replace_wildcard` (regex), `find_then_set`, `smart_replace`, `format_text_range`\n- **Formato pÃ¡gina/pÃ¡rrafo**: `set_paragraph_flow`, `set_text_direction`, `set_tab_stops`, `set_page_layout`, `set_columns`, `set_line_numbers`, `set_drop_cap`, `set_page_borders`, `insert_section_break`\n- **Headers/footers**: `update_footer`, `manage_headers_footers`\n- **Tablas**: `split_table_cell`, `set_table_overlap`, `table_formula`\n- **Mantenimiento**: `manage_fields`, `remove_blank_pages`, `repair_footers`\n- **Notas/comentarios**: `m",
+      "domain": "Internet 5% + ML 75%",
       "source": "auto_save",
       "tier": "hot",
-      "created_at": "2026-04-16T00:41:20.894603+00:00",
-      "last_access": "2026-04-16T00:41:20.894603+00:00",
+      "created_at": "2026-04-16T00:51:37.830261+00:00",
+      "last_access": "2026-04-16T00:51:37.830261+00:00",
+      "access_count": 0,
+      "promotion_count": 0
+    },
+    {
+      "key": "entonces ahora rige OOXML SDK fuerte para hacer los cambios?",
+      "value": "SÃ­, pero con matices importantes. El estado real ahora:\n\n```\n120 tools totales\n â”œâ”€â”€ 64  OOXML PRIMARIO  (python-docx + lxml, sin WINWORD.EXE)\n â”‚         â””â”€â”€ fallback automÃ¡tico â†’ COM si falla\n â”œâ”€â”€ 25  COM-ONLY        (render, TOC, spelling, layout, VBA)\n â”‚         â””â”€â”€ sin fallback â€” requieren Word obligatoriamente\n â””â”€â”€ ~31  LEGACY COM     (imÃ¡genes, OLE, mail merge, etc.)\n           â””â”€â”€ path antiguo, no enrutados por orchestrator\n```\n\n**OOXML rige para el 55% del total.** Cuando el MCP recibe cualquiera de los 64 tools del primer grupo:\n\n1. Va directo a `WordOOXML` (python-docx + lxml) â€” sin abrir Word\n2. Si falla â†’ el orchestrator lo reintenta automÃ¡ticamente en COM\n3. Si es ATTACHED mode (doc abierto en Word del usuario) â†’ va a COM directamente\n\n**Los 25 COM-only** (view_page, export_pdf, check_spelling, insert_toc, detect_layout_issues, vba_*...) nunca tocarÃ¡n OOXML â€” dependen del motor de render de Word y no hay alternativa.\n",
+      "domain": "ML 100%",
+      "source": "auto_save",
+      "tier": "hot",
+      "created_at": "2026-04-16T00:56:24.189060+00:00",
+      "last_access": "2026-04-16T00:56:24.189060+00:00",
+      "access_count": 0,
+      "promotion_count": 0
+    },
+    {
+      "key": "realiza smoke test de todo",
+      "value": "Tengo suficiente informaciÃ³n. AquÃ­ el anÃ¡lisis consolidado:\n\n---\n\n## Lo que encontrÃ© en internet/foros/repositorios/herramientas especializadas\n\n### TÃ©cnicas que las herramientas profesionales usan y nosotros NO tenemos\n\n---\n\n**1. Range.DirectPrecedents â€” Trazabilidad de dependencias de fÃ³rmulas (COM nativo)**\n\nLa tÃ©cnica mÃ¡s usada en auditorÃ­as profesionales (Macabacus, RefTreeAnalyser, Spreadsheet Detective). Permite saber exactamente de quÃ© celdas depende una fÃ³rmula, incluso si estÃ¡n en otra hoja u otro workbook.\n\n```python\n# COM disponible, NO implementado aÃºn en IA_Excel:\nfor area in cell.DirectPrecedents.Areas:\n    print(area.Parent.Name, area.Address)\n    # â†’ te dice: \"esta fÃ³rmula depende de Sheet2!B5:B100\"\n```\nPermite: verificar que una fÃ³rmula en Resumen realmente jala de donde dice.\n\n---\n\n**2. Evaluate Formula step-by-step (Excel nativo vÃ­a VBA/COM)**\n\nExcel tiene un evaluador que descompone una fÃ³rmula en pasos intermedios: `=SUM(A1:A10)*1.12` â†’ prim",
+      "domain": "Internet 70% + ML 25%",
+      "source": "auto_save",
+      "tier": "hot",
+      "created_at": "2026-04-16T01:00:08.759096+00:00",
+      "last_access": "2026-04-16T01:00:08.759096+00:00",
       "access_count": 0,
       "promotion_count": 0
     }
   ],
   "warm": [],
   "cold": [],
-  "updated_at": "2026-04-16T00:41:20.894603+00:00",
+  "updated_at": "2026-04-16T01:00:08.759096+00:00",
   "counts": {
-    "hot": 1,
+    "hot": 3,
     "warm": 0,
     "cold": 0
   }
