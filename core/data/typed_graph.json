@@ -2239,6 +2239,70 @@
       "properties": {},
       "created_at": "2026-04-16T01:39:43.200472+00:00",
       "updated_at": "2026-04-16T01:39:43.200472+00:00"
+    },
+    "/proyectos/bom_cliente1.xlsx": {
+      "id": "/proyectos/bom_cliente1.xlsx",
+      "type": "file",
+      "name": "/proyectos/bom_cliente1.xlsx",
+      "properties": {},
+      "created_at": "2026-04-16T01:59:27.748410+00:00",
+      "updated_at": "2026-04-16T01:59:27.748410+00:00"
+    },
+    "/proyectos/bom_cliente2.xlsx": {
+      "id": "/proyectos/bom_cliente2.xlsx",
+      "type": "file",
+      "name": "/proyectos/bom_cliente2.xlsx",
+      "properties": {},
+      "created_at": "2026-04-16T01:59:27.758416+00:00",
+      "updated_at": "2026-04-16T01:59:27.758416+00:00"
+    },
+    "/proyectos/bom_cliente3.xlsx": {
+      "id": "/proyectos/bom_cliente3.xlsx",
+      "type": "file",
+      "name": "/proyectos/bom_cliente3.xlsx",
+      "properties": {},
+      "created_at": "2026-04-16T01:59:27.776425+00:00",
+      "updated_at": "2026-04-16T01:59:27.776425+00:00"
+    },
+    "/proyectos/bom_cliente4.xlsx": {
+      "id": "/proyectos/bom_cliente4.xlsx",
+      "type": "file",
+      "name": "/proyectos/bom_cliente4.xlsx",
+      "properties": {},
+      "created_at": "2026-04-16T01:59:27.804429+00:00",
+      "updated_at": "2026-04-16T01:59:27.804429+00:00"
+    },
+    "/proyectos/bom_cliente5.xlsx": {
+      "id": "/proyectos/bom_cliente5.xlsx",
+      "type": "file",
+      "name": "/proyectos/bom_cliente5.xlsx",
+      "properties": {},
+      "created_at": "2026-04-16T01:59:27.832452+00:00",
+      "updated_at": "2026-04-16T01:59:27.832452+00:00"
+    },
+    "/proyectos/bom_cliente6.xlsx": {
+      "id": "/proyectos/bom_cliente6.xlsx",
+      "type": "file",
+      "name": "/proyectos/bom_cliente6.xlsx",
+      "properties": {},
+      "created_at": "2026-04-16T01:59:27.859465+00:00",
+      "updated_at": "2026-04-16T01:59:27.859465+00:00"
+    },
+    "/proyectos/BoM_Consolidado.xlsx": {
+      "id": "/proyectos/BoM_Consolidado.xlsx",
+      "type": "file",
+      "name": "/proyectos/BoM_Consolidado.xlsx",
+      "properties": {},
+      "created_at": "2026-04-16T01:59:27.889472+00:00",
+      "updated_at": "2026-04-16T01:59:27.889472+00:00"
+    },
+    "time.time": {
+      "id": "time.time",
+      "type": "file",
+      "name": "time.time",
+      "properties": {},
+      "created_at": "2026-04-16T02:11:12.299712+00:00",
+      "updated_at": "2026-04-16T02:11:12.299712+00:00"
     }
   },
   "relations": [
@@ -7367,10 +7431,10 @@
       "source": "Promerica_Propuesta_Tecnica.docx",
       "target": "Promerica_Propuesta_Comercial.docx",
       "type": "used_with",
-      "weight": 0.5,
-      "context": "valida el plan para sustuir todas las funciones que tiene COM por OOXML SDK fuerte  y que COM solo q",
+      "weight": 1.0,
+      "context": "valdria la pena agregar pandas de python para manipulacion del excel?",
       "created_at": "2026-04-16T01:27:54.836778+00:00",
-      "updated_at": "2026-04-16T01:27:54.836778+00:00"
+      "updated_at": "2026-04-16T01:56:09.447764+00:00"
     },
     {
       "source": "src/ooxml_engine.py",
@@ -7416,11 +7480,164 @@
       "context": "valida esto  2. El cuello de botella real: modo ATTACHED\n    El documento Promerica estaba abierto e",
       "created_at": "2026-04-16T01:39:43.217476+00:00",
       "updated_at": "2026-04-16T01:39:43.217476+00:00"
+    },
+    {
+      "source": "excel_com.py",
+      "target": "Excel.exe",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "entonces corrige esto de raiz ATTACHED para que no se quede colapsado si no estas perdiendo el tiemp",
+      "created_at": "2026-04-16T01:53:42.579475+00:00",
+      "updated_at": "2026-04-16T01:53:42.579475+00:00"
+    },
+    {
+      "source": "Promerica_Propuesta_Tecnica.docx",
+      "target": "SOW_Bantrab_MERGED.docx",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "valdria la pena agregar pandas de python para manipulacion del excel?",
+      "created_at": "2026-04-16T01:56:09.456765+00:00",
+      "updated_at": "2026-04-16T01:56:09.456765+00:00"
+    },
+    {
+      "source": "Promerica_Propuesta_Comercial.docx",
+      "target": "SOW_Bantrab_MERGED.docx",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "valdria la pena agregar pandas de python para manipulacion del excel?",
+      "created_at": "2026-04-16T01:56:09.466052+00:00",
+      "updated_at": "2026-04-16T01:56:09.466052+00:00"
+    },
+    {
+      "source": "/proyectos/bom_cliente1.xlsx",
+      "target": "/proyectos/bom_cliente2.xlsx",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "y si quiero hacer merge de BoM de unos 6 documentos lo tenemos?",
+      "created_at": "2026-04-16T01:59:27.767419+00:00",
+      "updated_at": "2026-04-16T01:59:27.767419+00:00"
+    },
+    {
+      "source": "/proyectos/bom_cliente1.xlsx",
+      "target": "/proyectos/bom_cliente3.xlsx",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "y si quiero hacer merge de BoM de unos 6 documentos lo tenemos?",
+      "created_at": "2026-04-16T01:59:27.786428+00:00",
+      "updated_at": "2026-04-16T01:59:27.786428+00:00"
+    },
+    {
+      "source": "/proyectos/bom_cliente2.xlsx",
+      "target": "/proyectos/bom_cliente3.xlsx",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "y si quiero hacer merge de BoM de unos 6 documentos lo tenemos?",
+      "created_at": "2026-04-16T01:59:27.795428+00:00",
+      "updated_at": "2026-04-16T01:59:27.795428+00:00"
+    },
+    {
+      "source": "/proyectos/bom_cliente2.xlsx",
+      "target": "/proyectos/bom_cliente4.xlsx",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "y si quiero hacer merge de BoM de unos 6 documentos lo tenemos?",
+      "created_at": "2026-04-16T01:59:27.812937+00:00",
+      "updated_at": "2026-04-16T01:59:27.812937+00:00"
+    },
+    {
+      "source": "/proyectos/bom_cliente3.xlsx",
+      "target": "/proyectos/bom_cliente4.xlsx",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "y si quiero hacer merge de BoM de unos 6 documentos lo tenemos?",
+      "created_at": "2026-04-16T01:59:27.823459+00:00",
+      "updated_at": "2026-04-16T01:59:27.823459+00:00"
+    },
+    {
+      "source": "/proyectos/bom_cliente3.xlsx",
+      "target": "/proyectos/bom_cliente5.xlsx",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "y si quiero hacer merge de BoM de unos 6 documentos lo tenemos?",
+      "created_at": "2026-04-16T01:59:27.841455+00:00",
+      "updated_at": "2026-04-16T01:59:27.841455+00:00"
+    },
+    {
+      "source": "/proyectos/bom_cliente4.xlsx",
+      "target": "/proyectos/bom_cliente5.xlsx",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "y si quiero hacer merge de BoM de unos 6 documentos lo tenemos?",
+      "created_at": "2026-04-16T01:59:27.849460+00:00",
+      "updated_at": "2026-04-16T01:59:27.849460+00:00"
+    },
+    {
+      "source": "/proyectos/bom_cliente4.xlsx",
+      "target": "/proyectos/bom_cliente6.xlsx",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "y si quiero hacer merge de BoM de unos 6 documentos lo tenemos?",
+      "created_at": "2026-04-16T01:59:27.869472+00:00",
+      "updated_at": "2026-04-16T01:59:27.869472+00:00"
+    },
+    {
+      "source": "/proyectos/bom_cliente5.xlsx",
+      "target": "/proyectos/bom_cliente6.xlsx",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "y si quiero hacer merge de BoM de unos 6 documentos lo tenemos?",
+      "created_at": "2026-04-16T01:59:27.879471+00:00",
+      "updated_at": "2026-04-16T01:59:27.879471+00:00"
+    },
+    {
+      "source": "/proyectos/bom_cliente5.xlsx",
+      "target": "/proyectos/BoM_Consolidado.xlsx",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "y si quiero hacer merge de BoM de unos 6 documentos lo tenemos?",
+      "created_at": "2026-04-16T01:59:27.897472+00:00",
+      "updated_at": "2026-04-16T01:59:27.897472+00:00"
+    },
+    {
+      "source": "/proyectos/bom_cliente6.xlsx",
+      "target": "/proyectos/BoM_Consolidado.xlsx",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "y si quiero hacer merge de BoM de unos 6 documentos lo tenemos?",
+      "created_at": "2026-04-16T01:59:27.906499+00:00",
+      "updated_at": "2026-04-16T01:59:27.906499+00:00"
+    },
+    {
+      "source": "mcp_server.py",
+      "target": "mcp_server.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pero como hacemos para que sea un paso obligatorio parte del proyecto eso de meterlo en el .MD no si",
+      "created_at": "2026-04-16T02:11:12.289202+00:00",
+      "updated_at": "2026-04-16T02:11:12.289202+00:00"
+    },
+    {
+      "source": "mcp_server.py",
+      "target": "time.time",
+      "type": "used_with",
+      "weight": 1.5,
+      "context": "pero como hacemos para que sea un paso obligatorio parte del proyecto eso de meterlo en el .MD no si",
+      "created_at": "2026-04-16T02:11:12.309220+00:00",
+      "updated_at": "2026-04-16T02:11:12.328228+00:00"
+    },
+    {
+      "source": "time.time",
+      "target": "time.time",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pero como hacemos para que sea un paso obligatorio parte del proyecto eso de meterlo en el .MD no si",
+      "created_at": "2026-04-16T02:11:12.337229+00:00",
+      "updated_at": "2026-04-16T02:11:12.337229+00:00"
     }
   ],
-  "updated_at": "2026-04-16T01:39:43.217476+00:00",
+  "updated_at": "2026-04-16T02:11:12.337229+00:00",
   "stats": {
-    "entities": 280,
-    "relations": 575
+    "entities": 288,
+    "relations": 592
   }
 }

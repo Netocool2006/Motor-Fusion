@@ -65,13 +65,68 @@
       "last_access": "2026-04-16T01:39:43.149443+00:00",
       "access_count": 0,
       "promotion_count": 0
+    },
+    {
+      "key": "entonces corrige esto de raiz ATTACHED para que no se quede colapsado si no estas perdiendo el tiempo en intentar hacer el documento pero se cuelga por esto ATTACHED",
+      "value": "Listo. Resumen de lo que se implementÃ³:\n\n**+24 nuevos mÃ©todos en `OOXMLEngine` (Phase 5):**\n- Sheet management: `unhide_sheet`, `unhide_all_sheets`, `create_sheet`, `delete_sheet`, `rename_sheet`, `unhide_all_rows_cols`\n- Reads: `has_formula`, `sum_range`, `detect_currency_cells`\n- Validaciones financieras: `validate_iva_from_range`, `validate_line_items`, `validate_formula_coverage`, `validate_column_formula_consistency`, `cross_sheet_totals_check`, `validate_financial_sheet_auto`\n- ProtecciÃ³n: `protect_sheet`, `unprotect_sheet`, `protect_workbook`, `unprotect_workbook`\n- Comentarios: `manage_comment`\n- BoM: `parse_bom`\n\n**+24 nuevos dispatches en `excel_com.py`** (mÃ¡s los 4 ya existentes en OOXMLEngine: `bulk_font_change`, `add_hyperlink`, `list_hyperlinks`, y `workbook_statistics` que ya sub-despacha individualmente)\n\n**Total final: 48 dispatches activos**. Todo mÃ©todo que puede ejecutarse sin Excel.exe ahora va por openpyxl primero â€” COM queda como fallback silencioso. Los m",
+      "domain": "ML",
+      "source": "auto_save",
+      "tier": "hot",
+      "created_at": "2026-04-16T01:53:42.566599+00:00",
+      "last_access": "2026-04-16T01:53:42.566599+00:00",
+      "access_count": 0,
+      "promotion_count": 0
+    },
+    {
+      "key": "quedo como principal OOXML y COM como fall back?",
+      "value": "Confirmado. El estado final es:\n\n---\n\n**SÃ­, quedÃ³ correctamente configurado:**\n\n| CategorÃ­a | Cantidad | Ejemplos |\n|-----------|:--------:|---------|\n| **OOXML primary** (openpyxl â†’ COM fallback) | **48** | read_range, write_range, create_sheet, protect_sheet, parse_bom, validate_line_items... |\n| **COM-only permanentes** (razÃ³n tÃ©cnica) | **56** | VBA, pivots, charts, Power Query, lifecycle, verify_formula_result... |\n\n**COM-only permanentes son correctos por estas razones:**\n- `vba_batch_execute`, `create_pivot_table`, `refresh_*`, `insert_chart` â€” openpyxl no puede crear/evaluar estos\n- `verify_formula_result`, `detect_circular_references` â€” requieren `Worksheet.Evaluate()` de Excel\n- `open_workbook`, `attach_to_running`, `quit`, `save*` â€” lifecycle del proceso COM\n- `validate_iva`, `validate_total` â€” son pura matemÃ¡tica Python, no necesitan dispatch de ningÃºn tipo\n- `apply_table_style`, `format_range_advanced`, `apply_conditional_formatting` â€” dependen de `theme",
+      "domain": "ML 100%",
+      "source": "auto_save",
+      "tier": "hot",
+      "created_at": "2026-04-16T01:54:48.137016+00:00",
+      "last_access": "2026-04-16T01:54:48.137016+00:00",
+      "access_count": 0,
+      "promotion_count": 0
+    },
+    {
+      "key": "valdria la pena agregar pandas de python para manipulacion del excel?",
+      "value": "Los 3 documentos estÃ¡n abiertos en Word:\n\n1. **`Promerica_Propuesta_Tecnica.docx`** â€” 17 pÃ¡gs, secciones tÃ©cnicas 1-7 intactas; quedan los stubs vacÃ­os de \"8. Anexos\" y sub-headings al final (por la protecciÃ³n de Ãºltima secciÃ³n de COM) + fragmento SAP + infografÃ­a en pÃ¡g 16.\n2. **`Promerica_Propuesta_Comercial.docx`** â€” 19 pÃ¡gs, secciones comerciales completas.\n3. **`SOW_Bantrab_MERGED.docx`** â€” 46 pÃ¡gs, merge de los dos Bantrab con TOC unificado.\n\nRevisÃ¡ y decime si hay algo que ajustar.",
+      "domain": "ML 85%",
+      "source": "auto_save",
+      "tier": "hot",
+      "created_at": "2026-04-16T01:56:09.436587+00:00",
+      "last_access": "2026-04-16T01:56:09.436587+00:00",
+      "access_count": 0,
+      "promotion_count": 0
+    },
+    {
+      "key": "y si quiero hacer merge de BoM de unos 6 documentos lo tenemos?",
+      "value": "SÃ­, ya estÃ¡ implementado y funciona. Uso directo:\n\n---\n\n**SÃ­, `merge_boms` ya existe** â€” MCP tool `parse_bom` con `action: \"merge\"`.\n\n### CÃ³mo usarlo (6 archivos):\n\n```json\n{\n  \"tool\": \"parse_bom\",\n  \"arguments\": {\n    \"action\": \"merge\",\n    \"paths\": [\n      \"C:/proyectos/bom_cliente1.xlsx\",\n      \"C:/proyectos/bom_cliente2.xlsx\",\n      \"C:/proyectos/bom_cliente3.xlsx\",\n      \"C:/proyectos/bom_cliente4.xlsx\",\n      \"C:/proyectos/bom_cliente5.xlsx\",\n      \"C:/proyectos/bom_cliente6.xlsx\"\n    ],\n    \"output_path\": \"C:/proyectos/BoM_Consolidado.xlsx\",\n    \"header_row\": 1\n  }\n}\n```\n\n### QuÃ© produce el merge:\n\n| Campo | DescripciÃ³n |\n|-------|-------------|\n| Todas las columnas originales | Unificadas en una sola hoja `BoM_Merged` |\n| `Source` | Nombre del archivo de origen por cada fila |\n| `Category` | Auto-categorizaciÃ³n (hardware / software / services / other) |\n| AutoFit | Columnas ajustadas automÃ¡ticamente |\n\n### Lo que hace internamente:\n1. Abre cada archivo (OOXML-first de",
+      "domain": "ML 100%",
+      "source": "auto_save",
+      "tier": "hot",
+      "created_at": "2026-04-16T01:59:27.737408+00:00",
+      "last_access": "2026-04-16T01:59:27.737408+00:00",
+      "access_count": 0,
+      "promotion_count": 0
+    },
+    {
+      "key": "pero como hacemos para que sea un paso obligatorio parte del proyecto eso de meterlo en el .MD no sirve cuando quieres lo lees y cuando no quieres no necesito algo que te obligue",
+      "value": "El documento estÃ¡ en medio de correcciones (TOC borrado, sin guardar). Pauso ahÃ­ y respondo esto primero porque es mÃ¡s importante.\n\n---\n\n**La soluciÃ³n real: enforcement en el servidor MCP, no en el .md**\n\nLa Ãºnica forma de que sea obligatorio es que el cÃ³digo lo bloquee. Implementamos un guardia en `mcp_server.py` que hace imposible llamar `save` si no se corriÃ³ `view_page` despuÃ©s del Ãºltimo cambio:\n\n```python\n# Estado global en mcp_server.py\n_last_write_ts: float = 0.0          # se actualiza en CADA write op\n_last_visual_check_ts: float = 0.0   # se actualiza en view_page\n\n# En cada handler de escritura (find_replace, insert_paragraph, etc.):\n_last_write_ts = time.time()\n\n# En _handle_view_page():\n_last_visual_check_ts = time.time()\n\n# En _handle_save() â€” PRIMERA lÃ­nea antes de guardar:\nif _last_write_ts > _last_visual_check_ts:\n    raise ValueError(\n        \"VISUAL VALIDATION REQUIRED â€” \"\n        \"LlamÃ¡ view_page antes de save. \"\n        f\"Ãšltimo write: {_last_write",
+      "domain": "ML 100%",
+      "source": "auto_save",
+      "tier": "hot",
+      "created_at": "2026-04-16T02:11:12.278199+00:00",
+      "last_access": "2026-04-16T02:11:12.278199+00:00",
+      "access_count": 0,
+      "promotion_count": 0
     }
   ],
   "warm": [],
   "cold": [],
-  "updated_at": "2026-04-16T01:39:43.149443+00:00",
+  "updated_at": "2026-04-16T02:11:12.278199+00:00",
   "counts": {
-    "hot": 6,
+    "hot": 11,
     "warm": 0,
     "cold": 0
   }
