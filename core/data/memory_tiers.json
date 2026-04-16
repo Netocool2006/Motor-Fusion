@@ -1,72 +1,6 @@
 {
   "hot": [
     {
-      "key": "pero yo te hablo netamente matematico es obvio que las reglas de negocio no las sabes no eres adivino",
-      "value": "Entonces sÃ­. Para matemÃ¡tica pura:\n\n## MatemÃ¡tica pura â†’ Confianza ~99%\n\nSi `D5 = B5 * C5`, yo verifico que el nÃºmero en `D5` efectivamente es igual a `B5 Ã— C5`.\n\nEl mecanismo es `Worksheet.Evaluate()` â€” **Excel mismo recalcula la fÃ³rmula de forma independiente** y comparo el resultado almacenado contra el recalculado. No soy yo haciendo la matemÃ¡tica, es Excel.\n\n```\nCelda D5 almacena: 1,250.00\nFÃ³rmula: =B5*C5  â†’ B5=25, C5=50\nExcel.Evaluate(\"25*50\") = 1,250.00\nâœ… Match dentro de tolerancia 0.01\n```\n\n### El 1% restante de incertidumbre\n\nSolo hay 3 casos donde falla incluso en matemÃ¡tica pura:\n\n| Caso | Ejemplo | Frecuencia real |\n|------|---------|:--------------:|\n| Referencia a archivo cerrado | `=[Precios.xlsx]Hoja1!A1 * B5` | Rara |\n| INDIRECT/OFFSET con string dinÃ¡mico | `=INDIRECT(\"Hoja\"&A1&\"!B5\")` | Rara |\n| Timeout en archivos +100k filas | UsedRange demasiado grande | Poco comÃºn |\n\nEn un Excel tÃ­pico de facturaciÃ³n, cotizaciÃ³n o BoM: **esos 3 casos probable",
-      "domain": "Internet 5% + ML 90%",
-      "source": "auto_save",
-      "tier": "hot",
-      "created_at": "2026-04-16T01:18:18.646592+00:00",
-      "last_access": "2026-04-16T01:18:18.646592+00:00",
-      "access_count": 0,
-      "promotion_count": 0
-    },
-    {
-      "key": "todos los tools tienes su MPC?",
-      "value": "**75 tools MCP â€” todos presentes.** Incluyendo los 7 nuevos de validaciÃ³n financiera:\n\n| Nuevo tool | Estado |\n|-----------|:------:|\n| `validate_financial` (13 acciones) | âœ… |\n| `financial_audit_report` | âœ… |\n| `cross_sheet_totals_check` | âœ… |\n| `compare_cells` | âœ… |\n| `compare_ranges` | âœ… |\n| `compare_workbooks` | âœ… |\n| `reconcile_financial` | âœ… |\n\nEl CLAUDE.md del proyecto dice \"57 tools\" â€” ya estÃ¡ desactualizado. Son **75 tools reales** en el MCP server.",
-      "domain": "ML 95%",
-      "source": "auto_save",
-      "tier": "hot",
-      "created_at": "2026-04-16T01:20:22.447592+00:00",
-      "last_access": "2026-04-16T01:20:22.447592+00:00",
-      "access_count": 0,
-      "promotion_count": 0
-    },
-    {
-      "key": "actualiza todo",
-      "value": "Todo limpio. Resumen de lo actualizado:\n\n| Archivo | Cambio |\n|---------|--------|\n| `CLAUDE.md` | 57â†’75, categorÃ­as 16â†’20, agregÃ³ `cross_validation.py` |\n| `README.md` | 57â†’75 |\n| `docs/API_REFERENCE.md` | 57â†’75 |\n| `docs/ARQUITECTURA.md` | 57â†’75 |\n| `docs/EJEMPLOS.md` | 57â†’75 |\n| `docs/INSTALACION.md` | 57â†’75 |\n| `docs/MANUAL_AGENTE.md` | 57â†’75, referencia pre-v2 actualizada |\n| `MANUAL_TECNICO.md` | 57â†’75, 16â†’75 |\n| `MANUAL_USUARIO.md` | 57â†’75, 16â†’75 |\n| `.claude/agents/excel-agent.md` | 57â†’75, tabla de tools expandida con 2 categorÃ­as nuevas |",
-      "domain": "ML 100%",
-      "source": "auto_save",
-      "tier": "hot",
-      "created_at": "2026-04-16T01:23:43.451839+00:00",
-      "last_access": "2026-04-16T01:23:43.451839+00:00",
-      "access_count": 0,
-      "promotion_count": 0
-    },
-    {
-      "key": "commit y push",
-      "value": "Listo. Push exitoso.\n\n- **Commit:** `98dd6f8` â€” Phase 9: financial math validation + cross-workbook comparison (75 tools)\n- **12 archivos** modificados, 1 archivo nuevo (`src/cross_validation.py`)\n- **2,104 lÃ­neas** agregadas en total",
-      "domain": "ML 100%",
-      "source": "auto_save",
-      "tier": "hot",
-      "created_at": "2026-04-16T01:24:31.656995+00:00",
-      "last_access": "2026-04-16T01:24:31.656995+00:00",
-      "access_count": 0,
-      "promotion_count": 0
-    },
-    {
-      "key": "valida el plan para sustuir todas las funciones que tiene COM por OOXML SDK fuerte  y que COM solo quede como fall Back",
-      "value": "Los 3 documentos estÃ¡n abiertos en Word para tu revisiÃ³n:\n\n**MERGE â€” Bantrab (46 pÃ¡ginas)**\n`SOW_Bantrab_MERGED.docx` â€” FusiÃ³n de Parallel X Fase II + CertificaciÃ³n Funcional, con TOC unificado de 37 campos actualizados y separador \"PARTE 2\".\n\n**SPLIT â€” Promerica TÃ©cnica (19 pÃ¡ginas)**\n`Promerica_Propuesta_Tecnica.docx` â€” Conserva secciones 1-4 (Â¿Por quÃ© GBM?, InformaciÃ³n inicial, DescripciÃ³n SoluciÃ³n, Acuerdos SLA). TOC con 23 campos.\n\n**SPLIT â€” Promerica Comercial (19 pÃ¡ginas)**\n`Promerica_Propuesta_Comercial.docx` â€” Conserva Propuesta EconÃ³mica, TÃ©rminos y Condiciones, AceptaciÃ³n, Anexos. TOC con 24 campos.\n\n---\n\n**ObservaciÃ³n sobre el split**: `delete_section` sobre la Ãºltima secciÃ³n del documento falla en Word COM (protege el pÃ¡rrafo final). En la TÃ©cnica quedaron dos headings residuales vacÃ­os (`8. Anexos` / `8.3 TÃ©rminos`). Para resolver esto limpiamente necesitarÃ­a un tool `clear_paragraph_style` que cambie el estilo de un heading a Normal da",
-      "domain": "ML 55%",
-      "source": "auto_save",
-      "tier": "hot",
-      "created_at": "2026-04-16T01:27:54.783775+00:00",
-      "last_access": "2026-04-16T01:27:54.783775+00:00",
-      "access_count": 0,
-      "promotion_count": 0
-    },
-    {
-      "key": "valida esto  2. El cuello de botella real: modo ATTACHED\n    El documento Promerica estaba abierto en Word del usuario cuando empezamos. En modo ATTACHED (Word ya tenÃ­a el\n    archivo abierto), cada ",
-      "value": "Listo. Resumen de lo implementado:\n\n## Phase 10 completada â€” OOXML primary + COM fallback\n\n### Nuevo archivo: `src/ooxml_engine.py`\n`OOXMLEngine` â€” wrapper openpyxl puro, ~440 lÃ­neas, 4 fases:\n\n| Fase | MÃ©todos | Tipo |\n|------|---------|------|\n| 1 | `read_cell/range/sheet_data`, `list_sheets`, `get_workbook_info`, `get_hidden_rows/cols`, `get_merged_cells`, `get_used_range` | Reads (cero riesgo) |\n| 2 | `write_cell/range`, `clear_range`, `merge/unmerge_cells`, `find_replace`, `find_in_workbook`, `get_formula`, `list_formulas`, `list/create/delete_named_ranges` | Writes + Formula reads |\n| 3 | `detect_volatile_formulas`, `detect_magic_numbers`, `export_to_csv` | Audit + Export |\n| 4 | `bulk_font_change`, `apply_number_format`, `add/list_hyperlinks` | Formatting |\n\n### CÃ³mo funciona el fallback\n```\nxl.read_range(\"A1:D10\")\n  â†’ OOXMLEngine.read_range()   âœ… Ã©xito â†’ retorna rÃ¡pido, sin Excel.exe\n  â†’ (si falla) _com_read_range() â†’ COM normal como siempre\n```\n\n### COM-only",
-      "domain": "Internet 5% + ML 90%",
-      "source": "auto_save",
-      "tier": "hot",
-      "created_at": "2026-04-16T01:39:43.149443+00:00",
-      "last_access": "2026-04-16T01:39:43.149443+00:00",
-      "access_count": 0,
-      "promotion_count": 0
-    },
-    {
       "key": "entonces corrige esto de raiz ATTACHED para que no se quede colapsado si no estas perdiendo el tiempo en intentar hacer el documento pero se cuelga por esto ATTACHED",
       "value": "Listo. Resumen de lo que se implementÃ³:\n\n**+24 nuevos mÃ©todos en `OOXMLEngine` (Phase 5):**\n- Sheet management: `unhide_sheet`, `unhide_all_sheets`, `create_sheet`, `delete_sheet`, `rename_sheet`, `unhide_all_rows_cols`\n- Reads: `has_formula`, `sum_range`, `detect_currency_cells`\n- Validaciones financieras: `validate_iva_from_range`, `validate_line_items`, `validate_formula_coverage`, `validate_column_formula_consistency`, `cross_sheet_totals_check`, `validate_financial_sheet_auto`\n- ProtecciÃ³n: `protect_sheet`, `unprotect_sheet`, `protect_workbook`, `unprotect_workbook`\n- Comentarios: `manage_comment`\n- BoM: `parse_bom`\n\n**+24 nuevos dispatches en `excel_com.py`** (mÃ¡s los 4 ya existentes en OOXMLEngine: `bulk_font_change`, `add_hyperlink`, `list_hyperlinks`, y `workbook_statistics` que ya sub-despacha individualmente)\n\n**Total final: 48 dispatches activos**. Todo mÃ©todo que puede ejecutarse sin Excel.exe ahora va por openpyxl primero â€” COM queda como fallback silencioso. Los m",
       "domain": "ML",
@@ -120,14 +54,136 @@
       "last_access": "2026-04-16T02:11:12.278199+00:00",
       "access_count": 0,
       "promotion_count": 0
+    },
+    {
+      "key": "puedes agregar alguna funcion determinista contra fallos de validar antes de darme ya la solucion",
+      "value": "Listo. Esto es lo que quedÃ³ implementado:\n\n**MÃ¡quina de estados `_DOC_VISUAL_STATE`:**\n\n```\nopen_document / close  â”€â”€â–º  clean\n       â”‚\n  WRITE_TOOL            â”€â”€â–º  dirty  â—„â”€â”€ cualquier save BLOQUEADO aquÃ­\n       â”‚\n  view_page             â”€â”€â–º  validated\n       â”‚\n  save (OK)             â”€â”€â–º  clean\n```\n\n**Comportamiento concreto:** si intento llamar `save` con el documento en estado `dirty` (sin haber llamado `view_page` explÃ­citamente), el servidor devuelve error:\n\n```\nValueError: VISUAL VALIDATION REQUIRED â€” el documento tiene cambios sin validar.\nLlamÃ¡ view_page sobre las pÃ¡ginas afectadas, analizÃ¡ las imÃ¡genes,\ny reciÃ©n entonces llamÃ¡ save.\n```\n\n**QuÃ© NO cuenta como validado:** las imÃ¡genes automÃ¡ticas que el servidor ya generaba (DocEyes post-write). Esas son pasivas. Solo `view_page` explÃ­cito cambia el estado a `validated`.\n\n**PrÃ³ximo paso:** commitearlo y seguir con la correcciÃ³n del documento Promerica (que estÃ¡ abierto, sin ",
+      "domain": "ML 100%",
+      "source": "auto_save",
+      "tier": "hot",
+      "created_at": "2026-04-16T02:14:55.060972+00:00",
+      "last_access": "2026-04-16T02:14:55.060972+00:00",
+      "access_count": 0,
+      "promotion_count": 0
+    },
+    {
+      "key": "pruebalo desde 0 con el mismo caso de uso desde 0 solo usando el proyecto nada extra",
+      "value": "Listo. Lo que se implementÃ³:\n\n---\n\n**`DeterministicVerifier`** â€” clase standalone en `cerebro_v2.py` con **24 ops registradas**:\n\n| CategorÃ­a | Ops | CÃ³mo verifica |\n|-----------|:---:|---------------|\n| Cell/range | `write_range`, `write_cell`, `clear_range`, `find_replace` | Lee el valor de vuelta y compara, tolerancia string |\n| Sheet structure | `create/delete/rename/unhide_sheet`, `unhide_all`, `unhide_all_rows_cols` | `list_sheets()` â†’ confirma existe/no existe/visible |\n| Merge | `merge_cells`, `unmerge_cells` | `get_merged_cells()` â†’ confirma presencia/ausencia |\n| Named ranges | `create/delete_named_range` | `list_named_ranges()` â†’ confirma |\n| ProtecciÃ³n | `protect/unprotect_sheet` | Confirma hoja accesible |\n| Comentarios | `manage_comment` | Lee comentario back â†’ compara texto |\n| Hyperlinks | `add_hyperlink` | `list_hyperlinks()` â†’ confirma address |\n| Validaciones | `validate_line_items`, `validate_iva_from_range`, etc. | Verifica `passed=True` en el resul",
+      "domain": "ML 100%",
+      "source": "auto_save",
+      "tier": "hot",
+      "created_at": "2026-04-16T02:17:44.549522+00:00",
+      "last_access": "2026-04-16T02:17:44.549522+00:00",
+      "access_count": 0,
+      "promotion_count": 0
+    },
+    {
+      "key": "ya estas post re inicio procede como debe ser",
+      "value": "Commit `bf64556` â€” 91 lÃ­neas. Guard activo y probado con el mismo caso de uso real.",
+      "domain": "ML 100%",
+      "source": "auto_save",
+      "tier": "hot",
+      "created_at": "2026-04-16T02:20:18.995780+00:00",
+      "last_access": "2026-04-16T02:20:18.995780+00:00",
+      "access_count": 0,
+      "promotion_count": 0
+    },
+    {
+      "key": "realiza pruebas realiza merge de 3 BOMs y splits de 1 BOM aqui hay ejemplo C:\\Chance1\\Ejemplos de BoM",
+      "value": "Todo en orden. Resumen del estado actual del proyecto:\n\n---\n\n## Estado tras Phase 10 + 10.1\n\n**Tests con archivos reales pasados:**\n- `parse_bom()` en 3 BoMs â†’ 19 + 16 + 18 = 53 registros vÃ­a OOXML puro (sin Excel.exe)\n- `split_bom_by_category` en `BOM-test.xlsx` â†’ `[other]` 5 items, `[services]` 14 items\n- `merge_boms` de 3 archivos â†’ `TEST_MERGE_3_BoMs.xlsx`, 54 registros, 16 columnas\n- `split` en `BoM_Banrural_API_Connect` â†’ `[hardware]` 4, `[other]` 8, `[services]` 2\n- `DeterministicVerifier` en resultado del merge â†’ `ok=True` (54 registros confirmados)\n\n**Arquitectura final:**\n| Capa | Estado |\n|------|--------|\n| `OOXMLEngine` (openpyxl) | Principal â€” ~1,200 LOC, 45+ mÃ©todos |\n| `_ooxml_dispatch()` en `ExcelCOM` | 48 dispatches activos |\n| COM fallback silencioso | AutomÃ¡tico si openpyxl falla o modo attached |\n| `DeterministicVerifier` | 24 ops registradas, read-back post-write |\n| MCP tools | 77 (incluye `verify_last_op`) |\n\n**Commits en main:**\n```\nd0da43c Phase",
+      "domain": "ML 80%",
+      "source": "auto_save",
+      "tier": "hot",
+      "created_at": "2026-04-16T02:34:46.760285+00:00",
+      "last_access": "2026-04-16T02:34:46.760285+00:00",
+      "access_count": 0,
+      "promotion_count": 0
+    },
+    {
+      "key": "que se te ocurre para mejorar esto: \n    Lo que estÃ¡s viendo en los logs confirma esto:\n    \"selected_engine\": \"com\"\n    \"rule_hits\": [\"com_only_operation\"]\n    \"latency_ms\": 6000-8000 por pÃ¡gina\n\n ",
+      "value": "Varias mejoras concretas, ordenadas por impacto/costo:\n\n---\n\n## 1. Render cache con invalidaciÃ³n por `dirty-state` (mayor impacto, bajo costo)\n\nEl problema: cada `view_page` paga 7s aunque el documento no cambiÃ³ desde la Ãºltima vez.\n\n```python\n# En mcp_server.py â€” dict keyed by (doc_path_hash, page_num)\n_PAGE_RENDER_CACHE: dict[tuple, bytes] = {}\n_CACHE_DOC_HASH: str = \"\"\n\ndef _get_page_cached(page: int, doc_hash: str) -> bytes | None:\n    if doc_hash != _CACHE_DOC_HASH:\n        _PAGE_RENDER_CACHE.clear()\n        return None\n    return _PAGE_RENDER_CACHE.get((doc_hash, page))\n```\n\nEl `dirty-state` ya existe â€” cuando el documento pasa a `\"dirty\"`, invalidas el cache. Cuando `view_page` renderiza, guardas el PNG en cache. Segunda llamada al mismo nÃºmero de pÃ¡gina: 0ms.\n\n**Ganancia real:** La segunda validaciÃ³n de la misma pÃ¡gina (muy comÃºn en el loop corregir â†’ verificar) es instantÃ¡nea.\n\n---\n\n## 2. Batch rendering real dentro de UN solo COM context (quick win si no estÃ¡ ",
+      "domain": "ML 100%",
+      "source": "auto_save",
+      "tier": "hot",
+      "created_at": "2026-04-16T02:43:47.137179+00:00",
+      "last_access": "2026-04-16T02:43:47.137179+00:00",
+      "access_count": 0,
+      "promotion_count": 0
     }
   ],
-  "warm": [],
+  "warm": [
+    {
+      "key": "pero yo te hablo netamente matematico es obvio que las reglas de negocio no las sabes no eres adivino",
+      "value": "Entonces sÃ­. Para matemÃ¡tica pura:\n\n## MatemÃ¡tica pura â†’ Confianza ~99%\n\nSi `D5 = B5 * C5`, yo verifico que el nÃºmero en `D5` efectivamente es igual a `B5 Ã— C5`.\n\nEl mecanismo es `Worksheet.Evaluate()` â€” **Excel mismo recalcula la fÃ³rmula de forma independiente** y comparo el resultado almacenado contra el recalculado. No soy yo haciendo la matemÃ¡tica, es Excel.\n\n```\nCelda D5 almacena: 1,250.00\nFÃ³rmula: =B5*C5  â†’ B5=25, C5=50\nExcel.Evaluate(\"25*50\") = 1,250.00\nâœ… Match dentro de tolerancia 0.01\n```\n\n### El 1% restante de incertidumbre\n\nSolo hay 3 casos donde falla incluso en matemÃ¡tica pura:\n\n| Caso | Ejemplo | Frecuencia real |\n|------|---------|:--------------:|\n| Referencia a archivo cerrado | `=[Precios.xlsx]Hoja1!A1 * B5` | Rara |\n| INDIRECT/OFFSET con string dinÃ¡mico | `=INDIRECT(\"Hoja\"&A1&\"!B5\")` | Rara |\n| Timeout en archivos +100k filas | UsedRange demasiado grande | Poco comÃºn |\n\nEn un Excel tÃ­pico de facturaciÃ³n, cotizaciÃ³n o BoM: **esos 3 casos probable",
+      "domain": "Internet 5% + ML 90%",
+      "source": "auto_save",
+      "tier": "warm",
+      "created_at": "2026-04-16T01:18:18.646592+00:00",
+      "last_access": "2026-04-16T01:18:18.646592+00:00",
+      "access_count": 0,
+      "promotion_count": 0
+    },
+    {
+      "key": "todos los tools tienes su MPC?",
+      "value": "**75 tools MCP â€” todos presentes.** Incluyendo los 7 nuevos de validaciÃ³n financiera:\n\n| Nuevo tool | Estado |\n|-----------|:------:|\n| `validate_financial` (13 acciones) | âœ… |\n| `financial_audit_report` | âœ… |\n| `cross_sheet_totals_check` | âœ… |\n| `compare_cells` | âœ… |\n| `compare_ranges` | âœ… |\n| `compare_workbooks` | âœ… |\n| `reconcile_financial` | âœ… |\n\nEl CLAUDE.md del proyecto dice \"57 tools\" â€” ya estÃ¡ desactualizado. Son **75 tools reales** en el MCP server.",
+      "domain": "ML 95%",
+      "source": "auto_save",
+      "tier": "warm",
+      "created_at": "2026-04-16T01:20:22.447592+00:00",
+      "last_access": "2026-04-16T01:20:22.447592+00:00",
+      "access_count": 0,
+      "promotion_count": 0
+    },
+    {
+      "key": "actualiza todo",
+      "value": "Todo limpio. Resumen de lo actualizado:\n\n| Archivo | Cambio |\n|---------|--------|\n| `CLAUDE.md` | 57â†’75, categorÃ­as 16â†’20, agregÃ³ `cross_validation.py` |\n| `README.md` | 57â†’75 |\n| `docs/API_REFERENCE.md` | 57â†’75 |\n| `docs/ARQUITECTURA.md` | 57â†’75 |\n| `docs/EJEMPLOS.md` | 57â†’75 |\n| `docs/INSTALACION.md` | 57â†’75 |\n| `docs/MANUAL_AGENTE.md` | 57â†’75, referencia pre-v2 actualizada |\n| `MANUAL_TECNICO.md` | 57â†’75, 16â†’75 |\n| `MANUAL_USUARIO.md` | 57â†’75, 16â†’75 |\n| `.claude/agents/excel-agent.md` | 57â†’75, tabla de tools expandida con 2 categorÃ­as nuevas |",
+      "domain": "ML 100%",
+      "source": "auto_save",
+      "tier": "warm",
+      "created_at": "2026-04-16T01:23:43.451839+00:00",
+      "last_access": "2026-04-16T01:23:43.451839+00:00",
+      "access_count": 0,
+      "promotion_count": 0
+    },
+    {
+      "key": "commit y push",
+      "value": "Listo. Push exitoso.\n\n- **Commit:** `98dd6f8` â€” Phase 9: financial math validation + cross-workbook comparison (75 tools)\n- **12 archivos** modificados, 1 archivo nuevo (`src/cross_validation.py`)\n- **2,104 lÃ­neas** agregadas en total",
+      "domain": "ML 100%",
+      "source": "auto_save",
+      "tier": "warm",
+      "created_at": "2026-04-16T01:24:31.656995+00:00",
+      "last_access": "2026-04-16T01:24:31.656995+00:00",
+      "access_count": 0,
+      "promotion_count": 0
+    },
+    {
+      "key": "valida el plan para sustuir todas las funciones que tiene COM por OOXML SDK fuerte  y que COM solo quede como fall Back",
+      "value": "Los 3 documentos estÃ¡n abiertos en Word para tu revisiÃ³n:\n\n**MERGE â€” Bantrab (46 pÃ¡ginas)**\n`SOW_Bantrab_MERGED.docx` â€” FusiÃ³n de Parallel X Fase II + CertificaciÃ³n Funcional, con TOC unificado de 37 campos actualizados y separador \"PARTE 2\".\n\n**SPLIT â€” Promerica TÃ©cnica (19 pÃ¡ginas)**\n`Promerica_Propuesta_Tecnica.docx` â€” Conserva secciones 1-4 (Â¿Por quÃ© GBM?, InformaciÃ³n inicial, DescripciÃ³n SoluciÃ³n, Acuerdos SLA). TOC con 23 campos.\n\n**SPLIT â€” Promerica Comercial (19 pÃ¡ginas)**\n`Promerica_Propuesta_Comercial.docx` â€” Conserva Propuesta EconÃ³mica, TÃ©rminos y Condiciones, AceptaciÃ³n, Anexos. TOC con 24 campos.\n\n---\n\n**ObservaciÃ³n sobre el split**: `delete_section` sobre la Ãºltima secciÃ³n del documento falla en Word COM (protege el pÃ¡rrafo final). En la TÃ©cnica quedaron dos headings residuales vacÃ­os (`8. Anexos` / `8.3 TÃ©rminos`). Para resolver esto limpiamente necesitarÃ­a un tool `clear_paragraph_style` que cambie el estilo de un heading a Normal da",
+      "domain": "ML 55%",
+      "source": "auto_save",
+      "tier": "warm",
+      "created_at": "2026-04-16T01:27:54.783775+00:00",
+      "last_access": "2026-04-16T01:27:54.783775+00:00",
+      "access_count": 0,
+      "promotion_count": 0
+    },
+    {
+      "key": "valida esto  2. El cuello de botella real: modo ATTACHED\n    El documento Promerica estaba abierto en Word del usuario cuando empezamos. En modo ATTACHED (Word ya tenÃ­a el\n    archivo abierto), cada ",
+      "value": "Listo. Resumen de lo implementado:\n\n## Phase 10 completada â€” OOXML primary + COM fallback\n\n### Nuevo archivo: `src/ooxml_engine.py`\n`OOXMLEngine` â€” wrapper openpyxl puro, ~440 lÃ­neas, 4 fases:\n\n| Fase | MÃ©todos | Tipo |\n|------|---------|------|\n| 1 | `read_cell/range/sheet_data`, `list_sheets`, `get_workbook_info`, `get_hidden_rows/cols`, `get_merged_cells`, `get_used_range` | Reads (cero riesgo) |\n| 2 | `write_cell/range`, `clear_range`, `merge/unmerge_cells`, `find_replace`, `find_in_workbook`, `get_formula`, `list_formulas`, `list/create/delete_named_ranges` | Writes + Formula reads |\n| 3 | `detect_volatile_formulas`, `detect_magic_numbers`, `export_to_csv` | Audit + Export |\n| 4 | `bulk_font_change`, `apply_number_format`, `add/list_hyperlinks` | Formatting |\n\n### CÃ³mo funciona el fallback\n```\nxl.read_range(\"A1:D10\")\n  â†’ OOXMLEngine.read_range()   âœ… Ã©xito â†’ retorna rÃ¡pido, sin Excel.exe\n  â†’ (si falla) _com_read_range() â†’ COM normal como siempre\n```\n\n### COM-only",
+      "domain": "Internet 5% + ML 90%",
+      "source": "auto_save",
+      "tier": "warm",
+      "created_at": "2026-04-16T01:39:43.149443+00:00",
+      "last_access": "2026-04-16T01:39:43.149443+00:00",
+      "access_count": 0,
+      "promotion_count": 0
+    }
+  ],
   "cold": [],
-  "updated_at": "2026-04-16T02:11:12.278199+00:00",
+  "updated_at": "2026-04-16T02:43:47.137179+00:00",
   "counts": {
-    "hot": 11,
-    "warm": 0,
+    "hot": 10,
+    "warm": 6,
     "cold": 0
   }
 }

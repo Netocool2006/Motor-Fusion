@@ -2303,6 +2303,38 @@
       "properties": {},
       "created_at": "2026-04-16T02:11:12.299712+00:00",
       "updated_at": "2026-04-16T02:11:12.299712+00:00"
+    },
+    "test.xlsx": {
+      "id": "test.xlsx",
+      "type": "file",
+      "name": "test.xlsx",
+      "properties": {},
+      "created_at": "2026-04-16T02:34:46.772294+00:00",
+      "updated_at": "2026-04-16T02:34:46.772294+00:00"
+    },
+    "TEST_MERGE_3_BoMs.xlsx": {
+      "id": "TEST_MERGE_3_BoMs.xlsx",
+      "type": "file",
+      "name": "TEST_MERGE_3_BoMs.xlsx",
+      "properties": {},
+      "created_at": "2026-04-16T02:34:46.788943+00:00",
+      "updated_at": "2026-04-16T02:34:46.788943+00:00"
+    },
+    "_PAGE_RENDER_CACHE.clea": {
+      "id": "_PAGE_RENDER_CACHE.clea",
+      "type": "file",
+      "name": "_PAGE_RENDER_CACHE.clea",
+      "properties": {},
+      "created_at": "2026-04-16T02:43:47.148957+00:00",
+      "updated_at": "2026-04-16T02:43:47.148957+00:00"
+    },
+    "_PAGE_RENDER_CACHE.get": {
+      "id": "_PAGE_RENDER_CACHE.get",
+      "type": "file",
+      "name": "_PAGE_RENDER_CACHE.get",
+      "properties": {},
+      "created_at": "2026-04-16T02:43:47.166978+00:00",
+      "updated_at": "2026-04-16T02:43:47.166978+00:00"
     }
   },
   "relations": [
@@ -7633,11 +7665,65 @@
       "context": "pero como hacemos para que sea un paso obligatorio parte del proyecto eso de meterlo en el .MD no si",
       "created_at": "2026-04-16T02:11:12.337229+00:00",
       "updated_at": "2026-04-16T02:11:12.337229+00:00"
+    },
+    {
+      "source": "Excel.exe",
+      "target": "test.xlsx",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "realiza pruebas realiza merge de 3 BOMs y splits de 1 BOM aqui hay ejemplo C:\\Chance1\\Ejemplos de Bo",
+      "created_at": "2026-04-16T02:34:46.782424+00:00",
+      "updated_at": "2026-04-16T02:34:46.782424+00:00"
+    },
+    {
+      "source": "Excel.exe",
+      "target": "TEST_MERGE_3_BoMs.xlsx",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "realiza pruebas realiza merge de 3 BOMs y splits de 1 BOM aqui hay ejemplo C:\\Chance1\\Ejemplos de Bo",
+      "created_at": "2026-04-16T02:34:46.799461+00:00",
+      "updated_at": "2026-04-16T02:34:46.799461+00:00"
+    },
+    {
+      "source": "test.xlsx",
+      "target": "TEST_MERGE_3_BoMs.xlsx",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "realiza pruebas realiza merge de 3 BOMs y splits de 1 BOM aqui hay ejemplo C:\\Chance1\\Ejemplos de Bo",
+      "created_at": "2026-04-16T02:34:46.808842+00:00",
+      "updated_at": "2026-04-16T02:34:46.808842+00:00"
+    },
+    {
+      "source": "mcp_server.py",
+      "target": "_PAGE_RENDER_CACHE.clea",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "que se te ocurre para mejorar esto: \n    Lo que estÃ¡s viendo en los logs confirma esto:\n    \"select",
+      "created_at": "2026-04-16T02:43:47.158463+00:00",
+      "updated_at": "2026-04-16T02:43:47.158463+00:00"
+    },
+    {
+      "source": "mcp_server.py",
+      "target": "_PAGE_RENDER_CACHE.get",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "que se te ocurre para mejorar esto: \n    Lo que estÃ¡s viendo en los logs confirma esto:\n    \"select",
+      "created_at": "2026-04-16T02:43:47.174322+00:00",
+      "updated_at": "2026-04-16T02:43:47.174322+00:00"
+    },
+    {
+      "source": "_PAGE_RENDER_CACHE.clea",
+      "target": "_PAGE_RENDER_CACHE.get",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "que se te ocurre para mejorar esto: \n    Lo que estÃ¡s viendo en los logs confirma esto:\n    \"select",
+      "created_at": "2026-04-16T02:43:47.181834+00:00",
+      "updated_at": "2026-04-16T02:43:47.181834+00:00"
     }
   ],
-  "updated_at": "2026-04-16T02:11:12.337229+00:00",
+  "updated_at": "2026-04-16T02:43:47.181834+00:00",
   "stats": {
-    "entities": 288,
-    "relations": 592
+    "entities": 292,
+    "relations": 598
   }
 }
