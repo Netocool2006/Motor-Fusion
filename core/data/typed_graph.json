@@ -1807,6 +1807,62 @@
       "properties": {},
       "created_at": "2026-04-16T00:18:07.335056+00:00",
       "updated_at": "2026-04-16T00:18:07.335056+00:00"
+    },
+    "src.cere": {
+      "id": "src.cere",
+      "type": "file",
+      "name": "src.cere",
+      "properties": {},
+      "created_at": "2026-04-16T00:21:31.091087+00:00",
+      "updated_at": "2026-04-16T00:21:31.091087+00:00"
+    },
+    "x.docx": {
+      "id": "x.docx",
+      "type": "file",
+      "name": "x.docx",
+      "properties": {},
+      "created_at": "2026-04-16T00:21:31.114872+00:00",
+      "updated_at": "2026-04-16T00:21:31.114872+00:00"
+    },
+    "_session_manager.clos": {
+      "id": "_session_manager.clos",
+      "type": "file",
+      "name": "_session_manager.clos",
+      "properties": {},
+      "created_at": "2026-04-16T00:29:40.603400+00:00",
+      "updated_at": "2026-04-16T00:29:40.603400+00:00"
+    },
+    "_session_manager._wor": {
+      "id": "_session_manager._wor",
+      "type": "file",
+      "name": "_session_manager._wor",
+      "properties": {},
+      "created_at": "2026-04-16T00:29:40.619842+00:00",
+      "updated_at": "2026-04-16T00:29:40.619842+00:00"
+    },
+    "validators.py": {
+      "id": "validators.py",
+      "type": "file",
+      "name": "validators.py",
+      "properties": {},
+      "created_at": "2026-04-16T00:41:20.904585+00:00",
+      "updated_at": "2026-04-16T00:41:20.904585+00:00"
+    },
+    "xl.read": {
+      "id": "xl.read",
+      "type": "file",
+      "name": "xl.read",
+      "properties": {},
+      "created_at": "2026-04-16T00:41:20.913549+00:00",
+      "updated_at": "2026-04-16T00:41:20.913549+00:00"
+    },
+    "xl.vali": {
+      "id": "xl.vali",
+      "type": "file",
+      "name": "xl.vali",
+      "properties": {},
+      "created_at": "2026-04-16T00:41:20.945389+00:00",
+      "updated_at": "2026-04-16T00:41:20.945389+00:00"
     }
   },
   "relations": [
@@ -5927,10 +5983,10 @@
       "source": "word_session.py",
       "target": "cerebro_v2.py",
       "type": "used_with",
-      "weight": 0.5,
-      "context": "creo que hay cosas que se quedaron fuera  valida el repositorio dado que la arquitectura del reposit",
+      "weight": 1.0,
+      "context": "cuales agregan valor al proyecto ya estaban antes pero con la entrada OOXML siguen teniendo valor?",
       "created_at": "2026-04-16T00:18:07.327049+00:00",
-      "updated_at": "2026-04-16T00:18:07.327049+00:00"
+      "updated_at": "2026-04-16T00:21:31.083575+00:00"
     },
     {
       "source": "word_session.py",
@@ -5967,11 +6023,119 @@
       "context": "creo que hay cosas que se quedaron fuera  valida el repositorio dado que la arquitectura del reposit",
       "created_at": "2026-04-16T00:18:07.359064+00:00",
       "updated_at": "2026-04-16T00:18:07.359064+00:00"
+    },
+    {
+      "source": "word_session.py",
+      "target": "src.cere",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "cuales agregan valor al proyecto ya estaban antes pero con la entrada OOXML siguen teniendo valor?",
+      "created_at": "2026-04-16T00:21:31.099089+00:00",
+      "updated_at": "2026-04-16T00:21:31.099089+00:00"
+    },
+    {
+      "source": "cerebro_v2.py",
+      "target": "src.cere",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "cuales agregan valor al proyecto ya estaban antes pero con la entrada OOXML siguen teniendo valor?",
+      "created_at": "2026-04-16T00:21:31.107094+00:00",
+      "updated_at": "2026-04-16T00:21:31.107094+00:00"
+    },
+    {
+      "source": "cerebro_v2.py",
+      "target": "x.docx",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "cuales agregan valor al proyecto ya estaban antes pero con la entrada OOXML siguen teniendo valor?",
+      "created_at": "2026-04-16T00:21:31.122378+00:00",
+      "updated_at": "2026-04-16T00:21:31.122378+00:00"
+    },
+    {
+      "source": "src.cere",
+      "target": "x.docx",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "cuales agregan valor al proyecto ya estaban antes pero con la entrada OOXML siguen teniendo valor?",
+      "created_at": "2026-04-16T00:21:31.129377+00:00",
+      "updated_at": "2026-04-16T00:21:31.129377+00:00"
+    },
+    {
+      "source": "mcp_server.py",
+      "target": "_session_manager.clos",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "agrega la de los impactos Altos y medios",
+      "created_at": "2026-04-16T00:29:40.612407+00:00",
+      "updated_at": "2026-04-16T00:29:40.612407+00:00"
+    },
+    {
+      "source": "mcp_server.py",
+      "target": "_session_manager._wor",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "agrega la de los impactos Altos y medios",
+      "created_at": "2026-04-16T00:29:40.627678+00:00",
+      "updated_at": "2026-04-16T00:29:40.627678+00:00"
+    },
+    {
+      "source": "_session_manager.clos",
+      "target": "_session_manager._wor",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "agrega la de los impactos Altos y medios",
+      "created_at": "2026-04-16T00:29:40.635803+00:00",
+      "updated_at": "2026-04-16T00:29:40.635803+00:00"
+    },
+    {
+      "source": "_session_manager.clos",
+      "target": "cerebro_v2.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "agrega la de los impactos Altos y medios",
+      "created_at": "2026-04-16T00:29:40.644083+00:00",
+      "updated_at": "2026-04-16T00:29:40.644083+00:00"
+    },
+    {
+      "source": "_session_manager._wor",
+      "target": "cerebro_v2.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "agrega la de los impactos Altos y medios",
+      "created_at": "2026-04-16T00:29:40.651588+00:00",
+      "updated_at": "2026-04-16T00:29:40.651588+00:00"
+    },
+    {
+      "source": "validators.py",
+      "target": "xl.read",
+      "type": "used_with",
+      "weight": 1.0,
+      "context": "como ves la eficiecia de validar los calculos matematicos financieros de este proyecto?",
+      "created_at": "2026-04-16T00:41:20.921385+00:00",
+      "updated_at": "2026-04-16T00:41:20.929524+00:00"
+    },
+    {
+      "source": "xl.read",
+      "target": "xl.read",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "como ves la eficiecia de validar los calculos matematicos financieros de este proyecto?",
+      "created_at": "2026-04-16T00:41:20.937575+00:00",
+      "updated_at": "2026-04-16T00:41:20.937575+00:00"
+    },
+    {
+      "source": "xl.read",
+      "target": "xl.vali",
+      "type": "used_with",
+      "weight": 1.0,
+      "context": "como ves la eficiecia de validar los calculos matematicos financieros de este proyecto?",
+      "created_at": "2026-04-16T00:41:20.954161+00:00",
+      "updated_at": "2026-04-16T00:41:20.962575+00:00"
     }
   ],
-  "updated_at": "2026-04-16T00:18:07.359064+00:00",
+  "updated_at": "2026-04-16T00:41:20.962575+00:00",
   "stats": {
-    "entities": 226,
-    "relations": 462
+    "entities": 233,
+    "relations": 474
   }
 }

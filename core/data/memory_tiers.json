@@ -1,20 +1,20 @@
 {
   "hot": [
     {
-      "key": "creo que hay cosas que se quedaron fuera  valida el repositorio dado que la arquitectura del repositorio es diferente siento que faltan componentes valida",
-      "value": "Tengo el panorama completo. Ahora puedo darte un diagnÃ³stico preciso:\n\n---\n\n## DiagnÃ³stico completo del repositorio\n\n### Componentes presentes y su estado de conexiÃ³n al MCP\n\n| Archivo | LÃ­neas | Rol | Conectado a MCP | Estado |\n|---|---|---|---|---|\n| `mcp_server.py` | ~3800 | Entry point FastMCP | â€” | **OK** |\n| `word_com.py` | ~8200 | Backend COM | SI (import directo) | **OK** |\n| `word_ooxml.py` | ~2108 | Backend OOXML | SI (lazy import en get_word_ooxml) | **OK** |\n| `engine_selector.py` | ~660 | Router dual-engine | SI (import directo) | **OK** |\n| `engine.py` | 1133 | Orquestador alto nivel (Engine class) | **NO importado** | **DESCONECTADO** |\n| `word_session.py` | 161 | WordSessionManager lifecycle | **NO importado** | **DESCONECTADO** |\n| `cerebro_v2.py` | 3836 | CerebroV2 â€” workflows complejos | **NO importado** | **DESCONECTADO** |\n| `doc_eyes.py` | ? | DocEyes â€” validaciÃ³n visual | SI | OK |\n| `vision_bridge.py` | ? | VisionBridge â€” screenshots | SI | OK |\n| `",
-      "domain": "ML 100%",
+      "key": "como ves la eficiecia de validar los calculos matematicos financieros de este proyecto?",
+      "value": "Tengo el panorama completo. AquÃ­ el diagnÃ³stico honesto:\n\n---\n\n## EvaluaciÃ³n de eficiencia â€” ValidaciÃ³n financiera\n\n### Lo que funciona bien (fortalezas reales)\n\n| Componente | QuÃ© hace bien |\n|---|---|\n| `validate_iva()` | Multi-paÃ­s correcto (GT/CR/PA/SV/HN/NI/DO), tolerancia configurable |\n| `validate_line_items()` | `qty Ã— price = total` fila por fila, sÃ³lido |\n| `validate_math()` en validators.py | Detecta todos los marcadores de error Excel (`#REF!`, `#DIV/0!`, etc.) |\n| `validate_total()` | `subtotal + IVA = total` simple pero correcto |\n| 4-axis report | Estructura limpia: structure + math + coherence + formatting |\n\n---\n\n### Los 4 problemas reales de eficiencia\n\n**1. validate_financial requiere que el LLM ya sepa la respuesta**\n```python\n# El LLM tiene que hacer esto ANTES de validar:\nsubtotal = xl.read_range(\"B20\")  # leer primero\niva = xl.read_range(\"B21\")       # leer primero\nxl.validate_iva(subtotal, iva)   # luego validar\n```\nNo hay `validate_iva_from_range(\"B20",
+      "domain": "ML 65%",
       "source": "auto_save",
       "tier": "hot",
-      "created_at": "2026-04-16T00:18:07.207999+00:00",
-      "last_access": "2026-04-16T00:18:07.207999+00:00",
+      "created_at": "2026-04-16T00:41:20.894603+00:00",
+      "last_access": "2026-04-16T00:41:20.894603+00:00",
       "access_count": 0,
       "promotion_count": 0
     }
   ],
   "warm": [],
   "cold": [],
-  "updated_at": "2026-04-16T00:18:07.207999+00:00",
+  "updated_at": "2026-04-16T00:41:20.894603+00:00",
   "counts": {
     "hot": 1,
     "warm": 0,
