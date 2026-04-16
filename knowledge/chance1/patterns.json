@@ -2601,6 +2601,45 @@
         "last_accessed": "2026-04-15T20:41:54.969713+00:00",
         "access_count": 0
       }
+    },
+    "7d0690029443": {
+      "id": "7d0690029443",
+      "type": "pattern",
+      "key": "session_auto_20260415_154826",
+      "solution": {
+        "strategy": "auto_captured_from_session",
+        "notes": "Momentos clave (verbatim):\n  accent lines under titles\"* (yo hago esto en `skill_hero_banner` — 🚨 romper esta regla) - *\"0.5\\\" margins minimum\"* (verificar) - *\"Pick a bold, CONTENT-INFORMED palette\"* — el color debe ser seleccionado **en función del tema**, no genérico - **10 n\nInteracciones clave:\n  P: <local-command-stdout>See ya!</local-command-stdout>\n  R: No response requested.\n  P: ya estamos post re inicio\n  R: En la sesión anterior cerramos **Sprint 6 del IA_PowerPoint Studio** (`878de47` pusheado) — 26 skills, 131 MCP tools, con 6 skills creativas nuevas (b\n  P: Continue from where you left off.\n  R: No response requested.\n  P: Continue from where you left off.\n  R: No response requested.\n  P: <local-command-stdout>See ya!</local-command-stdout>\n  R: No response requested.\n  P: ya el de power point ya esta?\n  R: Sí, **IA_PowerPoint Premium Studio está 100% cerrado**.  ## Estado final confirmado  | Item | Estado | |---|---| | **Sprint 8 committed + pushed** | ✅\nResumen: monitorea en tiempo real: 🛠️ Comando práctico para monitoreo en vivo    tail -f C:\\Chance1\\IA\\IA_PowerPoint\\logs\\powerpoint_com.log   O si quieres alg -> realiza monitoreo programado cada 30 segundos \nEditados: powerpoint_com.py, mcp_server.py, ooxml_engine.py, premium_studio.py, theme.py, icon_library.py, .gitignore, README.md\nCreados: focus_ppt.ps1, compiled-crafting-phoenix.md, hero-slide.md, 4col-cards.md, section-divider.md, quote-hero.md, 3col-process.md, kpi-dashboard.md\nDecisiones: revisar primero qué hay en el slide 8 antes de aplicar mejoras.; agregar elementos premium decorativos sin tocar el texto existente: un kicker editorial sobre el título, insignias numeradas para cada sección y un footer tagline.; eliminar todo lo que agregué y dejarlo en el estado original.; validar qué capacidades reales tiene el proyecto en código, no solo lo que expone ToolSearch.; delegarlo a un agente con instrucciones específicas para que lo haga de forma coordinada y segura.\nErrores resueltos: Exit ",
+        "auto_learned": true,
+        "source": "hook_session_end",
+        "files_touched": [
+          "C:\\Chance1\\IA\\IA_PowerPoint\\src\\powerpoint_com.py",
+          "C:\\Chance1\\IA\\IA_PowerPoint\\src\\mcp_server.py",
+          "C:\\Chance1\\IA\\IA_PowerPoint\\src\\ooxml_engine.py",
+          "C:\\Chance1\\IA\\IA_PowerPoint\\src\\premium_studio.py",
+          "C:\\Chance1\\IA\\IA_PowerPoint\\src\\theme.py",
+          "C:\\Chance1\\IA\\IA_PowerPoint\\src\\icon_library.py",
+          "C:\\Chance1\\IA\\IA_PowerPoint\\.gitignore",
+          "C:\\Chance1\\IA\\IA_PowerPoint\\README.md",
+          "C:\\Chance1\\IA\\IA_PowerPoint\\tmp\\focus_ppt.ps1",
+          "C:\\Users\\ntoledo\\.claude\\plans\\compiled-crafting-phoenix.md"
+        ],
+        "domain_detected": "chance1"
+      },
+      "tags": [
+        "auto-learned",
+        "session",
+        "chance1"
+      ],
+      "error_context": null,
+      "created_at": "2026-04-15T21:48:26.160548+00:00",
+      "updated_at": "2026-04-15T21:48:26.160548+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-04-15T21:48:26.160548+00:00",
+        "access_count": 0
+      }
     }
   },
   "tag_index": {
@@ -2813,7 +2852,8 @@
       "9c8321474ee9",
       "22fd8732d5ba",
       "2d1e6e29fbec",
-      "02b75f001947"
+      "02b75f001947",
+      "7d0690029443"
     ],
     "session": [
       "f7c4ef6c29fd",
@@ -2821,7 +2861,8 @@
       "9c8321474ee9",
       "22fd8732d5ba",
       "2d1e6e29fbec",
-      "02b75f001947"
+      "02b75f001947",
+      "7d0690029443"
     ],
     "chance1": [
       "f7c4ef6c29fd",
@@ -2829,11 +2870,12 @@
       "9c8321474ee9",
       "22fd8732d5ba",
       "2d1e6e29fbec",
-      "02b75f001947"
+      "02b75f001947",
+      "7d0690029443"
     ]
   },
   "stats": {
-    "total_entries": 102,
+    "total_entries": 103,
     "total_lookups": 555,
     "total_hits": 493
   }
