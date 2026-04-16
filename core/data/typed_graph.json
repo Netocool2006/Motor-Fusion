@@ -2159,6 +2159,86 @@
       "properties": {},
       "created_at": "2026-04-16T01:18:18.748362+00:00",
       "updated_at": "2026-04-16T01:18:18.748362+00:00"
+    },
+    "cross_validation.py": {
+      "id": "cross_validation.py",
+      "type": "file",
+      "name": "cross_validation.py",
+      "properties": {},
+      "created_at": "2026-04-16T01:23:43.461845+00:00",
+      "updated_at": "2026-04-16T01:23:43.461845+00:00"
+    },
+    "docs/API_REFERENCE.md": {
+      "id": "docs/API_REFERENCE.md",
+      "type": "file",
+      "name": "docs/API_REFERENCE.md",
+      "properties": {},
+      "created_at": "2026-04-16T01:23:43.483866+00:00",
+      "updated_at": "2026-04-16T01:23:43.483866+00:00"
+    },
+    "docs/ARQUITECTURA.md": {
+      "id": "docs/ARQUITECTURA.md",
+      "type": "file",
+      "name": "docs/ARQUITECTURA.md",
+      "properties": {},
+      "created_at": "2026-04-16T01:23:43.499849+00:00",
+      "updated_at": "2026-04-16T01:23:43.499849+00:00"
+    },
+    "docs/EJEMPLOS.md": {
+      "id": "docs/EJEMPLOS.md",
+      "type": "file",
+      "name": "docs/EJEMPLOS.md",
+      "properties": {},
+      "created_at": "2026-04-16T01:23:43.514923+00:00",
+      "updated_at": "2026-04-16T01:23:43.514923+00:00"
+    },
+    "docs/INSTALACION.md": {
+      "id": "docs/INSTALACION.md",
+      "type": "file",
+      "name": "docs/INSTALACION.md",
+      "properties": {},
+      "created_at": "2026-04-16T01:23:43.532432+00:00",
+      "updated_at": "2026-04-16T01:23:43.532432+00:00"
+    },
+    "SOW_Bantrab_MERGED.docx": {
+      "id": "SOW_Bantrab_MERGED.docx",
+      "type": "file",
+      "name": "SOW_Bantrab_MERGED.docx",
+      "properties": {},
+      "created_at": "2026-04-16T01:27:54.795064+00:00",
+      "updated_at": "2026-04-16T01:27:54.795064+00:00"
+    },
+    "Promerica_Propuesta_Tecnica.docx": {
+      "id": "Promerica_Propuesta_Tecnica.docx",
+      "type": "file",
+      "name": "Promerica_Propuesta_Tecnica.docx",
+      "properties": {},
+      "created_at": "2026-04-16T01:27:54.804070+00:00",
+      "updated_at": "2026-04-16T01:27:54.804070+00:00"
+    },
+    "Promerica_Propuesta_Comercial.docx": {
+      "id": "Promerica_Propuesta_Comercial.docx",
+      "type": "file",
+      "name": "Promerica_Propuesta_Comercial.docx",
+      "properties": {},
+      "created_at": "2026-04-16T01:27:54.818711+00:00",
+      "updated_at": "2026-04-16T01:27:54.818711+00:00"
+    },
+    "OOXMLEngine.read": {
+      "id": "OOXMLEngine.read",
+      "type": "file",
+      "name": "OOXMLEngine.read",
+      "properties": {},
+      "created_at": "2026-04-16T01:39:43.170457+00:00",
+      "updated_at": "2026-04-16T01:39:43.170457+00:00"
+    },
+    "Excel.exe": {
+      "id": "Excel.exe",
+      "type": "file",
+      "name": "Excel.exe",
+      "properties": {},
+      "created_at": "2026-04-16T01:39:43.200472+00:00",
+      "updated_at": "2026-04-16T01:39:43.200472+00:00"
     }
   },
   "relations": [
@@ -7093,11 +7173,254 @@
       "context": "pero yo te hablo netamente matematico es obvio que las reglas de negocio no las sabes no eres adivin",
       "created_at": "2026-04-16T01:18:18.767579+00:00",
       "updated_at": "2026-04-16T01:18:18.767579+00:00"
+    },
+    {
+      "source": "CLAUDE.md",
+      "target": "cross_validation.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "actualiza todo",
+      "created_at": "2026-04-16T01:23:43.469853+00:00",
+      "updated_at": "2026-04-16T01:23:43.469853+00:00"
+    },
+    {
+      "source": "CLAUDE.md",
+      "target": "README.md",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "actualiza todo",
+      "created_at": "2026-04-16T01:23:43.474855+00:00",
+      "updated_at": "2026-04-16T01:23:43.474855+00:00"
+    },
+    {
+      "source": "cross_validation.py",
+      "target": "README.md",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "actualiza todo",
+      "created_at": "2026-04-16T01:23:43.479850+00:00",
+      "updated_at": "2026-04-16T01:23:43.479850+00:00"
+    },
+    {
+      "source": "cross_validation.py",
+      "target": "docs/API_REFERENCE.md",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "actualiza todo",
+      "created_at": "2026-04-16T01:23:43.489852+00:00",
+      "updated_at": "2026-04-16T01:23:43.489852+00:00"
+    },
+    {
+      "source": "README.md",
+      "target": "docs/API_REFERENCE.md",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "actualiza todo",
+      "created_at": "2026-04-16T01:23:43.494866+00:00",
+      "updated_at": "2026-04-16T01:23:43.495850+00:00"
+    },
+    {
+      "source": "README.md",
+      "target": "docs/ARQUITECTURA.md",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "actualiza todo",
+      "created_at": "2026-04-16T01:23:43.505412+00:00",
+      "updated_at": "2026-04-16T01:23:43.505412+00:00"
+    },
+    {
+      "source": "docs/API_REFERENCE.md",
+      "target": "docs/ARQUITECTURA.md",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "actualiza todo",
+      "created_at": "2026-04-16T01:23:43.510923+00:00",
+      "updated_at": "2026-04-16T01:23:43.510923+00:00"
+    },
+    {
+      "source": "docs/API_REFERENCE.md",
+      "target": "docs/EJEMPLOS.md",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "actualiza todo",
+      "created_at": "2026-04-16T01:23:43.520437+00:00",
+      "updated_at": "2026-04-16T01:23:43.521435+00:00"
+    },
+    {
+      "source": "docs/ARQUITECTURA.md",
+      "target": "docs/EJEMPLOS.md",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "actualiza todo",
+      "created_at": "2026-04-16T01:23:43.527433+00:00",
+      "updated_at": "2026-04-16T01:23:43.527433+00:00"
+    },
+    {
+      "source": "docs/ARQUITECTURA.md",
+      "target": "docs/INSTALACION.md",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "actualiza todo",
+      "created_at": "2026-04-16T01:23:43.539436+00:00",
+      "updated_at": "2026-04-16T01:23:43.539436+00:00"
+    },
+    {
+      "source": "docs/EJEMPLOS.md",
+      "target": "docs/INSTALACION.md",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "actualiza todo",
+      "created_at": "2026-04-16T01:23:43.545435+00:00",
+      "updated_at": "2026-04-16T01:23:43.545435+00:00"
+    },
+    {
+      "source": "docs/EJEMPLOS.md",
+      "target": "docs/MANUAL_AGENTE.md",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "actualiza todo",
+      "created_at": "2026-04-16T01:23:43.551443+00:00",
+      "updated_at": "2026-04-16T01:23:43.551443+00:00"
+    },
+    {
+      "source": "docs/INSTALACION.md",
+      "target": "docs/MANUAL_AGENTE.md",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "actualiza todo",
+      "created_at": "2026-04-16T01:23:43.559444+00:00",
+      "updated_at": "2026-04-16T01:23:43.559444+00:00"
+    },
+    {
+      "source": "docs/INSTALACION.md",
+      "target": "MANUAL_TECNICO.md",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "actualiza todo",
+      "created_at": "2026-04-16T01:23:43.564445+00:00",
+      "updated_at": "2026-04-16T01:23:43.564445+00:00"
+    },
+    {
+      "source": "docs/MANUAL_AGENTE.md",
+      "target": "MANUAL_TECNICO.md",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "actualiza todo",
+      "created_at": "2026-04-16T01:23:43.571442+00:00",
+      "updated_at": "2026-04-16T01:23:43.571442+00:00"
+    },
+    {
+      "source": "docs/MANUAL_AGENTE.md",
+      "target": "MANUAL_USUARIO.md",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "actualiza todo",
+      "created_at": "2026-04-16T01:23:43.577439+00:00",
+      "updated_at": "2026-04-16T01:23:43.577439+00:00"
+    },
+    {
+      "source": "MANUAL_TECNICO.md",
+      "target": "MANUAL_USUARIO.md",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "actualiza todo",
+      "created_at": "2026-04-16T01:23:43.583516+00:00",
+      "updated_at": "2026-04-16T01:23:43.583516+00:00"
+    },
+    {
+      "source": "MANUAL_TECNICO.md",
+      "target": "agent.md",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "actualiza todo",
+      "created_at": "2026-04-16T01:23:43.591522+00:00",
+      "updated_at": "2026-04-16T01:23:43.591522+00:00"
+    },
+    {
+      "source": "MANUAL_USUARIO.md",
+      "target": "agent.md",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "actualiza todo",
+      "created_at": "2026-04-16T01:23:43.597524+00:00",
+      "updated_at": "2026-04-16T01:23:43.597524+00:00"
+    },
+    {
+      "source": "SOW_Bantrab_MERGED.docx",
+      "target": "Promerica_Propuesta_Tecnica.docx",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "valida el plan para sustuir todas las funciones que tiene COM por OOXML SDK fuerte  y que COM solo q",
+      "created_at": "2026-04-16T01:27:54.811700+00:00",
+      "updated_at": "2026-04-16T01:27:54.811700+00:00"
+    },
+    {
+      "source": "SOW_Bantrab_MERGED.docx",
+      "target": "Promerica_Propuesta_Comercial.docx",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "valida el plan para sustuir todas las funciones que tiene COM por OOXML SDK fuerte  y que COM solo q",
+      "created_at": "2026-04-16T01:27:54.827771+00:00",
+      "updated_at": "2026-04-16T01:27:54.827771+00:00"
+    },
+    {
+      "source": "Promerica_Propuesta_Tecnica.docx",
+      "target": "Promerica_Propuesta_Comercial.docx",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "valida el plan para sustuir todas las funciones que tiene COM por OOXML SDK fuerte  y que COM solo q",
+      "created_at": "2026-04-16T01:27:54.836778+00:00",
+      "updated_at": "2026-04-16T01:27:54.836778+00:00"
+    },
+    {
+      "source": "src/ooxml_engine.py",
+      "target": "xl.read",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "valida esto  2. El cuello de botella real: modo ATTACHED\n    El documento Promerica estaba abierto e",
+      "created_at": "2026-04-16T01:39:43.160450+00:00",
+      "updated_at": "2026-04-16T01:39:43.160450+00:00"
+    },
+    {
+      "source": "src/ooxml_engine.py",
+      "target": "OOXMLEngine.read",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "valida esto  2. El cuello de botella real: modo ATTACHED\n    El documento Promerica estaba abierto e",
+      "created_at": "2026-04-16T01:39:43.181465+00:00",
+      "updated_at": "2026-04-16T01:39:43.181465+00:00"
+    },
+    {
+      "source": "xl.read",
+      "target": "OOXMLEngine.read",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "valida esto  2. El cuello de botella real: modo ATTACHED\n    El documento Promerica estaba abierto e",
+      "created_at": "2026-04-16T01:39:43.190470+00:00",
+      "updated_at": "2026-04-16T01:39:43.190470+00:00"
+    },
+    {
+      "source": "xl.read",
+      "target": "Excel.exe",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "valida esto  2. El cuello de botella real: modo ATTACHED\n    El documento Promerica estaba abierto e",
+      "created_at": "2026-04-16T01:39:43.209473+00:00",
+      "updated_at": "2026-04-16T01:39:43.209473+00:00"
+    },
+    {
+      "source": "OOXMLEngine.read",
+      "target": "Excel.exe",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "valida esto  2. El cuello de botella real: modo ATTACHED\n    El documento Promerica estaba abierto e",
+      "created_at": "2026-04-16T01:39:43.217476+00:00",
+      "updated_at": "2026-04-16T01:39:43.217476+00:00"
     }
   ],
-  "updated_at": "2026-04-16T01:18:18.767579+00:00",
+  "updated_at": "2026-04-16T01:39:43.217476+00:00",
   "stats": {
-    "entities": 270,
-    "relations": 548
+    "entities": 280,
+    "relations": 575
   }
 }
