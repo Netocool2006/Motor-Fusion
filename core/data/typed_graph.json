@@ -1951,6 +1951,214 @@
       "properties": {},
       "created_at": "2026-04-16T01:00:08.905758+00:00",
       "updated_at": "2026-04-16T01:00:08.905758+00:00"
+    },
+    "rangecomparator": {
+      "id": "rangecomparator",
+      "type": "concept",
+      "name": "rangecomparator",
+      "properties": {},
+      "created_at": "2026-04-16T01:01:10.337057+00:00",
+      "updated_at": "2026-04-16T01:01:10.337057+00:00"
+    },
+    "com": {
+      "id": "com",
+      "type": "concept",
+      "name": "com",
+      "properties": {},
+      "created_at": "2026-04-16T01:01:10.342016+00:00",
+      "updated_at": "2026-04-16T01:01:10.342016+00:00"
+    },
+    "compare_workbooks": {
+      "id": "compare_workbooks",
+      "type": "domain",
+      "name": "compare_workbooks",
+      "properties": {},
+      "created_at": "2026-04-16T01:01:10.350984+00:00",
+      "updated_at": "2026-04-16T01:01:10.350984+00:00"
+    },
+    "solo": {
+      "id": "solo",
+      "type": "concept",
+      "name": "solo",
+      "properties": {},
+      "created_at": "2026-04-16T01:01:10.355934+00:00",
+      "updated_at": "2026-04-16T01:01:10.355934+00:00"
+    },
+    "Application.Eval": {
+      "id": "Application.Eval",
+      "type": "file",
+      "name": "Application.Eval",
+      "properties": {},
+      "created_at": "2026-04-16T01:01:10.431078+00:00",
+      "updated_at": "2026-04-16T01:01:10.431078+00:00"
+    },
+    "Worksheet.Eval": {
+      "id": "Worksheet.Eval",
+      "type": "file",
+      "name": "Worksheet.Eval",
+      "properties": {},
+      "created_at": "2026-04-16T01:01:10.445103+00:00",
+      "updated_at": "2026-04-16T01:01:10.445103+00:00"
+    },
+    "DataFrame.comp": {
+      "id": "DataFrame.comp",
+      "type": "file",
+      "name": "DataFrame.comp",
+      "properties": {},
+      "created_at": "2026-04-16T01:01:10.459112+00:00",
+      "updated_at": "2026-04-16T01:01:10.459112+00:00"
+    },
+    "pd.read": {
+      "id": "pd.read",
+      "type": "file",
+      "name": "pd.read",
+      "properties": {},
+      "created_at": "2026-04-16T01:01:10.473141+00:00",
+      "updated_at": "2026-04-16T01:01:10.473141+00:00"
+    },
+    "WB1.xlsx": {
+      "id": "WB1.xlsx",
+      "type": "file",
+      "name": "WB1.xlsx",
+      "properties": {},
+      "created_at": "2026-04-16T01:01:10.487152+00:00",
+      "updated_at": "2026-04-16T01:01:10.487152+00:00"
+    },
+    "WB2.xlsx": {
+      "id": "WB2.xlsx",
+      "type": "file",
+      "name": "WB2.xlsx",
+      "properties": {},
+      "created_at": "2026-04-16T01:01:10.510217+00:00",
+      "updated_at": "2026-04-16T01:01:10.510217+00:00"
+    },
+    "df1.comp": {
+      "id": "df1.comp",
+      "type": "file",
+      "name": "df1.comp",
+      "properties": {},
+      "created_at": "2026-04-16T01:01:10.525243+00:00",
+      "updated_at": "2026-04-16T01:01:10.525243+00:00"
+    },
+    "xw.Book": {
+      "id": "xw.Book",
+      "type": "file",
+      "name": "xw.Book",
+      "properties": {},
+      "created_at": "2026-04-16T01:01:10.541247+00:00",
+      "updated_at": "2026-04-16T01:01:10.541247+00:00"
+    },
+    "old.xlsx": {
+      "id": "old.xlsx",
+      "type": "file",
+      "name": "old.xlsx",
+      "properties": {},
+      "created_at": "2026-04-16T01:01:10.555248+00:00",
+      "updated_at": "2026-04-16T01:01:10.555248+00:00"
+    },
+    "new.xlsx": {
+      "id": "new.xlsx",
+      "type": "file",
+      "name": "new.xlsx",
+      "properties": {},
+      "created_at": "2026-04-16T01:01:10.580270+00:00",
+      "updated_at": "2026-04-16T01:01:10.580270+00:00"
+    },
+    "wb1.shee": {
+      "id": "wb1.shee",
+      "type": "file",
+      "name": "wb1.shee",
+      "properties": {},
+      "created_at": "2026-04-16T01:01:10.594802+00:00",
+      "updated_at": "2026-04-16T01:01:10.594802+00:00"
+    },
+    "cell.valu": {
+      "id": "cell.valu",
+      "type": "file",
+      "name": "cell.valu",
+      "properties": {},
+      "created_at": "2026-04-16T01:01:10.608844+00:00",
+      "updated_at": "2026-04-16T01:01:10.608844+00:00"
+    },
+    "wb2.shee": {
+      "id": "wb2.shee",
+      "type": "file",
+      "name": "wb2.shee",
+      "properties": {},
+      "created_at": "2026-04-16T01:01:10.622850+00:00",
+      "updated_at": "2026-04-16T01:01:10.622850+00:00"
+    },
+    "cell.addr": {
+      "id": "cell.addr",
+      "type": "file",
+      "name": "cell.addr",
+      "properties": {},
+      "created_at": "2026-04-16T01:01:10.637863+00:00",
+      "updated_at": "2026-04-16T01:01:10.637863+00:00"
+    },
+    "0.85": {
+      "id": "0.85",
+      "type": "file",
+      "name": "0.85",
+      "properties": {},
+      "created_at": "2026-04-16T01:01:10.690910+00:00",
+      "updated_at": "2026-04-16T01:01:10.690910+00:00"
+    },
+    "pd.merg": {
+      "id": "pd.merg",
+      "type": "file",
+      "name": "pd.merg",
+      "properties": {},
+      "created_at": "2026-04-16T01:01:10.704991+00:00",
+      "updated_at": "2026-04-16T01:01:10.704991+00:00"
+    },
+    "smoke_test.docx": {
+      "id": "smoke_test.docx",
+      "type": "file",
+      "name": "smoke_test.docx",
+      "properties": {},
+      "created_at": "2026-04-16T01:03:58.940888+00:00",
+      "updated_at": "2026-04-16T01:03:58.940888+00:00"
+    },
+    "tests/smoke_phase7.py": {
+      "id": "tests/smoke_phase7.py",
+      "type": "file",
+      "name": "tests/smoke_phase7.py",
+      "properties": {},
+      "created_at": "2026-04-16T01:03:58.967430+00:00",
+      "updated_at": "2026-04-16T01:03:58.967430+00:00"
+    },
+    "250.00": {
+      "id": "250.00",
+      "type": "file",
+      "name": "250.00",
+      "properties": {},
+      "created_at": "2026-04-16T01:18:18.656543+00:00",
+      "updated_at": "2026-04-16T01:18:18.656543+00:00"
+    },
+    "Excel.Eval": {
+      "id": "Excel.Eval",
+      "type": "file",
+      "name": "Excel.Eval",
+      "properties": {},
+      "created_at": "2026-04-16T01:18:18.674237+00:00",
+      "updated_at": "2026-04-16T01:18:18.674237+00:00"
+    },
+    "0.01": {
+      "id": "0.01",
+      "type": "file",
+      "name": "0.01",
+      "properties": {},
+      "created_at": "2026-04-16T01:18:18.720717+00:00",
+      "updated_at": "2026-04-16T01:18:18.720717+00:00"
+    },
+    "Precios.xlsx": {
+      "id": "Precios.xlsx",
+      "type": "file",
+      "name": "Precios.xlsx",
+      "properties": {},
+      "created_at": "2026-04-16T01:18:18.748362+00:00",
+      "updated_at": "2026-04-16T01:18:18.748362+00:00"
     }
   },
   "relations": [
@@ -6251,114 +6459,645 @@
       "source": "fã³rmula",
       "target": "sheet2",
       "type": "depends_on",
-      "weight": 0.7,
-      "context": "realiza smoke test de todo",
+      "weight": 1.4,
+      "context": "pre-hook query",
       "created_at": "2026-04-16T01:00:08.783638+00:00",
-      "updated_at": "2026-04-16T01:00:08.783638+00:00"
+      "updated_at": "2026-04-16T01:01:10.332997+00:00"
     },
     {
       "source": "Range.Dire",
       "target": "cell.Dire",
       "type": "used_with",
-      "weight": 0.5,
-      "context": "realiza smoke test de todo",
+      "weight": 1.0,
+      "context": "pre-hook query",
       "created_at": "2026-04-16T01:00:08.807235+00:00",
-      "updated_at": "2026-04-16T01:00:08.807235+00:00"
+      "updated_at": "2026-04-16T01:01:10.365951+00:00"
     },
     {
       "source": "Range.Dire",
       "target": "ctPrecedents.Area",
       "type": "used_with",
-      "weight": 0.5,
-      "context": "realiza smoke test de todo",
+      "weight": 1.0,
+      "context": "pre-hook query",
       "created_at": "2026-04-16T01:00:08.821472+00:00",
-      "updated_at": "2026-04-16T01:00:08.821472+00:00"
+      "updated_at": "2026-04-16T01:01:10.370949+00:00"
     },
     {
       "source": "cell.Dire",
       "target": "ctPrecedents.Area",
       "type": "used_with",
-      "weight": 0.5,
-      "context": "realiza smoke test de todo",
+      "weight": 1.0,
+      "context": "pre-hook query",
       "created_at": "2026-04-16T01:00:08.829989+00:00",
-      "updated_at": "2026-04-16T01:00:08.829989+00:00"
+      "updated_at": "2026-04-16T01:01:10.375970+00:00"
     },
     {
       "source": "cell.Dire",
       "target": "area.Pare",
       "type": "used_with",
-      "weight": 0.5,
-      "context": "realiza smoke test de todo",
+      "weight": 1.0,
+      "context": "pre-hook query",
       "created_at": "2026-04-16T01:00:08.846441+00:00",
-      "updated_at": "2026-04-16T01:00:08.846441+00:00"
+      "updated_at": "2026-04-16T01:01:10.379969+00:00"
     },
     {
       "source": "ctPrecedents.Area",
       "target": "area.Pare",
       "type": "used_with",
-      "weight": 0.5,
-      "context": "realiza smoke test de todo",
+      "weight": 1.0,
+      "context": "pre-hook query",
       "created_at": "2026-04-16T01:00:08.854091+00:00",
-      "updated_at": "2026-04-16T01:00:08.854091+00:00"
+      "updated_at": "2026-04-16T01:01:10.384981+00:00"
     },
     {
       "source": "ctPrecedents.Area",
       "target": "nt.Name",
       "type": "used_with",
-      "weight": 0.5,
-      "context": "realiza smoke test de todo",
+      "weight": 1.0,
+      "context": "pre-hook query",
       "created_at": "2026-04-16T01:00:08.869967+00:00",
-      "updated_at": "2026-04-16T01:00:08.869967+00:00"
+      "updated_at": "2026-04-16T01:01:10.389981+00:00"
     },
     {
       "source": "area.Pare",
       "target": "nt.Name",
       "type": "used_with",
-      "weight": 0.5,
-      "context": "realiza smoke test de todo",
+      "weight": 1.0,
+      "context": "pre-hook query",
       "created_at": "2026-04-16T01:00:08.878166+00:00",
-      "updated_at": "2026-04-16T01:00:08.878166+00:00"
+      "updated_at": "2026-04-16T01:01:10.396517+00:00"
     },
     {
       "source": "area.Pare",
       "target": "area.Addr",
       "type": "used_with",
-      "weight": 0.5,
-      "context": "realiza smoke test de todo",
+      "weight": 1.0,
+      "context": "pre-hook query",
       "created_at": "2026-04-16T01:00:08.894107+00:00",
-      "updated_at": "2026-04-16T01:00:08.894107+00:00"
+      "updated_at": "2026-04-16T01:01:10.401533+00:00"
     },
     {
       "source": "nt.Name",
       "target": "area.Addr",
       "type": "used_with",
-      "weight": 0.5,
-      "context": "realiza smoke test de todo",
+      "weight": 1.0,
+      "context": "pre-hook query",
       "created_at": "2026-04-16T01:00:08.901370+00:00",
-      "updated_at": "2026-04-16T01:00:08.901370+00:00"
+      "updated_at": "2026-04-16T01:01:10.406136+00:00"
     },
     {
       "source": "nt.Name",
       "target": "1.12",
       "type": "used_with",
-      "weight": 0.5,
-      "context": "realiza smoke test de todo",
+      "weight": 1.0,
+      "context": "pre-hook query",
       "created_at": "2026-04-16T01:00:08.912131+00:00",
-      "updated_at": "2026-04-16T01:00:08.912131+00:00"
+      "updated_at": "2026-04-16T01:01:10.411065+00:00"
     },
     {
       "source": "area.Addr",
       "target": "1.12",
       "type": "used_with",
-      "weight": 0.5,
-      "context": "realiza smoke test de todo",
+      "weight": 1.5,
+      "context": "pre-hook query",
       "created_at": "2026-04-16T01:00:08.916141+00:00",
-      "updated_at": "2026-04-16T01:00:08.916141+00:00"
+      "updated_at": "2026-04-16T01:01:10.421072+00:00"
+    },
+    {
+      "source": "rangecomparator",
+      "target": "com",
+      "type": "used_with",
+      "weight": 0.7,
+      "context": "pre-hook query",
+      "created_at": "2026-04-16T01:01:10.346939+00:00",
+      "updated_at": "2026-04-16T01:01:10.346939+00:00"
+    },
+    {
+      "source": "compare_workbooks",
+      "target": "solo",
+      "type": "used_with",
+      "weight": 0.7,
+      "context": "pre-hook query",
+      "created_at": "2026-04-16T01:01:10.359986+00:00",
+      "updated_at": "2026-04-16T01:01:10.359986+00:00"
+    },
+    {
+      "source": "1.12",
+      "target": "1.12",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-16T01:01:10.426082+00:00",
+      "updated_at": "2026-04-16T01:01:10.426082+00:00"
+    },
+    {
+      "source": "1.12",
+      "target": "Application.Eval",
+      "type": "used_with",
+      "weight": 1.0,
+      "context": "pre-hook query",
+      "created_at": "2026-04-16T01:01:10.435136+00:00",
+      "updated_at": "2026-04-16T01:01:10.440091+00:00"
+    },
+    {
+      "source": "1.12",
+      "target": "Worksheet.Eval",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-16T01:01:10.449102+00:00",
+      "updated_at": "2026-04-16T01:01:10.449102+00:00"
+    },
+    {
+      "source": "Application.Eval",
+      "target": "Worksheet.Eval",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-16T01:01:10.454116+00:00",
+      "updated_at": "2026-04-16T01:01:10.454116+00:00"
+    },
+    {
+      "source": "Application.Eval",
+      "target": "DataFrame.comp",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-16T01:01:10.463121+00:00",
+      "updated_at": "2026-04-16T01:01:10.463121+00:00"
+    },
+    {
+      "source": "Worksheet.Eval",
+      "target": "DataFrame.comp",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-16T01:01:10.467122+00:00",
+      "updated_at": "2026-04-16T01:01:10.467122+00:00"
+    },
+    {
+      "source": "Worksheet.Eval",
+      "target": "pd.read",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-16T01:01:10.478137+00:00",
+      "updated_at": "2026-04-16T01:01:10.478137+00:00"
+    },
+    {
+      "source": "DataFrame.comp",
+      "target": "pd.read",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-16T01:01:10.482138+00:00",
+      "updated_at": "2026-04-16T01:01:10.482138+00:00"
+    },
+    {
+      "source": "DataFrame.comp",
+      "target": "WB1.xlsx",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-16T01:01:10.492148+00:00",
+      "updated_at": "2026-04-16T01:01:10.492148+00:00"
+    },
+    {
+      "source": "pd.read",
+      "target": "WB1.xlsx",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-16T01:01:10.496662+00:00",
+      "updated_at": "2026-04-16T01:01:10.496662+00:00"
+    },
+    {
+      "source": "pd.read",
+      "target": "pd.read",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-16T01:01:10.501674+00:00",
+      "updated_at": "2026-04-16T01:01:10.501674+00:00"
+    },
+    {
+      "source": "WB1.xlsx",
+      "target": "pd.read",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-16T01:01:10.506214+00:00",
+      "updated_at": "2026-04-16T01:01:10.506214+00:00"
+    },
+    {
+      "source": "WB1.xlsx",
+      "target": "WB2.xlsx",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-16T01:01:10.515230+00:00",
+      "updated_at": "2026-04-16T01:01:10.515230+00:00"
+    },
+    {
+      "source": "pd.read",
+      "target": "WB2.xlsx",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-16T01:01:10.520226+00:00",
+      "updated_at": "2026-04-16T01:01:10.520226+00:00"
+    },
+    {
+      "source": "pd.read",
+      "target": "df1.comp",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-16T01:01:10.531238+00:00",
+      "updated_at": "2026-04-16T01:01:10.531238+00:00"
+    },
+    {
+      "source": "WB2.xlsx",
+      "target": "df1.comp",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-16T01:01:10.536250+00:00",
+      "updated_at": "2026-04-16T01:01:10.536250+00:00"
+    },
+    {
+      "source": "WB2.xlsx",
+      "target": "xw.Book",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-16T01:01:10.545244+00:00",
+      "updated_at": "2026-04-16T01:01:10.545244+00:00"
+    },
+    {
+      "source": "df1.comp",
+      "target": "xw.Book",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-16T01:01:10.551247+00:00",
+      "updated_at": "2026-04-16T01:01:10.551247+00:00"
+    },
+    {
+      "source": "df1.comp",
+      "target": "old.xlsx",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-16T01:01:10.559247+00:00",
+      "updated_at": "2026-04-16T01:01:10.559247+00:00"
+    },
+    {
+      "source": "xw.Book",
+      "target": "old.xlsx",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-16T01:01:10.565258+00:00",
+      "updated_at": "2026-04-16T01:01:10.565258+00:00"
+    },
+    {
+      "source": "xw.Book",
+      "target": "xw.Book",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-16T01:01:10.570261+00:00",
+      "updated_at": "2026-04-16T01:01:10.570261+00:00"
+    },
+    {
+      "source": "old.xlsx",
+      "target": "xw.Book",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-16T01:01:10.574272+00:00",
+      "updated_at": "2026-04-16T01:01:10.574272+00:00"
+    },
+    {
+      "source": "old.xlsx",
+      "target": "new.xlsx",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-16T01:01:10.585796+00:00",
+      "updated_at": "2026-04-16T01:01:10.585796+00:00"
+    },
+    {
+      "source": "xw.Book",
+      "target": "new.xlsx",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-16T01:01:10.589797+00:00",
+      "updated_at": "2026-04-16T01:01:10.589797+00:00"
+    },
+    {
+      "source": "xw.Book",
+      "target": "wb1.shee",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-16T01:01:10.599324+00:00",
+      "updated_at": "2026-04-16T01:01:10.599324+00:00"
+    },
+    {
+      "source": "new.xlsx",
+      "target": "wb1.shee",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-16T01:01:10.603844+00:00",
+      "updated_at": "2026-04-16T01:01:10.603844+00:00"
+    },
+    {
+      "source": "new.xlsx",
+      "target": "cell.valu",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-16T01:01:10.613846+00:00",
+      "updated_at": "2026-04-16T01:01:10.613846+00:00"
+    },
+    {
+      "source": "wb1.shee",
+      "target": "cell.valu",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-16T01:01:10.617843+00:00",
+      "updated_at": "2026-04-16T01:01:10.617843+00:00"
+    },
+    {
+      "source": "wb1.shee",
+      "target": "wb2.shee",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-16T01:01:10.627848+00:00",
+      "updated_at": "2026-04-16T01:01:10.627848+00:00"
+    },
+    {
+      "source": "cell.valu",
+      "target": "wb2.shee",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-16T01:01:10.632849+00:00",
+      "updated_at": "2026-04-16T01:01:10.632849+00:00"
+    },
+    {
+      "source": "cell.valu",
+      "target": "cell.addr",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-16T01:01:10.642865+00:00",
+      "updated_at": "2026-04-16T01:01:10.642865+00:00"
+    },
+    {
+      "source": "wb2.shee",
+      "target": "cell.addr",
+      "type": "used_with",
+      "weight": 1.0,
+      "context": "pre-hook query",
+      "created_at": "2026-04-16T01:01:10.647884+00:00",
+      "updated_at": "2026-04-16T01:01:10.666892+00:00"
+    },
+    {
+      "source": "wb2.shee",
+      "target": "wb2.shee",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-16T01:01:10.652876+00:00",
+      "updated_at": "2026-04-16T01:01:10.652876+00:00"
+    },
+    {
+      "source": "cell.addr",
+      "target": "wb2.shee",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-16T01:01:10.656892+00:00",
+      "updated_at": "2026-04-16T01:01:10.656892+00:00"
+    },
+    {
+      "source": "cell.addr",
+      "target": "cell.addr",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-16T01:01:10.662895+00:00",
+      "updated_at": "2026-04-16T01:01:10.662895+00:00"
+    },
+    {
+      "source": "wb2.shee",
+      "target": "Range.Dire",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-16T01:01:10.671891+00:00",
+      "updated_at": "2026-04-16T01:01:10.671891+00:00"
+    },
+    {
+      "source": "cell.addr",
+      "target": "Range.Dire",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-16T01:01:10.676892+00:00",
+      "updated_at": "2026-04-16T01:01:10.676892+00:00"
+    },
+    {
+      "source": "cell.addr",
+      "target": "1.12",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-16T01:01:10.681892+00:00",
+      "updated_at": "2026-04-16T01:01:10.681892+00:00"
+    },
+    {
+      "source": "Range.Dire",
+      "target": "1.12",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-16T01:01:10.685901+00:00",
+      "updated_at": "2026-04-16T01:01:10.685901+00:00"
+    },
+    {
+      "source": "Range.Dire",
+      "target": "0.85",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-16T01:01:10.695926+00:00",
+      "updated_at": "2026-04-16T01:01:10.695926+00:00"
+    },
+    {
+      "source": "1.12",
+      "target": "0.85",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-16T01:01:10.700456+00:00",
+      "updated_at": "2026-04-16T01:01:10.700456+00:00"
+    },
+    {
+      "source": "1.12",
+      "target": "pd.merg",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-16T01:01:10.709990+00:00",
+      "updated_at": "2026-04-16T01:01:10.709990+00:00"
+    },
+    {
+      "source": "0.85",
+      "target": "pd.merg",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-16T01:01:10.715002+00:00",
+      "updated_at": "2026-04-16T01:01:10.715002+00:00"
+    },
+    {
+      "source": "engine_selector.py",
+      "target": "word_ooxml.py",
+      "type": "used_with",
+      "weight": 1.0,
+      "context": "procede con  1. Range.DirectPrecedents â€” Trazabilidad de dependencias de fÃ³rmulas (COM nativo)\n\n ",
+      "created_at": "2026-04-16T01:03:58.915500+00:00",
+      "updated_at": "2026-04-16T01:03:58.923500+00:00"
+    },
+    {
+      "source": "word_ooxml.py",
+      "target": "word_ooxml.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "procede con  1. Range.DirectPrecedents â€” Trazabilidad de dependencias de fÃ³rmulas (COM nativo)\n\n ",
+      "created_at": "2026-04-16T01:03:58.932503+00:00",
+      "updated_at": "2026-04-16T01:03:58.932503+00:00"
+    },
+    {
+      "source": "word_ooxml.py",
+      "target": "smoke_test.docx",
+      "type": "used_with",
+      "weight": 1.0,
+      "context": "procede con  1. Range.DirectPrecedents â€” Trazabilidad de dependencias de fÃ³rmulas (COM nativo)\n\n ",
+      "created_at": "2026-04-16T01:03:58.949419+00:00",
+      "updated_at": "2026-04-16T01:03:58.958422+00:00"
+    },
+    {
+      "source": "word_ooxml.py",
+      "target": "tests/smoke_phase7.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "procede con  1. Range.DirectPrecedents â€” Trazabilidad de dependencias de fÃ³rmulas (COM nativo)\n\n ",
+      "created_at": "2026-04-16T01:03:58.976435+00:00",
+      "updated_at": "2026-04-16T01:03:58.976435+00:00"
+    },
+    {
+      "source": "smoke_test.docx",
+      "target": "tests/smoke_phase7.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "procede con  1. Range.DirectPrecedents â€” Trazabilidad de dependencias de fÃ³rmulas (COM nativo)\n\n ",
+      "created_at": "2026-04-16T01:03:58.985436+00:00",
+      "updated_at": "2026-04-16T01:03:58.985436+00:00"
+    },
+    {
+      "source": "Worksheet.Eval",
+      "target": "250.00",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pero yo te hablo netamente matematico es obvio que las reglas de negocio no las sabes no eres adivin",
+      "created_at": "2026-04-16T01:18:18.666239+00:00",
+      "updated_at": "2026-04-16T01:18:18.666239+00:00"
+    },
+    {
+      "source": "Worksheet.Eval",
+      "target": "Excel.Eval",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pero yo te hablo netamente matematico es obvio que las reglas de negocio no las sabes no eres adivin",
+      "created_at": "2026-04-16T01:18:18.684791+00:00",
+      "updated_at": "2026-04-16T01:18:18.684791+00:00"
+    },
+    {
+      "source": "250.00",
+      "target": "Excel.Eval",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pero yo te hablo netamente matematico es obvio que las reglas de negocio no las sabes no eres adivin",
+      "created_at": "2026-04-16T01:18:18.693311+00:00",
+      "updated_at": "2026-04-16T01:18:18.693311+00:00"
+    },
+    {
+      "source": "250.00",
+      "target": "250.00",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pero yo te hablo netamente matematico es obvio que las reglas de negocio no las sabes no eres adivin",
+      "created_at": "2026-04-16T01:18:18.702699+00:00",
+      "updated_at": "2026-04-16T01:18:18.702699+00:00"
+    },
+    {
+      "source": "Excel.Eval",
+      "target": "250.00",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pero yo te hablo netamente matematico es obvio que las reglas de negocio no las sabes no eres adivin",
+      "created_at": "2026-04-16T01:18:18.711715+00:00",
+      "updated_at": "2026-04-16T01:18:18.711715+00:00"
+    },
+    {
+      "source": "Excel.Eval",
+      "target": "0.01",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pero yo te hablo netamente matematico es obvio que las reglas de negocio no las sabes no eres adivin",
+      "created_at": "2026-04-16T01:18:18.729715+00:00",
+      "updated_at": "2026-04-16T01:18:18.729715+00:00"
+    },
+    {
+      "source": "250.00",
+      "target": "0.01",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pero yo te hablo netamente matematico es obvio que las reglas de negocio no las sabes no eres adivin",
+      "created_at": "2026-04-16T01:18:18.738719+00:00",
+      "updated_at": "2026-04-16T01:18:18.738719+00:00"
+    },
+    {
+      "source": "250.00",
+      "target": "Precios.xlsx",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pero yo te hablo netamente matematico es obvio que las reglas de negocio no las sabes no eres adivin",
+      "created_at": "2026-04-16T01:18:18.757882+00:00",
+      "updated_at": "2026-04-16T01:18:18.757882+00:00"
+    },
+    {
+      "source": "0.01",
+      "target": "Precios.xlsx",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pero yo te hablo netamente matematico es obvio que las reglas de negocio no las sabes no eres adivin",
+      "created_at": "2026-04-16T01:18:18.767579+00:00",
+      "updated_at": "2026-04-16T01:18:18.767579+00:00"
     }
   ],
-  "updated_at": "2026-04-16T01:00:08.916141+00:00",
+  "updated_at": "2026-04-16T01:18:18.767579+00:00",
   "stats": {
-    "entities": 244,
-    "relations": 489
+    "entities": 270,
+    "relations": 548
   }
 }
