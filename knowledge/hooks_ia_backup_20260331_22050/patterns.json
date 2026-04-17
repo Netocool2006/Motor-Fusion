@@ -1179,6 +1179,134 @@
         "last_accessed": "2026-04-16T13:43:22.961966+00:00",
         "access_count": 0
       }
+    },
+    "316247e5f1d6": {
+      "id": "316247e5f1d6",
+      "type": "pattern",
+      "key": "session_auto_20260416_080720",
+      "solution": {
+        "strategy": "auto_captured_from_session",
+        "notes": "Resumen: quiero un diagnostico de de tiempo de respuesta de este proyecto es extremadamente lento hasta se frizea cuando hace un merge de documento o un split  -> <local-command-caveat>Caveat: The messages bel\nEditados: word_com.py, mcp_server.py, cerebro_v2.py\nDecisiones: leer los archivos clave antes de tocar nada.; usar `Promerica_Propuesta_Tecnica.docx` como destino y copiar una sección de `Promerica_Propuesta_Comercial.docx`. Mido el tiempo antes y después.",
+        "auto_learned": true,
+        "source": "hook_session_end",
+        "files_touched": [
+          "C:\\Chance1\\IA\\IA_Word\\src\\word_com.py",
+          "C:\\Chance1\\IA\\IA_Word\\src\\mcp_server.py",
+          "C:\\Chance1\\IA\\IA_Word\\src\\cerebro_v2.py"
+        ],
+        "domain_detected": "hooks_ia_backup_20260331_22050"
+      },
+      "tags": [
+        "auto-learned",
+        "session",
+        "hooks_ia_backup_20260331_22050"
+      ],
+      "error_context": null,
+      "created_at": "2026-04-16T14:07:20.162710+00:00",
+      "updated_at": "2026-04-16T14:07:20.162710+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-04-16T14:07:20.162710+00:00",
+        "access_count": 0
+      }
+    },
+    "dbfc0127d60a": {
+      "id": "dbfc0127d60a",
+      "type": "pattern",
+      "key": "session_auto_20260416_173002",
+      "solution": {
+        "strategy": "auto_captured_from_session",
+        "notes": "Interacciones clave:\n  P: <local-command-stdout>Goodbye!</local-command-stdout>\n  R: No response requested.\nResumen: quiero un diagnostico de de tiempo de respuesta de este proyecto es extremadamente lento hasta se frizea cuando hace un merge de documento o un split  -> <local-command-caveat>Caveat: The messages bel\nEditados: word_com.py, mcp_server.py, cerebro_v2.py\nDecisiones: leer los archivos clave antes de tocar nada.; usar `Promerica_Propuesta_Tecnica.docx` como destino y copiar una sección de `Promerica_Propuesta_Comercial.docx`. Mido el tiempo antes y después.; medir con timestamps precisos en cada paso.; leer el estado actual de los archivos para implementar el fix arquitectónico correcto.; buscar los documentos del test anterior y ejecutar el merge con timestamps.\nErrores resueltos: Exit code 2",
+        "auto_learned": true,
+        "source": "hook_session_end",
+        "files_touched": [
+          "C:\\Chance1\\IA\\IA_Word\\src\\word_com.py",
+          "C:\\Chance1\\IA\\IA_Word\\src\\mcp_server.py",
+          "C:\\Chance1\\IA\\IA_Word\\src\\cerebro_v2.py"
+        ],
+        "domain_detected": "hooks_ia_backup_20260331_22050"
+      },
+      "tags": [
+        "auto-learned",
+        "session",
+        "hooks_ia_backup_20260331_22050"
+      ],
+      "error_context": null,
+      "created_at": "2026-04-16T23:30:02.760606+00:00",
+      "updated_at": "2026-04-16T23:30:02.760606+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-04-16T23:30:02.760606+00:00",
+        "access_count": 0
+      }
+    },
+    "4753241a2ccc": {
+      "id": "4753241a2ccc",
+      "type": "pattern",
+      "key": "session_auto_20260416_173405",
+      "solution": {
+        "strategy": "auto_captured_from_session",
+        "notes": "Interacciones clave:\n  P: <local-command-stdout>Goodbye!</local-command-stdout>\n  R: No response requested.\nResumen: quiero un diagnostico de de tiempo de respuesta de este proyecto es extremadamente lento hasta se frizea cuando hace un merge de documento o un split  -> <local-command-caveat>Caveat: The messages bel\nEditados: word_com.py, mcp_server.py, cerebro_v2.py\nDecisiones: leer los archivos clave antes de tocar nada.; usar `Promerica_Propuesta_Tecnica.docx` como destino y copiar una sección de `Promerica_Propuesta_Comercial.docx`. Mido el tiempo antes y después.; medir con timestamps precisos en cada paso.; leer el estado actual de los archivos para implementar el fix arquitectónico correcto.; buscar los documentos del test anterior y ejecutar el merge con timestamps.\nErrores resueltos: Exit code 2",
+        "auto_learned": true,
+        "source": "hook_session_end",
+        "files_touched": [
+          "C:\\Chance1\\IA\\IA_Word\\src\\word_com.py",
+          "C:\\Chance1\\IA\\IA_Word\\src\\mcp_server.py",
+          "C:\\Chance1\\IA\\IA_Word\\src\\cerebro_v2.py"
+        ],
+        "domain_detected": "hooks_ia_backup_20260331_22050"
+      },
+      "tags": [
+        "auto-learned",
+        "session",
+        "hooks_ia_backup_20260331_22050"
+      ],
+      "error_context": null,
+      "created_at": "2026-04-16T23:34:05.083198+00:00",
+      "updated_at": "2026-04-16T23:34:05.083198+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-04-16T23:34:05.083198+00:00",
+        "access_count": 0
+      }
+    },
+    "66295438f9db": {
+      "id": "66295438f9db",
+      "type": "pattern",
+      "key": "session_auto_20260416_174327",
+      "solution": {
+        "strategy": "auto_captured_from_session",
+        "notes": "Interacciones clave:\n  P: <local-command-stdout>Goodbye!</local-command-stdout>\n  R: No response requested.\nResumen: quiero un diagnostico de de tiempo de respuesta de este proyecto es extremadamente lento hasta se frizea cuando hace un merge de documento o un split  -> <local-command-caveat>Caveat: The messages bel\nEditados: word_com.py, mcp_server.py, cerebro_v2.py\nDecisiones: leer los archivos clave antes de tocar nada.; usar `Promerica_Propuesta_Tecnica.docx` como destino y copiar una sección de `Promerica_Propuesta_Comercial.docx`. Mido el tiempo antes y después.; medir con timestamps precisos en cada paso.; leer el estado actual de los archivos para implementar el fix arquitectónico correcto.; buscar los documentos del test anterior y ejecutar el merge con timestamps.\nErrores resueltos: Exit code 2",
+        "auto_learned": true,
+        "source": "hook_session_end",
+        "files_touched": [
+          "C:\\Chance1\\IA\\IA_Word\\src\\word_com.py",
+          "C:\\Chance1\\IA\\IA_Word\\src\\mcp_server.py",
+          "C:\\Chance1\\IA\\IA_Word\\src\\cerebro_v2.py"
+        ],
+        "domain_detected": "hooks_ia_backup_20260331_22050"
+      },
+      "tags": [
+        "auto-learned",
+        "session",
+        "hooks_ia_backup_20260331_22050"
+      ],
+      "error_context": null,
+      "created_at": "2026-04-16T23:43:27.516653+00:00",
+      "updated_at": "2026-04-16T23:43:27.516653+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-04-16T23:43:27.516653+00:00",
+        "access_count": 0
+      }
     }
   },
   "tag_index": {
@@ -1215,7 +1343,11 @@
       "6f9b8b76c0dd",
       "f320cb14fe58",
       "7989fee5e65f",
-      "bfcaeb5aa7cc"
+      "bfcaeb5aa7cc",
+      "316247e5f1d6",
+      "dbfc0127d60a",
+      "4753241a2ccc",
+      "66295438f9db"
     ],
     "session": [
       "fc0947920514",
@@ -1250,7 +1382,11 @@
       "6f9b8b76c0dd",
       "f320cb14fe58",
       "7989fee5e65f",
-      "bfcaeb5aa7cc"
+      "bfcaeb5aa7cc",
+      "316247e5f1d6",
+      "dbfc0127d60a",
+      "4753241a2ccc",
+      "66295438f9db"
     ],
     "hooks_ia_backup_20260331_22050": [
       "fc0947920514",
@@ -1285,11 +1421,15 @@
       "6f9b8b76c0dd",
       "f320cb14fe58",
       "7989fee5e65f",
-      "bfcaeb5aa7cc"
+      "bfcaeb5aa7cc",
+      "316247e5f1d6",
+      "dbfc0127d60a",
+      "4753241a2ccc",
+      "66295438f9db"
     ]
   },
   "stats": {
-    "total_entries": 33,
+    "total_entries": 37,
     "total_lookups": 3,
     "total_hits": 1
   }

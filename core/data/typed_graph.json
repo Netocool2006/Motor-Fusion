@@ -2391,6 +2391,70 @@
       "properties": {},
       "created_at": "2026-04-16T13:51:44.088061+00:00",
       "updated_at": "2026-04-16T13:51:44.088061+00:00"
+    },
+    "WordCOM.clos": {
+      "id": "WordCOM.clos",
+      "type": "file",
+      "name": "WordCOM.clos",
+      "properties": {},
+      "created_at": "2026-04-16T13:59:00.136100+00:00",
+      "updated_at": "2026-04-16T13:59:00.136100+00:00"
+    },
+    "WINWORD.EXE": {
+      "id": "WINWORD.EXE",
+      "type": "file",
+      "name": "WINWORD.EXE",
+      "properties": {},
+      "created_at": "2026-04-16T13:59:00.175780+00:00",
+      "updated_at": "2026-04-16T13:59:00.175780+00:00"
+    },
+    "2.5s": {
+      "id": "2.5s",
+      "type": "file",
+      "name": "2.5s",
+      "properties": {},
+      "created_at": "2026-04-16T13:59:00.221491+00:00",
+      "updated_at": "2026-04-16T13:59:00.221491+00:00"
+    },
+    "1.6s": {
+      "id": "1.6s",
+      "type": "file",
+      "name": "1.6s",
+      "properties": {},
+      "created_at": "2026-04-16T14:06:47.381951+00:00",
+      "updated_at": "2026-04-16T14:06:47.381951+00:00"
+    },
+    "18.6s": {
+      "id": "18.6s",
+      "type": "file",
+      "name": "18.6s",
+      "properties": {},
+      "created_at": "2026-04-17T00:07:57.562645+00:00",
+      "updated_at": "2026-04-17T00:07:57.562645+00:00"
+    },
+    "1.5s": {
+      "id": "1.5s",
+      "type": "file",
+      "name": "1.5s",
+      "properties": {},
+      "created_at": "2026-04-17T00:07:57.573419+00:00",
+      "updated_at": "2026-04-17T00:07:57.573419+00:00"
+    },
+    "2.3s": {
+      "id": "2.3s",
+      "type": "file",
+      "name": "2.3s",
+      "properties": {},
+      "created_at": "2026-04-17T00:07:57.593748+00:00",
+      "updated_at": "2026-04-17T00:07:57.593748+00:00"
+    },
+    "Documents.Open": {
+      "id": "Documents.Open",
+      "type": "file",
+      "name": "Documents.Open",
+      "properties": {},
+      "created_at": "2026-04-17T00:07:57.621792+00:00",
+      "updated_at": "2026-04-17T00:07:57.621792+00:00"
     }
   },
   "relations": [
@@ -7856,11 +7920,191 @@
       "context": "pre-hook query",
       "created_at": "2026-04-16T13:51:44.103060+00:00",
       "updated_at": "2026-04-16T13:51:44.103060+00:00"
+    },
+    {
+      "source": "WordCOM.clos",
+      "target": "word_com.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "procede",
+      "created_at": "2026-04-16T13:59:00.146634+00:00",
+      "updated_at": "2026-04-16T13:59:00.146634+00:00"
+    },
+    {
+      "source": "WordCOM.clos",
+      "target": "mcp_server.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "procede",
+      "created_at": "2026-04-16T13:59:00.157097+00:00",
+      "updated_at": "2026-04-16T13:59:00.157097+00:00"
+    },
+    {
+      "source": "word_com.py",
+      "target": "mcp_server.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "procede",
+      "created_at": "2026-04-16T13:59:00.166994+00:00",
+      "updated_at": "2026-04-16T13:59:00.166994+00:00"
+    },
+    {
+      "source": "word_com.py",
+      "target": "WINWORD.EXE",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "procede",
+      "created_at": "2026-04-16T13:59:00.182292+00:00",
+      "updated_at": "2026-04-16T13:59:00.182292+00:00"
+    },
+    {
+      "source": "mcp_server.py",
+      "target": "WINWORD.EXE",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "procede",
+      "created_at": "2026-04-16T13:59:00.190234+00:00",
+      "updated_at": "2026-04-16T13:59:00.190234+00:00"
+    },
+    {
+      "source": "mcp_server.py",
+      "target": "0.5s",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "procede",
+      "created_at": "2026-04-16T13:59:00.200241+00:00",
+      "updated_at": "2026-04-16T13:59:00.200241+00:00"
+    },
+    {
+      "source": "WINWORD.EXE",
+      "target": "0.5s",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "procede",
+      "created_at": "2026-04-16T13:59:00.211305+00:00",
+      "updated_at": "2026-04-16T13:59:00.211305+00:00"
+    },
+    {
+      "source": "WINWORD.EXE",
+      "target": "2.5s",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "procede",
+      "created_at": "2026-04-16T13:59:00.231730+00:00",
+      "updated_at": "2026-04-16T13:59:00.231730+00:00"
+    },
+    {
+      "source": "0.5s",
+      "target": "2.5s",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "procede",
+      "created_at": "2026-04-16T13:59:00.241263+00:00",
+      "updated_at": "2026-04-16T13:59:00.241263+00:00"
+    },
+    {
+      "source": "0.5s",
+      "target": "cerebro_v2.py",
+      "type": "used_with",
+      "weight": 1.0,
+      "context": "realiza una prueba de merge un par de hojas",
+      "created_at": "2026-04-16T13:59:00.251605+00:00",
+      "updated_at": "2026-04-16T14:06:47.412962+00:00"
+    },
+    {
+      "source": "2.5s",
+      "target": "cerebro_v2.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "procede",
+      "created_at": "2026-04-16T13:59:00.257610+00:00",
+      "updated_at": "2026-04-16T13:59:00.257610+00:00"
+    },
+    {
+      "source": "1.6s",
+      "target": "0.5s",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "realiza una prueba de merge un par de hojas",
+      "created_at": "2026-04-16T14:06:47.391954+00:00",
+      "updated_at": "2026-04-16T14:06:47.391954+00:00"
+    },
+    {
+      "source": "1.6s",
+      "target": "cerebro_v2.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "realiza una prueba de merge un par de hojas",
+      "created_at": "2026-04-16T14:06:47.402958+00:00",
+      "updated_at": "2026-04-16T14:06:47.402958+00:00"
+    },
+    {
+      "source": "18.6s",
+      "target": "1.5s",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "ya estas post re inicio",
+      "created_at": "2026-04-17T00:07:57.583527+00:00",
+      "updated_at": "2026-04-17T00:07:57.583527+00:00"
+    },
+    {
+      "source": "18.6s",
+      "target": "2.3s",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "ya estas post re inicio",
+      "created_at": "2026-04-17T00:07:57.602548+00:00",
+      "updated_at": "2026-04-17T00:07:57.602548+00:00"
+    },
+    {
+      "source": "1.5s",
+      "target": "2.3s",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "ya estas post re inicio",
+      "created_at": "2026-04-17T00:07:57.611551+00:00",
+      "updated_at": "2026-04-17T00:07:57.611551+00:00"
+    },
+    {
+      "source": "1.5s",
+      "target": "Documents.Open",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "ya estas post re inicio",
+      "created_at": "2026-04-17T00:07:57.631522+00:00",
+      "updated_at": "2026-04-17T00:07:57.631522+00:00"
+    },
+    {
+      "source": "2.3s",
+      "target": "Documents.Open",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "ya estas post re inicio",
+      "created_at": "2026-04-17T00:07:57.641526+00:00",
+      "updated_at": "2026-04-17T00:07:57.641526+00:00"
+    },
+    {
+      "source": "2.3s",
+      "target": "word_com.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "ya estas post re inicio",
+      "created_at": "2026-04-17T00:07:57.651786+00:00",
+      "updated_at": "2026-04-17T00:07:57.651786+00:00"
+    },
+    {
+      "source": "Documents.Open",
+      "target": "word_com.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "ya estas post re inicio",
+      "created_at": "2026-04-17T00:07:57.662059+00:00",
+      "updated_at": "2026-04-17T00:07:57.662059+00:00"
     }
   ],
-  "updated_at": "2026-04-16T13:51:44.103060+00:00",
+  "updated_at": "2026-04-17T00:07:57.662059+00:00",
   "stats": {
-    "entities": 299,
-    "relations": 607
+    "entities": 307,
+    "relations": 627
   }
 }
