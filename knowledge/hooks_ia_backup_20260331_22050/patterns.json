@@ -1307,6 +1307,38 @@
         "last_accessed": "2026-04-16T23:43:27.516653+00:00",
         "access_count": 0
       }
+    },
+    "7ac47d682cc1": {
+      "id": "7ac47d682cc1",
+      "type": "pattern",
+      "key": "session_auto_20260416_185735",
+      "solution": {
+        "strategy": "auto_captured_from_session",
+        "notes": "Resumen: dame en una tabla los componentes de arquitectura de este proyecto y una breve de descripcion de para que sirven sus componetes -> ahora bien todos estan activos y todos se usan? -> y para que sirven \nEditados: mcp_server.py, word_ooxml.py, word_com.py\nDecisiones: explorar la estructura del proyecto para darte la tabla.; revisar el código para ver qué está activo y qué no.; leer los 4 archivos para darte descripciones precisas.; usar los SOWs de Bantrab. Usaré el word-agent para ejecutar todo con herramientas MCP exclusivamente.; revisar los archivos clave para saber dónde agregar los logs.\nErrores resueltos: The user doesn't want to proceed with this tool use. The tool use was rejected (; The user doesn't want to proceed with this tool use. The tool use was rejected (; Exit code 1\nTraceback (most recent call last):\r\n  File \"<string>\", line 1, in <m",
+        "auto_learned": true,
+        "source": "hook_session_end",
+        "files_touched": [
+          "C:\\Chance1\\IA\\IA_Word\\src\\mcp_server.py",
+          "C:\\Chance1\\IA\\IA_Word\\src\\word_ooxml.py",
+          "C:\\Chance1\\IA\\IA_Word\\src\\word_com.py"
+        ],
+        "domain_detected": "hooks_ia_backup_20260331_22050"
+      },
+      "tags": [
+        "auto-learned",
+        "session",
+        "hooks_ia_backup_20260331_22050"
+      ],
+      "error_context": null,
+      "created_at": "2026-04-17T00:57:35.037960+00:00",
+      "updated_at": "2026-04-17T00:57:35.037960+00:00",
+      "stats": {
+        "lookups": 0,
+        "reuses": 0,
+        "success_rate": 1.0,
+        "last_accessed": "2026-04-17T00:57:35.037960+00:00",
+        "access_count": 0
+      }
     }
   },
   "tag_index": {
@@ -1347,7 +1379,8 @@
       "316247e5f1d6",
       "dbfc0127d60a",
       "4753241a2ccc",
-      "66295438f9db"
+      "66295438f9db",
+      "7ac47d682cc1"
     ],
     "session": [
       "fc0947920514",
@@ -1386,7 +1419,8 @@
       "316247e5f1d6",
       "dbfc0127d60a",
       "4753241a2ccc",
-      "66295438f9db"
+      "66295438f9db",
+      "7ac47d682cc1"
     ],
     "hooks_ia_backup_20260331_22050": [
       "fc0947920514",
@@ -1425,11 +1459,12 @@
       "316247e5f1d6",
       "dbfc0127d60a",
       "4753241a2ccc",
-      "66295438f9db"
+      "66295438f9db",
+      "7ac47d682cc1"
     ]
   },
   "stats": {
-    "total_entries": 37,
+    "total_entries": 38,
     "total_lookups": 3,
     "total_hits": 1
   }

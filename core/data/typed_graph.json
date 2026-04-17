@@ -2455,6 +2455,62 @@
       "properties": {},
       "created_at": "2026-04-17T00:07:57.621792+00:00",
       "updated_at": "2026-04-17T00:07:57.621792+00:00"
+    },
+    "SOW_Propuesta_Promerica_v2.docx": {
+      "id": "SOW_Propuesta_Promerica_v2.docx",
+      "type": "file",
+      "name": "SOW_Propuesta_Promerica_v2.docx",
+      "properties": {},
+      "created_at": "2026-04-17T00:30:10.190102+00:00",
+      "updated_at": "2026-04-17T00:30:10.190102+00:00"
+    },
+    "vision_feedback.py": {
+      "id": "vision_feedback.py",
+      "type": "file",
+      "name": "vision_feedback.py",
+      "properties": {},
+      "created_at": "2026-04-17T00:50:03.560526+00:00",
+      "updated_at": "2026-04-17T00:50:03.560526+00:00"
+    },
+    "computer_use_feedback.py": {
+      "id": "computer_use_feedback.py",
+      "type": "file",
+      "name": "computer_use_feedback.py",
+      "properties": {},
+      "created_at": "2026-04-17T00:50:03.593538+00:00",
+      "updated_at": "2026-04-17T00:50:03.593538+00:00"
+    },
+    "playwright_feedback.py": {
+      "id": "playwright_feedback.py",
+      "type": "file",
+      "name": "playwright_feedback.py",
+      "properties": {},
+      "created_at": "2026-04-17T00:50:03.616543+00:00",
+      "updated_at": "2026-04-17T00:50:03.616543+00:00"
+    },
+    "tool_builder.py": {
+      "id": "tool_builder.py",
+      "type": "file",
+      "name": "tool_builder.py",
+      "properties": {},
+      "created_at": "2026-04-17T01:00:09.724094+00:00",
+      "updated_at": "2026-04-17T01:00:09.724094+00:00"
+    },
+    "kb_reference.py": {
+      "id": "kb_reference.py",
+      "type": "file",
+      "name": "kb_reference.py",
+      "properties": {},
+      "created_at": "2026-04-17T01:00:09.753320+00:00",
+      "updated_at": "2026-04-17T01:00:09.753320+00:00"
+    },
+    "docx_sanitizer.py": {
+      "id": "docx_sanitizer.py",
+      "type": "file",
+      "name": "docx_sanitizer.py",
+      "properties": {},
+      "created_at": "2026-04-17T01:00:09.780363+00:00",
+      "updated_at": "2026-04-17T01:00:09.780363+00:00"
     }
   },
   "relations": [
@@ -6494,10 +6550,10 @@
       "source": "mcp_server.py",
       "target": "word_ooxml.py",
       "type": "used_with",
-      "weight": 0.5,
-      "context": "creo que hay cosas que se quedaron fuera  valida el repositorio dado que la arquitectura del reposit",
+      "weight": 1.5,
+      "context": "ahora bien todos estan activos y todos se usan?",
       "created_at": "2026-04-16T00:18:07.239015+00:00",
-      "updated_at": "2026-04-16T00:18:07.239015+00:00"
+      "updated_at": "2026-04-17T01:00:09.613503+00:00"
     },
     {
       "source": "word_com.py",
@@ -6539,10 +6595,10 @@
       "source": "engine_selector.py",
       "target": "engine.py",
       "type": "used_with",
-      "weight": 0.5,
-      "context": "creo que hay cosas que se quedaron fuera  valida el repositorio dado que la arquitectura del reposit",
+      "weight": 1.0,
+      "context": "y para que sirven cada uno de estos Muerto confirmado (1): engine.py â€” nadie lo importa externamen",
       "created_at": "2026-04-16T00:18:07.287031+00:00",
-      "updated_at": "2026-04-16T00:18:07.287031+00:00"
+      "updated_at": "2026-04-17T00:50:03.538004+00:00"
     },
     {
       "source": "engine_selector.py",
@@ -6566,28 +6622,28 @@
       "source": "engine.py",
       "target": "cerebro_v2.py",
       "type": "used_with",
-      "weight": 0.5,
-      "context": "creo que hay cosas que se quedaron fuera  valida el repositorio dado que la arquitectura del reposit",
+      "weight": 1.0,
+      "context": "y para que sirven cada uno de estos Muerto confirmado (1): engine.py â€” nadie lo importa externamen",
       "created_at": "2026-04-16T00:18:07.320046+00:00",
-      "updated_at": "2026-04-16T00:18:07.320046+00:00"
+      "updated_at": "2026-04-17T00:50:03.482475+00:00"
     },
     {
       "source": "word_session.py",
       "target": "cerebro_v2.py",
       "type": "used_with",
-      "weight": 1.0,
-      "context": "cuales agregan valor al proyecto ya estaban antes pero con la entrada OOXML siguen teniendo valor?",
+      "weight": 2.0,
+      "context": "ahora bien todos estan activos y todos se usan?",
       "created_at": "2026-04-16T00:18:07.327049+00:00",
-      "updated_at": "2026-04-16T00:21:31.083575+00:00"
+      "updated_at": "2026-04-17T01:00:09.702541+00:00"
     },
     {
       "source": "word_session.py",
       "target": "doc_eyes.py",
       "type": "used_with",
-      "weight": 0.5,
-      "context": "creo que hay cosas que se quedaron fuera  valida el repositorio dado que la arquitectura del reposit",
+      "weight": 1.5,
+      "context": "ahora bien todos estan activos y todos se usan?",
       "created_at": "2026-04-16T00:18:07.340056+00:00",
-      "updated_at": "2026-04-16T00:18:07.340056+00:00"
+      "updated_at": "2026-04-17T01:00:09.689532+00:00"
     },
     {
       "source": "cerebro_v2.py",
@@ -7268,10 +7324,10 @@
       "source": "engine_selector.py",
       "target": "word_ooxml.py",
       "type": "used_with",
-      "weight": 1.0,
-      "context": "procede con  1. Range.DirectPrecedents â€” Trazabilidad de dependencias de fÃ³rmulas (COM nativo)\n\n ",
+      "weight": 2.0,
+      "context": "ahora bien todos estan activos y todos se usan?",
       "created_at": "2026-04-16T01:03:58.915500+00:00",
-      "updated_at": "2026-04-16T01:03:58.923500+00:00"
+      "updated_at": "2026-04-17T01:00:09.624243+00:00"
     },
     {
       "source": "word_ooxml.py",
@@ -7583,10 +7639,10 @@
       "source": "Promerica_Propuesta_Tecnica.docx",
       "target": "Promerica_Propuesta_Comercial.docx",
       "type": "used_with",
-      "weight": 1.0,
-      "context": "valdria la pena agregar pandas de python para manipulacion del excel?",
+      "weight": 1.5,
+      "context": "que fue lo que probaste aqui para entender?",
       "created_at": "2026-04-16T01:27:54.836778+00:00",
-      "updated_at": "2026-04-16T01:56:09.447764+00:00"
+      "updated_at": "2026-04-17T00:30:10.147011+00:00"
     },
     {
       "source": "src/ooxml_engine.py",
@@ -7943,10 +7999,10 @@
       "source": "word_com.py",
       "target": "mcp_server.py",
       "type": "used_with",
-      "weight": 0.5,
-      "context": "procede",
+      "weight": 1.0,
+      "context": "que fue lo que probaste aqui para entender?",
       "created_at": "2026-04-16T13:59:00.166994+00:00",
-      "updated_at": "2026-04-16T13:59:00.166994+00:00"
+      "updated_at": "2026-04-17T00:30:10.278818+00:00"
     },
     {
       "source": "word_com.py",
@@ -8042,10 +8098,10 @@
       "source": "18.6s",
       "target": "1.5s",
       "type": "used_with",
-      "weight": 0.5,
-      "context": "ya estas post re inicio",
+      "weight": 1.0,
+      "context": "que fue lo que probaste aqui para entender?",
       "created_at": "2026-04-17T00:07:57.583527+00:00",
-      "updated_at": "2026-04-17T00:07:57.583527+00:00"
+      "updated_at": "2026-04-17T00:30:10.169048+00:00"
     },
     {
       "source": "18.6s",
@@ -8060,10 +8116,10 @@
       "source": "1.5s",
       "target": "2.3s",
       "type": "used_with",
-      "weight": 0.5,
-      "context": "ya estas post re inicio",
+      "weight": 1.0,
+      "context": "que fue lo que probaste aqui para entender?",
       "created_at": "2026-04-17T00:07:57.611551+00:00",
-      "updated_at": "2026-04-17T00:07:57.611551+00:00"
+      "updated_at": "2026-04-17T00:30:10.223970+00:00"
     },
     {
       "source": "1.5s",
@@ -8087,10 +8143,10 @@
       "source": "2.3s",
       "target": "word_com.py",
       "type": "used_with",
-      "weight": 0.5,
-      "context": "ya estas post re inicio",
+      "weight": 1.0,
+      "context": "que fue lo que probaste aqui para entender?",
       "created_at": "2026-04-17T00:07:57.651786+00:00",
-      "updated_at": "2026-04-17T00:07:57.651786+00:00"
+      "updated_at": "2026-04-17T00:30:10.256881+00:00"
     },
     {
       "source": "Documents.Open",
@@ -8100,11 +8156,362 @@
       "context": "ya estas post re inicio",
       "created_at": "2026-04-17T00:07:57.662059+00:00",
       "updated_at": "2026-04-17T00:07:57.662059+00:00"
+    },
+    {
+      "source": "engine.py",
+      "target": "engine.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "pre-hook query",
+      "created_at": "2026-04-17T00:20:01.297193+00:00",
+      "updated_at": "2026-04-17T00:20:01.297193+00:00"
+    },
+    {
+      "source": "mcp_server.py",
+      "target": "engine_selector.py",
+      "type": "used_with",
+      "weight": 1.0,
+      "context": "ahora bien todos estan activos y todos se usan?",
+      "created_at": "2026-04-17T00:30:10.013066+00:00",
+      "updated_at": "2026-04-17T01:00:09.603496+00:00"
+    },
+    {
+      "source": "engine_selector.py",
+      "target": "word_com.py",
+      "type": "used_with",
+      "weight": 1.0,
+      "context": "ahora bien todos estan activos y todos se usan?",
+      "created_at": "2026-04-17T00:30:10.051637+00:00",
+      "updated_at": "2026-04-17T01:00:09.634697+00:00"
+    },
+    {
+      "source": "word_ooxml.py",
+      "target": "word_com.py",
+      "type": "used_with",
+      "weight": 1.0,
+      "context": "ahora bien todos estan activos y todos se usan?",
+      "created_at": "2026-04-17T00:30:10.063807+00:00",
+      "updated_at": "2026-04-17T01:00:09.645219+00:00"
+    },
+    {
+      "source": "word_ooxml.py",
+      "target": "word_session.py",
+      "type": "used_with",
+      "weight": 1.0,
+      "context": "ahora bien todos estan activos y todos se usan?",
+      "created_at": "2026-04-17T00:30:10.074772+00:00",
+      "updated_at": "2026-04-17T01:00:09.655610+00:00"
+    },
+    {
+      "source": "word_com.py",
+      "target": "word_session.py",
+      "type": "used_with",
+      "weight": 1.0,
+      "context": "ahora bien todos estan activos y todos se usan?",
+      "created_at": "2026-04-17T00:30:10.084904+00:00",
+      "updated_at": "2026-04-17T01:00:09.666721+00:00"
+    },
+    {
+      "source": "word_com.py",
+      "target": "doc_eyes.py",
+      "type": "used_with",
+      "weight": 1.0,
+      "context": "ahora bien todos estan activos y todos se usan?",
+      "created_at": "2026-04-17T00:30:10.095929+00:00",
+      "updated_at": "2026-04-17T01:00:09.678239+00:00"
+    },
+    {
+      "source": "Promerica_Propuesta_Tecnica.docx",
+      "target": "18.6s",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "que fue lo que probaste aqui para entender?",
+      "created_at": "2026-04-17T00:30:10.136355+00:00",
+      "updated_at": "2026-04-17T00:30:10.136355+00:00"
+    },
+    {
+      "source": "18.6s",
+      "target": "Promerica_Propuesta_Comercial.docx",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "que fue lo que probaste aqui para entender?",
+      "created_at": "2026-04-17T00:30:10.158735+00:00",
+      "updated_at": "2026-04-17T00:30:10.158735+00:00"
+    },
+    {
+      "source": "Promerica_Propuesta_Comercial.docx",
+      "target": "1.5s",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "que fue lo que probaste aqui para entender?",
+      "created_at": "2026-04-17T00:30:10.179073+00:00",
+      "updated_at": "2026-04-17T00:30:10.179073+00:00"
+    },
+    {
+      "source": "Promerica_Propuesta_Comercial.docx",
+      "target": "SOW_Propuesta_Promerica_v2.docx",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "que fue lo que probaste aqui para entender?",
+      "created_at": "2026-04-17T00:30:10.202141+00:00",
+      "updated_at": "2026-04-17T00:30:10.202141+00:00"
+    },
+    {
+      "source": "1.5s",
+      "target": "SOW_Propuesta_Promerica_v2.docx",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "que fue lo que probaste aqui para entender?",
+      "created_at": "2026-04-17T00:30:10.212960+00:00",
+      "updated_at": "2026-04-17T00:30:10.212960+00:00"
+    },
+    {
+      "source": "SOW_Propuesta_Promerica_v2.docx",
+      "target": "2.3s",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "que fue lo que probaste aqui para entender?",
+      "created_at": "2026-04-17T00:30:10.234725+00:00",
+      "updated_at": "2026-04-17T00:30:10.234725+00:00"
+    },
+    {
+      "source": "SOW_Propuesta_Promerica_v2.docx",
+      "target": "word_com.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "que fue lo que probaste aqui para entender?",
+      "created_at": "2026-04-17T00:30:10.246766+00:00",
+      "updated_at": "2026-04-17T00:30:10.246766+00:00"
+    },
+    {
+      "source": "2.3s",
+      "target": "mcp_server.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "que fue lo que probaste aqui para entender?",
+      "created_at": "2026-04-17T00:30:10.267721+00:00",
+      "updated_at": "2026-04-17T00:30:10.267721+00:00"
+    },
+    {
+      "source": "engine.py",
+      "target": "engine_selector.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "y para que sirven cada uno de estos Muerto confirmado (1): engine.py â€” nadie lo importa externamen",
+      "created_at": "2026-04-17T00:50:03.494396+00:00",
+      "updated_at": "2026-04-17T00:50:03.494396+00:00"
+    },
+    {
+      "source": "cerebro_v2.py",
+      "target": "engine_selector.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "y para que sirven cada uno de estos Muerto confirmado (1): engine.py â€” nadie lo importa externamen",
+      "created_at": "2026-04-17T00:50:03.505398+00:00",
+      "updated_at": "2026-04-17T00:50:03.505398+00:00"
+    },
+    {
+      "source": "cerebro_v2.py",
+      "target": "mcp_server.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "y para que sirven cada uno de estos Muerto confirmado (1): engine.py â€” nadie lo importa externamen",
+      "created_at": "2026-04-17T00:50:03.516398+00:00",
+      "updated_at": "2026-04-17T00:50:03.516398+00:00"
+    },
+    {
+      "source": "engine_selector.py",
+      "target": "mcp_server.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "y para que sirven cada uno de estos Muerto confirmado (1): engine.py â€” nadie lo importa externamen",
+      "created_at": "2026-04-17T00:50:03.527175+00:00",
+      "updated_at": "2026-04-17T00:50:03.527175+00:00"
+    },
+    {
+      "source": "mcp_server.py",
+      "target": "engine.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "y para que sirven cada uno de estos Muerto confirmado (1): engine.py â€” nadie lo importa externamen",
+      "created_at": "2026-04-17T00:50:03.548517+00:00",
+      "updated_at": "2026-04-17T00:50:03.548517+00:00"
+    },
+    {
+      "source": "mcp_server.py",
+      "target": "vision_feedback.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "y para que sirven cada uno de estos Muerto confirmado (1): engine.py â€” nadie lo importa externamen",
+      "created_at": "2026-04-17T00:50:03.571531+00:00",
+      "updated_at": "2026-04-17T00:50:03.571531+00:00"
+    },
+    {
+      "source": "engine.py",
+      "target": "vision_feedback.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "y para que sirven cada uno de estos Muerto confirmado (1): engine.py â€” nadie lo importa externamen",
+      "created_at": "2026-04-17T00:50:03.582534+00:00",
+      "updated_at": "2026-04-17T00:50:03.582534+00:00"
+    },
+    {
+      "source": "engine.py",
+      "target": "computer_use_feedback.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "y para que sirven cada uno de estos Muerto confirmado (1): engine.py â€” nadie lo importa externamen",
+      "created_at": "2026-04-17T00:50:03.604541+00:00",
+      "updated_at": "2026-04-17T00:50:03.604541+00:00"
+    },
+    {
+      "source": "vision_feedback.py",
+      "target": "computer_use_feedback.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "y para que sirven cada uno de estos Muerto confirmado (1): engine.py â€” nadie lo importa externamen",
+      "created_at": "2026-04-17T00:50:03.610547+00:00",
+      "updated_at": "2026-04-17T00:50:03.610547+00:00"
+    },
+    {
+      "source": "vision_feedback.py",
+      "target": "playwright_feedback.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "y para que sirven cada uno de estos Muerto confirmado (1): engine.py â€” nadie lo importa externamen",
+      "created_at": "2026-04-17T00:50:03.622595+00:00",
+      "updated_at": "2026-04-17T00:50:03.622595+00:00"
+    },
+    {
+      "source": "computer_use_feedback.py",
+      "target": "playwright_feedback.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "y para que sirven cada uno de estos Muerto confirmado (1): engine.py â€” nadie lo importa externamen",
+      "created_at": "2026-04-17T00:50:03.627614+00:00",
+      "updated_at": "2026-04-17T00:50:03.627614+00:00"
+    },
+    {
+      "source": "doc_eyes.py",
+      "target": "cerebro_v2.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "ahora bien todos estan activos y todos se usan?",
+      "created_at": "2026-04-17T01:00:09.714098+00:00",
+      "updated_at": "2026-04-17T01:00:09.714098+00:00"
+    },
+    {
+      "source": "doc_eyes.py",
+      "target": "tool_builder.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "ahora bien todos estan activos y todos se usan?",
+      "created_at": "2026-04-17T01:00:09.733320+00:00",
+      "updated_at": "2026-04-17T01:00:09.733320+00:00"
+    },
+    {
+      "source": "cerebro_v2.py",
+      "target": "tool_builder.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "ahora bien todos estan activos y todos se usan?",
+      "created_at": "2026-04-17T01:00:09.743324+00:00",
+      "updated_at": "2026-04-17T01:00:09.743324+00:00"
+    },
+    {
+      "source": "cerebro_v2.py",
+      "target": "kb_reference.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "ahora bien todos estan activos y todos se usan?",
+      "created_at": "2026-04-17T01:00:09.764420+00:00",
+      "updated_at": "2026-04-17T01:00:09.764420+00:00"
+    },
+    {
+      "source": "tool_builder.py",
+      "target": "kb_reference.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "ahora bien todos estan activos y todos se usan?",
+      "created_at": "2026-04-17T01:00:09.773318+00:00",
+      "updated_at": "2026-04-17T01:00:09.773318+00:00"
+    },
+    {
+      "source": "tool_builder.py",
+      "target": "docx_sanitizer.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "ahora bien todos estan activos y todos se usan?",
+      "created_at": "2026-04-17T01:00:09.791381+00:00",
+      "updated_at": "2026-04-17T01:00:09.791381+00:00"
+    },
+    {
+      "source": "kb_reference.py",
+      "target": "docx_sanitizer.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "ahora bien todos estan activos y todos se usan?",
+      "created_at": "2026-04-17T01:00:09.802379+00:00",
+      "updated_at": "2026-04-17T01:00:09.802379+00:00"
+    },
+    {
+      "source": "kb_reference.py",
+      "target": "validators.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "ahora bien todos estan activos y todos se usan?",
+      "created_at": "2026-04-17T01:00:09.812440+00:00",
+      "updated_at": "2026-04-17T01:00:09.812440+00:00"
+    },
+    {
+      "source": "docx_sanitizer.py",
+      "target": "validators.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "ahora bien todos estan activos y todos se usan?",
+      "created_at": "2026-04-17T01:00:09.822462+00:00",
+      "updated_at": "2026-04-17T01:00:09.822462+00:00"
+    },
+    {
+      "source": "docx_sanitizer.py",
+      "target": "business_rules.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "ahora bien todos estan activos y todos se usan?",
+      "created_at": "2026-04-17T01:00:09.831945+00:00",
+      "updated_at": "2026-04-17T01:00:09.831945+00:00"
+    },
+    {
+      "source": "validators.py",
+      "target": "business_rules.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "ahora bien todos estan activos y todos se usan?",
+      "created_at": "2026-04-17T01:00:09.838456+00:00",
+      "updated_at": "2026-04-17T01:00:09.838456+00:00"
+    },
+    {
+      "source": "validators.py",
+      "target": "engine.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "ahora bien todos estan activos y todos se usan?",
+      "created_at": "2026-04-17T01:00:09.844512+00:00",
+      "updated_at": "2026-04-17T01:00:09.844512+00:00"
+    },
+    {
+      "source": "business_rules.py",
+      "target": "engine.py",
+      "type": "used_with",
+      "weight": 0.5,
+      "context": "ahora bien todos estan activos y todos se usan?",
+      "created_at": "2026-04-17T01:00:09.855429+00:00",
+      "updated_at": "2026-04-17T01:00:09.855429+00:00"
     }
   ],
-  "updated_at": "2026-04-17T00:07:57.662059+00:00",
+  "updated_at": "2026-04-17T01:00:09.855429+00:00",
   "stats": {
-    "entities": 307,
-    "relations": 627
+    "entities": 314,
+    "relations": 666
   }
 }
